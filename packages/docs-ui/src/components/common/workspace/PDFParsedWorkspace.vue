@@ -269,23 +269,40 @@ watch(showFurniture, (value) => {
   localStorage.setItem('docs-ui.show-furniture', value ? '1' : '0')
 })
 
+type LinkedItemOptions = { preferredPage?: number | null; preferLastHighlight?: boolean; groupHighlight?: boolean }
+
+/** 图谱数据按需到达前挂起的定位请求（引用/搜索跳转）：数据到位后回放，避免静默丢高亮 */
+const pendingLinkedItem = ref<{ id: string; options: LinkedItemOptions } | null>(null)
+
 watch(() => props.node.key, () => {
   internalSidePanelOpen.value = props.sidePanelDefaultOpen
   activeTab.value = getDefaultParsedTab()
+  pendingLinkedItem.value = null
   resetPreviewState()
   resetLinkageState()
 })
 
 watch(() => props.graphData?.nodes?.length || 0, (count, previousCount) => {
-  if (count > 0 && previousCount === 0 && activeTab.value === 'Preview_Markdown') {
+  if (count <= 0) return
+  // 挂起的定位请求优先回放：数据是按需拉的，跳转不能因为“当时还没数据”就丢掉高亮
+  if (pendingLinkedItem.value) {
+    const { id, options } = pendingLinkedItem.value
+    pendingLinkedItem.value = null
+    setWorkspaceLinkedItem(id, options)
+    activeTab.value = 'Preview_IndexTree'
+    return
+  }
+  if (previousCount === 0 && activeTab.value === 'Preview_Markdown') {
     activeTab.value = 'Preview_IndexTree'
   }
 })
 
 watch(
-  [isPdf, () => props.graphData?.nodes?.length || 0, () => props.graphDataFullLoaded],
-  ([pdfMode, _graphNodeCount, fullLoaded]) => {
-    if (!pdfMode || fullLoaded || !props.onLoadFullGraphData) return
+  [isPdf, () => props.graphData?.nodes?.length || 0, () => props.graphDataFullLoaded, () => sidePanelOpen.value],
+  ([pdfMode, _graphNodeCount, fullLoaded, panelOpen]) => {
+    // 整图（带 bbox，单篇可达十几 MB）只在右侧解析面板真正展开时才拉：
+    // 只看 PDF 正文不需要它，面板里的「树形/定位框」才需要
+    if (!pdfMode || !panelOpen || fullLoaded || !props.onLoadFullGraphData) return
     props.onLoadFullGraphData()
   },
   { immediate: true }
@@ -309,10 +326,16 @@ const onSearchJump = (_page: number, lineNumber: number) => {
  */
 const setActiveLinkedItem = (
   itemId: string | null,
-  options: { preferredPage?: number | null; preferLastHighlight?: boolean; groupHighlight?: boolean } = {}
+  options: LinkedItemOptions = {}
 ) => {
+  // 高亮框取的是图谱节点的 bbox；数据尚未加载（面板还没展开过）时先取数、再回放本次定位
+  if (itemId && !props.graphData?.nodes?.length) {
+    pendingLinkedItem.value = { id: itemId, options }
+    props.onLoadFullGraphData?.()
+    return
+  }
   setWorkspaceLinkedItem(itemId, options)
-  if (itemId && props.graphData?.nodes?.length) {
+  if (itemId) {
     activeTab.value = 'Preview_IndexTree'
   }
 }

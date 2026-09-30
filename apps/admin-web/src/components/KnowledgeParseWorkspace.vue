@@ -623,6 +623,8 @@ const {
 const graphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const graphDataLoading = ref(false)
 const graphDataFullLoaded = ref(false)
+// graphBuildId 属于哪篇文档：跨文档比对与「是否已为该文档加载整图」的判据
+const graphBuildDocId = ref<string | null>(null)
 
 // 弹窗状态
 const folderModalVisible = ref(false)
@@ -742,7 +744,10 @@ const focusFromRouteQuery = async () => {
 
   if (selectedNode.value?.key === docId && !selectedNode.value.isFolder
     && (selectedNode.value.status === 'completed' || selectedNode.value.status === 'partial')) {
-    await loadGraphSummary(docId)
+    // 只有带 target_id（按块定位）的跳转才需要整图取 bbox；纯文档跳转不拉
+    if (targetId) {
+      await ensureGraphLoaded(docId)
+    }
     if (selectedNode.value.strategy) {
       await _loadStructuredIndexWrapper()
     }
@@ -803,7 +808,11 @@ const loadNodes = async (focusNodeKey?: string) => {
       selectedNode.value = null
       docContent.value = ''
       docContentDocId.value = ''
+      docContentBuildId.value = null
       graphData.value = null
+      graphBuildId.value = null
+      buildIdMismatch.value = false
+      graphBuildDocId.value = null
       structuredStats.value = {}
       structuredItems.value = []
       docRenderPdfPath.value = ''
@@ -835,7 +844,11 @@ const loadNodes = async (focusNodeKey?: string) => {
             if (!keepCurrentPreview(node.key)) {
               docContent.value = ''
               docContentDocId.value = ''
+              docContentBuildId.value = null
               graphData.value = null
+              graphBuildId.value = null
+              buildIdMismatch.value = false
+              graphBuildDocId.value = null
               structuredStats.value = {}
               structuredItems.value = []
             }
@@ -874,7 +887,11 @@ const onTreeSelect = async (keys: string[], nodes: SmartTreeNode[]) => {
         if (!keepCurrentPreview(node.key)) {
           docContent.value = ''
           docContentDocId.value = ''
+          docContentBuildId.value = null
           graphData.value = null
+          graphBuildId.value = null
+          buildIdMismatch.value = false
+          graphBuildDocId.value = null
           structuredStats.value = {}
           structuredItems.value = []
         }
@@ -898,6 +915,11 @@ const loadDocContent = async (docId: string) => {
       graph_data?: { nodes: any[]; edges: any[] } | null
       build_id?: string | null
     }
+    // 大文档正文响应可达数秒，期间用户可能已切走：迟到响应直接丢弃。
+    // 否则会覆盖当前文档的正文与 build_id，前端据此报出“内容与图谱版本不一致”的假告警
+    if (selectedNode.value?.key !== docId) {
+      return
+    }
     // 解析中 content 可能尚未生成，不覆盖已有内容，只更新 render_pdf
     if (result.content) {
       docContent.value = result.content
@@ -911,8 +933,11 @@ const loadDocContent = async (docId: string) => {
     if (selectedNode.value && selectedNode.value.key === docId && result?.storage?.source_file) {
       selectedNode.value.filePath = result.storage.source_file
     }
-    await loadGraphSummary(docId)
+    // 整图不在选中文档时拉：右侧解析面板展开、或按块定位跳转时才加载（见 loadFullGraphData）
   } catch (error) {
+    if (selectedNode.value?.key !== docId) {
+      return
+    }
     docContent.value = ''
     docContentDocId.value = ''
     graphData.value = null
@@ -936,11 +961,14 @@ const loadGraphSummary = async (docId: string) => {
         return
       }
       graphBuildId.value = result?.build_id || null
-      // 孪生产物一致性校验：md 与 graph 的 build_id 都存在且不一致时禁用高亮
+      graphBuildDocId.value = docId
+      // 孪生产物一致性校验：只在正文与图谱同属当前文档时比对。
+      // 正文侧 build_id 可能仍是上一篇文档的（正文请求尚未返回），跨文档比对必然误报
+      const contentBuildId = docContentDocId.value === docId ? docContentBuildId.value : null
       if (
-        docContentBuildId.value &&
+        contentBuildId &&
         graphBuildId.value &&
-        docContentBuildId.value !== graphBuildId.value
+        contentBuildId !== graphBuildId.value
       ) {
         if (attempt < MISMATCH_MAX_RETRIES - 1) {
           await new Promise((resolve) => setTimeout(resolve, MISMATCH_RETRY_DELAY_MS))
@@ -951,26 +979,49 @@ const loadGraphSummary = async (docId: string) => {
         return
       }
       graphData.value = result?.data || null
+      // 本接口回的就是完整图（含 bbox），与 loadFullGraphData 同一份数据：
+      // 这里置位，避免右侧面板挂载后再拉一遍同样的十几 MB
+      graphDataFullLoaded.value = Boolean(result?.data?.nodes?.length)
       return
     }
   } catch {
     graphData.value = null
     buildIdMismatch.value = false
+    graphBuildDocId.value = null
   } finally {
     graphDataLoading.value = false
   }
 }
 
+// 整图加载合并：正文链路 / 右侧面板 / 路由跳转三处都要全图，
+// 同一次交互对同一篇文档只发一次请求（此前最多重复三遍，单篇 10MB 级）
+let graphLoadInFlight: { docId: string; promise: Promise<void> } | null = null
+const ensureGraphLoaded = (docId: string): Promise<void> => {
+  if (graphLoadInFlight?.docId === docId) {
+    return graphLoadInFlight.promise
+  }
+  if (graphBuildDocId.value === docId && graphData.value) {
+    return Promise.resolve()
+  }
+  const promise = loadGraphSummary(docId).finally(() => {
+    if (graphLoadInFlight?.promise === promise) {
+      graphLoadInFlight = null
+    }
+  })
+  graphLoadInFlight = { docId, promise }
+  return promise
+}
+
 const loadFullGraphData = async () => {
   if (!selectedNode.value || graphDataFullLoaded.value || graphDataLoading.value) return
-  try {
-    graphDataLoading.value = true
-    const result = await props.api.getDocBlocksGraph(nodeLibrary(selectedNode.value), selectedNode.value.key) as any
-    graphData.value = result?.data || null
+  const docId = selectedNode.value.key
+  await ensureGraphLoaded(docId)
+  // 同 loadDocContent：大图响应慢，回来时用户可能已切走
+  if (selectedNode.value?.key !== docId) {
+    return
+  }
+  if (graphBuildDocId.value === docId && graphData.value) {
     graphDataFullLoaded.value = true
-  } catch {
-  } finally {
-    graphDataLoading.value = false
   }
 }
 
