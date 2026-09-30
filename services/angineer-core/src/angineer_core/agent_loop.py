@@ -959,6 +959,9 @@ def run_agent_loop(
     first_delta_at: Dict[int, float] = {}
     turn_usage: Dict[int, Dict[str, Any]] = {}
     assistant_turns: List[int] = []  # 本 run 第 i 条 LLM 产出的 assistant 消息对应的 turn
+    # 末轮 LLM 结束时刻：收尾便签（生成完成）的耗时标签＝从那之后到 run 结束的增量（guard+终态），
+    # 不再是 run 总耗时——否则与折叠头「总耗时」重复、违背「本步耗时」的标签语义（用户 2026-09-30 实拍）
+    last_turn_end_at: Optional[float] = None
 
     raw_emit = emit
 
@@ -1104,6 +1107,7 @@ def run_agent_loop(
                             messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
                             emit, run_id, cancel_event, turn, allow_tools=False,
                         )
+                        last_turn_end_at = time.monotonic()
                         messages.append(assistant)
                         assistant_turns.append(turn)
                         if usage:
@@ -1135,6 +1139,7 @@ def run_agent_loop(
                     messages, new_prompt, machine.active_config, machine.codec, machine.tools_by_name,
                     emit, run_id, cancel_event, turn, allow_tools=True,
                 )
+                last_turn_end_at = time.monotonic()
                 messages.append(assistant)
                 assistant_turns.append(turn)
                 if usage:
@@ -1257,15 +1262,17 @@ def run_agent_loop(
     #（模型吐空/边界规则收尾），此时只给总耗时并注明（用户实测 7.3s 无归属的教训）。
     if reason not in ("error", "cancelled"):
         _total_ms = int((time.monotonic() - run_started) * 1000)
+        # 收尾段耗时（guard + 终态收尾）：标签口径＝本步增量，区别于折叠头的 run 总耗时
+        _tail_ms = int((time.monotonic() - (last_turn_end_at or run_started)) * 1000)
         if ttft_ms is not None:
             _add_note(
                 f"生成完成：首字 {ttft_ms / 1000:.1f} 秒（首字前的等待含意图判断、检索与 prompt 读取）",
-                duration_ms=_total_ms,
+                duration_ms=_tail_ms,
                 # 结构化 TTFT（B 档）：此前只在文案里，现随 payload 下发供链路展示
-                extra={"ttft_ms": int(ttft_ms), "turns": turn},
+                extra={"ttft_ms": int(ttft_ms), "turns": turn, "total_ms": _total_ms},
             )
         else:
-            _add_note("生成结束：本轮未产出首字（按边界规则收尾）", duration_ms=_total_ms)
+            _add_note("生成结束：本轮未产出首字（按边界规则收尾）", duration_ms=_tail_ms)
 
     _safe_emit(
         emit,
