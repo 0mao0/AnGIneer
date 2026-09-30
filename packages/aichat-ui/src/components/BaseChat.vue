@@ -17,7 +17,7 @@
     </div>
 
     <div class="chat-messages-wrap">
-      <div ref="messagesRef" class="chat-messages" @click="handleMessageClick">
+      <div ref="messagesRef" class="chat-messages" @click="handleMessageClick" @scroll="handleMessagesScroll" @wheel="handleMessagesWheel">
         <div v-if="hero && !displayMessages.length" class="chat-hero">
           <slot name="hero" />
         </div>
@@ -203,6 +203,19 @@
       <div v-if="showContextInfo && !title" class="context-info-float">
         {{ contextRounds }}轮 / {{ formatTokenCount(contextTokens) }}tokens
       </div>
+
+      <transition name="scroll-hint">
+        <button
+          v-if="!isPinnedToBottom"
+          type="button"
+          class="scroll-to-bottom-btn"
+          title="回到最下方并恢复自动跟随"
+          @click="handleScrollToBottomClick"
+        >
+          回到最下方
+          <DownOutlined />
+        </button>
+      </transition>
     </div>
 
     <div
@@ -488,6 +501,12 @@ const emit = defineEmits<{
 }>()
 
 const messagesRef = ref<HTMLElement | null>(null)
+/** 自动跟随底部：用户手动上滑即解除，回到底部或重新发送时恢复 */
+const isPinnedToBottom = ref(true)
+const lastScrollTop = ref(0)
+const lastScrollHeight = ref(0)
+/** 距底部超过该阈值视为「离开底部」（px） */
+const PIN_BOTTOM_THRESHOLD = 48
 const chatInputRef = ref<HTMLElement | null>(null)
 const inlineCitationEditorRef = ref<InstanceType<typeof InlineCitationEditor> | null>(null)
 const composerValue = ref<BaseChatSendPayload>({ content: '', citations: [] })
@@ -915,13 +934,61 @@ const getInlineSegments = (message: BaseChatMessage) => buildCitationSegments({
 
 /**
  * 将消息区域滚动到底部。
+ * force=true 时恢复自动跟随（发送新消息、点击「回到最下方」）；
+ * 平时仅在跟随开启时才滚动，避免打断用户上滑回看上文。
  */
-const scrollToBottom = () => {
+const scrollToBottom = (force = false) => {
+  if (force) {
+    isPinnedToBottom.value = true
+  }
+  if (!isPinnedToBottom.value) {
+    return
+  }
   nextTick(() => {
     if (messagesRef.value) {
       messagesRef.value.scrollTop = messagesRef.value.scrollHeight
     }
   })
+}
+
+/**
+ * 区分「用户上滑」与「程序滚动/内容重排」：
+ * 只有在 scrollHeight 未变的前提下 scrollTop 减少（滚动条上拖、键盘翻页）
+ * 且离开底部超过阈值，才停止自动跟随——流式 markdown 重排会瞬间收缩
+ * scrollHeight 令浏览器截断 scrollTop，酷似上滑但不能归因给用户。
+ * 回到底部阈值内则恢复跟随。
+ */
+const handleMessagesScroll = () => {
+  const el = messagesRef.value
+  if (!el) return
+  const distanceToBottom = el.scrollHeight - el.scrollTop - el.clientHeight
+  const goingUp = el.scrollTop < lastScrollTop.value - 1
+  const heightUnchanged = el.scrollHeight === lastScrollHeight.value
+  lastScrollTop.value = el.scrollTop
+  lastScrollHeight.value = el.scrollHeight
+  if (distanceToBottom <= PIN_BOTTOM_THRESHOLD) {
+    isPinnedToBottom.value = true
+  } else if (goingUp && heightUnchanged) {
+    isPinnedToBottom.value = false
+  }
+}
+
+/**
+ * 滚轮上滚是明确的用户回看意图（滚动事件会与流式重排合帧失真，wheel 不会）。
+ */
+const handleMessagesWheel = (event: WheelEvent) => {
+  if (event.deltaY >= 0) return
+  const el = messagesRef.value
+  if (!el) return
+  const distanceToBottom = el.scrollHeight - el.scrollTop - el.clientHeight
+  if (distanceToBottom > PIN_BOTTOM_THRESHOLD) {
+    isPinnedToBottom.value = false
+  }
+}
+
+/** 点击「回到最下方」：恢复跟随并滚到底部 */
+const handleScrollToBottomClick = () => {
+  scrollToBottom(true)
 }
 
 /**
@@ -961,7 +1028,7 @@ const handleSend = () => {
 
   emit('send', payload, selectedModel.value)
   resetComposer()
-  scrollToBottom()
+  scrollToBottom(true)
 }
 
 /**
@@ -1073,8 +1140,8 @@ const stopResize = () => {
   document.removeEventListener('mouseup', stopResize)
 }
 
-watch(() => props.messages.length, scrollToBottom)
-watch(() => props.currentStreamContent, scrollToBottom)
+watch(() => props.messages.length, () => scrollToBottom())
+watch(() => props.currentStreamContent, () => scrollToBottom())
 watch(() => props.loading, value => {
   if (value) {
     resetComposer()
@@ -1169,6 +1236,42 @@ defineExpose({
   line-height: 18px;
   pointer-events: none;
   opacity: 0.9;
+}
+
+.scroll-to-bottom-btn {
+  /* 贴输入框上沿：骑在 8px resizer 拖拽条上（下探 4px），右侧留出手感，避开输入框 z-index:5 的区域 */
+  position: absolute;
+  right: 16px;
+  bottom: -4px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--aichat-scroll-hint-border, var(--border-color, #d9d9d9));
+  background: var(--aichat-scroll-hint-bg, var(--bg-secondary, #fafafa));
+  color: var(--aichat-scroll-hint-color, var(--text-secondary, #595959));
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    color: var(--primary-color, #1677ff);
+    border-color: var(--primary-color, #1677ff);
+  }
+}
+
+.scroll-hint-enter-active,
+.scroll-hint-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.scroll-hint-enter-from,
+.scroll-hint-leave-to {
+  opacity: 0;
+  transform: translateY(6px);
 }
 
 .chat-messages {
