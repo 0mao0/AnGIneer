@@ -8,7 +8,7 @@
     <template v-if="group.kind === 'note'">
       <span class="thinking-step-marker">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
-        <span v-if="group.durationMs" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
+        <span v-if="stepTimeText(group)" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
       </span>
       <span class="thinking-step-note-label">
         <span class="thinking-step-title">{{ noteTitle(group) }}</span>
@@ -18,7 +18,7 @@
     <template v-else>
       <span class="thinking-step-marker">
         <span v-if="group.index" class="thinking-step-index">{{ group.index }}.</span>
-        <span v-if="group.durationMs" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
+        <span v-if="stepTimeText(group)" class="thinking-step-cost">{{ stepTimeText(group) }}</span>
       </span>
       <span class="thinking-step-label">
         <span class="thinking-step-title">{{ formatThinkingStepTitle(group) }}</span>
@@ -104,6 +104,9 @@
           </button>
         </div>
       </div>
+
+      <!-- 附注行：并入本对工具步的说明（如预检索完成说明），不单独成步（2026-09-30） -->
+      <span v-if="group.attachNote" class="thinking-step-attach">{{ group.attachNote }}</span>
     </template>
   </div>
 </template>
@@ -148,9 +151,12 @@ const splitNoteLabel = (group: ThinkingGroupStep): { title: string; reason?: str
 const noteTitle = (group: ThinkingGroupStep): string => splitNoteLabel(group).title
 const noteReason = (group: ThinkingGroupStep): string | undefined => splitNoteLabel(group).reason
 
-/** 步骤时间 tag：首步 0.3s（无前缀），其余 +1.5s（值＝本步自身耗时） */
+/** 步骤时间 tag：首步 0.3s（无前缀），其余 +1.5s（值＝本步自身耗时）；
+ *  不足 50ms 返回空串（四舍五入后是 +0.0s 的噪声，不显示） */
 const stepTimeText = (group: ThinkingGroupStep): string => {
-  const seconds = `${((group.durationMs || 0) / 1000).toFixed(1)}s`
+  const ms = group.durationMs || 0
+  if (ms < 50) return ''
+  const seconds = `${(ms / 1000).toFixed(1)}s`
   return (group.index || 1) > 1 ? `+${seconds}` : seconds
 }
 
@@ -326,11 +332,19 @@ const resultQuery = (group: ThinkingGroupStep): string => {
     opacity: 0.9;
   }
 
-  /* 步骤下的子行（调用结果/命中引用/展开列表）与右栏文字列对齐（marker 66px + gap 6px） */
+  /* 步骤下的子行（调用结果/命中引用/展开列表/附注）与右栏文字列对齐（marker 66px + gap 6px） */
   .thinking-step-result,
   .thinking-step-citations,
-  .thinking-step-result-list {
+  .thinking-step-result-list,
+  .thinking-step-attach {
     margin-left: 72px;
+  }
+
+  .thinking-step-attach {
+    flex-basis: 100%;
+    color: var(--text-secondary);
+    font-size: 12px;
+    opacity: 0.9;
   }
 
   .thinking-step-result {

@@ -12,6 +12,12 @@ export interface ThinkingGroupStep {
   durationMs?: number
   /** 步骤事件墙钟（ms）：折叠头「总耗时」= 末步-首步（2026-09-27） */
   atMs?: number
+  /** run 起点墙钟（ms，仅首步携带）：总耗时锚点，含分类等待（2026-09-30） */
+  wallStartMs?: number
+  /** 后端预检索（首轮直达）：标题渲染为「预检索」而非「调用工具」（2026-09-30） */
+  injected?: boolean
+  /** 附注行（attach=pair 的便签并入本对工具步，如「证据已放进上下文…」）：不单独成步（2026-09-30） */
+  attachNote?: string
   turn?: number
   citations?: AIChatCitation[]
   resultItems?: ThinkingTraceItem[]
@@ -27,6 +33,14 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
   let open: ThinkingGroupStep | null = null
 
   const pushNote = (step: ThinkingTraceStep) => {
+    // attach=pair：并入上一对工具步的附注行，不单独成步——第 N 步已有耗时即代表完成，
+    // 再出「某某完成」一步是冗余（2026-09-30 用户实拍：预检索 + 预检索完成两步合一）
+    const prev = groups[groups.length - 1]
+    if (step.attach === 'pair' && prev && prev.kind === 'pair') {
+      prev.attachNote = prev.attachNote ? `${prev.attachNote}\n${step.detail}` : step.detail
+      open = null
+      return
+    }
     open = null
     groups.push({
       index: groups.length + 1,
@@ -35,11 +49,17 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
       detail: step.detail,
       durationMs: step.durationMs,
       atMs: step.atMs,
+      wallStartMs: step.wallStartMs,
       turn: step.turn,
     })
   }
 
   for (const step of steps || []) {
+    // 历史兼容（2026-09-30）：旧版给最终回答合成过「汇总证据并生成最终回答」标记行、
+    // 现已停止生成；旧轨迹（历史消息里持久化的数据）仍带该行，展示层统一不显示
+    if (step.kind === 'note' && step.detail === '汇总证据并生成最终回答') {
+      continue
+    }
     if (step.kind === 'call') {
       open = {
         index: groups.length + 1,
@@ -47,6 +67,8 @@ export function groupThinkingSteps(steps: ThinkingTraceStep[]): ThinkingGroupSte
         tool: step.tool || 'unknown',
         callDetail: step.detail,
         atMs: step.atMs,
+        wallStartMs: step.wallStartMs,
+        injected: step.injected,
         turn: step.turn,
       }
       groups.push(open)
@@ -111,6 +133,7 @@ export function formatThinkingStepLabel(group: ThinkingGroupStep): string {
 /** 步骤标题（不含序号），供"序号+标题加粗、其余常规"的拆分渲染。 */
 export function formatThinkingStepTitle(group: ThinkingGroupStep): string {
   if (group.kind === 'note') return group.label || group.detail || ''
+  if (group.injected) return `预检索：${group.tool}`
   return group.callDetail ? `调用工具：${group.tool}` : `工具返回：${group.tool}`
 }
 
@@ -149,9 +172,14 @@ export function sumThinkingDuration(groups: ThinkingGroupStep[]): number {
   )
 }
 
-/** 折叠头「总耗时」：首末步骤事件墙钟之差（= run 从意图判断到生成完成的墙钟） */
+/** 折叠头「总耗时」：首末步骤事件墙钟之差（= run 从意图判断到生成完成的墙钟）；
+ *  首步带 run 起点锚点（wallStartMs）时以锚点为起点，把分类等待计入总耗时（2026-09-30） */
 export function thinkingWallMs(groups: ThinkingGroupStep[]): number {
+  const anchor = (groups || []).find(g => typeof g.wallStartMs === 'number' && (g.wallStartMs as number) > 0)?.wallStartMs
   const stamps = (groups || []).map(g => g.atMs).filter((v): v is number => typeof v === 'number' && v > 0)
+  if (anchor && anchor > 0) {
+    stamps.push(anchor)
+  }
   if (stamps.length < 2) return 0
   return Math.max(...stamps) - Math.min(...stamps)
 }

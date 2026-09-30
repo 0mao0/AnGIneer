@@ -92,39 +92,14 @@ test('把 run_end 消息构建为思考过程轨迹', () => {
   ])
 })
 
-test('预算截断和最终回答也会出现在轨迹里', () => {
+test('预算截断说明会出现在轨迹里（不再合成「汇总证据并生成最终回答」标记行）', () => {
   const steps = buildThinkingTrace(
     [{ role: 'assistant', content: '答案是 X' }],
     [{ detail: '轮次预算已用完（max_turns=2），进入无工具收尾回答' }]
   )
   assert.deepEqual(steps, [
-    { kind: 'note', detail: '汇总证据并生成最终回答', turn: 1 },
     { kind: 'note', detail: '轮次预算已用完（max_turns=2），进入无工具收尾回答' },
   ])
-})
-
-test('重试后只给真正的最终回答打“汇总证据并生成最终回答”标签', () => {
-  const steps = buildThinkingTrace([
-    { role: 'user', content: '上航数联是什么' },
-    { role: 'assistant', content: '上航数联是智慧工地数字底座平台' },
-    { role: 'user', content: '请先调用检索工具获取证据后再回答' },
-    {
-      role: 'assistant',
-      content: '```tool_calls\n[]\n```',
-      tool_calls: [{ name: 'knowledge_search', arguments: { query: '上航数联' } }],
-    },
-    {
-      role: 'tool',
-      name: 'knowledge_search',
-      content: '{"items": [], "total": 0}',
-    },
-    { role: 'assistant', content: '上航数联是智慧工地数字底座平台' },
-  ])
-  const labels = steps.filter(
-    step => step.kind === 'note' && step.detail === '汇总证据并生成最终回答'
-  )
-  assert.equal(labels.length, 1)
-  assert.equal(labels[0].turn, 3)
 })
 
 test('filterCitationsByMarkers 只保留答案中出现的标记', () => {
@@ -313,7 +288,7 @@ test('mergeThinkingTrace 保留实时说明并用完整结果替换', () => {
       citations: [],
       resultItems: [item],
     },
-    { kind: 'note', detail: '汇总证据并生成最终回答', turn: 1 },
+    { kind: 'note', detail: '执行计划：L1 语义检索', turn: 1 },
   ]
   const liveSteps: ThinkingTraceStep[] = [
     { kind: 'turn', detail: '', turn: 1 },
@@ -335,7 +310,7 @@ test('mergeThinkingTrace 保留实时说明并用完整结果替换', () => {
   assert.equal(result?.detail, '检索到 2 条结果')
   assert.equal(result?.durationMs, 6969)
   assert.ok(merged.some(step => step.kind === 'note' && step.detail === '输出被长度截断（finish_reason=length）'))
-  assert.ok(merged.some(step => step.kind === 'note' && step.detail === '汇总证据并生成最终回答'))
+  assert.ok(merged.some(step => step.kind === 'note' && step.detail === '执行计划：L1 语义检索'))
 })
 
 test('mergeThinkingTrace 补回没有实时事件对应的截断守卫步骤', () => {
@@ -348,7 +323,7 @@ test('mergeThinkingTrace 补回没有实时事件对应的截断守卫步骤', (
       isError: true,
       turn: 1,
     },
-    { kind: 'note', detail: '汇总证据并生成最终回答', turn: 2 },
+    { kind: 'note', detail: '执行计划：L1 语义检索', turn: 2 },
   ]
   const liveSteps: ThinkingTraceStep[] = [
     { kind: 'turn', detail: '', turn: 1 },
@@ -362,7 +337,7 @@ test('mergeThinkingTrace 补回没有实时事件对应的截断守卫步骤', (
   assert.equal(kinds.filter(kind => kind === 'result').length, 1)
   const result = merged.find(step => step.kind === 'result')
   assert.equal(result?.isError, true)
-  assert.ok(merged.some(step => step.kind === 'note' && step.detail === '汇总证据并生成最终回答'))
+  assert.ok(merged.some(step => step.kind === 'note' && step.detail === '执行计划：L1 语义检索'))
 })
 
 test('note/answer 事件与 run_end 权威答案替换', async () => {

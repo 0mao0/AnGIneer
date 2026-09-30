@@ -80,6 +80,8 @@ export const defaultAIChatTransport = {
     let traceMessages: Array<Record<string, any>> = []
     let liveThinkingSteps: ThinkingTraceStep[] = []
     let stage = ''
+    /** 请求起点墙钟（分类阶段帧的 ts）：思考过程折叠头「总耗时」的锚点（2026-09-30） */
+    let wallAnchorMs: number | undefined
     const setStage = (next: 'classify' | 'search' | 'generate') => {
       if (stage === next) return
       stage = next
@@ -106,6 +108,10 @@ export const defaultAIChatTransport = {
         if (event.type === 'stage') {
           // 后端显式阶段帧（分类开始时即发，2026-09-27）：等待期标签与真实阶段对齐
           const next = String(event.stage || '')
+          if (next === 'classify' && Number(event.ts) > 0) {
+            // 请求起点锚点：分类自此起算（后端 09-30 起在帧上带 ts）
+            wallAnchorMs = Number(event.ts) * 1000
+          }
           if (next === 'classify' || next === 'search' || next === 'generate') setStage(next)
         } else if (event.type === 'run_start') {
           runId = String(event.run_id || '')
@@ -190,6 +196,11 @@ export const defaultAIChatTransport = {
           ))
           if (runReason && runReason !== 'completed') {
             answerFilteredTrace.push({ kind: 'note', detail: `执行结束（${runReason}）` })
+          }
+          // 折叠头「总耗时」锚点（2026-09-30）：挂在轨迹首步上随持久化走；
+          // = 分类阶段帧 ts（请求起点）→ 末步事件，各步 tag 之和才能与总耗时对上
+          if (wallAnchorMs != null && answerFilteredTrace.length) {
+            answerFilteredTrace[0] = { ...answerFilteredTrace[0], wallStartMs: wallAnchorMs }
           }
           options?.onThinking?.(answerFilteredTrace)
           liveThinkingSteps = answerFilteredTrace
@@ -616,6 +627,8 @@ export function applyAgentEventToThinking(
         detail,
         ...stamp,
         ...(durationMs > 0 ? { durationMs } : {}),
+        // attach=pair：该便签并入上一对工具步显示（预检索完成说明等，2026-09-30）
+        ...(event.payload?.attach ? { attach: String(event.payload.attach) } : {}),
         ...(turn != null ? { turn } : {}),
       },
     ]
@@ -627,6 +640,8 @@ export function applyAgentEventToThinking(
         kind: 'call',
         tool: String(event.payload?.name || 'unknown'),
         detail: JSON.stringify(event.payload?.args || {}),
+        // 后端预检索（首轮直达，替模型先跑）：标题显示为「预检索」（2026-09-30）
+        ...(event.payload?.injected ? { injected: true } : {}),
         ...stamp,
         ...(turn != null ? { turn } : {}),
       },
@@ -661,37 +676,26 @@ export function buildThinkingTrace(
   const steps: ThinkingTraceStep[] = []
   let turn = 0
   const list = messages || []
-  let lastAnswerIdx = -1
-  for (let i = 0; i < list.length; i++) {
-    const message = list[i]
-    if (
-      message?.role === 'assistant' &&
-      !(Array.isArray(message.tool_calls) && message.tool_calls.length) &&
-      String(message.content || '').trim()
-    ) {
-      lastAnswerIdx = i
-    }
-  }
-  for (const [index, message] of list.entries()) {
+  for (const message of list) {
     if (message?.role === 'assistant') {
       turn += 1
       const toolCalls = Array.isArray(message.tool_calls) ? message.tool_calls : []
       if (toolCalls.length) {
+        // 注入消息（首轮直达）的 meta 标记由服务端 meta 透传（injected_tool_call）：标为预检索步
+        const injectedFlag = Boolean(message?.injected_tool_call || message?.meta?.injected_tool_call)
         for (const call of toolCalls) {
           steps.push({
             kind: 'call',
             tool: String(call?.name || 'unknown'),
             detail: JSON.stringify(call?.arguments || {}),
+            ...(injectedFlag ? { injected: true } : {}),
             turn,
           })
         }
-      } else if (index === lastAnswerIdx && String(message.content || '').trim()) {
-        steps.push({
-          kind: 'note',
-          detail: '汇总证据并生成最终回答',
-          turn,
-        })
       }
+      // 说明：原在此给最终回答消息补「汇总证据并生成最终回答」标记行，2026-09-30 删除——
+      // 它不携带新信息（答案正文紧随其后、「模型调用（第 N 轮）」已标出生成轮），且与后端
+      // 「生成完成」收尾便签语义相近、顺序颠倒（用户实拍反馈困惑）。
     } else if (message?.role === 'tool') {
       const resultStep: ThinkingTraceStep = {
         kind: 'result',
@@ -713,8 +717,14 @@ export function buildThinkingTrace(
   for (const note of notes || []) {
     const detail = typeof note === 'string' ? note : String(note?.detail || '')
     const durationMs = typeof note === 'string' ? 0 : Number((note as any)?.duration_ms)
+    const attach = typeof note === 'string' ? '' : String((note as any)?.attach || '')
     if (detail) {
-      steps.push({ kind: 'note', detail, ...(durationMs > 0 ? { durationMs } : {}) })
+      steps.push({
+        kind: 'note',
+        detail,
+        ...(durationMs > 0 ? { durationMs } : {}),
+        ...(attach ? { attach } : {}),
+      })
     }
   }
   return steps
@@ -744,6 +754,7 @@ export function mergeThinkingTrace(
           ...entry.step,
           ...(live.atMs != null ? { atMs: live.atMs } : {}),
           ...(live.turn != null ? { turn: live.turn } : {}),
+          ...(live.injected ? { injected: true } : {}),
         })
       } else {
         merged.push(live)
@@ -757,6 +768,7 @@ export function mergeThinkingTrace(
           durationMs: live.durationMs || entry.step.durationMs,
           isError: live.isError ?? entry.step.isError,
           ...(live.atMs != null ? { atMs: live.atMs } : {}),
+          ...(live.injected ? { injected: true } : {}),
           turn: live.turn ?? entry.step.turn,
         })
       } else {
@@ -772,6 +784,7 @@ export function mergeThinkingTrace(
           ...(live.durationMs ? { durationMs: live.durationMs } : {}),
           ...(live.atMs != null ? { atMs: live.atMs } : {}),
           ...(live.turn != null ? { turn: live.turn } : {}),
+          ...(live.attach ? { attach: live.attach } : {}),
         })
         finalNotes.splice(sameEntryIdx, 1)
       } else {
