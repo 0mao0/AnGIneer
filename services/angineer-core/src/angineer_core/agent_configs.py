@@ -595,6 +595,8 @@ def build_complex_config(
                 mode=mode,
                 memory=memory,
                 step_callback=step_callback,
+                library_id=library_id,
+                doc_ids=doc_ids,
             ),
             EngtoolAdapter.from_registry(
                 "calculator",
@@ -607,24 +609,6 @@ def build_complex_config(
                         "solve_for": {"type": "string", "description": "可选：要求解的变量名"},
                     },
                     "required": ["expression"],
-                },
-                read_only=False,
-            ),
-            EngtoolAdapter.from_registry(
-                "table_lookup",
-                description="从规范表格中查询取值。输入 table_name（表名）、query_conditions（查询条件）、target_column（目标列，可选）、file_name（规范文件名，可选）。",
-                parameters_schema={
-                    "type": "object",
-                    "properties": {
-                        "table_name": {"type": "string", "description": "表名"},
-                        "query_conditions": {
-                            "type": ["string", "object"],
-                            "description": "查询条件，如 {\"船型\": \"杂货船\"}",
-                        },
-                        "target_column": {"type": "string", "description": "目标列"},
-                        "file_name": {"type": "string", "description": "规范文件名"},
-                    },
-                    "required": ["table_name", "query_conditions"],
                 },
                 read_only=False,
             ),

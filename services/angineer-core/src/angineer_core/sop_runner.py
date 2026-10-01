@@ -54,6 +54,8 @@ class SopRunner:
         memory: Optional[Memory] = None,
         llm_client: Optional[Any] = None,
         tool_timeout_s: int = _TOOL_EXEC_TIMEOUT_SECONDS,
+        library_id: str = "default",
+        doc_ids: Optional[List[str]] = None,
     ):
         self.memory = memory or Memory()
         self.config_name = config_name
@@ -61,6 +63,8 @@ class SopRunner:
         self.result_md_path = result_md_path
         self._llm_client = llm_client or get_llm_client()
         self.tool_timeout_s = max(1, int(tool_timeout_s or _TOOL_EXEC_TIMEOUT_SECONDS))
+        self.library_id = library_id or "default"
+        self.doc_ids = list(doc_ids) if doc_ids else None
         self.variable_metadata = {}
         self.start_time = None
         self.step_durations = {}
@@ -389,8 +393,39 @@ class SopRunner:
                 return False
         return True
 
-    # 执行元 SOP 内置工具（llm_generate）
+    def _run_canonical_knowledge_search(self, query: str) -> Dict[str, Any]:
+        """knowledge_search 的 canonical 实现：与聊天链路同一检索体系，scope 取构造期注入的 library/doc_ids。
+
+        复用 agent_tools 的检索装配（HTTP 优先、本地端口回退、引用标记），
+        返回形态对齐 legacy 工具协议：{"result": 拼接证据文本, ...}，供步骤 outputs 映射消费。
+        检索不可用时原样透传 error dict（不回退老文件系 BM25，避免静默退回海港默认值陷阱）。
+        """
+        from angineer_core.agent_tools import _run_knowledge_search_impl
+
+        result = _run_knowledge_search_impl(
+            query=query,
+            library_id=self.library_id,
+            doc_ids=self.doc_ids,
+            top_k=10,
+            rerank=False,
+            config_name=self.config_name,
+            mode=self.mode,
+        )
+        if "error" in result:
+            return result
+        items = result.get("items") or []
+        texts = [str(item.get("text") or "") for item in items if item.get("text")]
+        return {
+            "result": "\n\n".join(texts),
+            "source": "canonical",
+            "_count": len(texts),
+            "items": items,
+        }
+
+    # 执行元 SOP 内置工具（llm_generate / knowledge_search-canonical）
     def _execute_meta_sop_tool(self, tool_name: str, inputs: Dict[str, Any], step: Step) -> Any:
+        if tool_name == "knowledge_search":
+            return self._run_canonical_knowledge_search(str(inputs.get("query") or ""))
         if tool_name == "llm_generate":
             messages = []
             query = inputs.get("query", "")
@@ -423,7 +458,8 @@ class SopRunner:
 
     def _execute_tool_safe(self, tool_name: str, inputs: Dict[str, Any], step: Step):
         """Helper to execute tool and record history"""
-        meta_sop_tools = {"llm_generate"}
+        # knowledge_search 走 canonical 检索（scope 感知），不再落 engtool registry 的文件系 BM25
+        meta_sop_tools = {"llm_generate", "knowledge_search"}
         if tool_name in meta_sop_tools:
             try:
                 tool_start = time.time()

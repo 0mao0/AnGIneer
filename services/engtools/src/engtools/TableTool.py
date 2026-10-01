@@ -1000,12 +1000,14 @@ class TableLookupTool(BaseTool):
         
         return None
 
-    def run(self, table_name: str, query_conditions: Any, file_name: str = "《海港水文规范》.md", target_column: str = None, config_name: str = None, mode: str = "instruct", use_llm: bool = True, **kwargs) -> Any:
+    def run(self, table_name: str, query_conditions: Any, file_name: str = None, target_column: str = None, config_name: str = None, mode: str = "instruct", use_llm: bool = True, **kwargs) -> Any:
         """从结构化表格中查询。
-        
+
         Args:
             use_llm: 是否使用 LLM 查询（默认 True）。设为 False 则使用结构化解析。
         """
+        if not file_name or not str(file_name).strip():
+            return {"error": "缺少 file_name（规范文件名）：请明确指定要查询的规范文件"}
         # LLM 模式（默认）
         if use_llm:
             file_name = file_name.replace("《", "").replace("》", "")

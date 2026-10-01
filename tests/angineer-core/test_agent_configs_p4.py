@@ -29,7 +29,6 @@ class ComplexConfigTests(unittest.TestCase):
                 "entity_search",
                 "sop_execute",
                 "calculator",
-                "table_lookup",
                 "conditional",
             ],
         )

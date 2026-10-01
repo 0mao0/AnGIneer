@@ -910,6 +910,8 @@ class SopRunnerAdapter:
         runner: Any = None,
         memory: Any = None,
         step_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+        library_id: str = "default",
+        doc_ids: Optional[List[str]] = None,
     ) -> AgentTool:
         def handler(
             sop_query: Optional[str] = None,
@@ -957,6 +959,8 @@ class SopRunnerAdapter:
                     mode=mode,
                     memory=memory,
                     llm_client=llm_client,
+                    library_id=library_id,
+                    doc_ids=doc_ids,
                 )
 
             initial_context = {"user_query": query}

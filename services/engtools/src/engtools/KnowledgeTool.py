@@ -82,8 +82,10 @@ class KnowledgeSearchTool(BaseTool):
         if knowledge_dir:
             self.knowledge_dir = knowledge_dir
 
-    def run(self, query: str, file_name: str = "《海港水文规范》.md", config_name: str = None, mode: str = "instruct", **kwargs) -> Dict[str, Any]:
+    def run(self, query: str, file_name: str = None, config_name: str = None, mode: str = "instruct", **kwargs) -> Dict[str, Any]:
         """优先使用 BM25 快速检索段落，可选再用 LLM 精炼。"""
+        if not file_name or not str(file_name).strip():
+            return {"error": "缺少 file_name（规范文件名）：请明确指定要检索的文档"}
         print(f"  [知识检索] 正在检索文档: {query}，来源: {file_name}")
         knowledge_file = _resolve_knowledge_file(file_name)
         if not knowledge_file:
