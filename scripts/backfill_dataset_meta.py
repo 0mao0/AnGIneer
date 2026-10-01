@@ -54,11 +54,18 @@ ENTRIES = [
         "dataset_id": "open-ragbench-subset-v4.1",
         "title": "Open RAG Benchmark 子集 v4.1",
         "meta": {
-            "publisher": "AnGIneer",
-            "domain": "工程（中文规范）",
-            "purpose": "端到端 RAG 回归：检索+作答+判分全链路（与 nightly 同源同口径）",
+            "publisher": "Vectara（Open RAG Benchmark）；AnGIneer v4.1 修订",
             "mode": "整体RAG",
-            "source_note": "AnGIneer Open RAG Bench v4.1 子集（金标修订 7 题，2026-09-28 切换；生产库题集）",
+            "domain": "学术（arXiv 论文）",
+            "purpose": "端到端 RAG 回归主题集：182 篇 arXiv 论文，为跨学科论文拼盘（题目引用 208 篇，统计/ML 36、经金 35、物理 31、生医 22、数学 21 居前）",
+            "source_url": "https://huggingface.co/datasets/vectara/open_ragbench",
+            "source_note": "源头：Vectara 官方 Open RAG Benchmark（queries/qrels/answers 与论文 PDF 均取自该数据集）",
+            "distribution": [
+                {"label": "text", "count": 627, "note": "纯文本题"},
+                {"label": "text-image", "count": 255},
+                {"label": "text-table", "count": 82},
+                {"label": "text-table-image", "count": 76},
+            ],
         },
     },
     {

@@ -199,6 +199,8 @@ const handleCancel = () => emit('update:open', false)
 
   &__bar-label {
     max-width: 100%;
+    /* 预留两行标签高度：标签行数不一时各柱底部仍平齐 */
+    min-height: 2.6em;
     font-size: 11px;
     line-height: 1.3;
     text-align: center;

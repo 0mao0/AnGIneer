@@ -1,4 +1,6 @@
-"""FinanceBench 150 题按生产意图分类器（L0-L4 同口径）逐题定级（默认 dry-run，--apply 回写 intent_level）。
+"""题集按生产意图分类器（L0-L4 同口径）逐题定级（默认 dry-run，--apply 从缓存回写 intent_level）。
+
+用法：--dataset <dataset_id>（默认 FinanceBench）；缓存 data/scratch/<dataset>_levels.json。
 
 背景：入库时 intent_level 全为默认 L1，题集卡「层级分布」无信息量；用户要求按自家
 L0-L4 重新分类（2026-10-01）。分类器 = angineer_core.classifier.IntentClassifier（生产
@@ -24,25 +26,28 @@ load_dotenv(REPO / ".env")
 from evals_core.dataset import manager  # noqa: E402
 from angineer_core.classifier import IntentClassifier  # noqa: E402
 
-DATASET_ID = "financebench-open-150-v1"
 SPOT_CHECK_N = 20
 SEED = 42
 MAX_WORKERS = 4
 # 分级结果缓存：--apply 只从缓存写库，杜绝「边 LLM 判级边写库」在网关抖动时把
 # 静默降级的 L1 成批写进去（分类器 LLM 失败不抛错、默认返回 L1，见 classifier error_sink）。
-CACHE_PATH = REPO / "data" / "scratch" / "financebench_levels.json"
+def _cache_path(dataset_id: str) -> Path:
+    return REPO / "data" / "scratch" / f"{dataset_id.replace('.', '_')}_levels.json"
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="FinanceBench 按生产分类器定级 L0-L4（dry-run 默认，--apply 从缓存回写）")
+    parser.add_argument("--dataset", default="financebench-open-150-v1", help="题集 dataset_id")
     parser.add_argument("--apply", action="store_true", help="从缓存分级结果回写 intent_level（不重新判级）")
     parser.add_argument("--votes", type=int, default=1, help="判级轮数（>1 时按多数票定版，抑制分类器边界抖动）")
     parser.add_argument("--workers", type=int, default=MAX_WORKERS)
     args = parser.parse_args()
 
-    questions = manager.list_questions(DATASET_ID)
+    dataset_id = args.dataset
+    CACHE_PATH = _cache_path(dataset_id)
+    questions = manager.list_questions(dataset_id)
     if not questions:
-        print(f"题集 {DATASET_ID} 为空或不存在")
+        print(f"题集 {dataset_id} 为空或不存在")
         return 2
 
     if args.apply:
