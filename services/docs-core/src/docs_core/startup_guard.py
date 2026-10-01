@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import logging
+import threading
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
@@ -144,11 +145,17 @@ def report_to_dict(report: VectorGuardReport) -> Dict[str, Any]:
 
 # ---- 全局单例：启动后存储报告，供 retrieve_service 注入 warning ----
 _last_report: Optional[VectorGuardReport] = None
+# 坏报告重探间隔：向量库恢复后横幅自愈，启动时序抖动造成的一次性故障
+# 不再挂到进程重启为止（2026-10-01 qdrant 先于后端重启、横幅驻留实踩）
+_RECHECK_INTERVAL_SECONDS = 60.0
+_last_check_monotonic: float = 0.0
+_recheck_lock = threading.Lock()
 
 
 def _save_report(report: VectorGuardReport) -> None:
-    global _last_report
+    global _last_report, _last_check_monotonic
     _last_report = report
+    _last_check_monotonic = time.monotonic()
 
 
 def get_last_report() -> Optional[VectorGuardReport]:
@@ -156,9 +163,35 @@ def get_last_report() -> Optional[VectorGuardReport]:
     return _last_report
 
 
-def get_retrieve_warning() -> Optional[str]:
-    """如果向量库不健康，返回用户可见的 warning 文本；否则返回 None。"""
-    if _last_report is None or _last_report.ok:
+def _maybe_schedule_recheck() -> Optional[threading.Thread]:
+    """坏报告超过重探间隔时，起后台线程重跑守卫；返回重探线程（节流命中返回 None）。
+
+    先占坑再起线程：并发查询同时读到过期坏报告时只起一条重探，不会打成一窝探测。
+    返回线程便于调用方（测试）等待重探落地。
+    """
+    global _last_check_monotonic
+    if time.monotonic() - _last_check_monotonic < _RECHECK_INTERVAL_SECONDS:
         return None
-    parts = _last_report.errors or _last_report.warnings
+    with _recheck_lock:
+        if time.monotonic() - _last_check_monotonic < _RECHECK_INTERVAL_SECONDS:
+            return None
+        _last_check_monotonic = time.monotonic()
+        thread = threading.Thread(
+            target=run_vector_startup_guard, daemon=True, name="vector-guard-recheck"
+        )
+        thread.start()
+        return thread
+
+
+def get_retrieve_warning() -> Optional[str]:
+    """如果向量库不健康，返回用户可见的 warning 文本；否则返回 None。
+
+    报告仅在启动时生成一次；坏报告超过重探间隔会触发一次后台重探，重探发现
+    已恢复则下一轮查询横幅自然消失（本次调用仍返回旧报告，不在请求路径里等探测）。
+    """
+    report = _last_report
+    if report is None or report.ok:
+        return None
+    _maybe_schedule_recheck()
+    parts = report.errors or report.warnings
     return f"向量库健康检查异常，检索结果可能不完整: {'; '.join(parts)}"

@@ -71,6 +71,10 @@ class QdrantVectorStore(VectorStore):
                 url=self._url,
                 api_key=self._api_key or None,
                 timeout=self._timeout,
+                # 本地基础设施流量不跟随机器代理（httpx trust_env 默认会读 Windows
+                # 系统代理：localhost 请求被代理转发远端节点，远端连它自己的
+                # localhost 失败，回 502 空 body——2026-10-01 实踩）
+                trust_env=False,
             )
         return self._client
 
