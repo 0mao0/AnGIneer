@@ -512,6 +512,10 @@ class SopRunner:
             
         try:
             run_kwargs = dict(inputs)
+            if tool_name == "conditional":
+                # conditional 的 table_lookup 分支走 canonical 精确查表，scope 经 context 注入
+                run_kwargs.setdefault("library_id", self.library_id)
+                run_kwargs.setdefault("doc_ids", self.doc_ids)
             if self.config_name:
                 run_kwargs["config_name"] = self.config_name
             if self.mode:

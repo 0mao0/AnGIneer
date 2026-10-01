@@ -54,7 +54,6 @@ from chat_agent import (
 from sop_core.sop_loader import SopLoader
 from engtools import *
 import geo_core.GisTool
-import engtools.KnowledgeTool
 from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router

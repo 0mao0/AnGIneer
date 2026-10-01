@@ -1,4 +1,4 @@
-"""SOP knowledge_search 重定向 canonical 检索 + 老工具默认值拆除的单测。"""
+"""SOP knowledge_search 重定向 canonical 检索的单测。"""
 import os
 import sys
 import unittest
@@ -66,26 +66,6 @@ class SopKnowledgeSearchCanonicalTests(unittest.TestCase):
             runner.run_sop(make_search_sop(), {})
         self.assertEqual(runner.memory.history[0].status, "failed")
         self.assertIn("不可用", runner.memory.history[0].error)
-
-
-class LegacyToolDefaultFileRemovedTests(unittest.TestCase):
-    """老文件系工具缺省 file_name 必须明确报错，不再静默找《海港水文规范》。"""
-
-    def test_knowledge_search_tool_requires_file_name(self):
-        from engtools.KnowledgeTool import KnowledgeSearchTool
-
-        result = KnowledgeSearchTool().run(query="通航宽度")
-        self.assertIn("error", result)
-        self.assertIn("file_name", result["error"])
-        result_blank = KnowledgeSearchTool().run(query="通航宽度", file_name="  ")
-        self.assertIn("error", result_blank)
-
-    def test_table_lookup_tool_requires_file_name(self):
-        from engtools.TableTool import TableLookupTool
-
-        result = TableLookupTool().run(table_name="表A", query_conditions={})
-        self.assertIn("error", result)
-        self.assertIn("file_name", result["error"])
 
 
 if __name__ == "__main__":

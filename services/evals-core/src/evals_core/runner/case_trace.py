@@ -33,12 +33,10 @@ def _ensure_backend_paths() -> str:
 
 def _register_runtime_tools() -> None:
     """导入工具模块，通过副作用完成 ToolRegistry 注册。"""
-    import engtools.TableTool  # noqa: F401
     import engtools.CalculatorTool  # noqa: F401
     import engtools.UserInputTool  # noqa: F401
     import engtools.CommonTool  # noqa: F401
     import engtools.ConditionalTool  # noqa: F401
-    import engtools.KnowledgeTool  # noqa: F401
 
 
 def _to_json_safe(data: Any) -> Any:

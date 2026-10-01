@@ -3,12 +3,15 @@
 
 B2：_execute_table_lookup 从 TableTool import 不存在的 TableTool 类，
 触发即 ImportError；修复后不得抛 ImportError。
+老 TableLookupTool 删除后分支改走 canonical_table_lookup（无端口时返回 error dict，
+同样不得抛异常）。
 """
 import os
 import sys
 import unittest
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/engtools/src")))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
 from engtools.ConditionalTool import ConditionalTool
 

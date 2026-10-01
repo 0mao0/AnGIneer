@@ -206,9 +206,8 @@ modules:
     role: engineering_tools
     depends_on:
       - ai-inference
+      - angineer-core
     key_symbols:
-      - KnowledgeTool.py
-      - TableTool.py
       - ConditionalTool.py
 
   - id: sop-core

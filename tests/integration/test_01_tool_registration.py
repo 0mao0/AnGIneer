@@ -83,8 +83,9 @@ class TestResourceLoading(unittest.TestCase):
         print(f"  -> [统计] 已注册工具数量: {len(tool_names)}")
         print(f"  -> [列表] {', '.join(tool_names)}")
 
-        # 核心工具检查清单
-        required_tools = ["calculator", "weather", "web_search", "sop_run", "file_reader", "table_lookup"]
+        # 核心工具检查清单（table_lookup/knowledge_search 已下沉为引擎内置 canonical
+        # 实现，不再经 engtools registry 注册——见 commit 2b 老文件系工具删除）
+        required_tools = ["calculator", "weather", "web_search", "sop_run", "file_reader"]
         
         check_results = []
         missing_tools = []

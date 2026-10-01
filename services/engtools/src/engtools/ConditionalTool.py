@@ -311,21 +311,22 @@ class ConditionalTool(BaseTool):
         context: Dict[str, Any]
     ) -> Dict[str, Any]:
         """
-        执行查表操作。
+        执行查表操作（canonical 精确查表，scope 由 SopRunner 经 context 注入）。
         """
-        from .TableTool import TableLookupTool
-        tool = TableLookupTool()
+        from angineer_core.canonical_table_lookup import canonical_table_lookup
 
         resolved_conditions = {}
         for key, value in query_conditions.items():
             resolved_value = self._resolve_value(value, context)
             resolved_conditions[key] = resolved_value
 
-        result = tool.run(
+        result = canonical_table_lookup(
             table_name=table_name,
             query_conditions=resolved_conditions,
+            target_column=target_column,
+            library_id=context.get("library_id") or "default",
+            doc_ids=context.get("doc_ids"),
             file_name=file_name,
-            target_column=target_column
         )
 
         return {
