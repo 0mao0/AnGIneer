@@ -115,8 +115,8 @@ def main() -> int:
         return 0
 
     for qid, level in results.items():
-        manager.update_question(DATASET_ID, qid, {"intent_level": level})
-    print(f"\n已回写 {len(results)} 题 intent_level -> {DATASET_ID}")
+        manager.update_question(dataset_id, qid, {"intent_level": level})
+    print(f"\n已回写 {len(results)} 题 intent_level -> {dataset_id}")
     return 0
 
 
