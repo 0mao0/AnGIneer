@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.85** ——检索 section 级 LLM 二排（`ANGINEER_LLM_SECOND_RERANK` 默认关）：在线 rerank 后 LLM 看 top15 重排 + 分歧时两条全文 duel 仲裁才允许换掉第 1 名，冻结候选回放投影 hit@1(sec) 0.785→0.838，任一步失败原样兜底零回归；QA prompt v12：拒答五规则合并为单条「对齐判断」（覆盖/部分覆盖/未覆盖三态），修复 prompt 版本落库失真；各档上下文预算闸门重定值 + L0/meta 档补装；思考过程展示细化：命中引用按文档归并 chip、两列布局对齐、收尾便签耗时改增量口径、修复刷新后内部消息渲染成 JSON 气泡；对话输入区 auto-grow + 新对话入口迁移 + hero 引导问题 props 化 + 流式跟随可上滑打断；知识库库清单读穿修复（跨进程新建库即时可见）+ nightly「没有题目变差」硬编码修复；evals 卫生（下线 full_chain 空壳分类、eval_1 死 doc_ids 清理、题集 JSON 入库收尾）；文档与运维（已完结计划/需求清理、FinanceBench v3 出账、POPO_MAX_CONCURRENCY 示例 1→4）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.86** ——SOP 检索与查表整体切换 canonical：knowledge_search/table_lookup 改引擎内置拦截（scope 感知 library_id/doc_ids，废文件系 BM25 与整文件喂 LLM），新增 canonical 精确查表引擎与第 8 端口 table_blocks，存量 SOP 的 file_name 宽松转译为 doc_ids 零改动兼容，真实数据 A/B 对齐（选表策略一致、值差异全部定位，FinanceBench 侧老工具 100% 报错、新工具端到端可用）；老 engtools 文件系工具体系整体删除：TableLookupTool/KnowledgeSearchTool/ContentSummarizer 净删约 2000 行，海港 demo 硬编码默认值清除（缺省 file_name 明确报错），聊天查表统一走 table_search，ConditionalTool 查表分支重接线 canonical；向量库健康横幅两修：qdrant 客户端 trust_env=False（Windows 系统代理劫持 localhost 探测致 502 假坏）+ 启动守卫坏报告 60s TTL 后台重探、恢复后横幅自愈；evals 判分口径双修：终审 quality 改认判官 semantic_passed 单一权威（修 0.65~0.8 区间「判官通过、终审翻 wrong」冤案），判官 rubric 增补跨语言与同义改写豁免；QA prompt v13：对齐判断双向精修（v12 全量回归的针对性修复）；思考链路展示系列：「并行预检」两行 tag 与多行便签渲染、模型调用便签分段耗时（等待/输出/TTFT）、预检索归属 injected 标记、总耗时锚点接 classify 帧；解析工作台大文档两修（build_id 假告警、整图重复/非按需加载）+「回到最下方」按钮改名「回底部」。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

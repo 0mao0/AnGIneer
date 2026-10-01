@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.86
+
+- SOP 检索与查表整体切换 canonical：knowledge_search/table_lookup 改引擎内置拦截（SopRunner 构造期注入 library_id/doc_ids，error 原样透传不回退老实现），废文件系 BM25 与整文件喂 LLM；新增 canonical 精确查表引擎 table_query_engine/canonical_table_lookup 与第 8 端口 table_blocks（选表/条件过滤/行打分/目标列解析逐行移植老结构化模式，修掉原「未找到表格」分支 NameError）；存量 SOP 的 file_name 宽松转译为 doc_ids（标题归一匹配经 local_nodes_loader 端口）零改动兼容，无法解析明确报错不落全库扫；真实数据 A/B 对齐（11 个存量步骤选表策略与 trace 全部一致、值差异全部定位，FinanceBench 侧老工具因 default 库硬编码 100% 报错、新工具端到端可用）
+- 老 engtools 文件系工具体系整体删除：TableLookupTool/KnowledgeSearchTool/ContentSummarizer 随文件净删约 2000 行（无存活调用点）；海港 demo 硬编码默认值「《海港水文规范》.md」清除（缺省 file_name 明确报错，不再静默答非所库）；聊天工具箱下线 table_lookup（三轮实测预检索 table_search 全覆盖、属事实死代码），ConditionalTool 查表分支重接线 canonical（scope 由 SopRunner 经 context 注入）
+- 向量库健康横幅两修：qdrant 客户端 trust_env=False（Windows 系统代理劫持 localhost:6333 探测、远端回 502 空 body 致假坏横幅）+ 启动守卫坏报告 60s TTL 后台重探（一次性故障不再挂到进程重启，恢复后下一轮查询横幅自愈）
+- evals 判分口径双修：终审 quality 改认判官 semantic_passed 单一权威（旧 0.8 二次过闸与判官 0.65 阈值打架，0.65~0.8 区间 102 题复核 90 题为冤案，0.8 兜底仅无 semantic 裁决时保留）；判官 rubric 增补跨语言与同义改写豁免（v3→v4，deepeval 同步），caliber_fingerprint 补入口径防断点续跑缝合
+- QA prompt v13：对齐判断双向精修（v12 全量回归的针对性修复）
+- 思考链路展示系列：「并行预检」两行 tag（序号列蓝胶囊，第二行真实 reusedMs 耗时）与多行便签渲染；模型调用便签分段耗时（等待含排队与预填充/输出 tokens 与速率/TTFT）；预检索归属 injected 标记（区分模型自调与后端代跑）；总耗时锚点接 classify 帧（分类等待计入总账）；「执行计划」改「处理链路」仅多段显示；不足 50ms tag 不显示
+- 解析工作台大文档两修（build_id 假告警、整图重复/非按需加载）+「回到最下方」按钮改名「回底部」
+
 ## v0.2.85
 
 - 检索 section 级 LLM 二排（`ANGINEER_LLM_SECOND_RERANK` 默认关）：在线 rerank 成功后由 LLM 看 top15 候选（每条 1500 字、定义专用 prompt）重排，top1 与 reranker 不一致时再以两条全文 duel 仲裁、challenger 胜才允许换掉第 1 名，任一步失败原样兜底零回归——治 nightly v4.1 hit@1(sec) 的 wrong_section_bias 主桶（962 题基线 0.785，80% miss 是 gold 在 top5 但没排第 1，0.6B reranker 分数全场饱和、71% 的题 top1/top2 分差<0.001）；依据 `scripts/rerank_replay.py` 冻结候选回放（约 5000 次 LLM 调用网格）投影 hit@1 0.785→0.838，窗口 top5→top15 顺吃 65% 假性召回失败；新增 def/duel prompt 注册 v1，窗口/截断三参数可调，7 例单测
