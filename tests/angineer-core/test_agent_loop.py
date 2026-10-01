@@ -1005,6 +1005,91 @@ class ForcedRetrievalQueryTests(unittest.TestCase):
 
         self.assertEqual(seen, ["王飞"])
 
+    def test_forced_retrieval_returns_content_and_raw(self):
+        """代检索保险必须同时带回 content 与 raw（含 items/citations）。
+
+        踩坑（2026-10-01 FinanceBench run-77b37dd521d2 实踩）：旧实现只回传 content 文本，
+        装配侧追加的 tool 消息没有 meta，policy_query 的 retrieved_items 提取
+        （只读 message.meta["items"]）恒空 → 检索实际成功却被评测判成 retrieval_miss_doc。
+        """
+        from angineer_core.agent_loop import _force_retrieve_tool
+
+        def handler(query=None, **kwargs):
+            return {"items": [{"item_id": "chunk-1", "text": "证据"}], "citations": [{"marker": "K1"}]}
+
+        tool = make_tool(
+            "knowledge_search",
+            handler,
+            schema={
+                "type": "object",
+                "properties": {"query": {"type": "string"}},
+                "required": ["query"],
+            },
+            read_only=True,
+        )
+
+        class FakeConfig:
+            def __getattr__(self, name):
+                return None
+
+        class FakeMachine:
+            tools_by_name = {"knowledge_search": tool}
+            active_config = FakeConfig()
+            current_turn = 1
+
+        messages = [AgentMessage(role="user", content="王飞的入职时间")]
+        forced = _force_retrieve_tool(messages, FakeMachine(), None, "run-x", threading.Event())
+
+        self.assertIsNotNone(forced)
+        content, raw = forced
+        self.assertIn("证据", content)
+        self.assertEqual(raw["items"][0]["item_id"], "chunk-1")
+        self.assertEqual(raw["citations"][0]["marker"], "K1")
+
+    def test_forced_retrieval_tool_message_carries_meta(self):
+        """全回路：代检索追加的 tool 消息必须带 meta，下游提取 retrieved_items 不为空。"""
+        events: list = []
+
+        def handler(messages, kwargs):
+            call = len(llm.calls)
+            if call <= 2:
+                yield from text_events("没有检索到足够证据支持最终结论，不要自行补全。")
+            else:
+                yield from text_events("根据检索到的证据，答案是 42 [K1]。")
+
+        llm = MockLLM(handler)
+        tool = make_tool(
+            "knowledge_search",
+            lambda query=None, **kw: {
+                "items": [{"item_id": "chunk-1", "text": "证据原文"}],
+                "citations": [{"marker": "K1", "target_id": "t-1"}],
+            },
+        )
+        attempt = AttemptConfig(
+            name="L1",
+            config_factory=lambda: AgentLoopConfig(llm=llm, tools=[tool], system_prompt="p", max_turns=5),
+            success_check=None,
+            requires_tools=True,
+        )
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="outer", max_turns=5, attempts=[attempt])
+        added = run_agent_loop([AgentMessage(role="user", content="王飞的入职时间")], config, emit=events.append)
+
+        forced_msgs = [m for m in added if m.role == "tool" and m.tool_call_id == "forced_knowledge_search"]
+        self.assertEqual(len(forced_msgs), 1)
+        self.assertEqual(forced_msgs[0].meta["items"][0]["item_id"], "chunk-1")
+
+        # policy_query 口径（agent_loop 之外的提取方只读 meta）：items/citations 可收集
+        collected_items = []
+        collected_citations = []
+        for m in added:
+            if m.role != "tool":
+                continue
+            raw = m.meta or {}
+            collected_items.extend(raw.get("items") or [])
+            collected_citations.extend(raw.get("citations") or [])
+        self.assertEqual(len(collected_items), 1)
+        self.assertEqual(collected_citations[0]["marker"], "K1")
+
 
 class RefusalRetryEvidenceTests(unittest.TestCase):
     """P2：有证据但模型拒答时，定向重试要回喂证据原文节选（空指令常被小模型忽略）。"""

@@ -277,14 +277,17 @@ def _force_retrieve_tool(
     emit: Optional[Callable[[AgentEvent], None]],
     run_id: str,
     cancel: threading.Event,
-) -> Optional[str]:
+) -> Optional[Tuple[str, Dict[str, Any]]]:
     """代检索保险：段要求工具但模型始终未调用、且重试额度已用尽时，系统替它执行 knowledge_search。
 
     触发条件见 advance()（requires_tools && !used_tools && retry_used），
     不判定最终答案是否拒答；绕开模型输出工具调用格式不稳定的问题，
     直接把检索结果注入对话（仅 tool 消息，无 assistant 调用配对——
     这是收尾保险路径，与需求 C 的成对注入不同）。
-    返回工具结果文本；失败或工具不存在时返回 None（保持原收尾逻辑）。
+    返回 (工具结果文本, 原始载荷 raw)；失败或工具不存在时返回 None（保持原收尾逻辑）。
+    raw 必须随行：装配侧把它挂进 tool 消息 meta，policy_query 的 retrieved_items/citations
+    提取只读 meta——只回传文本会让检索实际成功却被评测判成 retrieval_miss_doc
+    （2026-10-01 FinanceBench run-77b37dd521d2 JnJ 题实踩）。
     """
     query = _latest_user_query(messages)
     if not query:
@@ -298,7 +301,11 @@ def _force_retrieve_tool(
             [call], machine.tools_by_name, machine.active_config, cancel, emit, run_id,
             machine.current_turn or 0,
         )
-        return results[0].content if results else None
+        if not results:
+            return None
+        result = results[0]
+        raw = result.raw if isinstance(result.raw, dict) else {}
+        return result.content, raw
     except Exception:  # noqa: BLE001
         logger.warning("代检索保险执行失败，按原逻辑收尾", exc_info=True)
         return None
@@ -778,7 +785,7 @@ class _AttemptMachine:
         # 判分口径豁免（2026-09-27）：半拒答剥头前的原文，仅 half_refusal_stripped 时有值；
         # 随 run_end 上浮供评测按原文判拒答（剥头只算展示层行为）。
         self.answer_pre_strip: Optional[str] = None
-        self.force_retrieve: Optional[Callable[[], Optional[str]]] = None
+        self.force_retrieve: Optional[Callable[[], Optional[Tuple[str, Dict[str, Any]]]]] = None
         self.first_search_injector: Optional[Callable[[], None]] = None
         self.current_turn = 0
         self.codec = config.codec or TextToolCallCodec()
@@ -865,8 +872,9 @@ class _AttemptMachine:
                 self.force_retrieve is not None
                 and not self._forced_retrieve_used
             ):
-                result_content = self.force_retrieve()
-                if result_content:
+                forced = self.force_retrieve()
+                if forced:
+                    result_content, result_raw = forced
                     self._forced_retrieve_used = True
                     self.attempt_turn = max(0, self.attempt_turn - 1)
                     self.messages.append(
@@ -875,6 +883,7 @@ class _AttemptMachine:
                             content=result_content,
                             tool_call_id="forced_knowledge_search",
                             name="knowledge_search",
+                            meta=result_raw,
                         )
                     )
                     self.messages.append(
