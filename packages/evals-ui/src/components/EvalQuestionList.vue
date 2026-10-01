@@ -63,6 +63,9 @@
           测试规范：{{ docFilterLabel }}
         </a-button>
       </a-popover>
+      <a-button size="small" class="eval-question-list__card-btn" @click="cardVisible = true">
+        题集卡
+      </a-button>
     </div>
     <div class="eval-question-list__body">
       <a-spin :spinning="loading">
@@ -91,13 +94,20 @@
         @show-size-change="onPageSizeChange"
       />
     </div>
+    <EvalDatasetCardModal
+      v-model:open="cardVisible"
+      :dataset="dataset"
+      :library-name="libraryName"
+      :questions="questions"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import EvalQuestionCard from './EvalQuestionCard.vue'
-import type { EvalQuestion, EvalRunDetail, EvalIntentLevel, EvalQuestionStatus, EvalQuality } from '../types/eval'
+import EvalDatasetCardModal from './EvalDatasetCardModal.vue'
+import type { EvalQuestion, EvalRunDetail, EvalIntentLevel, EvalQuestionStatus, EvalQuality, EvalDataset } from '../types/eval'
 
 /** 知识库树节点 */
 export interface DocTreeNode {
@@ -116,6 +126,8 @@ const props = defineProps<{
   docTreeData?: DocTreeNode[]
   docFlatList?: DocTreeNode[]
   onExpandDetail?: (questionId: string) => void
+  dataset?: EvalDataset | null
+  libraryName?: string
 }>()
 
 const emit = defineEmits<{
@@ -132,6 +144,7 @@ const expandedId = ref<string | null>(null)
 const currentPage = ref(1)
 const pageSize = ref(20)
 const docTreeVisible = ref(false)
+const cardVisible = ref(false)
 const checkedDocKeys = ref<string[]>([])
 
 /** 收集树中所有文档节点的 key */
@@ -251,6 +264,10 @@ const onToggle = (questionId: string) => {
     border-bottom: 1px solid var(--border-color);
     flex-wrap: wrap;
     align-items: center;
+  }
+
+  &__card-btn {
+    margin-left: auto;
   }
 
   &__body {

@@ -37,6 +37,7 @@ def import_bundle(payload: Dict[str, Any], source_file: str = "") -> Dict[str, A
         "schema_version": dataset_meta.schema_version,
         "version": dataset_meta.version,
         "library_id": dataset_meta.library_id,
+        "meta": dataset_meta.meta or {},
         "question_count": len(bundle.items),
         "source_file": source_file,
     }
@@ -160,6 +161,7 @@ def export_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
             "schema_version": dataset["schema_version"],
             "version": dataset["version"],
             "library_id": dataset["library_id"],
+            "meta": dataset.get("meta") or {},
         },
         items=items,
     )

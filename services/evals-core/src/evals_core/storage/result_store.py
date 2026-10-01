@@ -65,6 +65,7 @@ def init_db() -> None:
             library_id TEXT NOT NULL DEFAULT 'default',
             question_count INTEGER NOT NULL DEFAULT 0,
             source_file TEXT NOT NULL DEFAULT '',
+            meta TEXT NOT NULL DEFAULT '{}',
             created_at TEXT NOT NULL DEFAULT '',
             updated_at TEXT NOT NULL DEFAULT ''
         );
@@ -140,6 +141,10 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run ADD COLUMN is_full_run INTEGER NOT NULL DEFAULT 1")
     except Exception:
         pass
+    try:
+        conn.execute("ALTER TABLE eval_dataset ADD COLUMN meta TEXT NOT NULL DEFAULT '{}'")
+    except Exception:
+        pass
     # 属主进程 PID：启动清扫据此区分“进程已死的僵尸 running”与“其他活进程正在跑的 run”。
     # 旧实现把所有 running 一律标 cancelled，多实例共库时新起实例会误杀活体评测
     # （2026-09-06 实踩：53/487 的 run 被另一实例启动清扫取消）。0=历史行，清扫照旧回收。
@@ -197,8 +202,23 @@ def _seed_category_folders(conn: sqlite3.Connection) -> None:
             })
 
 
+def _parse_dataset_meta(raw: Any) -> Dict[str, Any]:
+    """meta 列 JSON 解析；脏数据（非法 JSON/非对象）按空 dict 兜底，接口不炸。"""
+    if isinstance(raw, dict):
+        return raw
+    if isinstance(raw, str) and raw.strip():
+        try:
+            parsed = json.loads(raw)
+            if isinstance(parsed, dict):
+                return parsed
+        except (ValueError, TypeError):
+            pass
+    return {}
+
+
 def _enrich_dataset_with_tree_info(conn: sqlite3.Connection, dataset: Dict[str, Any]) -> Dict[str, Any]:
     """从 tree_node 中读取 folder_id 和 sort_order，附加到 dataset 字典上。"""
+    dataset["meta"] = _parse_dataset_meta(dataset.get("meta"))
     node = tree_store.get_node(conn, dataset["dataset_id"])
     if node and node.get("tree_type") == "eval_dataset":
         dataset["folder_id"] = node.get("parent_id") or ""
@@ -212,12 +232,14 @@ def _enrich_dataset_with_tree_info(conn: sqlite3.Connection, dataset: Dict[str, 
 def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
     """插入一条测试集记录，同时在 tree_node 中创建对应节点。"""
     now = datetime.now().isoformat()
+    raw_meta = data.get("meta")
+    meta_text = raw_meta if isinstance(raw_meta, str) else json.dumps(raw_meta or {}, ensure_ascii=False)
     conn = _get_conn()
     conn.execute(
         """INSERT OR REPLACE INTO eval_dataset
            (dataset_id, title, category, description, schema_version, version,
-            library_id, question_count, source_file, created_at, updated_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            library_id, question_count, source_file, meta, created_at, updated_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["dataset_id"],
             data.get("title", ""),
@@ -228,6 +250,7 @@ def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
             data.get("library_id", "default"),
             data.get("question_count", 0),
             data.get("source_file", ""),
+            meta_text,
             now,
             now,
         ),
@@ -307,12 +330,15 @@ def delete_dataset(dataset_id: str) -> bool:
 
 def update_dataset(dataset_id: str, updates: Dict[str, Any]) -> Optional[Dict[str, Any]]:
     """更新测试集元信息，同步更新 tree_node 中的节点。"""
-    allowed = {"title", "description", "category"}
-    fields = [k for k in updates if k in allowed and updates[k] is not None]
+    allowed = {"title", "description", "category", "meta"}
+    normalized = dict(updates)
+    if "meta" in normalized and not isinstance(normalized["meta"], str):
+        normalized["meta"] = json.dumps(normalized["meta"] or {}, ensure_ascii=False)
+    fields = [k for k in normalized if k in allowed and normalized[k] is not None]
     if fields:
         conn = _get_conn()
         set_clause = ", ".join(f"{k} = ?" for k in fields)
-        values = [updates[k] for k in fields] + [dataset_id]
+        values = [normalized[k] for k in fields] + [dataset_id]
         conn.execute(f"UPDATE eval_dataset SET {set_clause} WHERE dataset_id = ?", values)
         conn.commit()
 

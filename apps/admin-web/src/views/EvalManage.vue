@@ -149,6 +149,8 @@
             :evaluating-question-ids="evaluatingQuestionIds"
             :doc-tree-data="docTreeData"
             :doc-flat-list="docFlatList"
+            :dataset="currentDataset"
+            :library-name="datasetLibraryName"
             :on-expand-detail="onQuestionExpandDetail"
             @evaluate="onEvaluateQuestion"
             @update:selected-doc-ids="onSelectedDocIdsChange"
@@ -532,6 +534,13 @@ const {
 const selectedDatasetId = ref('')
 const questionsLoading = ref(false)
 const evalLoading = ref(false)
+
+const libraryStore = useLibraryStore()
+/** 题集卡用：library_id → 知识库名称（清单随页面挂载加载，未命中回退原 id） */
+const datasetLibraryName = computed(() => {
+  const id = currentDataset.value?.library_id || ''
+  return libraryStore.libraries.find(l => l.id === id)?.name || ''
+})
 const importModalVisible = ref(false)
 const compareVisible = ref(false)
 const createModalVisible = ref(false)
@@ -1145,6 +1154,7 @@ onMounted(() => {
   fetchDatasets()
   fetchFolders()
   fetchDocOptions()
+  void libraryStore.loadLibraries()
 })
 
 onBeforeUnmount(() => {

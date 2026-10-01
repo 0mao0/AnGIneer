@@ -84,6 +84,9 @@ class EvalDatasetMeta(BaseModel):
     schema_version: str = "eval.bundle.v2"
     version: str = "1.0"
     library_id: str = "default"
+    # 题集卡扩展元信息（发布方/测试类型/目的/来源/分布/公开锚点），全可选。
+    # 结构见 docs/req-dataset-card.md §2.1；loader 的 model_validate/model_dump 自动透传。
+    meta: Dict[str, Any] = Field(default_factory=dict)
 
 
 class EvalBundleV2(BaseModel):
@@ -101,6 +104,7 @@ class EvalDatasetRow(BaseModel):
     schema_version: str = "eval.bundle.v2"
     version: str = "1.0"
     library_id: str = "default"
+    meta: Dict[str, Any] = Field(default_factory=dict)
     question_count: int = 0
     source_file: str = ""
     created_at: str = ""

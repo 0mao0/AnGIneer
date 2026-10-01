@@ -99,6 +99,19 @@ export interface EvalQuestion {
   sort_order: number
 }
 
+/** 题集卡扩展元信息（eval_dataset.meta，全可选，由 bundle 导入/回填脚本维护） */
+export interface EvalDatasetCardMeta {
+  publisher?: string
+  domain?: string
+  /** 喂法：整体RAG（全库检索）/ 单篇RAG（逐题圈定相关文档）/ 细糠Oracle（金证据直给） */
+  mode?: string
+  purpose?: string
+  source_url?: string
+  source_note?: string
+  distribution?: { label: string; count: number; note?: string }[]
+  leaderboard?: { label: string; score: string; note?: string }[]
+}
+
 /** 测试集 */
 export interface EvalDataset {
   dataset_id: string
@@ -110,6 +123,7 @@ export interface EvalDataset {
   library_id: string
   question_count: number
   source_file: string
+  meta?: EvalDatasetCardMeta
   folder_id: string
   sort_order: number
   created_at: string
