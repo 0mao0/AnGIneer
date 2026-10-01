@@ -429,3 +429,37 @@ def engtool_registry() -> Any:
     from engtools.BaseTool import ToolRegistry
 
     return ToolRegistry
+
+
+def table_blocks_provider(
+    library_id: str = "default",
+    doc_ids: Optional[List[str]] = None,
+) -> List[Dict[str, Any]]:
+    """canonical 表格块批量取数：供引擎 canonical_table_lookup 精确查表。
+
+    返回 [{"doc_id", "header_rows", "rows", "context", "page_idx"}]；context 取
+    CanonicalTable 已解析的 title/caption（等价老工具从 HTML 周边抠的表格上下文）。
+    doc_ids 为空时取库内全部文档节点（与老工具全库找文件的语义对齐，调用方
+    应尽量传 scope）。
+    """
+    from ..docs_service import docs_service
+
+    if not doc_ids:
+        nodes = docs_service.list_nodes(library_id)
+        doc_ids = [n.id for n in nodes if getattr(n, "type", "") == "document"]
+    out: List[Dict[str, Any]] = []
+    for doc_id in doc_ids:
+        try:
+            tables = docs_service.canonical_store.list_tables(doc_id, limit=500)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("读取文档表格失败 doc_id=%s: %s", doc_id, exc)
+            continue
+        for table in tables:
+            out.append({
+                "doc_id": doc_id,
+                "header_rows": table.header_rows,
+                "rows": table.body_rows,
+                "context": table.title or table.caption or table.summary or "",
+                "page_idx": table.page_start,
+            })
+    return out

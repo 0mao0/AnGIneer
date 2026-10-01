@@ -151,8 +151,9 @@ def _register_engine_ports() -> None:
             local_stats=agent_port.local_stats,
             engtool_registry=agent_port.engtool_registry,
             relevant_citations=agent_port.relevant_citations,
+            table_blocks=agent_port.table_blocks_provider,
         )
-        logger.info("引擎端口已注册：local_nodes_loader / local_rerank / agent_search 七件套（docs-core 适配器）")
+        logger.info("引擎端口已注册：local_nodes_loader / local_rerank / agent_search 八件套（docs-core 适配器）")
     except Exception as exc:  # noqa: BLE001
         logger.warning("引擎端口注册失败（policy_query 本地回退与 phrase rerank 将降级）: %s", exc)
 

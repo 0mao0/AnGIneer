@@ -64,6 +64,10 @@ EngtoolRegistryFn = Callable[[], Any]
 # (query: str, items: list, limit: int) -> List[Dict]：引用挑选（查询短语命中优先，
 # 无命中按重排分取前 limit 条）；未注册降级为不返回 citations 字段
 RelevantCitationsFn = Callable[..., List[Dict[str, Any]]]
+# (library_id: str, doc_ids: Optional[List[str]]) -> List[Dict]：canonical 表格块批量取数
+# （header_rows/body_rows/title/caption/page_idx），供 canonical_table_lookup 精确查表；
+# 未注册时按降级语义返回 error dict
+TableBlocksProviderFn = Callable[..., List[Dict[str, Any]]]
 
 _query_normalizer: Optional[QueryNormalizerFn] = None
 _knowledge_local_search: Optional[KnowledgeLocalSearchFn] = None
@@ -72,6 +76,7 @@ _entity_local_search: Optional[EntityLocalSearchFn] = None
 _local_stats: Optional[LocalStatsFn] = None
 _engtool_registry: Optional[EngtoolRegistryFn] = None
 _relevant_citations: Optional[RelevantCitationsFn] = None
+_table_blocks_provider: Optional[TableBlocksProviderFn] = None
 
 _UNSET = object()
 
@@ -85,13 +90,15 @@ def register_agent_search(
     local_stats: Any = _UNSET,
     engtool_registry: Any = _UNSET,
     relevant_citations: Any = _UNSET,
+    table_blocks: Any = _UNSET,
 ) -> None:
-    """注入 agent_tools 七端口的 docs-core 侧实现（适配器 step09_query.agent_port）。
+    """注入 agent_tools 检索端口的 docs-core 侧实现（适配器 step09_query.agent_port）。
 
     省略参数 = 保持现状；显式传 None = 清除该项（测试需要）。
     """
     global _query_normalizer, _knowledge_local_search, _table_local_search
     global _entity_local_search, _local_stats, _engtool_registry, _relevant_citations
+    global _table_blocks_provider
     if normalize_query is not _UNSET:
         _query_normalizer = normalize_query
     if knowledge_local is not _UNSET:
@@ -106,6 +113,8 @@ def register_agent_search(
         _engtool_registry = engtool_registry
     if relevant_citations is not _UNSET:
         _relevant_citations = relevant_citations
+    if table_blocks is not _UNSET:
+        _table_blocks_provider = table_blocks
 
 
 def get_query_normalizer() -> Optional[QueryNormalizerFn]:
@@ -134,3 +143,7 @@ def get_engtool_registry() -> Optional[EngtoolRegistryFn]:
 
 def get_relevant_citations() -> Optional[RelevantCitationsFn]:
     return _relevant_citations
+
+
+def get_table_blocks_provider() -> Optional[TableBlocksProviderFn]:
+    return _table_blocks_provider
