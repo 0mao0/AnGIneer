@@ -209,7 +209,7 @@ Output: A JSON object with a "steps" list. Output ONLY a valid JSON object, no m
   - PRIORITY: Use "table_lookup" if the step mentions "Table", "Chart", "表", or "图".
   - STRICTLY FORBIDDEN: Do NOT use "knowledge_search" if a table name is mentioned (e.g. "Table A.0.1", "图 6.4.6-1"). Use "table_lookup" instead.
 - "inputs": A dictionary of required input parameters for this step. keys are parameter names, values are descriptions or context references.
-  - For table_lookup, inputs must include "table_name", "query_conditions" (dict), "file_name" (document title, e.g. "海港总体设计规范_JTS_165-2025"), and optionally "target_column" (the column name to read).
+  - For table_lookup, inputs must include "table_name", "query_conditions" (dict), and optionally "target_column" (the column name to read) and "file_name" (document title, e.g. "海港总体设计规范_JTS_165-2025"；缺省时自动使用当前会话文档范围，无需强制填写).
   - For knowledge_search, inputs must include "query" (the search question or keyword) and "file_name" (document title, optional).
   - Guidelines for conditional (conditional branching):
   - Use when step requires different actions based on condition variable value (e.g. ship type, material type).

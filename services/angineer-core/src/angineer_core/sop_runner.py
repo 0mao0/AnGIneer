@@ -422,10 +422,26 @@ class SopRunner:
             "items": items,
         }
 
-    # 执行元 SOP 内置工具（llm_generate / knowledge_search-canonical）
+    def _run_canonical_table_lookup(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
+        """table_lookup 的 canonical 实现：scope 取构造期注入的 library/doc_ids，
+        存量 SOP 写死的 file_name 由引擎侧转译为 doc_ids（老 SOP 零改动）。"""
+        from angineer_core.canonical_table_lookup import canonical_table_lookup
+
+        return canonical_table_lookup(
+            table_name=str(inputs.get("table_name") or ""),
+            query_conditions=inputs.get("query_conditions"),
+            target_column=inputs.get("target_column"),
+            library_id=self.library_id,
+            doc_ids=self.doc_ids,
+            file_name=inputs.get("file_name"),
+        )
+
+    # 执行元 SOP 内置工具（llm_generate / knowledge_search-canonical / table_lookup-canonical）
     def _execute_meta_sop_tool(self, tool_name: str, inputs: Dict[str, Any], step: Step) -> Any:
         if tool_name == "knowledge_search":
             return self._run_canonical_knowledge_search(str(inputs.get("query") or ""))
+        if tool_name == "table_lookup":
+            return self._run_canonical_table_lookup(inputs)
         if tool_name == "llm_generate":
             messages = []
             query = inputs.get("query", "")
@@ -458,8 +474,8 @@ class SopRunner:
 
     def _execute_tool_safe(self, tool_name: str, inputs: Dict[str, Any], step: Step):
         """Helper to execute tool and record history"""
-        # knowledge_search 走 canonical 检索（scope 感知），不再落 engtool registry 的文件系 BM25
-        meta_sop_tools = {"llm_generate", "knowledge_search"}
+        # knowledge_search/table_lookup 走 canonical 实现（scope 感知），不再落 engtool registry 的文件系老工具
+        meta_sop_tools = {"llm_generate", "knowledge_search", "table_lookup"}
         if tool_name in meta_sop_tools:
             try:
                 tool_start = time.time()
