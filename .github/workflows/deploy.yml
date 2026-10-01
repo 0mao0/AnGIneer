@@ -38,7 +38,10 @@ jobs:
           # --tags：下面的 Version consistency check 依赖 tag 比对，而本目录从不同步 tag
           # （实测长期 0 个 tag → 校验一直走 "No git tag found, skip"）。tag 与分支由
           # pnpm release 同批推送，故此处的 tag 必是本次发版的。
-          git fetch origin main --tags
+          # --force：服务器若残留指向别处的陈旧本地 tag（2026-10-01 v0.2.85 实踩），
+          # 普通 fetch 会因 "would clobber existing tag" 整体退出非零、部署直接失败；
+          # 部署目录的 tag 只用于校验、以远端为准，强制覆盖安全。
+          git fetch origin main --tags --force
           git reset --hard origin/main
           # 注：popo 已于 2026-09-09 内化为普通目录，仓库不再有任何 submodule，
           # 无需 git submodule update。

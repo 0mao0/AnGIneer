@@ -320,12 +320,24 @@ class ConditionalTool(BaseTool):
             resolved_value = self._resolve_value(value, context)
             resolved_conditions[key] = resolved_value
 
+        library_id = context.get("library_id")
+        doc_ids = context.get("doc_ids")
+        if not library_id:
+            # scope 必须由 SopRunner 注入；缺省落 "default" 会静默查错库（海港默认值同款事故形态）
+            return {
+                "result": None,
+                "matched_action": "table_lookup",
+                "table_name": table_name,
+                "query_conditions": resolved_conditions,
+                "table_result": {"error": "conditional 的 table_lookup 分支缺少知识库 scope（library_id 需由 SopRunner 注入）"}
+            }
+
         result = canonical_table_lookup(
             table_name=table_name,
             query_conditions=resolved_conditions,
             target_column=target_column,
-            library_id=context.get("library_id") or "default",
-            doc_ids=context.get("doc_ids"),
+            library_id=library_id,
+            doc_ids=doc_ids,
             file_name=file_name,
         )
 

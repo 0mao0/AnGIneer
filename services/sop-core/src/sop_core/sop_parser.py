@@ -49,7 +49,7 @@ def _extract_json_from_text(text: str) -> Dict[str, Any]:
         return json.loads(raw[start:last_ok + 1])
     raise
 
-def _normalize_step_io(tool: str, inputs: Any, outputs: Any, file_name: str) -> Tuple[Dict, Dict]:
+def _normalize_step_io(tool: str, inputs: Any, outputs: Any) -> Tuple[Dict, Dict]:
     """仅保证字段结构，模板全部交给 LLM。"""
     ins = inputs if isinstance(inputs, dict) else {}
     outs = outputs if isinstance(outputs, dict) else {}
@@ -63,11 +63,11 @@ def _normalize_step_io(tool: str, inputs: Any, outputs: Any, file_name: str) -> 
                     outs[k] = item.get("target") or "result"
             elif isinstance(item, str):
                 outs[item] = "result"
-    # table_lookup 必备字段兜底
+    # table_lookup 必备字段兜底（file_name 不再自动回填：canonical 查表以
+    # SopRunner 注入的 doc_ids scope 为准，填了 SOP 级文件名反而可能指向错文档）
     if tool == "table_lookup":
         ins.setdefault("table_name", "")
         ins.setdefault("query_conditions", {})
-        ins.setdefault("file_name", os.path.basename(file_name))
     return ins, outs
 
 def _compact_dict(data: Dict[str, Any]) -> Dict[str, Any]:
@@ -261,7 +261,7 @@ Guidelines for calculator:
             data = _extract_json_from_text(resp)
             llm_steps = []
             for s in data.get("steps", []):
-                ins, outs = _normalize_step_io(s.get("tool", "auto"), s.get("inputs", {}), s.get("outputs", {}), filename)
+                ins, outs = _normalize_step_io(s.get("tool", "auto"), s.get("inputs", {}), s.get("outputs", {}))
                 llm_steps.append(Step(
                     id=s.get("id"),
                     name=s.get("name"),

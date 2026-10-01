@@ -39,6 +39,45 @@ def _register_runtime_tools() -> None:
     import engtools.ConditionalTool  # noqa: F401
 
 
+def _ensure_engine_ports() -> None:
+    """in-process 回放（不起 aichat-api）时补注册引擎端口，否则 SOP 的
+    knowledge_search/table_lookup 拦截后会报「端口未注册」。
+    在 aichat-api 进程内调用时是幂等覆盖（同一批 docs-core 适配器），无害。
+    """
+    try:
+        from angineer_core import ports
+
+        def _local_nodes_loader(library_id: str, doc_ids) -> list:
+            from docs_core.docs_service import get_docs_service
+
+            kp = get_docs_service()
+            return [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
+
+        def _local_rerank(normalized_query: str, task_type: str, candidates: list) -> list:
+            from docs_core.step09_query.retrieval.reranker import rerank_candidates
+
+            return rerank_candidates(normalized_query, task_type, candidates)
+
+        ports.register_local_nodes_loader(_local_nodes_loader)
+        ports.register_local_rerank(_local_rerank)
+
+        from docs_core.step09_query import agent_port
+
+        ports.register_agent_search(
+            normalize_query=agent_port.normalize_query,
+            knowledge_local=agent_port.knowledge_local_search,
+            table_local=agent_port.table_local_search,
+            entity_local=agent_port.entity_local_search,
+            local_stats=agent_port.local_stats,
+            engtool_registry=agent_port.engtool_registry,
+            relevant_citations=agent_port.relevant_citations,
+            table_blocks=agent_port.table_blocks_provider,
+        )
+    except Exception:
+        # 无 docs-core 环境（如纯 CI）保持未注册，工具步会给出明确 error
+        pass
+
+
 def _to_json_safe(data: Any) -> Any:
     """把任意对象转成可 JSON 序列化的数据。"""
     return json.loads(json.dumps(data, ensure_ascii=False, default=str))
@@ -259,6 +298,7 @@ def run_eval_case_trace(
     """运行单题严格追踪，输出从取题到最终回答的完整诊断结果。"""
     root_dir = _ensure_backend_paths()
     _register_runtime_tools()
+    _ensure_engine_ports()
 
     from evals_core.storage import result_store
     from sop_core.sop_loader import SopLoader

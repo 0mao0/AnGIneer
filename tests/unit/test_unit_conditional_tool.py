@@ -3,8 +3,8 @@
 
 B2：_execute_table_lookup 从 TableTool import 不存在的 TableTool 类，
 触发即 ImportError；修复后不得抛 ImportError。
-老 TableLookupTool 删除后分支改走 canonical_table_lookup（无端口时返回 error dict，
-同样不得抛异常）。
+老 TableLookupTool 删除后分支改走 canonical_table_lookup（无 scope 时返回明确 error dict，
+不落默认库、不抛异常）。
 """
 import os
 import sys
