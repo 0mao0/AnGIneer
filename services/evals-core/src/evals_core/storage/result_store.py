@@ -304,16 +304,27 @@ def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
     )
     conn.commit()
 
-    # 在 tree_node 中创建数据集节点
+    # 在 tree_node 中创建数据集节点。重导（import_bundle 走 INSERT OR REPLACE 重建节点）时
+    # payload 通常不带 folder_id —— 沿用既有节点的归属，否则每次重导都把用户移动过的题集打回根
+    # （2026-10-02 实踩：为改题集卡 meta 重导后，题集每次刷新/重启回根目录）。
     folder_id = data.get("folder_id", "")
-    parent_id = folder_id if folder_id else None
+    existing_node = tree_store.get_node(conn, data["dataset_id"])
+    if folder_id:
+        parent_id = folder_id
+        sort_order = data.get("sort_order", -1)
+    elif existing_node and existing_node.get("tree_type") == "eval_dataset":
+        parent_id = existing_node.get("parent_id")
+        sort_order = data.get("sort_order", existing_node.get("sort_order", -1))
+    else:
+        parent_id = None
+        sort_order = data.get("sort_order", -1)
     tree_store.insert_node(conn, {
         "node_id": data["dataset_id"],
         "tree_type": "eval_dataset",
         "title": data.get("title", ""),
         "parent_id": parent_id,
         "scope_id": data.get("category", "knowledge"),
-        "sort_order": data.get("sort_order", -1),
+        "sort_order": sort_order,
         "is_folder": False,
         "extra": {
             "description": data.get("description", ""),
