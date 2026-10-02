@@ -15,7 +15,7 @@ from typing import Optional
 
 from evals_core.nightly import paths, pipeline
 from evals_core.runner import suite_runner
-from evals_core.storage import result_store
+from evals_core.storage import retention, result_store
 
 logger = logging.getLogger("nightly_control")
 
@@ -347,6 +347,16 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
     logger.info("nightly 流水线结束（source=%s）: state=%s 用时 %.1f min",
                 source, result.get("state"), (time.monotonic() - t0) / 60.0)
     _record(cfg, datetime.now(BJT), source, slot, result)
+    # 全表补裁：suite_runner 只在"自己的 run 收尾时"调 enforce，而刚收尾的 run 都在
+    # 3 天窗内不动。若此后几天没有别的评测收尾，滑出窗口的全量 run 就没人裁（10-02
+    # 实踩：4 个 450MB run 堆到 2G）。nightly 每晚必跑，这里补一次全表扫描兜住日界。
+    # best-effort：失败只留日志，下晚再试（同 suite_runner:742 的容错口径）。
+    try:
+        retention_stats = retention.enforce_after_run()
+        if retention_stats["compacted_runs"] or retention_stats["deleted_runs"]:
+            logger.info("nightly 日终保留策略: %s", {k: v for k, v in retention_stats.items() if v})
+    except Exception:  # noqa: BLE001
+        logger.exception("nightly 日终保留策略失败（下晚再试）")
     # 素材检查/门禁计算也会吃堆内存；评测段归还点在 suite_runner 线程 finally
     try:
         suite_runner.release_native_memory()

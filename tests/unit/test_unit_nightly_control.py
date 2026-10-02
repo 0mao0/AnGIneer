@@ -227,6 +227,34 @@ class LaunchTests(unittest.TestCase):
         self.assertFalse(second["ok"])
         self.assertIn("运行", second["detail"])
 
+    def test_execute_sweeps_retention_after_pipeline(self):
+        """日终全表补裁（10-02 缺口回归）：suite_runner 的 enforce 只挂 run 收尾，
+        滑出 3 天窗的全量 run 要等下一次评测收尾才可能被裁。_execute 收口必须再调
+        一次 enforce_after_run，保证每晚有一个触发点。"""
+        nc._active = None
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=self._fake_pipeline), \
+             mock.patch.object(nc.retention, "enforce_after_run",
+                               return_value={"full": 0, "compacted_runs": 1,
+                                             "deleted_runs": 0, "deleted_ids": []}) as sweep:
+            async def scenario():
+                started = await nc.launch("manual")
+                await nc._active
+            asyncio.run(scenario())
+        sweep.assert_called_once()
+
+    def test_execute_survives_retention_sweep_failure(self):
+        """补裁失败不得影响流水线收口：结果照常落盘、异常不外抛。"""
+        nc._active = None
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=self._fake_pipeline), \
+             mock.patch.object(nc.retention, "enforce_after_run", side_effect=RuntimeError("locked")), \
+             mock.patch.object(nc.logger, "exception"):
+            async def scenario():
+                await nc.launch("manual")
+                await nc._active
+            asyncio.run(scenario())  # 不抛
+        stored = json.loads(Path(nc.paths.settings_file()).read_text(encoding="utf-8"))
+        self.assertEqual(stored["last_dispatch"]["state"], "green")
+
 
 class StopAndRunningRowTests(unittest.TestCase):
     """手动停止（不留痕不发通知）与列表虚拟运行行的编排/字段口径。"""
