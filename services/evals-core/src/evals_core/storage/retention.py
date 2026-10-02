@@ -32,6 +32,12 @@ SNAPSHOT_KEYS = ("retrieval_debug", "retrieved_items", "evidences", "route_debug
 KEEP_FULL_DAYS_DEFAULT = 3
 DELETE_AFTER_DAYS_DEFAULT = 90
 
+# 裁剪/删除的分批提交行数（2026-10-02 实踩：5 个过期 run 数千行 UPDATE 攒到 enforce
+# 末尾才提交，一笔写事务独占 WAL 写锁 ~7.5 分钟，撞锁的补判线程 complete_run 抛
+# database is locked 后无重试直接死亡，run 永卡 running、nightly 干等 7 小时判超时）。
+# 分批边界取 200：一批 ≈数十毫秒，其他写者按 busy_timeout 排队即过。
+COMMIT_BATCH_ROWS = 200
+
 
 def baseline_run_id() -> str:
     """基线指针指向的 run_id（无指针/读失败返回空串——只影响保护名单，不抛错）。"""
@@ -93,7 +99,12 @@ def _strip_multi(raw: Optional[str]) -> Optional[str]:
 
 
 def _compact_run(conn, run_id: str) -> int:
-    """裁一个 run 的过程快照，返回实际改写的行数。"""
+    """裁一个 run 的过程快照，返回实际改写的行数。
+
+    每改 COMMIT_BATCH_ROWS 行提交一次：写锁分段释放，评测收尾/补判等并发写者
+    按 busy_timeout 排队即过，不会被一笔跨分钟的大事务挡死（模块头注释）。
+    逐行 UPDATE 按 rowid 定位、天然幂等，中途崩溃只会留下"半裁剪"状态，
+    下轮 enforce 继续裁剩余行，无需回滚。"""
     rows = conn.execute(
         "select rowid AS rid, prediction, all_predictions from eval_run_detail where run_id=?", (run_id,)).fetchall()
     changed = 0
@@ -112,6 +123,8 @@ def _compact_run(conn, run_id: str) -> int:
         vals.append(row["rid"])
         conn.execute(f"update eval_run_detail set {', '.join(sets)} where rowid = ?", vals)
         changed += 1
+        if changed % COMMIT_BATCH_ROWS == 0:
+            conn.commit()
     return changed
 
 
@@ -143,6 +156,7 @@ def enforce(conn, today_bjt: str, *, baseline_run: str = "",
             deleted += 1
             continue
         if _compact_run(conn, run_id):
+            conn.commit()  # run 间也提交一次，收尾批（不足 COMMIT_BATCH_ROWS 的行）单独落盘
             compacted += 1
     if deleted_ids:
         result_store.delete_runs(conn, deleted_ids)
@@ -153,4 +167,14 @@ def enforce(conn, today_bjt: str, *, baseline_run: str = "",
 def enforce_after_run(**kwargs) -> Dict[str, Any]:
     """run 收尾接线点：以当前北京时间与基线指针执行策略。异常由调用方兜底。"""
     today = (datetime.utcnow() + timedelta(hours=8)).strftime("%Y-%m-%d")
-    return enforce(result_store._get_conn(), today, baseline_run=baseline_run_id(), **kwargs)
+    conn = result_store._get_conn()
+    stats = enforce(conn, today, baseline_run=baseline_run_id(), **kwargs)
+    if stats["compacted_runs"] or stats["deleted_runs"]:
+        # 大批量改写后主动收缩 WAL（实测清理一轮可滞留 GB 级 WAL，逼近部署机磁盘红线）。
+        # TRUNCATE 需无并发读者，抢不到锁 sqlite 直接返回 busy 不阻塞——best-effort，
+        # 平时无害；日常收缩仍靠 sqlite 自动 checkpoint。
+        try:
+            conn.execute("pragma wal_checkpoint(TRUNCATE)")
+        except Exception:  # noqa: BLE001
+            pass
+    return stats

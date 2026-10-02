@@ -1,14 +1,24 @@
 """SQLite 结果持久化存储。"""
 import json
+import logging
 import os
 import sqlite3
+import time
 import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional
 
 from tree_core import tree_store
 
+logger = logging.getLogger(__name__)
+
 _DB_PATH = os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../../..")), "data", "evals", "evals.sqlite")
+
+# run 生命周期回写撞 WAL 写锁的重试参数（2026-10-02 实踩：补判线程 complete_run 被
+# 保留策略大事务挡 5s——Python connect 默认 busy timeout——抛 database is locked，
+# fail_run 同败、线程裸死，run 永卡 running，nightly 空等到 420 分钟超时线）。
+_LOCK_RETRY_ATTEMPTS = 5
+_LOCK_RETRY_BASE_WAIT_S = 2.0
 
 _LOCAL = threading_local = None
 
@@ -43,11 +53,44 @@ def _get_conn() -> sqlite3.Connection:
     conn = getattr(local, "conn", None)
     if conn is None:
         os.makedirs(os.path.dirname(_DB_PATH), exist_ok=True)
-        conn = sqlite3.connect(_DB_PATH, check_same_thread=False)
+        # timeout=30：默认 5s 太脆——即便保留策略已按批提交，锁持有仍是百毫秒~秒级，
+        # 叠加调度毛刺就会误伤终态回写；30s 排队窗口 + _write_run_state 退避重试双保险。
+        conn = sqlite3.connect(_DB_PATH, check_same_thread=False, timeout=30)
         conn.row_factory = sqlite3.Row
         conn.execute("PRAGMA journal_mode=WAL")
         local.conn = conn
     return conn
+
+
+def _is_lock_error(exc: sqlite3.OperationalError) -> bool:
+    msg = str(exc).lower()
+    return "locked" in msg or "busy" in msg
+
+
+def _write_run_state(conn: sqlite3.Connection, statements: List[tuple], *, what: str, run_id: str) -> None:
+    """run 生命周期写回（终态/续跑态）：一组语句在同一事务内执行后提交，撞 WAL 写锁退避重试。
+
+    这类写一个 run 只发生一次、且决定 nightly 能否走出等待——瞬时锁不该让它永久卡死。
+    只重试 locked/busy，其他 OperationalError（语法/约束等真错误）照抛交调用方处理。
+    重试前 rollback：撞锁的语句虽未落数据，但可能已开启空事务，留着会把 WAL 读快照钉住；
+    整组语句重放也要求上一笔事务已回滚干净（restart_run_for_retry 的 DELETE+UPDATE 成组原子）。"""
+    for attempt in range(1, _LOCK_RETRY_ATTEMPTS + 1):
+        try:
+            for sql, params in statements:
+                conn.execute(sql, params)
+            conn.commit()
+            return
+        except sqlite3.OperationalError as exc:
+            if not _is_lock_error(exc) or attempt == _LOCK_RETRY_ATTEMPTS:
+                raise
+            wait = _LOCK_RETRY_BASE_WAIT_S * attempt
+            logger.warning("run %s %s 回写撞数据库锁（第 %d/%d 次，%.0fs 后重试）: %s",
+                           run_id, what, attempt, _LOCK_RETRY_ATTEMPTS, wait, exc)
+            try:
+                conn.rollback()
+            except sqlite3.Error:
+                pass
+            time.sleep(wait)
 
 
 def init_db() -> None:
@@ -621,22 +664,20 @@ def complete_run(run_id: str, summary_scores: Dict[str, Any]) -> None:
     """标记运行完成并写入汇总得分。"""
     now = datetime.now().isoformat()
     conn = _get_conn()
-    conn.execute(
+    _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'completed', completed_at = ?, summary_scores = ? WHERE run_id = ?",
         (now, json.dumps(summary_scores, ensure_ascii=False), run_id),
-    )
-    conn.commit()
+    )], what="complete_run", run_id=run_id)
 
 
 def reset_run_for_resume(run_id: str, config_snapshot: Dict[str, Any]) -> None:
     """续跑时把原 run 记录重置为运行中（保留 started_at/completed_questions/详情），
     避免同一轮评测产生两条记录。"""
     conn = _get_conn()
-    conn.execute(
+    _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, config_snapshot = ?, owner_pid = ? WHERE run_id = ?",
         (json.dumps(config_snapshot, ensure_ascii=False), os.getpid(), run_id),
-    )
-    conn.commit()
+    )], what="reset_run_for_resume", run_id=run_id)
 
 
 def restart_run_for_retry(run_id: str, config_snapshot: Dict[str, Any]) -> None:
@@ -644,35 +685,32 @@ def restart_run_for_retry(run_id: str, config_snapshot: Dict[str, Any]) -> None:
     不新增 item（区别于 resume——后者保留已完成题目续跑）。"""
     now = datetime.now().isoformat()
     conn = _get_conn()
-    conn.execute("DELETE FROM eval_run_detail WHERE run_id = ?", (run_id,))
-    conn.execute(
-        "UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, "
-        "completed_questions = 0, started_at = ?, config_snapshot = ?, owner_pid = ? WHERE run_id = ?",
-        (now, json.dumps(config_snapshot, ensure_ascii=False), os.getpid(), run_id),
-    )
-    conn.commit()
+    _write_run_state(conn, [
+        ("DELETE FROM eval_run_detail WHERE run_id = ?", (run_id,)),
+        ("UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, "
+         "completed_questions = 0, started_at = ?, config_snapshot = ?, owner_pid = ? WHERE run_id = ?",
+         (now, json.dumps(config_snapshot, ensure_ascii=False), os.getpid(), run_id)),
+    ], what="restart_run_for_retry", run_id=run_id)
 
 
 def fail_run(run_id: str, error: str) -> None:
     """标记运行失败。"""
     now = datetime.now().isoformat()
     conn = _get_conn()
-    conn.execute(
+    _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'failed', completed_at = ?, summary_scores = ? WHERE run_id = ?",
         (now, json.dumps({"error": error}, ensure_ascii=False), run_id),
-    )
-    conn.commit()
+    )], what="fail_run", run_id=run_id)
 
 
 def cancel_run(run_id: str, summary_scores: Dict[str, Any]) -> None:
     """标记运行为已取消状态，保留已完成的题目结果和汇总指标。"""
     now = datetime.now().isoformat()
     conn = _get_conn()
-    conn.execute(
+    _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'cancelled', completed_at = ?, summary_scores = ? WHERE run_id = ?",
         (now, json.dumps(summary_scores, ensure_ascii=False), run_id),
-    )
-    conn.commit()
+    )], what="cancel_run", run_id=run_id)
 
 
 def get_run(run_id: str) -> Optional[Dict[str, Any]]:

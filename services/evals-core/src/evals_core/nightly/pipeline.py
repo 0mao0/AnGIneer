@@ -77,9 +77,18 @@ async def _sleep(seconds: float) -> None:
     await asyncio.sleep(seconds)
 
 
+# 轮询停滞告警阈值（2026-10-02 实踩：1040 题全部跑完后 complete_run 撞数据库锁、
+# 线程死亡，run 永卡 running(1040/1040)，主循环空转到 420 分钟超时线才暴露）。
+# 进度连续 STALL_WARN_S 不动即点名——把「卡死」从次日清晨人眼发现变成分钟内日志告警。
+STALL_WARN_S = 600
+
+
 async def _await_terminal(run_id: str, deadline: float) -> dict:
     """轮询到 run 终态；超时/失败/取消都按 PipelineError（上层落 error 档结论）。"""
     last_status = ""
+    last_progress = None
+    last_change = time.monotonic()
+    stall_warned = False
     while time.monotonic() < deadline:
         run = await asyncio.to_thread(result_store.get_run, run_id)
         status = (run or {}).get("status", "")
@@ -87,6 +96,19 @@ async def _await_terminal(run_id: str, deadline: float) -> dict:
             logger.info("nightly run %s 状态: %s (%s/%s)", run_id, status,
                         (run or {}).get("completed_questions"), (run or {}).get("total_questions"))
             last_status = status
+        progress = (run or {}).get("completed_questions")
+        if progress != last_progress:
+            last_progress = progress
+            last_change = time.monotonic()
+            stall_warned = False
+        elif not stall_warned and time.monotonic() - last_change > STALL_WARN_S:
+            logger.warning(
+                "nightly run %s 已 %d 分钟无进度（completed_questions=%s/%s, status=%s）——"
+                "常见成因是收尾回写撞数据库写锁后线程死亡，请查 aichat-api 日志中 "
+                "suite_runner/result_store 的 Traceback 与『撞数据库锁』告警",
+                run_id, STALL_WARN_S // 60, progress,
+                (run or {}).get("total_questions"), status)
+            stall_warned = True
         if status not in RUNNING_STATES:
             if status != "completed":
                 raise PipelineError(f"评测 run {run_id} 未正常完成（status={status}）")
