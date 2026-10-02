@@ -305,7 +305,7 @@ def local_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
             " ORDER BY s.page_count ASC LIMIT 1",
             lib_params,
         ).fetchone()
-        # 标题清单：供 meta_query 通道回答"有哪些文章/规范"类列举型元数据问题
+        # 标题清单：供 knowledge_stats 工具回答"有哪些文章/规范"类列举型元数据问题
         # （与 docs-api GET /api/knowledge/stats 的 documents.titles 口径保持一致）
         title_rows = conn.execute(
             f"SELECT title, status FROM nodes WHERE deleted=0{lib_clause} ORDER BY title LIMIT 101",

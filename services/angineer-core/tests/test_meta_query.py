@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
-"""meta_query（统计/元数据查询）通道测试。
+"""统计/元数据查询相关测试（废 meta_query 路由后口径，2026-10-02）。
 
-覆盖：统计关键词规则、分类器规则优先、build_attempts 分支、knowledge_stats 本地直查。
+meta_query 特权岔道已删：统计题改由 L1 semantic_retrieval + knowledge_stats 工具自选承接。
+覆盖：分类器降级路径（统计题→L1）、QA 工具箱含 knowledge_stats、build_attempts 对 legacy
+service_mode 残值的优雅降级、guard 对 stats 结果的证据面兼容（P-1）、knowledge_stats 本地直查。
 """
 import json
 import sqlite3
@@ -15,133 +17,97 @@ SERVICES = Path(__file__).resolve().parents[3]
 for pkg in ("angineer-core", "docs-core"):
     sys.path.insert(0, str(SERVICES / pkg / "src"))
 
-from angineer_core.agent_policy import _meta_answer_usable, build_attempts
+from angineer_core.agent_policy import build_attempts
 from angineer_core.agent_messages import AgentMessage
 from angineer_core.agent_tools import StatsAdapter
 from angineer_core.base_contracts import IntentResult
-from angineer_core.classifier import IntentClassifier, _is_meta_query
-
-
-class TestMetaQueryRule:
-    @pytest.mark.parametrize("q", [
-        "知识库有多少篇文档",
-        "一共有多少篇文档？",
-        "文档数量的分布",
-        "最近上传了多少份资料",
-        "default 库里有多少篇文档",
-        "知识库文章数量",
-    ])
-    def test_positive(self, q):
-        assert _is_meta_query(q)
-
-    @pytest.mark.parametrize("q", [
-        "波浪力分布规律是什么",          # 分布是工程词，无对象词
-        "防波堤的设计规范有哪些",        # 规范不在对象词
-        "如何计算码头前沿水深",
-        "什么是港口吞吐量",
-        "你好",
-        "混凝土保护层最小厚度是多少",     # 多少 + 无对象词
-    ])
-    def test_negative(self, q):
-        assert not _is_meta_query(q)
+from angineer_core.classifier import IntentClassifier, _has_substantive_content, _check_l0_intent
 
 
 class _FakeClassifyLLM:
-    """分类器假客户端：只回固定 JSON，不联网（chat_result_guarded 只读 .text/.finish_reason）。"""
+    """分类器假客户端：只回固定文本，不联网（chat_result_guarded 只读 .text/.finish_reason）。"""
 
-    def __init__(self, payload: dict):
-        self._payload = json.dumps(payload, ensure_ascii=False)
+    def __init__(self, text: str):
+        self._text = text
 
     def chat_result(self, messages, **_kwargs):
-        return SimpleNamespace(text=self._payload, finish_reason="stop")
+        return SimpleNamespace(text=self._text, finish_reason="stop")
 
 
-class TestListingPhrasingsViaLLM:
-    """列举式问法（有哪些/列出…）不由关键词规则接——规则只管数量/统计词（2026-09-29 定版）。
+class TestStatsQuestionsRouteL1:
+    """废 meta_query 路由（2026-10-02 第二步）后：统计题无规则短路、无归一化兜底，
+    由 LLM 判 L1（prompt v4）；LLM 失败时规则兜底经并入 L1_KEYWORDS 的计数词归 L1，
+    且 _has_substantive_content 不再把统计题当闲聊吞进 L0（原 _is_meta_query 的 L0 兜底职责）。"""
 
-    为何不给规则扩词表：负例「防波堤的设计规范有哪些」与列举正例「有哪些知识库」都含「有哪些」，
-    判别点在「问库本身 vs 问文档正文」，关键词分不开，扩词表会把工程问题误拦进统计通道。
-
-    2026-10-02 第一步（废 meta_query 路由）后口径更新：这类问法仍由 LLM 主力分类器接管，
-    但 LLM 不再允许输出 meta_query——即便漂移输出，解析点归一化也将其改写为
-    semantic_retrieval（双保险的第二道），由 L1 档工具自选承接（prompt v4 已删该输出值）。
-    """
-
-    @pytest.mark.parametrize("q", ["有哪些知识库", "库里有哪些文档？", "列出所有知识库"])
-    def test_rule_does_not_claim_listing(self, q):
-        assert not _is_meta_query(q)
-
-    def test_llm_drift_meta_query_normalized(self, monkeypatch):
-        """LLM 残留输出 meta_query 时，解析点归一化改写为 semantic_retrieval（防穿过 Literal 进 meta 独木桥）。"""
+    def test_fallback_classifies_stats_question_l1(self, monkeypatch):
+        """LLM 挂掉时规则兜底把统计题判 L1 semantic_retrieval（计数词已并入 L1_KEYWORDS）。"""
         from angineer_core import ops_metrics
 
         monkeypatch.setattr(ops_metrics, "record_event", lambda *a, **k: None, raising=False)
-        clf = IntentClassifier(sops=[], llm_client=_FakeClassifyLLM({
-            "intent_level": "L1",
-            "intent_type": "统计/元数据查询",
-            "service_mode": "meta_query",
-            "required_capabilities": ["stats"],
-            "execution_plan": ["meta_query"],
-            "confidence": 0.9,
-            "reason": "询问知识库本身的列表/分布情况，属于系统元数据查询",
-        }))
-        result = clf.classify_intent("有哪些知识库")
+        clf = IntentClassifier(sops=[], llm_client=_FakeClassifyLLM("这不是 JSON"))
+        result = clf.classify_intent("知识库有多少篇文档")
         assert result.service_mode == "semantic_retrieval"
         assert result.intent_level == "L1"
 
+    def test_stats_question_is_substantive_not_l0(self):
+        """统计题是有实质内容的真问题：L0 闲聊分支不得吞掉（原 _is_meta_query 在此的兜底职责）。"""
+        assert _has_substantive_content("知识库有多少篇文档")
+        assert _has_substantive_content("最近上传了多少份资料")
+        assert _check_l0_intent("知识库有多少篇文档") is None
+        assert _check_l0_intent("最近上传了多少份资料") is None
 
-class TestMetaConfigSelfRescue:
-    """第一步止血：meta 档工具箱加 knowledge_search 自救 + max_turns 2→3（2026-10-02）。"""
+    def test_engineering_distribution_question_still_l1_not_special(self, monkeypatch):
+        """工程「分布」题无特殊通道（原 meta 规则的负例语义保留为回归哨兵）。"""
+        from angineer_core import ops_metrics
 
-    def test_meta_config_has_self_rescue_search(self):
-        from angineer_core.agent_configs import build_meta_config
+        monkeypatch.setattr(ops_metrics, "record_event", lambda *a, **k: None, raising=False)
+        clf = IntentClassifier(sops=[], llm_client=_FakeClassifyLLM("这不是 JSON"))
+        result = clf.classify_intent("波浪力分布规律是什么")
+        assert result.service_mode == "semantic_retrieval"
 
-        config = build_meta_config(llm=object(), config_name="t")
+
+class TestQaToolboxHasStats:
+    """knowledge_stats 下沉 L1 统一工具箱（2026-10-02 第二步）：统计题与正文题同档由模型自选。"""
+
+    def test_qa_default_toolbox_has_four_tools(self):
+        from angineer_core.agent_configs import build_qa_config
+
+        config = build_qa_config(llm=object(), config_name="t")
         names = {t.name for t in config.tools}
-        assert names == {"knowledge_stats", "knowledge_search"}
-        assert config.max_turns == 3
+        assert names == {"knowledge_search", "table_search", "entity_search", "knowledge_stats"}
+
+    def test_qa_table_first_toolbox_keeps_stats(self):
+        from angineer_core.agent_configs import build_qa_config
+
+        config = build_qa_config(llm=object(), config_name="t", task_type="table_qa")
+        assert {t.name for t in config.tools} >= {"knowledge_stats"}
+        assert config.tools[0].name == "table_search"  # 查表首位语义不被 stats 下沉破坏
 
 
-class TestClassifierMetaFirst:
-    def test_meta_query_rule_precedes_llm(self):
-        """统计问题应由规则直接命中 meta_query，不落入 LLM/语义检索。"""
-        clf = IntentClassifier(sops=[])
-        result = clf.classify_intent("知识库有多少篇文档")
-        assert result.service_mode == "meta_query"
-        assert result.intent_level == "L1"
+class TestBuildAttemptsLegacyMetaValue:
+    """meta_query 特权岔道已删：历史 service_mode="meta_query" 残值（Literal 保留 legacy）
+    经 build_attempts 自然落 level 对应档，不再有「优先于一切 level」的独木桥。"""
 
-    def test_engineering_question_not_meta(self):
-        """工程内容问题不应被 meta 规则拦截。"""
-        clf = IntentClassifier(sops=[])
-        result = clf.classify_intent("防波堤的设计波浪要素有哪些")
-        assert result.service_mode != "meta_query"
-
-
-class TestBuildAttempts:
     def _intent(self, service_mode, level="L1"):
         return IntentResult(intent_level=level, service_mode=service_mode)
 
-    def test_meta_query_branch(self):
+    def test_legacy_meta_value_falls_to_l1(self):
         attempts = build_attempts(
             intent_result=self._intent("meta_query"),
             scene="docs", library_id="default", doc_ids=[],
             load_nodes=lambda: [], llm_factory=lambda: None,
         )
-        # meta 段 + L1 正文检索兜底（统计通道答非所问时自救）
-        assert len(attempts) == 2
-        assert attempts[0].name == "统计/元数据查询"
-        assert attempts[0].requires_tools is True
-        assert attempts[0].fallback_note
-        assert attempts[1].name == "L1 语义检索"
+        assert len(attempts) == 1
+        assert attempts[0].name == "L1 语义检索"
 
-    def test_meta_query_overrides_other_levels(self):
-        """即使 level 被判成 L2，service_mode=meta_query 也走统计通道。"""
+    def test_legacy_meta_value_no_longer_overrides_level(self):
+        """即使 service_mode=meta_query，level=L2 仍走 L2 表格档（原「覆盖一切 level」语义删除）。"""
         attempts = build_attempts(
             intent_result=self._intent("meta_query", level="L2"),
             scene="docs", library_id="default", doc_ids=[],
             load_nodes=lambda: [], llm_factory=lambda: None,
         )
-        assert attempts[0].name == "统计/元数据查询"
+        assert attempts[0].name != "统计/元数据查询"
 
     def test_l1_still_semantic(self):
         attempts = build_attempts(
@@ -152,20 +118,47 @@ class TestBuildAttempts:
         assert attempts[0].name == "L1 语义检索"
 
 
-class TestMetaAnswerUsable:
-    def _msgs(self, text):
-        return [AgentMessage(role="assistant", content=text)]
+class TestGuardStatsEvidence:
+    """P-1（废 meta_query 路由第二步）：knowledge_stats 返回无 items[]，统计摘要纳入 guard
+    证据面后，no_evidence 与 unsupported_reference 两道闸不误杀正确统计答案（evidence_parts
+    定版方案——否决「纯 stats 组合豁免 enforce_evidence」，那会重开无证据出数字的洞）。"""
 
-    def test_real_stats_answer_usable(self):
-        assert _meta_answer_usable(self._msgs("当前知识库共有 78 份文档，全部为 PDF 格式。"))
-        assert _meta_answer_usable(self._msgs("The knowledge base contains 122 documents, all in PDF format."))
+    def _messages(self, answer, tool_content):
+        return [
+            AgentMessage(role="user", content="知识库里有多少篇文档？"),
+            AgentMessage(role="tool", name="knowledge_stats", content=tool_content),
+            AgentMessage(role="assistant", content=answer),
+        ]
 
-    def test_non_answer_patterns_blocked(self):
-        assert not _meta_answer_usable(self._msgs("The provided knowledge base statistics do not contain information about the median redshift of the MGS catalog."))
-        assert not _meta_answer_usable(self._msgs("The knowledge_stats tool only provides metadata about the knowledge base itself."))
-        assert not _meta_answer_usable(self._msgs("根据知识库统计工具返回的数据，当前知识库中不包含关于评论数的统计信息。"))
-        assert not _meta_answer_usable(self._msgs("没有检索到足够证据支持最终结论。"))
-        assert not _meta_answer_usable(self._msgs(""))
+    def test_stats_answer_passes_both_gates(self):
+        from angineer_core.agent_configs import make_final_answer_guard
+
+        guard = make_final_answer_guard(enforce_evidence=True)
+        tool_content = json.dumps(
+            {"documents": {"total": 78}, "pages": {"total": 12000}, "storage": {"total_file_size_mb": 1.5}},
+            ensure_ascii=False,
+        )
+        result = guard(self._messages("当前知识库共有 78 份文档，总页数 12000 页。", tool_content))
+        assert result is None, f"统计答案不应被 guard 拦截：{result}"
+
+    def test_stats_answer_with_unbacked_std_reference_still_flagged(self):
+        """统计答案引用证据面里不存在的标准编号 → unsupported_reference 照常拦截：
+        P-1 解除的是「空证据全量误杀」，token 级核对语义不因 stats 放宽（guard 语义不变）。"""
+        from angineer_core.agent_configs import make_final_answer_guard
+
+        guard = make_final_answer_guard(enforce_evidence=True)
+        tool_content = json.dumps({"documents": {"total": 3}}, ensure_ascii=False)
+        result = guard(self._messages("按 ISO 19880 统计口径，库内共 3 份文档。", tool_content))
+        assert result is not None and result[2] == "unsupported_reference"
+
+    def test_error_stats_result_still_refuses(self):
+        """stats 返回 error JSON（如本地回退被禁）：不得当成证据，enforce_evidence 照常拒答。"""
+        from angineer_core.agent_configs import make_final_answer_guard
+
+        guard = make_final_answer_guard(enforce_evidence=True)
+        tool_content = json.dumps({"error": "docs-api unreachable"}, ensure_ascii=False)
+        result = guard(self._messages("共有 78 份文档。", tool_content))
+        assert result is not None and result[2] == "no_evidence"
 
 
 @pytest.fixture

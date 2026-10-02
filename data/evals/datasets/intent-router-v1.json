@@ -1063,16 +1063,16 @@
    "question_family": "meta_direct",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_direct",
     "trap": "库自身统计",
-    "rationale": "问知识库规模 → meta_query（规则 6）",
+    "rationale": "问知识库规模 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {
@@ -1093,7 +1093,7 @@
     "route": "L1",
     "family": "meta_direct",
     "trap": "库清单",
-    "rationale": "废 meta_query 输出值（2026-10-02 第一步）：模型无法再输出 meta，落 L1 semantic_retrieval；knowledge_stats 由 L1 档工具描述承接（金标随第一步改，规则路径不受影响）",
+    "rationale": "问有哪些库 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
@@ -1115,16 +1115,16 @@
    "question_family": "meta_direct",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_direct",
     "trap": "格式分布",
-    "rationale": "问库内格式分布 → meta_query（规则 6）",
+    "rationale": "问库内格式分布 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {
@@ -1141,16 +1141,16 @@
    "question_family": "meta_direct",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_direct",
     "trap": "总量",
-    "rationale": "问上传总量 → meta_query（规则 6）",
+    "rationale": "问上传总量 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {
@@ -1167,16 +1167,16 @@
    "question_family": "meta_direct",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_direct",
     "trap": "页数统计",
-    "rationale": "问库页数统计 → meta_query（规则 6）",
+    "rationale": "问库页数统计 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {
@@ -1193,16 +1193,16 @@
    "question_family": "meta_direct",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_direct",
     "trap": "上传趋势",
-    "rationale": "问上传趋势 → meta_query（规则 6）",
+    "rationale": "问上传趋势 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {
@@ -1223,7 +1223,7 @@
     "route": "L1",
     "family": "meta_rephrase",
     "trap": "换措辞的元数据",
-    "rationale": "废 meta_query 输出值（2026-10-02 第一步）：模型无法再输出 meta，落 L1 semantic_retrieval；knowledge_stats 由 L1 档工具描述承接（金标随第一步改，规则路径不受影响）",
+    "rationale": "同一「问库自身」语义 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
@@ -1245,16 +1245,16 @@
    "question_family": "meta_rephrase",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_rephrase",
     "trap": "换措辞的元数据",
-    "rationale": "问库内总量 → meta_query",
+    "rationale": "问库内总量 → L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {
@@ -1275,7 +1275,7 @@
     "route": "L1",
     "family": "meta_rephrase",
     "trap": "换措辞的元数据",
-    "rationale": "废 meta_query 输出值（2026-10-02 第一步）：模型无法再输出 meta，落 L1 semantic_retrieval；knowledge_stats 由 L1 档工具描述承接（金标随第一步改，规则路径不受影响）",
+    "rationale": "问库更新时间（库自身元数据）→ L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
@@ -1297,16 +1297,16 @@
    "question_family": "meta_rephrase",
    "intent": {
     "level": "L1",
-    "mode": "meta_query",
-    "route": "meta",
+    "mode": "semantic_retrieval",
+    "route": "L1",
     "family": "meta_rephrase",
     "trap": "换措辞的元数据",
-    "rationale": "问入库状态与篇数（库自身）→ meta_query",
+    "rationale": "问入库状态与篇数（库自身）→ L1 + knowledge_stats 工具自选（废 meta_query 路由）",
     "strict_level": false,
     "strict_mode": false,
     "xfail": false,
     "source": "crafted",
-    "rule_hit": "rule_meta"
+    "rule_hit": "model"
    }
   },
   {

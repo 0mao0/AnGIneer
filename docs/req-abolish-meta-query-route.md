@@ -1,6 +1,6 @@
 # 废 meta_query 路由（意图识别改造）设计
 
-状态：设计中（2026-10-02 立项讨论定稿，未动代码；同日三轮评审修订见 §0/§0.1，四轮全量行号核验修订见 §0.2。**业主定论：meta_query 路由肯定要废，两步走只是实施排序，第二步不可省略**）。**定位：本文档 = 意图识别改造的整体设计（废 meta_query 路由两步走）**；与 Blackboard 新对话模式（`req-blackboard-conversation-mode.md`，原「会话语义图/路线 B」）是两条独立轨道——那边管「历史与证据怎么进 prompt」（上下文层），这边管「进哪个编排档、工具箱里有什么」（路由层），分工与融合见 §4
+状态：**两步均已实施（2026-10-02 当日）**——第一步止血 commit 468f7a9（分类器回放 5/5 验证）；第二步废档已落地待服务重启验证（P-1/P-2/P-3 全部实施，单测两套全绿）。评审修订记录：三轮见 §0/§0.1，四轮全量行号核验见 §0.2。**业主定论：meta_query 路由肯定要废，两步走只是实施排序，第二步不可省略**。**定位：本文档 = 意图识别改造的整体设计（废 meta_query 路由两步走）**；与 Blackboard 新对话模式（`req-blackboard-conversation-mode.md`，原「会话语义图/路线 B」）是两条独立轨道——那边管「历史与证据怎么进 prompt」（上下文层），这边管「进哪个编排档、工具箱里有什么」（路由层），分工与融合见 §4
 来源：FinanceBench 评测 E 类「路由性空召回」根因——meta_query 误路由稳定复现（run-77b37dd521d2 / run-87f822a3948a 各 3 道），且分类器 reason 与输出自相矛盾（reason 推出「应归 semantic_retrieval」输出仍是 meta_query）
 
 ## 0. 评审结论与修订点（2026-10-02）
@@ -32,7 +32,7 @@
 |---|---|---|---|
 | 1 | 勘误：prompt 涉 meta 的是规则 6/7（:28-29），规则 7 是规则 6 的边界收紧、互补非「打架」；规则 2（:24）是考试/计算意图，与 meta 无关 | prompts/classifier.py 实读 | §1.1/§1.2/§2.2/§2.3/§2.4 全部改为规则 6/7 |
 | 2 | **第一步非确定性**：`ServiceMode` Literal（base_contracts.py:71）仍接受 meta_query——单删 prompt 是赌 LLM 服从，漂移输出照过 pydantic 进 meta 分支（agent_policy.py:170-171 优先于一切 level）；本方案立论本就是「LLM 会漂移」 | base_contracts.py:64-72 + agent_policy.py:170-171 实读 | §2.2 新增 LLM 解析点（classifier.py:1013）归一化，与 prompt 删值构成双保险；第二步 §2.4 删临时归一化 |
-| 3 | P-1 欠一道闸：guard 除 no_evidence 外还有 unsupported_reference——空证据下答案含「大写缩写+数字」token（如 ISO 19880）即拒答 | agent_configs.py:178-183 → retrieval_pipeline.py:342+ | P-1 扩为两道闸；§2.4 定版「stats 摘要纳入 evidence_parts」，否决「纯 stats 组合豁免 enforce_evidence」（重开 01319 型无证据出数字洞） |
+| 3 | P-1 欠一道闸：guard 除 no_evidence 外还有 unsupported_reference——空证据下答案含「大写缩写+数字」token（如 ISO 19880）即拒答 | agent_configs.py:178-183 → retrieval_pipeline.py:342+ | P-1 扩为两道闸；§2.4 定版「stats 摘要纳入 evidence_parts」，否决「纯 stats 组合豁免 enforce_evidence」（重开 01319 型无证据出数字洞）。实施精度：②解除的是空证据全量误杀，token 级核对照常 |
 | 4 | 漏项×4：base_contracts.py:71 Literal 成员（保留注 legacy，照 `sql_first` 先例——删成员会使历史轨迹/回放过不了校验）；classifier.py:667（`_rule_based_classify` 第二处规则命中，与 :915 重复）；build_intent_set.py 其余触点（:23/:36/:70/:117-129/:243/:348-349/:392）；docs_routes.py:322 / docs-core agent_port.py:308 注释 | 全仓 grep 交叉验证 | §2.3 P-3、§2.4 已补 |
 | 5 | evals-core meta 桶留白定版：**保留注 legacy**——历史 run 记录存有 service_mode="meta_query"，删映射会追溯改写历史分布；新流量不再产生该值，桶自然归零 | intent_eval.py:32/:52-53 | §2.4 已定版，test_intent_eval.py:25 断言保留补注 |
 
@@ -138,7 +138,7 @@ classifier 输出 {level}（service_mode 退出路由；_is_meta_query 规则随
 
 | # | 前置 | 原因 |
 |---|---|---|
-| P-1 | `make_final_answer_guard` 证据口径兼容非检索类工具，**两道闸都要过**（四评 #3）：①no_evidence——证据只认工具 JSON 的 `items[].text`（agent_configs.py:162-177），knowledge_stats 返回无 `items[]`，正确统计答案必判无证据；②unsupported_reference——空证据下答案含「大写缩写+数字」token（如 ISO 19880）即拒答（agent_configs.py:178-183 → retrieval_pipeline.py:342+） | 不解决则「真 meta 题答案正确」验收必挂——meta 档当年不装 guard 正是这个原因（agent_configs.py:253-254 注释）；只修①不修②，带标准编号引用的统计答案仍被拒 |
+| P-1 | `make_final_answer_guard` 证据口径兼容非检索类工具，**两道闸都要过**（四评 #3）：①no_evidence——证据只认工具 JSON 的 `items[].text`（agent_configs.py:162-177），knowledge_stats 返回无 `items[]`，正确统计答案必判无证据；②unsupported_reference——空证据下答案含「大写缩写+数字」token（如 ISO 19880）即拒答（agent_configs.py:178-183 → retrieval_pipeline.py:342+） | 不解决则「真 meta 题答案正确」验收必挂——meta 档当年不装 guard 正是这个原因（agent_configs.py:253-254 注释）；只修①不修②，带标准编号引用的统计答案仍被拒；②解除的是「空证据全量误杀」，token 级核对照常——统计答案引用证据面外标准编号仍拦（TestGuardStatsEvidence 实测） |
 | P-2 | **定版（三评 #1）：降级为纯 prompt 约束，不做代码级豁免**——QA prompt v14 写明「注入的检索结果若与问题无关（如问知识库本身），忽略并改用 knowledge_stats」；第一步回放探针量污染（ir-meta-ref-* 与 01319/01328 形态题在一律注入下的编数字率），实测超标再议窄启发式豁免 | 原豁免方案与 P-3 对撞：豁免判据需统计意图信号，而第一步（删 classifier meta_query 输出值）+ P-3（删 `_is_meta_query`）把信号删尽；窄启发式盲区 = meta-rephrase 族按构造躲规则，豁免不了事故人群 |
 | P-3 | `_is_meta_query` 规则**随档删除**（业主定论：废就废干净，不留第二条 meta 岔道）：它确定性拦截 7 道真 meta 题（零 LLM 成本）的价值，不敌「同义两条路」的维护与漂移成本；删除后真 meta 题由 LLM 判 L1 + 工具自选承接，依赖 P-1/P-2 先行落地。注意 `_is_meta_query` 引用共**三处**（定义 :127-129）：`_has_substantive_content`（:589，L0 兜底，删除需同步改判据）、`_rule_based_classify`（:667，LLM 失败时的规则兜底，与主路径步骤 1.6 :915 重复，两处同删）；intent-router-v1 题集 10 道 meta 金标与 `build_intent_set.py` 机械校验同步改（触点 :23/:36/:70/:117-129/:243/:259-265/:348-349/:392） | 评审实测：删规则对三道靶题零作用；保留它只是重复通道，与「废特权岔道」目标矛盾 |
 
@@ -170,6 +170,13 @@ knowledge_stats 从服务 7 道规则命中题 → 暴露给 100% L1 流量。�
 - 不碰 level 判定逻辑本身
 
 ## 3. 验收
+
+**回填（2026-10-02）**：
+- ✅ 第一步闸门：intent-router-v1 本地回放 run-2a3eefc9a754（第一步代码）95/100——3 道 meta 改金标题红为**本地 evals 库旧金标**所致（评测读导入副本不读文件，「重导」在本地同样适用，已重导）；7 道规则题金标随第二步移动。L0×1+L2×1 与基线噪声同源
+- ✅ 三道靶题链路回放（第一步代码）：01328 / 00822 **满分带引用**（15 items，hit@1_doc=1.0）；01319 两次回放**稳定拒答**——路由与检索已愈（15 items 非空），答层残留属**拒答家族**（模型确认「未直接列出重组成本」却不执行题面「未列出答 0」指令），移交拒答守卫升格待办，不属本方案靶子（路由性空召回已清零）
+- ✅ P-1 双闸验证：TestGuardStatsEvidence 3 例（统计答案过两闸 / 无出处标准编号仍拦 / error JSON 照拒）
+- ⏳ P-2 探针（编数字率）与全量回归（pos-regress-60 + financebench-open-150）：待第二步代码重启后作发版闸
+- 第二步落地清单见 commit（分类器规则三处引用/meta 档/双段回退/兜底特判/归一化全删；knowledge_stats 下沉 L1 工具箱；QA prompt v14；guard evidence_parts；Literal 留 legacy；intent 金标 10 题→L1；build_intent_set 六触点）
 
 - [ ] **第一步闸门（新增，三评 #2）**：intent-router-v1 回放——3 道落模型题按实际路由改 L1 后全绿，7 道规则题不红（金标随第一步移动的验收）
 - [ ] **P-2 探针（新增，三评 #1）**：一律注入下 ir-meta-ref-* 与 01319/01328 形态题的编数字率——实测超标才升级代码级豁免，否则 P-2 维持 prompt 约束

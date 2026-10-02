@@ -31,6 +31,7 @@ class QaConfigTests(unittest.TestCase):
             "knowledge_search",
             "table_search",
             "entity_search",
+            "knowledge_stats",  # 废 meta_query 路由（2026-10-02）下沉 L1 统一工具箱
         ])
         self.assertTrue(all(tool.read_only for tool in config.tools))
         self.assertEqual(config.max_turns, 3)
@@ -190,6 +191,7 @@ class QaConfigTests(unittest.TestCase):
             "knowledge_search",
             "table_search",
             "entity_search",
+            "knowledge_stats",  # 废 meta_query 路由（2026-10-02）下沉 L1 统一工具箱
         ])
 
     def test_guard_removes_invalid_markers(self):

@@ -28,7 +28,11 @@ L0_PURE_CHAT_KEYWORDS = ["你好", "您好", "嗨", "hi", "hello", "早上好", 
                           "心情", "开心", "难过", "无聊", "累", "烦", "高兴", "生气", "焦虑",
                           "今天天气", "吃了吗", "在吗", "聊聊天", "闲聊"]
 L0_AMBIGUOUS_KEYWORDS = ["你是谁", "你叫什么", "能做什么", "有什么功能", "帮我", "怎么用"]
-L1_KEYWORDS = ["什么是", "是什么", "哪些", "定义", "概念", "组成", "包括", "分为", "划分", "分类", "类型", "位于", "设置", "位置", "在哪里", "宜设置", "应设置", "如何确定", "怎么确定", "怎样确定", "如何定义", "怎么定义", "如何划分", "怎么划分", "简述", "说明", "列举", "阐述", "解释", "原理", "作用", "功能", "特点", "特征", "区别", "异同", "对比", "比较", "差异", "选用", "选型", "适用条件", "适用范围", "影响因素", "注意事项"]
+L1_KEYWORDS = ["什么是", "是什么", "哪些", "定义", "概念", "组成", "包括", "分为", "划分", "分类", "类型", "位于", "设置", "位置", "在哪里", "宜设置", "应设置", "如何确定", "怎么确定", "怎样确定", "如何定义", "怎么定义", "如何划分", "怎么划分", "简述", "说明", "列举", "阐述", "解释", "原理", "作用", "功能", "特点", "特征", "区别", "异同", "对比", "比较", "差异", "选用", "选型", "适用条件", "适用范围", "影响因素", "注意事项",
+               # 废 meta_query 路由（第二步）：统计/计数类问法并入 L1 判据——既补 _has_substantive_content
+               # 的 L0 兜底（统计题不再被闲聊分支吞掉），也使规则兜底路径把统计题归 L1 semantic_retrieval；
+               # 刻意只收计数词、不收「分布/统计/趋势」（与工程词重叠，见已删 META_QUERY_VERBS 的 2026-09-06 复盘）
+               "多少", "几篇", "几份", "几本", "几个", "数量", "总数"]
 L2_KEYWORDS = ["取值", "范围", "规定", "条款", "要求", "标准值", "限值", "允许值", "应符合", "不应超过", "查表", "依据", "按照", "遵照", "应满足", "取值表", "参数表", "数据表", "条文"]
 L3_KEYWORDS = ["计算", "求", "验算", "核算", "校核", "公式", "等于多少", "结果是多少", "求解", "算出", "推定", "是多少", "求值", "推算"]
 # L4 关键词：仅当题目明确要求多步骤综合/方案设计/多方案比较时才触发
@@ -112,21 +116,9 @@ SHIP_TYPE_INFERENCE_RULES: List[Tuple[List[str], str, str]] = [
 ]
 
 
-# 统计/元数据查询：统计词与知识库对象词同现才命中，避免"波浪力分布"这类工程问题误判。
-# 动词表只放"计数/分布"类词："有哪些"是枚举内容题（答案在标题清单/正文，knowledge_stats 答不了），
-# 收进来会把列举类问题锁死在统计通道，用户只能拿到"统计维度暂不支持"拒答（2026-09-06 复盘）。
-META_QUERY_VERBS = (
-    "多少", "几篇", "几份", "几本", "几个", "数量", "总数", "分布", "统计",
-    "趋势", "概况", "概览", "有几个", "最近上传", "最近新增",
-)
-META_QUERY_TARGETS = (
-    "知识库", "文档库", "资料库", "文献库", "库里", "库中", "文档", "文章", "资料",
-)
-
-
-def _is_meta_query(query: str) -> bool:
-    """统计/元数据查询判定：统计词与知识库对象词同现。"""
-    return any(v in query for v in META_QUERY_VERBS) and any(t in query for t in META_QUERY_TARGETS)
+# 统计/元数据查询规则已随废 meta_query 路由删除（2026-10-02 第二步）：原 META_QUERY_VERBS/
+# META_QUERY_TARGETS/_is_meta_query 统计题改由 L1 semantic_retrieval + 工具自选承接
+# （knowledge_stats 已下沉 L1 工具箱）；计数问法并入 L1_KEYWORDS 维持 L0 兜底判据。
 
 
 def _build_intent_result(
@@ -586,8 +578,6 @@ def _keyword_recall(
 # 检测查询是否包含实质性工程内容
 def _has_substantive_content(query: str) -> bool:
     """判断查询是否包含实质性工程内容（规范编号、条款、参数、数值、专业关键词等）。"""
-    if _is_meta_query(query):
-        return True
     if STANDARD_CODE_PATTERN.search(query):
         return True
     if CLAUSE_ID_PATTERN.search(query):
@@ -662,17 +652,6 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
         return None
 
     # L0 闲聊已由 _check_l0_intent 在前置处理，此处跳过
-
-    # 统计/元数据查询优先判定：须置于 L1-L4 各分支之前（"哪些/多少"等词与 L1/L2 关键词高度重叠）
-    if _is_meta_query(query):
-        return _build_intent_result(
-            intent_level="L1",
-            intent_type="统计/元数据查询",
-            required_capabilities=["stats"],
-            service_mode="meta_query",
-            execution_plan=["meta_query"],
-            reason="检测到知识库统计/元数据查询关键词（统计词+对象词同现）",
-        )
 
     is_multiple_choice = bool(re.search(r"\([A-D]\)", query) or re.search(r"[（][A-D][）]", query))
     has_l3_keyword = any(kw in query for kw in L3_KEYWORDS)
@@ -911,18 +890,8 @@ class IntentClassifier:
             logger.info(f"[DEBUG-SOP-ROUTE] L1 定位信号规则优先命中: reason={location_result.reason}")
             return location_result
 
-        # 步骤 1.6: 统计/元数据查询规则优先于 LLM（规则即确定性命中，避免 LLM 误判走语义检索空查）
-        if _is_meta_query(user_query):
-            meta_result = _build_intent_result(
-                intent_level="L1",
-                intent_type="统计/元数据查询",
-                required_capabilities=["stats"],
-                service_mode="meta_query",
-                execution_plan=["meta_query"],
-                reason="检测到知识库统计/元数据查询关键词（统计词+对象词同现）",
-            )
-            logger.info(f"[DEBUG-SOP-ROUTE] 统计查询规则优先命中: {user_query[:50]}")
-            return meta_result
+        # 步骤 1.6: 统计/元数据查询规则已删（废 meta_query 路由第二步）——统计题走 LLM 判 L1，
+        # knowledge_stats 由 L1 档工具箱按工具描述自选承接
 
         # 步骤 1.7: 条款号快路径（默认开，ANGINEER_CLAUSE_FASTPATH=false 关闭）
         if _clause_fastpath_enabled() and _is_clause_number_query(user_query):
@@ -1005,18 +974,12 @@ class IntentClassifier:
                     f"level={parsed.get('intent_level')}, reason={parsed.get('reason')}"
                 )
                 return None
-            service_mode = parsed.get("service_mode", "semantic_retrieval")
-            if service_mode == "meta_query":
-                # 废 meta_query 路由第一步（双保险的第二道）：prompt 已删该输出值，此处归一化
-                # 拦截 LLM 残留漂移，防止漂移输出穿过 ServiceMode Literal 进 meta 独木桥；
-                # 规则路径（_classify_intent_impl 步骤 1.6 / _rule_based_classify）的显式赋值不受影响
-                service_mode = "semantic_retrieval"
             result = _build_intent_result(
                 intent_level=parsed.get("intent_level", "L1"),
                 intent_type=parsed.get("intent_type", ""),
                 parameters=parsed.get("parameters", {}),
                 required_capabilities=parsed.get("required_capabilities", ["retrieval"]),
-                service_mode=service_mode,
+                service_mode=parsed.get("service_mode", "semantic_retrieval"),
                 execution_plan=parsed.get("execution_plan"),
                 reason=parsed.get("reason", ""),
             )

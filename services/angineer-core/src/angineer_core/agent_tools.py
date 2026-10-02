@@ -858,7 +858,7 @@ def _run_local_stats(library_id: Optional[str]) -> Dict[str, Any]:
 
 
 class StatsAdapter:
-    """知识库统计/元数据查询工具（meta_query 通道专用）。"""
+    """知识库统计工具（原 meta_query 通道专用；废路由后下沉 L1 统一工具箱，2026-10-02）。"""
 
     @staticmethod
     def knowledge_stats(*, default_library_id: Optional[str] = None) -> AgentTool:
@@ -879,6 +879,7 @@ class StatsAdapter:
                 "文件格式分布、总页数与平均页数、存储占用，以及文档标题清单（documents.titles，最多 100 条）。"
                 "当用户询问知识库规模、数量、分布、趋势，或问「库里有哪些文章/规范、收录了什么」"
                 "这类标题列举问题时使用：列举类回答直接基于 documents.titles（按问题关键词筛选标题）。"
+                "只在问题问知识库本身时使用；问某篇文档的正文内容/条款原文，请改用 knowledge_search。"
             ),
             parameters_schema={
                 "type": "object",

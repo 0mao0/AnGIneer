@@ -38,28 +38,8 @@ def _answer_usable(messages: List[AgentMessage]) -> bool:
     return bool(answer.strip()) and not is_refusal_text(answer)
 
 
-# meta_query 通道的"答非所问"话术：统计工具答不了内容题时的典型回复（中英文）。
-# 命中即视为本段失败，回退 L1 正文检索。模式保持窄口径，避免误伤空库等合法统计回答。
-_META_NON_ANSWER_PATTERNS = (
-    "不包含", "不涵盖", "未包含", "未涵盖", "没有收录",
-    "仅提供", "仅涵盖", "仅统计",
-    # 统计 prompt 固定拒答话术（"统计维度暂不支持…仅负责…无法提供具体标题"）：
-    # 守卫名单与 prompt 话术必须同步，否则误入 meta 通道的内容题不会被回退 L1（2026-09-06 复盘）
-    "暂不支持", "仅负责", "只负责", "无法提供",
-    "do not contain", "does not contain", "not contain information",
-    "only provides metadata", "only covers", "only includes metadata",
-    "no information about", "not available in the knowledge base",
-    "dimension is not supported", "only handles metadata",
-)
-
-
-def _meta_answer_usable(messages: List[AgentMessage]) -> bool:
-    """meta 段成功口径：答案可用 且 不是"统计数据答不了内容题"的话术。"""
-    answer = (_last_answer(messages) or "").strip()
-    if not answer or is_refusal_text(answer):
-        return False
-    lowered = answer.lower()
-    return not any(pattern.lower() in lowered for pattern in _META_NON_ANSWER_PATTERNS)
+# meta_query 通道的"答非所问"话术特判已随废 meta_query 路由删除（2026-10-02 第二步）：
+# 原 _META_NON_ANSWER_PATTERNS/_meta_answer_usable 仅服务 meta 独木桥，档位删除后无消费方。
 
 
 def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_name, mode) -> AttemptConfig:
@@ -72,21 +52,6 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
         name="L0 闲聊直答",
         config_factory=factory,
         success_check=_answer_usable,
-    )
-
-
-def _meta_attempt(llm_factory: Callable, config_name, mode, library_id) -> AttemptConfig:
-    from angineer_core.agent_configs import build_meta_config
-
-    def factory() -> AgentLoopConfig:
-        return build_meta_config(llm=llm_factory(), config_name=config_name, mode=mode, library_id=library_id)
-
-    return AttemptConfig(
-        name="统计/元数据查询",
-        config_factory=factory,
-        success_check=_meta_answer_usable,
-        requires_tools=True,
-        fallback_note="统计通道无法回答该问题（可能误入 meta_query），回退 L1 正文检索",
     )
 
 
@@ -167,13 +132,9 @@ def build_attempts(
     level = str(getattr(intent_result, "intent_level", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
 
-    # meta_query 优先于一切 level 分支：service_mode 精确命中统计通道
-    if service_mode == "meta_query":
-        # 独木桥改双段：统计通道答非所问（误路由的内容题）时自动回退 L1 正文检索
-        return [
-            _meta_attempt(llm_factory, config_name, mode, library_id),
-            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator),
-        ]
+    # meta_query 特权岔道已废（2026-10-02 第二步）：路由只定编排深度（level），
+    # 数据源选择下沉工具层由模型自选（knowledge_stats 已进 L1 工具箱）；
+    # 历史 service_mode="meta_query" 残值经 Literal 校验后自然落 L1 默认档
     if level == "L0" or service_mode == "casual_chat":
         return [_l0_attempt(load_nodes, llm_factory, config_name, mode)]
     if level in ("L3", "L4") or service_mode in ("standard_sop", "dynamic_orchestration") or scene in ("complex", "sop", "sops"):
@@ -221,9 +182,6 @@ def format_route_note(intent_result: Any) -> Optional[str]:
     intent_type = str(getattr(intent_result, "intent_type", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
     reason = str(getattr(intent_result, "reason", "") or "").strip()
-    if service_mode == "meta_query":
-        note = "意图判断：统计/元数据查询 → 策略 meta_query"
-    else:
-        note = f"意图判断：{level_labels.get(level, level)}（{level}）→ 策略 {service_mode}"
+    note = f"意图判断：{level_labels.get(level, level)}（{level}）→ 策略 {service_mode}"
     # 分类耗时不再进文案（2026-09-27）：改由结构化 duration_ms 走思考过程耗时标签
     return f"{note}（{reason}）" if reason else note

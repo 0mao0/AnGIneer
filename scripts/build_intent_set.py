@@ -20,7 +20,7 @@ trap（这条在考什么），使复核者不必回读 prompt 就能审计。
   ② 新增 3 个陷阱族：L1_stdcode_trap（标准号≠L2）、L1_numbered（有数值≠L3）、
      L3_mixed_signal（依据规范+计算 → L3）；
   ③ 每题补 trap / rationale；
-  ④ 机械校验：与上游规则层（_check_l0_intent / _is_meta_query / 条款号快路径）对账，
+  ④ 机械校验：与上游规则层（_check_l0_intent / 条款号快路径）对账，
      并记录 rule_hit —— 生产链上该题会被规则前置拦下，还是真的会进分类模型。
 """
 import argparse
@@ -33,8 +33,8 @@ REPO = Path(__file__).resolve().parent.parent
 OUT = REPO / "data" / "evals" / "datasets" / "intent-router-v1.json"
 
 LEVELS = ("L0", "L1", "L2", "L3", "L4")
-MODES = ("casual_chat", "semantic_retrieval", "meta_query", "structured_lookup",
-         "standard_sop", "dynamic_orchestration")
+MODES = ("casual_chat", "semantic_retrieval", "structured_lookup",
+         "standard_sop", "dynamic_orchestration")  # meta_query 已随废路由删除（2026-10-02）
 
 # (id, question, level, mode, family, trap, rationale, source)
 ITEMS = [
@@ -114,19 +114,19 @@ ITEMS = [
     ("ir-l1-num-01", "什么是5万吨级散货船？设计船型是怎么定义的？", "L1", "semantic_retrieval",
      "L1_numbered", "有数值≠L3", "含吨级数值但问的是定义 → L1；数值只描述对象、不构成计算（规则 1 需「计算动作」）"),
 
-    # ---------------- L1 meta_query（10）→ route meta ----------------
-    ("ir-meta-dir-01", "知识库里有多少篇文档？", "L1", "meta_query", "meta_direct", "库自身统计", "问知识库规模 → meta_query（规则 6）"),
-    ("ir-meta-dir-02", "系统里有哪些知识库？", "L1", "meta_query", "meta_direct", "库清单", "问有哪些库 → meta_query（规则 6）"),
-    ("ir-meta-dir-03", "各库的文档格式分布如何？", "L1", "meta_query", "meta_direct", "格式分布", "问库内格式分布 → meta_query（规则 6）"),
-    ("ir-meta-dir-04", "上传的文档总量是多少？", "L1", "meta_query", "meta_direct", "总量", "问上传总量 → meta_query（规则 6）"),
-    ("ir-meta-dir-05", "知识库的文档总页数是多少？", "L1", "meta_query", "meta_direct", "页数统计", "问库页数统计 → meta_query（规则 6）"),
-    ("ir-meta-dir-06", "最近一个月文档上传趋势如何？", "L1", "meta_query", "meta_direct", "上传趋势", "问上传趋势 → meta_query（规则 6）"),
-    ("ir-meta-ref-01", "目前一共支持哪些文件格式？", "L1", "meta_query", "meta_rephrase", "换措辞的元数据",
-     "同一「问库自身」语义，避开 few-shot 原句 → meta_query（规则 6）"),
-    ("ir-meta-ref-02", "这个平台现在存了多少资料？", "L1", "meta_query", "meta_rephrase", "换措辞的元数据", "问库内总量 → meta_query"),
-    ("ir-meta-ref-03", "知识库最近一次更新是什么时候？", "L1", "meta_query", "meta_rephrase", "换措辞的元数据", "问库更新时间（库自身元数据）→ meta_query"),
-    ("ir-meta-ref-04", "我上传的文档现在都入库了吗，总共几篇？", "L1", "meta_query", "meta_rephrase", "换措辞的元数据",
-     "问入库状态与篇数（库自身）→ meta_query"),
+    # ---------------- L1 meta 族（10）→ route L1（废 meta_query 路由，2026-10-02：统计题由 L1+工具自选承接） ----------------
+    ("ir-meta-dir-01", "知识库里有多少篇文档？", "L1", "semantic_retrieval", "meta_direct", "库自身统计", "问知识库规模 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-dir-02", "系统里有哪些知识库？", "L1", "semantic_retrieval", "meta_direct", "库清单", "问有哪些库 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-dir-03", "各库的文档格式分布如何？", "L1", "semantic_retrieval", "meta_direct", "格式分布", "问库内格式分布 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-dir-04", "上传的文档总量是多少？", "L1", "semantic_retrieval", "meta_direct", "总量", "问上传总量 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-dir-05", "知识库的文档总页数是多少？", "L1", "semantic_retrieval", "meta_direct", "页数统计", "问库页数统计 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-dir-06", "最近一个月文档上传趋势如何？", "L1", "semantic_retrieval", "meta_direct", "上传趋势", "问上传趋势 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-ref-01", "目前一共支持哪些文件格式？", "L1", "semantic_retrieval", "meta_rephrase", "换措辞的元数据",
+     "同一「问库自身」语义 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-ref-02", "这个平台现在存了多少资料？", "L1", "semantic_retrieval", "meta_rephrase", "换措辞的元数据", "问库内总量 → L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-ref-03", "知识库最近一次更新是什么时候？", "L1", "semantic_retrieval", "meta_rephrase", "换措辞的元数据", "问库更新时间（库自身元数据）→ L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
+    ("ir-meta-ref-04", "我上传的文档现在都入库了吗，总共几篇？", "L1", "semantic_retrieval", "meta_rephrase", "换措辞的元数据",
+     "问入库状态与篇数（库自身）→ L1 + knowledge_stats 工具自选（废 meta_query 路由）"),
 
     # ---------------- L2 条款/查表（22）→ route L2 ----------------
     ("ir-l2-look-01", "依据《海港总体设计规范》确定5万吨级散货船的设计船型尺度", "L2", "structured_lookup",
@@ -239,9 +239,11 @@ ITEMS = [
 
 
 def derive_route(level: str, mode: str) -> str:
-    """镜像 agent_policy.build_attempts 的路由优先级（与 evals_core.runner.intent_eval 同源）。"""
-    if mode == "meta_query":
-        return "meta"
+    """镜像 agent_policy.build_attempts 的路由优先级（与 evals_core.runner.intent_eval 同源）。
+
+    meta_query 特权分支已随废路由删除（2026-10-02）；历史 run 的 meta_query 残值由
+    evals_core.derive_route 的 legacy 映射承接（那边保留、这边生成器只产新口径）。
+    """
     if level == "L0" or mode == "casual_chat":
         return "L0"
     if level in ("L3", "L4") or mode in ("standard_sop", "dynamic_orchestration"):
@@ -256,14 +258,13 @@ def rule_hit_for(question: str) -> str:
     try:
         sys.path.insert(0, str(REPO / "services" / "angineer-core" / "src"))
         sys.path.insert(0, str(REPO / "services" / "ai-inference" / "src"))
-        from angineer_core.classifier import _check_l0_intent, _is_clause_number_query, _is_meta_query
+        from angineer_core.classifier import _check_l0_intent, _is_clause_number_query
         from angineer_core.classifier import _clause_fastpath_enabled
     except Exception:  # noqa: BLE001
         return "unknown"
     if _check_l0_intent(question):
         return "rule_L0"
-    if _is_meta_query(question):
-        return "rule_meta"
+    # meta 规则拦截已随废路由删除（2026-10-02）：统计题不再有规则前置，全部进分类模型
     if _clause_fastpath_enabled() and _is_clause_number_query(question):
         return "rule_clause"
     return "model"
@@ -359,7 +360,7 @@ def validate(bundle: dict) -> list:
     by_level = Counter(i["intent"]["level"] for i in items)
     by_route = Counter(i["intent"]["route"] for i in items)
     expect_level = {"L0": 12, "L1": 38, "L2": 22, "L3": 16, "L4": 12}
-    expect_route = {"L0": 12, "L1": 28, "meta": 10, "L2": 22, "complex": 28}
+    expect_route = {"L0": 12, "L1": 38, "L2": 22, "complex": 28}  # meta 桶已废（2026-10-02）：10 题 meta 金标并入 L1
     if dict(by_level) != expect_level:
         problems.append(f"分层面变动：{dict(by_level)} ≠ {expect_level}")
     if dict(by_route) != expect_route:
@@ -389,13 +390,8 @@ def main() -> int:
     print("by rule_hit:", dict(sorted(Counter(i["intent"]["rule_hit"] for i in items).items())))
     print("family 数:", len({i["intent"]["family"] for i in items}))
 
-    # meta 族规则覆盖缺口：分类法说这些是 meta_query，但生产 meta 规则认不出 → 会落到分类模型。
-    # 如实报出（这是题集发现的产品事实，不是题集的错）。
-    meta_items = [i for i in items if i["intent"]["family"].startswith("meta_")]
-    meta_model = [i["question_id"] for i in meta_items if i["intent"]["rule_hit"] != "rule_meta"]
-    print(f"meta 族 {len(meta_items)} 题：meta 规则命中 {len(meta_items) - len(meta_model)} / 落模型 {len(meta_model)}")
-    if meta_model:
-        print(f"  落模型: {meta_model}（规则覆盖缺口，已是好题面，保留）")
+    # meta 族已随废 meta_query 路由改判 L1（2026-10-02）：统计题与正文题同走 L1 + 工具自选，
+    # 「规则覆盖缺口」概念随之消失（原块删除，见 git 历史）。
 
     if problems:
         print("\n== 校验未通过 ==")

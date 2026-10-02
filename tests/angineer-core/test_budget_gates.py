@@ -331,12 +331,12 @@ class ChatMetaBudgetMountTests(unittest.TestCase):
         config = build_chat_config(llm=mock.Mock(), config_name="t")
         self.assertIsNotNone(config.transform_context)
 
-    def test_meta_mounts_transformer_by_default(self):
+    def test_qa_mounts_transformer_by_default(self):
         from unittest import mock
 
-        from angineer_core.agent_configs import build_meta_config
+        from angineer_core.agent_configs import build_qa_config
 
-        config = build_meta_config(llm=mock.Mock(), config_name="t")
+        config = build_qa_config(llm=mock.Mock(), config_name="t")
         self.assertIsNotNone(config.transform_context)
 
     def test_chat_env_zero_disables_mount(self):
@@ -348,13 +348,13 @@ class ChatMetaBudgetMountTests(unittest.TestCase):
             config = build_chat_config(llm=mock.Mock(), config_name="t")
         self.assertIsNone(config.transform_context)
 
-    def test_meta_env_zero_disables_mount(self):
+    def test_qa_env_zero_disables_mount(self):
         from unittest import mock
 
-        from angineer_core.agent_configs import build_meta_config
+        from angineer_core.agent_configs import build_qa_config
 
-        with mock.patch.dict(os.environ, {"ANGINEER_META_BUDGET_TOKENS_EST": "0"}):
-            config = build_meta_config(llm=mock.Mock(), config_name="t")
+        with mock.patch.dict(os.environ, {"ANGINEER_QA_BUDGET_TOKENS_EST": "0"}):
+            config = build_qa_config(llm=mock.Mock(), config_name="t")
         self.assertIsNone(config.transform_context)
 
     def test_chat_transformer_compresses_history_tool_messages(self):
@@ -375,13 +375,13 @@ class ChatMetaBudgetMountTests(unittest.TestCase):
         self.assertTrue(out[1].content.startswith("[已压缩:"))
         self.assertEqual(out[3].content, "你好，在么")
 
-    def test_meta_transformer_protects_current_run_stats(self):
-        """meta 档：历史压、当轮 knowledge_stats 结果（在真实 user 之后）不压。"""
+    def test_qa_transformer_protects_current_run_stats(self):
+        """QA 档（knowledge_stats 下沉后，2026-10-02 废 meta 路由）：历史压、当轮 stats 结果不压。"""
         from unittest import mock
 
-        from angineer_core.agent_configs import build_meta_config
+        from angineer_core.agent_configs import build_qa_config
 
-        config = build_meta_config(llm=mock.Mock(), config_name="t")
+        config = build_qa_config(llm=mock.Mock(), config_name="t")
         transform = config.transform_context
         messages = [
             AgentMessage(role="user", content="旧问题"),

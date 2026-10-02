@@ -17,7 +17,6 @@ from angineer_core.agent_tools import (
 from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化后 re-export，保持旧导入兼容
     COMPLEX_AGENT_SYSTEM_PROMPT,
     FOLLOWUP_QUESTION_RULE,
-    META_AGENT_SYSTEM_PROMPT,
     QA_AGENT_SYSTEM_PROMPT,
 )
 from angineer_core.tool_codec import TextToolCallCodec
@@ -166,6 +165,16 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                         text = str(item.get("text") or "")
                         if text.strip():
                             evidence_parts.append(text.strip())
+                elif isinstance(raw, dict) and any(k in raw for k in ("documents", "pages", "storage", "uploads")):
+                    # P-1（废 meta 路由第二步）：knowledge_stats 返回无 items[]，把统计摘要纳入证据面——
+                    # no_evidence 与 unsupported_reference 两道闸一并兼容（evidence_parts 定版方案，
+                    # 否决「纯 stats 组合豁免 enforce_evidence」：那会重开无证据出数字的洞）
+                    digest = "; ".join(
+                        f"{k}={json.dumps(raw[k], ensure_ascii=False)[:200]}"
+                        for k in ("documents", "pages", "storage", "uploads")
+                        if k in raw
+                    )
+                    evidence_parts.append(f"[knowledge_stats] {digest}")
 
             evidence_text = "\n".join(evidence_parts)
             no_evidence = not evidence_text.strip()
@@ -240,49 +249,9 @@ def build_chat_config(
     )
 
 
-def build_meta_config(
-    *,
-    llm: Any,
-    library_id: Optional[str] = None,
-    config_name: Optional[str] = None,
-    mode: str = "instruct",
-    route_note: Optional[str] = None,
-) -> AgentLoopConfig:
-    """统计/元数据查询档（meta_query）：knowledge_stats 主工具 + knowledge_search 自救检索。
-
-    不装 enforce_evidence guard：统计答案是数字而非证据段落，QA guard 的 items[].text
-    校验会把正确统计回答误判为"无证据拒答"。
-    knowledge_search 为误入本档的正文类问题提供自救通道（库级作用域，未与 L1 的
-    doc_ids/filters 构造期绑定同源——过渡期口径，废档后随本档消亡）。
-    默认统计范围为当前会话所在库（library_id）；用户明确问全部/各个库时模型可传 all 覆盖（空串视同未填）。
-    """
-    budget_est = _meta_budget_tokens_est()
-    meta_transformer = (
-        make_budget_transformer(max_tokens_est=budget_est, protect_current_run=True)
-        if budget_est > 0
-        else None
-    )
-
-    return AgentLoopConfig(
-        llm=llm,
-        config_name=config_name,
-        mode=mode,
-        tools=[
-            StatsAdapter.knowledge_stats(default_library_id=library_id or None),
-            RetrieverAdapter.knowledge_search(
-                library_id=library_id,
-                top_k=20,
-                config_name=config_name,
-                mode=mode,
-            ),
-        ],
-        system_prompt=META_AGENT_SYSTEM_PROMPT,
-        max_turns=3,
-        codec=TextToolCallCodec(),
-        route_note=route_note,
-        followup_question=_followup_question_enabled(),
-        transform_context=meta_transformer,
-    )
+# meta_query 档已随废 meta_query 路由删除（2026-10-02 第二步）：原 build_meta_config/
+# _meta_budget_tokens_est（ANGINEER_META_BUDGET_TOKENS_EST）一并移除；
+# knowledge_stats 下沉 build_qa_config 的 L1 统一工具箱，统计题与正文题同档由模型自选。
 
 
 def _followup_question_enabled() -> bool:
@@ -316,15 +285,6 @@ def _chat_budget_tokens_est() -> int:
     设 0 关闭（回退）。
     """
     return _budget_tokens_est("ANGINEER_CHAT_BUDGET_TOKENS_EST", 12_000)
-
-
-def _meta_budget_tokens_est() -> int:
-    """meta 统计档预算阈值（req-chat-history-bloat §5.1.2）。
-
-    必须 protect_current_run=True：knowledge_stats 当轮统计结果在真实 user 之后，
-    裸装会把当轮数字压成一行摘要、统计答案失真。设 0 关闭（回退）。
-    """
-    return _budget_tokens_est("ANGINEER_META_BUDGET_TOKENS_EST", 12_000)
 
 
 def _complex_budget_tokens_est() -> int:
@@ -361,7 +321,7 @@ def build_qa_config(
     followup_question: Optional[bool] = None,
     max_tokens_est: Optional[int] = None,
 ) -> AgentLoopConfig:
-    """装配 QA 档 agent 循环：三个只读检索工具 + 内联 QA prompt（P5 前）。"""
+    """装配 QA 档 agent 循环：四个只读工具（三检索 + 知识库统计）+ 内联 QA prompt（P5 前）。"""
     effective_tools = tools
     if effective_tools is None:
         effective_knowledge_task_type = knowledge_task_type or task_type
@@ -401,11 +361,15 @@ def build_qa_config(
             str(effective_table_task_type).startswith("table_")
             or str(effective_table_task_type) in {"locate_table", "locate_qa"}
         )
-        effective_tools = (
+        ordered = (
             [table_tool, knowledge_tool, entity_tool]
             if table_first
             else [knowledge_tool, table_tool, entity_tool]
         )
+        # knowledge_stats 下沉 L1 统一工具箱（废 meta_query 路由第二步，2026-10-02）：
+        # 统计题与正文题同档、模型按工具描述自选；工具描述已把「只在问知识库本身」边界写死（§2.5 暴露面）
+        ordered.append(StatsAdapter.knowledge_stats(default_library_id=library_id))
+        effective_tools = ordered
 
     system_prompt = _load_qa_system_prompt()
     explicit = _build_inline_citation_context(inline_citations or [])

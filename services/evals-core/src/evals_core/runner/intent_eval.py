@@ -29,7 +29,7 @@ from evals_core.runner.base import BaseEvaluator, register_evaluator
 # 生产路由桶（镜像 agent_policy.build_attempts 的判定顺序，改那边必须同步这里）
 ROUTE_L0 = "L0"
 ROUTE_L1 = "L1"
-ROUTE_META = "meta"
+ROUTE_META = "meta"  # legacy：历史 run 记录含 service_mode="meta_query"，删映射会追溯改写历史分布（新流量不再产生）
 ROUTE_L2 = "L2"
 ROUTE_COMPLEX = "complex"
 

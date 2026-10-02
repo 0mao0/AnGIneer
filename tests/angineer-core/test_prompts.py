@@ -131,12 +131,12 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v13(self):
+    def test_qa_prompt_latest_is_v14(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V13
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V14
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V13)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v13")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V14)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v14")
 
     def test_qa_prompt_v13_refined_alignment_rule(self):
         """v13：对齐判断双向精修——核心结论一句即算覆盖（防误拒）+ 拒答前强制对象核对（防幻觉）。"""

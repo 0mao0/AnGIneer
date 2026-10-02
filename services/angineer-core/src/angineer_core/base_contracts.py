@@ -68,7 +68,7 @@ ServiceMode = Literal[
     "sql_first",  # legacy：历史评测/轨迹兼容
     "standard_sop",
     "dynamic_orchestration",
-    "meta_query",  # 知识库统计/元数据查询（数量、分布、趋势等，走 knowledge_stats 工具）
+    "meta_query",  # legacy（2026-10-02 废 meta_query 路由）：路由分支已删，历史轨迹/回放兼容用；残值落 L1 默认档
 ]
 
 

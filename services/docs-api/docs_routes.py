@@ -319,7 +319,7 @@ def get_knowledge_stats(library_id: Optional[str] = None):
             " ORDER BY s.page_count ASC LIMIT 1",
             lib_params,
         ).fetchone()
-        # 标题清单：供 agent meta_query 通道回答"有哪些文章/规范"类列举型元数据问题
+        # 标题清单：供 agent knowledge_stats 工具回答"有哪些文章/规范"类列举型元数据问题
         title_rows = conn.execute(
             f"SELECT title, status FROM nodes WHERE deleted=0{lib_clause} ORDER BY title LIMIT 101",
             lib_params,

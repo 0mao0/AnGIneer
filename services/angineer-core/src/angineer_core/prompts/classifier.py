@@ -2,8 +2,8 @@
 
 用途：意图层级分类、SOP 两阶段路由精排；语言：中文；classify_intent 版本 v4。
 最后变更：2026-10-02（v4：废 meta_query 输出值——删除规则 6/7 的 meta 条款与 meta few-shot，
-统计/元数据类问题并入 L1 semantic_retrieval，数据源选择下沉工具层；
-LLM 残留漂移输出由 classifier.py 解析点归一化兜底，_is_meta_query 规则短路路径不受影响）。
+统计/元数据类问题并入 L1 semantic_retrieval，数据源选择下沉工具层；第二步后归一化兜底与
+_is_meta_query 规则短路均已删，统计题只走 LLM 判 L1 + 工具自选，LLM 失败由规则层 L1 计数词兜底）。
 """
 from . import register
 
