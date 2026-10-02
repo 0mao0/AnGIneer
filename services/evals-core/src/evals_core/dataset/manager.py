@@ -104,6 +104,7 @@ def add_question(dataset_id: str, data: Dict[str, Any]) -> Dict[str, Any]:
         "sql_gold": data.get("sql"),
         "sop_gold": data.get("sop"),
         "probe_gold": data.get("probe"),
+        "rubric_gold": data.get("rubric"),
     }
     result = result_store.insert_question(question_data)
     questions = result_store.list_questions(dataset_id)
@@ -190,6 +191,7 @@ def _item_to_question_row(item: Any, dataset_id: str, sort_order: int = 0) -> Di
         "sop_gold": item.sop.model_dump(exclude_none=True) if item.sop else None,
         "probe_gold": item.probe or None,
         "intent_gold": item.intent or None,
+        "rubric_gold": item.rubric or None,
         "sort_order": sort_order,
     }
 
@@ -222,6 +224,8 @@ def _question_row_to_item(row: Dict[str, Any]) -> Dict[str, Any]:
         item["probe"] = row["probe_gold"]
     if row.get("intent_gold"):
         item["intent"] = row["intent_gold"]
+    if row.get("rubric_gold"):
+        item["rubric"] = row["rubric_gold"]
     return item
 
 

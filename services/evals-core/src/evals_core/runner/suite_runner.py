@@ -15,6 +15,8 @@ from evals_core.runner.sop_eval import SopEvaluator
 from evals_core.runner import probe_eval  # noqa: F401
 # 注册副作用导入：intent 评测器（题目带 intent 路由金标块时 exclusive 接管）
 from evals_core.runner import intent_eval  # noqa: F401
+# 注册副作用导入：rubric 评测器（题目带 rubric 金标块时接管，RAG 生成 + 判官逐条判）
+from evals_core.runner import rubric_eval  # noqa: F401
 from angineer_core.base_utils import is_fatal_exception
 from evals_core.storage import result_store, retention
 
@@ -176,6 +178,10 @@ def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
     # 探针题 exclusive：只跑检索断言，不进问答/判官链路（clause-probe 类题集）
     if question.get("probe_gold"):
         return ["probe"]
+    # 评分细则题（GDP.pdf 类）：跑 RAG 生成 + 判官逐条判 rubric，rubric 恒为 primary。
+    # 检索金标在时并列跑 retrieval（放后面，避免 primary 被检索分顶成假绿，见 _decide_quality）。
+    if question.get("rubric_gold"):
+        return ["rubric", "retrieval"] if question.get("retrieval_gold") else ["rubric"]
     retrieval_gold = question.get("retrieval_gold")
     answer_gold = question.get("answer_gold")
     sop_gold = question.get("sop_gold")
@@ -244,6 +250,8 @@ def _run_single_question(
             gold_data = question.get("answer_gold") or {}
         elif ev_name == "sop":
             gold_data = question.get("sop_gold") or {}
+        elif ev_name == "rubric":
+            gold_data = question.get("rubric_gold") or {}
         prediction = last_prediction
         scores = evaluator.evaluate(question, gold_data, prediction)
         all_scores[ev_name] = scores

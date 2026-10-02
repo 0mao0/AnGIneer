@@ -73,6 +73,10 @@ class EvalQuestionItem(BaseModel):
     # 结构 = level / mode / route / family / trap / rationale / strict_level / strict_mode / xfail，
     # 断言语义见 evals_core.runner.intent_eval。
     intent: Optional[Dict[str, Any]] = None
+    # 评分细则金标块（GDP.pdf 类多模态题集）：跑 RAG 生成后用判官逐条判 rubric。
+    # 结构 = {"criteria": [{"i","text","type","severity","subjectiveness",...}, ...]}，
+    # 判分语义见 evals_core.runner.rubric_eval（headline = 全条通过 all_pass）。
+    rubric: Optional[Dict[str, Any]] = None
 
 
 class EvalDatasetMeta(BaseModel):
@@ -132,4 +136,5 @@ class EvalQuestionRow(BaseModel):
     sop_gold: Optional[Dict[str, Any]] = None
     probe_gold: Optional[Dict[str, Any]] = None
     intent_gold: Optional[Dict[str, Any]] = None
+    rubric_gold: Optional[Dict[str, Any]] = None
     sort_order: int = 0

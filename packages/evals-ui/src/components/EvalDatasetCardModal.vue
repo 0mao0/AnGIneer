@@ -29,11 +29,11 @@
       <div v-if="distributionRows.length || levelRows.length" class="eval-dataset-card__charts">
         <div v-if="distributionRows.length" class="eval-dataset-card__chart">
           <div class="eval-dataset-card__section">题集分布</div>
-          <div class="eval-dataset-card__bars">
+          <div class="eval-dataset-card__bars eval-dataset-card__bars--h">
             <div v-for="row in distributionRows" :key="row.label" class="eval-dataset-card__bar">
               <div class="eval-dataset-card__bar-count">{{ row.count }} 题</div>
               <div class="eval-dataset-card__bar-track">
-                <div class="eval-dataset-card__bar-fill" :style="{ height: barPercent(distributionRows, row.count) }"></div>
+                <div class="eval-dataset-card__bar-fill" :style="{ width: barPercent(distributionRows, row.count) }"></div>
               </div>
               <div class="eval-dataset-card__bar-label" :title="row.note ? `${row.label}（${row.note}）` : row.label">{{ row.label }}</div>
             </div>
@@ -161,6 +161,48 @@ const handleCancel = () => emit('update:open', false)
     align-items: flex-end;
     gap: 12px;
     padding: 4px 2px 0;
+  }
+
+  /* 题集分布：横向柱状图（标签 ▸ 轨道按宽% ▸ 题数）；层级图仍走竖柱 */
+  &__bars--h {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+
+    .eval-dataset-card__bar {
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
+      min-height: 16px;
+    }
+
+    .eval-dataset-card__bar-label {
+      order: 1;
+      flex: 0 0 34%;
+      min-height: 0;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .eval-dataset-card__bar-track {
+      order: 2;
+      flex: 1;
+      width: auto;
+      max-width: none;
+      height: 10px;
+      align-items: stretch;
+    }
+
+    .eval-dataset-card__bar-fill {
+      height: 100%;
+    }
+
+    .eval-dataset-card__bar-count {
+      order: 3;
+      flex: 0 0 auto;
+    }
   }
 
   &__bar {
