@@ -195,24 +195,33 @@ def main() -> int:
     ap.add_argument("--create-only", action="store_true")
     ap.add_argument("--reconcile", action="store_true", help="只按 state 认可 doc_id 清理库内孤儿/重复副本")
     ap.add_argument("--only-idx", default="", help="逗号分隔 parquet 行号（试点子集）")
+    ap.add_argument("--api-key", default="", help="预置 doc-scoped Key（给定则免登录，配 --library-id/GDP_LIBRARY_ID）")
+    ap.add_argument("--library-id", default="", help="预置库 id（配 --api-key 免登录）")
     ap.add_argument("--poll-timeout", type=int, default=3600)
     ap.add_argument("--concurrency", type=int, default=2)
     args = ap.parse_args()
     load_env()
+    api_key_pre = (args.api_key or os.getenv("GDP_API_KEY", "")).strip()
     admin_user = args.admin_user or os.getenv("ADMIN_USER", "")
     admin_password = args.admin_password or os.getenv("ADMIN_PASSWORD", "")
-    if not admin_user or not admin_password:
-        print("缺少 ADMIN_USER / ADMIN_PASSWORD")
+    if not api_key_pre and (not admin_user or not admin_password):
+        print("缺少 ADMIN_USER / ADMIN_PASSWORD（或提供预置 --api-key/GDP_API_KEY 免登录）")
         return 2
 
     rows = load_rows()
     state = load_state()
-    token = login(admin_user, admin_password)
-    state["library_id"] = state.get("library_id") or create_library(token)
-    api_key = ""
-    if KEYS_FILE.exists() and json.loads(KEYS_FILE.read_text(encoding="utf-8")).get("library_id") == state["library_id"]:
-        api_key = json.loads(KEYS_FILE.read_text(encoding="utf-8")).get("api_key", "")
-    api_key = api_key or create_key(token, state["library_id"])
+    library_id_pre = (args.library_id or os.getenv("GDP_LIBRARY_ID", "")).strip()
+    if api_key_pre and (library_id_pre or state.get("library_id")):
+        # 预置 Key 路径：服务器侧容器内已建库+签 Key，免登录（无生产开发密码场景）
+        state["library_id"] = library_id_pre or state["library_id"]
+        api_key = api_key_pre
+    else:
+        token = login(admin_user, admin_password)
+        state["library_id"] = state.get("library_id") or create_library(token)
+        api_key = ""
+        if KEYS_FILE.exists() and json.loads(KEYS_FILE.read_text(encoding="utf-8")).get("library_id") == state["library_id"]:
+            api_key = json.loads(KEYS_FILE.read_text(encoding="utf-8")).get("api_key", "")
+        api_key = api_key or create_key(token, state["library_id"])
     save_json(KEYS_FILE, {"library_id": state["library_id"], "api_key": api_key})
     save_json(STATE_FILE, state)
     print(f"library_id={state['library_id']}", flush=True)
