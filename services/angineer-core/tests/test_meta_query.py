@@ -61,15 +61,18 @@ class TestListingPhrasingsViaLLM:
 
     为何不给规则扩词表：负例「防波堤的设计规范有哪些」与列举正例「有哪些知识库」都含「有哪些」，
     判别点在「问库本身 vs 问文档正文」，关键词分不开，扩词表会把工程问题误拦进统计通道。
-    这类问法由 LLM 主力分类器接管（生产实测「有哪些知识库」：LLM 判 1.0s 落 meta_query，
-    模型传 library_id="all" 得全库分布）。
+
+    2026-10-02 第一步（废 meta_query 路由）后口径更新：这类问法仍由 LLM 主力分类器接管，
+    但 LLM 不再允许输出 meta_query——即便漂移输出，解析点归一化也将其改写为
+    semantic_retrieval（双保险的第二道），由 L1 档工具自选承接（prompt v4 已删该输出值）。
     """
 
     @pytest.mark.parametrize("q", ["有哪些知识库", "库里有哪些文档？", "列出所有知识库"])
     def test_rule_does_not_claim_listing(self, q):
         assert not _is_meta_query(q)
 
-    def test_llm_classifier_routes_listing_to_meta(self, monkeypatch):
+    def test_llm_drift_meta_query_normalized(self, monkeypatch):
+        """LLM 残留输出 meta_query 时，解析点归一化改写为 semantic_retrieval（防穿过 Literal 进 meta 独木桥）。"""
         from angineer_core import ops_metrics
 
         monkeypatch.setattr(ops_metrics, "record_event", lambda *a, **k: None, raising=False)
@@ -83,7 +86,20 @@ class TestListingPhrasingsViaLLM:
             "reason": "询问知识库本身的列表/分布情况，属于系统元数据查询",
         }))
         result = clf.classify_intent("有哪些知识库")
-        assert result.service_mode == "meta_query"
+        assert result.service_mode == "semantic_retrieval"
+        assert result.intent_level == "L1"
+
+
+class TestMetaConfigSelfRescue:
+    """第一步止血：meta 档工具箱加 knowledge_search 自救 + max_turns 2→3（2026-10-02）。"""
+
+    def test_meta_config_has_self_rescue_search(self):
+        from angineer_core.agent_configs import build_meta_config
+
+        config = build_meta_config(llm=object(), config_name="t")
+        names = {t.name for t in config.tools}
+        assert names == {"knowledge_stats", "knowledge_search"}
+        assert config.max_turns == 3
 
 
 class TestClassifierMetaFirst:

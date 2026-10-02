@@ -248,10 +248,12 @@ def build_meta_config(
     mode: str = "instruct",
     route_note: Optional[str] = None,
 ) -> AgentLoopConfig:
-    """统计/元数据查询档（meta_query）：knowledge_stats 单工具 + 直报数字 prompt。
+    """统计/元数据查询档（meta_query）：knowledge_stats 主工具 + knowledge_search 自救检索。
 
     不装 enforce_evidence guard：统计答案是数字而非证据段落，QA guard 的 items[].text
     校验会把正确统计回答误判为"无证据拒答"。
+    knowledge_search 为误入本档的正文类问题提供自救通道（库级作用域，未与 L1 的
+    doc_ids/filters 构造期绑定同源——过渡期口径，废档后随本档消亡）。
     默认统计范围为当前会话所在库（library_id）；用户明确问全部/各个库时模型可传 all 覆盖（空串视同未填）。
     """
     budget_est = _meta_budget_tokens_est()
@@ -265,9 +267,17 @@ def build_meta_config(
         llm=llm,
         config_name=config_name,
         mode=mode,
-        tools=[StatsAdapter.knowledge_stats(default_library_id=library_id or None)],
+        tools=[
+            StatsAdapter.knowledge_stats(default_library_id=library_id or None),
+            RetrieverAdapter.knowledge_search(
+                library_id=library_id,
+                top_k=20,
+                config_name=config_name,
+                mode=mode,
+            ),
+        ],
         system_prompt=META_AGENT_SYSTEM_PROMPT,
-        max_turns=2,
+        max_turns=3,
         codec=TextToolCallCodec(),
         route_note=route_note,
         followup_question=_followup_question_enabled(),

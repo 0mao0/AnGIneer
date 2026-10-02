@@ -1005,12 +1005,18 @@ class IntentClassifier:
                     f"level={parsed.get('intent_level')}, reason={parsed.get('reason')}"
                 )
                 return None
+            service_mode = parsed.get("service_mode", "semantic_retrieval")
+            if service_mode == "meta_query":
+                # 废 meta_query 路由第一步（双保险的第二道）：prompt 已删该输出值，此处归一化
+                # 拦截 LLM 残留漂移，防止漂移输出穿过 ServiceMode Literal 进 meta 独木桥；
+                # 规则路径（_classify_intent_impl 步骤 1.6 / _rule_based_classify）的显式赋值不受影响
+                service_mode = "semantic_retrieval"
             result = _build_intent_result(
                 intent_level=parsed.get("intent_level", "L1"),
                 intent_type=parsed.get("intent_type", ""),
                 parameters=parsed.get("parameters", {}),
                 required_capabilities=parsed.get("required_capabilities", ["retrieval"]),
-                service_mode=parsed.get("service_mode", "semantic_retrieval"),
+                service_mode=service_mode,
                 execution_plan=parsed.get("execution_plan"),
                 reason=parsed.get("reason", ""),
             )
