@@ -19,6 +19,8 @@
     :default-expanded-keys="defaultExpandedKeys"
     :default-selected-keys="defaultSelectedKeys"
     :dark="dark"
+    :virtual="virtual"
+    :height="height"
     @select="(keys, nodes) => emit('select', keys, nodes as KnowledgeTreeNode[])"
     @rename="(node) => emit('rename', node as KnowledgeTreeNode)"
     @add-folder="(node) => emit('add-folder', node as KnowledgeTreeNode | null)"
@@ -89,6 +91,9 @@ export interface KnowledgeTreeProps {
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
   dark?: boolean
+  /** 大库（如 omnidocbench 2609 节点）须开虚拟滚动，否则展开越多 DOM 越大越卡；开时应同时给 height */
+  virtual?: boolean
+  height?: number
 }
 </script>
 

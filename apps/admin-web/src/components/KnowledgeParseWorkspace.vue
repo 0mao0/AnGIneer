@@ -29,6 +29,7 @@
             </a-tooltip>
           </template>
           <div
+            ref="treeContainerRef"
             class="tree-container"
           >
             <!-- 空状态 -->
@@ -47,6 +48,8 @@
               :default-expanded-keys="defaultExpandedKeys"
               :default-selected-keys="defaultSelectedKeys"
               :dark="isDark"
+              :virtual="true"
+              :height="treeVirtualHeight"
               v-bind="smartTreeProps"
               @select="onTreeSelect"
               @rename="showRenameModal"
@@ -680,6 +683,28 @@ const smartTreeProps = {
   allowedFileTypes: allowedFileTypes,
   emptyText: '暂无文档'
 }
+
+// 大库（omnidocbench 2609 节点）树必须开虚拟滚动：不虚拟时展开越多 DOM 越大、二三级越展开越卡。
+// a-tree 虚拟需显式 height —— 按树容器实测高度（减去顶部搜索条）动态给，随面板尺寸变化。
+const treeContainerRef = ref<HTMLElement | null>(null)
+const treeVirtualHeight = ref(600)
+let treeResizeObserver: ResizeObserver | null = null
+
+onMounted(() => {
+  const el = treeContainerRef.value
+  if (!el) return
+  const measure = () => {
+    treeVirtualHeight.value = Math.max(240, el.clientHeight - 52)
+  }
+  measure()
+  treeResizeObserver = new ResizeObserver(measure)
+  treeResizeObserver.observe(el)
+})
+
+onBeforeUnmount(() => {
+  treeResizeObserver?.disconnect()
+  treeResizeObserver = null
+})
 
 // 默认展开/选中（SmartTree 监听 prop 变化并应用）
 const defaultExpandedKeys = ref<string[]>([])
