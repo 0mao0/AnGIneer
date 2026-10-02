@@ -19,18 +19,33 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-import pandas as pd
 import requests
 
 REPO = Path(__file__).resolve().parents[2]
 DATA = REPO / "data" / "gdp_pdf"
 PDF_DIR = DATA / "pdfs"
 PARQUET = DATA / "raw" / "parquet_a.parquet"
+QUESTIONS = DATA / "raw" / "questions.json"
 STATE_FILE = DATA / "ingest" / "import_state.json"
 KEYS_FILE = DATA / "ingest" / "keys.json"
-DOCS_API = "http://localhost:8790"
+# 目标 docs-api：默认本地；服务器侧/隧道场景用 GDP_DOCS_API 覆盖（如 http://127.0.0.1:8790）
+DOCS_API = os.getenv("GDP_DOCS_API", "http://localhost:8790").rstrip("/")
 LIBRARY_NAME = "GDP-PDF"
 KEY_USER_NAME = "gdp-pdf"
+
+
+def load_rows() -> list:
+    """题集真相源：优先 questions.json（无 pandas 依赖），缺则回退 parquet。"""
+    if QUESTIONS.exists():
+        return json.loads(QUESTIONS.read_text(encoding="utf-8"))
+    import pandas as pd  # 仅回退路径需要
+
+    df = pd.read_parquet(PARQUET)
+    return [
+        {"task_id": str(d["task_id"]), "pdf_filename": Path(str(d["pdf_path"])).name}
+        for _, r in df.iterrows()
+        for d in [r.to_dict()]
+    ]
 
 
 def load_env() -> None:
@@ -190,7 +205,7 @@ def main() -> int:
         print("缺少 ADMIN_USER / ADMIN_PASSWORD")
         return 2
 
-    df = pd.read_parquet(PARQUET)
+    rows = load_rows()
     state = load_state()
     token = login(admin_user, admin_password)
     state["library_id"] = state.get("library_id") or create_library(token)
@@ -209,10 +224,10 @@ def main() -> int:
 
     want_idx = {int(x) for x in args.only_idx.split(",") if x.strip() != ""} if args.only_idx else None
     pending = []
-    for idx, row in df.iterrows():
+    for idx, row in enumerate(rows):
         if want_idx is not None and idx not in want_idx:
             continue
-        fname = Path(row["pdf_path"]).name
+        fname = row["pdf_filename"]
         existing = state["docs"].get(fname, {})
         if existing.get("status") in ("succeeded", "partial"):
             continue

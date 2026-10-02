@@ -18,15 +18,36 @@ import json
 import sys
 from pathlib import Path
 
-import pandas as pd
-
 REPO = Path(__file__).resolve().parents[2]
 PARQUET = REPO / "data" / "gdp_pdf" / "raw" / "parquet_a.parquet"
+QUESTIONS = REPO / "data" / "gdp_pdf" / "raw" / "questions.json"
 STATE = REPO / "data" / "gdp_pdf" / "ingest" / "import_state.json"
 OUT = REPO / "data" / "evals" / "datasets" / "gdp-pdf-v1.json"
 LEVELS = REPO / "data" / "gdp_pdf" / "raw" / "levels.json"
 
 DATASET_ID = "gdp-pdf-v1"
+
+
+def load_questions() -> list:
+    """题集真相源：优先 questions.json（parquet→JSON 预转，去掉 pandas 依赖，服务器/容器可跑）；
+    缺则回退读 parquet（需本地装 pandas）。"""
+    if QUESTIONS.exists():
+        return json.loads(QUESTIONS.read_text(encoding="utf-8"))
+    import pandas as pd  # 仅回退路径需要
+
+    df = pd.read_parquet(PARQUET)
+    rows = []
+    for _, r in df.iterrows():
+        d = r.to_dict()
+        rows.append({
+            "task_id": str(d["task_id"]),
+            "question": str(d["prompt"]),
+            "domain": str(d.get("domain") or ""),
+            "pdf_filename": Path(str(d["pdf_path"])).name,
+            "worker_id": str(d.get("worker_id") or ""),
+            "criteria": extract_criteria(d),
+        })
+    return rows
 
 
 def extract_criteria(row: dict) -> list:
@@ -47,11 +68,11 @@ def extract_criteria(row: dict) -> list:
     return crit
 
 
-def _card_meta(df, library_id: str) -> dict:
+def _card_meta(rows: list, library_id: str) -> dict:
     """题集卡 meta（契约见 packages/evals-ui/src/types/eval.ts EvalDatasetCardMeta）。"""
     from collections import Counter
 
-    dom_counts = Counter(str(x) for x in df["domain"])
+    dom_counts = Counter(str(r.get("domain") or "") for r in rows)
     distribution = [
         {"label": dom, "count": cnt}
         for dom, cnt in sorted(dom_counts.items(), key=lambda kv: -kv[1])
@@ -91,37 +112,37 @@ def main() -> int:
     levels = {}
     if LEVELS.exists():
         levels = json.loads(LEVELS.read_text(encoding="utf-8"))
-    df = pd.read_parquet(PARQUET)
+    rows = load_questions()
     missing, items = [], []
-    for _, row in df.iterrows():
-        fname = Path(row["pdf_path"]).name
+    for row in rows:
+        fname = row["pdf_filename"]
         rec = doc_map.get(fname, {})
         if rec.get("status") not in ("succeeded", "partial") or not rec.get("doc_id"):
             missing.append(fname)
             continue
         doc_id = rec["doc_id"]
-        criteria = extract_criteria(row.to_dict())
+        criteria = row.get("criteria") or []
         primary = [c["text"] for c in criteria if c["type"] == "Primary Intent"]
         tid = str(row["task_id"])
         level = (levels.get(tid) or {}).get("level") or "L1"
         qtype = (levels.get(tid) or {}).get("type") or ""
         items.append({
             "question_id": tid,
-            "question": str(row["prompt"]),
+            "question": row["question"],
             "task_type": "rag",
             "intent_level": level,
             "library_id": library_id,
             "doc_ids": [doc_id],
             "difficulty": "hard",
-            "tags": [str(row.get("domain") or ""), "gdp-pdf", qtype, fname[:12]],
-            "question_family": str(row.get("domain") or ""),
-            "canonical_question_id": str(row["task_id"]),
+            "tags": [row.get("domain") or "", "gdp-pdf", qtype, fname[:12]],
+            "question_family": row.get("domain") or "",
+            "canonical_question_id": tid,
             "variant_type": "canonical",
             "perturbation_tags": [],
             "retrieval": {
                 "gold_doc_ids": [doc_id],
                 "question_type": "definition_qa",
-                "notes": json.dumps({"pdf_path": str(row["pdf_path"]), "worker_id": str(row.get("worker_id") or "")}, ensure_ascii=False),
+                "notes": json.dumps({"pdf_filename": fname, "worker_id": row.get("worker_id") or ""}, ensure_ascii=False),
             },
             "answer": {
                 "gold_answer": "\n".join(primary),
@@ -149,7 +170,7 @@ def main() -> int:
             "schema_version": "eval.bundle.v2",
             "version": "1.0",
             "library_id": library_id,
-            "meta": _card_meta(df, library_id),
+            "meta": _card_meta(rows, library_id),
         },
         "items": items,
     }
