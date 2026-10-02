@@ -30,3 +30,65 @@ html, body {
 .ant-message {
   z-index: 9999;
 }
+
+/*
+ * 主题切换兜底：ant-design-vue 4.x 的 cssinjs 在 ConfigProvider 主题切换后，
+ * 不会重刷已挂载到 body 的 portal 弹层的颜色 token，切主题时已开着的弹层会出现
+ * 「黑底黑字 / 白底白字」（user-web/index.less 同段先踩先修，admin-web 此前 0 段兜底）。
+ * 管理端弹层密集（modal 为主，另 drawer/dropdown/select/popover），用宿主语义变量
+ * （随主题在 <html> 原地更新）覆盖底色/字色，保证任何挂载时序都跟随 theme。
+ * 注：AppBrand 主题灯泡无条件渲染，AppHeader 的 show-theme-toggle=false 管不到它，
+ *     故 admin-web 可切主题 → 本兜底在管理端有真实触发路径，非防御性冗余。
+ */
+.ant-modal .ant-modal-content {
+  background: var(--bg-secondary, #fff) !important;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88)) !important;
+}
+
+.ant-modal .ant-modal-header {
+  background: var(--bg-secondary, #fff) !important;
+  border-bottom-color: var(--border-color, #f0f0f0) !important;
+}
+
+.ant-modal .ant-modal-header .ant-modal-title {
+  color: var(--text-primary, rgba(0, 0, 0, 0.88)) !important;
+}
+
+.ant-modal .ant-modal-footer {
+  border-top-color: var(--border-color, #f0f0f0) !important;
+}
+
+.ant-modal-confirm .ant-modal-confirm-body > .ant-modal-confirm-title,
+.ant-modal-confirm .ant-modal-confirm-content {
+  color: var(--text-primary, rgba(0, 0, 0, 0.88)) !important;
+}
+
+.ant-drawer .ant-drawer-content {
+  background: var(--bg-secondary, #fff) !important;
+  color: var(--text-primary, rgba(0, 0, 0, 0.88)) !important;
+}
+
+.ant-drawer .ant-drawer-header {
+  border-bottom-color: var(--border-color, #f0f0f0) !important;
+}
+
+.ant-drawer .ant-drawer-footer {
+  border-top-color: var(--border-color, #f0f0f0) !important;
+}
+
+.ant-dropdown .ant-dropdown-menu,
+.ant-select-dropdown,
+.ant-popover .ant-popover-inner {
+  background: var(--bg-secondary, #fff);
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+}
+
+.ant-dropdown .ant-dropdown-menu-item,
+.ant-select-dropdown .ant-select-item {
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+}
+
+.ant-dropdown .ant-dropdown-menu-item:hover,
+.ant-select-dropdown .ant-select-item-option-active {
+  background: var(--bg-tertiary, rgba(0, 0, 0, 0.04));
+}

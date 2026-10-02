@@ -1270,13 +1270,14 @@ const parseDocument = async (node: SmartTreeNode) => {
 
 // 查看文档
 const viewDocument = (node: SmartTreeNode) => {
-  const resource = createResourceNodeFromKnowledge(node, (node as any).libraryId || 'default')
+  const docLibrary = String((node as any).libraryId || libraryStore.libraryId || 'default')
+  const resource = createResourceNodeFromKnowledge(node, docLibrary)
   const payload = createOpenResourcePayload(resource)
   if (!payload) {
     message.warning('当前节点不可查看')
     return
   }
-  const targetUrl = getWebDocumentUrl(String(payload.props.docId || node.key))
+  const targetUrl = getWebDocumentUrl(String(payload.props.docId || node.key), docLibrary)
   window.open(targetUrl, '_blank', 'noopener,noreferrer')
 }
 
