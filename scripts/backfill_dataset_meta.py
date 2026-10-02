@@ -109,17 +109,9 @@ ENTRIES = [
             "mode": "整体RAG",
         },
     },
-    {
-        "dataset_id": "lawbench-1-1-v1",
-        "title": "LawBench 1-1 法条知识",
-        "meta": {
-            "publisher": "OpenCompass（南京大学）",
-            "domain": "法律",
-            "purpose": "LawBench 任务 1-1「法条记忆」：给定法名+条号答内容（500 题）",
-            "mode": "单篇RAG",
-            "source_url": "https://github.com/open-compass/LawBench",
-        },
-    },
+    # 注：原 lawbench-1-1-v1 条目已于 2026-10-02 随 P2 法律域终止移除（题集与语料库均已本地清除，
+    # 终止依据见 docs/req-domain-bench-integration.md §5.0）。若将来重建法律域题集，须重走 §2.1 准入，
+    # 并通过「gold × 现行语料一致性」检查——LawBench 正是死在 gold 答案随法条修订而腐烂上。
     {
         "dataset_id": "reviewed-exam-2020-2019",
         "title": "精筛50题",

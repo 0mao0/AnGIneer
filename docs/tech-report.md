@@ -177,7 +177,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    DS["题集<br/>LawBench + open-ragbench + 注册考试"] --> RUN["评测运行<br/>异步启动 / 轮询进度"]
+    DS["题集<br/>open-ragbench + FinanceBench + 注册考试<br/>（LawBench 已于 2026-10-02 下架）"] --> RUN["评测运行<br/>异步启动 / 轮询进度"]
     RUN --> PIPE["被测链路<br/>同构调用 policy_query（不走 HTTP）"]
     PIPE --> MET["多维度评测"]
     MET --> RET["检索评测<br/>Hit@1/3/5 · MRR · citation_hit"]
