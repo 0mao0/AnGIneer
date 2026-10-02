@@ -2,6 +2,17 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.87
+
+- meta_query 特权路由废除（breaking）：两步实施——第一步止血（分类器 prompt v4 删 meta_query 输出值与规则 6/7 meta 条款、LLM 解析点归一化双保险、meta 档加 knowledge_search 自救），第二步拆档（meta_query「优先于一切 level」分支、meta→L1 双段回退、_meta_answer_usable 兜底特判、_is_meta_query 规则三处引用、META prompt 与预算 env 全删，knowledge_stats 下沉 build_qa_config L1 统一工具箱由模型按工具描述自选，ServiceMode Literal 成员保留注 legacy 兼容历史轨迹）；QA prompt v14（规则 5 补 knowledge_stats 用法边界+规则 14 注入对冲条款）；P-1 guard 证据面兼容 stats（统计摘要纳入 evidence_parts 两道闸，error JSON 照拒）；验收（intent-router-v1 98/100、meta 族 10 题全绿，stats 烟测答真值且 guard 不误杀，pos-regress-60 55/60 零误拒答，注入污染探针编数字率 0/4，financebench 46.7% 含误路由时代 7 题虚假基线水分挤出——新旧数字不可直接比）
+- GDP.pdf 官方 100 题基准集成（rubric 判分器+题集卡+分级，分批判官防超时；题集卡二轮：柱底平齐+v4.1 卡片数据定稿+定级脚本参数化）
+- WAL 写锁韧性三层修复（2026-10-02 凌晨 nightly 卡 running 事故收口：保留策略按 200 行分段提交、连接超时 30s、run 生命周期写回撞锁退避重试+停滞告警）与 nightly 保留策略收口（补全表保留扫描，3 天窗口外全量 run 有人裁）
+- 代检索保险回传 raw 装配 tool meta（forced_retrieve 追加消息无 meta 致评测误判 retrieval_miss_doc 根治）
+- 题集卡（题集信息弹层：发布方/测试类型/简介/来源/知识库/方式/分布/锚点一眼可读）
+- 知识树虚拟滚动（admin-web 大库展开卡顿根治）
+- 重导题集保留文件夹归属（根目录回退根治）
+- deploy fetch 陈旧本地 tag 强覆容错与迁移收尾三边角（ConditionalTool 查表分支 scope 明确报错、evals case_trace 端口注册镜像、sop_parser 去 file_name 自动回填）+ docs（法律域终止 LawBench 下架、废 meta_query 路由设计稿验收回填、拒答守卫修复立项稿）
+
 ## v0.2.86
 
 - SOP 检索与查表整体切换 canonical：knowledge_search/table_lookup 改引擎内置拦截（SopRunner 构造期注入 library_id/doc_ids，error 原样透传不回退老实现），废文件系 BM25 与整文件喂 LLM；新增 canonical 精确查表引擎 table_query_engine/canonical_table_lookup 与第 8 端口 table_blocks（选表/条件过滤/行打分/目标列解析逐行移植老结构化模式，修掉原「未找到表格」分支 NameError）；存量 SOP 的 file_name 宽松转译为 doc_ids（标题归一匹配经 local_nodes_loader 端口）零改动兼容，无法解析明确报错不落全库扫；真实数据 A/B 对齐（11 个存量步骤选表策略与 trace 全部一致、值差异全部定位，FinanceBench 侧老工具因 default 库硬编码 100% 报错、新工具端到端可用）

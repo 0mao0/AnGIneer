@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.86** ——SOP 检索与查表整体切换 canonical：knowledge_search/table_lookup 改引擎内置拦截（scope 感知 library_id/doc_ids，废文件系 BM25 与整文件喂 LLM），新增 canonical 精确查表引擎与第 8 端口 table_blocks，存量 SOP 的 file_name 宽松转译为 doc_ids 零改动兼容，真实数据 A/B 对齐（选表策略一致、值差异全部定位，FinanceBench 侧老工具 100% 报错、新工具端到端可用）；老 engtools 文件系工具体系整体删除：TableLookupTool/KnowledgeSearchTool/ContentSummarizer 净删约 2000 行，海港 demo 硬编码默认值清除（缺省 file_name 明确报错），聊天查表统一走 table_search，ConditionalTool 查表分支重接线 canonical；向量库健康横幅两修：qdrant 客户端 trust_env=False（Windows 系统代理劫持 localhost 探测致 502 假坏）+ 启动守卫坏报告 60s TTL 后台重探、恢复后横幅自愈；evals 判分口径双修：终审 quality 改认判官 semantic_passed 单一权威（修 0.65~0.8 区间「判官通过、终审翻 wrong」冤案），判官 rubric 增补跨语言与同义改写豁免；QA prompt v13：对齐判断双向精修（v12 全量回归的针对性修复）；思考链路展示系列：「并行预检」两行 tag 与多行便签渲染、模型调用便签分段耗时（等待/输出/TTFT）、预检索归属 injected 标记、总耗时锚点接 classify 帧；解析工作台大文档两修（build_id 假告警、整图重复/非按需加载）+「回到最下方」按钮改名「回底部」。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.87** ——meta_query 特权路由废除（两步：分类器 prompt v4 删输出值+解析点归一化止血 → meta 档/双段回退/兜底特判拆除，knowledge_stats 下沉 L1 统一工具箱由模型自选；QA prompt v14 注入对冲；guard 证据面兼容 stats；验收 intent 98/100、pos-regress 55/60 零误拒答、探针编数字率 0/4）；GDP.pdf 官方 100 题基准集成（rubric 判分器+题集卡+分级）；WAL 写锁韧性三层修复与 nightly 保留策略收口；代检索保险回传 raw 装 meta；题集卡信息弹层；知识树虚拟滚动；重导题集保留文件夹归属；deploy fetch 陈旧 tag 容错等三边角。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
