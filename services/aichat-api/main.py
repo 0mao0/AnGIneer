@@ -111,7 +111,7 @@ async def global_exception_handler(request, exc):
     )
 
 
-SOP_BASE_DIR = os.path.join(str(ROOT_DIR), "data", "sops")
+SOP_BASE_DIR = os.path.join(str(ROOT_DIR), "data", "platform", "sops")
 sop_loader = SopLoader(SOP_BASE_DIR)
 
 

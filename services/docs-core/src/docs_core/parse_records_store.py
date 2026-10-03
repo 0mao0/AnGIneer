@@ -36,7 +36,8 @@ def db_path() -> str:
         return override
     from docs_core.paths import resolve_repo_root
 
-    return str(resolve_repo_root() / "data" / DB_NAME)
+    # 2026-10 data/ 三域归位：parse_records＝上传台账，收编进知识域 knowledge/
+    return str(resolve_repo_root() / "data" / "knowledge" / DB_NAME)
 
 
 def connect() -> sqlite3.Connection:

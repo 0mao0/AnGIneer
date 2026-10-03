@@ -58,7 +58,7 @@ async def _startup():
         from sop_core.sop_loader import SopLoader
 
         _sop_dir = os.environ.get(
-            "SOP_DATA_DIR", os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")), "data", "sops")
+            "SOP_DATA_DIR", os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")), "data", "platform", "sops")
         )
         _intent_sop_loader = SopLoader(_sop_dir)
 

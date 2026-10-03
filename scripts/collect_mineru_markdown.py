@@ -16,7 +16,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 DEFAULT_STATE = REPO / "data" / "evals" / "omnidocbench" / "predictions_eval200" / "state.json"
-DEFAULT_LIB = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"
+DEFAULT_LIB = REPO / "data" / "knowledge" / "libraries" / "omnidocbench" / "documents"
 
 
 def main() -> int:

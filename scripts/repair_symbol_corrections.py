@@ -23,7 +23,7 @@ from datetime import datetime
 from pathlib import Path
 
 DATA_ROOT = Path("/app/data") if Path("/app/data").is_dir() else Path(__file__).resolve().parents[1] / "data"
-LIBS = DATA_ROOT / "knowledge_base" / "libraries"
+LIBS = DATA_ROOT / "knowledge" / "libraries"
 
 CORRECTED_FIELDS = (
     "math_content_corrected", "plain_text_corrected",

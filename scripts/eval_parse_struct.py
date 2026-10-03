@@ -10,7 +10,7 @@
   python scripts/eval_parse_struct.py \
       --gt D:/AI/tools/OmniDocBench_data/OmniDocBench.json \
       --state data/evals/omnidocbench/predictions_eval200/state.json \
-      --library-dir data/knowledge_base/libraries/omnidocbench/documents \
+      --library-dir data/knowledge/libraries/omnidocbench/documents \
       --out data/evals/omnidocbench/result_jsonl200
 
 输出：控制台总览 + <out>/structure_result.json（全量明细）+ <out>/structure_report.md（报告）。
@@ -26,7 +26,7 @@ sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))
 from evals_core.parse_struct.corpus import render_report, run_eval  # noqa: E402
 
 DEFAULT_GT = Path("D:/AI/tools/OmniDocBench_data/OmniDocBench.json")
-DEFAULT_LIBRARY = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"
+DEFAULT_LIBRARY = REPO / "data" / "knowledge" / "libraries" / "omnidocbench" / "documents"
 
 
 def main() -> int:

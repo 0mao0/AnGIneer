@@ -127,17 +127,21 @@ watch(
   }
 )
 
-/** 知识库单选下拉：只列当前用户被授权的库，名称解析失败回退显示 id */
+/** 知识库单选下拉：只列当前用户被授权的生产组库（评测语料不进用户端 @ 选择器），名称解析失败回退显示 id */
 const libraryNames = ref<Record<string, string>>({})
+const evalsLibraryIds = ref<Set<string>>(new Set())
 const libraryOptions = computed(() =>
-  authStore.libraries.map((id) => ({ value: id, label: libraryNames.value[id] || id }))
+  authStore.libraries
+    .filter((id) => !evalsLibraryIds.value.has(id))
+    .map((id) => ({ value: id, label: libraryNames.value[id] || id }))
 )
 const loadLibraryNames = async () => {
   try {
-    const list = await knowledgeApi.getLibraries() as unknown as { id: string; name: string }[]
+    const list = await knowledgeApi.getLibraries() as unknown as { id: string; name: string; group_name?: string }[]
     libraryNames.value = Object.fromEntries(list.map((l) => [l.id, l.name]))
+    evalsLibraryIds.value = new Set(list.filter((l) => l.group_name === 'evals').map((l) => l.id))
   } catch {
-    // 名称加载失败时下拉回退显示库 id
+    // 名称加载失败时下拉回退显示 id
   }
 }
 onMounted(() => {

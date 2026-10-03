@@ -34,7 +34,7 @@ from evals_core.parse_struct.jsonl_eval import (  # noqa: E402
 )
 
 DEFAULT_STATE = REPO / "data" / "evals" / "omnidocbench" / "predictions_eval200" / "state.json"
-DEFAULT_LIB = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"
+DEFAULT_LIB = REPO / "data" / "knowledge" / "libraries" / "omnidocbench" / "documents"
 DEFAULT_GT = Path("D:/AI/tools/OmniDocBench_data/OmniDocBench.json")
 
 

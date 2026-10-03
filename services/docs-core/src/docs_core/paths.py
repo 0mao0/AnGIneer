@@ -20,7 +20,7 @@ from pathlib import Path
 
 KNOWLEDGE_META_DB_NAME = "knowledge_meta.sqlite"
 KNOWLEDGE_INDEX_DB_NAME = "knowledge_index.sqlite"
-KNOWLEDGE_GRAPH_DB_NAME = "knowledge_graph.sqlite"
+KNOWLEDGE_GRAPH_DB_NAME = "graph.sqlite"
 
 
 def _knowledge_base(base_dir: Path | str | None) -> Path:
@@ -47,11 +47,20 @@ def resolve_repo_root() -> Path:
 
 
 def resolve_knowledge_base_dir() -> Path:
-    """解析知识库数据根目录（``KNOWLEDGE_BASE_DIR`` 可覆盖，默认 repo/data/knowledge_base）。"""
+    """解析知识库数据根目录（``KNOWLEDGE_BASE_DIR`` > ``ANGINEER_DATA_ROOT``/knowledge > repo/data/knowledge）。
+
+    2026-10 data/ 三域归位（plan-kb-split-groups 阶段二）：目录由 ``knowledge_base``
+    改名为 ``knowledge``（生产知识域）；``KNOWLEDGE_BASE_DIR`` 变量名保留不动。
+    ``ANGINEER_DATA_ROOT`` 与 library_registry 共用同一数据根口径，保证「组文件回退
+    默认单文件」解析出的路径与本函数一致（测试隔离依赖这一点，2026-10-03 实踩）。
+    """
     env_override = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
     if env_override:
         return Path(env_override).expanduser()
-    return resolve_repo_root() / "data" / "knowledge_base"
+    data_root = os.getenv("ANGINEER_DATA_ROOT", "").strip()
+    if data_root:
+        return Path(data_root).expanduser() / "knowledge"
+    return resolve_repo_root() / "data" / "knowledge"
 
 
 def resolve_knowledge_meta_db_path() -> Path:
@@ -63,8 +72,8 @@ def resolve_knowledge_index_db_path() -> Path:
 
 
 def resolve_graph_db_path() -> Path:
-    """默认知识图谱库路径：repo/data/knowledge_graph.sqlite。"""
-    return resolve_repo_root() / "data" / KNOWLEDGE_GRAPH_DB_NAME
+    """知识图谱库路径：<data 根>/knowledge/graph.sqlite（收编进知识域，2026-10 起）。"""
+    return resolve_knowledge_base_dir() / KNOWLEDGE_GRAPH_DB_NAME
 
 
 def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
@@ -78,7 +87,14 @@ def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
 
 
 def library_root(library_id: str, base_dir: Path | str | None = None) -> Path:
-    return _knowledge_base(base_dir) / "libraries" / library_id
+    """库目录根：显式 base_dir 优先（测试用）；默认经注册表按组路由
+    （plan-kb-split-groups：生产组 → knowledge/libraries，评测组 → evals/corpora/libraries，
+    组目标目录存在即生效，否则回落知识库根 libraries/——跨搬迁窗口安全）。"""
+    if base_dir is None:
+        from . import library_registry  # 懒加载避免循环导入（registry 顶层 import paths）
+
+        return library_registry.resolve_libraries_dir(library_id) / library_id
+    return Path(base_dir) / "libraries" / library_id
 
 
 def get_doc_root(library_id: str, doc_id: str, base_dir: Path | str | None = None) -> Path:

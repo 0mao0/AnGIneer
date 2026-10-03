@@ -36,7 +36,7 @@ SAMPLE_QUERIES = [
 
 class TestIntentClassifier(unittest.TestCase):
     def setUp(self):
-        self.sop_dir = os.path.join(os.path.dirname(__file__), "../../data/sops/raw")
+        self.sop_dir = os.path.join(os.path.dirname(__file__), "../../data/platform/sops/raw")
         self.loader = SopLoader(self.sop_dir)
         # IntentClassifier expects a list of SOPs
         self.sops = self.loader.load_all()

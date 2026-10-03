@@ -21,8 +21,8 @@ _mod = _ilu.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 numeric_keywords = _mod.numeric_keywords
 
-QUESTIONS = REPO / "data" / "financebench" / "raw" / "financebench_open_source.jsonl"
-STATE = REPO / "data" / "financebench" / "ingest" / "import_state.json"
+QUESTIONS = REPO / "data" / "evals" / "originals" / "financebench" / "raw" / "financebench_open_source.jsonl"
+STATE = REPO / "data" / "evals" / "originals" / "financebench" / "ingest" / "import_state.json"
 
 PILOT_ID = "financebench-pilot-10-v1"
 SEED = 42

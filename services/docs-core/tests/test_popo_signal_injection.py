@@ -13,7 +13,7 @@ from docs_core.step04_structure.popo.popo_signal_injector import (
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-KB = REPO_ROOT / "data" / "knowledge_base" / "libraries" / "default" / "documents"
+KB = REPO_ROOT / "data" / "knowledge" / "libraries" / "default" / "documents"
 HAIGANG2 = "doc-c8be9f8b"
 
 

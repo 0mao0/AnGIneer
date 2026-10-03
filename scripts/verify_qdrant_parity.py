@@ -23,12 +23,12 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 def _index_db_path() -> Path:
     base = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
     if not base:
-        for candidate in ("/app/data/knowledge_base",):
+        for candidate in ("/app/data/knowledge",):
             if Path(candidate).exists():
                 base = candidate
                 break
     if not base:
-        base = str(Path(__file__).resolve().parents[1] / "data" / "knowledge_base")
+        base = str(Path(__file__).resolve().parents[1] / "data" / "knowledge")
     return Path(base) / "knowledge_index.sqlite"
 
 

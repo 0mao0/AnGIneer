@@ -310,8 +310,15 @@ class DocsService:
         default_path = getattr(self, "index_db_path", None)
         if not library_id or default_path is None:
             return self.canonical_store
+        # 未注册库回退本服务默认 store（self.index_db_path 是什么就用什么——测试隔离实例
+        # 指向 tmp，绝不能经全局解析绕到真盘组文件，2026-10-03 tests/unit 实踩）
+        record = library_registry.get_library(library_id)
+        if record is None:
+            return self.canonical_store
         path = library_registry.resolve_index_db_path(library_id)
-        if Path(path) == Path(default_path):
+        # 组文件缺失时 resolve 回退到全局默认单文件——「默认单文件」对本服务实例就是
+        # self.index_db_path（隔离测试里指向 tmp），必须归一到本体 store
+        if Path(path) == Path(default_path) or Path(path) == Path(resolve_knowledge_index_db_path()):
             return self.canonical_store
         key = str(path)
         store = self._canonical_stores.get(key)
@@ -324,8 +331,11 @@ class DocsService:
         default_path = getattr(self, "index_db_path", None)
         if not library_id or default_path is None:
             return self.index_store
+        record = library_registry.get_library(library_id)
+        if record is None:
+            return self.index_store
         path = library_registry.resolve_index_db_path(library_id)
-        if Path(path) == Path(default_path):
+        if Path(path) == Path(default_path) or Path(path) == Path(resolve_knowledge_index_db_path()):
             return self.index_store
         key = str(path)
         store = self._index_stores.get(key)

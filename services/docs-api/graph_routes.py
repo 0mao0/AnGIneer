@@ -21,7 +21,7 @@ def _get_store():
     from docs_core.step07_graph.graph_store import GraphStore
     db_path = os.environ.get(
         "KG_DB_PATH",
-        os.path.join(ROOT_DIR, "data", "knowledge_graph.sqlite"),
+        os.path.join(ROOT_DIR, "data", "knowledge", "graph.sqlite"),
     )
     return GraphStore(db_path)
 

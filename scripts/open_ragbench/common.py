@@ -10,7 +10,7 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 EVALS_CORE_SRC = REPO_ROOT / "services" / "evals-core" / "src"
 if str(EVALS_CORE_SRC) not in sys.path:
     sys.path.insert(0, str(EVALS_CORE_SRC))
-DATA_DIR = REPO_ROOT / "data" / "open_ragbench"
+DATA_DIR = REPO_ROOT / "data" / "evals" / "originals" / "open_ragbench"
 RAW_DIR = DATA_DIR / "raw"
 PDF_DIR = DATA_DIR / "pdfs"
 SUBSET_DIR = DATA_DIR / "subset"

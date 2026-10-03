@@ -13,7 +13,7 @@ from docs_core.step05_sqlite_fts.rebuild.graph_rebuilder import (
 from docs_core.step04_structure.solo_engine import build_structured_from_rawfiles
 from fixtures.popo_fixtures import content_list_block
 
-KB = Path(__file__).resolve().parents[3] / "data" / "knowledge_base" / "libraries" / "default" / "documents"
+KB = Path(__file__).resolve().parents[3] / "data" / "knowledge" / "libraries" / "default" / "documents"
 REAL_FIXTURE_MISSING = not (KB / "doc-406e43e8" / "parsed").exists()
 REAL_FIXTURE_REASON = "真实数据目录缺失（doc-406e43e8 解析产物不存在）"
 

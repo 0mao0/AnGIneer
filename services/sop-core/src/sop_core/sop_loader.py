@@ -612,7 +612,7 @@ class SopLoader:
 
 def _run_preparse_from_cli():
     """从命令行触发 SOP 预解析。"""
-    sop_base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "sops"))
+    sop_base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "data", "platform", "sops"))
     config_name = None
     mode = "instruct"
     sop_id = None

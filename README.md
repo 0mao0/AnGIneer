@@ -287,11 +287,11 @@ services/
   docs-api/           文档解析/知识库/图谱/v1/Key 管理（8790）
   aichat-api/         对话/模型配置/SOP/Evals/DreamCycle/nightly 调度（8791）
 data/
-  knowledge_base/     canonical SQLite、向量库（本地 chroma/sqlite，生产 Qdrant）、文档产物
-  sops/               SOP raw/json/index
-  evals/              评测 SQLite 与题集 JSON
+  registry.sqlite     库组注册表（组→collection/sqlite 路由）
+  knowledge/          生产知识域：knowledge_meta/index（回退单文件）、groups/<组>.sqlite、libraries/<库>/ 解析产物、graph.sqlite、parse_records.sqlite
+  evals/              评测域：评测 SQLite 与题集 JSON、originals/<bench>/ 语料原件、corpora/libraries/<库>/ 评测库解析产物、groups/evals_corpus.sqlite
+  platform/           运行时域：chat/users/api_keys/sops
   dream_cycle/        巡检报告与审计日志
-  api_keys.sqlite     API Key
 tests/  docs/  scripts/  docker/
 ```
 
@@ -456,7 +456,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 
 ### 6.3 API Key 认证
 
-所有 `/api/v1/*` 端点需在 Header 携带 `X-API-Key`；Key 通过管理后台 `/api/api-keys` 生成，存储于 `data/api_keys.sqlite`。
+所有 `/api/v1/*` 端点需在 Header 携带 `X-API-Key`；Key 通过管理后台 `/api/api-keys` 生成，存储于 `data/platform/api_keys.sqlite`。
 
 ### 6.4 PoPo 内化目录本地定制
 
@@ -498,7 +498,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 | `DREAM_CYCLE_DEDUP_*` / `DREAM_CYCLE_ORPHAN_*` 等 | 巡检阈值 | 见 `step08_maintain/config.py` |
 | `ALLOWED_ORIGINS` | CORS 白名单（逗号分隔） | 本地开发地址 |
 | `DEFAULT_TENANT_ID` | 默认租户 | `default` |
-| `API_KEYS_DB_PATH` | API Key 数据库路径 | `data/api_keys.sqlite` |
+| `API_KEYS_DB_PATH` | API Key 数据库路径 | `data/platform/api_keys.sqlite` |
 | `LOG_LEVEL` | 日志级别 | `INFO` |
 
 ***

@@ -20,7 +20,7 @@ sop_router = APIRouter()
 logger = logging.getLogger(__name__)
 
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-SOP_BASE_DIR = os.environ.get("SOP_DATA_DIR", os.path.join(ROOT_DIR, "data", "sops"))
+SOP_BASE_DIR = os.environ.get("SOP_DATA_DIR", os.path.join(ROOT_DIR, "data", "platform", "sops"))
 SOP_JSON_DIR = os.path.join(SOP_BASE_DIR, "json")
 SOP_RAW_DIR = os.path.join(SOP_BASE_DIR, "raw")
 SOP_FOLDERS_FILE = os.path.join(SOP_BASE_DIR, "folders.json")

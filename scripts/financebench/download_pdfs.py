@@ -1,12 +1,12 @@
 """下载 FinanceBench 150 题所需 84 篇 SEC 申报文件（官方 doc_link 优先，jsdelivr 回退）。
 
 来源（2026-09-26 核实）：
-- 题集/文档注册表 = patronus-ai/financebench@main（data/*.jsonl，已落 data/financebench/raw/）
+- 题集/文档注册表 = patronus-ai/financebench@main（data/*.jsonl，已落 data/evals/originals/financebench/raw/）
 - 正文 = 注册表 doc_link（SEC 申报原文镜像，实测与仓库 pdfs/ 字节一致）
 - 回退 = cdn.jsdelivr.net/gh/patronus-ai/financebench@main/pdfs/<doc_name>.pdf
 
 用法：python scripts/financebench/download_pdfs.py
-产物：data/financebench/pdfs/<doc_name>.pdf + data/financebench/raw/pdf_manifest.json
+产物：data/evals/originals/financebench/pdfs/<doc_name>.pdf + data/evals/originals/financebench/raw/pdf_manifest.json
 manifest 含 git blob sha（与官方仓库 git tree 逐字节对账用）与页数。断点续跑：
 已存在且魔数/页数校验通过的文件跳过。
 """
@@ -23,8 +23,8 @@ import fitz
 import requests
 
 REPO = Path(__file__).resolve().parents[2]
-RAW = REPO / "data" / "financebench" / "raw"
-PDF_DIR = REPO / "data" / "financebench" / "pdfs"
+RAW = REPO / "data" / "evals" / "originals" / "financebench" / "raw"
+PDF_DIR = REPO / "data" / "evals" / "originals" / "financebench" / "pdfs"
 MANIFEST = RAW / "pdf_manifest.json"
 
 UA = {"User-Agent": "Mozilla/5.0 (research; contact: research@angineer.cn)"}

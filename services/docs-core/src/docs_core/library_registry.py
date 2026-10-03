@@ -7,7 +7,7 @@
 - 未注册的 ``library_id`` 回退旧默认（``QDRANT_COLLECTION`` / 单文件 knowledge_index），
   行为与注册表出现前完全一致——注册表是增量真相源，不是硬切换。
 
-路径口径：``sqlite_file`` 存**相对 data 根**的 POSIX 相对路径（如 ``knowledge_base/knowledge_index.sqlite``），
+路径口径：``sqlite_file`` 存**相对 data 根**的 POSIX 相对路径（如 ``knowledge/knowledge_index.sqlite``），
 跨机器（开发机 D:\\AI\\AnGIneer ↔ 服务器 /home/runner/AnGIneer）可移植；读取时经
 :func:`resolve_index_db_path` 拼回绝对路径。
 """
@@ -58,7 +58,7 @@ GROUP_DEFAULTS: Dict[str, Dict[str, str]] = {
     },
 }
 
-_DEFAULT_SQLITE_FILE = "knowledge_base/knowledge_index.sqlite"
+_DEFAULT_SQLITE_FILE = "knowledge/knowledge_index.sqlite"
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS library_registry (
@@ -267,9 +267,15 @@ def resolve_collection(library_id: str) -> str:
 
 
 def resolve_index_db_path(library_id: str) -> Path:
-    """该库的正文/FTS sqlite 绝对路径；未注册回退单文件 knowledge_index 默认。"""
+    """该库的正文/FTS sqlite 绝对路径；未注册或登记为默认单文件时回退 knowledge_index 默认。
+
+    默认单文件（``_DEFAULT_SQLITE_FILE``）走 ``paths.resolve_knowledge_index_db_path``
+    （KNOWLEDGE_BASE_DIR 口径）而非 ``resolve_data_root()``：两者在生产同指，但测试用
+    KNOWLEDGE_BASE_DIR 隔离实例时不经 ANGINEER_DATA_ROOT（2026-10-03 实踩：
+    两套口径分叉致组路由把隔离实例的 default 库写到另一份 tmp 文件）。
+    """
     record = get_library(library_id)
-    if record is not None:
+    if record is not None and record.sqlite_file != _DEFAULT_SQLITE_FILE:
         return resolve_data_root() / record.sqlite_file
     return resolve_knowledge_index_db_path()
 

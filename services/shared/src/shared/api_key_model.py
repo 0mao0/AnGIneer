@@ -13,7 +13,7 @@ from typing import Optional
 
 from shared.paths import resolve_data_file
 
-DB_PATH = resolve_data_file("API_KEYS_DB_PATH", "api_keys.sqlite")
+DB_PATH = resolve_data_file("API_KEYS_DB_PATH", "platform/api_keys.sqlite")
 
 
 @dataclass

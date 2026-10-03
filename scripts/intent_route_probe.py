@@ -51,7 +51,7 @@ def main() -> int:
     args = ap.parse_args()
 
     _load_env()
-    os.environ.setdefault("SOP_DATA_DIR", str(REPO / "data" / "sops"))
+    os.environ.setdefault("SOP_DATA_DIR", str(REPO / "data" / "platform" / "sops"))
     from angineer_core import IntentClassifier  # noqa: E402
     from sop_core.sop_loader import SopLoader  # noqa: E402
 

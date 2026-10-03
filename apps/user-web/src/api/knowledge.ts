@@ -2,7 +2,7 @@ import type { DocumentResponse } from '@angineer/docs-ui'
 import { docsApiClient } from '../../../shared/apiClient'
 
 export const knowledgeApi = {
-  getLibraries: () => docsApiClient.get<{ id: string; name: string }[]>('/knowledge/libraries'),
+  getLibraries: () => docsApiClient.get<{ id: string; name: string; group_name?: string }[]>('/knowledge/libraries'),
 
   getDocument: (libraryId: string, docId: string, options?: { includeContent?: boolean }) =>
     docsApiClient.get<DocumentResponse>(`/knowledge/document/${libraryId}/${docId}`, {

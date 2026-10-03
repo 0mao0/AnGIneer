@@ -19,7 +19,7 @@ def delete_library(ep: common.Endpoints, library_id: str) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="清理 Open RAG Benchmark 测试库")
     parser.add_argument("--docs-api", default="http://localhost:8790")
-    parser.add_argument("--purge", action="store_true", help="同时删除 data/open_ragbench/ 本地数据")
+    parser.add_argument("--purge", action="store_true", help="同时删除 data/evals/originals/open_ragbench/ 本地数据")
     parser.add_argument("--yes", action="store_true", help="跳过确认")
     args = parser.parse_args()
 

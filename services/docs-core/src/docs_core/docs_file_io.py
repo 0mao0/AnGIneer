@@ -12,11 +12,10 @@ class FileStorage:
     """文件存储管理器（目录布局见 docs_core.paths，本类只负责读写）。"""
 
     def __init__(self, base_dir: str = None):
-        if base_dir is None:
-            base_dir = str(paths.resolve_knowledge_base_dir())
-
-        self.base_dir = Path(base_dir)
-        self.libraries_dir = self.base_dir / "libraries"
+        # base_dir=None 时不固化：paths.library_root 经注册表按组路由（阶段二 data/ 归位）；
+        # 显式 base_dir（测试用）则钉死在该根下。
+        self.base_dir = Path(base_dir) if base_dir is not None else None
+        self.libraries_dir = (self.base_dir / "libraries") if self.base_dir is not None else None
 
     def save_source_file(
         self,

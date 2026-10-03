@@ -262,7 +262,7 @@ class SopPathGenerator:
         return names
 
     def _sop_json_dir(self) -> str:
-        return os.path.join(os.environ.get("DATA_DIR", "data"), "sops", "json")
+        return os.path.join(os.environ.get("DATA_DIR", "data"), "platform", "sops", "json")
 
     def _load_reference_sops(self, limit: int = 3) -> List[Dict[str, Any]]:
         """Load existing SOPs as reference examples, preferring well-structured ones."""
@@ -560,7 +560,7 @@ class SopPathGenerator:
         """
         from sop_core.sop_validator import validate_sop_data
 
-        sop_base = os.path.join(os.environ.get("DATA_DIR", "data"), "sops")
+        sop_base = os.path.join(os.environ.get("DATA_DIR", "data"), "platform", "sops")
         sop_dir = os.path.join(sop_base, "json")
         os.makedirs(sop_dir, exist_ok=True)
         written: List[Dict[str, Any]] = []

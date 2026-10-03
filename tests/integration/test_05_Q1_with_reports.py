@@ -31,7 +31,7 @@ class TestWholeWorkflow(unittest.TestCase):
         # 记录初始化开始时间
         self.init_start_time = time.time()
         
-        self.sop_dir = os.path.join(os.path.dirname(__file__), "../../data/sops/raw")
+        self.sop_dir = os.path.join(os.path.dirname(__file__), "../../data/platform/sops/raw")
         self.loader = SopLoader(self.sop_dir)
         # IntentClassifier expects a list of SOPs
         self.sops = self.loader.load_all()
@@ -67,7 +67,7 @@ class TestWholeWorkflow(unittest.TestCase):
         
         # 加载详细 SOP JSON
         sop_load_start = time.time()
-        sop_json_path = os.path.join(os.path.dirname(__file__), f"../../data/sops/json/{matched_sop_stub.id}.json")
+        sop_json_path = os.path.join(os.path.dirname(__file__), f"../../data/platform/sops/json/{matched_sop_stub.id}.json")
         if not os.path.exists(sop_json_path):
              self.fail(f"找不到对应的 SOP JSON 文件: {sop_json_path}")
              

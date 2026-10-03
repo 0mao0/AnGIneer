@@ -1,7 +1,7 @@
 """FinanceBench 语料入库：建库、建绑定 API Key、批量上传解析（断点续跑）。
 
-仿 scripts/open_ragbench/import_kb.py，差异：manifest = data/financebench/raw/pdf_manifest.json
-（download_pdfs.py 产物，每篇含 doc/status/bytes/blob_sha/pages/link），PDF 在 data/financebench/pdfs/。
+仿 scripts/open_ragbench/import_kb.py，差异：manifest = data/evals/originals/financebench/raw/pdf_manifest.json
+（download_pdfs.py 产物，每篇含 doc/status/bytes/blob_sha/pages/link），PDF 在 data/evals/originals/financebench/pdfs/。
 
 用法（本地，仓库根目录）：
   python scripts/financebench/import_docs.py                 # 全量（84 篇）
@@ -20,7 +20,7 @@ from pathlib import Path
 import requests
 
 REPO = Path(__file__).resolve().parents[2]
-DATA = REPO / "data" / "financebench"
+DATA = REPO / "data" / "evals" / "originals" / "financebench"
 MANIFEST = DATA / "raw" / "pdf_manifest.json"
 PDF_DIR = DATA / "pdfs"
 STATE_FILE = DATA / "ingest" / "import_state.json"

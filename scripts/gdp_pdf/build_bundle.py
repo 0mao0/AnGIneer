@@ -1,8 +1,8 @@
 """GDP.pdf 官方 100 题 → eval.bundle（gdp-pdf-v1）。
 
 输入：
-  data/gdp_pdf/raw/parquet_a.parquet（官方题集，三镜像字节一致锁定）
-  data/gdp_pdf/ingest/import_state.json（import_docs.py 产物：pdf 文件名 → doc_id/状态）
+  data/evals/originals/gdp_pdf/raw/parquet_a.parquet（官方题集，三镜像字节一致锁定）
+  data/evals/originals/gdp_pdf/ingest/import_state.json（import_docs.py 产物：pdf 文件名 → doc_id/状态）
 输出：
   data/evals/datasets/gdp-pdf-v1.json
 
@@ -19,11 +19,11 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-PARQUET = REPO / "data" / "gdp_pdf" / "raw" / "parquet_a.parquet"
-QUESTIONS = REPO / "data" / "gdp_pdf" / "raw" / "questions.json"
-STATE = REPO / "data" / "gdp_pdf" / "ingest" / "import_state.json"
+PARQUET = REPO / "data" / "evals" / "originals" / "gdp_pdf" / "raw" / "parquet_a.parquet"
+QUESTIONS = REPO / "data" / "evals" / "originals" / "gdp_pdf" / "raw" / "questions.json"
+STATE = REPO / "data" / "evals" / "originals" / "gdp_pdf" / "ingest" / "import_state.json"
 OUT = REPO / "data" / "evals" / "datasets" / "gdp-pdf-v1.json"
-LEVELS = REPO / "data" / "gdp_pdf" / "raw" / "levels.json"
+LEVELS = REPO / "data" / "evals" / "originals" / "gdp_pdf" / "raw" / "levels.json"
 
 DATASET_ID = "gdp-pdf-v1"
 

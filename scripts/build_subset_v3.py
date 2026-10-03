@@ -3,7 +3,7 @@
 产物（本地与生产同构）：
 1. evals.sqlite：eval_dataset + eval_question 行（dataset_id=open-ragbench-subset-v3）
 2. data/evals/datasets/open-ragbench-subset-v3.json（eval.bundle 格式，题干摘录来源）
-3. data/open_ragbench/subset/subset_manifest_v3.json（题型归属 manifest，含拒答题）
+3. data/evals/originals/open_ragbench/subset/subset_manifest_v3.json（题型归属 manifest，含拒答题）
 
 用法（本地或服务器，仓库根目录执行）：python scripts/build_subset_v3.py --apply
 """
@@ -16,7 +16,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 DB = REPO / "data" / "evals" / "evals.sqlite"
 DATASETS_DIR = REPO / "data" / "evals" / "datasets"
-MANIFEST_DIR = REPO / "data" / "open_ragbench" / "subset"
+MANIFEST_DIR = REPO / "data" / "evals" / "originals" / "open_ragbench" / "subset"
 
 SRC_MAIN = "open-ragbench-subset-v2"
 SRC_REFUSAL = "open-ragbench-refusal-v2"

@@ -15,7 +15,7 @@ import logging
 
 from shared.paths import resolve_data_file
 
-DB_PATH = resolve_data_file("USERS_DB_PATH", "users.sqlite")
+DB_PATH = resolve_data_file("USERS_DB_PATH", "platform/users.sqlite")
 
 SESSION_TTL_DAYS = 7
 PBKDF2_ITERATIONS = 200_000

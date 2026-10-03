@@ -21,7 +21,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "services" / "docs-core" / "src"))
 
-DB = REPO / "data" / "knowledge_base" / "knowledge_index.sqlite"
+DB = REPO / "data" / "knowledge" / "knowledge_index.sqlite"
 
 
 def _chunk_texts(doc_id: str) -> list[str]:

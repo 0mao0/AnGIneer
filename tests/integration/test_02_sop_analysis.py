@@ -208,7 +208,7 @@ class TestSopAnalysis(unittest.TestCase):
         print("\n[测试 03] SOP 步骤分析测试")
         start_time = time.perf_counter()
         env_query = os.environ.get("TEST_LLM_QUERY")
-        sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "sops", "raw")
+        sop_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "data", "platform", "sops", "raw")
         loader = SopLoader(sop_dir)
         sops = loader.load_all()
         self.assertGreater(len(sops), 0)

@@ -49,7 +49,7 @@ check_prerequisites() {
 
     if [ ! -d "$PROJECT_DIR/data" ]; then
         echo "警告: data/ 目录不存在，正在创建..."
-        mkdir -p "$PROJECT_DIR/data/knowledge_base" "$PROJECT_DIR/data/sops"
+        mkdir -p "$PROJECT_DIR/data/knowledge" "$PROJECT_DIR/data/platform/sops"
     fi
 
     echo "前置条件检查通过"

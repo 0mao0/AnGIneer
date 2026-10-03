@@ -104,15 +104,15 @@ class DreamCycleConfig:
 
         self.graph_db_path = os.environ.get(
             "KNOWLEDGE_GRAPH_DB_PATH",
-            os.path.join(project_root, "data", "knowledge_graph.sqlite"),
+            os.path.join(project_root, "data", "knowledge", "graph.sqlite"),
         )
         self.knowledge_index_path = os.environ.get(
             "KNOWLEDGE_INDEX_DB_PATH",
-            os.path.join(project_root, "data", "knowledge_base", "knowledge_index.sqlite"),
+            os.path.join(project_root, "data", "knowledge", "knowledge_index.sqlite"),
         )
         self.knowledge_meta_path = os.environ.get(
             "KNOWLEDGE_META_DB_PATH",
-            os.path.join(project_root, "data", "knowledge_base", "knowledge_meta.sqlite"),
+            os.path.join(project_root, "data", "knowledge", "knowledge_meta.sqlite"),
         )
 
 

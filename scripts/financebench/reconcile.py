@@ -18,7 +18,7 @@ REPO = Path(__file__).resolve().parents[2]
 STATE = REPO / "data" / "financebench" / "ingest" / "import_state.json"
 KEYS = REPO / "data" / "financebench" / "ingest" / "keys.json"
 MANIFEST = REPO / "data" / "financebench" / "raw" / "pdf_manifest.json"
-DB = REPO / "data" / "knowledge_base" / "knowledge_index.sqlite"
+DB = REPO / "data" / "knowledge" / "knowledge_index.sqlite"
 DOCS_API = "http://localhost:8790"
 
 

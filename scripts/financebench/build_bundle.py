@@ -1,8 +1,8 @@
 """FinanceBench 开源子集 150 题 → eval.bundle（financebench-open-150-v1）。
 
 输入：
-  data/financebench/raw/financebench_open_source.jsonl（官方题集）
-  data/financebench/ingest/import_state.json（import_docs.py 产物：doc_name → doc_id / 状态）
+  data/evals/originals/financebench/raw/financebench_open_source.jsonl（官方题集）
+  data/evals/originals/financebench/ingest/import_state.json（import_docs.py 产物：doc_name → doc_id / 状态）
 输出：
   data/evals/datasets/financebench-open-150-v1.json
 
@@ -15,8 +15,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-QUESTIONS = REPO / "data" / "financebench" / "raw" / "financebench_open_source.jsonl"
-STATE = REPO / "data" / "financebench" / "ingest" / "import_state.json"
+QUESTIONS = REPO / "data" / "evals" / "originals" / "financebench" / "raw" / "financebench_open_source.jsonl"
+STATE = REPO / "data" / "evals" / "originals" / "financebench" / "ingest" / "import_state.json"
 OUT = REPO / "data" / "evals" / "datasets" / "financebench-open-150-v1.json"
 
 DATASET_ID = "financebench-open-150-v1"

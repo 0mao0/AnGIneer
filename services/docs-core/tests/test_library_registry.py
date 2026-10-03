@@ -24,7 +24,7 @@ class TestSchemaAndRegister:
             "lib-a", name="规范库", description="d", group_name="standards"
         )
         assert record.collection == "standards"
-        assert record.sqlite_file == "knowledge_base/knowledge_index.sqlite"
+        assert record.sqlite_file == "knowledge/knowledge_index.sqlite"
         assert record.status == "active"
 
         fetched = reg.get_library("lib-a")
@@ -98,7 +98,7 @@ class TestFallback:
         reg.register_library("lib-a", group_name="evals")
         assert reg.resolve_collection("lib-a") == "evals_corpus"
         assert reg.resolve_index_db_path("lib-a").as_posix().endswith(
-            "knowledge_base/knowledge_index.sqlite"
+            "knowledge/knowledge_index.sqlite"
         )
 
 

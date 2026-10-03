@@ -6,17 +6,26 @@
 
 ```text
 data/
-├─ knowledge_base/
+├─ registry.sqlite                     # 库组注册表（library_id → 组 → collection/sqlite_file）
+├─ knowledge/                          # 生产知识域（2026-10 由 knowledge_base 改名归位）
 │  ├─ knowledge_meta.sqlite            # 全局元数据（库、节点、解析任务）
-│  ├─ knowledge_index.sqlite           # 全局索引（canonical + FTS + 向量 + 块）
+│  ├─ knowledge_index.sqlite           # 未注册库回退索引文件
+│  ├─ groups/{standards,dredgeai}.sqlite   # 按组拆分的索引库（canonical + FTS + 块）
+│  ├─ graph.sqlite                     # 知识图谱（原 data 根 knowledge_graph.sqlite 收编）
+│  ├─ parse_records.sqlite             # 解析记录（统计/列表，原 data 根收编）
 │  └─ libraries/
 │     ├─ default/
 │     │  ├─ knowledge_meta.sqlite      # 早期按库拆分的历史元数据（可能为空/遗留）
 │     │  └─ documents/{doc_id}/…       # 一文档一目录
-│     └─ lib-bidcompare/…
-├─ api_keys.sqlite                     # API Key（含 library_id 绑定）
-├─ parse_records.sqlite                # 解析记录（统计/列表）
-└─ evals/…                             # 评测数据
+│     └─ lib-39109792/…
+├─ evals/
+│  ├─ originals/{financebench,gdp_pdf,officeqa,open_ragbench}/   # 语料原件
+│  ├─ corpora/libraries/<lib-id>/      # 评测库解析产物（omnidocbench、lib-officeqa 等）
+│  ├─ groups/evals_corpus.sqlite       # 评测组索引库
+│  └─ …                                # 评测结果与题集
+└─ platform/
+   ├─ chat.sqlite / users.sqlite / api_keys.sqlite   # 运行时域
+   └─ sops/                            # SOP raw/json/index
 ```
 
 ## 2. 元数据库（knowledge_meta.sqlite）
@@ -40,7 +49,7 @@ data/
 > 注意：早期版本把部分元数据拆分到 `libraries/{lib}/knowledge_meta.sqlite`，
 > 属于遗留迁移产物，读取以全局 `knowledge_meta.sqlite` 为准。
 
-## 3. 索引库（knowledge_index.sqlite）
+## 3. 索引库（按组拆分：knowledge/groups/*.sqlite + evals/groups/*.sqlite，回退 knowledge_index.sqlite）
 
 | 表 | 说明 |
 | :--- | :--- |

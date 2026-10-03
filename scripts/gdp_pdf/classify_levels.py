@@ -1,7 +1,7 @@
 """用生产同款意图分类器给 GDP.pdf 100 题逐题定 L0-L4 层级（回填题集卡层级分布）。
 
 真相源：angineer_core.classifier.IntentClassifier（与 evals intent 评测器、生产 policy_query 同一分类器）。
-断点续跑：已写入 data/gdp_pdf/raw/levels.json 的 task_id 跳过。
+断点续跑：已写入 data/evals/originals/gdp_pdf/raw/levels.json 的 task_id 跳过。
 """
 import json
 import sys
@@ -15,8 +15,8 @@ from dotenv import load_dotenv
 
 load_dotenv(REPO / ".env")
 
-PARQUET = REPO / "data" / "gdp_pdf" / "raw" / "parquet_a.parquet"
-OUT = REPO / "data" / "gdp_pdf" / "raw" / "levels.json"
+PARQUET = REPO / "data" / "evals" / "originals" / "gdp_pdf" / "raw" / "parquet_a.parquet"
+OUT = REPO / "data" / "evals" / "originals" / "gdp_pdf" / "raw" / "levels.json"
 
 
 def main() -> int:

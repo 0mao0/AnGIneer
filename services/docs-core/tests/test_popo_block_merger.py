@@ -12,7 +12,7 @@ from docs_core.step04_structure.popo.popo_signal_injector import inject_popo_sig
 from docs_core.step04_structure.popo.popo_block_merger import merge_blocks
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-KB = REPO_ROOT / "data" / "knowledge_base" / "libraries" / "default" / "documents"
+KB = REPO_ROOT / "data" / "knowledge" / "libraries" / "default" / "documents"
 
 
 def _node(uid, page_idx, block_seq, block_type="paragraph", text="", *, bbox=None, contd=None, content_json=None, **extra):

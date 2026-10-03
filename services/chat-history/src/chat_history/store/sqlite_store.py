@@ -20,7 +20,7 @@ from shared.paths import resolve_data_file
 
 from angineer_core.agent_messages import AgentMessage, ToolCall
 
-DB_PATH = resolve_data_file("CHAT_DB_PATH", "chat.sqlite")
+DB_PATH = resolve_data_file("CHAT_DB_PATH", "platform/chat.sqlite")
 
 logger = logging.getLogger(__name__)
 

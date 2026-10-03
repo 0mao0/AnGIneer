@@ -1,5 +1,15 @@
 <template>
   <div class="library-select" :class="{ 'library-select-title': props.mode === 'title' }">
+    <a-radio-group
+      v-model:value="groupTab"
+      size="small"
+      option-type="button"
+      class="library-group-tabs"
+      :options="[
+        { label: '生产', value: 'prod' },
+        { label: '评测', value: 'evals' },
+      ]"
+    />
     <template v-if="props.mode === 'title'">
       <a-dropdown :trigger="['hover']" v-model:open="selectOpen">
         <div class="library-title-trigger">
@@ -8,7 +18,7 @@
         </div>
         <template #overlay>
           <a-menu @click="handleMenuClick">
-            <a-menu-item v-for="lib in store.libraries" :key="lib.id">
+            <a-menu-item v-for="lib in filteredLibraries" :key="lib.id">
               <div class="lib-option">
                 <span class="lib-option-name" :title="lib.name">{{ lib.name }}</span>
                 <span class="lib-option-actions" @click.stop>
@@ -41,7 +51,7 @@
       @dropdown-visible-change="(v: boolean) => (selectOpen = v)"
     >
       <a-select-option
-        v-for="lib in store.libraries"
+        v-for="lib in filteredLibraries"
         :key="lib.id"
         :value="lib.id"
         :label="lib.name"
@@ -168,6 +178,15 @@ const emit = defineEmits<{
 }>()
 
 const store = useLibraryStore()
+
+// 组 segment（plan-kb-split-groups）：评测语料与生产知识分栏展示，操作能力一致；
+// 组判定由后端注册表直出 group_name，前端只过滤（evals=评测语料，其余=生产）。
+const groupTab = ref<'prod' | 'evals'>('prod')
+const filteredLibraries = computed(() =>
+  groupTab.value === 'evals'
+    ? store.libraries.filter((l) => l.group_name === 'evals')
+    : store.libraries.filter((l) => l.group_name !== 'evals'),
+)
 
 // 下拉菜单受控：item 内点击操作 icon 时主动收起，避免抽屉/弹框打开后菜单残留
 const selectOpen = ref(false)
@@ -298,6 +317,9 @@ async function handleDelete() {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+.library-group-tabs {
+  margin-right: 8px;
 }
 .library-select-title {
   min-width: auto;

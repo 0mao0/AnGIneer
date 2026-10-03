@@ -24,7 +24,7 @@ def _ensure_sop_loader():
     try:
         from sop_core.sop_loader import SopLoader
         root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", ".."))
-        sop_base_dir = os.path.join(root_dir, "data", "sops")
+        sop_base_dir = os.path.join(root_dir, "data", "platform", "sops")
         _sop_loader = SopLoader(sop_base_dir)
         return _sop_loader
     except Exception as exc:

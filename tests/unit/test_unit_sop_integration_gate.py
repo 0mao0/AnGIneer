@@ -23,7 +23,7 @@ def write_sop(sop_dir, sop_id, payload):
 class SopExecutionGateTests(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
-        self.sop_base = os.path.join(self._tmp.name, "sops")
+        self.sop_base = os.path.join(self._tmp.name, "platform", "sops")
         self.json_dir = os.path.join(self.sop_base, "json")
 
     def tearDown(self):

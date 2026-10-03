@@ -61,7 +61,7 @@ class PathsTests(unittest.TestCase):
                 # 文件名跟着 MANIFEST_DEFAULT 走（v3 题集时代曾在此硬编码 v2 造成升级后测试空转失败）
                 self.assertEqual(
                     str(npaths.manifest_path()),
-                    str(Path(td) / "open_ragbench" / "subset" / Path(npaths.MANIFEST_DEFAULT).name))
+                    str(Path(td) / "evals" / "originals" / "open_ragbench" / "subset" / Path(npaths.MANIFEST_DEFAULT).name))
 
 
 class SettingsTests(_TmpSettings):

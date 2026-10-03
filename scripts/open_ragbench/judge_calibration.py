@@ -2,7 +2,7 @@
 
 用法：
     python scripts/open_ragbench/judge_calibration.py export --run-id run-xxx [--count 30]
-    # → 生成 data/open_ragbench/reports/judge_calibration_worksheet.json，
+    # → 生成 data/evals/originals/open_ragbench/reports/judge_calibration_worksheet.json，
     #   人工为每条填写 "human_verdict": "correct" | "wrong"
     python scripts/open_ragbench/judge_calibration.py check
     # → 计算 Cohen's κ、混淆矩阵，并给出 semantic_threshold 调整建议

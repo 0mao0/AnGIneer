@@ -102,7 +102,7 @@ def main():
         return 2
 
     manifest = common.load_json(common.SUBSET_MANIFEST)  # v2 manifest 已临时设为默认? 否——手动指定
-    manifest_path = Path("data/open_ragbench/subset/subset_manifest_v2.json")
+    manifest_path = Path("data/evals/originals/open_ragbench/subset/subset_manifest_v2.json")
     manifest = common.load_json(manifest_path)
 
     state = load_state()

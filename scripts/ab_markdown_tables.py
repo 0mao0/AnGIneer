@@ -19,7 +19,7 @@ from docs_core.step04_structure.shared.markdown_projection import build_faithful
 from evals_core.parse_struct.corpus import _resolve_doc_dir  # noqa: E402
 
 DEFAULT_STATE = REPO / "data" / "evals" / "omnidocbench" / "predictions_eval200" / "state.json"
-DEFAULT_LIB = REPO / "data" / "knowledge_base" / "libraries" / "omnidocbench" / "documents"
+DEFAULT_LIB = REPO / "data" / "knowledge" / "libraries" / "omnidocbench" / "documents"
 GT_DIR = Path("D:/AI/tools/OmniDocBench_data")
 
 

@@ -182,27 +182,29 @@ _allowed_roots_cache: Optional[list[str]] = None
 def _remap_path_for_container(raw_path: str) -> str:
     """将外部路径映射为容器内路径。
 
-    Docker 部署时，数据库可能存储了宿主机格式的路径（如 D:\\AI\\data\\knowledge_base\\...），
-    但容器内文件系统看到的路径是 /app/data/knowledge_base/...。
-    此函数通过识别路径中的 knowledge_base 段，自动将路径重定向到容器内的知识库目录。
+    Docker 部署时，数据库可能存储了宿主机格式的路径（如 D:\\AI\\data\\knowledge\\libraries\\...），
+    但容器内文件系统看到的路径是 /app/data/knowledge/libraries/...。
+    通过识别路径中的 data/ 域段（knowledge_base 旧名 / knowledge / evals），
+    将 data/ 之后的相对尾段重定向到容器内 data 根（2026-10 三域归位后库目录跨 knowledge 与
+    evals/corpora 两域，单一 knowledge_base 段匹配不够用）。
     """
     norm_raw = raw_path.replace("\\", "/")
-    kb_segment = "/knowledge_base/"
-    idx = norm_raw.lower().find(kb_segment)
-    if idx < 0 and norm_raw.lower().endswith("/knowledge_base"):
-        idx = norm_raw.lower().rfind("/knowledge_base")
-    if idx < 0:
-        return raw_path
-    relative = norm_raw[idx + len(kb_segment) - 1:].lstrip("/")
-    container_kb = os.path.abspath(str(file_storage.base_dir))
-    remapped = os.path.join(container_kb, relative)
-    if os.path.abspath(raw_path) == remapped:
-        return raw_path
-    logger.info(
-        "[Preview] Remapped path %s -> %s",
-        raw_path, remapped,
-    )
-    return remapped
+    lowered = norm_raw.lower()
+    for segment in ("/data/knowledge_base/", "/data/knowledge/", "/data/evals/"):
+        idx = lowered.find(segment)
+        if idx < 0:
+            continue
+        relative = norm_raw[idx + len("/data/"):].lstrip("/")
+        container_data = os.path.abspath(str(resolve_repo_root() / "data"))
+        remapped = os.path.join(container_data, relative)
+        if os.path.abspath(raw_path) == remapped:
+            return raw_path
+        logger.info(
+            "[Preview] Remapped path %s -> %s",
+            raw_path, remapped,
+        )
+        return remapped
+    return raw_path
 
 
 def _allowed_roots() -> list[str]:
@@ -219,15 +221,27 @@ def _allowed_roots() -> list[str]:
         roots.append(env_root)
         logger.info("[Preview] KNOWLEDGE_BASE_DIR env override: %s", env_root)
 
-    storage_root = os.path.abspath(str(file_storage.base_dir))
-    if storage_root not in roots:
-        roots.append(storage_root)
+    try:
+        from docs_core.paths import resolve_knowledge_base_dir
+
+        storage_root = os.path.abspath(str(resolve_knowledge_base_dir()))
+        if storage_root not in roots:
+            roots.append(storage_root)
+    except Exception:
+        logger.warning("[Preview] resolve_knowledge_base_dir() failed", exc_info=True)
 
     try:
         repo_root = resolve_repo_root()
-        knowledge_root = os.path.abspath(str(repo_root / "data" / "knowledge_base"))
-        if knowledge_root not in roots:
-            roots.append(knowledge_root)
+        # 三域归位后的允许根：knowledge（生产域，含 libraries/groups）、evals/corpora（评测库解析产物）、
+        # 旧 knowledge_base（搬迁窗口兜底）。
+        for candidate in (
+            repo_root / "data" / "knowledge",
+            repo_root / "data" / "evals" / "corpora",
+            repo_root / "data" / "knowledge_base",
+        ):
+            candidate_root = os.path.abspath(str(candidate))
+            if candidate_root not in roots:
+                roots.append(candidate_root)
     except Exception:
         logger.warning("[Preview] resolve_repo_root() failed, skipping repo-based root", exc_info=True)
 
@@ -1351,7 +1365,9 @@ def _pdf_web_optimize_enabled() -> bool:
 
 
 def _pdf_web_cache_dir() -> Path:
-    return Path(file_storage.base_dir).parent / "cache" / "pdf_web"
+    from docs_core.paths import resolve_knowledge_base_dir
+
+    return resolve_knowledge_base_dir().parent / "cache" / "pdf_web"
 
 
 def _pdf_web_cache_path(source_path: str) -> Optional[str]:
@@ -1577,14 +1593,18 @@ def _stage_output_files(stage_key: str, node) -> Optional[Dict[str, Any]]:
         return {"dir": str(directory), "items": _dir_file_items(directory, _STRUCTURE_OUTPUTS)}
 
     if stage_key == "fts":
-        index_db = paths.resolve_knowledge_index_db_path()
+        from docs_core import library_registry
+
+        index_db = library_registry.resolve_index_db_path(library_id)
         directory = index_db.parent
         return {"dir": str(directory), "items": [{
             "name": index_db.name, "exists": index_db.exists(), "isDir": False, "isNew": False,
         }]}
 
     if stage_key == "vectors":
-        index_db = paths.resolve_knowledge_index_db_path()
+        from docs_core import library_registry
+
+        index_db = library_registry.resolve_index_db_path(library_id)
         chroma_dir = paths.resolve_chroma_persist_dir()
         directory = index_db.parent
         return {"dir": str(directory), "items": [

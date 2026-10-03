@@ -6,10 +6,35 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Optional
 
-DB_PATH = os.environ.get("PARSE_RECORDS_DB_PATH", str(
-    Path(__file__).resolve().parent.parent.parent.parent
-    / "data" / "parse_records.sqlite"
-))
+# 默认路径以 docs_core.parse_records_store 为准（knowledge/parse_records.sqlite，三域归位后）；
+# 此处硬编码仅在 docs-core 不可导入时兜底（docs-api 依赖 docs-core，正常必可用）。
+def _default_db_path() -> str:
+    try:
+        from docs_core.parse_records_store import db_path
+
+        return db_path()
+    except Exception:
+        return str(
+            Path(__file__).resolve().parent.parent.parent.parent
+            / "data" / "knowledge" / "parse_records.sqlite"
+        )
+
+
+DB_PATH = os.environ.get("PARSE_RECORDS_DB_PATH", _default_db_path())
+
+
+def _api_keys_db_path() -> str:
+    """api_keys 库路径：三域归位后与 parse_records 不再同目录（platform/ vs knowledge/），
+    不再用 dirname 推导。"""
+    try:
+        from shared.paths import resolve_data_file
+
+        return resolve_data_file("API_KEYS_DB_PATH", "platform/api_keys.sqlite")
+    except Exception:
+        return str(
+            Path(__file__).resolve().parent.parent.parent.parent
+            / "data" / "platform" / "api_keys.sqlite"
+        )
 
 
 @dataclass
@@ -122,7 +147,7 @@ def list_records(
     # 补充 api_key_name
     api_key_ids = {r["api_key_id"] for r in records if r.get("api_key_id")}
     if api_key_ids:
-        api_keys_db = os.path.join(os.path.dirname(DB_PATH), "api_keys.sqlite")
+        api_keys_db = _api_keys_db_path()
         if os.path.exists(api_keys_db):
             try:
                 aconn = sqlite3.connect(api_keys_db)
@@ -183,7 +208,7 @@ def get_statistics(
 
     # api_key_id → 当前 key 名
     key_name_map: dict = {}
-    api_keys_db = os.path.join(os.path.dirname(DB_PATH), "api_keys.sqlite")
+    api_keys_db = _api_keys_db_path()
     if os.path.exists(api_keys_db):
         try:
             aconn = sqlite3.connect(api_keys_db)

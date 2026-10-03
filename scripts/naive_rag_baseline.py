@@ -25,9 +25,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 ARM_DIR = REPO / "data" / "evals" / "baseline_arms" / "arm2_naive"
 DATASET = REPO / "data" / "evals" / "datasets" / "open-ragbench-subset-v4.json"
-QRELS = REPO / "data" / "open_ragbench" / "raw" / "qrels.json"
+QRELS = REPO / "data" / "evals" / "originals" / "open_ragbench" / "raw" / "qrels.json"
 PDF_MAP = REPO / "data" / "evals" / "baseline_arms" / "server_b07_pdfmap.json"
-PDF_DIR = REPO / "data" / "open_ragbench" / "pdfs"
+PDF_DIR = REPO / "data" / "evals" / "originals" / "open_ragbench" / "pdfs"
 
 CHUNK_CHARS = 1800
 CHUNK_OVERLAP = 150

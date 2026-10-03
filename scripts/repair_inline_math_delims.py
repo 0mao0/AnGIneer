@@ -32,7 +32,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "services" / "docs-core" / "src"))
 
 DATA_ROOT = Path("/app/data") if Path("/app/data").is_dir() else REPO / "data"
-LIBS = DATA_ROOT / "knowledge_base" / "libraries"
+LIBS = DATA_ROOT / "knowledge" / "libraries"
 SPAN_KEYS = ("paragraph_content", "title_content", "page_header_content",
              "page_footer_content", "page_number_content")
 

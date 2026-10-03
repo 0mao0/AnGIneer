@@ -2,11 +2,11 @@
 """OfficeQA Pro 133 → eval.bundle.v2 + 筛库清单（只改格式，不改判分）。
 
 输入（业主 HF gated 获批后落盘，见 docs/plan-officeqa-arms.md §6）：
-  data/officeqa/raw/officeqa_pro.csv   （官方列：uid,question,answer,source_docs,source_files,difficulty）
+  data/evals/originals/officeqa/raw/officeqa_pro.csv   （官方列：uid,question,answer,source_docs,source_files,difficulty）
 
 输出：
   data/evals/datasets/officeqa-pro-133-v1.json   题集 bundle（numeric 金标块，tolerance 0.0＝官方主榜尺）
-  data/officeqa/corpus_manifest.json             按题筛库清单（source_files 去重册 → PDF 文件名 + 年代分布）
+  data/evals/originals/officeqa/corpus_manifest.json             按题筛库清单（source_files 去重册 → PDF 文件名 + 年代分布）
 
 注册是独立动作（§9 坑：build 脚本只写 bundle 不注册进 evals.sqlite）：
   from evals_core.dataset import manager; manager.import_bundle("data/evals/datasets/officeqa-pro-133-v1.json")
@@ -29,9 +29,9 @@ from pathlib import Path
 STEM_SPLIT_RE = re.compile(r"[;\r\n]+")
 
 ROOT = Path(__file__).resolve().parents[1]
-RAW_CSV = ROOT / "data" / "officeqa" / "raw" / "officeqa_pro.csv"
+RAW_CSV = ROOT / "data" / "evals" / "originals" / "officeqa" / "raw" / "officeqa_pro.csv"
 OUT_BUNDLE = ROOT / "data" / "evals" / "datasets" / "officeqa-pro-133-v1.json"
-OUT_MANIFEST = ROOT / "data" / "officeqa" / "corpus_manifest.json"
+OUT_MANIFEST = ROOT / "data" / "evals" / "originals" / "officeqa" / "corpus_manifest.json"
 
 DATASET_ID = "officeqa-pro-133-v1"
 LIBRARY_ID = "lib-officeqa"

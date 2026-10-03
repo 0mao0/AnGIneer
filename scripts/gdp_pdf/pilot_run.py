@@ -86,7 +86,7 @@ def main() -> int:
     ap.add_argument("--ids", default="", help="逗号分隔 task_id 白名单")
     ap.add_argument("--judge", default="", help="判官 LLM 配置名（空=默认候选链；想贴官方数就传对应端点）")
     ap.add_argument("--answer-model", default="", help="被测模型 config_name（空=默认）")
-    ap.add_argument("--out", default=str(REPO / "data" / "gdp_pdf" / "pilot_result.json"))
+    ap.add_argument("--out", default=str(REPO / "data" / "evals" / "originals" / "gdp_pdf" / "pilot_result.json"))
     args = ap.parse_args()
     _load_env()
 

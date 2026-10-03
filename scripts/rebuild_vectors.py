@@ -12,7 +12,7 @@ embedding provider 在 import 时按库里已有向量的维度锁定 expected_d
     python /app/scripts/rebuild_vectors.py --yes --doc-id doc-xxx   # 单篇
     python /app/scripts/rebuild_vectors.py --yes --library default
 
-进度文件：<knowledge_base>/vector_rebuild_progress.json（与数据库同目录，容器重启不丢）。
+进度文件：<knowledge>/vector_rebuild_progress.json（与数据库同目录，容器重启不丢）。
 """
 import argparse
 import json
@@ -27,13 +27,13 @@ def _index_db_path() -> Path:
     """不依赖 docs_core 导入的路径解析（与 docs_core.paths 口径一致）。"""
     base = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
     if not base:
-        # 容器内默认 /app/data/knowledge_base；本地仓默认 <repo>/data/knowledge_base
-        for candidate in ("/app/data/knowledge_base",):
+        # 容器内默认 /app/data/knowledge；本地仓默认 <repo>/data/knowledge_base
+        for candidate in ("/app/data/knowledge",):
             if Path(candidate).exists():
                 base = candidate
                 break
     if not base:
-        base = str(Path(__file__).resolve().parents[1] / "data" / "knowledge_base")
+        base = str(Path(__file__).resolve().parents[1] / "data" / "knowledge")
     return Path(base) / "knowledge_index.sqlite"
 
 

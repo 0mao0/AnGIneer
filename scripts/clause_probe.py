@@ -34,7 +34,7 @@ def _load_env() -> None:
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
             os.environ.setdefault(k.strip(), v.strip())
-    os.environ.setdefault("KNOWLEDGE_BASE_DIR", str(REPO / "data" / "knowledge_base"))
+    os.environ.setdefault("KNOWLEDGE_BASE_DIR", str(REPO / "data" / "knowledge"))
 
 
 sys.path.insert(0, str(REPO / "services" / "evals-core" / "src"))

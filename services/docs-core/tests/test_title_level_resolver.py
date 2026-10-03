@@ -97,7 +97,7 @@ def test_no_llm_keeps_rule_and_status_disabled():
 
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
-KB = REPO_ROOT / "data" / "knowledge_base" / "libraries" / "default" / "documents"
+KB = REPO_ROOT / "data" / "knowledge" / "libraries" / "default" / "documents"
 CASES = ["doc-12f45ca9", "doc-406e43e8", "doc-c8be9f8b"]
 
 

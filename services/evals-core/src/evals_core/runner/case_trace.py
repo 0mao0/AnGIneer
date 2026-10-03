@@ -311,7 +311,7 @@ def run_eval_case_trace(
     if not question:
         raise ValueError(f"题目不存在: dataset_id={dataset_id}, question_id={question_id}")
 
-    sop_base_dir = os.path.join(root_dir, "data", "sops")
+    sop_base_dir = os.path.join(root_dir, "data", "platform", "sops")
     sop_json_dir = os.path.join(sop_base_dir, "json")
     sop_loader = SopLoader(sop_base_dir)
     sops = sop_loader.load_all()

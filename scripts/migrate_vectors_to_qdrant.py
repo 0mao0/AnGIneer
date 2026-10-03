@@ -6,7 +6,7 @@
 
 特性：
 - rowid 游标分批流式读取（与向量缓存同款分批模式，5GB 级库不 OOM）
-- 断点续传：进度落 <knowledge_base>/qdrant_migration_progress.json
+- 断点续传：进度落 <knowledge>/qdrant_migration_progress.json
 - 空向量行跳过（Qdrant 不承载零向量，与 QdrantVectorStore 语义一致）
 - --reset 删除并重建 collection（重复迁移/换维时用）
 
@@ -30,12 +30,12 @@ def _index_db_path() -> Path:
     """与 docs_core.paths 口径一致，但不触发 docs_core 导入。"""
     base = os.getenv("KNOWLEDGE_BASE_DIR", "").strip()
     if not base:
-        for candidate in ("/app/data/knowledge_base",):
+        for candidate in ("/app/data/knowledge",):
             if Path(candidate).exists():
                 base = candidate
                 break
     if not base:
-        base = str(Path(__file__).resolve().parents[1] / "data" / "knowledge_base")
+        base = str(Path(__file__).resolve().parents[1] / "data" / "knowledge")
     return Path(base) / "knowledge_index.sqlite"
 
 

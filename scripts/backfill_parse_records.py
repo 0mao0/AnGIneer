@@ -42,7 +42,7 @@ def _source_path(file_path: str, library_id: str, doc_id: str, data_root: Path) 
         cand = data_root / raw[raw.index("libraries/"):]
         if cand.is_file():
             return cand
-    src_dir = data_root / "knowledge_base" / "libraries" / library_id / "documents" / doc_id / "source"
+    src_dir = data_root / "knowledge" / "libraries" / library_id / "documents" / doc_id / "source"
     if src_dir.is_dir():
         files = sorted(f for f in src_dir.glob("*") if f.is_file())
         if files:
@@ -89,14 +89,14 @@ def collect(meta: sqlite3.Connection, have: set, data_root: Path, actor: str) ->
 def main() -> int:
     ap = argparse.ArgumentParser(description="回填 parse_records 流水（存量文档）")
     ap.add_argument("--data-root", default=str(DEFAULT_DATA_ROOT), help="宿主 data 目录")
-    ap.add_argument("--meta-db", default="", help="knowledge_meta.sqlite（默认 <data-root>/knowledge_base/）")
+    ap.add_argument("--meta-db", default="", help="knowledge_meta.sqlite（默认 <data-root>/knowledge/）")
     ap.add_argument("--records-db", default="", help="parse_records.sqlite（默认 <data-root>/）")
     ap.add_argument("--actor", default="system:backfill", help="回填记录的 uploaded_by")
     ap.add_argument("--dry-run", action="store_true", help="只打印将要补的条数，不写库")
     args = ap.parse_args()
 
     data_root = Path(args.data_root)
-    meta_db = Path(args.meta_db) if args.meta_db else data_root / "knowledge_base" / "knowledge_meta.sqlite"
+    meta_db = Path(args.meta_db) if args.meta_db else data_root / "knowledge" / "knowledge_meta.sqlite"
     records_db = Path(args.records_db) if args.records_db else data_root / "parse_records.sqlite"
     for p in (meta_db, records_db):
         if not p.is_file():

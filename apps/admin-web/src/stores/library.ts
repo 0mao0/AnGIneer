@@ -5,6 +5,8 @@ export interface KnowledgeLibraryItem {
   id: string
   name: string
   description?: string | null
+  /** 注册表组名（standards/dredgeai/evals；未注册为空，视为生产组） */
+  group_name?: string
 }
 
 /**

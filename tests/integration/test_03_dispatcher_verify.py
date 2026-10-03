@@ -16,7 +16,7 @@ from engtools.UserInputTool import UserInputTool
 from engtools.CalculatorTool import Calculator
 from engtools.CommonTool import Echo, WeatherTool
 
-SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../..", "data", "sops", "json", "航道通航底高程.json"))
+SOP_JSON_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "../..", "data", "platform", "sops", "json", "航道通航底高程.json"))
 RESULT_MD_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), "result_test_03.md"))
 
 def run_test():

@@ -1,7 +1,7 @@
 """GDP.pdf 语料入库：建 GDP-PDF 库、建绑定 API Key、批量上传解析 100 份 PDF（断点续跑）。
 
 仿 scripts/financebench/import_docs.py，差异：
-  - manifest 从 data/gdp_pdf/raw/parquet_a.parquet 现推（pdf_path 列 + 本地 pdfs/ 存在性）；
+  - manifest 从 data/evals/originals/gdp_pdf/raw/parquet_a.parquet 现推（pdf_path 列 + 本地 pdfs/ 存在性）；
   - 单阶段提交 stages="all"（专业文档，表格/图都要，走完整解析链），不做 financebench 的两段式预取；
   - 轮询容忍瞬时故障纪律沿用（dev 热重载/网关毛刺连败 <12 次不判死）。
 
@@ -22,7 +22,7 @@ from pathlib import Path
 import requests
 
 REPO = Path(__file__).resolve().parents[2]
-DATA = REPO / "data" / "gdp_pdf"
+DATA = REPO / "data" / "evals" / "originals" / "gdp_pdf"
 PDF_DIR = DATA / "pdfs"
 PARQUET = DATA / "raw" / "parquet_a.parquet"
 QUESTIONS = DATA / "raw" / "questions.json"

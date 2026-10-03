@@ -388,21 +388,34 @@ def default_sources() -> Sources:
     store_errors: list[str] = []
 
     def list_docs() -> list[tuple[str, str]]:
-        """按产物修改时间倒序列出所有已解析文档（体检优先看最近解析的）。"""
-        base = paths.resolve_knowledge_base_dir() / "libraries"
+        """按产物修改时间倒序列出所有已解析文档（体检优先看最近解析的）。
+
+        库目录根经注册表按组解析（knowledge/libraries 与 evals/corpora/libraries 并存，
+        2026-10 三域归位后不再只有单一 knowledge/libraries 根）。
+        """
+        from docs_core import library_registry
+
+        bases: list = []
+        for record in library_registry.list_records():
+            base = library_registry.resolve_libraries_dir(record.library_id)
+            if base not in bases:
+                bases.append(base)
+        if not bases:
+            bases = [paths.resolve_knowledge_base_dir() / "libraries"]
         found: list[tuple[float, str, str]] = []
-        if not base.is_dir():
-            return []
-        for lib_dir in sorted(p for p in base.iterdir() if p.is_dir()):
-            docs_dir = lib_dir / "documents"
-            if not docs_dir.is_dir():
+        for base in bases:
+            if not base.is_dir():
                 continue
-            for doc_dir in docs_dir.iterdir():
-                if not doc_dir.is_dir():
+            for lib_dir in sorted(p for p in base.iterdir() if p.is_dir()):
+                docs_dir = lib_dir / "documents"
+                if not docs_dir.is_dir():
                     continue
-                graph = doc_dir / "parsed" / "doc_blocks_graph.jsonl"
-                if graph.is_file():
-                    found.append((graph.stat().st_mtime, lib_dir.name, doc_dir.name))
+                for doc_dir in docs_dir.iterdir():
+                    if not doc_dir.is_dir():
+                        continue
+                    graph = doc_dir / "parsed" / "doc_blocks_graph.jsonl"
+                    if graph.is_file():
+                        found.append((graph.stat().st_mtime, lib_dir.name, doc_dir.name))
         found.sort(reverse=True)
         return [(lib, doc) for _, lib, doc in found]
 
