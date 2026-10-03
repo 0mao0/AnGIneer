@@ -73,6 +73,15 @@ def _ensure_target_schema(target: Path) -> None:
     KnowledgeIndexStore(db_path=target)
 
 
+def _existing_tables(conn: sqlite3.Connection, prefix: str = "") -> set:
+    """源/目标实际存在的表集合（canonical_vectors 已在两端先后 DROP，缺表跳过不炸——
+    2026-10-04 服务器搬迁实踩：服务器源库无 canonical_vectors）。"""
+    rows = conn.execute(
+        f"SELECT name FROM {prefix}sqlite_master WHERE type='table'"
+    ).fetchall()
+    return {str(r[0]) for r in rows}
+
+
 def _doc_ids_of_group(src: sqlite3.Connection, library_ids: list) -> list:
     placeholders = ",".join("?" for _ in library_ids)
     rows = src.execute(
@@ -87,6 +96,7 @@ def _migrate_group(group_name: str, library_ids: list, execute: bool) -> int:
     src_path = _source_path()
     target = _group_target(group_name)
     src = sqlite3.connect(f"file:{src_path}?mode=ro", uri=True)
+    src_tables = _existing_tables(src)
     doc_ids = _doc_ids_of_group(src, library_ids)
     print(f"[split-sqlite] {group_name}: {len(library_ids)} 库 / {len(doc_ids)} 文档 → {target}", flush=True)
     if not doc_ids:
@@ -102,6 +112,9 @@ def _migrate_group(group_name: str, library_ids: list, execute: bool) -> int:
         dst.executemany("INSERT OR IGNORE INTO _move_docs VALUES (?)", [(d,) for d in doc_ids])
         try:
             for table, col in _DOC_TABLES:
+                if table not in src_tables:
+                    print(f"[split-sqlite]   {table}: 源无此表，跳过", flush=True)
+                    continue
                 # 显式列清单：源表经历史迁移列序可能与新建目标表不同（2026-10-03 实踩：
                 # canonical_tables 的 page_bboxes_json 位置漂移，SELECT * 按位置拷贝整列错位），
                 # 取源列 ∩ 目标列按名对齐
@@ -125,6 +138,8 @@ def _migrate_group(group_name: str, library_ids: list, execute: bool) -> int:
             dst.close()
     else:
         for table, col in _DOC_TABLES:
+            if table not in src_tables:
+                continue
             placeholders = ",".join("?" for _ in [1])  # 用临时计数避免 999 变量上限
             count = 0
             batch = 500
@@ -144,6 +159,7 @@ def _verify() -> int:
     全列总长不变，只有 per-column 校验能抓住；2026-10-03 canonical_tables 错位实踩）。"""
     src_path = _source_path()
     src = sqlite3.connect(f"file:{src_path}?mode=ro", uri=True)
+    src_tables = _existing_tables(src)
     ok = True
     for group_name, library_ids in sorted(_group_libraries().items()):
         target = _group_target(group_name)
@@ -156,6 +172,8 @@ def _verify() -> int:
             continue
         dst = sqlite3.connect(f"file:{target}?mode=ro", uri=True)
         for table, col in _DOC_TABLES:
+            if table not in src_tables:
+                continue
             try:
                 src_cols = [r[1] for r in src.execute(f"PRAGMA table_info({table})")]
                 dst_cols = [r[1] for r in dst.execute(f"PRAGMA table_info({table})")]
