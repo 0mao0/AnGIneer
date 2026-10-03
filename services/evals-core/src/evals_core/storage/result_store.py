@@ -134,6 +134,7 @@ def init_db() -> None:
             probe_gold TEXT,
             intent_gold TEXT,
             rubric_gold TEXT,
+            numeric_gold TEXT,
             sort_order INTEGER NOT NULL DEFAULT 0,
             PRIMARY KEY (question_id, dataset_id)
         );
@@ -223,6 +224,9 @@ def _ensure_eval_question_columns(conn: sqlite3.Connection) -> None:
         # 评分细则金标块（GDP.pdf 类多模态题集）：RAG 生成后判官逐条判 rubric
         # （见 evals_core.runner.rubric_eval）
         "rubric_gold": "TEXT",
+        # 数值容差金标块（OfficeQA 类历史档案题集）：RAG 生成后官方 vendored 判分器确定性判
+        # （见 evals_core.runner.numeric_eval）
+        "numeric_gold": "TEXT",
     }
     for column_name, column_def in column_defs.items():
         if column_name not in existing:
@@ -425,8 +429,8 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
            (question_id, dataset_id, question, task_type, intent_level, difficulty,
             tags, library_id, doc_ids, question_family, canonical_question_id, variant_type,
             perturbation_tags, retrieval_gold, answer_gold, sql_gold, sop_gold, probe_gold,
-            intent_gold, rubric_gold, sort_order)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            intent_gold, rubric_gold, numeric_gold, sort_order)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             data["question_id"],
             data["dataset_id"],
@@ -448,6 +452,7 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
             json.dumps(data["probe_gold"], ensure_ascii=False) if data.get("probe_gold") else None,
             json.dumps(data["intent_gold"], ensure_ascii=False) if data.get("intent_gold") else None,
             json.dumps(data["rubric_gold"], ensure_ascii=False) if data.get("rubric_gold") else None,
+            json.dumps(data["numeric_gold"], ensure_ascii=False) if data.get("numeric_gold") else None,
             data.get("sort_order", 0),
         ),
     )
@@ -541,7 +546,7 @@ def _question_row_to_dict(row) -> Dict[str, Any]:
     item = dict(row)
     for key in ("tags", "doc_ids", "perturbation_tags"):
         item[key] = json.loads(item.get(key) or "[]")
-    for key in ("retrieval_gold", "answer_gold", "sql_gold", "sop_gold", "probe_gold", "intent_gold", "rubric_gold"):
+    for key in ("retrieval_gold", "answer_gold", "sql_gold", "sop_gold", "probe_gold", "intent_gold", "rubric_gold", "numeric_gold"):
         item[key] = json.loads(item[key]) if item.get(key) else None
     return item
 

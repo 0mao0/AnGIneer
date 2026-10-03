@@ -77,6 +77,10 @@ class EvalQuestionItem(BaseModel):
     # 结构 = {"criteria": [{"i","text","type","severity","subjectiveness",...}, ...]}，
     # 判分语义见 evals_core.runner.rubric_eval（headline = 全条通过 all_pass）。
     rubric: Optional[Dict[str, Any]] = None
+    # 数值容差金标块（OfficeQA 类历史档案题集）：跑 RAG 生成后用官方 vendored 判分器确定性判。
+    # 结构 = {"answer": 官方 ground truth 原文, "tolerance": 相对误差(0.0=精确)}，
+    # 判分语义见 evals_core.runner.numeric_eval（零判官，成绩可对官方榜直比）。
+    numeric: Optional[Dict[str, Any]] = None
 
 
 class EvalDatasetMeta(BaseModel):
@@ -137,4 +141,5 @@ class EvalQuestionRow(BaseModel):
     probe_gold: Optional[Dict[str, Any]] = None
     intent_gold: Optional[Dict[str, Any]] = None
     rubric_gold: Optional[Dict[str, Any]] = None
+    numeric_gold: Optional[Dict[str, Any]] = None
     sort_order: int = 0

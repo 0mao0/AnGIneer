@@ -17,6 +17,8 @@ from evals_core.runner import probe_eval  # noqa: F401
 from evals_core.runner import intent_eval  # noqa: F401
 # 注册副作用导入：rubric 评测器（题目带 rubric 金标块时接管，RAG 生成 + 判官逐条判）
 from evals_core.runner import rubric_eval  # noqa: F401
+# 注册副作用导入：numeric 评测器（题目带 numeric 金标块时接管，RAG 生成 + 官方确定性数值判分，无判官）
+from evals_core.runner import numeric_eval  # noqa: F401
 from angineer_core.base_utils import is_fatal_exception
 from evals_core.storage import result_store, retention
 
@@ -178,6 +180,10 @@ def _determine_evaluator_names(question: Dict[str, Any]) -> List[str]:
     # 探针题 exclusive：只跑检索断言，不进问答/判官链路（clause-probe 类题集）
     if question.get("probe_gold"):
         return ["probe"]
+    # 数值容差题（OfficeQA 类）：跑 RAG 生成 + 官方 vendored 判分器确定性判，numeric 恒为 primary。
+    # 检索金标在时并列跑 retrieval（同 rubric 纪律：retrieval 放后，防检索分顶假绿）。
+    if question.get("numeric_gold"):
+        return ["numeric", "retrieval"] if question.get("retrieval_gold") else ["numeric"]
     # 评分细则题（GDP.pdf 类）：跑 RAG 生成 + 判官逐条判 rubric，rubric 恒为 primary。
     # 检索金标在时并列跑 retrieval（放后面，避免 primary 被检索分顶成假绿，见 _decide_quality）。
     if question.get("rubric_gold"):
@@ -252,6 +258,8 @@ def _run_single_question(
             gold_data = question.get("sop_gold") or {}
         elif ev_name == "rubric":
             gold_data = question.get("rubric_gold") or {}
+        elif ev_name == "numeric":
+            gold_data = question.get("numeric_gold") or {}
         prediction = last_prediction
         scores = evaluator.evaluate(question, gold_data, prediction)
         all_scores[ev_name] = scores
