@@ -468,17 +468,22 @@ const buildDocTree = (nodes: any[]): { tree: DocTreeNode[]; flat: DocTreeNode[] 
   return { tree, flat }
 }
 
-/** 加载知识库节点树 */
+/** 加载知识库节点树。
+ *  token 防串台：不阻塞首屏后（见 onDatasetSelect），先点的题集响应可能后到。 */
+let docOptionsToken = 0
 const fetchDocOptions = async (libraryId?: string) => {
+  const token = ++docOptionsToken
   try {
     const lib = libraryId || useLibraryStore().libraryId || 'default'
     const resp = await knowledgeApi.getNodes(lib, true)
     const nodes = (resp as any)?.data || resp || []
     const list = Array.isArray(nodes) ? nodes : []
     const { tree, flat } = buildDocTree(list)
+    if (token !== docOptionsToken) return
     docTreeData.value = tree
     docFlatList.value = flat
   } catch {
+    if (token !== docOptionsToken) return
     docTreeData.value = []
     docFlatList.value = []
   }
@@ -492,6 +497,7 @@ const {
   fetchDatasets,
   fetchDataset,
   fetchQuestions,
+  fetchQuestion,
   createDataset,
   deleteDataset,
   renameDataset,
@@ -617,17 +623,16 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   if (key.startsWith('folder-')) return
   selectedDatasetId.value = key
   const ds = datasets.value.find(d => d.dataset_id === key)
-  if (ds?.library_id) {
-    await fetchDocOptions(ds.library_id)
-  }
+  // 文档树只服务于「新增评测」的文档范围选择，不在首屏关键路径上：
+  // 不 await（旧实现串行等它，实测白等一个往返 ~0.5s，偶尔还很慢）
+  if (ds?.library_id) void fetchDocOptions(ds.library_id)
   stopPolling()
   isFullRun.value = false
   clearDetailsCache()
   questionsLoading.value = true
   try {
-    await fetchDataset(key)
-    await fetchQuestions(key)
-    await fetchLastRun(key)
+    // 三个请求彼此独立：串行 await 等于把往返延迟相加（实测 6 趟串行 ~5s）
+    await Promise.all([fetchDataset(key), fetchQuestions(key), fetchLastRun(key)])
   } finally {
     questionsLoading.value = false
   }
@@ -657,11 +662,14 @@ const onQuestionUpdated = async () => {
   }
 }
 
-/** 展开单题时按需拉取该题的完整运行详情（含 trace 与分项分数） */
+/** 展开单题时按需拉取：该题的完整运行详情（trace 与分项分数）
+ *  + 该题完整原文（含 gold——列表走 fields=summary 投影后 gold 不在列表里）。 */
 const onQuestionExpandDetail = async (questionId: string) => {
+  const jobs: Promise<unknown>[] = []
+  if (selectedDatasetId.value) jobs.push(fetchQuestion(selectedDatasetId.value, questionId))
   const run = currentRun.value || lastRun.value
-  if (!run?.run_id) return
-  await fetchQuestionDetail(run.run_id, questionId)
+  if (run?.run_id) jobs.push(fetchQuestionDetail(run.run_id, questionId))
+  await Promise.all(jobs)
 }
 
 /** 新增评测弹框：模型/题集在弹框选定；切换题集时同步切左树选中态 */
@@ -992,7 +1000,8 @@ const onDatasetView = async (node: EvalTreeNode) => {
   detailVisible.value = true
 
   try {
-    const data = await evalsApi.getQuestions(key)
+    // 题集卡只统计层级分布，走列表投影即可（gold 完全不参与）
+    const data = await evalsApi.getQuestions(key, { fields: 'summary' })
     detailQuestions.value = (data as any)?.questions || []
   } catch {
     detailQuestions.value = []

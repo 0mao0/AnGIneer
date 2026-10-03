@@ -146,21 +146,36 @@ async def get_questions(
     status: Optional[List[str]] = Query(None),
     quality: Optional[List[str]] = Query(None),
     run_id: Optional[str] = Query(None),
+    fields: Optional[str] = Query(None),
 ):
     """获取测试集题目列表。
 
-    默认全量返回（不分页），与既有前端全量消费方（文档树筛选、runDetails 合并、
-    编辑回填 gold）保持兼容——列表载荷是一次性、可缓存的，非逐次瓶颈。
-    传 offset/limit 时走服务端分页 + 跨全量筛选（层级/状态/质量下沉 SQL WHERE），
-    total 为筛选后总数，供未来分页器；status/quality 需带 run_id（JOIN 当次明细）。
+    默认全量返回（不分页、含 gold），与既有前端全量消费方（文档树筛选、runDetails 合并、
+    导出等）保持兼容。传 offset/limit 时走服务端分页 + 跨全量筛选（层级/状态/质量下沉
+    SQL WHERE），total 为筛选后总数；status/quality 需带 run_id（JOIN 当次明细）。
+
+    fields=summary 走列表投影：只回题目列表 UI 渲染的列，八个 gold 列不回传
+    （实测占 1040 题集列表载荷 68%、GDP100 的 84%）。列表页用 summary，展开/编辑
+    需要 gold 原文时走 GET /datasets/{id}/questions/{question_id} 按需取。
     """
+    summary = (fields or "").strip().lower() == "summary"
     if offset is None and limit is None and not level and not status and not quality:
-        return {"questions": manager.list_questions(dataset_id)}
+        return {"questions": manager.list_questions(dataset_id, summary=summary)}
     questions, total = manager.list_questions_page(
         dataset_id, offset or 0, limit,
         intent_level=level, statuses=status, qualities=quality, run_id=run_id,
+        summary=summary,
     )
     return {"questions": questions, "total": total}
+
+
+@evals_router.get("/datasets/{dataset_id}/questions/{question_id}")
+async def get_question(dataset_id: str, question_id: str):
+    """获取单道题目（含 gold 原文）：列表投影后展开/编辑按需取回。"""
+    question = manager.get_question(dataset_id, question_id)
+    if not question:
+        raise HTTPException(status_code=404, detail="题目不存在")
+    return question
 
 
 @evals_router.post("/datasets/{dataset_id}/questions")
@@ -303,13 +318,16 @@ async def stop_run(run_id: str):
 
 
 @evals_router.get("/runs/{run_id}")
-async def get_run(run_id: str, light: bool = Query(False)):
+async def get_run(run_id: str, light: bool = Query(False), fields: Optional[str] = Query(None)):
     """查询运行进度/结果。
 
     light=true 时裁剪 prediction/all_scores/all_predictions 等大字段，
     用于列表与轮询场景；展开单题时走 /runs/{run_id}/questions/{question_id} 获取完整详情。
+    fields=status 进一步只回状态染色所需列（去 scores）——题集首屏与轮询只读
+    status/quality，实测 scores 占 light 载荷 84%；展开单题的那份仍带分项分数。
     """
-    run = suite_runner.get_eval_run(run_id, light=light)
+    projection = "status" if (fields or "").strip().lower() == "status" else None
+    run = suite_runner.get_eval_run(run_id, light=light, projection=projection)
     if not run:
         raise HTTPException(status_code=404, detail="运行记录不存在")
     return run

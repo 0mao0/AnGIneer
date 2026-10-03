@@ -52,7 +52,10 @@ export function useEvalDataset() {
   const fetchQuestions = async (datasetId: string) => {
     loading.value = true
     try {
-      const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}/questions`)
+      // fields=summary：列表只取 UI 真正渲染的列，八个 gold 列不回传
+      // （生产实测 gold 占 1040 题集列表载荷的 68%、GDP100 的 84%，列表页一处不渲染）。
+      // 展开/编辑需要的 gold 原文由 fetchQuestion 按需取回。
+      const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}/questions?fields=summary`)
       if (resp.ok) {
         const data = await resp.json()
         questions.value = data.questions || []
@@ -60,6 +63,20 @@ export function useEvalDataset() {
     } finally {
       loading.value = false
     }
+  }
+
+  /** 取单题完整原文（含 gold），原地合并进 questions。
+   *  必须是原地合并、不能换数组引用：EvalQuestionList 的 watch(() => props.questions)
+   *  会把当前页重置到第 1 页，展开第 5 页的题会把用户弹回首页。 */
+  const fetchQuestion = async (datasetId: string, questionId: string) => {
+    const resp = await fetch(
+      `/api/evals/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`
+    )
+    if (!resp.ok) return null
+    const question: EvalQuestion = await resp.json()
+    const index = questions.value.findIndex(q => q.question_id === questionId)
+    if (index >= 0) Object.assign(questions.value[index], question)
+    return question
   }
 
   const createDataset = async (payload: { title: string; category: string; description?: string }) => {
@@ -192,6 +209,7 @@ export function useEvalDataset() {
     fetchDatasets,
     fetchDataset,
     fetchQuestions,
+    fetchQuestion,
     createDataset,
     deleteDataset,
     renameDataset,

@@ -139,10 +139,16 @@ def delete_question(dataset_id: str, question_id: str) -> bool:
     return success
 
 
-def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
-    """列出测试集题目。"""
+def list_questions(dataset_id: str, summary: bool = False) -> List[Dict[str, Any]]:
+    """列出测试集题目。summary=True 走列表投影（不回传 gold，见 result_store.list_questions）。"""
     _ensure_dataset_store_ready()
-    return result_store.list_questions(dataset_id)
+    return result_store.list_questions(dataset_id, summary=summary)
+
+
+def get_question(dataset_id: str, question_id: str) -> Optional[Dict[str, Any]]:
+    """获取单道题目（含 gold 原文）：列表投影后展开/编辑按需取回的就是这一份。"""
+    _ensure_dataset_store_ready()
+    return result_store.get_question(dataset_id, question_id)
 
 
 def list_questions_page(
@@ -153,12 +159,14 @@ def list_questions_page(
     statuses: Optional[List[str]] = None,
     qualities: Optional[List[str]] = None,
     run_id: Optional[str] = None,
+    summary: bool = False,
 ) -> "tuple[List[Dict[str, Any]], int]":
     """分页列出测试集题目，返回 (当页题目, 筛选后总数)。"""
     _ensure_dataset_store_ready()
     return result_store.list_questions_page(
         dataset_id, offset, limit,
         intent_level=intent_level, statuses=statuses, qualities=qualities, run_id=run_id,
+        summary=summary,
     )
 
 

@@ -994,7 +994,9 @@ def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[
     """
     if not details:
         return []
-    questions = result_store.list_questions(dataset_id)
+    # 只取列表列：补题目元信息用不到 gold，而全量读会把每题的 gold 原文各解析一遍
+    # （1040 题集实测 gold 占 1.3 MB，是 get_eval_run 里最大的一块纯浪费）
+    questions = result_store.list_questions(dataset_id, summary=True)
     detail_questions = {
         str(question.get("question_id") or ""): question for question in questions
     }
@@ -1009,16 +1011,22 @@ def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[
     return enriched
 
 
-def get_eval_run(run_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
+def get_eval_run(
+    run_id: str,
+    light: bool = False,
+    projection: Optional[str] = None,
+) -> Optional[Dict[str, Any]]:
     """查询运行进度/结果，运行中时实时计算汇总指标。
 
     light=True 时裁剪 prediction/all_scores/all_predictions 等大字段，
     供列表/轮询场景使用；完整详情通过 get_eval_run_detail 按需获取。
+    projection="status" 进一步只取状态染色所需列（去 scores），供题集首屏与轮询；
+    展开单题走 get_eval_run_detail，那份仍带分项分数。
     """
     run = result_store.get_run(run_id)
     if not run:
         return None
-    details = result_store.list_run_details(run_id, light=light)
+    details = result_store.list_run_details(run_id, light=light, projection=projection)
     result = {**run, "details": details}
     if result.get("details"):
         result["details"] = _enrich_run_details(result["details"], run.get("dataset_id") or "")

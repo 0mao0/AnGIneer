@@ -455,14 +455,31 @@ def insert_question(data: Dict[str, Any]) -> Dict[str, Any]:
     return data
 
 
-def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
-    """列出测试集下的所有题目。"""
+def list_questions(dataset_id: str, summary: bool = False) -> List[Dict[str, Any]]:
+    """列出测试集下的所有题目。
+
+    summary=True 走列表投影（`fields=summary`）：只取题目列表 UI 真正渲染的列，
+    剔除 retrieval_gold/answer_gold/... 八个 gold 列。生产实测这两块占 1040 题集
+    列表载荷的 68%、GDP100 的 84%（docs/evals-first-screen-latency.md），而列表页
+    一个都不渲染；编辑/展开需要的原文由单题接口按需取。默认 False 保持全量，
+    导出、runner、nightly 归档等既有消费方零改动。
+    """
     conn = _get_conn()
+    columns = ", ".join(_QUESTION_SUMMARY_COLUMNS) if summary else "*"
     rows = conn.execute(
-        "SELECT * FROM eval_question WHERE dataset_id = ? ORDER BY sort_order, question_id",
+        f"SELECT {columns} FROM eval_question WHERE dataset_id = ? ORDER BY sort_order, question_id",
         (dataset_id,),
     ).fetchall()
     return [_question_row_to_dict(row) for row in rows]
+
+
+# 列表投影列清单：与前端 EvalQuestionList 渲染的字段一一对应
+# （question/intent_level/difficulty/tags/doc_ids/sort_order + 元信息）。
+_QUESTION_SUMMARY_COLUMNS = (
+    "question_id", "dataset_id", "question", "task_type", "intent_level", "difficulty",
+    "tags", "library_id", "doc_ids", "question_family", "canonical_question_id",
+    "variant_type", "perturbation_tags", "sort_order",
+)
 
 
 def list_questions_page(
@@ -473,6 +490,7 @@ def list_questions_page(
     statuses: Optional[List[str]] = None,
     qualities: Optional[List[str]] = None,
     run_id: Optional[str] = None,
+    summary: bool = False,
 ) -> "tuple[List[Dict[str, Any]], int]":
     """分页列出题目，返回 (当页题目, 筛选后总数)。limit=None 表示不限量。
 
@@ -480,6 +498,7 @@ def list_questions_page(
     - intent_level：题集列直筛
     - statuses / qualities：JOIN 当前 run 的 eval_run_detail 筛 status/quality；
       未选这两项时不 JOIN（无 run 的题目也照常返回）。
+    summary=True 同 list_questions：只取列表列，gold 不回传。
     """
     conn = _get_conn()
     join_detail = bool(run_id and (statuses or qualities))
@@ -507,7 +526,8 @@ def list_questions_page(
     count_sql = f"SELECT COUNT(*) FROM {from_sql} WHERE {where_sql}"
     total_row = conn.execute(count_sql, params).fetchone()
     total = int(total_row[0]) if total_row else 0
-    sql = f"SELECT q.* FROM {from_sql} WHERE {where_sql} ORDER BY q.sort_order, q.question_id"
+    columns = ", ".join(f"q.{name}" for name in _QUESTION_SUMMARY_COLUMNS) if summary else "q.*"
+    sql = f"SELECT {columns} FROM {from_sql} WHERE {where_sql} ORDER BY q.sort_order, q.question_id"
     query_params = list(params)
     if limit is not None:
         sql += " LIMIT ? OFFSET ?"
@@ -927,15 +947,34 @@ def cleanup_individual_runs(dataset_id: str) -> int:
     return len(stale_ids)
 
 
-def list_run_details(run_id: str, light: bool = False) -> List[Dict[str, Any]]:
+# 明细投影列清单：题集列表/运行面板的逐题染色只读 status/quality/error/latency_ms。
+# 生产实测 scores 占 light 载荷的 84%（1040 题 1211 KB 里 1015 KB，主体是判分理由长文本），
+# 而首屏一处都不渲染——展开单题时才从单题详情接口取回（docs/evals-first-screen-latency.md）。
+_RUN_DETAIL_STATUS_COLUMNS = "id, run_id, question_id, status, quality, error, latency_ms"
+# light（既有语义）：跳过 prediction/all_scores/all_predictions，但保留 scores
+_RUN_DETAIL_LIGHT_COLUMNS = "id, run_id, question_id, status, quality, scores, error, latency_ms"
+
+
+def list_run_details(
+    run_id: str,
+    light: bool = False,
+    projection: Optional[str] = None,
+) -> List[Dict[str, Any]]:
     """列出某次运行的所有详情。
 
     light=True 时只查轻量列（status/quality/scores 等），跳过
     prediction/all_scores/all_predictions 重字段，避免列表/轮询场景
     白白解析几十 MB JSON。
+    projection="status" 进一步只取状态染色所需列（去 scores），供题集首屏与轮询；
+    light 语义保持不变，单题详情/题集卡等仍按 light 取分。
     """
     conn = _get_conn()
-    columns = "id, run_id, question_id, status, quality, scores, error, latency_ms" if light else "*"
+    if projection == "status":
+        columns = _RUN_DETAIL_STATUS_COLUMNS
+    elif light:
+        columns = _RUN_DETAIL_LIGHT_COLUMNS
+    else:
+        columns = "*"
     rows = conn.execute(
         f"SELECT {columns} FROM eval_run_detail WHERE run_id = ? ORDER BY id",
         (run_id,),
@@ -943,11 +982,11 @@ def list_run_details(run_id: str, light: bool = False) -> List[Dict[str, Any]]:
     result = []
     for row in rows:
         item = dict(row)
-        item["scores"] = json.loads(item["scores"]) if item.get("scores") else None
-        if not light:
-            item["prediction"] = json.loads(item["prediction"]) if item.get("prediction") else None
-            item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
-            item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
+        # 只反序列化实际查出来的列：投影下 scores/prediction 等键整体缺席，
+        # 不能补成 None（否则前端分不清"没分"和"没取分"）
+        for key in ("scores", "prediction", "all_scores", "all_predictions"):
+            if key in item:
+                item[key] = json.loads(item[key]) if item.get(key) else None
         result.append(item)
     return result
 

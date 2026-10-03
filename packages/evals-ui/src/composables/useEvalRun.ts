@@ -4,6 +4,11 @@ import type { EvalRun, EvalRunDetail, EvalRunningRun } from '../types/eval'
 
 const EVAL_POLL_INTERVAL_MS = 2000
 
+/** 列表/轮询用的明细投影：只取状态染色列（status/quality/error/latency_ms）。
+ *  scores 实测占 light 载荷的 84%（1040 题 1211 KB 里 1015 KB，主体是判分理由长文本），
+ *  而首屏一处都不渲染；展开单题时 fetchQuestionDetail 取回的那份仍带分项分数。 */
+const RUN_DETAIL_LIST_FIELDS = 'fields=status'
+
 /** 启动被在跑评测占用（后端 409 eval_busy）：带在跑清单，交给调用方弹框问用户 */
 export interface EvalBusyError extends Error {
   code: 'eval_busy'
@@ -147,9 +152,9 @@ export function useEvalRun() {
 
   /** 整体评测轮询时整体替换 runDetails；单题评测时仅合并对应题目 */
   const fetchRun = async (runId: string) => {
-    // light 模式不返回 prediction/all_scores/all_predictions 等大字段，
-    // 轮询只关心进度/分数；展开单题时再按需拉完整详情。
-    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
+    // 列表投影：不返回 prediction/all_scores/all_predictions 等大字段、也不返回 scores，
+    // 轮询只关心进度与逐题状态；展开单题时再按需拉完整详情。
+    const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?${RUN_DETAIL_LIST_FIELDS}`)
     if (resp.ok) {
       currentRun.value = await resp.json()
       // 同步历史列表中的进度字段：标题行（completed_questions/total_questions）
@@ -242,7 +247,7 @@ export function useEvalRun() {
     // 优先检测运行中的任务，恢复轮询
     const runningRun = runs.value.find(r => r.status === 'running')
     if (runningRun) {
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runningRun.run_id)}?light=1`)
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runningRun.run_id)}?${RUN_DETAIL_LIST_FIELDS}`)
       if (resp.ok) {
         currentRun.value = await resp.json()
         isFullRun.value = runningRun.is_full_run ?? true
@@ -273,20 +278,22 @@ export function useEvalRun() {
       const latest = finishedRuns.reduce((a, b) =>
         new Date(a.completed_at || a.started_at) > new Date(b.completed_at || b.started_at) ? a : b
       )
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(latest.run_id)}?light=1`)
-      if (resp.ok) {
-        lastRun.value = await resp.json()
-        // 如果没有运行中的任务，才从 lastRun 加载 runDetails
-        if (!runningRun) {
-          if (lastRun.value?.details) {
-            const map = new Map<string, EvalRunDetail>()
-            for (const d of lastRun.value.details) {
-              map.set(d.question_id, d)
-            }
-            runDetails.value = map
-          } else {
-            runDetails.value = new Map()
+      // 走 fetchRunDetails：它带 pending 去重 + 结果缓存，右栏 EvalRunPanel 自动选中
+      // 同一条 run 时直接命中缓存，不会对同一个 run 再发一次完全相同的请求。
+      // 旧实现这里裸 fetch 一次、面板再 fetch 一次——2026-10-03 网关日志实测每次点击题集
+      // 都有两条同样的明细请求（1040 题那条 219 KB gzip × 2）。
+      const latestDetails = await fetchRunDetails(latest.run_id)
+      lastRun.value = { ...latest, details: latestDetails }
+      // 如果没有运行中的任务，才从 lastRun 加载 runDetails
+      if (!runningRun) {
+        if (latestDetails.length) {
+          const map = new Map<string, EvalRunDetail>()
+          for (const d of latestDetails) {
+            map.set(d.question_id, d)
           }
+          runDetails.value = map
+        } else {
+          runDetails.value = new Map()
         }
       }
     } else if (!runningRun) {
@@ -304,7 +311,7 @@ export function useEvalRun() {
     if (summary) {
       run = { ...summary, details }
     } else {
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?${RUN_DETAIL_LIST_FIELDS}`)
       run = resp.ok ? await resp.json() : {
         run_id: runId,
         dataset_id: '',
@@ -345,7 +352,8 @@ export function useEvalRun() {
     return null
   }
 
-  /** 拉取某次 run 的轻量题目详情（含 status/quality/scores），带缓存；运行中不缓存 */
+  /** 拉取某次 run 的列表级题目详情（status/quality/error/latency_ms），带缓存；运行中不缓存。
+   *  逐题分项分数不在这份里——展开单题时 fetchQuestionDetail 会取回带 scores 的那一份。 */
   const fetchRunDetails = (runId: string): Promise<EvalRunDetail[]> => {
     const run = currentRun.value?.run_id === runId ? currentRun.value : undefined
     const isRunningRun = run?.status === 'running'
@@ -356,7 +364,7 @@ export function useEvalRun() {
       return pendingDetails.get(runId)!
     }
     const task = (async () => {
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?light=1`)
+      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?${RUN_DETAIL_LIST_FIELDS}`)
       if (resp.ok) {
         const data: EvalRun = await resp.json()
         const details = data.details || []

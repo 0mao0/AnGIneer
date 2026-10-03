@@ -17,8 +17,13 @@ export const evalsApi = {
   deleteDataset: (datasetId: string) =>
     api.delete(`/evals/datasets/${encodePathSegment(datasetId)}`),
 
-  getQuestions: (datasetId: string) =>
-    api.get(`/evals/datasets/${encodePathSegment(datasetId)}/questions`),
+  /** 题目列表。fields=summary 走列表投影（不回传 gold，见 evals_core 的 list_questions） */
+  getQuestions: (datasetId: string, params?: { fields?: string }) =>
+    api.get(`/evals/datasets/${encodePathSegment(datasetId)}/questions`, params ? { params } : undefined),
+
+  /** 单题完整原文（含 gold）：列表投影后展开/编辑按需取回 */
+  getQuestion: (datasetId: string, questionId: string) =>
+    api.get(`/evals/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`),
 
   addQuestion: (datasetId: string, payload: any) =>
     api.post(`/evals/datasets/${encodePathSegment(datasetId)}/questions`, payload),
