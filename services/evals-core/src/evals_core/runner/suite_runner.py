@@ -1029,12 +1029,17 @@ def get_eval_run(run_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
     return result
 
 
-def get_eval_run_detail(run_id: str, question_id: str) -> Optional[Dict[str, Any]]:
-    """获取单道题目的完整运行详情（含 prediction/all_scores/all_predictions）。"""
+def get_eval_run_detail(run_id: str, question_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
+    """获取单道题目的完整运行详情（含 prediction/all_scores/all_predictions）。
+
+    light=True 时裁剪重字段（all_predictions 整块 + prediction 内
+    retrieval_debug/retrieved_items/evidences），首屏展开够用；
+    完整原文由调用方按需 full 拉取。
+    """
     run = result_store.get_run(run_id)
     if not run:
         return None
-    detail = result_store.get_run_detail(run_id, question_id)
+    detail = result_store.get_run_detail(run_id, question_id, light=light)
     if not detail:
         return None
     return _enrich_run_details([detail], run.get("dataset_id") or "")[0]

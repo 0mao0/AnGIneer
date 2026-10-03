@@ -5,7 +5,7 @@ import os
 import re as _re
 import shutil
 from datetime import datetime as _dt, timezone as _tz
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 import nightly_control
 
@@ -297,9 +297,13 @@ async def get_run(run_id: str, light: bool = Query(False)):
 
 
 @evals_router.get("/runs/{run_id}/questions/{question_id}")
-async def get_run_question_detail(run_id: str, question_id: str):
-    """获取单道题目的完整运行详情（含过程 trace、分项分数等）。"""
-    detail = suite_runner.get_eval_run_detail(run_id, question_id)
+async def get_run_question_detail(run_id: str, question_id: str, full: bool = Query(False)):
+    """获取单道题目的运行详情（含过程 trace、分项分数等）。
+
+    默认裁剪重字段（all_predictions + prediction 内检索调试/证据原文）以加快展开；
+    full=true 返回完整原文（证据查看、导出、排查用）。
+    """
+    detail = suite_runner.get_eval_run_detail(run_id, question_id, light=not full)
     if not detail:
         raise HTTPException(status_code=404, detail="题目运行详情不存在")
     return detail

@@ -462,21 +462,68 @@ def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
         "SELECT * FROM eval_question WHERE dataset_id = ? ORDER BY sort_order, question_id",
         (dataset_id,),
     ).fetchall()
-    result = []
-    for row in rows:
-        item = dict(row)
-        item["tags"] = json.loads(item.get("tags") or "[]")
-        item["doc_ids"] = json.loads(item.get("doc_ids") or "[]")
-        item["perturbation_tags"] = json.loads(item.get("perturbation_tags") or "[]")
-        item["retrieval_gold"] = json.loads(item["retrieval_gold"]) if item.get("retrieval_gold") else None
-        item["answer_gold"] = json.loads(item["answer_gold"]) if item.get("answer_gold") else None
-        item["sql_gold"] = json.loads(item["sql_gold"]) if item.get("sql_gold") else None
-        item["sop_gold"] = json.loads(item["sop_gold"]) if item.get("sop_gold") else None
-        item["probe_gold"] = json.loads(item["probe_gold"]) if item.get("probe_gold") else None
-        item["intent_gold"] = json.loads(item["intent_gold"]) if item.get("intent_gold") else None
-        item["rubric_gold"] = json.loads(item["rubric_gold"]) if item.get("rubric_gold") else None
-        result.append(item)
-    return result
+    return [_question_row_to_dict(row) for row in rows]
+
+
+def list_questions_page(
+    dataset_id: str,
+    offset: int = 0,
+    limit: Optional[int] = None,
+    intent_level: Optional[str] = None,
+    statuses: Optional[List[str]] = None,
+    qualities: Optional[List[str]] = None,
+    run_id: Optional[str] = None,
+) -> "tuple[List[Dict[str, Any]], int]":
+    """分页列出题目，返回 (当页题目, 筛选后总数)。limit=None 表示不限量。
+
+    筛选跨全量生效（分页前的 WHERE），避免前端只在当页内过滤导致的漏题：
+    - intent_level：题集列直筛
+    - statuses / qualities：JOIN 当前 run 的 eval_run_detail 筛 status/quality；
+      未选这两项时不 JOIN（无 run 的题目也照常返回）。
+    """
+    conn = _get_conn()
+    join_detail = bool(run_id and (statuses or qualities))
+    where = ["q.dataset_id = ?"]
+    params: List[Any] = [dataset_id]
+    if join_detail:
+        # run_id 绑定在 JOIN 的 ON 上，参数顺序：dataset_id → run_id → 其余筛选
+        from_sql = (
+            "eval_question q JOIN eval_run_detail d "
+            "ON d.question_id = q.question_id AND d.run_id = ?"
+        )
+        params.append(run_id)
+    else:
+        from_sql = "eval_question q"
+    if intent_level:
+        where.append("q.intent_level = ?")
+        params.append(intent_level)
+    if join_detail and statuses:
+        where.append("d.status IN (" + ",".join("?" for _ in statuses) + ")")
+        params.extend(statuses)
+    if join_detail and qualities:
+        where.append("d.quality IN (" + ",".join("?" for _ in qualities) + ")")
+        params.extend(qualities)
+    where_sql = " AND ".join(where)
+    count_sql = f"SELECT COUNT(*) FROM {from_sql} WHERE {where_sql}"
+    total_row = conn.execute(count_sql, params).fetchone()
+    total = int(total_row[0]) if total_row else 0
+    sql = f"SELECT q.* FROM {from_sql} WHERE {where_sql} ORDER BY q.sort_order, q.question_id"
+    query_params = list(params)
+    if limit is not None:
+        sql += " LIMIT ? OFFSET ?"
+        query_params.extend([limit, offset])
+    rows = conn.execute(sql, query_params).fetchall()
+    return [_question_row_to_dict(row) for row in rows], total
+
+
+def _question_row_to_dict(row) -> Dict[str, Any]:
+    """把 eval_question 行转成 dict 并反序列化 JSON 列。"""
+    item = dict(row)
+    for key in ("tags", "doc_ids", "perturbation_tags"):
+        item[key] = json.loads(item.get(key) or "[]")
+    for key in ("retrieval_gold", "answer_gold", "sql_gold", "sop_gold", "probe_gold", "intent_gold", "rubric_gold"):
+        item[key] = json.loads(item[key]) if item.get(key) else None
+    return item
 
 
 # --- 文件夹管理（通过 tree_core.tree_store） ---
@@ -905,8 +952,13 @@ def list_run_details(run_id: str, light: bool = False) -> List[Dict[str, Any]]:
     return result
 
 
-def get_run_detail(run_id: str, question_id: str) -> Optional[Dict[str, Any]]:
-    """获取某次运行中单道题目的详情。"""
+def get_run_detail(run_id: str, question_id: str, light: bool = False) -> Optional[Dict[str, Any]]:
+    """获取某次运行中单道题目的详情。
+
+    light=True 时裁剪首屏不需要的重字段（见 _strip_heavy_prediction_fields）：
+    prediction 删证据副本、all_predictions 各快照删证据副本+检索调试，供展开首屏；
+    完整原文走 light=False（full=True）按需取回。
+    """
     conn = _get_conn()
     row = conn.execute(
         "SELECT * FROM eval_run_detail WHERE run_id = ? AND question_id = ?",
@@ -919,7 +971,35 @@ def get_run_detail(run_id: str, question_id: str) -> Optional[Dict[str, Any]]:
     item["scores"] = json.loads(item["scores"]) if item.get("scores") else None
     item["all_scores"] = json.loads(item["all_scores"]) if item.get("all_scores") else None
     item["all_predictions"] = json.loads(item["all_predictions"]) if item.get("all_predictions") else None
+    if light:
+        _strip_heavy_prediction_fields(item)
     return item
+
+
+# 展开单题首屏不需要的 prediction 大块，分两档：
+# - prediction 顶层删证据副本（retrieved_items/evidences），保留 retrieval_debug——
+#   分析链路"证据检索"步只读顶层这一份的命中数（retrieval_debug.sources/deduped_hits）。
+# - all_predictions 各重试快照删证据副本 + retrieval_debug：首屏 UI 只读快照内
+#   text2sql.generated_sql/execution_result，不读快照内的检索调试；且实测同一题的
+#   retrieval/answer/sop 三份快照各带一份完全相同的 retrieval_debug（单例可达数百 KB×3），
+#   是最主要的载荷来源。完整原文走 full=true 取回。
+_EVIDENCE_COPY_KEYS = ("retrieved_items", "evidences")
+_SNAPSHOT_HEAVY_KEYS = ("retrieved_items", "evidences", "retrieval_debug")
+
+
+def _strip_heavy_prediction_fields(item: Dict[str, Any]) -> None:
+    """就地裁剪单题详情的重字段（light 首屏）。"""
+    all_predictions = item.get("all_predictions")
+    if isinstance(all_predictions, dict):
+        item["all_predictions"] = {
+            k: {kk: vv for kk, vv in (snap or {}).items() if kk not in _SNAPSHOT_HEAVY_KEYS}
+            if isinstance(snap, dict) else snap
+            for k, snap in all_predictions.items()
+        }
+    prediction = item.get("prediction")
+    if isinstance(prediction, dict):
+        for key in _EVIDENCE_COPY_KEYS:
+            prediction.pop(key, None)
 
 
 def delete_run_detail(run_id: str, question_id: str) -> None:
