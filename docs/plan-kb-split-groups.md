@@ -1,6 +1,6 @@
 # 知识库拆分计划：库组注册表、多库问答、页面化拆合（2026-10-03）
 
-状态：规划（未开工）。本文档承接 docs/plan-retrieval-speedup-v3.md 的 R5 结论与容量规划（1 万本报告 × 100 页 ≈ 400 万向量＋20G 正文），定义知识库存储的分组拆分、多库问答改造、页面化拆分/合并三件事。
+状态：规划（未开工）。本文档承接 docs/plan-retrieval-speedup-v3.md 的 R5 结论与容量规划（1 万本报告 × 100 页 ≈ 400 万向量＋20G 正文），定义知识库存储的分组拆分、多库问答改造、页面化拆分/合并、data/ 目录归位四件事。
 
 ---
 
@@ -17,9 +17,9 @@
 - 评测组合一：生命周期一致（一起备份/重建/清理），避免按 benchmark 拆太碎（每 collection 固定开销 MB 级，份数多了才亏）
 - 边界规则：评测组总量 >100~150 万条、或单体 benchmark 涨到几十万条时，拆出独立成对
 
-## 二、库组注册表（三件事共同的地基，先做）
+## 二、库组注册表（四件事共同的地基，先做）
 
-新增一张注册表（sqlite 表或配置文件，推荐前者）：`library_registry`
+新增注册表 `library_registry`，**落独立单文件 `data/registry.sqlite`**：不放任何组内 sqlite（knowledge_index 拆完自身就在组文件里，注册表存进去是鸡生蛋），不做进程缓存（新库不重启不可见的老病，必须读穿）。
 
 | 字段 | 说明 |
 |---|---|
@@ -29,8 +29,9 @@
 | collection | 该组的 qdrant collection 名 |
 | status | active / migrating / retired |
 
-- 检索、入库、评测、备份全部**从注册表解析存储位置**，代码里不再写死 `docs_core_vectors` 与单一 knowledge_index.sqlite
-- 没有这张表，多库问答和页面化拆合都没有挂靠点——所以它是阶段一
+- 检索、入库、评测、备份全部**从注册表解析存储位置**，代码里不再按路径约定猜位置（`QDRANT_COLLECTION` 全局单配置退役为回退默认值）
+- `/knowledge/libraries` 列表接口**注册表直出**（名称/组/状态随注册行携带，带 `group` 字段），不做「逐个打开组文件汇总」——展示接口不能开 N 个 sqlite
+- 没有这张表，多库问答、页面化拆合和目录归位都没有挂靠点——所以它是阶段一
 
 ## 三、问题 1：多库勾选问答（前端＋后端）
 
@@ -87,16 +88,55 @@
 - 迁移幂等：中断重跑不产生重复（以 block id 为去重键）
 - 拆分/合并只动**数据与注册表**，不动代码与镜像——这是页面化的可行性前提
 
-## 五、阶段与验收
+## 五、data/ 目录整理（终态与搬家映射）
+
+原则：**域＝生命周期单位＝搬迁单位；位置由注册表说，不由路径约定说。** 现状两笔债：评测语料解析产物与索引挤在生产库内（同一 sqlite、同一 collection，`knowledge_base/libraries/` 生产库与评测库 12 个混列）；评测原件散在 data 根四个目录。
+
+```
+data/
+│ ├─ registry.sqlite                    ← §二注册表，全局独立文件
+│ ├─ knowledge/                         生产知识域（一年动一次；备份一次；整体搬 DGX 的就是它）
+│ │   ├─ groups/standards.sqlite、dredgeai.sqlite    （阶段二拆出的组文件：正文＋FTS＋目录层表）
+│ │   ├─ graph.sqlite、parse_records.sqlite          （收编：图谱库现孤悬 data 根；parse_records＝上传台账）
+│ │   └─ libraries/<library_id>/                     （解析产物，目录名不动，仅换爹）
+│ ├─ evals/                             评测域（周周重灌；永远留部署机）
+│ │   ├─ datasets/、nightly/、baseline/、probes/、replay/、parse_regression/ （现有，不动）
+│ │   ├─ originals/<bench>/             语料原件（收编 data/financebench、gdp_pdf、officeqa、open_ragbench）
+│ │   ├─ groups/evals_corpus.sqlite     评测语料正文＋FTS（阶段二新文件；命名刻意避开成绩库 evals.sqlite）
+│ │   ├─ corpora/libraries/<id>/        评测语料解析产物（与 knowledge/libraries 同构，路径解析按注册表切换）
+│ │   └─ evals.sqlite                   成绩库维持现名（题集金标＋run 明细，result_store 引用路径零改动）
+│ ├─ platform/                          运行时域（chat/users/api_keys/sops——只改路径常量，数据不动）
+│ ├─ qdrant/                            单实例单目录，组体现在 collection 名（standards/dredgeai/evals）；
+│ │                                     分组备份/搬运＝collection 级快照 API，**不做两套 qdrant**（内存不允）；
+│ │                                     开发机现用命名卷 qdrant-dev-data，阶段一改 bind mount 到本目录，两端同形态
+│ ├─ _retired/<日期>/                   §4.2 七天回滚窗口的源数据滞留区，一眼可删
+│ └─ ops/、scratch/                     维持现状
+```
+
+**搬家映射**
+
+| 现位置 | 去处 | 动作性质 |
+|---|---|---|
+| knowledge_base/libraries 里的评测库（omnidocbench、lib-officeqa、lib-cf08e666…） | evals/corpora ＋ evals 组文件 ＋ qdrant evals collection | 阶段一二顺路完成，不是额外工作 |
+| data/financebench、gdp_pdf、officeqa、open_ragbench | evals/originals/ | 纯 mv，同步 paths 解析与 .env 引用 |
+| knowledge_graph.sqlite、parse_records.sqlite | knowledge/ 下 | 各改一处路径解析 |
+| chat/users/api_keys/sops | platform/ | 改路径常量 |
+| knowledge_base/ → knowledge/ | 目录改名 | 服务器 mv ＋ compose 挂载核对 ＋ 容器重建 |
+
+工作量归位：大搬＝阶段一二本身；本节净新增只有 registry.sqlite 落位、几个 mv、若干路径常量。
+
+**页面显示分组（评测语料不进生产页面的配套）**：admin 知识库管理页（`KnowledgeStats` 顶部 `LibrarySelect`）加组 segment（生产/评测），评测组操作能力与生产完全一致（重灌/解析/体检/删除都可用）；user-web @ 库选择器只列生产组；题集卡弹层加「语料库」一行跳转知识库页。组判定全在后端（注册表直出 `group` 字段），前端只过滤展示。
+
+## 六、阶段与验收
 
 | 阶段 | 内容 | 验收 |
 |---|---|---|
-| 一 | 库组注册表 ＋ qdrant 按组拆 collection（迁移现 58.4 万条：规范→standards、评测语料→evals，scroll+upsert 不重嵌入） | 全量对账 counts 零差异；保温探针曲线无回归；一行配置可回旧 collection |
-| 二 | sqlite 按组拆文件（连接注册、迁移、备份脚本同步改） | 各组文件对账零差异；入库与查询互拖消失（重灌一个评测库、规范库查询延迟不变） |
+| 一 | 注册表落 `data/registry.sqlite`（列表接口注册表直出带 group）＋ qdrant 按组拆 collection（迁移现 58.4 万条：规范→standards、评测语料→evals，scroll+upsert 不重嵌入）＋ 开发机 qdrant 命名卷改 bind mount `data/qdrant` | 全量对账 counts 零差异；保温探针曲线无回归；一行配置可回旧 collection；运行中新增注册行**不重启即可检索**（读穿） |
+| 二 | sqlite 按组拆文件（连接注册、迁移、备份脚本同步改）＋ data/ 目录归位（§五：三域落位、originals 收编、graph/parse_records 收编、admin 组 segment、user-web 选择器只列生产组） | 各组文件对账零差异；入库与查询互拖消失（重灌一个评测库、规范库查询延迟不变）；知识库页只见生产组、切评测组可完整操作 |
 | 三 | 多库勾选问答（前端多选＋后端 fan-out＋RRF） | 3.3 节三条验收 |
 | 四 | admin 拆分/合并页 | 完整演练一次拆＋一次合并：预览数字=实际数字、可取消、可回滚、审计完整 |
 
-## 六、风险清单
+## 七、风险清单
 
 | 风险 | 对策 |
 |---|---|
@@ -106,14 +146,16 @@
 | collection 碎片化 | 库组数量控制在个位数；评测组设总量拆分阈值 |
 | 历史会话绑旧单库 | 单库读作单元素列表，零迁移 |
 | qdrant 多 collection 固定开销 | 个位数 collection 无碍（每份 MB 级）；不拆几十个 |
+| 目录改名与服务器侧引用漂移（.env、备份脚本、compose 挂载） | 动手前全库 grep 列全引用点一处清单改齐；改后重启＋检索探针复验才收工 |
 
-## 七、与 DGX 部署的关系
+## 八、与 DGX 部署的关系
 
 分组拆分**不依赖** DGX 落地，但拆完即具备整体迁移条件：生产组（一库一文件一 collection）搬 DGX＝拷文件＋快照；评测组（小、常动、评测在部署机跑）留腾讯云零隧道往返。两边按组独立搬运、独立回滚。
 
-## 八、待用户确认的决策点
+## 九、待用户确认的决策点
 
 1. 多库勾选上限（建议 ≤5）
 2. 多库时的证据分配规则（每库保底 vs 纯排名，阶段三定）
 3. 拆分键的形式（按文件夹为主？还是允许任意勾选文档集合）
 4. 施组库库名（dredgeai 为占位）
+5. 命名（10-03 倾向已定）：成绩库 `data/evals/evals.sqlite` **维持现名**（题集金标＋run 明细都在其中，改名零收益、result_store 引用还省一处）；评测语料组文件新起名为 `evals_corpus.sqlite`。初稿提议的 `runs.sqlite` 已否——该库不只装 runs，名字丢信息。
