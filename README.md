@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.87** ——meta_query 特权路由废除（两步：分类器 prompt v4 删输出值+解析点归一化止血 → meta 档/双段回退/兜底特判拆除，knowledge_stats 下沉 L1 统一工具箱由模型自选；QA prompt v14 注入对冲；guard 证据面兼容 stats；验收 intent 98/100、pos-regress 55/60 零误拒答、探针编数字率 0/4）；GDP.pdf 官方 100 题基准集成（rubric 判分器+题集卡+分级）；WAL 写锁韧性三层修复与 nightly 保留策略收口；代检索保险回传 raw 装 meta；题集卡信息弹层；知识树虚拟滚动；重导题集保留文件夹归属；deploy fetch 陈旧 tag 容错等三边角。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.88** ——检索 memo 三态在途登记+等待复用（同请求双份检索根治：共享 allocator 引用号段＋失败/超时回收＋等待可取消，ANGINEER_MEMO_INFLIGHT 默认开）；空闲保温探针每 5 分钟轻查询压冷启动尾（ANGINEER_IDLE_KEEPWARM 默认开）；生产关闭在线 LLM 二排（52% duel 否决白烧，nightly 对照判据 ±1.5pp 噪声带）；R5 探针定案：qdrant dense 0.11s 结构健康、量化/拆集合/VACUUM 不做（慢源=冷启动＋负载窗争抢，施工单入库）；GDP.pdf import_docs 支持预置 Key 免登录并去 pandas 依赖；评测单题详情 light 裁剪（首屏不回传重复证据副本）；题集题目列表服务端分页与跨全量筛选；intent 题集 task_type 取真实 service_mode＋卡片标签修正；前端文档深链断裂与管理端切主题弹层错色修复＋工作区收口。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

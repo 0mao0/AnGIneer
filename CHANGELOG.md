@@ -2,6 +2,18 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.88
+
+- 检索 memo 三态化（在途登记+等待复用）——同请求双份检索根治：预检未完成时主路等待复用而非自跑第二份（分类 1.1~1.4s 恒快于预检 5~15s，短问题此前 100% 双跑，10-02 20:49 事故两路 rerank 各打满 10s 超时即双跑放大）；等待预算=Σ各 rerank 端点超时+召回余量（硬顶 90s<tool_timeout×0.8），超时/取消/预检失败回落自跑并回收引用号段；共享 allocator 线程安全化＋mark/rollback（快照外前缀归零，防 K3、K4 跳号）；agent_loop 向声明 cancel_event 的 handler 注入取消事件并剥离模型参数下划线私有键；可观测带 _prefetch_ms／_memo_wait_ms（「并行预检／等待预检 X.Xs」）；ANGINEER_MEMO_INFLIGHT 默认开、=0 回退（test_search_memo 六例，angineer-core 全量 34 绿）
+- 空闲保温探针：每 ANGINEER_KEEPWARM_INTERVAL_SEC（默认 300s）一条固定轻查询（top_k=8 越过 rerank 的 ≤5 候选短路）走 dense+sparse+rerank 全链——启动预热只暖一次且不 ping rerank，本机内存紧（3.7G）页缓存随时间被挤出（10-03 08:42 全栈重建后 2.5 分钟首个真实请求 dense 3.89s；探针实测 sparse 冷页 6.1s→1.6s 暖化曲线）；ANGINEER_IDLE_KEEPWARM 默认开
+- 生产关闭在线 LLM 二排（ANGINEER_LLM_SECOND_RERANK=0，printenv 对账通过）：24h 统计 1251 次跑 650 次 duel 否决（52% 白烧）、每次成功检索多 1.5~5s；nightly 对照判据=与最近 3 晚 hit@1 配对差 ≤±1.5pp（噪声带），超带改分数门控或回滚；_ONLINE 双 env 拆分暂缓（条件项，见施工单）
+- R5 探针定案（施工单 docs/plan-retrieval-speedup-v3.md v3.2）：qdrant 58.4 万点裸进程 dense=0.11s 结构健康、sparse 冷页呈 6.1→1.6s 暖化曲线、knowledge_index 空闲页 0%——量化/拆集合/VACUUM 均不做，慢源=冷启动（保温对症）＋负载窗争抢（错峰）；4c47 embed/rerank 卡死两窗口交接包落 D:\AI\DGX\docs
+- GDP.pdf import_docs 支持预置 Key 免登录（服务器侧容器内建库+签 Key 后无密码入库）并去 pandas 依赖（questions.json 预转，服务器/容器可跑）
+- 评测单题运行详情 light 裁剪：展开首屏不再回传 all_predictions 整块与 prediction 内 retrieval_debug/retrieved_items/evidences 重复证据副本，完整原文按需 full 拉取
+- 题集题目列表服务端分页与跨全量筛选（大题集前端渲染与首屏耗时收口）
+- intent 题集 task_type 改取真实 service_mode＋卡片标签与分类层级显示修正
+- 前端修复：文档深链断裂与管理端切主题弹层错色；工作区收口（.gitignore 收编 .zcodeignore 等六工具残留目录、CHANGELOG v0.2.85 补记两条漏账、blackboard 新对话模式需求文档入库）
+
 ## v0.2.87
 
 - meta_query 特权路由废除（breaking）：两步实施——第一步止血（分类器 prompt v4 删 meta_query 输出值与规则 6/7 meta 条款、LLM 解析点归一化双保险、meta 档加 knowledge_search 自救），第二步拆档（meta_query「优先于一切 level」分支、meta→L1 双段回退、_meta_answer_usable 兜底特判、_is_meta_query 规则三处引用、META prompt 与预算 env 全删，knowledge_stats 下沉 build_qa_config L1 统一工具箱由模型按工具描述自选，ServiceMode Literal 成员保留注 legacy 兼容历史轨迹）；QA prompt v14（规则 5 补 knowledge_stats 用法边界+规则 14 注入对冲条款）；P-1 guard 证据面兼容 stats（统计摘要纳入 evidence_parts 两道闸，error JSON 照拒）；验收（intent-router-v1 98/100、meta 族 10 题全绿，stats 烟测答真值且 guard 不误杀，pos-regress-60 55/60 零误拒答，注入污染探针编数字率 0/4，financebench 46.7% 含误路由时代 7 题虚假基线水分挤出——新旧数字不可直接比）
