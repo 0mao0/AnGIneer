@@ -570,6 +570,7 @@ def build_complex_config(
     budget_threshold: int = 120_000,
     route_note: Optional[str] = None,
     marker_allocator: Optional[Any] = None,
+    final_answer_guard: Optional[Any] = None,
 ) -> AgentLoopConfig:
     """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。"""
     if tools is None:
@@ -659,12 +660,26 @@ def build_complex_config(
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
 
+    complex_followup = _followup_question_enabled()
+    if complex_followup:
+        system_prompt += FOLLOWUP_QUESTION_RULE
+
     complex_budget_est = _complex_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
     complex_transformer = (
         make_budget_transformer(max_tokens_est=complex_budget_est)
         if complex_budget_est > 0
         else None
     )
+
+    # 与 QA 档同款最终答案边界（2026-10-04 补装）：L3/L4 此前无 guard，occamy 实测把
+    # 表格检索分配的 T 前缀写成正文 [K1]/[K3]（不照抄工具结果里的实际 cite 值），
+    # 无效标记既不被剥除、前端也匹配不到引用项 → 用户看到裸 [K3] 文本
+    guard = final_answer_guard
+    if guard is None:
+        guard = make_final_answer_guard(
+            enforce_evidence=True,
+            followup_question=complex_followup,
+        )
 
     return AgentLoopConfig(
         llm=llm,
@@ -674,6 +689,8 @@ def build_complex_config(
         system_prompt=system_prompt,
         max_turns=max_turns,
         codec=TextToolCallCodec(),
+        final_answer_guard=guard,
+        followup_question=complex_followup,
         transform_context=complex_transformer,
         should_stop_after_turn=make_budget_stopper(threshold=budget_threshold),
         route_note=route_note,

@@ -139,7 +139,7 @@ def build_attempts(
         return [_l0_attempt(load_nodes, llm_factory, config_name, mode)]
     if level in ("L3", "L4") or service_mode in ("standard_sop", "dynamic_orchestration") or scene in ("complex", "sop", "sops"):
         # 本计划范围外：沿用 complex 档（后续计划补 SOP 全链）
-        from angineer_core.agent_configs import build_complex_config
+        from angineer_core.agent_configs import build_complex_config, make_final_answer_guard
 
         sops = list(sop_loader.load_all() or []) if sop_loader is not None else None
 
@@ -155,6 +155,8 @@ def build_attempts(
                 sops=sops,
                 sop_loader=sop_loader,
                 marker_allocator=marker_allocator,
+                # 与 L1/L2 同口径：复杂档答案必须过证据闸（2026-10-04 补装，防无证据出结论）
+                final_answer_guard=make_final_answer_guard(enforce_evidence=True),
             )
 
         return [AttemptConfig(
