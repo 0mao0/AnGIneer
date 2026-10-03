@@ -131,12 +131,20 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v14(self):
+    def test_qa_prompt_latest_is_v15(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V14
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V15
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V14)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v14")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V15)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v15")
+
+    def test_qa_prompt_v15_cite_verbatim_rule(self):
+        """v15（2026-10-04）：引用标记必须逐字照抄 metadata.cite 实际值——
+        occamy 实锤把表格检索的 T 前缀写成正文 [K3]（不照抄、按示范编前缀）。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V15
+
+        self.assertIn("逐字照抄", QA_AGENT_SYSTEM_PROMPT_V15)
+        self.assertIn("不得自行改写前缀", QA_AGENT_SYSTEM_PROMPT_V15)
 
     def test_qa_prompt_v13_refined_alignment_rule(self):
         """v13：对齐判断双向精修——核心结论一句即算覆盖（防误拒）+ 拒答前强制对象核对（防幻觉）。"""
