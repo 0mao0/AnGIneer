@@ -17,12 +17,26 @@ function encodePathSegment(value: string): string {
   return encodeURIComponent(value)
 }
 
+/** 题目列表查询条件（服务端分页 + 跨全量筛选；不传 = 全量返回，保持旧行为） */
+export interface EvalQuestionQuery {
+  offset?: number
+  limit?: number
+  level?: string
+  status?: string
+  quality?: string
+  runId?: string
+}
+
 export function useEvalDataset() {
   const datasets = ref<EvalDataset[]>([])
   const currentDataset = ref<EvalDataset | null>(null)
   const questions = ref<EvalQuestion[]>([])
+  /** 服务端筛选后的总题数（分页器用；全量返回时等于当前条数） */
+  const questionsTotal = ref(0)
   const folders = ref<EvalFolder[]>([])
   const loading = ref(false)
+  /** 题目列表请求序号：丢弃过期响应（连续切题集时先发的慢响应会覆盖后发的） */
+  let fetchQuestionsSeq = 0
 
   const fetchDatasets = async () => {
     loading.value = true
@@ -49,25 +63,50 @@ export function useEvalDataset() {
     }
   }
 
-  const fetchQuestions = async (datasetId: string) => {
+  /** 题目列表。传 query 时走服务端分页 + 跨全量筛选（层级/状态/质量下沉 SQL WHERE，
+   *  status/quality 需带 runId 才生效——服务端要 JOIN 当次运行的明细）。
+   *  fields=summary：只取列表 UI 真正渲染的列，八个 gold 列不回传；gold 由 fetchQuestion 按需取。
+   *  序号守卫：连续切题集/翻页时，先发的慢响应不许覆盖后发的结果（否则列表与选中题集错位）。 */
+  const fetchQuestions = async (datasetId: string, query: EvalQuestionQuery = {}) => {
+    const seq = ++fetchQuestionsSeq
     loading.value = true
     try {
-      // fields=summary：列表只取 UI 真正渲染的列，八个 gold 列不回传
-      // （生产实测 gold 占 1040 题集列表载荷的 68%、GDP100 的 84%，列表页一处不渲染）。
-      // 展开/编辑需要的 gold 原文由 fetchQuestion 按需取回。
-      const resp = await fetch(`/api/evals/datasets/${encodePathSegment(datasetId)}/questions?fields=summary`)
+      const params = new URLSearchParams({ fields: 'summary' })
+      if (query.limit !== undefined) {
+        params.set('offset', String(Math.max(0, query.offset ?? 0)))
+        params.set('limit', String(query.limit))
+      }
+      if (query.level) params.set('level', query.level)
+      if (query.runId) {
+        if (query.status) params.set('status', query.status)
+        if (query.quality) params.set('quality', query.quality)
+      }
+      const resp = await fetch(
+        `/api/evals/datasets/${encodePathSegment(datasetId)}/questions?${params.toString()}`
+      )
       if (resp.ok) {
         const data = await resp.json()
+        if (seq !== fetchQuestionsSeq) return
         questions.value = data.questions || []
+        questionsTotal.value = typeof data.total === 'number' ? data.total : questions.value.length
       }
     } finally {
-      loading.value = false
+      if (seq === fetchQuestionsSeq) loading.value = false
     }
   }
 
-  /** 取单题完整原文（含 gold），原地合并进 questions。
-   *  必须是原地合并、不能换数组引用：EvalQuestionList 的 watch(() => props.questions)
-   *  会把当前页重置到第 1 页，展开第 5 页的题会把用户弹回首页。 */
+  /** 取题集全部题目（只服务题集卡的层级分布；分页后当前页算不出分布，点开时才拉）。 */
+  const fetchAllQuestions = async (datasetId: string): Promise<EvalQuestion[]> => {
+    const resp = await fetch(
+      `/api/evals/datasets/${encodePathSegment(datasetId)}/questions?fields=summary`
+    )
+    if (!resp.ok) return []
+    const data = await resp.json()
+    return data.questions || []
+  }
+
+  /** 取单题完整原文（含 gold），原地合并进当前页。
+   *  必须是原地合并、不能换数组引用：列表按数组引用做重置/分页，换引用会让页号乱跳。 */
   const fetchQuestion = async (datasetId: string, questionId: string) => {
     const resp = await fetch(
       `/api/evals/datasets/${encodePathSegment(datasetId)}/questions/${encodePathSegment(questionId)}`
@@ -204,12 +243,14 @@ export function useEvalDataset() {
     datasets,
     currentDataset,
     questions,
+    questionsTotal,
     folders,
     loading,
     fetchDatasets,
     fetchDataset,
     fetchQuestions,
     fetchQuestion,
+    fetchAllQuestions,
     createDataset,
     deleteDataset,
     renameDataset,

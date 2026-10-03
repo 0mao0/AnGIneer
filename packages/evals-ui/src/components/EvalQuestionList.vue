@@ -2,11 +2,12 @@
   <div class="eval-question-list">
     <div class="eval-question-list__toolbar">
       <a-select
-        v-model:value="filterLevel"
+        :value="filterLevel"
         placeholder="按层级筛选"
         allow-clear
         style="width: 120px"
         size="small"
+        @change="(v: any) => onFilterChange('level', v)"
       >
         <a-select-option value="L1">L1</a-select-option>
         <a-select-option value="L2">L2</a-select-option>
@@ -14,11 +15,14 @@
         <a-select-option value="L4">L4</a-select-option>
       </a-select>
       <a-select
-        v-model:value="filterStatus"
+        :value="filterStatus"
+        :disabled="!hasRun"
+        :title="hasRun ? '' : '该题集还没有运行记录，状态筛选无从判定'"
         placeholder="按状态筛选"
         allow-clear
         style="width: 120px"
         size="small"
+        @change="(v: any) => onFilterChange('status', v)"
       >
         <a-select-option value="completed">已完成</a-select-option>
         <a-select-option value="running">评测中</a-select-option>
@@ -26,11 +30,14 @@
         <a-select-option value="pending">待评测</a-select-option>
       </a-select>
       <a-select
-        v-model:value="filterQuality"
+        :value="filterQuality"
+        :disabled="!hasRun"
+        :title="hasRun ? '' : '该题集还没有运行记录，质量筛选无从判定'"
         placeholder="按质量筛选"
         allow-clear
         style="width: 120px"
         size="small"
+        @change="(v: any) => onFilterChange('quality', v)"
       >
         <a-select-option value="correct">正确</a-select-option>
         <a-select-option value="wrong">错误</a-select-option>
@@ -63,14 +70,14 @@
           测试规范：{{ docFilterLabel }}
         </a-button>
       </a-popover>
-      <a-button size="small" class="eval-question-list__card-btn" @click="cardVisible = true">
+      <a-button size="small" class="eval-question-list__card-btn" @click="openCard">
         题集卡
       </a-button>
     </div>
     <div class="eval-question-list__body">
       <a-spin :spinning="loading">
         <EvalQuestionCard
-          v-for="(q, idx) in pagedQuestions"
+          v-for="(q, idx) in questions"
           :key="q.question_id"
           :question="q"
           :index="pageStartIndex + idx + 1"
@@ -81,16 +88,17 @@
           @evaluate="(qid) => $emit('evaluate', qid)"
           @updated="() => $emit('questionUpdated')"
         />
-        <a-empty v-if="!filteredQuestions.length" description="暂无题目" />
+        <a-empty v-if="!questions.length" description="暂无题目" />
       </a-spin>
     </div>
-    <div v-if="filteredQuestions.length > pageSize" class="eval-question-list__pagination">
+    <div v-if="total > pageSize" class="eval-question-list__pagination">
       <a-pagination
-        v-model:current="currentPage"
+        :current="page"
         :page-size="pageSize"
-        :total="filteredQuestions.length"
+        :total="total"
         show-size-changer
         :page-size-options="[10, 20, 50]"
+        @change="onPageChange"
         @show-size-change="onPageSizeChange"
       />
     </div>
@@ -98,7 +106,7 @@
       v-model:open="cardVisible"
       :dataset="dataset"
       :library-name="libraryName"
-      :questions="questions"
+      :questions="cardQuestions"
     />
   </div>
 </template>
@@ -119,7 +127,17 @@ export interface DocTreeNode {
 }
 
 const props = defineProps<{
+  /** 当前页题目（服务端已按筛选+分页返回；前端不再 filter/slice 全量） */
   questions: EvalQuestion[]
+  /** 服务端筛选后的总题数，供分页器 */
+  total: number
+  page: number
+  pageSize: number
+  filterLevel?: EvalIntentLevel
+  filterStatus?: EvalQuestionStatus
+  filterQuality?: EvalQuality
+  /** 题集有无运行记录：没有 run 时状态/质量筛选没有依据，置灰 */
+  hasRun: boolean
   runDetails: Map<string, EvalRunDetail>
   loading: boolean
   evaluatingQuestionIds: Set<string>
@@ -128,6 +146,8 @@ const props = defineProps<{
   onExpandDetail?: (questionId: string) => void
   dataset?: EvalDataset | null
   libraryName?: string
+  /** 题集卡要全量题目算层级分布；分页后当前页不够，点开时向宿主取 */
+  loadAllQuestions?: (datasetId: string) => Promise<EvalQuestion[]>
 }>()
 
 const emit = defineEmits<{
@@ -135,16 +155,21 @@ const emit = defineEmits<{
   evaluate: [questionId: string]
   'update:selectedDocIds': [docIds: string[]]
   questionUpdated: []
+  /** 筛选/翻页变化：宿主按新条件去服务端取数（跨全量筛选在 SQL 里生效） */
+  queryChange: [query: {
+    page: number
+    pageSize: number
+    level?: EvalIntentLevel
+    status?: EvalQuestionStatus
+    quality?: EvalQuality
+  }]
 }>()
 
-const filterLevel = ref<EvalIntentLevel | undefined>(undefined)
-const filterStatus = ref<EvalQuestionStatus | undefined>(undefined)
-const filterQuality = ref<EvalQuality | undefined>(undefined)
 const expandedId = ref<string | null>(null)
-const currentPage = ref(1)
-const pageSize = ref(20)
 const docTreeVisible = ref(false)
 const cardVisible = ref(false)
+/** 题集卡用的全量题目（点开时才拉） */
+const cardQuestions = ref<EvalQuestion[]>([])
 const checkedDocKeys = ref<string[]>([])
 
 /** 收集树中所有文档节点的 key */
@@ -200,47 +225,53 @@ const clearAllDocs = () => {
   checkedDocKeys.value = []
 }
 
-const filteredQuestions = computed(() => {
-  return props.questions.filter(q => {
-    if (filterLevel.value && q.intent_level !== filterLevel.value) return false
-    if (filterStatus.value) {
-      const detail = props.runDetails.get(q.question_id)
-      const status = detail?.status || 'pending'
-      if (status !== filterStatus.value) return false
-    }
-    if (filterQuality.value) {
-      const detail = props.runDetails.get(q.question_id)
-      const quality = (detail?.quality as string | null) || null
-      if (quality !== filterQuality.value) return false
-    }
-    return true
+/** 当前页的全局题号起点：分页后题号必须接着全量序号（第 2 页第一条是 21.，不是 1.） */
+const pageStartIndex = computed(() => (props.page - 1) * props.pageSize)
+
+/** 筛选/翻页都交给宿主去服务端取数（跨全量筛选在 SQL 里生效，前端不再 filter/slice） */
+const emitQuery = (patch: Partial<{
+  page: number
+  pageSize: number
+  level?: EvalIntentLevel
+  status?: EvalQuestionStatus
+  quality?: EvalQuality
+}>) => {
+  emit('queryChange', {
+    page: props.page,
+    pageSize: props.pageSize,
+    level: props.filterLevel,
+    status: props.filterStatus,
+    quality: props.filterQuality,
+    ...patch,
   })
-})
+}
 
-/** 分页后的题目列表 */
-const pageStartIndex = computed(() => (currentPage.value - 1) * pageSize.value)
-const pagedQuestions = computed(() => {
-  const filtered = filteredQuestions.value
-  const start = pageStartIndex.value
-  return filtered.slice(start, start + pageSize.value)
-})
+const onFilterChange = (key: 'level' | 'status' | 'quality', value: unknown) => {
+  const next = (value ?? undefined) as EvalIntentLevel | EvalQuestionStatus | EvalQuality | undefined
+  emitQuery({ [key]: next, page: 1 } as any)
+}
 
-/** 筛选条件变化后回到第一页 */
-watch([filterLevel, filterStatus, filterQuality], () => {
-  currentPage.value = 1
-})
-
-/** 题目列表刷新后回到第一页 */
-watch(
-  () => props.questions,
-  () => {
-    currentPage.value = 1
-  }
-)
+const onPageChange = (page: number, size: number) => {
+  emitQuery({ page, pageSize: size })
+}
 
 const onPageSizeChange = (_current: number, size: number) => {
-  pageSize.value = size
-  currentPage.value = 1
+  emitQuery({ page: 1, pageSize: size })
+}
+
+/** 题集卡的层级分布要全量题目：当前页只有一页的量，点开时向宿主取全量 */
+const openCard = async () => {
+  const datasetId = props.dataset?.dataset_id
+  if (datasetId && props.loadAllQuestions) {
+    try {
+      cardQuestions.value = await props.loadAllQuestions(datasetId)
+    } catch {
+      cardQuestions.value = props.questions
+    }
+  } else {
+    cardQuestions.value = props.questions
+  }
+  cardVisible.value = true
 }
 
 const onToggle = (questionId: string) => {

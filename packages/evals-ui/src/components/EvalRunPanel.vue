@@ -253,8 +253,9 @@ const props = defineProps<{
   currentRun: EvalRun | null
   /** 当前测试集的全部整体/单题运行（面板自行按整体评测过滤） */
   runs?: EvalRun[]
-  /** 按需加载某次 run 的轻量题目详情 */
-  loadRunDetails?: (runId: string) => Promise<EvalRunDetail[]>
+  /** 按需加载某次 run 的题目详情；{ enrich: true } 时额外带题干（逐题对比表要用），
+   *  默认精简版够右栏格子染色（不回 1000+ 份题干） */
+  loadRunDetails?: (runId: string, opts?: { enrich?: boolean }) => Promise<EvalRunDetail[]>
 }>()
 
 const emit = defineEmits<{
@@ -390,13 +391,20 @@ const formatTime = (iso?: string | null): string => {
   return `${mm}-${dd} ${hh}:${mi}`
 }
 
+/** 已按「带题干」那一档加载过的 run：精简版（默认）不回题干，逐题对比表要用时再补一次 */
+const enrichedRunIds = ref<Set<string>>(new Set())
+
 /** 按需加载并缓存某次 run 的题目详情（运行中的不缓存，跟随进度刷新） */
-const ensureDetails = async (runId: string) => {
+const ensureDetails = async (runId: string, opts?: { enrich?: boolean }) => {
   if (!props.loadRunDetails) return
   const isRunningRun = runId === runningRun.value?.run_id
-  if (!isRunningRun && detailsByRun.value[runId]) return
-  const details = await props.loadRunDetails(runId)
+  const needEnrich = Boolean(opts?.enrich) && !enrichedRunIds.value.has(runId)
+  if (!needEnrich && !isRunningRun && detailsByRun.value[runId]) return
+  const details = await props.loadRunDetails(runId, opts)
   detailsByRun.value = { ...detailsByRun.value, [runId]: details }
+  if (opts?.enrich) {
+    enrichedRunIds.value = new Set(enrichedRunIds.value).add(runId)
+  }
 }
 
 /** 默认选中：运行中优先，其次最近一条历史，再次置顶的中断 item；
@@ -425,10 +433,11 @@ const onToggleCompare = (runId: string, checked: boolean) => {
   if (checked) {
     if (compareIds.value.includes(runId) || compareIds.value.length >= 3) return
     compareIds.value = [...compareIds.value, runId]
+    // 对比表要显示题干：这一档明细比染色用的精简版多一份题干，按需补拉
+    void ensureDetails(runId, { enrich: true })
   } else {
     compareIds.value = compareIds.value.filter(id => id !== runId)
   }
-  void ensureDetails(runId)
 }
 
 /** 运行中 run 进度变化时刷新其明细 */

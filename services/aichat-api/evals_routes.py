@@ -318,16 +318,23 @@ async def stop_run(run_id: str):
 
 
 @evals_router.get("/runs/{run_id}")
-async def get_run(run_id: str, light: bool = Query(False), fields: Optional[str] = Query(None)):
+async def get_run(
+    run_id: str,
+    light: bool = Query(False),
+    fields: Optional[str] = Query(None),
+    enrich: bool = Query(True),
+):
     """查询运行进度/结果。
 
     light=true 时裁剪 prediction/all_scores/all_predictions 等大字段，
     用于列表与轮询场景；展开单题时走 /runs/{run_id}/questions/{question_id} 获取完整详情。
     fields=status 进一步只回状态染色所需列（去 scores）——题集首屏与轮询只读
     status/quality，实测 scores 占 light 载荷 84%；展开单题的那份仍带分项分数。
+    enrich=false 连同 1040 份题干也不回（右栏格子只染色不用字，题干占该载荷约 7 成）；
+    逐题对比等要用题干的场景传 enrich=true（默认）。
     """
     projection = "status" if (fields or "").strip().lower() == "status" else None
-    run = suite_runner.get_eval_run(run_id, light=light, projection=projection)
+    run = suite_runner.get_eval_run(run_id, light=light, projection=projection, enrich=enrich)
     if not run:
         raise HTTPException(status_code=404, detail="运行记录不存在")
     return run

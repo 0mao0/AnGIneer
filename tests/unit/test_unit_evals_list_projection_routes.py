@@ -196,6 +196,33 @@ class ListProjectionRoutesTests(unittest.TestCase):
         self.assertEqual(detail["question"], "第一题")
         self.assertNotIn("scores", detail)
 
+    def test_run_status_without_enrich_drops_question_text(self):
+        """enrich=0：右栏染色不需要题干，1040 份题干占该载荷约 7 成，默认首屏不回。"""
+        with self._client() as client:
+            r = client.get(f"/api/evals/runs/{self.run_id}?fields=status&enrich=0")
+        self.assertEqual(r.status_code, 200)
+        detail = r.json()["details"][0]
+        self.assertEqual(detail["question_id"], "q-1")
+        self.assertEqual(detail["status"], "completed")
+        self.assertEqual(detail["quality"], "correct")
+        self.assertNotIn("question", detail)
+
+    def test_run_status_without_enrich_keeps_dataset_order(self):
+        """enrich=0 仍按题集顺序返回（右栏题号与中栏对齐靠这条，2026-09-27 实踩）。"""
+        result_store.insert_run_detail({
+            "run_id": self.run_id,
+            "question_id": "q-2",
+            "status": "completed",
+            "quality": "wrong",
+            "scores": {"score": 0.0},
+            "latency_ms": 7,
+        })
+        with self._client() as client:
+            r = client.get(f"/api/evals/runs/{self.run_id}?fields=status&enrich=0")
+        self.assertEqual(r.status_code, 200)
+        ids = [d["question_id"] for d in r.json()["details"]]
+        self.assertEqual(ids, ["q-1", "q-2"])
+
     def test_run_light_still_carries_scores(self):
         """light 语义不变：单题详情/题集卡等仍按 light 取分。"""
         with self._client() as client:

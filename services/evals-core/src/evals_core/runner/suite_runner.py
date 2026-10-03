@@ -981,7 +981,11 @@ def start_eval_run(
     return result_store.get_run(run_id) or {"run_id": run_id, "status": "running"}
 
 
-def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[Dict[str, Any]]:
+def _enrich_run_details(
+    details: List[Dict[str, Any]],
+    dataset_id: str,
+    with_question_text: bool = True,
+) -> List[Dict[str, Any]]:
     """为运行详情补充题目字段，并按题集顺序（sort_order）排列。
 
     明细行 id 是建行顺序，不是题目顺序：题目「真正开跑」时 runner 会删行重建
@@ -991,12 +995,25 @@ def _enrich_run_details(details: List[Dict[str, Any]], dataset_id: str) -> List[
     实踩：中栏第 3 题（唯一错题）在右栏显示为第 20 格。这里统一按题集顺序返回，
     右栏明细与逐题对比的行号都跟中栏对齐。题集里已不存在的题排在末尾（稳定排序
     保持其相对次序）。
+
+    with_question_text=False（`enrich=0`）时**只保留排序与状态所需字段**：右栏 1040 格
+    染色只需要 status/quality，而题干文本占了该载荷的 7 成（1040 题实测 80 KB 里
+    约 56 KB 是 1040 份题干）；逐题对比表要用题干时再按需取 enrich=1 那一份。
     """
     if not details:
         return []
     # 只取列表列：补题目元信息用不到 gold，而全量读会把每题的 gold 原文各解析一遍
     # （1040 题集实测 gold 占 1.3 MB，是 get_eval_run 里最大的一块纯浪费）
     questions = result_store.list_questions(dataset_id, summary=True)
+    if not with_question_text:
+        seq_of = {
+            str(question.get("question_id") or ""): idx
+            for idx, question in enumerate(questions)
+        }
+        return sorted(
+            details,
+            key=lambda d: seq_of.get(str(d.get("question_id") or ""), len(questions)),
+        )
     detail_questions = {
         str(question.get("question_id") or ""): question for question in questions
     }
@@ -1015,6 +1032,7 @@ def get_eval_run(
     run_id: str,
     light: bool = False,
     projection: Optional[str] = None,
+    enrich: bool = True,
 ) -> Optional[Dict[str, Any]]:
     """查询运行进度/结果，运行中时实时计算汇总指标。
 
@@ -1022,6 +1040,8 @@ def get_eval_run(
     供列表/轮询场景使用；完整详情通过 get_eval_run_detail 按需获取。
     projection="status" 进一步只取状态染色所需列（去 scores），供题集首屏与轮询；
     展开单题走 get_eval_run_detail，那份仍带分项分数。
+    enrich=False 时只补排序（题集顺序），不回传 1040 份题干——右栏格子只染色不用字；
+    逐题对比等需要题干的场景显式传 enrich=True。
     """
     run = result_store.get_run(run_id)
     if not run:
@@ -1029,7 +1049,9 @@ def get_eval_run(
     details = result_store.list_run_details(run_id, light=light, projection=projection)
     result = {**run, "details": details}
     if result.get("details"):
-        result["details"] = _enrich_run_details(result["details"], run.get("dataset_id") or "")
+        result["details"] = _enrich_run_details(
+            result["details"], run.get("dataset_id") or "", with_question_text=enrich,
+        )
     if run.get("status") == "running" and not run.get("summary_scores"):
         completed_details = [d for d in result["details"] if d.get("status") not in ("pending", "running")]
         if completed_details:

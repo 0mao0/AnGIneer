@@ -138,12 +138,19 @@
           <template #extra>
             <a-space v-if="currentDataset">
               <a-tag>{{ currentDataset.category }}</a-tag>
-              <span class="question-count">{{ questions.length }} 题</span>
+              <span class="question-count">{{ questionsTotal }} 题</span>
             </a-space>
           </template>
           <EvalQuestionList
             v-if="currentDataset"
             :questions="questions"
+            :total="questionsTotal"
+            :page="questionQuery.page"
+            :page-size="questionQuery.pageSize"
+            :filter-level="questionQuery.level"
+            :filter-status="questionQuery.status"
+            :filter-quality="questionQuery.quality"
+            :has-run="Boolean(activeRunId)"
             :run-details="runDetails"
             :loading="questionsLoading"
             :evaluating-question-ids="evaluatingQuestionIds"
@@ -152,9 +159,11 @@
             :dataset="currentDataset"
             :library-name="datasetLibraryName"
             :on-expand-detail="onQuestionExpandDetail"
+            :load-all-questions="fetchAllQuestions"
             @evaluate="onEvaluateQuestion"
             @update:selected-doc-ids="onSelectedDocIdsChange"
             @question-updated="onQuestionUpdated"
+            @query-change="onQuestionQueryChange"
           />
           <a-empty v-else description="请从左侧选择测试集" class="center-empty" />
         </Panel>
@@ -350,7 +359,7 @@ import {
 } from '@angineer/evals-ui'
 import { useEvalDataset, useEvalRun, useEvalDatasetTree, isEvalBusyError } from '@angineer/evals-ui'
 import type { EvalTreeNode } from '@angineer/evals-ui'
-import type { EvalDataset, EvalQuestion, EvalRun, EvalRunningRun } from '@angineer/evals-ui'
+import type { EvalDataset, EvalQuestion, EvalRun, EvalRunningRun, EvalIntentLevel, EvalQuestionStatus, EvalQuality } from '@angineer/evals-ui'
 import FolderModal from './components/FolderModal.vue'
 import EvalCompareModal from './components/EvalCompareModal.vue'
 import EvalNightlyPanel from './components/EvalNightlyPanel.vue'
@@ -493,11 +502,13 @@ const {
   datasets,
   currentDataset,
   questions,
+  questionsTotal,
   folders,
   fetchDatasets,
   fetchDataset,
   fetchQuestions,
   fetchQuestion,
+  fetchAllQuestions,
   createDataset,
   deleteDataset,
   renameDataset,
@@ -540,6 +551,50 @@ const {
 const selectedDatasetId = ref('')
 const questionsLoading = ref(false)
 const evalLoading = ref(false)
+
+/** 题目列表查询态：分页 + 跨全量筛选都由服务端执行（前端只发条件，不本地 filter/slice）。
+ *  status/quality 依赖某次运行的逐题明细，所以要带 activeRunId 才生效。 */
+const questionQuery = ref<{
+  page: number
+  pageSize: number
+  level?: EvalIntentLevel
+  status?: EvalQuestionStatus
+  quality?: EvalQuality
+}>({ page: 1, pageSize: 20 })
+
+/** 当前用于逐题状态/质量的 run：在跑的优先，否则最近一次完成的 */
+const activeRunId = computed(() => currentRun.value?.run_id || lastRun.value?.run_id || '')
+
+/** 按当前查询态向服务端取一页题目（切换题集/翻页/筛选/编辑后都走这里） */
+const loadQuestions = async () => {
+  if (!selectedDatasetId.value) return
+  const q = questionQuery.value
+  await fetchQuestions(selectedDatasetId.value, {
+    offset: (q.page - 1) * q.pageSize,
+    limit: q.pageSize,
+    level: q.level,
+    status: q.status,
+    quality: q.quality,
+    runId: activeRunId.value,
+  })
+}
+
+/** 列表发出的筛选/翻页变化：筛选变化一律回到第 1 页 */
+const onQuestionQueryChange = async (q: {
+  page: number
+  pageSize: number
+  level?: EvalIntentLevel
+  status?: EvalQuestionStatus
+  quality?: EvalQuality
+}) => {
+  const filtersChanged =
+    q.level !== questionQuery.value.level ||
+    q.status !== questionQuery.value.status ||
+    q.quality !== questionQuery.value.quality
+  const sizeChanged = q.pageSize !== questionQuery.value.pageSize
+  questionQuery.value = { ...q, page: filtersChanged || sizeChanged ? 1 : q.page }
+  await loadQuestions()
+}
 
 const libraryStore = useLibraryStore()
 /** 题集卡用：library_id → 知识库名称（清单随页面挂载加载，未命中回退原 id） */
@@ -629,14 +684,21 @@ const onDatasetSelect = async (keys: string[], _nodes: EvalTreeNode[]) => {
   stopPolling()
   isFullRun.value = false
   clearDetailsCache()
+  // 切题集：分页与筛选回到初始态（上一题集的筛选条件对新题集没有意义）
+  questionQuery.value = { page: 1, pageSize: questionQuery.value.pageSize }
   questionsLoading.value = true
   try {
     // 三个请求彼此独立：串行 await 等于把往返延迟相加（实测 6 趟串行 ~5s）
-    await Promise.all([fetchDataset(key), fetchQuestions(key), fetchLastRun(key)])
+    await Promise.all([fetchDataset(key), loadQuestions(), fetchLastRun(key)])
   } finally {
     questionsLoading.value = false
   }
 }
+
+/** run 变了（新版跑完 / 切历史记录）而筛选里带状态或质量时，明细 JOIN 的对象变了，要重取当前页 */
+watch(activeRunId, () => {
+  if (questionQuery.value.status || questionQuery.value.quality) void loadQuestions()
+})
 
 /** 当前规范筛选选中的文档 ID 列表 */
 const selectedDocIds = ref<string[]>([])
@@ -658,7 +720,7 @@ const runScopedDocIds = (): string[] | undefined => {
 /** 题目文本编辑后刷新列表 */
 const onQuestionUpdated = async () => {
   if (selectedDatasetId.value) {
-    await fetchQuestions(selectedDatasetId.value)
+    await loadQuestions()
   }
 }
 

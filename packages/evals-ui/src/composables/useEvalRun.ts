@@ -4,10 +4,26 @@ import type { EvalRun, EvalRunDetail, EvalRunningRun } from '../types/eval'
 
 const EVAL_POLL_INTERVAL_MS = 2000
 
-/** 列表/轮询用的明细投影：只取状态染色列（status/quality/error/latency_ms）。
- *  scores 实测占 light 载荷的 84%（1040 题 1211 KB 里 1015 KB，主体是判分理由长文本），
- *  而首屏一处都不渲染；展开单题时 fetchQuestionDetail 取回的那份仍带分项分数。 */
-const RUN_DETAIL_LIST_FIELDS = 'fields=status'
+/** 列表/轮询用的明细投影：只取状态染色列（status/quality/error/latency_ms），
+ *  且不回传 1040 份题干（enrich=0）——右栏格子只染色、不显示文字。
+ *  scores 实测占 light 载荷 84%，题干约占剩下的大头；展开单题时 fetchQuestionDetail
+ *  取回的那份仍带分项分数与全文。 */
+const RUN_DETAIL_LIST_FIELDS = 'fields=status&enrich=0'
+/** 逐题对比表要题干：显式要富化那份（服务端 enrich=1）。 */
+const RUN_DETAIL_ENRICHED_FIELDS = 'fields=status&enrich=1'
+
+export interface EvalRunDetailOptions {
+  /** 是否要题干等富化字段（逐题对比用）；默认 false = 右栏染色用的精简版 */
+  enrich?: boolean
+}
+
+function runDetailFields(opts?: EvalRunDetailOptions): string {
+  return opts?.enrich ? RUN_DETAIL_ENRICHED_FIELDS : RUN_DETAIL_LIST_FIELDS
+}
+
+function runDetailCacheKey(runId: string, opts?: EvalRunDetailOptions): string {
+  return opts?.enrich ? `${runId}|enriched` : runId
+}
 
 /** 启动被在跑评测占用（后端 409 eval_busy）：带在跑清单，交给调用方弹框问用户 */
 export interface EvalBusyError extends Error {
@@ -353,28 +369,35 @@ export function useEvalRun() {
   }
 
   /** 拉取某次 run 的列表级题目详情（status/quality/error/latency_ms），带缓存；运行中不缓存。
-   *  逐题分项分数不在这份里——展开单题时 fetchQuestionDetail 会取回带 scores 的那一份。 */
-  const fetchRunDetails = (runId: string): Promise<EvalRunDetail[]> => {
+   *  默认精简版（不回题干）；逐题对比等要用题干时传 { enrich: true }（两档各自缓存）。
+   *  逐题分项分数两档都不含——展开单题时 fetchQuestionDetail 会取回带 scores 的那一份。 */
+  const fetchRunDetails = (
+    runId: string,
+    opts?: EvalRunDetailOptions,
+  ): Promise<EvalRunDetail[]> => {
+    const key = runDetailCacheKey(runId, opts)
     const run = currentRun.value?.run_id === runId ? currentRun.value : undefined
     const isRunningRun = run?.status === 'running'
-    if (!isRunningRun && detailsByRun.value[runId]) {
-      return Promise.resolve(detailsByRun.value[runId])
+    if (!isRunningRun && detailsByRun.value[key]) {
+      return Promise.resolve(detailsByRun.value[key])
     }
-    if (pendingDetails.has(runId)) {
-      return pendingDetails.get(runId)!
+    if (pendingDetails.has(key)) {
+      return pendingDetails.get(key)!
     }
     const task = (async () => {
-      const resp = await fetch(`/api/evals/runs/${encodePathSegment(runId)}?${RUN_DETAIL_LIST_FIELDS}`)
+      const resp = await fetch(
+        `/api/evals/runs/${encodePathSegment(runId)}?${runDetailFields(opts)}`
+      )
       if (resp.ok) {
         const data: EvalRun = await resp.json()
         const details = data.details || []
-        detailsByRun.value = { ...detailsByRun.value, [runId]: details }
+        detailsByRun.value = { ...detailsByRun.value, [key]: details }
         return details
       }
       return []
     })()
-    pendingDetails.set(runId, task)
-    void task.finally(() => pendingDetails.delete(runId))
+    pendingDetails.set(key, task)
+    void task.finally(() => pendingDetails.delete(key))
     return task
   }
 
