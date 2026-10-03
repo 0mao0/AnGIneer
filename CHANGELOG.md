@@ -7,6 +7,7 @@ All notable changes to AnGIneer are documented here.
 - 空闲保温探针空转根治（10-03 生产复盘，31aa999/0f522a5）：首版探针两处零召回根因——doc_nodes=None 直达 dense 空节点门（dense=0.00s、embed 从未发出）＋查询词「知识库保温探针」系索引外 token、FTS5 隐式 AND 整条清零，日志恒「成功」实则一页未读；修复=节点与真实请求同源装载＋高频词「规范 设计」（业主复核砍掉「的 规范 设计」：生产实测三字 AND 仅 37 条、保温翻页量少两个量级）＋ANGINEER_KEEPWARM_QUERY 可覆盖（已登记 .env.example）＋items==0 必须 WARNING；行为锁 4 例＋端到端复验 items=8
 - 拒答识别补英文句式与 error 模板降级输出（bb91316，occamy 关思考实测 run-94c0ac9e9e3f：名义拒答分 41%→31% 系检测器漏认、真实拒答行为两轮持平 17/39）：REFUSAL_EN_PATTERNS 小句窗口正则接住 "did not retrieve/find … evidence" 族插字变体（否定动词与 evidence 须同句，跨句部分覆盖不误伤、反例进测试）；REFUSAL_ERROR_TEMPLATE_RE 认「整段以 ```json {"error" 开篇」形态（全仓 grep 证实系模型模仿工具报错格式、非代码泄漏），守卫换标准拒答话术；is_refusal_text 单一入口，评测判分与线上守卫同修
 - 最终答案 JSON 信封三修（重跑 run-55a16e545304 实测 41% 复盘出守卫侧同族漏洞）：①错误 JSON 检测器判定前剥 ```json 围栏（旧 startswith("{") 被围栏挡死，带围栏的 {"error":...} 全部漏检、用户看到 JSON 坨）；②make_final_answer_guard 拆 {"answer": "..."} 单键信封取内文再走证据/拒答/标记校验（保守三锁：剥围栏可解析、键集仅 answer、值为非空字符串，点名要 JSON 的输出不误伤；新结果码 answer_envelope_unwrapped 只记 path 不动 final_outcome）；③实质拒答词表补「未覆盖」（仅评测档，生产 is_refusal_text 不收、部分覆盖回答不误杀，反例进测试）
+- aichat-ui 公式渲染 % 归一化（生产会话 chat-musnnodn-qc733j 实测：occamy 照抄规范原文 R_{1%}，% 系 LaTeX 注释符、KaTeX 解析报错整条红字；Qwen3.6 时代每次输出 $$…\%…$$ 标准 LaTeX 形所以从未暴露——模型换型暴露前端裸公式启发式盲区，JTS 165 的 1%/2% 记法高频）：renderFormula 归一化把未转义 % 统一转 \%（lookbehind 不重复转义模型已写对的 \%；KaTeX 中 \% 渲染为字面 %）；单测 4 例进包内 test 脚本（tsx --test 下 katex ESM 引 css 的加载问题用 node:module register css 空模块 loader 解决，vite 构建不受影响）
 
 ## v0.2.88
 

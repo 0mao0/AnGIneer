@@ -49,6 +49,10 @@ export const renderFormula = (formula: string, displayMode: boolean): string => 
     .replace(/^\\\[\s*([\s\S]*?)\s*\\\]$/u, '$1')
     .replace(/^\\\(\s*([\s\S]*?)\s*\\\)$/u, '$1')
     .replace(/^\$\$\s*([\s\S]*?)\s*\$\$$/u, '$1')
+    // `%` 是 LaTeX 注释符：规范公式原文（R_{1%}）不转义会让 KaTeX 解析报错、整条公式变红字
+    // （2026-10-04 occamy 实测；JTS 165-2013 的 1%/2% 记法高频）。未带反斜杠的统一转义，
+    // 模型已写对 \% 的不重复转义（lookbehind）；KaTeX 里 \% 渲染为字面 %。
+    .replace(/(?<!\\)%/g, '\\%')
   try {
     return katex.renderToString(normalizedSource, { throwOnError: false, displayMode })
   } catch {
