@@ -42,13 +42,17 @@ def route_parallel_enabled() -> bool:
 
 def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],
                               load_nodes: Optional[Callable[[], list]] = None,
-                              has_history: bool = True):
+                              has_history: bool = True,
+                              marker_allocator: Optional[Any] = None):
     """赌博式预检：乐观发起 L1 首轮检索（fire-and-forget 独立 daemon 线程）。
 
     参数必须与 agent_policy._l1_attempt → build_qa_config → RetrieverAdapter.knowledge_search
     的有效参数逐项一致（top_k=20 / task_type=content_qa / rerank=True / config_name=None /
     mode="instruct" / doc_nodes=同源 _load_doc_nodes 结果），否则 agent_tools 的检索 memo
     键对不齐，预检白做甚至污染 citations（doc_title_map 缺失）。拿不到 load_nodes 宁可不预检。
+
+    marker_allocator（F3 共享 allocator）：主流程创建、预检与主路共用同一实例——预检的
+    引用号段即主路号段，复用成品不重分配；失败/放弃由 memo 按快照回收（施工单变更 A）。
 
     跳过条件：短问（≤ANGINEER_INJECT_FOLLOWUP_CHARS）**且**有上文——§8.6 只在此组合下
     改写检索词，memo 键必不命中；首问短句（无上文）不改写，预检照常受益。
@@ -96,8 +100,9 @@ def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids
                 rerank=True,
                 config_name=None,
                 mode="instruct",
+                marker_allocator=marker_allocator,
             )
-            tool.handler(query=q)
+            tool.handler(query=q, _from_speculative=True)
         except Exception:  # noqa: BLE001
             logger.debug("赌博式预检失败（忽略）", exc_info=True)
 

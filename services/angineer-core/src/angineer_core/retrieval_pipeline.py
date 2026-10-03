@@ -89,6 +89,27 @@ def _second_rerank_enabled() -> bool:
     return os.environ.get("ANGINEER_LLM_SECOND_RERANK", "0").strip().lower() in ("1", "true", "on")
 
 
+def estimated_rerank_wait_seconds() -> float:
+    """在线 rerank 走完全部端点的超时预算（memo 在途等待上限的组成项，agent_tools 消费）。
+
+    rerank_candidates 是逐端点循环（retrieval_pipeline.py:249-307），预算必须按端点循环
+    总时长算，不是单个超时值（施工单 v3.2 变更 A 等待预算公式）。"""
+    from angineer_core.base_config import get_config
+
+    cfg = get_config().runner
+    endpoints = list(cfg.reranker_configs or [])
+    if not endpoints:
+        return 0.0
+    total = 0.0
+    for endpoint in endpoints:
+        ep_timeout = endpoint.get("timeout_sec") if isinstance(endpoint, dict) else None
+        try:
+            total += float(ep_timeout) if ep_timeout is not None else float(cfg.reranker_timeout_sec)
+        except (TypeError, ValueError):
+            total += float(cfg.reranker_timeout_sec)
+    return total
+
+
 def _env_int(name: str, default: int) -> int:
     try:
         return int(os.environ.get(name, "").strip() or default)

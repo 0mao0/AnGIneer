@@ -64,11 +64,14 @@ def make_policy_config_factory(
     intent_result: Any,
     sop_loader: Any = None,
     route_debug: Any = None,
+    marker_allocator: Any = None,
 ):
     """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。
 
     scope 为唯一门牌号来源：library_id/doc_ids 一律取自 ScopeContext。
     route_debug：路由可观测投影（含 classify_ms）——「意图判断」便签带分类耗时用（2026-09-27）。
+    marker_allocator（F3 共享 allocator）：预检与主路共用同一实例（施工单变更 A）；
+    None 时工厂自建（route_parallel 关闭或无预检的请求，现行为）。
     """
 
     def factory() -> AgentLoopConfig:
@@ -77,7 +80,7 @@ def make_policy_config_factory(
         from angineer_core.agent_policy import build_attempts, format_route_note
         from angineer_core.agent_tools import MarkerAllocator
 
-        allocator = MarkerAllocator()
+        allocator = marker_allocator or MarkerAllocator()
         attempts = build_attempts(
             intent_result=intent_result,
             scene=scene,

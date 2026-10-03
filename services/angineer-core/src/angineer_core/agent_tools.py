@@ -181,15 +181,35 @@ def _serialize_value(value: Any) -> Any:
 
 
 class MarkerAllocator:
-    """run 级引用标记分配器：每个工具前缀全局递增。"""
+    """run 级引用标记分配器：每个工具前缀全局递增。
+
+    线程安全（F3 共享 allocator：预检线程与主路线程共用同一实例）；mark/rollback
+    服务于预检失败/放弃时的孤儿号段回收——回收只回退不前进，防踩掉主路新号段。
+    """
 
     def __init__(self) -> None:
         self._counters: Dict[str, int] = {}
+        self._lock = threading.Lock()
 
     def next(self, prefix: str) -> str:
-        n = self._counters.get(prefix, 0) + 1
-        self._counters[prefix] = n
+        with self._lock:
+            n = self._counters.get(prefix, 0) + 1
+            self._counters[prefix] = n
         return f"{prefix}{n}"
+
+    def mark(self) -> Dict[str, int]:
+        """取当前计数快照（预检起飞前调用，失败/放弃时按它回收）。"""
+        with self._lock:
+            return dict(self._counters)
+
+    def rollback(self, mark: Dict[str, int]) -> None:
+        """回收到快照水位：快照里没有的前缀一律归零（预检新建号段整体回收）；
+        只回退、不前进（绝不放大别人的计数）。"""
+        with self._lock:
+            for prefix in list(self._counters.keys()):
+                target = mark.get(prefix, 0)
+                if target <= self._counters[prefix]:
+                    self._counters[prefix] = target
 
 
 def _assign_cites(items: list, allocator: MarkerAllocator, prefix: str) -> None:
@@ -276,34 +296,162 @@ _SEARCH_MEMO: Dict[Any, Any] = {}
 _SEARCH_MEMO_LOCK = threading.Lock()
 _SEARCH_MEMO_TTL_SECONDS = 120.0  # 分类最坏尾延迟 ~5s，120s 留足裕度；单发语义下过期项只占内存
 _SEARCH_MEMO_MAX = 16
+# 三态 memo（施工单 docs/plan-retrieval-speedup-v3.md 变更 A/F3，2026-10-03）：值要么是
+# 成品 tuple (ts, result, run_ms)，要么是 _SearchPending（预检在途）。主路 pop 命中成品直接
+# 复用（现语义）；撞见在途则等待（预算=Σ各 rerank 端点超时+召回余量，硬顶 90s<tool_timeout
+# 120×0.8），预检写完成品即唤醒；无条目/超时/取消/预检失败 → 回落自跑并回收孤儿号段。
+# ANGINEER_MEMO_INFLIGHT=0 回退旧行为（只存成品、不等待）。
+MEMO_INFLIGHT_ENV = "ANGINEER_MEMO_INFLIGHT"
 
 
 def route_parallel_enabled() -> bool:
     return (os.getenv("ANGINEER_ROUTE_PARALLEL", "true") or "").strip().lower() in ("true", "1", "yes", "on")
 
 
-def _search_memo_pop(key):
+def _memo_inflight_enabled() -> bool:
+    return (os.getenv(MEMO_INFLIGHT_ENV, "1") or "").strip().lower() in ("1", "true", "on", "yes")
+
+
+def _env_float(name: str, default: float) -> float:
+    try:
+        return float(os.getenv(name) or default)
+    except (TypeError, ValueError):
+        return default
+
+
+class _SearchPending:
+    """预检在途条目：主路在 event 上等；写完成品或失败/放弃时收敛（单发语义）。"""
+
+    __slots__ = ("event", "result", "run_ms", "failed", "abandoned", "allocator", "alloc_mark")
+
+    def __init__(
+        self,
+        allocator: Optional["MarkerAllocator"] = None,
+        alloc_mark: Optional[Dict[str, int]] = None,
+    ) -> None:
+        self.event = threading.Event()
+        self.result: Optional[Dict[str, Any]] = None
+        self.run_ms: Optional[int] = None
+        self.failed = False
+        self.abandoned = False
+        self.allocator = allocator
+        self.alloc_mark = alloc_mark
+
+
+def _search_memo_wait_budget() -> float:
+    """主路等待预检的预算：Σ(各 rerank 端点超时)＋召回余量，硬顶 90s（<tool_timeout 120×0.8）。"""
+    override = os.getenv("ANGINEER_MEMO_WAIT_BUDGET_SEC")
+    if override:
+        try:
+            return max(0.05, float(override))
+        except (TypeError, ValueError):
+            pass
+    try:
+        from angineer_core.retrieval_pipeline import estimated_rerank_wait_seconds
+
+        rerank_budget = estimated_rerank_wait_seconds()
+    except Exception:  # noqa: BLE001 — 预算算不出就退默认值
+        rerank_budget = 10.0
+    return min(90.0, rerank_budget + _env_float("ANGINEER_MEMO_RECALL_ALLOWANCE_SEC", 6.0))
+
+
+def _search_memo_begin(key, allocator: Optional["MarkerAllocator"] = None) -> Optional[_SearchPending]:
+    """预检起飞：按 key 登记在途条目（INFLIGHT 关/键空/已有条目时返回 None 走旧语义）。"""
+    if key is None or not _memo_inflight_enabled():
+        return None
+    alloc_mark = allocator.mark() if allocator is not None else None
+    pending = _SearchPending(allocator=allocator, alloc_mark=alloc_mark)
+    with _SEARCH_MEMO_LOCK:
+        if key in _SEARCH_MEMO:
+            return None
+        _SEARCH_MEMO[key] = pending
+    return pending
+
+
+def _search_memo_pop(key, cancel_event: Optional[threading.Event] = None):
+    """主路取 memo：成品命中复用；在途等待（预算内）复用；其余返回 None（回落自跑）。
+
+    返回 (result, prefetch_ms, wait_ms)；wait_ms=本方等待时长（思考面板「等待预检」用）。
+    """
     if key is None:
         return None
     now = time.time()
     with _SEARCH_MEMO_LOCK:
-        entry = _SEARCH_MEMO.pop(key, None)
-        # 顺手清理过期残留，防长尾堆积
-        for k in [k for k, v in _SEARCH_MEMO.items() if now - v[0] > _SEARCH_MEMO_TTL_SECONDS]:
+        entry = _SEARCH_MEMO.get(key)
+        # 顺手清理过期成品，防长尾堆积（在途条目不在此清理，由等待方/预检方收敛）
+        for k in [
+            k
+            for k, v in _SEARCH_MEMO.items()
+            if isinstance(v, tuple) and now - v[0] > _SEARCH_MEMO_TTL_SECONDS
+        ]:
             _SEARCH_MEMO.pop(k, None)
-    if entry is None or (now - entry[0]) > _SEARCH_MEMO_TTL_SECONDS:
+    if entry is None:
         return None
-    # 返回 (result, run_ms)：run_ms= 预检方真实检索耗时，供消费方标注「并行预检 X.Xs」（2026-09-30）
-    return entry[1], (entry[2] if len(entry) > 2 else None)
+    if isinstance(entry, _SearchPending):
+        if not _memo_inflight_enabled():
+            return None
+        budget = _search_memo_wait_budget()
+        deadline = time.monotonic() + budget
+        while not entry.event.wait(timeout=0.05):
+            if cancel_event is not None and cancel_event.is_set():
+                break
+            if time.monotonic() >= deadline:
+                break
+        with _SEARCH_MEMO_LOCK:
+            if _SEARCH_MEMO.get(key) is entry:
+                _SEARCH_MEMO.pop(key, None)  # 单发语义：摘除即消费/作废
+        if entry.event.is_set() and not entry.failed and not entry.abandoned and entry.result is not None:
+            wait_ms = int((time.monotonic() - (deadline - budget)) * 1000)
+            return entry.result, entry.run_ms, wait_ms
+        # 超时/取消/预检失败：放弃等待，回收孤儿号段（迟到方写结果作废）
+        entry.abandoned = True
+        if entry.allocator is not None and entry.alloc_mark is not None:
+            entry.allocator.rollback(entry.alloc_mark)
+        return None
+    if (now - entry[0]) > _SEARCH_MEMO_TTL_SECONDS:
+        return None
+    # 返回 (result, run_ms, 0)：run_ms= 预检方真实检索耗时，供消费方标注「并行预检 X.Xs」（2026-09-30）
+    return entry[1], (entry[2] if len(entry) > 2 else None), 0
 
 
-def _search_memo_store(key, result, run_ms: Optional[int] = None):
+def _search_memo_store(
+    key,
+    result,
+    run_ms: Optional[int] = None,
+    pending: Optional[_SearchPending] = None,
+) -> None:
+    """存成品；预检在途时改为填充并唤醒。失败/异常结果不存成品，标记失败并回收号段。"""
     if key is None:
         return
+    if pending is not None:
+        failed = not isinstance(result, dict) or bool(result.get("error"))
+        with _SEARCH_MEMO_LOCK:
+            if _SEARCH_MEMO.get(key) is pending:
+                _SEARCH_MEMO.pop(key, None)
+        if pending.abandoned:
+            return  # 等待方已放弃并自行回收：迟到结果作废，不得再回滚（会踩掉主路新号段）
+        if failed:
+            pending.failed = True
+            if pending.allocator is not None and pending.alloc_mark is not None:
+                pending.allocator.rollback(pending.alloc_mark)
+            pending.event.set()  # 唤醒等待方立即回落自跑，不等预算烧完
+            return
+        pending.result = result
+        pending.run_ms = int(run_ms) if run_ms is not None else None
+        with _SEARCH_MEMO_LOCK:
+            # 回写成品条目：预检先完成、主路后到时仍能在 TTL 窗口内命中（单发语义不变）
+            if key not in _SEARCH_MEMO:
+                _SEARCH_MEMO[key] = (time.time(), result, int(run_ms) if run_ms is not None else None)
+        pending.event.set()
+        return
+    if not isinstance(result, dict) or result.get("error"):
+        return  # 失败结果不入 memo（现语义）
     with _SEARCH_MEMO_LOCK:
         if len(_SEARCH_MEMO) >= _SEARCH_MEMO_MAX:
-            oldest = min(_SEARCH_MEMO, key=lambda k: _SEARCH_MEMO[k][0])
-            _SEARCH_MEMO.pop(oldest, None)
+            done_keys = [k for k, v in _SEARCH_MEMO.items() if isinstance(v, tuple)]
+            if done_keys:
+                oldest = min(done_keys, key=lambda k: _SEARCH_MEMO[k][0])
+                _SEARCH_MEMO.pop(oldest, None)
         _SEARCH_MEMO[key] = (time.time(), result, int(run_ms) if run_ms is not None else None)
 
 
@@ -367,23 +515,44 @@ def _record_retrieval_stages(
 
 
 def _run_knowledge_search(**kwargs) -> Dict[str, Any]:
-    """memo 壳：命中赌博式预检缓存则单发复用，否则走实现并在成功后存入（键构造见上）。"""
+    """memo 壳（F3 三态）：预检侧（_from_speculative）先登记在途再跑实现；主路撞见在途
+    等待复用、成品直接复用、其余回落自跑（键构造见上，失败/放弃回收语义见 memo 区块）。"""
+    speculative = bool(kwargs.pop("_from_speculative", False))
     key = _search_memo_key(kwargs)
-    hit = _search_memo_pop(key)
-    if hit is not None:
-        result, prefetch_ms = hit
-        logging.getLogger(__name__).info(
-            "knowledge_search 命中赌博式预检缓存（route_parallel）: %r", str(kwargs.get("query"))[:40]
-        )
-        # 私有键 _prefetch_ms：预检真实耗时（"_" 前缀不进 LLM 投影、随 raw 供链路展示，2026-09-30）
-        if isinstance(result, dict) and prefetch_ms:
-            result = {**result, "_prefetch_ms": int(prefetch_ms)}
+    if not speculative:
+        ce = kwargs.get("cancel_event")
+        hit = _search_memo_pop(key, cancel_event=ce if isinstance(ce, threading.Event) else None)
+        if hit is not None:
+            result, prefetch_ms, wait_ms = hit
+            logging.getLogger(__name__).info(
+                "knowledge_search 命中赌博式预检缓存（route_parallel）: %r", str(kwargs.get("query"))[:40]
+            )
+            # 私有键（"_" 前缀不进 LLM 投影、随 raw 供链路展示）：_prefetch_ms=预检真实耗时
+            # （2026-09-30）；_memo_wait_ms=主路等待预检时长（F3，思考面板「等待预检」用）
+            if isinstance(result, dict):
+                if prefetch_ms is not None:
+                    result = {**result, "_prefetch_ms": int(prefetch_ms)}
+                if wait_ms:
+                    result = {**result, "_memo_wait_ms": int(wait_ms)}
+            return result
+        _t0 = time.monotonic()
+        result = _run_knowledge_search_impl(**kwargs)
+        run_ms = int((time.monotonic() - _t0) * 1000)
+        if key is not None and isinstance(result, dict) and not result.get("error"):
+            _search_memo_store(key, result, run_ms)
         return result
+    pending = _search_memo_begin(key, allocator=kwargs.get("marker_allocator"))
     _t0 = time.monotonic()
-    result = _run_knowledge_search_impl(**kwargs)
+    try:
+        result = _run_knowledge_search_impl(**kwargs)
+    except Exception:
+        _search_memo_store(key, {"error": "speculative_search_failed"}, pending=pending)
+        raise
     run_ms = int((time.monotonic() - _t0) * 1000)
-    if key is not None and isinstance(result, dict) and not result.get("error"):
-        _search_memo_store(key, result, run_ms)
+    if isinstance(result, dict) and not result.get("error"):
+        _search_memo_store(key, result, run_ms, pending=pending)
+    else:
+        _search_memo_store(key, {"error": "speculative_search_failed"}, pending=pending)
     return result
 
 
@@ -595,7 +764,13 @@ class RetrieverAdapter:
         config_name: Optional[str] = None,
         mode: str = "instruct",
     ) -> AgentTool:
-        def handler(query: Optional[str] = None, **_kwargs: Any) -> Dict[str, Any]:
+        def handler(
+            query: Optional[str] = None,
+            *,
+            cancel_event: Optional[threading.Event] = None,
+            _from_speculative: bool = False,
+            **_kwargs: Any,
+        ) -> Dict[str, Any]:
             if not query:
                 return {"error": "缺少 query 参数"}
             return _run_knowledge_search(
@@ -615,6 +790,8 @@ class RetrieverAdapter:
                 retrieval_client=retrieval_client,
                 config_name=config_name,
                 mode=mode,
+                cancel_event=cancel_event,
+                _from_speculative=_from_speculative,
             )
 
         return AgentTool(

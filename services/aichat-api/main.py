@@ -395,6 +395,10 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             # 否则锚在首条事件（意图判断便签）上，分类耗时会漏出总耗时之外（各步 tag 之和对不上）。
             yield f"data: {json.dumps({'type': 'stage', 'stage': 'classify', 'ts': time.time()}, ensure_ascii=False)}\n\n"
 
+            # F3 共享 allocator：请求级创建、预检与主路工厂共用同一实例（引用号段全局一致，
+            # 施工单 docs/plan-retrieval-speedup-v3.md 变更 A）；route_pre 关闭时保持 None，
+            # 工厂回退自建（现行为）。
+            shared_allocator = None
             if route_pre_enabled():
                 # 基础并行（ANGINEER_ROUTE_PARALLEL）：与分类同时赌博式预检 L1 首轮检索，
                 # 分类返回后 L1 命中经 agent_tools 检索 memo 单发复用（route_pre.fire_speculative_first_search）。
@@ -402,13 +406,16 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 if route_parallel_enabled():
                     try:
                         from chat_agent import _load_doc_nodes as _speculative_load_nodes
+                        from angineer_core.agent_tools import MarkerAllocator as _SpecAllocator
 
+                        shared_allocator = _SpecAllocator()
                         fire_speculative_first_search(
                             request.query,
                             request.library_id,
                             request.doc_ids,
                             load_nodes=lambda: _speculative_load_nodes(request.library_id, request.doc_ids),
                             has_history=bool(getattr(session, "history", None)),
+                            marker_allocator=shared_allocator,
                         )
                     except Exception:  # noqa: BLE001
                         logger.debug("赌博式预检未发起（忽略）", exc_info=True)
@@ -441,6 +448,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 intent_result=intent_result,
                 sop_loader=sop_loader,
                 route_debug=route_debug,
+                marker_allocator=shared_allocator,
             )
             # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
             # 经 run_end 帧下发 msg_seqs（D10）。消息取 session.history 增量切片——

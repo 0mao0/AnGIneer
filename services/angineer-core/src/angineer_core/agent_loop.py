@@ -6,6 +6,7 @@ tool_codec / contracts，禁止反向依赖 dispatcher / classifier / memory。
 from __future__ import annotations
 
 import json
+import functools
 import logging
 import os
 import re
@@ -388,9 +389,24 @@ def _llm_content_payload(raw: Dict[str, Any]) -> Dict[str, Any]:
     return {key: value for key, value in payload.items() if key != "evidences"}
 
 
-def _run_tool_inner(call, tool: AgentTool) -> ToolResult:
+@functools.lru_cache(maxsize=512)
+def _handler_takes_cancel(handler: Any) -> bool:
+    """handler 是否显式声明 cancel_event 形参（**kwargs 吞掉不算——会静默丢失取消信号）。"""
     try:
-        raw = tool.handler(**call.arguments)
+        import inspect
+
+        return "cancel_event" in inspect.signature(handler).parameters
+    except (TypeError, ValueError):
+        return False
+
+
+def _run_tool_inner(call, tool: AgentTool, cancel_event: Optional[threading.Event] = None) -> ToolResult:
+    try:
+        # 剥掉下划线私有键：模型幻觉出的 "_from_speculative" 之类不得触碰内部路径
+        raw_args = {k: v for k, v in (call.arguments or {}).items() if not str(k).startswith("_")}
+        if cancel_event is not None and _handler_takes_cancel(tool.handler):
+            raw_args.setdefault("cancel_event", cancel_event)
+        raw = tool.handler(**raw_args)
         if raw is None:
             raw = {}
         if not isinstance(raw, dict):
@@ -443,14 +459,25 @@ def _execute_tools_batch(
     _injected_flag: Dict[str, Any] = {"injected": True} if injected else {}
 
     def _reused_flag(result: ToolResult) -> Dict[str, Any]:
-        """memo 命中复用（并行预检）：把预检真实耗时带给前端做「并行预检 X.Xs」标注。"""
+        """memo 复用标注：reused_ms=预检真实耗时（「并行预检 X.Xs」，2026-09-30）；
+        waited_ms=主路等待预检时长（「等待预检 X.Xs」，F3 在途等待，2026-10-03）。"""
         raw = getattr(result, "raw", None)
-        ms = raw.get("_prefetch_ms") if isinstance(raw, dict) else None
-        try:
-            ms_int = int(ms) if ms is not None else 0
-        except (TypeError, ValueError):
-            ms_int = 0
-        return {"reused_ms": ms_int} if ms_int > 0 else {}
+
+        def _int(v) -> int:
+            try:
+                return int(v) if v is not None else 0
+            except (TypeError, ValueError):
+                return 0
+
+        flag: Dict[str, Any] = {}
+        if isinstance(raw, dict):
+            ms = _int(raw.get("_prefetch_ms"))
+            waited = _int(raw.get("_memo_wait_ms"))
+            if ms > 0:
+                flag["reused_ms"] = ms
+            if waited > 0:
+                flag["waited_ms"] = waited
+        return flag
 
     def _ops_record_tool(name: str, dur_ms: int, is_error: bool) -> None:
         # 分段观测（req-intent-classify-latency §1 口径勘误）：ttft 内部构成拆解需要工具段耗时
@@ -503,9 +530,11 @@ def _execute_tools_batch(
         # contextvars 不随 ThreadPoolExecutor.submit 传播（不同于 asyncio.to_thread）：
         # 显式复制当前上下文提交，工具线程内的深层打点（ops run_id 等）才能读到。
         # 每次 submit 复制一份——同一个 Context 对象不可并发 run。
+        # cancel 一并传入：声明了 cancel_event 形参的 handler（如 knowledge_search 的
+        # memo 在途等待）可提前退出，不必烧满 tool_timeout（F3，2026-10-03）。
         import contextvars
 
-        return executor.submit(contextvars.copy_context().run, _run_tool_inner, call, tool)
+        return executor.submit(contextvars.copy_context().run, _run_tool_inner, call, tool, cancel)
 
     try:
         for call, tool in pending:
