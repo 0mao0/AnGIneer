@@ -305,5 +305,71 @@ class HalfRefusalStripTests(unittest.TestCase):
         ))
 
 
+class JsonEnvelopeGuardTests(unittest.TestCase):
+    """occamy 关思考实测（run-94c0ac9e9e3f / run-55a16e545304）的两类围栏 JSON 形态。
+
+    模型把错误 JSON / {"answer": ...} 信封带 ```json 围栏当最终答案吐出：
+    旧守卫 startswith("{") 落空全部漏检，用户直接看到 JSON 坨。
+    """
+
+    @staticmethod
+    def _tool_with_k16():
+        return AgentMessage(
+            role="tool",
+            content='{"items": [{"item_id":"a","text":"SI-SDR 从 14.67 升至 22.36","metadata":{"cite":"K16"}}]}',
+            is_error=False,
+        )
+
+    def test_fenced_error_json_replaced_with_refusal(self):
+        """生产真实原文形态：带围栏的空 error 模板必须换成标准拒答话术。"""
+        guard = make_final_answer_guard(enforce_evidence=True)
+        new_answer, note, code = guard([
+            self._tool_with_k16(),
+            AgentMessage(role="assistant", content='```json\n{"error": ""}\n```'),
+        ])
+        self.assertEqual(code, "tool_error_json")
+        self.assertIn("没有检索到足够证据", new_answer)
+
+    def test_single_key_answer_envelope_unwrapped(self):
+        guard = make_final_answer_guard(enforce_evidence=False)
+        new_answer, note, code = guard([
+            self._tool_with_k16(),
+            AgentMessage(role="assistant", content='```json\n{"answer": "SI-SDR 随信噪比升高而提升 [K16]。"}\n```'),
+        ])
+        self.assertEqual(code, "answer_envelope_unwrapped")
+        self.assertEqual(new_answer, "SI-SDR 随信噪比升高而提升 [K16]。")
+
+    def test_multi_key_or_bad_json_envelopes_pass_through(self):
+        """三把锁负例：多键、非字符串值、坏 JSON 都原样放过（不误伤点名要 JSON 的输出）。"""
+        guard = make_final_answer_guard(enforce_evidence=False)
+        for content in (
+            '```json\n{"answer": "x", "confidence": 0.9}\n```',
+            '```json\n{"answer": {"nested": 1}}\n```',
+            '```json\n{"answer": "未闭合的信封\n```',
+        ):
+            self.assertIsNone(guard([self._tool_with_k16(), AgentMessage(role="assistant", content=content)]), content[:40])
+
+    def test_real_6d3204_envelope_end_to_end(self):
+        """run-55a16e545304 真实原文：信封内文实为拒答+「供参考」，拆封后判分豁免须能认出。"""
+        from angineer_core.agent_messages import is_substantive_refusal
+
+        inner = (
+            "检索后未覆盖：知识库中没有以“教室/课堂（classroom）”为直接陈述对象的 ASR 挑战证据。"
+            "以下相邻内容供参考：\n- 社交/活动场景中，听觉环境常包含多个说话人混合 [K16]。"
+        )
+        import json as _json
+
+        envelope = '```json\n%s\n```' % _json.dumps({"answer": inner}, ensure_ascii=False)
+        guard = make_final_answer_guard(enforce_evidence=False)
+        new_answer, note, code = guard([
+            self._tool_with_k16(),
+            AgentMessage(role="assistant", content=envelope),
+        ])
+        self.assertEqual(code, "answer_envelope_unwrapped")
+        self.assertEqual(new_answer, inner)
+        # 拆封后判分链路（refusal_expected=True 的实质拒答豁免）从「未覆盖」开篇认出拒答
+        self.assertTrue(is_substantive_refusal(new_answer))
+
+
 if __name__ == "__main__":
     unittest.main()

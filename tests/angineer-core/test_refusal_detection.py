@@ -151,5 +151,23 @@ class EnglishRefusalVariantTests(unittest.TestCase):
         ))
 
 
+class SubstantiveRefusalCoverageTests(unittest.TestCase):
+    """「未覆盖」入实质拒答词表（2026-10-04 run-55a16e545304，仅评测判分档）。"""
+
+    def test_uncovered_lead_is_substantive_refusal(self):
+        from angineer_core.agent_messages import is_substantive_refusal
+
+        self.assertTrue(is_substantive_refusal(
+            "检索后未覆盖：知识库中没有以“教室/课堂（classroom）”为直接陈述对象的 ASR 挑战证据。"
+            "以下相邻内容供参考：\n- 社交/活动场景中，听觉环境常包含多个说话人混合 [K16]。"
+        ))
+
+    def test_uncovered_not_in_production_is_refusal(self):
+        """该词只进评测档，不进 is_refusal_text——生产守卫不得因此杀部分覆盖回答。"""
+        self.assertFalse(is_refusal_text(
+            "第 4.2 条给出了混凝土强度等级 C30 [K1]；养护条件在证据中未覆盖，需按项目要求补充。"
+        ))
+
+
 if __name__ == "__main__":
     unittest.main()

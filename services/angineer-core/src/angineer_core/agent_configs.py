@@ -90,6 +90,41 @@ def _build_inline_citation_context(inline_citations: List[Dict[str, Any]]) -> st
     return "\n---\n".join(evidence_blocks)
 
 
+_JSON_FENCE_RE = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?\s*```\s*$", re.S)
+
+
+def _strip_json_fence(text: str) -> str:
+    """剥掉 ```json / ``` 代码围栏外壳。
+
+    2026-10-04 occamy 实测（run-94c0ac9e9e3f / run-55a16e545304）：模型吐错误 JSON 与
+    {"answer": ...} 信封时都带围栏，原 startswith("{") 判定直接落空、整段漏检——
+    围栏只是模型的排版习惯，不是语义差异，判定前统一剥掉。"""
+    body = (text or "").strip()
+    m = _JSON_FENCE_RE.match(body)
+    return m.group(1).strip() if m else body
+
+
+def _unwrap_answer_envelope(answer: str) -> Optional[str]:
+    """拆 ```json {"answer": "..."} 单键信封，返回内文；不是信封返回 None。
+
+    occamy 会把整段作答（含拒答+「供参考」正文）包进工具风格的 answer 信封，不拆封则
+    线上用户与评测判分看到的都是 JSON 外壳。保守三把锁防误伤「用户点名要 JSON 输出」：
+    必须剥围栏后能解析为 dict、键集必须只有 "answer"、值必须是非空字符串；
+    任何一把不满足都原样放过。"""
+    text = _strip_json_fence(answer)
+    if not text.startswith("{"):
+        return None
+    try:
+        raw = json.loads(text)
+    except Exception:  # noqa: BLE001
+        return None
+    if isinstance(raw, dict) and set(raw.keys()) == {"answer"} and isinstance(raw.get("answer"), str):
+        inner = raw["answer"].strip()
+        if inner:
+            return inner
+    return None
+
+
 def _looks_like_tool_error_answer(answer: str) -> bool:
     """检测模型把工具/API 相关 JSON 当成最终答案输出的情况。
 
@@ -97,7 +132,7 @@ def _looks_like_tool_error_answer(answer: str) -> bool:
     - 错误 JSON：{"error": "No such tool: ...", "error_code": 404}
     - 工具调用 JSON 泄漏：{"name": "knowledge_search", "arguments": {...}}
     """
-    text = (answer or "").strip()
+    text = _strip_json_fence(answer)
     if not text.startswith("{"):
         return False
     try:
@@ -124,7 +159,7 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
     返回 (新答案, 说明文案, 结果码)；无需处理时返回 None。
     结果码为机器可读终态标注（观测用，agent_loop 据此修正 final_outcome）：
     tool_error_json / no_evidence / unsupported_reference / half_refusal_stripped /
-    refusal_kept / markers_cleaned；guard 返回 2 元组时按无结果码兼容。
+    refusal_kept / markers_cleaned / answer_envelope_unwrapped；guard 返回 2 元组时按无结果码兼容。
     """
     from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
     from angineer_core.retrieval_pipeline import has_unsupported_reference
@@ -151,6 +186,11 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                 "边界规则：最终回答为工具/API 错误 JSON，已替换为拒答话术",
                 "tool_error_json",
             )
+        # 单键 answer 信封拆封：先拆再走证据/拒答/标记校验，让后续检查都作用在内文上
+        unwrapped = _unwrap_answer_envelope(answer)
+        envelope_unwrapped = unwrapped is not None
+        if envelope_unwrapped:
+            answer = unwrapped or ""
         if tool_messages:
             evidence_parts: List[str] = []
             for message in tool_messages:
@@ -216,6 +256,12 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
         if bad:
             cleaned = _MARKER_RE.sub(lambda m: m.group(0) if m.group(1) in valid else "", answer)
             return (cleaned, f"边界规则：检测到 {len(bad)} 个无效引用标记，已移除", "markers_cleaned")
+        if envelope_unwrapped:
+            return (
+                answer,
+                "边界规则：最终回答为单键 {\"answer\"} 信封，已拆封取内文",
+                "answer_envelope_unwrapped",
+            )
         return None
 
     return guard

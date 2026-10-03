@@ -1337,6 +1337,9 @@ def run_agent_loop(
                 machine.final_outcome = "model_refusal_kept"
         elif guard_code == "markers_cleaned":
             machine.path_trace.append("markers_cleaned")
+        elif guard_code == "answer_envelope_unwrapped":
+            # 拆封是形态改写（内文照常走证据/拒答校验），只记路径不动 final_outcome
+            machine.path_trace.append("answer_envelope_unwrapped")
     # 无 attempts 的裸 config（纯直答）不走 advance，补齐终态保证枚举完备
     if machine.final_outcome is None and reason == "completed":
         machine.final_outcome = "model_answer"
