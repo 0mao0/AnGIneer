@@ -243,14 +243,16 @@ def run_keepwarm_probe() -> int:
        整条查询清零（生产实测该 token 0 命中，而「规范」7866 命中），
        sparse 倒排秒回 0、什么页都不碰。
     定版口径：节点清单与真实请求同源（chat_agent._load_doc_nodes），查询词
-    用高频真实词（默认「的 规范 设计」——启动预热同款，拉最大 posting list），
+    用高频真实词。默认「规范 设计」（生产索引实测 3,500 命中）——不用启动
+    预热那串「的 规范 设计」：FTS5 全 AND 语义下「的」把结果集收窄到 37 条、
+    保温翻页量少一个量级，还多一根「的」必须在索引里的脆弱依赖。
     ANGINEER_KEEPWARM_QUERY 可覆盖；items==0 必须 WARNING——探针永远不允许
     再「成功」地空转。
     """
     from angineer_core.agent_tools import RetrieverAdapter
     from chat_agent import _load_doc_nodes
 
-    query = (os.getenv("ANGINEER_KEEPWARM_QUERY", "") or "").strip() or "的 规范 设计"
+    query = (os.getenv("ANGINEER_KEEPWARM_QUERY", "") or "").strip() or "规范 设计"
     nodes = _load_doc_nodes("default", [])
     if not nodes:
         logger.warning("空闲保温探针: default 库节点清单为空，跳过本轮（保温无效）")

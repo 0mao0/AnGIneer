@@ -89,7 +89,9 @@ class KeepwarmProbeTest(unittest.TestCase):
         query = record["query"]
         self.assertNotIn("保温", query)
         self.assertNotIn("探针", query)
-        self.assertEqual(query, "的 规范 设计")
+        # 不用「的」字头：FTS5 全 AND 下会把结果集从数千收窄到几十（保温翻页量不足）
+        self.assertNotIn("的", query)
+        self.assertEqual(query, "规范 设计")
 
     def test_query_env_override(self):
         _, record = self._run(
