@@ -54,10 +54,16 @@ class QdrantVectorStore(VectorStore):
     ) -> None:
         self._url = (url or get_qdrant_url()).rstrip("/")
         self._api_key = api_key if api_key is not None else get_qdrant_api_key()
+        # 实例默认 collection（回退值）；库组拆分后各方法可经 collection 参数按调用覆盖，
+        # 实际目标由调用方用 library_registry.resolve_collection(library_id) 解析
         self._collection = collection or get_qdrant_collection()
         self._timeout = timeout if timeout is not None else get_qdrant_timeout()
         self._client: Any = None
-        self._expected_dim: Optional[int] = None
+        self._expected_dims: Dict[str, int] = {}
+
+    @staticmethod
+    def _collection_name(collection: Optional[str], default: str) -> str:
+        return (collection or "").strip() or default
 
     # 惰性创建客户端：provider=qdrant 但服务未起时，错误延迟到首次使用暴露，
     # 不在构造期拖死宿主进程启动
@@ -78,13 +84,15 @@ class QdrantVectorStore(VectorStore):
             )
         return self._client
 
-    # 返回 collection 的向量维度；collection 不存在返回 0
-    def _collection_dim(self) -> int:
-        if self._expected_dim is not None:
-            return self._expected_dim
+    # 返回 collection 的向量维度；collection 不存在返回 0。维度按 collection 缓存（多 collection 共存）
+    def _collection_dim(self, collection: Optional[str] = None) -> int:
+        name = self._collection_name(collection, self._collection)
+        cached = self._expected_dims.get(name)
+        if cached is not None:
+            return cached
         client = self._get_client()
         try:
-            info = client.get_collection(self._collection)
+            info = client.get_collection(name)
         except Exception as exc:
             message = str(exc).lower()
             if "not found" in message or "404" in message or "doesn't exist" in message:
@@ -95,14 +103,16 @@ class QdrantVectorStore(VectorStore):
         if size is None and isinstance(params, dict):
             # 命名向量形态兜底（本实现不创建命名向量，防御外部手工建库）
             size = next((getattr(p, "size", 0) for p in params.values()), 0)
-        self._expected_dim = int(size or 0)
-        return self._expected_dim
+        dim = int(size or 0)
+        self._expected_dims[name] = dim
+        return dim
 
     # 按需创建 collection（on-disk 向量 + on-disk HNSW + int8 量化 + payload 索引）
-    def _ensure_collection(self, dimension: int) -> None:
+    def _ensure_collection(self, dimension: int, collection: Optional[str] = None) -> None:
+        name = self._collection_name(collection, self._collection)
         if dimension <= 0:
             return
-        existing = self._collection_dim()
+        existing = self._collection_dim(name)
         if existing == dimension:
             return
         if existing > 0:
@@ -114,7 +124,7 @@ class QdrantVectorStore(VectorStore):
 
         client = self._get_client()
         client.create_collection(
-            collection_name=self._collection,
+            collection_name=name,
             vectors_config=models.VectorParams(
                 size=dimension,
                 distance=models.Distance.COSINE,
@@ -129,27 +139,33 @@ class QdrantVectorStore(VectorStore):
                 )
             ),
         )
-        for field_name in ("doc_id", "entity_type", "entity_id"):
+        for field_name in ("doc_id", "entity_type", "entity_id", "library_id"):
             client.create_payload_index(
-                collection_name=self._collection,
+                collection_name=name,
                 field_name=field_name,
                 field_schema=models.PayloadSchemaType.KEYWORD,
             )
-        self._expected_dim = dimension
+        self._expected_dims[name] = dimension
         logger.info(
             "Qdrant collection 已创建: %s dim=%d (on-disk 向量/HNSW + int8 量化)",
-            self._collection,
+            name,
             dimension,
         )
 
     # 批量写入向量记录
     # strict_dimension=True 时拒写与 collection 维度不同的非空向量（空向量跳过不计）。
     # 维度混布会让全库语义检索静默瘫痪（2026-09-06 生产故障），整库换维请重建 collection。
-    def upsert_records(self, records: List[VectorRecord], strict_dimension: bool = True) -> int:
+    def upsert_records(
+        self,
+        records: List[VectorRecord],
+        strict_dimension: bool = True,
+        collection: Optional[str] = None,
+    ) -> int:
         if not records:
             return 0
         from qdrant_client import models
 
+        name = self._collection_name(collection, self._collection)
         points: List[Any] = []
         skipped_empty = 0
         for record in records:
@@ -169,6 +185,7 @@ class QdrantVectorStore(VectorStore):
                         "content": record.content or "",
                         "content_hash": record.content_hash,
                         "metadata": record.metadata or {},
+                        "library_id": record.library_id or "",
                     },
                 )
             )
@@ -177,7 +194,7 @@ class QdrantVectorStore(VectorStore):
         if not points:
             return 0
         if strict_dimension:
-            expected = self.get_existing_dimension()
+            expected = self.get_existing_dimension(name)
             if expected > 0:
                 for point in points:
                     dim = len(point.vector)
@@ -187,19 +204,25 @@ class QdrantVectorStore(VectorStore):
                             f"(record_id={point.payload.get('record_id')}, doc_id={point.payload.get('doc_id')})；"
                             "整库换维迁移请重建 collection"
                         )
-        self._ensure_collection(len(points[0].vector))
+        self._ensure_collection(len(points[0].vector), name)
         client = self._get_client()
         for batch in _batched(points, _UPSERT_BATCH_SIZE):
-            client.upsert(collection_name=self._collection, points=batch, wait=True)
+            client.upsert(collection_name=name, points=batch, wait=True)
         return len(points)
 
     # 获取已有向量的维度，用于 embedding provider 维度对齐（collection 维度即期望维度，O(1)）
-    def get_existing_dimension(self) -> int:
-        return self._collection_dim()
+    def get_existing_dimension(self, collection: Optional[str] = None) -> int:
+        return self._collection_dim(collection)
 
     # 清理指定文档的向量记录
-    def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
-        if self._collection_dim() == 0:
+    def clear_document(
+        self,
+        doc_id: str,
+        entity_types: Optional[List[str]] = None,
+        collection: Optional[str] = None,
+    ) -> int:
+        name = self._collection_name(collection, self._collection)
+        if self._collection_dim(name) == 0:
             return 0
         from qdrant_client import models
 
@@ -211,12 +234,18 @@ class QdrantVectorStore(VectorStore):
             must.append(
                 models.FieldCondition(key="entity_type", match=models.MatchAny(any=normalized_types))
             )
-        return self._delete_by_filter(models.Filter(must=must))
+        return self._delete_by_filter(models.Filter(must=must), name)
 
     # 按 entity_id 删除增量重建前的旧向量记录
-    def delete_records(self, doc_id: str, entity_ids: List[str]) -> int:
+    def delete_records(
+        self,
+        doc_id: str,
+        entity_ids: List[str],
+        collection: Optional[str] = None,
+    ) -> int:
+        name = self._collection_name(collection, self._collection)
         normalized_ids = [item for item in entity_ids if item]
-        if not normalized_ids or self._collection_dim() == 0:
+        if not normalized_ids or self._collection_dim(name) == 0:
             return 0
         from qdrant_client import models
 
@@ -226,19 +255,20 @@ class QdrantVectorStore(VectorStore):
                 models.FieldCondition(key="entity_id", match=models.MatchAny(any=normalized_ids)),
             ]
         )
-        return self._delete_by_filter(flt)
+        return self._delete_by_filter(flt, name)
 
     # 先计数再删除（Qdrant delete 不返回条数）
-    def _delete_by_filter(self, flt: Any) -> int:
+    def _delete_by_filter(self, flt: Any, collection: Optional[str] = None) -> int:
         from qdrant_client import models
 
+        name = self._collection_name(collection, self._collection)
         client = self._get_client()
         count = client.count(
-            collection_name=self._collection, count_filter=flt, exact=True
+            collection_name=name, count_filter=flt, exact=True
         ).count
         if count:
             client.delete(
-                collection_name=self._collection,
+                collection_name=name,
                 points_selector=models.FilterSelector(filter=flt),
                 wait=True,
             )
@@ -252,10 +282,12 @@ class QdrantVectorStore(VectorStore):
         doc_ids: Optional[List[str]] = None,
         entity_types: Optional[List[str]] = None,
         top_k: int = 10,
+        collection: Optional[str] = None,
     ) -> List[VectorSearchHit]:
         if not query_embedding:
             return []
-        dim = self._collection_dim()
+        name = self._collection_name(collection, self._collection)
+        dim = self._collection_dim(name)
         if dim == 0:
             return []
         # 维度防护：查询向量维度与 collection 不一致（如 hash 兜底低维向量）时直接返回空
@@ -283,7 +315,7 @@ class QdrantVectorStore(VectorStore):
         cap = max(1, min(_MAX_TOP_K, top_k))
         client = self._get_client()
         response = client.query_points(
-            collection_name=self._collection,
+            collection_name=name,
             query=query_embedding,
             query_filter=query_filter,
             limit=cap,
@@ -305,6 +337,7 @@ class QdrantVectorStore(VectorStore):
                     content=str(payload.get("content") or ""),
                     score=float(scored.score),
                     metadata=dict(payload.get("metadata") or {}),
+                    library_id=str(payload.get("library_id") or ""),
                 )
             )
         # 与 SQLiteVectorStore 保持一致的破平规则：(score, content 长度) 倒序
@@ -315,12 +348,13 @@ class QdrantVectorStore(VectorStore):
     # 与 get_document_stats 的区别是失败语义：collection 不存在或服务不可达时**抛异常**，
     # 由调用方区分「不可访问」与「这篇真的 0 点」——素材检查的假警报正出在这一步被静默吞掉
     # （2026-09-21：qdrant 未启动被报成「147 个 chunk 但向量点为 0」）。
-    def count_points_for_doc(self, doc_id: str) -> int:
+    def count_points_for_doc(self, doc_id: str, collection: Optional[str] = None) -> int:
         from qdrant_client import models
 
+        name = self._collection_name(collection, self._collection)
         client = self._get_client()
         res = client.count(
-            collection_name=self._collection,
+            collection_name=name,
             count_filter=models.Filter(must=[models.FieldCondition(
                 key="doc_id", match=models.MatchValue(value=doc_id))]),
             exact=True,
@@ -328,9 +362,10 @@ class QdrantVectorStore(VectorStore):
         return int(getattr(res, "count", 0))
 
     # 获取单文档的向量索引统计（按 entity_type 聚合计数）
-    def get_document_stats(self, doc_id: str) -> Dict[str, Any]:
+    def get_document_stats(self, doc_id: str, collection: Optional[str] = None) -> Dict[str, Any]:
         empty = {"doc_id": doc_id, "total_count": 0, "by_entity_type": {}}
-        dim = self._collection_dim()
+        name = self._collection_name(collection, self._collection)
+        dim = self._collection_dim(name)
         if dim == 0:
             return empty
         from qdrant_client import models
@@ -343,7 +378,7 @@ class QdrantVectorStore(VectorStore):
         offset: Any = None
         while True:
             points, offset = client.scroll(
-                collection_name=self._collection,
+                collection_name=name,
                 scroll_filter=flt,
                 with_payload=["entity_type"],
                 with_vectors=False,
@@ -365,9 +400,10 @@ class QdrantVectorStore(VectorStore):
             "by_entity_type": by_entity_type,
         }
 
-    def get_global_stats(self) -> Dict[str, Any]:
+    def get_global_stats(self, collection: Optional[str] = None) -> Dict[str, Any]:
         """返回全库维度/行数概览，供启动守卫使用。"""
-        dim = self._collection_dim()
+        name = self._collection_name(collection, self._collection)
+        dim = self._collection_dim(name)
         if dim == 0:
             return {
                 "total_rows": 0,
@@ -376,7 +412,7 @@ class QdrantVectorStore(VectorStore):
                 "dimension_distribution": {},
             }
         client = self._get_client()
-        total = int(client.count(collection_name=self._collection, exact=False).count)
+        total = int(client.count(collection_name=name, exact=False).count)
         return {
             "total_rows": total,
             # 空向量记录不写入 Qdrant，天然不存在零维脏行

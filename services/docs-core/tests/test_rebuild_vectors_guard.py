@@ -17,14 +17,14 @@ class _FakeVectorStore:
         self._written = written
         self.cleared = []
 
-    def clear_document(self, doc_id: str) -> int:
+    def clear_document(self, doc_id: str, entity_types=None, collection=None) -> int:  # noqa: ANN001
         self.cleared.append(doc_id)
         return 0
 
-    def delete_records(self, doc_id: str, entity_ids) -> int:  # noqa: ANN001
+    def delete_records(self, doc_id: str, entity_ids, collection=None) -> int:  # noqa: ANN001
         return 0
 
-    def upsert_records(self, records) -> int:  # noqa: ANN001
+    def upsert_records(self, records, collection=None) -> int:  # noqa: ANN001
         return self._written
 
 

@@ -88,7 +88,7 @@ def main() -> int:
             print(f"[migrate] 已删除 collection {store._collection}（--reset）", flush=True)
         except Exception:
             pass
-        store._expected_dim = None
+        store._expected_dims = {}
         progress_path.unlink(missing_ok=True)
 
     progress = _load_progress(progress_path)

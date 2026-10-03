@@ -30,6 +30,7 @@ from docs_core.paths import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
 )
+from docs_core import library_registry
 from docs_core.step06_vectors import (
     ChromaVectorStore,
     QdrantVectorStore,
@@ -230,6 +231,11 @@ class KnowledgeLibrary(BaseModel):
     description: Optional[str] = None
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
+    # 库组注册表字段（plan-kb-split-groups §二）：注册表已初始化时随列表直出；
+    # 未注册/注册表缺失时为空串，前端按「未分组」展示
+    group_name: str = ""
+    collection: str = ""
+    status: str = ""
 
 
 class ParseTask(BaseModel):
@@ -278,6 +284,22 @@ class DocsService:
     # 解析索引数据库路径
     def _resolve_index_db_path(self) -> Path:
         return resolve_knowledge_index_db_path()
+
+    # ---- 向量 collection 路由（库组拆分：注册表解析，未注册回退 store 默认） ----
+
+    @staticmethod
+    def _collection_for_library(library_id: Optional[str]) -> Optional[str]:
+        """library_id → qdrant collection。返回 None = 未注册，走 store 实例默认（旧行为）。"""
+        if not library_id:
+            return None
+        record = library_registry.get_library(library_id)
+        return record.collection if record is not None else None
+
+    def _collection_for_doc(self, doc_id: str) -> Optional[str]:
+        node = self.get_node(doc_id)
+        if node is None:
+            return None
+        return self._collection_for_library(node.library_id)
 
     # 按配置创建当前默认向量存储实现
     def _create_vector_store(self):
@@ -394,7 +416,9 @@ class DocsService:
             self.index_store.clear_doc_blocks(node.id)
             self.index_store.clear_doc_block_corrections(node.id)
             self.canonical_store.clear_document(node.id)
-            self.vector_store.clear_document(node.id)
+            self.vector_store.clear_document(
+                node.id, collection=self._collection_for_library(node.library_id)
+            )
             file_storage.delete_document(node.library_id, node.id)
             self._delete_document_graph_data(node.id)
 
@@ -442,15 +466,34 @@ class DocsService:
                 sibling.sort_order = idx
 
     # 获取知识库列表（读穿：现查 SQLite，跨进程写入的库对运行中的读方进程立即可见——
-    # aichat-api 曾因启动快照看不见新建库，导致该库题目检索恒空、全拒答）
+    # aichat-api 曾因启动快照看不见新建库，导致该库题目检索恒空、全拒答）。
+    # 注册表已初始化时用注册行的 组/collection/状态  enrichment（注册表读穿，无缓存）。
     def list_libraries(self) -> List[KnowledgeLibrary]:
-        return [self._library_from_row(row) for row in self.meta_store.list_libraries()]
+        libraries = [self._library_from_row(row) for row in self.meta_store.list_libraries()]
+        records = {record.library_id: record for record in library_registry.list_libraries()}
+        for library in libraries:
+            record = records.get(library.id)
+            if record is not None:
+                library.group_name = record.group_name
+                library.collection = record.collection
+                library.status = record.status
+        return libraries
 
-    # 创建知识库
-    def create_library(self, library_id: str, name: str, description: str = "") -> KnowledgeLibrary:
+    # 创建知识库（group_name 缺省落注册表默认组；注册表写入失败降级为仅 meta 记录，
+    # 存储位置解析走回退默认，行为与注册表出现前一致）
+    def create_library(self, library_id: str, name: str, description: str = "", group_name: str = "") -> KnowledgeLibrary:
         library = KnowledgeLibrary(id=library_id, name=name, description=description)
         self.libraries.append(library)
         self.meta_store.upsert_library(library)
+        try:
+            library_registry.register_library(
+                library_id,
+                name=name,
+                description=description or "",
+                group_name=group_name or library_registry.DEFAULT_GROUP,
+            )
+        except Exception as exc:
+            logger.warning("注册表登记失败（已回退默认存储位置）: library=%s err=%s", library_id, exc)
         return library
 
     # 获取知识库（读穿）
@@ -485,6 +528,10 @@ class DocsService:
         self.meta_store.delete_nodes(library_node_ids)
         self.libraries = [library for library in self.libraries if library.id != library_id]
         self.meta_store.delete_library(library_id)
+        try:
+            library_registry.set_status(library_id, library_registry.STATUS_RETIRED)
+        except Exception as exc:
+            logger.warning("注册表置 retired 失败: library=%s err=%s", library_id, exc)
         try:
             from docs_core.paths import resolve_graph_db_path
             from docs_core.step07_graph.graph_store import GraphStore
@@ -770,10 +817,11 @@ class DocsService:
         vector_records = build_vector_records(document)
         if on_step is not None:
             on_step("向量记录构建", "done", f"{len(vector_records)} 条")
-        self.vector_store.clear_document(doc_id)
+        collection = self._collection_for_library(getattr(document, "library_id", ""))
+        self.vector_store.clear_document(doc_id, collection=collection)
         written = 0
         if vector_records:
-            written = self.vector_store.upsert_records(vector_records) or 0
+            written = self.vector_store.upsert_records(vector_records, collection=collection) or 0
         # 静默失败收口（2026-09-14 生产实踩：209 chunk 文档重建后 0 个点，
         # 全部记录因空向量被 upsert 静默跳过，调用方毫无感知）：应写 ≠ 实写必须炸
         if written != len(vector_records):
@@ -819,14 +867,15 @@ class DocsService:
 
         self.canonical_store.rebuild_chunk_fts(doc_id)
         vector_records = build_vector_records(canonical_document, only_chunk_ids=changed_chunk_ids)
+        collection = self._collection_for_library(getattr(canonical_document, "library_id", ""))
         normalized_chunk_ids = [item for item in (changed_chunk_ids or []) if item]
         if normalized_chunk_ids:
-            self.vector_store.delete_records(doc_id=doc_id, entity_ids=normalized_chunk_ids)
+            self.vector_store.delete_records(doc_id=doc_id, entity_ids=normalized_chunk_ids, collection=collection)
         else:
-            self.vector_store.clear_document(doc_id)
+            self.vector_store.clear_document(doc_id, collection=collection)
         written = 0
         if vector_records:
-            written = self.vector_store.upsert_records(vector_records) or 0
+            written = self.vector_store.upsert_records(vector_records, collection=collection) or 0
         if written != len(vector_records):
             raise RuntimeError(
                 f"向量写入缺口: doc_id={doc_id} 应写 {len(vector_records)} 条，"
@@ -839,11 +888,14 @@ class DocsService:
 
     # 清理指定文档的向量索引
     def clear_document_vectors(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
-        return self.vector_store.clear_document(doc_id, entity_types)
+        return self.vector_store.clear_document(
+            doc_id, entity_types, collection=self._collection_for_doc(doc_id)
+        )
 
     # 保存文档向量索引记录
     def save_document_vectors(self, records: List[VectorRecord]) -> int:
-        return self.vector_store.upsert_records(records)
+        collection = self._collection_for_library(records[0].library_id) if records else None
+        return self.vector_store.upsert_records(records, collection=collection)
 
     # 查询向量索引命中
     def search_document_vectors(
@@ -853,17 +905,21 @@ class DocsService:
         doc_ids: Optional[List[str]] = None,
         entity_types: Optional[List[str]] = None,
         top_k: int = 10,
+        library_id: Optional[str] = None,
     ) -> List[VectorSearchHit]:
         return self.vector_store.search(
             query_embedding,
             doc_ids=doc_ids,
             entity_types=entity_types,
             top_k=top_k,
+            collection=self._collection_for_library(library_id),
         )
 
     # 获取单文档向量索引统计
     def get_document_vector_stats(self, doc_id: str) -> Dict[str, Any]:
-        return self.vector_store.get_document_stats(doc_id)
+        return self.vector_store.get_document_stats(
+            doc_id, collection=self._collection_for_doc(doc_id)
+        )
 
     # 查询 canonical chunks
     def list_canonical_chunks(

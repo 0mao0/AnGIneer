@@ -420,9 +420,14 @@ def default_sources() -> Sources:
         """
         if provider == "qdrant":
             try:
+                from docs_core import library_registry
                 from docs_core.step06_vectors.qdrant_vector_store import QdrantVectorStore
 
-                return QdrantVectorStore().count_points_for_doc(doc_id)
+                # 库组路由：已注册的库打其组 collection（库组拆分后评测语料在 evals_corpus）
+                record = library_registry.get_library(library_id)
+                return QdrantVectorStore().count_points_for_doc(
+                    doc_id, collection=record.collection if record is not None else None
+                )
             except Exception as exc:  # noqa: BLE001 不可访问 ≠ 这篇没有向量
                 if not store_errors:
                     store_errors.append(

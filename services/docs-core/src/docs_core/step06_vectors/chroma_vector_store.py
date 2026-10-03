@@ -37,7 +37,8 @@ class ChromaVectorStore(VectorStore):
         return 0
 
     # 批量写入向量记录；集合维度不匹配时自动处理。
-    def upsert_records(self, records: List[VectorRecord]) -> int:
+    def upsert_records(self, records: List[VectorRecord], collection: Optional[str] = None) -> int:
+        # collection 参数仅 qdrant 引擎使用；chroma 单集合引擎忽略
         if not records:
             return 0
         try:
@@ -88,7 +89,7 @@ class ChromaVectorStore(VectorStore):
         self._upsert(records)
 
     # 清理指定文档的向量记录。
-    def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
+    def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None, collection: Optional[str] = None) -> int:
         where: Dict[str, Any] = {"doc_id": doc_id}
         normalized_types = [item for item in (entity_types or []) if item]
         if len(normalized_types) == 1:
@@ -102,7 +103,7 @@ class ChromaVectorStore(VectorStore):
         return len(ids)
 
     # 按 entity_id 删除指定记录，供增量重建使用。
-    def delete_records(self, doc_id: str, entity_ids: List[str]) -> int:
+    def delete_records(self, doc_id: str, entity_ids: List[str], collection: Optional[str] = None) -> int:
         normalized_ids = [item for item in entity_ids if item]
         if not normalized_ids:
             return 0
@@ -121,6 +122,7 @@ class ChromaVectorStore(VectorStore):
         doc_ids: Optional[List[str]] = None,
         entity_types: Optional[List[str]] = None,
         top_k: int = 10,
+        collection: Optional[str] = None,
     ) -> List[VectorSearchHit]:
         where_clauses: List[Dict[str, Any]] = []
         normalized_doc_ids = [item for item in (doc_ids or []) if item]
@@ -166,7 +168,7 @@ class ChromaVectorStore(VectorStore):
         return hits
 
     # 获取指定文档的向量索引统计。
-    def get_document_stats(self, doc_id: str) -> Dict[str, Any]:
+    def get_document_stats(self, doc_id: str, collection: Optional[str] = None) -> Dict[str, Any]:
         result = self.collection.get(where={"doc_id": doc_id}, include=["metadatas"])
         metadatas = list(result.get("metadatas") or [])
         by_entity_type: Dict[str, Dict[str, int]] = {}

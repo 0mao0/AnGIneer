@@ -180,7 +180,8 @@ class SQLiteVectorStore(VectorStore):
     # strict_dimension=True 时拒写与库内多数维度不同的非空向量（空向量为合法无效行，放行）。
     # 混入异构维度会让全库语义检索静默瘫痪（2026-09-06 生产故障：4.4 万行 1024 维被 291 行
     # 2560 维毒倒）；合法的整库换维迁移请显式传 strict_dimension=False。
-    def upsert_records(self, records: List[VectorRecord], strict_dimension: bool = True) -> int:
+    def upsert_records(self, records: List[VectorRecord], strict_dimension: bool = True, collection: Optional[str] = None) -> int:
+        # collection 参数仅 qdrant 引擎使用；sqlite 单文件引擎忽略（阶段二按组拆文件时再路由）
         if not records:
             return 0
         if strict_dimension:
@@ -277,7 +278,7 @@ class SQLiteVectorStore(VectorStore):
         return dim
 
     # 清理指定文档的向量记录
-    def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
+    def clear_document(self, doc_id: str, entity_types: Optional[List[str]] = None, collection: Optional[str] = None) -> int:
         sql = "DELETE FROM canonical_vectors WHERE doc_id = ?"
         params: List[object] = [doc_id]
         normalized_types = [item for item in (entity_types or []) if item]
@@ -292,7 +293,7 @@ class SQLiteVectorStore(VectorStore):
             return int(cursor.rowcount or 0)
 
     # 按 entity_id 删除增量重建前的旧向量记录
-    def delete_records(self, doc_id: str, entity_ids: List[str]) -> int:
+    def delete_records(self, doc_id: str, entity_ids: List[str], collection: Optional[str] = None) -> int:
         normalized_ids = [item for item in entity_ids if item]
         if not normalized_ids:
             return 0
@@ -312,6 +313,7 @@ class SQLiteVectorStore(VectorStore):
         doc_ids: Optional[List[str]] = None,
         entity_types: Optional[List[str]] = None,
         top_k: int = 10,
+        collection: Optional[str] = None,
     ) -> List[VectorSearchHit]:
         self._ensure_cache()
         rows = _VECTOR_CACHE["rows"] or []
@@ -369,7 +371,7 @@ class SQLiteVectorStore(VectorStore):
         return ranked[:cap]
 
     # 获取单文档的向量索引统计
-    def get_document_stats(self, doc_id: str) -> Dict[str, Any]:
+    def get_document_stats(self, doc_id: str, collection: Optional[str] = None) -> Dict[str, Any]:
         with self.connect() as conn:
             rows = conn.execute(
                 """

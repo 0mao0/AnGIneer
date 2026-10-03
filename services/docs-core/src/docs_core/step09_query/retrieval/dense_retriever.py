@@ -148,6 +148,8 @@ class DenseRetriever:
             doc_ids=[node.id for node in doc_nodes],
             entity_types=["chunk", "table_schema", "table_row_key", "formula"],
             top_k=resolve_dense_search_limit(request.top_k),
+            # 库组路由：注册表已登记的库打各自组的 collection，未登记走默认（旧行为）
+            library_id=request.library_id,
         )
         candidates: List[RetrievedItem] = []
         seen_item_ids = set()

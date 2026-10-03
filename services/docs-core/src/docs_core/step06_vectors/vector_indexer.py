@@ -187,6 +187,7 @@ def build_vector_records(
                 content_hash=build_content_hash(payload["content"]),
                 metadata=payload["metadata"],
                 embedding=list(embedding),
+                library_id=document.library_id,
             )
         )
     return records

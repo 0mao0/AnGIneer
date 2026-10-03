@@ -28,6 +28,7 @@ class QueryDataPort(Protocol):
         doc_ids: Optional[List[str]] = None,
         entity_types: Optional[List[str]] = None,
         top_k: int = 10,
+        library_id: Optional[str] = None,
     ) -> List[VectorSearchHit]: ...
 
     def list_canonical_chunks(

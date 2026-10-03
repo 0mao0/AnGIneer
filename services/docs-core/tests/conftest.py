@@ -27,3 +27,10 @@ def _reset_docs_service_singleton():
     _reset()
     yield
     _reset()
+
+
+@pytest.fixture(autouse=True)
+def _isolate_library_registry(tmp_path, monkeypatch):
+    """注册表隔离：create_library 会顺带写库组注册表，缺省路径是真 data/registry.sqlite——
+    不隔离则测试库（lib-late 等）直接污染真注册表（2026-10-03 实踩）。"""
+    monkeypatch.setenv("ANGINEER_REGISTRY_DB", str(tmp_path / "registry.sqlite"))

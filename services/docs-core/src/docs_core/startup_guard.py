@@ -62,9 +62,22 @@ def _check_vector_store() -> Dict[str, Any]:
             store = SQLiteVectorStore()
             return store.get_global_stats()
         elif provider_name == "qdrant":
+            from docs_core import library_registry
             from docs_core.step06_vectors.qdrant_vector_store import QdrantVectorStore
             store = QdrantVectorStore()
-            return store.get_global_stats()
+            stats = store.get_global_stats()
+            # 库组拆分后各组 collection 独立成桶：逐个体检并汇总，单桶不可访问即报错
+            collections = sorted({
+                record.collection for record in library_registry.list_libraries()
+            } - {store._collection})
+            per_collection: Dict[str, Any] = {}
+            for name in collections:
+                sub = store.get_global_stats(name)
+                per_collection[name] = sub
+                stats["total_rows"] += sub.get("total_rows", 0)
+            if per_collection:
+                stats["collections"] = per_collection
+            return stats
         else:
             from docs_core.step06_vectors.chroma_vector_store import ChromaVectorStore
             store = ChromaVectorStore()
