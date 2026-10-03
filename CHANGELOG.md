@@ -33,6 +33,8 @@ All notable changes to AnGIneer are documented here.
 - 知识库库清单读穿修复：DocsService 启动快照改为读入口现查 SQLite，aichat-api 进程不再对 docs-api 新建库/新导文档不可见（此前每次建库必须重启 aichat-api）；docs-core 测试单例串库直写真库修复；nightly「评价」列尾句「没有题目变差」硬编码修复（净提升≠零题转错，改按 regress_count 断言）
 - evals 卫生：下线 full_chain 空壳分类目录（种子表/前端/存量数据三处清根）；eval_1 题集 31 题死指 doc_ids 清为整库 scope；v4.1/FinanceBench 题集 JSON 白名单入库收尾；open-ragbench-subset-v3 磁盘遗留副本清理
 - 文档与运维：7 份已完结计划与 5 份已结题需求清理（git 历史可查）；FinanceBench 图描述敏感性 v3 轮出账与判分口径切换首晚兑现记录；POPO_MAX_CONCURRENCY 示例值 1→4（生产实测单并发未喂饱，已先行生效）
+- 测试口径：meta_query 列举式正例纠偏——列举式统计问法不由关键词规则接，改断言 LLM 分类器接管（`test_meta_query.py` 两处正例翻转为 legacy 回归断言）
+- 运维卫生：`.scratch/` 进 `.gitignore`——本地草稿与临时工作文件（探针输出、一次性脚本、对账底稿）不进版本控制，防 git 噪音
 
 ## v0.2.84
 
