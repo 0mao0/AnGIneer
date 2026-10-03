@@ -15,6 +15,7 @@ from angineer_core.agent_configs import (  # noqa: E402
 from angineer_core.agent_messages import AgentMessage  # noqa: E402
 from angineer_core.agent_tools import MarkerAllocator, _assign_cites  # noqa: E402
 from docs_core.step09_query.protocols.contracts import RetrievedItem  # noqa: E402
+from angineer_core.prompts import load  # noqa: E402
 from angineer_core.tool_codec import TextToolCallCodec  # noqa: E402
 
 
@@ -52,18 +53,26 @@ class QaConfigTests(unittest.TestCase):
         self.assertIs(config.followup_question, True)
 
     def test_followup_rule_absent_when_env_false(self):
-        with patch.dict(os.environ, {"ANGINEER_FOLLOWUP_QUESTION": "false"}, clear=False):
+        """关闭追问只移除追问规则，不回退到兼容导出的旧版提示词。"""
+        with patch.dict(os.environ, {
+            "ANGINEER_FOLLOWUP_QUESTION": "false",
+            "ANGINEER_QA_PROMPT_VERSION": "latest",
+        }, clear=False):
             config = build_qa_config(llm=Mock())
-        self.assertEqual(config.system_prompt, QA_AGENT_SYSTEM_PROMPT)
+        self.assertEqual(config.system_prompt, load("agent_configs.qa_system_prompt"))
         self.assertIs(config.followup_question, False)
 
     def test_followup_defaults_on_and_explicit_param_wins(self):
-        with patch.dict(os.environ, {}, clear=False):
+        """显式关闭追问优先于环境开关，且保留所选 QA 版本。"""
+        with patch.dict(os.environ, {
+            "ANGINEER_FOLLOWUP_QUESTION": "true",
+            "ANGINEER_QA_PROMPT_VERSION": "latest",
+        }, clear=False):
             config_default = build_qa_config(llm=Mock())
+            config_off = build_qa_config(llm=Mock(), followup_question=False)
         self.assertTrue(config_default.followup_question)
-        config_off = build_qa_config(llm=Mock(), followup_question=False)
         self.assertFalse(config_off.followup_question)
-        self.assertEqual(config_off.system_prompt, QA_AGENT_SYSTEM_PROMPT)
+        self.assertEqual(config_off.system_prompt, load("agent_configs.qa_system_prompt"))
 
     def test_guard_appends_followup_question_on_refusal_when_enabled(self):
         from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
