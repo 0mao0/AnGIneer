@@ -516,12 +516,16 @@ def _record_retrieval_stages(
 
 def _run_knowledge_search(**kwargs) -> Dict[str, Any]:
     """memo 壳（F3 三态）：预检侧（_from_speculative）先登记在途再跑实现；主路撞见在途
-    等待复用、成品直接复用、其余回落自跑（键构造见上，失败/放弃回收语义见 memo 区块）。"""
+    等待复用、成品直接复用、其余回落自跑（键构造见上，失败/放弃回收语义见 memo 区块）。
+
+    cancel_event/_from_speculative 是壳层控制键：本壳消费，不透传 impl（impl 签名无此二参，
+    透传即 TypeError——v0.2.88 生产实踩，热修 5d7cc15 之后）。"""
     speculative = bool(kwargs.pop("_from_speculative", False))
+    ce = kwargs.pop("cancel_event", None)
+    ce = ce if isinstance(ce, threading.Event) else None
     key = _search_memo_key(kwargs)
     if not speculative:
-        ce = kwargs.get("cancel_event")
-        hit = _search_memo_pop(key, cancel_event=ce if isinstance(ce, threading.Event) else None)
+        hit = _search_memo_pop(key, cancel_event=ce)
         if hit is not None:
             result, prefetch_ms, wait_ms = hit
             logging.getLogger(__name__).info(

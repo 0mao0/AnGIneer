@@ -237,3 +237,28 @@ def test_done_state_hit_unchanged(monkeypatch):
     assert len(seen) == 1
     assert result.get("ok") is True
     assert result.get("_prefetch_ms") is not None
+
+
+def test_handler_control_keys_stripped_before_impl(monkeypatch):
+    """壳层控制键（cancel_event/_from_speculative）不得透传 impl。"""
+    seen = {}
+
+    def fake_impl(**kwargs):
+        seen.update(kwargs)
+        return {"items": [], "ok": True}
+
+    monkeypatch.setattr(agent_tools, "_run_knowledge_search_impl", fake_impl)
+    _spec_tool().handler(query=QUERY, cancel_event=None, _from_speculative=False)
+    assert "cancel_event" not in seen
+    assert "_from_speculative" not in seen
+
+
+def test_impl_signature_covers_factory_keys():
+    """签名子集锁（v0.2.88 生产 TypeError 事故）：工厂/handler 可转发的键必须全是
+    真 impl 的形参——mock 用 **kwargs 吞参会掩盖签名漂移，只能对真签名锁。"""
+    import inspect
+
+    impl_params = set(inspect.signature(agent_tools._run_knowledge_search_impl).parameters)
+    factory_params = set(inspect.signature(RetrieverAdapter.knowledge_search).parameters)
+    unknown = factory_params - impl_params
+    assert not unknown, f"工厂形参 impl 不认识（透传即 TypeError）: {unknown}"
