@@ -104,6 +104,7 @@
 - **修改目的**：让 qdrant HNSW、sqlite 页缓存、LLM/embed/rerank 连接保持热态，压平冷启动尾。
 - **修改方法**：aichat `main.py` 新增 startup 钩子 `_start_idle_keepwarm_loop`：每 `ANGINEER_KEEPWARM_INTERVAL_SEC`（默认 300s）一条固定轻查询（`知识库保温探针 规范 条款`，top_k=8——越过 rerank 的 ≤5 候选短路，确保 rerank 端点被 ping 到）走 dense+sparse+rerank 全链，结果丢弃；带重叠守卫（非阻塞锁）；探针耗时落 info 日志。开关 `ANGINEER_IDLE_KEEPWARM=1`（默认开，=0 关）。
 - **检查方法**：重启容器后第 3 分钟起，外部同题请求 dense 段与热态差 <2 倍；「空闲保温探针完成」日志每 5 分钟一条且有连续耗时曲线。
+- **遗留尾巴（下版顺带）**：保温词「知识库保温探针 规范 条款」命中 0 条候选 → rerank 因 ≤5 候选短路被跳过，rerank 端点实际没被 ping 到（05:20:12 首跑实证：rerank 计时 0.00s candidates=0）——换一个命中 >5 条的词（如「规范 设计 怎么计算 公式」，实测 items=5 恰在界上，宜再宽）或直接去掉 rerank 短路对保温路径的适用。另：v0.2.88 热修 b036162（控制键透传 TypeError）见 CHANGELOG。
 
 ---
 

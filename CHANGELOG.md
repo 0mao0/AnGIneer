@@ -13,6 +13,7 @@ All notable changes to AnGIneer are documented here.
 - 题集题目列表服务端分页与跨全量筛选（大题集前端渲染与首屏耗时收口）
 - intent 题集 task_type 改取真实 service_mode＋卡片标签与分类层级显示修正
 - 前端修复：文档深链断裂与管理端切主题弹层错色；工作区收口（.gitignore 收编 .zcodeignore 等六工具残留目录、CHANGELOG v0.2.85 补记两条漏账、blackboard 新对话模式需求文档入库）
+- 【热修 b036162，发版后 25 分钟】上条 memo 壳层把 cancel_event 透传进 impl（真签名无此形参）→ 全量 knowledge_search TypeError、在线检索受损约 25 分钟——壳层控制键统一剥离＋补两把回归锁（控制键剥离行为锁、签名子集锁）；教训=单测 mock 用 **kwargs 吞参掩盖真签名漂移，签名类断言必须对真签名做
 
 ## v0.2.87
 
