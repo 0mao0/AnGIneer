@@ -84,6 +84,8 @@
           :detail="runDetails.get(q.question_id) || null"
           :expanded="expandedId === q.question_id"
           :evaluating="evaluatingQuestionIds.has(q.question_id)"
+          :data-qid="q.question_id"
+          :class="{ 'eval-question-card--focus': focusId === q.question_id }"
           @toggle="onToggle"
           @evaluate="(qid) => $emit('evaluate', qid)"
           @updated="() => $emit('questionUpdated')"
@@ -112,7 +114,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import EvalQuestionCard from './EvalQuestionCard.vue'
 import EvalDatasetCardModal from './EvalDatasetCardModal.vue'
 import type { EvalQuestion, EvalRunDetail, EvalIntentLevel, EvalQuestionStatus, EvalQuality, EvalDataset } from '../types/eval'
@@ -148,6 +150,8 @@ const props = defineProps<{
   libraryName?: string
   /** 题集卡要全量题目算层级分布；分页后当前页不够，点开时向宿主取 */
   loadAllQuestions?: (datasetId: string) => Promise<EvalQuestion[]>
+  /** 右栏点格子后由宿主下发的聚焦题：滚动到它 + 高亮 + 展开 */
+  focusQuestionId?: string
 }>()
 
 const emit = defineEmits<{
@@ -170,6 +174,9 @@ const docTreeVisible = ref(false)
 const cardVisible = ref(false)
 /** 题集卡用的全量题目（点开时才拉） */
 const cardQuestions = ref<EvalQuestion[]>([])
+/** 正在高亮的题（右栏点格子跳过来时用）：约 1.5 秒后淡出 */
+const focusId = ref('')
+let focusTimer: ReturnType<typeof setTimeout> | null = null
 const checkedDocKeys = ref<string[]>([])
 
 /** 收集树中所有文档节点的 key */
@@ -280,6 +287,33 @@ const onToggle = (questionId: string) => {
     props.onExpandDetail?.(questionId)
   }
 }
+
+/** 宿主下发聚焦题（右栏点格子）后：等这一页渲染完 → 滚到它 → 高亮 → 展开。
+ *  题不在当前页时宿主会先翻页，这里 watch 的是「当前页 + 聚焦题」两者就绪。
+ *  lastFocusedId 去重：避免之后手动翻页时又对着旧聚焦题滚一次（连点同一格子由宿主
+ *  先清空再置回来触发）。 */
+const lastFocusedId = ref('')
+const applyFocus = async () => {
+  const questionId = props.focusQuestionId
+  if (!questionId) {
+    lastFocusedId.value = ''
+    return
+  }
+  if (questionId === lastFocusedId.value) return
+  if (!props.questions.some(q => q.question_id === questionId)) return
+  lastFocusedId.value = questionId
+  expandedId.value = questionId
+  props.onExpandDetail?.(questionId)
+  await nextTick()
+  const el = document.querySelector(`[data-qid="${CSS.escape(questionId)}"]`)
+  el?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+  focusId.value = questionId
+  if (focusTimer) clearTimeout(focusTimer)
+  focusTimer = setTimeout(() => { focusId.value = '' }, 1500)
+}
+
+watch(() => [props.focusQuestionId, props.questions] as const, () => { void applyFocus() })
+onBeforeUnmount(() => { if (focusTimer) clearTimeout(focusTimer) })
 </script>
 
 <style lang="less" scoped>
@@ -306,6 +340,12 @@ const onToggle = (questionId: string) => {
     padding: 12px;
   }
 
+  /* 右栏点格子跳过来的题：约 1.5 秒高亮后淡出（class 落在子组件根元素上） */
+  :deep(.eval-question-card--focus) {
+    animation: eval-question-list-focus 1.5s ease-out;
+    border-radius: 6px;
+  }
+
   &__pagination {
     display: flex;
     justify-content: flex-end;
@@ -316,6 +356,21 @@ const onToggle = (questionId: string) => {
 
 .eval-doc-filter-btn {
   font-size: 12px;
+}
+
+@keyframes eval-question-list-focus {
+  0% {
+    box-shadow: 0 0 0 2px fade(#1677ff, 70%);
+    background: fade(#1677ff, 12%);
+  }
+  70% {
+    box-shadow: 0 0 0 2px fade(#1677ff, 45%);
+    background: fade(#1677ff, 6%);
+  }
+  100% {
+    box-shadow: 0 0 0 2px transparent;
+    background: transparent;
+  }
 }
 </style>
 

@@ -3,7 +3,11 @@
     class="eval-question-card"
     :class="{ 'eval-question-card--expanded': expanded }"
   >
-    <div class="eval-question-card__header">
+    <div
+      class="eval-question-card__header"
+      :title="expanded ? '点这一行收起详情' : '点这一行展开详情'"
+      @click="onHeaderClick"
+    >
       <EvalLevelBadge :level="localIntentLevel" />
       <span v-if="index !== undefined" class="eval-question-card__index">{{ index }}.</span>
       <span class="eval-question-card__text">{{ localQuestionText }}</span>
@@ -1007,9 +1011,16 @@ watch(() => props.expanded, (value) => {
   }
 })
 
+/** 整行标题可点＝展开/折叠（热区从只有小三角扩大到整行）。
+ *  拖动选中题干文字时不触发：否则想复制题目文字会把卡片收起来。 */
+const onHeaderClick = () => {
+  const selection = typeof window !== 'undefined' ? window.getSelection()?.toString() : ''
+  if (selection && selection.trim()) return
+  emit('toggle', props.question.question_id)
+}
+
 /** 进入展开区题目编辑模式。 */
-const startEditing = () => {
-  editText.value = localQuestionText.value
+const startEditing = () => {  editText.value = localQuestionText.value
   editLevel.value = localIntentLevel.value
   editing.value = true
 }
@@ -1925,6 +1936,13 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
     align-items: center;
     gap: 8px;
     padding: 10px 12px;
+    /* 整行可点＝展开/折叠（热区从只有小三角扩大到整行） */
+    cursor: pointer;
+    transition: background-color 0.15s;
+
+    &:hover {
+      background: var(--bg-tertiary);
+    }
   }
 
   &__index {

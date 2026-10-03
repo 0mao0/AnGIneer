@@ -208,15 +208,17 @@
 
       <template v-else>
         <div v-if="questionRows.length" class="eval-run-panel__chips">
-          <div
+          <button
             v-for="row in questionRows"
             :key="row.seq"
+            type="button"
             class="eval-run-panel__chip"
             :class="`eval-run-panel__chip--${row.kind}`"
-            :title="`${row.seq}. ${row.question || ''}`"
+            :title="`${row.seq}. ${row.question || ''}（点一下跳到中间列表）`"
+            @click="emit('select-question', row.questionId, row.seq)"
           >
             {{ row.seq }}
-          </div>
+          </button>
         </div>
         <div v-else class="eval-run-panel__detail-empty">该记录暂无题目结果</div>
         <div class="eval-run-panel__chips-legend">
@@ -267,6 +269,8 @@ const emit = defineEmits<{
   stop: []
   'select-run': [runId: string]
   'delete-run': [runId: string]
+  /** 点某个题目格子：宿主负责把中栏跳到该题（清筛选→算页→滚动/高亮/展开） */
+  'select-question': [questionId: string, seq: number]
 }>()
 
 const compareIds = ref<string[]>([])
@@ -472,7 +476,12 @@ const questionRows = computed(() =>
     } else if (d.status === 'running') {
       kind = 'running'
     }
-    return { seq: idx + 1, kind, question: String(d.question || '') }
+    return {
+      seq: idx + 1,
+      questionId: String(d.question_id || ''),
+      kind,
+      question: String(d.question || ''),
+    }
   })
 )
 
@@ -819,7 +828,21 @@ const compareRows = computed(() =>
     font-size: 11px;
     font-weight: 500;
     border: 1px solid transparent;
-    cursor: default;
+    /* 格子现在可点：跳到中栏对应题目（宿主负责清筛选/翻页/滚动/高亮） */
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+    transition: transform 0.12s, box-shadow 0.12s;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #1677ff;
+      outline-offset: 1px;
+    }
 
     &--ok {
       background: fade(#52c41a, 10%);

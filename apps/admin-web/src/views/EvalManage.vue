@@ -160,6 +160,7 @@
             :library-name="datasetLibraryName"
             :on-expand-detail="onQuestionExpandDetail"
             :load-all-questions="fetchAllQuestions"
+            :focus-question-id="focusQuestionId"
             @evaluate="onEvaluateQuestion"
             @update:selected-doc-ids="onSelectedDocIdsChange"
             @question-updated="onQuestionUpdated"
@@ -197,6 +198,7 @@
             @stop="onStopRun"
             @select-run="onSelectHistoricalRun"
             @delete-run="onDeleteRun"
+            @select-question="onSelectQuestionFromPanel"
           />
         </Panel>
       </template>
@@ -331,7 +333,7 @@
 
 <script setup lang="ts">
 /** 评测管理页面 - 三栏布局 */
-import { ref, computed, inject, onMounted, onBeforeUnmount, onActivated, onDeactivated, watch, type Ref } from 'vue'
+import { ref, computed, inject, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, watch, type Ref } from 'vue'
 import { App, message, Modal } from 'ant-design-vue'
 import {
   DatabaseOutlined,
@@ -565,6 +567,9 @@ const questionQuery = ref<{
 /** 当前用于逐题状态/质量的 run：在跑的优先，否则最近一次完成的 */
 const activeRunId = computed(() => currentRun.value?.run_id || lastRun.value?.run_id || '')
 
+/** 右栏点格子后要中栏聚焦的题（中栏据此滚动/高亮/展开；空串表示无） */
+const focusQuestionId = ref('')
+
 /** 按当前查询态向服务端取一页题目（切换题集/翻页/筛选/编辑后都走这里） */
 const loadQuestions = async () => {
   if (!selectedDatasetId.value) return
@@ -722,6 +727,31 @@ const onQuestionUpdated = async () => {
   if (selectedDatasetId.value) {
     await loadQuestions()
   }
+}
+
+/** 右栏点格子 → 中栏跳到该题：清筛选（否则该题可能不在筛后列表里）→ 算页 → 取数 → 下发聚焦。
+ *  格子序号来自 run 明细顺序，而明细是按题集顺序返回的，所以 seq 就等于全量题号。 */
+const onSelectQuestionFromPanel = async (questionId: string, seq: number) => {
+  if (!selectedDatasetId.value) return
+  const prevPage = questionQuery.value.page
+  const pageSize = questionQuery.value.pageSize
+  // 题集里若删过题，run 明细里的 seq 可能落在末页之外：夹到最后一页，避免跳成空列表
+  const maxPage = Math.max(1, Math.ceil((questionsTotal.value || 1) / pageSize))
+  const targetPage = Math.min(maxPage, Math.max(1, Math.floor((seq - 1) / pageSize) + 1))
+  const hadFilter = Boolean(
+    questionQuery.value.level || questionQuery.value.status || questionQuery.value.quality
+  )
+  questionQuery.value = {
+    page: targetPage,
+    pageSize,
+  }
+  if (hadFilter || targetPage !== prevPage) {
+    await loadQuestions()
+  }
+  // 连点同一个格子也要能再次滚动/高亮：先清空再置回，触发中栏的 watch
+  focusQuestionId.value = ''
+  await nextTick()
+  focusQuestionId.value = questionId
 }
 
 /** 展开单题时按需拉取：该题的完整运行详情（trace 与分项分数）
