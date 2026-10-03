@@ -159,7 +159,9 @@ def list_doc_artifacts(library_id: str, doc_id: str) -> List[Dict[str, object]]:
             "size": meta_path.stat().st_size,
         })
 
-    index_db = paths.resolve_knowledge_index_db_path()
+    from docs_core import library_registry
+
+    index_db = library_registry.resolve_index_db_path(library_id)
     if _has_rows(index_db, "canonical_chunks", "doc_id = ?", [doc_id]) or _has_rows(
         index_db, "canonical_vectors", "doc_id = ?", [doc_id]
     ):
@@ -202,7 +204,9 @@ def export_images_zip(library_id: str, doc_id: str) -> Path:
 
 def export_index_db(library_id: str, doc_id: str) -> Path:
     """导出该文档的索引数据（chunks/blocks/pages/vectors + FTS）到独立 sqlite。"""
-    src_db = paths.resolve_knowledge_index_db_path()
+    from docs_core import library_registry
+
+    src_db = library_registry.resolve_index_db_path(library_id)
     if not src_db.exists():
         raise FileNotFoundError(f"索引库不存在: {src_db}")
     dst_dir = Path(tempfile.mkdtemp(prefix=f"artifacts-{doc_id}-"))

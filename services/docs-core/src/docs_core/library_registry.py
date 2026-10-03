@@ -27,6 +27,7 @@ from .step05_sqlite_fts.store.sqlite_utils import (
 from .step06_vectors.config import get_qdrant_collection
 
 REGISTRY_DB_ENV = "ANGINEER_REGISTRY_DB"
+DATA_ROOT_ENV = "ANGINEER_DATA_ROOT"
 REGISTRY_DB_NAME = "registry.sqlite"
 
 STATUS_ACTIVE = "active"
@@ -36,12 +37,25 @@ _VALID_STATUS = {STATUS_ACTIVE, STATUS_MIGRATING, STATUS_RETIRED}
 
 DEFAULT_GROUP = "standards"
 
-# 组 → 阶段一存储默认（sqlite 仍是单文件，阶段二再按组拆文件；collection 阶段一即按组拆）。
+# 组 → 存储默认。collection 阶段一已拆；sqlite_file 是阶段二目标组文件（注册行在 flip-sqlite
+# 前仍挂 _DEFAULT_SQLITE_FILE 单文件）。libraries_dir 供目录归位（阶段二后半）使用。
 # 评测 collection 定名 evals_corpus（与成绩库 evals.sqlite 区分，见 plan §九-5）。
 GROUP_DEFAULTS: Dict[str, Dict[str, str]] = {
-    "standards": {"collection": "standards"},
-    "dredgeai": {"collection": "dredgeai"},
-    "evals": {"collection": "evals_corpus"},
+    "standards": {
+        "collection": "standards",
+        "sqlite_file": "knowledge/groups/standards.sqlite",
+        "libraries_dir": "knowledge/libraries",
+    },
+    "dredgeai": {
+        "collection": "dredgeai",
+        "sqlite_file": "knowledge/groups/dredgeai.sqlite",
+        "libraries_dir": "knowledge/libraries",
+    },
+    "evals": {
+        "collection": "evals_corpus",
+        "sqlite_file": "evals/groups/evals_corpus.sqlite",
+        "libraries_dir": "evals/corpora/libraries",
+    },
 }
 
 _DEFAULT_SQLITE_FILE = "knowledge_base/knowledge_index.sqlite"
@@ -80,7 +94,10 @@ class LibraryRecord:
 
 
 def resolve_data_root() -> Path:
-    """data/ 根目录（registry.sqlite 与 sqlite_file 相对路径的基准）。"""
+    """data/ 根目录（registry.sqlite 与 sqlite_file 相对路径的基准）。``ANGINEER_DATA_ROOT`` 可覆盖。"""
+    env_override = os.getenv(DATA_ROOT_ENV, "").strip()
+    if env_override:
+        return Path(env_override).expanduser()
     return resolve_repo_root() / "data"
 
 
@@ -127,7 +144,16 @@ def register_library(
     if status not in _VALID_STATUS:
         raise ValueError(f"非法注册状态: {status}（合法值 {sorted(_VALID_STATUS)}）")
     defaults = GROUP_DEFAULTS.get(group_name, {})
-    file_value = sqlite_file or _DEFAULT_SQLITE_FILE
+    # sqlite_file 缺省推导：组文件已存在（flip-sqlite 后）走组文件，否则挂过渡单文件——
+    # 新建库自动跟随该组当前实际存储位置，跨翻转窗口不出错
+    if sqlite_file is None:
+        group_file = defaults.get("sqlite_file")
+        if group_file and (resolve_data_root() / group_file).exists():
+            file_value = group_file
+        else:
+            file_value = _DEFAULT_SQLITE_FILE
+    else:
+        file_value = sqlite_file
     collection_value = collection or defaults.get("collection") or group_name
     now = datetime.now(timezone.utc).isoformat()
     db_path = ensure_schema()
@@ -248,6 +274,24 @@ def resolve_index_db_path(library_id: str) -> Path:
     return resolve_knowledge_index_db_path()
 
 
+def resolve_libraries_dir(library_id: str) -> Path:
+    """该库解析产物根目录（目录归位后按组分目录）。
+
+    组目标目录已在盘上存在（归位 mv 完成）才切过去，否则回退旧布局
+    ``knowledge_base/libraries``——搬目录与切代码无先后依赖。
+    """
+    record = get_library(library_id)
+    if record is not None:
+        lib_dir = GROUP_DEFAULTS.get(record.group_name, {}).get("libraries_dir")
+        if lib_dir:
+            candidate = resolve_data_root() / lib_dir
+            if candidate.exists():
+                return candidate
+    from .paths import resolve_knowledge_base_dir
+
+    return resolve_knowledge_base_dir() / "libraries"
+
+
 # ---- 种子（从 knowledge_meta libraries 表灌入） ----
 
 
@@ -287,6 +331,7 @@ def seed_from_meta(
 
 __all__ = [
     "DEFAULT_GROUP",
+    "DATA_ROOT_ENV",
     "GROUP_DEFAULTS",
     "LibraryRecord",
     "REGISTRY_DB_ENV",
@@ -300,6 +345,7 @@ __all__ = [
     "resolve_collection",
     "resolve_data_root",
     "resolve_index_db_path",
+    "resolve_libraries_dir",
     "resolve_registry_db_path",
     "seed_from_meta",
     "set_status",

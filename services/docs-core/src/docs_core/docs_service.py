@@ -273,6 +273,9 @@ class DocsService:
         )
         self.canonical_store = CanonicalSQLiteStore(db_path=self.index_db_path)
         self.vector_store = self._create_vector_store()
+        # 组文件 store 缓存（阶段二：path → store；默认文件走 self.canonical_store/index_store 本体）
+        self._canonical_stores: Dict[str, CanonicalSQLiteStore] = {}
+        self._index_stores: Dict[str, KnowledgeIndexStore] = {}
         self._load_from_db()
         if not self.libraries:
             self.create_library("default", "默认知识库", "系统自动创建的默认知识库")
@@ -300,6 +303,63 @@ class DocsService:
         if node is None:
             return None
         return self._collection_for_library(node.library_id)
+
+    # ---- sqlite 组文件路由（阶段二：library_id 经注册表解析组文件，未注册回退默认单文件） ----
+
+    def _canonical_store_for(self, library_id: Optional[str]) -> CanonicalSQLiteStore:
+        default_path = getattr(self, "index_db_path", None)
+        if not library_id or default_path is None:
+            return self.canonical_store
+        path = library_registry.resolve_index_db_path(library_id)
+        if Path(path) == Path(default_path):
+            return self.canonical_store
+        key = str(path)
+        store = self._canonical_stores.get(key)
+        if store is None:
+            store = CanonicalSQLiteStore(db_path=Path(path))
+            self._canonical_stores[key] = store
+        return store
+
+    def _index_store_for(self, library_id: Optional[str]) -> KnowledgeIndexStore:
+        default_path = getattr(self, "index_db_path", None)
+        if not library_id or default_path is None:
+            return self.index_store
+        path = library_registry.resolve_index_db_path(library_id)
+        if Path(path) == Path(default_path):
+            return self.index_store
+        key = str(path)
+        store = self._index_stores.get(key)
+        if store is None:
+            store = KnowledgeIndexStore(db_path=Path(path), schema_version=SCHEMA_VERSION)
+            self._index_stores[key] = store
+        return store
+
+    def _library_of_doc(self, doc_id: str) -> Optional[str]:
+        """doc→library 读穿反查（meta nodes 主键命中）。"""
+        return self.meta_store.get_node_library_id(doc_id)
+
+    def _canonical_store_for_doc(self, doc_id: str) -> CanonicalSQLiteStore:
+        return self._canonical_store_for(self._library_of_doc(doc_id))
+
+    def _index_store_for_doc(self, doc_id: str) -> KnowledgeIndexStore:
+        return self._index_store_for(self._library_of_doc(doc_id))
+
+    def _doc_ids_by_store(self, doc_ids: List[str]) -> "Dict[CanonicalSQLiteStore, List[str]]":
+        """doc_ids 按所属组文件分桶（key=该组 canonical store 实例）。"""
+        groups: Dict[CanonicalSQLiteStore, List[str]] = {}
+        for doc_id in doc_ids:
+            store = self._canonical_store_for_doc(doc_id)
+            groups.setdefault(store, []).append(doc_id)
+        return groups
+
+    def _all_canonical_stores(self) -> List[CanonicalSQLiteStore]:
+        """全部已知组文件的 store（chunk_id 反查/全局 FTS 的扇出面）：默认文件 + 注册表各组。"""
+        stores: Dict[str, CanonicalSQLiteStore] = {str(self.index_db_path): self.canonical_store}
+        for record in library_registry.list_libraries():
+            key = str(library_registry.resolve_index_db_path(record.library_id))
+            if key not in stores:
+                stores[key] = self._canonical_store_for(record.library_id)
+        return list(stores.values())
 
     # 按配置创建当前默认向量存储实现
     def _create_vector_store(self):
@@ -412,10 +472,11 @@ class DocsService:
         self.parse_tasks = [task for task in self.parse_tasks if task.doc_id not in set(doc_ids)]
         for node in document_nodes:
             self.meta_store.clear_parse_stages(node.id)
-            self.index_store.clear_document_segments(node.id)
-            self.index_store.clear_doc_blocks(node.id)
-            self.index_store.clear_doc_block_corrections(node.id)
-            self.canonical_store.clear_document(node.id)
+            index_store = self._index_store_for(node.library_id)
+            index_store.clear_document_segments(node.id)
+            index_store.clear_doc_blocks(node.id)
+            index_store.clear_doc_block_corrections(node.id)
+            self._canonical_store_for(node.library_id).clear_document(node.id)
             self.vector_store.clear_document(
                 node.id, collection=self._collection_for_library(node.library_id)
             )
@@ -753,7 +814,7 @@ class DocsService:
 
     # 删除文档结构化片段
     def clear_document_segments(self, doc_id: str, strategy: Optional[str] = None) -> int:
-        return self.index_store.clear_document_segments(doc_id, strategy)
+        return self._index_store_for_doc(doc_id).clear_document_segments(doc_id, strategy)
 
     # 保存文档结构化片段
     def save_document_segments(
@@ -763,7 +824,7 @@ class DocsService:
         strategy: str,
         items: List[Dict[str, Any]],
     ) -> int:
-        return self.index_store.save_document_segments(doc_id, library_id, strategy, items)
+        return self._index_store_for(library_id).save_document_segments(doc_id, library_id, strategy, items)
 
     # 查询文档结构化片段
     def list_document_segments(
@@ -774,7 +835,7 @@ class DocsService:
         keyword: Optional[str] = None,
         limit: int = 200,
     ) -> List[Dict[str, Any]]:
-        return self.index_store.list_document_segments(
+        return self._index_store_for_doc(doc_id).list_document_segments(
             doc_id=doc_id,
             strategy=strategy,
             item_type=item_type,
@@ -784,21 +845,21 @@ class DocsService:
 
     # 统计文档结构化片段
     def get_document_segment_stats(self, doc_id: str) -> Dict[str, Any]:
-        return self.index_store.get_document_segment_stats(doc_id)
+        return self._index_store_for_doc(doc_id).get_document_segment_stats(doc_id)
 
     # 保存整份 canonical document SQLite 真相源
     def save_canonical_document(self, document: CanonicalDocument) -> Dict[str, int]:
-        stats = self.canonical_store.save_document(document)
+        stats = self._canonical_store_for(document.library_id).save_document(document)
         self.rebuild_document_indexes(document.doc_id, document)
         return stats
 
     # 仅保存 canonical document 不重建向量索引（FTS 由 canonical_store.save_document 内部处理）
     def save_canonical_document_bare(self, document: CanonicalDocument) -> Dict[str, int]:
-        return self.canonical_store.save_document(document)
+        return self._canonical_store_for(document.library_id).save_document(document)
 
     # 仅重建 FTS 索引
     def rebuild_document_fts(self, doc_id: str) -> None:
-        self.canonical_store.rebuild_chunk_fts(doc_id)
+        self._canonical_store_for_doc(doc_id).rebuild_chunk_fts(doc_id)
 
     # 仅重建向量索引
     def rebuild_document_vectors(
@@ -809,7 +870,7 @@ class DocsService:
     ) -> int:
         from docs_core.step06_vectors import build_vector_records
 
-        document = canonical_document or self.canonical_store.get_document(doc_id)
+        document = canonical_document or self._canonical_store_for_doc(doc_id).get_document(doc_id)
         if document is None:
             raise ValueError(f"canonical document 不存在: {doc_id}")
         if on_step is not None:
@@ -851,7 +912,7 @@ class DocsService:
             graph_data=graph_data,
             title=title,
         )
-        stats = self.canonical_store.save_document(canonical_document)
+        stats = self._canonical_store_for(library_id).save_document(canonical_document)
         self.rebuild_document_indexes(doc_id, canonical_document)
         return stats
 
@@ -865,7 +926,7 @@ class DocsService:
     ) -> None:
         from docs_core.step06_vectors import build_vector_records
 
-        self.canonical_store.rebuild_chunk_fts(doc_id)
+        self._canonical_store_for(getattr(canonical_document, "library_id", "") or None).rebuild_chunk_fts(doc_id)
         vector_records = build_vector_records(canonical_document, only_chunk_ids=changed_chunk_ids)
         collection = self._collection_for_library(getattr(canonical_document, "library_id", ""))
         normalized_chunk_ids = [item for item in (changed_chunk_ids or []) if item]
@@ -884,7 +945,7 @@ class DocsService:
 
     # 读取整份 canonical document
     def get_canonical_document(self, doc_id: str) -> Optional[CanonicalDocument]:
-        return self.canonical_store.get_document(doc_id)
+        return self._canonical_store_for_doc(doc_id).get_document(doc_id)
 
     # 清理指定文档的向量索引
     def clear_document_vectors(self, doc_id: str, entity_types: Optional[List[str]] = None) -> int:
@@ -929,7 +990,7 @@ class DocsService:
         keyword: Optional[str] = None,
         limit: int = 200,
     ) -> List[CanonicalChunk]:
-        return self.canonical_store.list_chunks(
+        return self._canonical_store_for_doc(doc_id).list_chunks(
             doc_id=doc_id,
             chunk_types=chunk_types,
             keyword=keyword,
@@ -944,7 +1005,7 @@ class DocsService:
         keyword: Optional[str] = None,
         limit: int = 200,
     ) -> List[CanonicalBlock]:
-        return self.canonical_store.list_blocks(
+        return self._canonical_store_for_doc(doc_id).list_blocks(
             doc_id=doc_id,
             block_types=block_types,
             keyword=keyword,
@@ -953,11 +1014,11 @@ class DocsService:
 
     # 查询图级 citation targets
     def list_citation_targets(self, doc_id: str, limit: int = 200) -> List[Dict[str, Any]]:
-        return self.canonical_store.list_citation_targets(doc_id=doc_id, limit=limit)
+        return self._canonical_store_for_doc(doc_id).list_citation_targets(doc_id=doc_id, limit=limit)
 
     # 查询单个 citation target
     def get_citation_target(self, doc_id: str, target_id: str) -> Optional[Dict[str, Any]]:
-        return self.canonical_store.get_citation_target(doc_id=doc_id, target_id=target_id)
+        return self._canonical_store_for_doc(doc_id).get_citation_target(doc_id=doc_id, target_id=target_id)
 
     # 查询 canonical tables
     def list_canonical_tables(
@@ -967,7 +1028,7 @@ class DocsService:
         keyword: Optional[str] = None,
         limit: int = 100,
     ) -> List[CanonicalTable]:
-        return self.canonical_store.list_tables(
+        return self._canonical_store_for_doc(doc_id).list_tables(
             doc_id=doc_id,
             table_types=table_types,
             keyword=keyword,
@@ -977,40 +1038,60 @@ class DocsService:
     # ---- query 层数据端口直通（QueryDataPort）----
     def list_canonical_pages(self, doc_id: str) -> List[CanonicalPage]:
         """列出 canonical pages。"""
-        return self.canonical_store.list_pages(doc_id)
+        return self._canonical_store_for_doc(doc_id).list_pages(doc_id)
 
     def search_citation_targets(self, doc_id: str, query: str, limit: int = 20) -> List[Dict[str, object]]:
         """按文本检索引用目标。"""
-        return self.canonical_store.search_citation_targets(doc_id, query, limit)
+        return self._canonical_store_for_doc(doc_id).search_citation_targets(doc_id, query, limit)
 
     def search_chunk_fts(self, doc_id: Optional[str], query: str, limit: int = 20) -> List[Dict[str, object]]:
-        """按 FTS 检索 chunk；doc_id 为 None 时全库检索。"""
-        return self.canonical_store.search_chunk_fts(doc_id, query, limit)
+        """按 FTS 检索 chunk；doc_id 为 None 时全库检索（拆文件后=各组文件扇出按 bm25 重排）。"""
+        if doc_id:
+            return self._canonical_store_for_doc(doc_id).search_chunk_fts(doc_id, query, limit)
+        merged: List[Dict[str, object]] = []
+        for store in self._all_canonical_stores():
+            merged.extend(store.search_chunk_fts(None, query, limit))
+        merged.sort(key=lambda row: (float(row.get("bm25_score") or 0.0), str(row.get("chunk_id") or "")))
+        return merged[: max(1, min(200, limit))]
 
     def list_blocks_by_clause_refs(self, doc_id: str, clause_refs: List[str], limit: int = 12) -> List[Dict[str, object]]:
         """按条款引用精确召回块。"""
-        return self.canonical_store.list_blocks_by_clause_refs(doc_id, clause_refs, limit)
+        return self._canonical_store_for_doc(doc_id).list_blocks_by_clause_refs(doc_id, clause_refs, limit)
 
     # ---- 批量取数直通（检索扇出合并，替代逐文档循环）----
     def list_pages_for_docs(self, doc_ids: List[str]) -> List[CanonicalPage]:
-        """批量列出多文档 canonical pages。"""
-        return self.canonical_store.list_pages_for_docs(doc_ids)
+        """批量列出多文档 canonical pages（跨组文件自动分桶合并）。"""
+        pages: List[CanonicalPage] = []
+        for store, bucket in self._doc_ids_by_store(doc_ids).items():
+            pages.extend(store.list_pages_for_docs(bucket))
+        return pages
 
     def search_citation_targets_for_docs(
         self, doc_ids: List[str], query: str, per_doc_limit: int = 40
     ) -> List[Dict[str, object]]:
-        """批量检索多文档 citation targets（逐文档上限语义不变）。"""
-        return self.canonical_store.search_citation_targets_for_docs(doc_ids, query, per_doc_limit)
+        """批量检索多文档 citation targets（逐文档上限语义不变；跨组分桶合并）。"""
+        merged: List[Dict[str, object]] = []
+        for store, bucket in self._doc_ids_by_store(doc_ids).items():
+            merged.extend(store.search_citation_targets_for_docs(bucket, query, per_doc_limit))
+        return merged
 
     def list_chunks_by_ids(self, chunk_ids: List[str]) -> List[CanonicalChunk]:
-        """按 chunk_id 集合批量反查完整 chunk。"""
-        return self.canonical_store.list_chunks_by_ids(chunk_ids)
+        """按 chunk_id 集合批量反查完整 chunk（chunk→doc 无映射，扇出全部已知组文件）。"""
+        if not chunk_ids:
+            return []
+        merged: List[CanonicalChunk] = []
+        for store in self._all_canonical_stores():
+            merged.extend(store.list_chunks_by_ids(chunk_ids))
+        return merged
 
     def list_chunks_for_docs(
         self, doc_ids: List[str], keyword: Optional[str] = None, per_doc_limit: int = 60
     ) -> List[CanonicalChunk]:
-        """批量查询多文档 chunks（逐文档上限语义不变）。"""
-        return self.canonical_store.list_chunks_for_docs(doc_ids, keyword=keyword, per_doc_limit=per_doc_limit)
+        """批量查询多文档 chunks（逐文档上限语义不变；跨组分桶合并）。"""
+        merged: List[CanonicalChunk] = []
+        for store, bucket in self._doc_ids_by_store(doc_ids).items():
+            merged.extend(store.list_chunks_for_docs(bucket, keyword=keyword, per_doc_limit=per_doc_limit))
+        return merged
 
     def list_blocks_for_docs(
         self,
@@ -1019,18 +1100,21 @@ class DocsService:
         keyword: Optional[str] = None,
         per_doc_limit: int = 60,
     ) -> List[CanonicalBlock]:
-        """批量查询多文档 blocks（逐文档上限语义不变）。"""
-        return self.canonical_store.list_blocks_for_docs(
-            doc_ids, block_types=block_types, keyword=keyword, per_doc_limit=per_doc_limit
-        )
+        """批量查询多文档 blocks（逐文档上限语义不变；跨组分桶合并）。"""
+        merged: List[CanonicalBlock] = []
+        for store, bucket in self._doc_ids_by_store(doc_ids).items():
+            merged.extend(
+                store.list_blocks_for_docs(bucket, block_types=block_types, keyword=keyword, per_doc_limit=per_doc_limit)
+            )
+        return merged
 
     def list_blocks_in_page_range(self, doc_id: str, page_min: int, page_max: int) -> List[CanonicalBlock]:
         """按页范围取文档 blocks（公式上下文邻近页拉取）。"""
-        return self.canonical_store.list_blocks_in_page_range(doc_id, page_min, page_max)
+        return self._canonical_store_for_doc(doc_id).list_blocks_in_page_range(doc_id, page_min, page_max)
 
     # 按 block_uid 列表批量查询富媒体字段。
     def get_blocks_rich_media(self, doc_id: str, block_uids: List[str]) -> Dict[str, Dict[str, Any]]:
-        return self.index_store.get_blocks_rich_media(doc_id=doc_id, block_uids=block_uids)
+        return self._index_store_for_doc(doc_id).get_blocks_rich_media(doc_id=doc_id, block_uids=block_uids)
 
     # 搜索可供 @ 引用的知识候选。
     def search_references(
@@ -1088,7 +1172,7 @@ class DocsService:
             rich_media_map = self.get_blocks_rich_media(node.id, [block.block_id for block in blocks])
             page_labels = {
                 page.page_idx: page.printed_page_label
-                for page in self.canonical_store.list_pages(node.id)
+                for page in self._canonical_store_for(library_id).list_pages(node.id)
                 if page.printed_page_label
             }
             for block in blocks:

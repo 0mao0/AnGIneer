@@ -11,8 +11,10 @@ from docs_core import library_registry as registry
 
 @pytest.fixture()
 def reg(tmp_path, monkeypatch):
-    """隔离注册表：ANGINEER_REGISTRY_DB 指向 tmp，绝不碰真 data/registry.sqlite。"""
+    """隔离注册表与 data 根：组文件存在性推导不得读真盘（真盘组文件存在与否随演练进度变化，
+    2026-10-03 实踩：真盘 flip 后测试默认路径推导翻转）。两件套缺一不可。"""
     monkeypatch.setenv(registry.REGISTRY_DB_ENV, str(tmp_path / "registry.sqlite"))
+    monkeypatch.setenv(registry.DATA_ROOT_ENV, str(tmp_path / "data"))
     return registry
 
 

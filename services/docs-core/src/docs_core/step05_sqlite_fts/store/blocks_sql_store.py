@@ -45,6 +45,14 @@ class KnowledgeMetaStore:
     def connect(self) -> sqlite3.Connection:
         return create_connection(self.db_path)
 
+    # 单查节点所属库（库组拆分的 doc→library 路由依据；读穿，索引命中 O(1)）。
+    def get_node_library_id(self, node_id: str) -> Optional[str]:
+        with self.connect() as conn:
+            row = conn.execute(
+                "SELECT library_id FROM nodes WHERE id = ?", (node_id,)
+            ).fetchone()
+        return str(row["library_id"]) if row else None
+
     # 初始化元数据库 Schema，含自动迁移逻辑。
     def init_schema(self) -> None:
         with self.connect() as conn:
@@ -1286,15 +1294,28 @@ class KnowledgeIndexStore:
             summary.setdefault(strategy, {})[item_type] = cnt
         return {"doc_id": doc_id, "total": total, "strategies": summary}
 
-_index_stores: Dict[str, KnowledgeIndexStore] = {}
+_index_stores: Dict[str, "KnowledgeIndexStore"] = {}
 
 
-def get_index_store() -> KnowledgeIndexStore:
-    """索引库访问（按 db 路径懒加载，兼容 KNOWLEDGE_BASE_DIR 隔离）。"""
-    db_path = str(paths.resolve_knowledge_index_db_path())
-    if db_path not in _index_stores:
-        _index_stores[db_path] = KnowledgeIndexStore()
-    return _index_stores[db_path]
+def get_index_store(library_id: Optional[str] = None) -> "KnowledgeIndexStore":
+    """索引库访问（按 db 路径懒加载缓存）。
+
+    库组拆分（plan-kb-split-groups 阶段二）：传 library_id 时经注册表解析组文件；
+    未传/未注册回退单文件 knowledge_index 默认路径。
+    """
+    db_path: Optional[Path] = None
+    if library_id:
+        from docs_core import library_registry
+
+        record = library_registry.get_library(library_id)
+        if record is not None:
+            db_path = library_registry.resolve_index_db_path(library_id)
+    if db_path is None:
+        db_path = paths.resolve_knowledge_index_db_path()
+    key = str(db_path)
+    if key not in _index_stores:
+        _index_stores[key] = KnowledgeIndexStore(db_path=db_path)
+    return _index_stores[key]
 
 
 # 持久化 doc_blocks 主索引。
@@ -1302,15 +1323,27 @@ def persist_doc_blocks(result: StructuredResult) -> Dict[str, int]:
     base_rows = result.stats.get("base_rows", []) or []
     derived_rows = result.stats.get("derived_rows", []) or []
     doc_id = ""
-    if base_rows:
-        doc_id = str(base_rows[0].get("doc_id") or "")
-    elif derived_rows:
-        doc_id = str(derived_rows[0].get("doc_id") or "")
+    library_id = ""
+    for rows in (base_rows, derived_rows):
+        if rows:
+            doc_id = doc_id or str(rows[0].get("doc_id") or "")
+            library_id = library_id or str(rows[0].get("library_id") or "")
+    if not library_id and doc_id:
+        # doc_blocks 行无 library_id 列，回退 meta 节点反查
+        library_id = _library_of_doc(doc_id) or ""
+    store = get_index_store(library_id or None)
     if doc_id:
-        get_index_store().clear_doc_blocks(doc_id)
-    inserted = get_index_store().insert_doc_blocks_base_rows(base_rows) if base_rows else 0
-    updated = get_index_store().update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
+        store.clear_doc_blocks(doc_id)
+    inserted = store.insert_doc_blocks_base_rows(base_rows) if base_rows else 0
+    updated = store.update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
     return {"inserted": inserted, "updated": updated}
+
+
+# doc_id → library_id（库组路由；节点缺失回退 None=默认组文件）
+def _library_of_doc(doc_id: str) -> Optional[str]:
+    if not doc_id:
+        return None
+    return KnowledgeMetaStore().get_node_library_id(doc_id)
 
 
 # 查询文档块记录。
@@ -1320,7 +1353,7 @@ def query_doc_blocks(
     derived_level: Optional[int] = None,
     limit: int = 100,
 ) -> List[Dict[str, Any]]:
-    return get_index_store().query_doc_blocks(
+    return get_index_store(_library_of_doc(doc_id)).query_doc_blocks(
         doc_id=doc_id,
         block_type=block_type,
         derived_level=derived_level,
@@ -1330,7 +1363,7 @@ def query_doc_blocks(
 
 # 获取文档块统计信息。
 def get_doc_blocks_stats(doc_id: str) -> Dict[str, Any]:
-    return get_index_store().get_doc_blocks_stats(doc_id)
+    return get_index_store(_library_of_doc(doc_id)).get_doc_blocks_stats(doc_id)
 
 
 __all__ = [

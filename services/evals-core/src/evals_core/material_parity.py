@@ -368,6 +368,20 @@ def default_sources() -> Sources:
 
     store = CanonicalSQLiteStore()
     stage_states = _UNLOADED
+    # 库组拆分（阶段二）：canonical 按组文件路由，per-library 缓存
+    _group_stores: dict = {"": store}
+
+    def _canonical_store_for(library_id: str):
+        from docs_core import library_registry
+
+        if library_id not in _group_stores:
+            record = library_registry.get_library(library_id)
+            _group_stores[library_id] = (
+                CanonicalSQLiteStore(db_path=library_registry.resolve_index_db_path(library_id))
+                if record is not None
+                else store
+            )
+        return _group_stores[library_id]
     # 计数走哪个后端，按 provider 决定（不再无条件先试 Qdrant）
     provider = (get_vectorstore_provider_name() or "").strip().lower()
     # 首个"存储不可访问"说明（存储级，与单篇无关）；空 list = 没出错
@@ -399,12 +413,12 @@ def default_sources() -> Sources:
         return [json.loads(line) for line in graph.read_text(encoding="utf-8").splitlines() if line.strip()]
 
     def has_canonical(library_id: str, doc_id: str) -> bool:
-        with store.connect() as conn:
+        with _canonical_store_for(library_id).connect() as conn:
             row = conn.execute("SELECT 1 FROM canonical_documents WHERE doc_id = ? LIMIT 1", (doc_id,)).fetchone()
         return bool(row)
 
     def load_chunk_texts(library_id: str, doc_id: str) -> list[str]:
-        with store.connect() as conn:
+        with _canonical_store_for(library_id).connect() as conn:
             rows = conn.execute("SELECT text_clean FROM canonical_chunks WHERE doc_id = ?", (doc_id,)).fetchall()
         return [str(r[0] or "") for r in rows]
 
@@ -435,7 +449,7 @@ def default_sources() -> Sources:
                     logger.warning("素材检查：向量库不可访问，向量点断言跳过：%s", exc)
                 return None
         try:
-            with store.connect() as conn:
+            with _canonical_store_for(library_id).connect() as conn:
                 row = conn.execute("SELECT COUNT(*) FROM canonical_vectors WHERE doc_id = ?", (doc_id,)).fetchone()
             return int(row[0]) if row else 0
         except Exception:  # noqa: BLE001 表不存在（provider=qdrant 时 canonical_vectors 为空表）

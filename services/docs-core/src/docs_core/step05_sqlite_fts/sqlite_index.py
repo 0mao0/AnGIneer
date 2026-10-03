@@ -61,7 +61,7 @@ def build_sqlite_index_from_graph(
         f"{len(canonical_document.blocks)} blocks / {len(canonical_document.chunks)} chunks",
     )
 
-    index_store = get_index_store()
+    index_store = get_index_store(library_id)
     base_rows, derived_rows = build_doc_block_rows(
         canonical_document,
         derive_version=derive_version,
