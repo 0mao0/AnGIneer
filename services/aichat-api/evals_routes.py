@@ -138,10 +138,29 @@ async def update_dataset(dataset_id: str, body: Dict[str, Any] = None):
 
 
 @evals_router.get("/datasets/{dataset_id}/questions")
-async def get_questions(dataset_id: str):
-    """获取测试集题目列表。"""
-    questions = manager.list_questions(dataset_id)
-    return {"questions": questions}
+async def get_questions(
+    dataset_id: str,
+    offset: Optional[int] = Query(None, ge=0),
+    limit: Optional[int] = Query(None, ge=1, le=500),
+    level: Optional[str] = Query(None),
+    status: Optional[List[str]] = Query(None),
+    quality: Optional[List[str]] = Query(None),
+    run_id: Optional[str] = Query(None),
+):
+    """获取测试集题目列表。
+
+    默认全量返回（不分页），与既有前端全量消费方（文档树筛选、runDetails 合并、
+    编辑回填 gold）保持兼容——列表载荷是一次性、可缓存的，非逐次瓶颈。
+    传 offset/limit 时走服务端分页 + 跨全量筛选（层级/状态/质量下沉 SQL WHERE），
+    total 为筛选后总数，供未来分页器；status/quality 需带 run_id（JOIN 当次明细）。
+    """
+    if offset is None and limit is None and not level and not status and not quality:
+        return {"questions": manager.list_questions(dataset_id)}
+    questions, total = manager.list_questions_page(
+        dataset_id, offset or 0, limit,
+        intent_level=level, statuses=status, qualities=quality, run_id=run_id,
+    )
+    return {"questions": questions, "total": total}
 
 
 @evals_router.post("/datasets/{dataset_id}/questions")

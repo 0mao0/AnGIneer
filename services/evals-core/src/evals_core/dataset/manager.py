@@ -145,6 +145,23 @@ def list_questions(dataset_id: str) -> List[Dict[str, Any]]:
     return result_store.list_questions(dataset_id)
 
 
+def list_questions_page(
+    dataset_id: str,
+    offset: int = 0,
+    limit: Optional[int] = None,
+    intent_level: Optional[str] = None,
+    statuses: Optional[List[str]] = None,
+    qualities: Optional[List[str]] = None,
+    run_id: Optional[str] = None,
+) -> "tuple[List[Dict[str, Any]], int]":
+    """分页列出测试集题目，返回 (当页题目, 筛选后总数)。"""
+    _ensure_dataset_store_ready()
+    return result_store.list_questions_page(
+        dataset_id, offset, limit,
+        intent_level=intent_level, statuses=statuses, qualities=qualities, run_id=run_id,
+    )
+
+
 def export_dataset(dataset_id: str) -> Optional[Dict[str, Any]]:
     """导出测试集为规范 JSON。"""
     _ensure_dataset_store_ready()
