@@ -1275,8 +1275,10 @@ const getStageTiming = (...keys: string[]): number | undefined => {
 }
 
 const currentIntentLevel = computed(() => {
+  // prediction.level 优先：intent 评测器（probe_mode=classify_only）的分类结果在 prediction 顶层，
+  // 无此字段时才回落 trace_meta/intent_debug；否则取不到会硬显兜底 L1（与断言用的实际路由不符）。
   return String(
-    intentDebug.value.intent_level || traceMeta.value.level || 'L1'
+    prediction.value?.level || intentDebug.value.intent_level || traceMeta.value.level || 'L1'
   )
 })
 
@@ -1835,6 +1837,11 @@ const enrichedQuestion = computed(() => {
   const q = { ...props.question } as EvalQuestion & { taskTypeLabel?: string }
   const taskTypeLabels: Record<string, string> = {
     casual_chat: '闲聊',
+    // intent-router-v1 题集 task_type 直接取 service_mode，补全五值映射（废路由后统计题也归 semantic_retrieval）
+    semantic_retrieval: '语义检索',
+    structured_lookup: '条文/查表',
+    standard_sop: '标准 SOP',
+    dynamic_orchestration: '动态编排',
     definition: '定义查询',
     content_qa: '内容问答',
     locate: '定位查询',

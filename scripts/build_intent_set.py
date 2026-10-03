@@ -278,7 +278,9 @@ def build() -> dict:
         items.append({
             "question_id": qid,
             "question": question,
-            "task_type": "definition",
+            # task_type 取真实 service_mode（此前整集写死 "definition"，闲聊题也挂「定义查询」标签）。
+            # UI（EvalQuestionCard taskTypeLabels）按 mode 五值映射中文标签。
+            "task_type": mode,
             "intent_level": level,          # 金标层级（summary 的 by_level 分组也用这个）
             "library_id": "default",
             "difficulty": "easy",
