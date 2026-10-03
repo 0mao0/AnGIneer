@@ -103,5 +103,53 @@ class IsRefusalTextTests(unittest.TestCase):
         self.assertFalse(is_refusal_text("混凝土强度等级为 C30。"))
 
 
+# ── 2026-10-04 occamy（关思考）英文拒答变体，run-94c0ac9e9e3f 真实原文 ──
+# 5 道「实际在拒答、词表不认」+ 3 道「error JSON 当答案」。判分名义分被拖下 4 题。
+REAL_EN_MISSED_REFUSALS = (
+    'I did not retrieve sufficient evidence to support a final conclusion. The search results '
+    'did not find direct information about the definition of "protostars" or their detection methods.',
+    "I searched the knowledge base for information about Adobe Lightroom preset operations, but the "
+    "available evidence does not cover this topic.",
+    "I searched the knowledge base for evidence on how re-compression affects the detection of "
+    "manipulated images, but I did not find sufficient direct evidence to support a final conclusion.",
+    "I did not find sufficient evidence to support a final conclusion about Tesla specifically.",
+    'The search returned no evidence covering plans to extend "collision laws" with additional physical detail.',
+)
+REAL_ERROR_TEMPLATE_ANSWERS = (
+    '```json\n{"error": ""}\n```',
+    '```json\n{"error": "No evidence found"}\n```',
+    '```json\n{"error": "No search tool was called in this round."}\n```',
+)
+
+
+class EnglishRefusalVariantTests(unittest.TestCase):
+    def test_real_en_variants_are_refusals(self):
+        for text in REAL_EN_MISSED_REFUSALS:
+            self.assertTrue(is_refusal_text(text), text[:60])
+
+    def test_error_template_blobs_are_refusals(self):
+        for text in REAL_ERROR_TEMPLATE_ANSWERS:
+            self.assertTrue(is_refusal_text(text), text[:40])
+
+    def test_en_partial_coverage_answers_are_not_refusals(self):
+        """防误伤反例：跨句的「未找到该条款，但给出了 X」式部分覆盖必须仍是作答。
+
+        模式一要求否定动词与 evidence 同句（[^.\n] 截断），跨句不命中；
+        模式二要求 evidence 紧邻 (does not cover)，正文里无 evidence 主语不命中。
+        """
+        self.assertFalse(is_refusal_text(
+            "We did not find the specific clause, but clause 4.2 establishes that the concrete "
+            "grade is C30 [K1]."
+        ))
+        self.assertFalse(is_refusal_text(
+            "The retrieved documents describe the rate table [K1]; the fee schedule does not "
+            "cover annual resets, but the table above applies."
+        ))
+        # 引用报错样例的正常作答（error JSON 出现在正文中间，不是整段开篇）
+        self.assertFalse(is_refusal_text(
+            '接口文档规定失败响应形如 {"error": "timeout"}，成功响应返回状态码 200 [K1]。'
+        ))
+
+
 if __name__ == "__main__":
     unittest.main()

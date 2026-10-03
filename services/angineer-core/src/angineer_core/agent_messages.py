@@ -52,6 +52,22 @@ REFUSAL_EN_MARKERS = (
     "does not contain",
     "do not contain",
 )
+# 英文拒答句式（2026-10-04 occamy 关思考实测：39 道拒答题 5 道因定长短语失配漏判）。
+# 与 2026-09-19 中文教训同族——模型往短语里插字（「did not find sufficient *direct*
+# evidence」），连续子串整段落空，故用「小句窗口内骨架」正则：否定动词与 evidence
+# 必须同句（[^.\n] 截断），跨句的「未找到条款，但第 4.2 条给出了…」式部分覆盖不受误伤。
+# 误伤面与既有 "does not contain" 全文标记同类（该口径 2026-09 起已有先例）：
+# 同句宣告「没找到证据」的回答按拒答处理正是期望行为。
+REFUSAL_EN_PATTERNS = (
+    re.compile(r"(did not|do not|does not|could not|cannot|unable to)\s+(retrieve|find|locate)\b[^.\n]{0,80}evidence"),
+    re.compile(r"\bevidence\b[^.\n]{0,40}(does not|doesn't|did not|didn't)\s+(cover|contain)"),
+    re.compile(r"\bsearch[^.\n]{0,40}(returned|found|yielded)\s+no\s+evidence"),
+)
+# 降级输出（2026-10-04 同批实测 3 题）：模型把工具报错样式的 JSON 当整段答案吐出来，
+# 内容即「无证据/未调用工具」。该形态非本仓代码产生（全仓 grep "No evidence found"/
+# "No search tool was called" 均 0 命中），是模型模仿。按拒答处理：生产侧守卫换标准
+# 话术，评测侧按拒答计。只认「整段以 error JSON 开篇」的形态，正常作答引用报错样例不受影响。
+REFUSAL_ERROR_TEMPLATE_RE = re.compile(r'^```?json\s*\{\s*"error"\s*:', re.I)
 REFUSAL_LEAD_SCAN_LIMIT = 200
 
 
@@ -69,6 +85,10 @@ def is_refusal_text(text: str) -> bool:
         return True
     lowered = content.lower()
     if any(marker in lowered for marker in REFUSAL_EN_MARKERS):
+        return True
+    if any(pattern.search(lowered) for pattern in REFUSAL_EN_PATTERNS):
+        return True
+    if REFUSAL_ERROR_TEMPLATE_RE.match(content.strip()):
         return True
     return any(marker in _lead_before_citation(content) for marker in REFUSAL_LEAD_MARKERS)
 
