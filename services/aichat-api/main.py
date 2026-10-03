@@ -232,15 +232,56 @@ def _run_vector_guard_on_startup() -> None:
 
 
 @app.on_event("startup")
+def run_keepwarm_probe() -> int:
+    """跑一次空闲保温探针，返回召回条数（-1=节点清单为空跳过本轮）。
+
+    10-03 生产复盘：v0.2.88 首版探针两处空转、日志却"成功"（分段计时恒
+    dense=0.00s items=0，一页索引都没读到，等于没保温）——
+    ① doc_nodes=None 直达 DenseRetriever 的 `if not doc_nodes: return []`，
+       dense 整段跳过、embed 从未发出（dense_retriever.retrieve 头部）；
+    ② 查询词「知识库保温探针」是不存在于索引的 token，FTS5 隐式 AND 把
+       整条查询清零（生产实测该 token 0 命中，而「规范」7866 命中），
+       sparse 倒排秒回 0、什么页都不碰。
+    定版口径：节点清单与真实请求同源（chat_agent._load_doc_nodes），查询词
+    用高频真实词（默认「的 规范 设计」——启动预热同款，拉最大 posting list），
+    ANGINEER_KEEPWARM_QUERY 可覆盖；items==0 必须 WARNING——探针永远不允许
+    再「成功」地空转。
+    """
+    from angineer_core.agent_tools import RetrieverAdapter
+    from chat_agent import _load_doc_nodes
+
+    query = (os.getenv("ANGINEER_KEEPWARM_QUERY", "") or "").strip() or "的 规范 设计"
+    nodes = _load_doc_nodes("default", [])
+    if not nodes:
+        logger.warning("空闲保温探针: default 库节点清单为空，跳过本轮（保温无效）")
+        return -1
+    tool = RetrieverAdapter.knowledge_search(
+        library_id="default",
+        doc_ids=[],
+        doc_nodes=nodes,
+        top_k=8,
+        task_type="content_qa",
+        filters=None,
+        rerank=True,
+        config_name=None,
+        mode="instruct",
+    )
+    result = tool.handler(query=query)
+    items = len(result.get("items") or []) if isinstance(result, dict) else 0
+    if items == 0:
+        logger.warning("空闲保温探针召回 0 条（query=%r），保温无效，请查节点/索引状态", query)
+    return items
+
+
 def _start_idle_keepwarm_loop() -> None:
     """空闲保温（施工单 docs/plan-retrieval-speedup-v3.md 变更 F）：周期性轻查询保热。
 
     启动预热（_warm_retrieval_caches_on_startup）只暖一次；这台机器内存紧（3.7G、
     buff/cache ~1.3G），qdrant HNSW/FTS 页缓存随时间被挤出——10-03 08:42 全栈重建后
-    2.5 分钟的首个真实请求吃到冷启动税（dense 3.89s）。周期保温每 N 秒走一条固定轻
-    查询（dense+sparse 全链+rerank 端点 ping，top_k=8 以越过 rerank 的 ≤5 候选短路），
-    结果丢弃。ANGINEER_IDLE_KEEPWARM=0 关闭；间隔 ANGINEER_KEEPWARM_INTERVAL_SEC
-    默认 300；探针失败静默。"""
+    2.5 分钟的首个真实请求吃到冷启动税（dense 3.89s）。周期保温每 N 秒走一条轻查询
+    （dense+sparse 全链+rerank 端点 ping，top_k=8 以越过 rerank 的 ≤5 候选短路），
+    结果丢弃；召回恒 0 会 WARNING（见 run_keepwarm_probe 的空转教训）。
+    ANGINEER_IDLE_KEEPWARM=0 关闭；间隔 ANGINEER_KEEPWARM_INTERVAL_SEC 默认 300。"""
 
     if (os.getenv("ANGINEER_IDLE_KEEPWARM", "1") or "").strip().lower() not in ("1", "true", "on", "yes"):
         return
@@ -257,22 +298,11 @@ def _start_idle_keepwarm_loop() -> None:
                 continue
             try:
                 started = time.perf_counter()
-                from angineer_core.agent_tools import RetrieverAdapter
-
-                tool = RetrieverAdapter.knowledge_search(
-                    library_id="default",
-                    doc_ids=[],
-                    doc_nodes=None,
-                    top_k=8,
-                    task_type="content_qa",
-                    filters=None,
-                    rerank=True,
-                    config_name=None,
-                    mode="instruct",
-                )
-                tool.handler(query="知识库保温探针 规范 条款")
+                items = run_keepwarm_probe()
                 logger.info(
-                    "空闲保温探针完成: %.2fs（dense+sparse+rerank 全链）", time.perf_counter() - started
+                    "空闲保温探针完成: %.2fs items=%d（dense+sparse+rerank 全链）",
+                    time.perf_counter() - started,
+                    items,
                 )
             except Exception as exc:  # noqa: BLE001 — 保温失败不影响服务
                 logger.debug("空闲保温探针失败（忽略）: %s", exc)
