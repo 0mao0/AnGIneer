@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## Unreleased
+
+- 空闲保温探针空转根治（10-03 生产复盘，31aa999/0f522a5）：首版探针两处零召回根因——doc_nodes=None 直达 dense 空节点门（dense=0.00s、embed 从未发出）＋查询词「知识库保温探针」系索引外 token、FTS5 隐式 AND 整条清零，日志恒「成功」实则一页未读；修复=节点与真实请求同源装载＋高频词「规范 设计」（业主复核砍掉「的 规范 设计」：生产实测三字 AND 仅 37 条、保温翻页量少两个量级）＋ANGINEER_KEEPWARM_QUERY 可覆盖（已登记 .env.example）＋items==0 必须 WARNING；行为锁 4 例＋端到端复验 items=8
+- 拒答识别补英文句式与 error 模板降级输出（bb91316，occamy 关思考实测 run-94c0ac9e9e3f：名义拒答分 41%→31% 系检测器漏认、真实拒答行为两轮持平 17/39）：REFUSAL_EN_PATTERNS 小句窗口正则接住 "did not retrieve/find … evidence" 族插字变体（否定动词与 evidence 须同句，跨句部分覆盖不误伤、反例进测试）；REFUSAL_ERROR_TEMPLATE_RE 认「整段以 ```json {"error" 开篇」形态（全仓 grep 证实系模型模仿工具报错格式、非代码泄漏），守卫换标准拒答话术；is_refusal_text 单一入口，评测判分与线上守卫同修，部署后重跑 refusal-v3-39 预期名义分 31%→≈51%
+
 ## v0.2.88
 
 - 检索 memo 三态化（在途登记+等待复用）——同请求双份检索根治：预检未完成时主路等待复用而非自跑第二份（分类 1.1~1.4s 恒快于预检 5~15s，短问题此前 100% 双跑，10-02 20:49 事故两路 rerank 各打满 10s 超时即双跑放大）；等待预算=Σ各 rerank 端点超时+召回余量（硬顶 90s<tool_timeout×0.8），超时/取消/预检失败回落自跑并回收引用号段；共享 allocator 线程安全化＋mark/rollback（快照外前缀归零，防 K3、K4 跳号）；agent_loop 向声明 cancel_event 的 handler 注入取消事件并剥离模型参数下划线私有键；可观测带 _prefetch_ms／_memo_wait_ms（「并行预检／等待预检 X.Xs」）；ANGINEER_MEMO_INFLIGHT 默认开、=0 回退（test_search_memo 六例，angineer-core 全量 34 绿）
