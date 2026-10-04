@@ -110,6 +110,9 @@ class SparseRetriever:
                 doc_id=None,
                 query=request.query,
                 limit=max(60, request.top_k * 4),
+                # 多库勾选：FTS 在勾选型集合内检索（求交前移，spec §P0-2）；
+                # 单库/旧调用方 library_ids 为空 → 退化为 [library_id]，行为收敛到本库
+                library_ids=list(request.library_ids or [request.library_id]),
             )
         fts_chunk_ids_by_doc: Dict[str, List[str]] = {}
         best_score_by_doc: Dict[str, float] = {}
