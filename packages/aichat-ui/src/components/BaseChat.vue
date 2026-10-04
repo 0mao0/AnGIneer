@@ -309,12 +309,18 @@
               size="small"
               :value="libraryMulti ? libraryValues : (libraryValue || undefined)"
               :mode="libraryMulti ? 'multiple' : undefined"
-              :max-tag-count="2"
+              :max-tag-count="libraryMulti && libraryValues.length > 1 ? 0 : undefined"
               :disabled="loading || (conversationStarted && !libraryMulti)"
               :options="libraryOptions"
               :title="libraryTitle"
               @update:value="onLibrarySelectChange"
-            />
+            >
+              <!-- 多库收口（用户定式 2026-10-04）：勾选 >1 库时不逐个出 tag，折叠占位统一显示「N 个知识库」；
+                   单库仍显示库名 tag。maxTagCount=0 经 vc-overflow 确认渲染 0 tag + 1 rest（4.2.6）。 -->
+              <template v-if="libraryMulti" #maxTagPlaceholder="omitted">
+                {{ omitted.length }} 个知识库
+              </template>
+            </a-select>
           </div>
 
           <div v-if="showModelSelect" class="center-actions">

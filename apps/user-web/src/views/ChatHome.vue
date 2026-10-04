@@ -119,11 +119,13 @@ const onChatError = (error: Error) => {
 }
 
 // 登录成功（30 轮闸弹窗或顶栏按钮）：关闭弹层 + 刷新历史抽屉——claim 已把游客会话并入账号；
-// 登出：guestMode 生效，refreshSessions 内部清空（历史不留给下一位游客/用户）
+// 同时补加载库名：挂载时是游客态会跳过 loadLibraryNames，登录后不补则选择器全部回退显示库 id；
+// 登出：guestMode 生效，refreshSessions 内部清空（历史不留给下一位游客/用户），选择器随 guestMode 隐藏
 watch(
   () => authStore.isAuthed,
   () => {
     loginPrompt.value = false
+    void loadLibraryNames()
     void refreshSessions()
   }
 )
