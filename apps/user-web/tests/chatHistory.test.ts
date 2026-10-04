@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 
 import {
   ACTIVE_SESSION_KEY,
-  MAX_SESSIONS_PER_LIBRARY,
+  MAX_SESSIONS,
   deriveTitle,
   listSessions,
   loadActiveSessionId,
@@ -37,24 +37,26 @@ test('deriveTitle 取首条用户消息并截断 30 字', () => {
 })
 
 // node:test 无 bundler：懒加载 apiClient 必然失败 → 自然走 localStorage 降级分支（降级语义即测试路径）
-test('saveSession 插入/去重更新，listSessions 按更新时间倒序（降级路径）', async () => {
+test('saveSession 插入/去重更新，listSessions 按更新时间倒序（降级路径·阶段三单桶）', async () => {
   const storage = createMemoryStorage()
   await saveSession(storage, 'libA', makeRecord('a', 100))
   await saveSession(storage, 'libB', makeRecord('b', 50))
   await saveSession(storage, 'libA', makeRecord('a', 200))
   await saveSession(storage, 'libA', makeRecord('c', 150))
-  assert.deepEqual((await listSessions(storage, 'libA')).map(r => r.id), ['a', 'c'])
-  assert.deepEqual((await listSessions(storage, 'libB')).map(r => r.id), ['b'])
+  // 单桶定稿：列表=全量，库参数不再分桶（多库会话不属于任何单一库）
+  assert.deepEqual((await listSessions(storage, 'libA')).map(r => r.id), ['a', 'c', 'b'])
+  assert.deepEqual((await listSessions(storage, 'libB')).map(r => r.id), ['a', 'c', 'b'])
+  assert.deepEqual((await listSessions(storage)).map(r => r.id), ['a', 'c', 'b'])
 })
 
 test('saveSession 超过上限按最旧更新时间淘汰（降级路径）', async () => {
   const storage = createMemoryStorage()
-  for (let i = 0; i < MAX_SESSIONS_PER_LIBRARY + 10; i += 1) {
+  for (let i = 0; i < MAX_SESSIONS + 10; i += 1) {
     await saveSession(storage, 'libA', makeRecord(`s${i}`, i))
   }
   const list = await listSessions(storage, 'libA')
-  assert.equal(list.length, MAX_SESSIONS_PER_LIBRARY)
-  assert.equal(list[0].id, `s${MAX_SESSIONS_PER_LIBRARY + 9}`)
+  assert.equal(list.length, MAX_SESSIONS)
+  assert.equal(list[0].id, `s${MAX_SESSIONS + 9}`)
 })
 
 test('removeSession 删除指定会话（降级路径）', async () => {
@@ -65,17 +67,17 @@ test('removeSession 删除指定会话（降级路径）', async () => {
   assert.deepEqual((await listSessions(storage, 'libA')).map(r => r.id), ['b'])
 })
 
-test('活跃会话 id 按库持久化、互不覆盖（§4）', () => {
+test('活跃会话 id 单桶共享（§4·阶段三：改集合不换桶，仅新建对话轮换）', () => {
   const storage = createMemoryStorage()
   assert.equal(loadActiveSessionId(storage, 'libA'), '')
   saveActiveSessionId(storage, 'libA', 'chat-a')
   saveActiveSessionId(storage, 'libB', 'chat-b')
-  assert.equal(loadActiveSessionId(storage, 'libA'), 'chat-a')
-  assert.equal(loadActiveSessionId(storage, 'libB'), 'chat-b')
-  // 轮换仅改当前库
+  // 单桶：不同库参数写同一活动 id，后写覆盖前写
+  assert.equal(loadActiveSessionId(storage, 'libA'), 'chat-b')
+  // 轮换直接覆盖
   saveActiveSessionId(storage, 'libA', 'chat-a2')
   assert.equal(loadActiveSessionId(storage, 'libA'), 'chat-a2')
-  assert.equal(loadActiveSessionId(storage, 'libB'), 'chat-b')
+  assert.equal(loadActiveSessionId(storage, 'libB'), 'chat-a2')
   // 损坏数据不炸
   storage.setItem(ACTIVE_SESSION_KEY, '{bad json')
   assert.equal(loadActiveSessionId(storage, 'libA'), '')

@@ -2,6 +2,10 @@ import { defineStore } from 'pinia'
 import { docsApiClient } from '../../../shared/apiClient'
 import { clearSessionToken, getSessionToken, setSessionToken } from '../../../shared/session'
 
+/** 多库勾选上限：与 aichat-ui MAX_LIBRARY_SELECTION / 服务端 ANGINEER_MAX_CHAT_LIBRARIES 同值；
+ *  跨包导入不值当，宿主侧本地定义（改一处须三处同步） */
+const MAX_SELECTED_LIBRARIES = 5
+
 export interface SessionUserInfo {
   username: string
   display_name: string
@@ -17,6 +21,8 @@ export const useAuthStore = defineStore('auth', {
     token: getSessionToken(),
     user: null as SessionUserInfo | null,
     activeLibraryId: '',
+    /** 多库勾选集合（阶段三）：activeLibraryId 保持=集合首项（兼容现有单值消费点） */
+    activeLibraryIds: [] as string[],
     checking: false,
     guestMode: true,
   }),
@@ -46,6 +52,7 @@ export const useAuthStore = defineStore('auth', {
       this.token = resp.token
       this.user = resp.user
       this.activeLibraryId = resp.user.default_library || resp.user.libraries[0] || ''
+      this.activeLibraryIds = this.activeLibraryId ? [this.activeLibraryId] : []
       // 登录即并入游客档（计划 §4「登录后并入」）：老账号 +1 条会话，失败不阻断登录
       if (this.guestMode) {
         this.guestMode = false
@@ -67,6 +74,10 @@ export const useAuthStore = defineStore('auth', {
         this.user = me
         if (!this.activeLibraryId || !(me.libraries || []).includes(this.activeLibraryId)) {
           this.activeLibraryId = me.default_library || me.libraries?.[0] || ''
+          this.activeLibraryIds = this.activeLibraryId ? [this.activeLibraryId] : []
+        } else if (!this.activeLibraryIds.length) {
+          // 集合未初始化但单值有效（刷新后恢复）：并入首项
+          this.activeLibraryIds = [this.activeLibraryId]
         }
       } catch (e: any) {
         this.user = null
@@ -79,9 +90,21 @@ export const useAuthStore = defineStore('auth', {
       }
     },
     switchLibrary(id: string) {
+      // 宿主交互入口已改 setActiveLibraries；保留兼容（行为不变：未授权 id 静默忽略，集合收敛为单元素）
       if ((this.user?.libraries ?? []).includes(id)) {
-        this.activeLibraryId = id
+        this.setActiveLibraries([id])
       }
+    },
+    /** 多库勾选（阶段三）：过滤未授权 + 截断到上限（与前端选择器/服务端兜底一致）；空集合=回退默认库 */
+    setActiveLibraries(ids: string[]) {
+      const allowed = new Set(this.libraries)
+      const next = (ids || []).filter((id) => allowed.has(id)).slice(0, MAX_SELECTED_LIBRARIES)
+      // 清空语义（定稿）：空集合 = 回退默认库（与旧 switchLibrary 默认回退一致，
+      // 不出现「无库可检索」态）
+      this.activeLibraryIds = next.length
+        ? next
+        : [this.user?.default_library || this.libraries[0] || 'default']
+      this.activeLibraryId = this.activeLibraryIds[0]
     },
     async logout() {
       try {
@@ -95,6 +118,7 @@ export const useAuthStore = defineStore('auth', {
       this.token = ''
       this.user = null
       this.activeLibraryId = ''
+      this.activeLibraryIds = []
       this.guestMode = true // 登出落回游客态（直接可聊，不再见登录门）
       void fetch('/api/chat/guest', { method: 'POST' }).catch(() => {}) // 补签游客 cookie，下一轮落 g: 桶
     },
@@ -107,6 +131,7 @@ export const useAuthStore = defineStore('auth', {
         this.token = ''
         this.user = null
         this.activeLibraryId = ''
+        this.activeLibraryIds = []
         return
       }
       this.token = t

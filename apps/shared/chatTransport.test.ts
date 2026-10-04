@@ -173,6 +173,51 @@ test('工具返回同时带 citations 与 items 时保留全部 cite 标记', ()
   assert.deepEqual(markers, ['K1', 'K2', 'K3', 'K4', 'K5'])
 })
 
+test('多库溯源（B1）：citations 帧不带 library_id 时按同消息 items 对账回填，items 分支直读 metadata', () => {
+  const steps = buildThinkingTrace([
+    {
+      role: 'assistant',
+      content: '',
+      tool_calls: [{ name: 'knowledge_search', arguments: { query: 'x' } }],
+    },
+    {
+      role: 'tool',
+      name: 'knowledge_search',
+      // citations 帧（docs-core relevant_citations 形态）无 library_id；items 带标源 metadata
+      content: JSON.stringify({
+        total: 2,
+        citations: [
+          { target_id: 't1', doc_id: 'dB', doc_title: 'B规范.pdf', marker: 'K1', page_idx: 0, section_path: '3.1', snippet: 'a', score: 0.9 },
+        ],
+        items: [
+          { item_id: 't1', entity_type: 'content', doc_id: 'dB', title: 'B规范', text: 'a', score: 0.9, metadata: { doc_title: 'B规范.pdf', cite: 'K1', library_id: 'libB' } },
+          { item_id: 't2', entity_type: 'content', doc_id: 'dC', title: 'C手册', text: 'b', score: 0.8, metadata: { doc_title: 'C手册.pdf', cite: 'K2', library_id: 'libC' } },
+        ],
+      }),
+    },
+    {
+      role: 'tool',
+      name: 'table_search',
+      // 无 items 可对账 → library_id 留缺省（宿主按首库回退），不得瞎猜
+      content: JSON.stringify({
+        total: 1,
+        citations: [
+          { target_id: 't9', doc_id: 'dZ', doc_title: '孤儿表.xlsx', marker: 'T1', page_idx: 0, section_path: '', snippet: 'c', score: 0.7 },
+        ],
+      }),
+    },
+  ])
+  const kb = steps.find(step => step.kind === 'result' && step.tool === 'knowledge_search')
+  const byMarker = new Map((kb?.citations || []).map(c => [c.marker, c]))
+  // citations 分支的 K1：按 marker 对账 items 回填 libB（去重保留先入的 citations 条目）
+  assert.equal(byMarker.get('K1')?.library_id, 'libB')
+  // items 分支的 K2：直读 metadata.library_id
+  assert.equal(byMarker.get('K2')?.library_id, 'libC')
+  assert.equal((kb?.citations || []).length, 2)
+  const orphan = steps.find(step => step.kind === 'result' && step.tool === 'table_search')
+  assert.equal(orphan?.citations?.[0]?.library_id, undefined)
+})
+
 test('extractToolResultItems 带出 cite 标记', () => {
   const items = extractToolResultItems(JSON.stringify({
     items: [{
@@ -464,6 +509,72 @@ test('新一轮 turn 开始时清空上一轮流式正文（拒答重答不残�
     for (const s of snapshots.slice(clearIdx + 1)) {
       assert.ok(!s.includes('您是否'), `重答轮之后气泡不应残留中间疑问句: ${s}`)
     }
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('多库载荷：body 带 library_ids 且 library_id=首项', async () => {
+  const events = [
+    { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },
+    {
+      type: 'run_end',
+      run_id: 'r1',
+      turn: 0,
+      payload: { reason: 'completed', turns: 0, notes: [], messages: [] },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  let capturedBody = ''
+  globalThis.fetch = (async (_url: any, init?: any) => {
+    capturedBody = String(init?.body ?? '')
+    return sseResponse(events)
+  }) as typeof fetch
+  try {
+    await defaultAIChatTransport.query(
+      {
+        query: '跨库提问',
+        scene: 'qa',
+        session_id: 's-multi',
+        library_id: 'libA',
+        library_ids: ['libA', 'libB'],
+        doc_ids: [],
+      },
+      {}
+    )
+    const body = JSON.parse(capturedBody)
+    assert.deepEqual(body.library_ids, ['libA', 'libB'])
+    assert.equal(body.library_id, 'libA')
+  } finally {
+    globalThis.fetch = originalFetch
+  }
+})
+
+test('旧宿主兼容：payload 不带 library_ids 时 body 无该键', async () => {
+  const events = [
+    { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },
+    {
+      type: 'run_end',
+      run_id: 'r1',
+      turn: 0,
+      payload: { reason: 'completed', turns: 0, notes: [], messages: [] },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  let capturedBody = ''
+  globalThis.fetch = (async (_url: any, init?: any) => {
+    capturedBody = String(init?.body ?? '')
+    return sseResponse(events)
+  }) as typeof fetch
+  try {
+    await defaultAIChatTransport.query(
+      { query: '单库提问', scene: 'qa', session_id: 's-single', library_id: 'libA', doc_ids: [] },
+      {}
+    )
+    const body = JSON.parse(capturedBody)
+    // 负断言：undefined 会被 JSON.stringify 剥掉；实现若误写空数组此断言必红
+    assert.equal('library_ids' in body, false)
+    assert.equal(body.library_id, 'libA')
   } finally {
     globalThis.fetch = originalFetch
   }

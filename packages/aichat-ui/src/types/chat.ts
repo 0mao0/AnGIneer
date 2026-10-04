@@ -41,6 +41,8 @@ export interface BaseChatCitation {
   content_type?: string
   score: number
   rich_media?: CitationRichMedia
+  /** 归属知识库（阶段三多库）：多库检索时宿主按此定位溯源面板；缺省=宿主按主库回退 */
+  library_id?: string
 }
 
 /**
@@ -83,6 +85,8 @@ export interface AIChatCitation {
   content_type?: string
   score: number
   rich_media?: CitationRichMedia
+  /** 归属知识库（阶段三多库）：多库检索时宿主按此定位溯源面板；缺省=宿主按主库回退 */
+  library_id?: string
 }
 
 export interface AIChatMessage {
@@ -166,6 +170,8 @@ export interface QueryRequest {
   scene?: string
   session_id?: string
   library_id?: string
+  /** 多库勾选（阶段三）：非空时 library_id 兼容=首项；空/缺省=单库（library_id） */
+  library_ids?: string[]
   doc_ids?: string[]
   config?: string
   mode?: string

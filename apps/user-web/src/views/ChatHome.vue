@@ -16,7 +16,8 @@
           :library-id="libraryId"
           :mention-mode="'document'"
           :library-options="authStore.guestMode ? [] : libraryOptions"
-          :library-value="authStore.activeLibraryId"
+          library-multi
+          :library-values="authStore.activeLibraryIds"
           :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
           :suggested-questions="suggestedQuestions"
@@ -26,7 +27,7 @@
           @error="onChatError"
           @messages-change="onMessagesChange"
           @select-citation="handleCitationSelect"
-          @update:library-value="onLibraryChange"
+          @update:library-values="onLibraryChange"
         >
           <template #hero>
             <h1 class="hero-title">今天，想查点什么？</h1>
@@ -224,7 +225,7 @@ const refreshSessions = async () => {
     sessions.value = []
     return
   }
-  sessions.value = await listSessions(localStorage, libraryId.value)
+  sessions.value = await listSessions(localStorage)
 }
 void refreshSessions()
 
@@ -237,6 +238,8 @@ const onMessagesChange = (messages: AIChatMessage[]) => {
     title: deriveTitle(messages),
     updatedAt: Date.now(),
     messages: messages.filter(m => m.role !== 'system'),
+    // 多库会话不属于任何单一库（阶段三）：记录集合供存量导入回填主库
+    libraryIds: authStore.activeLibraryIds.length ? [...authStore.activeLibraryIds] : undefined,
   })
   void refreshSessions()
 }
@@ -245,7 +248,9 @@ const handleCitationSelect = async (citation: AIChatCitation) => {
   if (!citation?.doc_id) return
   panelDocId.value = citation.doc_id
   panelTitle.value = citation.doc_title || citation.doc_id
-  panelLibraryId.value = libraryId.value
+  // 阶段三 B1：文档路径按库分目录，多库会话中非首库引用必须按 citation 自带库定位，
+  // 否则面板 404；后端帧缺标时回退集合首库（=旧行为）
+  panelLibraryId.value = citation.library_id || libraryId.value
   // 预热过则秒返回；未预热（用户极快点引用）则在这里补齐，保证组件挂载后再定位
   await documentViewLoader()
   await nextTick()
@@ -275,13 +280,10 @@ const restoreSession = async (record: ChatSessionRecord) => {
   hasConversation.value = true
 }
 
-/** 切换知识库：知识库集合变了就开新会话（旧会话历史按库分桶，留在原库） */
-const onLibraryChange = async (id: string) => {
-  if (!id || id === authStore.activeLibraryId) return
-  authStore.switchLibrary(id)
-  closePanel()
-  rotateSession()
-  void refreshSessions() // 历史按新库重新列
+/** 改知识库集合（阶段三多选）：D5 会话内改集合不 rotateSession——后端会话级历史跨集合续接 */
+const onLibraryChange = (ids: string[]) => {
+  authStore.setActiveLibraries(ids)
+  void refreshSessions() // 列表=全量单桶（E5），不再按库过滤
 }
 
 /** 活跃会话单一轮换点：生成新 id → 透传组件内部换 key（修双生成 id 互相覆盖，§4） */

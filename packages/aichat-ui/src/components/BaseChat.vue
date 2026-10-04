@@ -307,11 +307,13 @@
               v-if="libraryOptions.length"
               class="library-select"
               size="small"
-              :value="libraryValue || undefined"
-              :disabled="loading || conversationStarted"
+              :value="libraryMulti ? libraryValues : (libraryValue || undefined)"
+              :mode="libraryMulti ? 'multiple' : undefined"
+              :max-tag-count="2"
+              :disabled="loading || (conversationStarted && !libraryMulti)"
               :options="libraryOptions"
               :title="libraryTitle"
-              @change="(value: string) => emit('update:libraryValue', value)"
+              @update:value="onLibrarySelectChange"
             />
           </div>
 
@@ -433,6 +435,7 @@ import {
 import { formatTokenCount } from '../utils/token'
 import { message } from 'ant-design-vue'
 import { QUEUE_LIMIT } from '../composables/useAIChat'
+import { MAX_LIBRARY_SELECTION } from '../constants'
 
 interface Props {
   messages: BaseChatMessage[]
@@ -474,6 +477,10 @@ interface Props {
   libraryOptions?: Array<{ value: string; label: string }>
   /** 当前选中的知识库 id */
   libraryValue?: string
+  /** 多库勾选集合（阶段三）：libraryMulti 为 true 时生效 */
+  libraryValues?: string[]
+  /** 多选模式开关（默认 false=单选，向后兼容） */
+  libraryMulti?: boolean
   /** 生成期间排队的待发送消息 */
   queuedMessages?: QueuedMessage[]
 }
@@ -502,6 +509,8 @@ const props = withDefaults(defineProps<Props>(), {
   mentionLabel: '插入引用 @',
   libraryOptions: () => [],
   libraryValue: '',
+  libraryValues: () => [],
+  libraryMulti: false,
   queuedMessages: () => [],
   interimAnswers: () => [],
   progressStage: '',
@@ -517,6 +526,7 @@ const emit = defineEmits<{
   modelChange: [model: string]
   selectCitation: [citation: BaseChatCitation]
   'update:libraryValue': [libraryId: string]
+  'update:libraryValues': [libraryIds: string[]]
   /** 删除一条待发送消息 */
   removeQueued: [id: string]
   /** 插队：打断当前生成并立即发送该条 */
@@ -536,12 +546,34 @@ const inlineCitationEditorRef = ref<InstanceType<typeof InlineCitationEditor> | 
 const composerValue = ref<BaseChatSendPayload>({ content: '', citations: [] })
 /** 对话「起步」判定：存在非 system 消息即锁库（空会话可自由换库） */
 const conversationStarted = computed(() => props.messages.some(m => m.role !== 'system'))
-const lockedLibraryLabel = computed(
-  () => props.libraryOptions.find(option => option.value === props.libraryValue)?.label || ''
-)
-const libraryTitle = computed(() => conversationStarted.value
-  ? `本对话已锁定知识库${lockedLibraryLabel.value ? ` ${lockedLibraryLabel.value}` : ''}，换库请点新建对话`
-  : '选择知识库（单选）')
+const lockedLibraryLabel = computed(() => {
+  if (!props.libraryMulti) {
+    return props.libraryOptions.find(o => o.value === props.libraryValue)?.label || ''
+  }
+  return props.libraryValues
+    .map(id => props.libraryOptions.find(o => o.value === id)?.label || id)
+    .join('、')
+})
+// 文案定稿：单选=原锁定文案；多选起步后不锁，提示集合语义与续接
+const libraryTitle = computed(() => {
+  if (!props.libraryMulti) {
+    return conversationStarted.value
+      ? `本对话已锁定知识库${lockedLibraryLabel.value ? ` ${lockedLibraryLabel.value}` : ''}，换库请点新建对话`
+      : '选择知识库（单选）'
+  }
+  return conversationStarted.value
+    ? `本轮起检索所选知识库集合（${lockedLibraryLabel.value || '未选'}），上下文跨集合续接`
+    : `选择知识库（可多选，≤${MAX_LIBRARY_SELECTION}）`
+})
+
+const onLibrarySelectChange = (value: string | string[]) => {
+  if (props.libraryMulti) {
+    // 上限前端先拦（服务端 ANGINEER_MAX_CHAT_LIBRARIES 兜底截断）；常量与文案共用
+    emit('update:libraryValues', (Array.isArray(value) ? value : [value]).slice(0, MAX_LIBRARY_SELECTION))
+  } else {
+    emit('update:libraryValue', value as string)
+  }
+}
 const selectedModel = ref(props.defaultModel)
 const expandedCitationKeys = ref<string[]>([])
 

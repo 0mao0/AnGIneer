@@ -29,6 +29,8 @@
     @new-chat="emit('newChat')"
     :library-options="libraryOptions"
     :library-value="libraryValue"
+    :library-multi="libraryMulti"
+    :library-values="libraryValues"
     :queued-messages="queuedMessages"
     :mention-label="mentionMode === 'document' ? '提及文档 @' : '插入引用 @'"
     @send="handleSend"
@@ -40,6 +42,7 @@
     @ready="handleReady"
     @select-citation="handleSelectCitation"
     @update:library-value="emit('update:libraryValue', $event)"
+    @update:library-values="emit('update:libraryValues', $event)"
   >
     <template #hero><slot name="hero" /></template>
     <template v-if="$slots['hero-below']" #hero-below><slot name="hero-below" /></template>
@@ -98,6 +101,10 @@ interface Props {
   libraryOptions?: Array<{ value: string; label: string }>
   /** 当前选中的知识库 id */
   libraryValue?: string
+  /** 多库勾选集合（阶段三）；配合 library-multi 启用多选选择器 */
+  libraryValues?: string[]
+  /** 多选模式开关（默认 false=单选，向后兼容） */
+  libraryMulti?: boolean
   /** 模型选择器显隐（默认 true；游客态宿主传 false，不展示可选模型） */
   showModelSelect?: boolean
 }
@@ -122,6 +129,8 @@ const props = withDefaults(defineProps<Props>(), {
   mentionMode: 'reference',
   libraryOptions: () => [],
   libraryValue: '',
+  libraryValues: () => [],
+  libraryMulti: false,
   showModelSelect: true
 })
 
@@ -137,10 +146,13 @@ const emit = defineEmits<{
   selectCitation: [citation: AIChatCitation]
   messagesChange: [messages: AIChatMessage[]]
   'update:libraryValue': [libraryId: string]
+  'update:libraryValues': [libraryIds: string[]]
 }>()
 
 const sessionIdRef = computed(() => props.sessionId)
 const libraryIdRef = computed(() => props.libraryId)
+// 多库集合（阶段三）：空数组=未提供，useAIChat 载荷不带 library_ids（旧宿主逐位不变）
+const libraryIdsRef = computed(() => props.libraryValues)
 
 const {
   messages,
@@ -165,6 +177,7 @@ const {
   defaultModel: props.defaultModel,
   systemPrompt: props.systemPrompt,
   libraryId: libraryIdRef,
+  libraryIds: libraryIdsRef,
   scene: props.scene,
   sessionId: sessionIdRef,
   getContextItems: () => props.contextItems,

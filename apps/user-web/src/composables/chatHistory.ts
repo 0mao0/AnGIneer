@@ -27,16 +27,22 @@ export interface ChatSessionRecord {
   messages: unknown[]
   /** 服务端列表返回的消息条数（抽屉展示用；缓存降级时缺省走 messages.length） */
   messageCount?: number
+  /** 多库勾选集合（阶段三）：多库会话不属于任何单一库，存量导入按首项回填 library_id */
+  libraryIds?: string[]
 }
 
 type StorageLike = Pick<Storage, 'getItem' | 'setItem'>
 
 export const CHAT_HISTORY_STORAGE_KEY = 'ag_chat_history_v1'
-export const MAX_SESSIONS_PER_LIBRARY = 50
+/** 历史抽屉容量上限（阶段三单桶后=全局总量，名字已去 PER_LIBRARY） */
+export const MAX_SESSIONS = 50
 
-/** 活跃会话 id 按库持久化（§4）：挂载复用、仅「新建对话/换库」轮换 */
+/** 活跃会话 id 持久化（§4）：挂载复用、仅「新建对话/换库」轮换；阶段三起单桶（key=__all__） */
 export const ACTIVE_SESSION_KEY = 'ag_active_session_v1'
 const IMPORTED_KEY = 'ag_chat_imported_v1'
+
+/** 阶段三：本地缓存改单桶——多库会话不属于任何单一库，按库分键会丢会话 */
+const ALL_SESSIONS_SCOPE = '__all__'
 
 // ---------------------------------------------------------------- localStorage 缓存层
 
@@ -88,47 +94,48 @@ export function deriveTitle(messages: Array<{ role?: string; content?: unknown }
   return text.length > 30 ? `${text.slice(0, 30)}…` : text
 }
 
-/** 指定库的会话列表（更新时间倒序）；损坏条目被丢弃并顺带写回清理（缓存层） */
-function listSessionsLocal(storage: StorageLike, libraryId: string): ChatSessionRecord[] {
+/** 会话列表（更新时间倒序）；损坏条目被丢弃并顺带写回清理（缓存层）。
+ *  阶段三：库参数归一为 ALL_SESSIONS_SCOPE（单桶），签名保留、调用点不动。 */
+function listSessionsLocal(storage: StorageLike, _libraryId?: string): ChatSessionRecord[] {
   const all = readAll(storage)
-  const list = Array.isArray(all[libraryId]) ? all[libraryId] : []
+  const list = Array.isArray(all[ALL_SESSIONS_SCOPE]) ? all[ALL_SESSIONS_SCOPE] : []
   const valid = list.filter(record =>
     record && typeof record === 'object' &&
     typeof record.id === 'string' &&
     Array.isArray(record.messages)
   )
   if (valid.length !== list.length) {
-    all[libraryId] = valid
+    all[ALL_SESSIONS_SCOPE] = valid
     writeAll(storage, all)
   }
   return [...valid].sort((a, b) => b.updatedAt - a.updatedAt)
 }
 
-function saveSessionLocal(storage: StorageLike, libraryId: string, record: ChatSessionRecord): void {
+function saveSessionLocal(storage: StorageLike, _libraryId: string | undefined, record: ChatSessionRecord): void {
   const all = readAll(storage)
-  const list = Array.isArray(all[libraryId]) ? all[libraryId] : []
+  const list = Array.isArray(all[ALL_SESSIONS_SCOPE]) ? all[ALL_SESSIONS_SCOPE] : []
   const next = [...list.filter(item => item?.id !== record.id), record]
     .sort((a, b) => b.updatedAt - a.updatedAt)
-    .slice(0, MAX_SESSIONS_PER_LIBRARY)
-  all[libraryId] = next
+    .slice(0, MAX_SESSIONS)
+  all[ALL_SESSIONS_SCOPE] = next
   writeAll(storage, all)
 }
 
-function removeSessionLocal(storage: StorageLike, libraryId: string, sessionId: string): void {
+function removeSessionLocal(storage: StorageLike, _libraryId: string | undefined, sessionId: string): void {
   const all = readAll(storage)
-  const list = Array.isArray(all[libraryId]) ? all[libraryId] : []
-  all[libraryId] = list.filter(item => item?.id !== sessionId)
+  const list = Array.isArray(all[ALL_SESSIONS_SCOPE]) ? all[ALL_SESSIONS_SCOPE] : []
+  all[ALL_SESSIONS_SCOPE] = list.filter(item => item?.id !== sessionId)
   writeAll(storage, all)
 }
 
 // ---------------------------------------------------------------- HTTP 真相源
 
-/** 会话列表：HTTP 优先，失败降级 localStorage 缓存 */
-export async function listSessions(storage: StorageLike, libraryId: string): Promise<ChatSessionRecord[]> {
+/** 会话列表：HTTP 优先，失败降级 localStorage 缓存。
+ *  阶段三：列表=全量（远端不再附 library_id 查询参数，前端不按库过滤）。 */
+export async function listSessions(storage: StorageLike, libraryId?: string): Promise<ChatSessionRecord[]> {
   try {
     const data = await (await api()).get<{ sessions?: Array<Record<string, any>> }>(
-      '/chat/sessions',
-      { params: { library_id: libraryId } }
+      '/chat/sessions'
     )
     const records: ChatSessionRecord[] = (data.sessions || []).map(s => ({
       id: String(s.id),
@@ -137,33 +144,39 @@ export async function listSessions(storage: StorageLike, libraryId: string): Pro
       updatedAt: Number(s.updatedAt) || 0,
       messages: [],
       messageCount: Number(s.messageCount ?? 0),
+      // 服务端多库字段宽松透传（snake/camel 双形态），供存量导入回填主库
+      libraryIds: Array.isArray(s.libraryIds)
+        ? s.libraryIds.map(String)
+        : Array.isArray(s.library_ids)
+          ? s.library_ids.map(String)
+          : undefined,
     }))
     // 缓存镜像：保留本地消息数组（HTTP 详情失败时 restore 可用）
-    const local = listSessionsLocal(storage, libraryId)
+    const local = listSessionsLocal(storage)
     const localById = new Map(local.map(r => [r.id, r]))
     const merged = records.map(r => {
       const cached = localById.get(r.id)
-      return cached ? { ...r, messages: cached.messages } : r
+      return cached ? { ...r, messages: cached.messages, libraryIds: r.libraryIds ?? cached.libraryIds } : r
     })
     const all = readAll(storage)
-    all[libraryId] = merged.slice(0, MAX_SESSIONS_PER_LIBRARY)
+    all[ALL_SESSIONS_SCOPE] = merged.slice(0, MAX_SESSIONS)
     writeAll(storage, all)
     void importMissingSessions(storage, libraryId, merged)
     return merged
   } catch {
-    return listSessionsLocal(storage, libraryId)
+    return listSessionsLocal(storage)
   }
 }
 
 /** 存量导入（§4）：按 id 差集把 localStorage 有而服务端没有的会话补录，幂等 */
 async function importMissingSessions(
   storage: StorageLike,
-  libraryId: string,
+  libraryId: string | undefined,
   serverRecords: ChatSessionRecord[]
 ): Promise<void> {
   const serverIds = new Set(serverRecords.map(r => r.id))
   const imported = readImportedIds(storage)
-  const candidates = listSessionsLocal(storage, libraryId).filter(
+  const candidates = listSessionsLocal(storage).filter(
     r => !serverIds.has(r.id) && !imported.has(r.id) && r.messages.length
   )
   const done: string[] = []
@@ -174,7 +187,8 @@ async function importMissingSessions(
         {
           session_id: record.id,
           scene: record.scene || 'qa',
-          library_id: libraryId,
+          // 多库会话不属于单一库：主库=记录集合首项，缺省回退调用参数/default
+          library_id: record.libraryIds?.[0] || libraryId || 'default',
           messages: (record.messages as Array<{ role?: string }>).filter(
             m => m && (m.role === 'user' || m.role === 'assistant')
           ),
@@ -238,28 +252,33 @@ export async function removeSession(storage: StorageLike, libraryId: string, ses
 /** 同步读取本地缓存的会话记录（含消息）：刷新时先渲染本地缓存消除 hero 闪烁，再拉服务端对账 */
 export function loadSessionRecordLocal(
   storage: StorageLike,
-  libraryId: string,
+  _libraryId: string | undefined,
   sessionId: string
 ): ChatSessionRecord | undefined {
-  return listSessionsLocal(storage, libraryId).find(record => record.id === sessionId)
+  return listSessionsLocal(storage).find(record => record.id === sessionId)
 }
 
-export function loadActiveSessionId(storage: StorageLike, libraryId: string): string {
+/** 活动会话 id（阶段三单桶）：全部会话共享一个活动 id，库参数归一为 __all__ */
+export function loadActiveSessionId(storage: StorageLike, _libraryId?: string): string {
   try {
     const raw = storage.getItem(ACTIVE_SESSION_KEY)
     const parsed = raw ? JSON.parse(raw) : {}
-    const id = parsed?.[libraryId]
+    const id = parsed?.[ALL_SESSIONS_SCOPE]
     return typeof id === 'string' && id ? id : ''
   } catch {
     return ''
   }
 }
 
-export function saveActiveSessionId(storage: StorageLike, libraryId: string, sessionId: string): void {
+export function saveActiveSessionId(
+  storage: StorageLike,
+  _libraryId: string | undefined,
+  sessionId: string
+): void {
   try {
     const raw = storage.getItem(ACTIVE_SESSION_KEY)
     const parsed = raw ? JSON.parse(raw) : {}
-    parsed[libraryId] = sessionId
+    parsed[ALL_SESSIONS_SCOPE] = sessionId
     storage.setItem(ACTIVE_SESSION_KEY, JSON.stringify(parsed))
   } catch {
     // 活跃 id 丢失的最坏结果 = 新建会话，不阻断

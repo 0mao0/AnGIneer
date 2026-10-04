@@ -45,6 +45,8 @@ export const defaultAIChatTransport = {
         scene: payload.scene || 'qa',
         session_id: payload.session_id,
         library_id: payload.library_id || 'default',
+        // 多库勾选（阶段三）：仅显式提供时携带；旧宿主不带该键，行为逐位不变
+        ...(payload.library_ids?.length ? { library_ids: payload.library_ids } : {}),
         doc_ids: payload.doc_ids || [],
         inline_citations: payload.inline_citations || [],
       }),
@@ -279,36 +281,61 @@ function collectCitationsFromToolMessages(
     } catch {
       continue
     }
+    // 阶段三 B1：raw.citations 帧不带 library_id（docs-core relevant_citations 无此键），
+    // 且去重时 citations 先入会挤掉 items 分支——用同消息 items 的 metadata.library_id
+    // （多库扇出逐图标源，retrieve_service 已证）按 marker→target→doc 对账回填
+    const items = Array.isArray(raw?.items) ? raw.items : []
+    const libByMarker = new Map<string, string>()
+    const libByTarget = new Map<string, string>()
+    const libByDoc = new Map<string, string>()
+    for (const item of items) {
+      const lib = String(item?.metadata?.library_id || '').trim()
+      if (!lib) continue
+      const cite = String(item?.metadata?.cite || '')
+      const target = String(item?.item_id || item?.id || '')
+      const doc = String(item?.doc_id || '')
+      if (cite && !libByMarker.has(cite)) libByMarker.set(cite, lib)
+      if (target && !libByTarget.has(target)) libByTarget.set(target, lib)
+      if (doc && !libByDoc.has(doc)) libByDoc.set(doc, lib)
+    }
+    const lookupLib = (marker: string, targetId: string, docId: string): string | undefined =>
+      (marker && libByMarker.get(marker))
+      || (targetId && libByTarget.get(targetId))
+      || (docId && libByDoc.get(docId))
+      || undefined
     if (Array.isArray(raw?.citations) && raw.citations.length > 0) {
       for (const citation of raw.citations) {
+        const targetId = String(citation.target_id || citation.step_id || '')
+        const marker = String(citation.marker || citation.cite || '')
+        const docId = String(citation.doc_id || '')
         citations.push({
-          target_id: String(citation.target_id || citation.step_id || ''),
+          target_id: targetId,
           target_type: 'content',
-          doc_id: String(citation.doc_id || ''),
+          doc_id: docId,
           doc_title: String(citation.doc_title || citation.source || ''),
-          marker: String(citation.marker || citation.cite || ''),
+          marker,
           page_idx: Number(citation.page_idx || 0),
           section_path: String(citation.section_path || ''),
           snippet: String(citation.snippet || ''),
           score: Number(citation.score || 0),
+          library_id: lookupLib(marker, targetId, docId),
         })
       }
     }
-    if (Array.isArray(raw?.items)) {
-      for (const item of raw.items) {
-        if (!item?.item_id) continue
-        citations.push({
-          target_id: String(item.item_id || ''),
-          target_type: String(item.entity_type || 'content'),
-          doc_id: String(item.doc_id || ''),
-          doc_title: String(item.metadata?.doc_title || item.title || ''),
-          marker: String(item.metadata?.cite || ''),
-          page_idx: Number(item.metadata?.page_idx || 0),
-          section_path: String(item.metadata?.section_path || ''),
-          snippet: String(item.text || ''),
-          score: Number(item.score || 0),
-        })
-      }
+    for (const item of items) {
+      if (!item?.item_id) continue
+      citations.push({
+        target_id: String(item.item_id || ''),
+        target_type: String(item.entity_type || 'content'),
+        doc_id: String(item.doc_id || ''),
+        doc_title: String(item.metadata?.doc_title || item.title || ''),
+        marker: String(item.metadata?.cite || ''),
+        page_idx: Number(item.metadata?.page_idx || 0),
+        section_path: String(item.metadata?.section_path || ''),
+        snippet: String(item.text || ''),
+        score: Number(item.score || 0),
+        library_id: String(item.metadata?.library_id || '') || undefined,
+      })
     }
   }
   // 去重

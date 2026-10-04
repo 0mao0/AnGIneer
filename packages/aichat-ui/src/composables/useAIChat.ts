@@ -155,6 +155,8 @@ export function useAIChat(options?: {
   contextConfig?: Partial<AIChatContextConfig>
   systemPrompt?: string
   libraryId?: string | Ref<string>
+  /** 多库勾选集合（阶段三）：非空时载荷带 library_ids；宿主保证 libraryId=集合首项 */
+  libraryIds?: Ref<string[]>
   scene?: string
   sessionId?: string | Ref<string>
   getContextItems?: () => Array<{ id: string; title: string }>
@@ -400,6 +402,7 @@ export function useAIChat(options?: {
       .filter(binding => String(binding.reference?.targetType || '') === 'document')
       .map(binding => String(binding.reference?.docId || binding.reference?.targetId || ''))
       .filter(Boolean)
+    const selectedLibraryIds = unref(options?.libraryIds) ?? []
     const queryRequest: QueryRequest = {
       query: userMessage.content,
       scene,
@@ -409,6 +412,7 @@ export function useAIChat(options?: {
       // 且列表出现同会话双 id（2026-09-25 排查定位）
       session_id: currentSessionKey.value.slice(buildSessionKey(scene, '').length),
       library_id: String(unref(options?.libraryId) || 'default'),
+      library_ids: selectedLibraryIds.length ? [...selectedLibraryIds] : undefined,
       doc_ids: [...new Set([...contextItems.map(item => item.id), ...mentionedDocIds])],
       inline_citations: inlineCitations,
     }
@@ -503,7 +507,9 @@ export function useAIChat(options?: {
           content: citation.content,
           content_type: citation.content_type,
           score: citation.score,
-          rich_media: citation.rich_media
+          rich_media: citation.rich_media,
+          // 阶段三：归属库随消息持久化，宿主按它定位溯源面板（多库下非首库文档不再 404）
+          library_id: citation.library_id
         })),
         strategy: payload.strategy,
         task_type: payload.task_type,
