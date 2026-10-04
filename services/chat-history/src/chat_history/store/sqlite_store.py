@@ -3,11 +3,14 @@
 DAO 形态照 services/shared/src/shared/user_model.py：函数式 DAO + WAL + init_db()。
 表结构以计划 §1 为准；`scope_hash` 与引擎池 key 同算法（angineer_core.history_store.scope_hash_for）。
 
-关键语义（计划 D10/D11/§8）：
-- ``seq`` 服务端唯一权威：append 在事务内按 (owner_key, session_id, scope_hash) 取 MAX+1 分配；
+关键语义（计划 D10/D11/§8，阶段三 D6 修订）：
+- ``seq`` 服务端唯一权威：append 在事务内按 (owner_key, session_id) 取 MAX+1 分配
+  （chat_messages PK 不含 scope_hash，换集合续接同一会话 seq 连号）；
 - append 落库 owner 以 chat_sessions 行**当前归属**为准——claim 改挂后，在跑 run 的
-  后续写入自动跟随新 owner，不产生孤儿行（§8「落库 owner 以会话行当前归属为准」）；
-- load 只在会话池新建 session 时由组装层调用一次，按 scope_hash 过滤。
+  后续写入自动跟随新 owner，不产生孤儿行（§8「落库 owner 以会话行当前归属为准」；
+  阶段三起会话行查找键改 (owner,session) 精确 + session_id 最近行回退，语义保持）；
+- load 只在会话池新建 session 时由组装层调用一次；会话级全量回灌、不过滤 scope
+    （阶段三 D6：scope_hash 降级为消息级来源标记，只作审计回溯不参与读取过滤）。
 """
 import json
 import logging
@@ -38,24 +41,9 @@ def _get_conn(db_path: Optional[str] = None) -> sqlite3.Connection:
     return conn
 
 
-def init_db(db_path: Optional[str] = None) -> None:
-    conn = _get_conn(db_path)
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS chat_sessions (
-            owner_key TEXT NOT NULL,
-            session_id TEXT NOT NULL,
-            scene TEXT NOT NULL DEFAULT 'qa',
-            library_id TEXT NOT NULL DEFAULT 'default',
-            doc_ids_json TEXT NOT NULL DEFAULT '[]',
-            scope_hash TEXT NOT NULL DEFAULT '',
-            title TEXT NOT NULL DEFAULT '',
-            created_at TEXT NOT NULL,
-            updated_at TEXT NOT NULL,
-            PRIMARY KEY (owner_key, session_id)
-        )
-    """)
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS chat_messages (
+# chat_messages DDL 单一真相源：init_db 新装与 _migrate_scope_out_of_pk 重建共用，
+# 防日后加列只改一处、另一处静默丢列。
+_CHAT_MESSAGES_BODY = """(
             owner_key TEXT NOT NULL,
             session_id TEXT NOT NULL,
             scope_hash TEXT NOT NULL DEFAULT '',
@@ -64,31 +52,99 @@ def init_db(db_path: Optional[str] = None) -> None:
             content TEXT NOT NULL DEFAULT '',
             meta_json TEXT NOT NULL DEFAULT '{}',
             created_at TEXT NOT NULL,
-            PRIMARY KEY (owner_key, session_id, scope_hash, seq)
+            PRIMARY KEY (owner_key, session_id, seq)
+        )"""
+
+
+def init_db(db_path: Optional[str] = None) -> None:
+    conn = _get_conn(db_path)
+    try:
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS chat_sessions (
+                owner_key TEXT NOT NULL,
+                session_id TEXT NOT NULL,
+                scene TEXT NOT NULL DEFAULT 'qa',
+                library_id TEXT NOT NULL DEFAULT 'default',
+                doc_ids_json TEXT NOT NULL DEFAULT '[]',
+                scope_hash TEXT NOT NULL DEFAULT '',
+                title TEXT NOT NULL DEFAULT '',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                PRIMARY KEY (owner_key, session_id)
+            )
+        """)
+        conn.execute(f"CREATE TABLE IF NOT EXISTS chat_messages {_CHAT_MESSAGES_BODY}")
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS chat_runs (
+                run_id TEXT PRIMARY KEY,
+                owner_key TEXT NOT NULL,
+                session_id TEXT NOT NULL,
+                model TEXT NOT NULL DEFAULT '',
+                latency_ms INTEGER NOT NULL DEFAULT 0,
+                status TEXT NOT NULL DEFAULT '',
+                error TEXT NOT NULL DEFAULT '',
+                created_at TEXT NOT NULL
+            )
+        """)
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS chat_guests (
+                guest_id TEXT PRIMARY KEY,
+                created_at TEXT NOT NULL,
+                last_seen_at TEXT NOT NULL,
+                claimed_by_user_id INTEGER
+            )
+        """)
+        _migrate_scope_out_of_pk(conn)
+        _migrate_sessions_library_ids(conn)
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def _migrate_scope_out_of_pk(conn: sqlite3.Connection) -> None:
+    """旧库 chat_messages PK 含 scope_hash → 重建为 (owner,session,seq) 并按会话重排 seq。
+
+    幂等：新表 scope_hash 不在 PK（pk=0）即跳过。重排按 (scope_hash, seq) 顺序保序，
+    与旧 get_messages 的 ORDER BY scope_hash, seq 读取顺序一致。
+    """
+    info = conn.execute("PRAGMA table_info(chat_messages)").fetchall()
+    if not info:
+        return
+    pk_by_col = {row["name"]: row["pk"] for row in info}
+    if pk_by_col.get("scope_hash", 0) == 0:
+        return
+    rows = conn.execute(
+        "SELECT owner_key, session_id, scope_hash, seq, role, content, meta_json, created_at"
+        " FROM chat_messages ORDER BY owner_key, session_id, scope_hash, seq"
+    ).fetchall()
+    conn.execute("ALTER TABLE chat_messages RENAME TO chat_messages_old")
+    conn.execute(f"CREATE TABLE chat_messages {_CHAT_MESSAGES_BODY}")
+    next_seq: Dict[tuple, int] = {}
+    for row in rows:
+        key = (row["owner_key"], row["session_id"])
+        next_seq[key] = next_seq.get(key, 0) + 1
+        conn.execute(
+            "INSERT INTO chat_messages"
+            " (owner_key, session_id, scope_hash, seq, role, content, meta_json, created_at)"
+            " VALUES (?,?,?,?,?,?,?,?)",
+            (row["owner_key"], row["session_id"], row["scope_hash"], next_seq[key],
+             row["role"], row["content"], row["meta_json"], row["created_at"]),
         )
-    """)
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS chat_runs (
-            run_id TEXT PRIMARY KEY,
-            owner_key TEXT NOT NULL,
-            session_id TEXT NOT NULL,
-            model TEXT NOT NULL DEFAULT '',
-            latency_ms INTEGER NOT NULL DEFAULT 0,
-            status TEXT NOT NULL DEFAULT '',
-            error TEXT NOT NULL DEFAULT '',
-            created_at TEXT NOT NULL
-        )
-    """)
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS chat_guests (
-            guest_id TEXT PRIMARY KEY,
-            created_at TEXT NOT NULL,
-            last_seen_at TEXT NOT NULL,
-            claimed_by_user_id INTEGER
-        )
-    """)
-    conn.commit()
-    conn.close()
+    conn.execute("DROP TABLE chat_messages_old")
+
+
+def _migrate_sessions_library_ids(conn: sqlite3.Connection) -> None:
+    """chat_sessions 加 library_ids_json（阶段三）；存量行回填 [library_id]。"""
+    cols = {row["name"] for row in conn.execute("PRAGMA table_info(chat_sessions)").fetchall()}
+    if "library_ids_json" in cols:
+        return
+    conn.execute(
+        "ALTER TABLE chat_sessions ADD COLUMN library_ids_json TEXT NOT NULL DEFAULT '[]'"
+    )
+    conn.execute(
+        "UPDATE chat_sessions SET library_ids_json = json_array(library_id)"
+        " WHERE library_ids_json = '[]'"
+    )
 
 
 # ---------------------------------------------------------------- 序列化
@@ -183,12 +239,13 @@ class SqliteHistoryStore:
     # ------------------------------------------------------------ HistoryStore 协议
 
     def load(self, owner: str, session_id: str, scope_hash: str) -> List[AgentMessage]:
+        """会话级加载（阶段三 D6）：scope_hash 参数保留仅为协议兼容，不参与过滤。"""
         conn = _get_conn(self._db_path)
         try:
             rows = conn.execute(
                 "SELECT role, content, meta_json FROM chat_messages"
-                " WHERE owner_key=? AND session_id=? AND scope_hash=? ORDER BY seq",
-                (owner, session_id, scope_hash),
+                " WHERE owner_key=? AND session_id=? ORDER BY seq",
+                (owner, session_id),
             ).fetchall()
             return [_row_to_message(r) for r in rows]
         finally:
@@ -204,7 +261,8 @@ class SqliteHistoryStore:
     ) -> List[int]:
         """追加一轮 run 的消息 + 审计行，返回各消息的 seq（D10：服务端唯一权威）。
 
-        落库 owner 以 chat_sessions 行当前归属为准（§8：claim 改挂后跟随新 owner）。
+        落库 owner 以 chat_sessions 行当前归属为准（§8：claim 改挂后跟随新 owner；
+        阶段三起查找键改 (owner,session) 精确 + session_id 最近行回退，语义保持）。
         """
         if not messages:
             return []
@@ -212,26 +270,46 @@ class SqliteHistoryStore:
         conn = _get_conn(self._db_path)
         try:
             with conn:
+                # 会话行查找（评审 P1-3）：先按 (owner, session_id) 精确命中；
+                # 未命中回退按 session_id 取最近行——保住现码承诺的 claim 跟随语义
+                # （§8：claim 改挂后，在跑 run 的旧 owner 后续写入自动跟随新 owner；
+                # 只按 (owner, session) 找会 INSERT 出重复会话行、消息分裂）
                 row = conn.execute(
-                    "SELECT owner_key FROM chat_sessions WHERE session_id=? AND scope_hash=?",
-                    (session_id, scope_hash),
+                    "SELECT owner_key FROM chat_sessions WHERE owner_key=? AND session_id=?",
+                    (owner, session_id),
                 ).fetchone()
-                eff_owner = row["owner_key"] if row else owner
                 if row is None:
-                    conn.execute(
-                        "INSERT OR IGNORE INTO chat_sessions"
-                        " (owner_key, session_id, scene, library_id, doc_ids_json, scope_hash,"
-                        " title, created_at, updated_at)"
-                        " VALUES (?,?,?,?,?,?,?,?,?)",
-                        (eff_owner, session_id, run_meta.get("scene") or "qa",
-                         run_meta.get("library_id") or "default",
-                         json.dumps(run_meta.get("doc_ids") or [], ensure_ascii=False),
-                         scope_hash, "", now, now),
-                    )
+                    row = conn.execute(
+                        "SELECT owner_key FROM chat_sessions WHERE session_id=?"
+                        " ORDER BY updated_at DESC LIMIT 1",
+                        (session_id,),
+                    ).fetchone()
+                eff_owner = row["owner_key"] if row else owner
+                # 非 list（脏值/字符串等）视为缺失，走 library_id 回退
+                raw_ids = run_meta.get("library_ids")
+                library_ids = list(raw_ids) if isinstance(raw_ids, list) else []
+                if not library_ids:
+                    library_ids = [run_meta.get("library_id") or "default"]
+                conn.execute(
+                    "INSERT INTO chat_sessions"
+                    " (owner_key, session_id, scene, library_id, doc_ids_json, scope_hash,"
+                    " library_ids_json, title, created_at, updated_at)"
+                    " VALUES (?,?,?,?,?,?,?,?,?,?)"
+                    " ON CONFLICT(owner_key, session_id) DO UPDATE SET"
+                    " library_id=excluded.library_id, doc_ids_json=excluded.doc_ids_json,"
+                    " scope_hash=excluded.scope_hash, library_ids_json=excluded.library_ids_json,"
+                    " updated_at=excluded.updated_at",
+                    (eff_owner, session_id, run_meta.get("scene") or "qa",
+                     run_meta.get("library_id") or library_ids[0],
+                     json.dumps(run_meta.get("doc_ids") or [], ensure_ascii=False),
+                     scope_hash,
+                     json.dumps(library_ids, ensure_ascii=False),
+                     "", now, now),
+                )
                 base = conn.execute(
                     "SELECT COALESCE(MAX(seq), 0) AS m FROM chat_messages"
-                    " WHERE owner_key=? AND session_id=? AND scope_hash=?",
-                    (eff_owner, session_id, scope_hash),
+                    " WHERE owner_key=? AND session_id=?",
+                    (eff_owner, session_id),
                 ).fetchone()["m"]
                 seqs: List[int] = []
                 for i, message in enumerate(messages):
@@ -244,10 +322,7 @@ class SqliteHistoryStore:
                         (eff_owner, session_id, scope_hash, seq, message.role,
                          message.content, _message_to_meta_json(message), now),
                     )
-                conn.execute(
-                    "UPDATE chat_sessions SET updated_at=? WHERE owner_key=? AND session_id=?",
-                    (now, eff_owner, session_id),
-                )
+                # updated_at 已由上面的 upsert（含 DO UPDATE 分支）刷新，不再重复 UPDATE
                 title_row = conn.execute(
                     "SELECT title FROM chat_sessions WHERE owner_key=? AND session_id=?",
                     (eff_owner, session_id),
@@ -279,12 +354,16 @@ class SqliteHistoryStore:
         conn = _get_conn(self._db_path)
         try:
             if library_id:
+                # 阶段三：多库会话按 library_ids_json 成员判定（命中任一勾选库即列出）
                 rows = conn.execute(
                     "SELECT s.*, (SELECT COUNT(*) FROM chat_messages m"
                     " WHERE m.owner_key=s.owner_key AND m.session_id=s.session_id) AS message_count"
-                    " FROM chat_sessions s WHERE s.owner_key=? AND s.library_id=?"
-                    " ORDER BY s.updated_at DESC LIMIT ?",
-                    (owner, library_id, limit),
+                    " FROM chat_sessions s WHERE s.owner_key=? AND ("
+                    " s.library_id=?"
+                    " OR EXISTS (SELECT 1 FROM json_each(s.library_ids_json)"
+                    " WHERE json_each.value=?)"
+                    ") ORDER BY s.updated_at DESC LIMIT ?",
+                    (owner, library_id, library_id, limit),
                 ).fetchall()
             else:
                 rows = conn.execute(
@@ -315,7 +394,7 @@ class SqliteHistoryStore:
         try:
             rows = conn.execute(
                 "SELECT seq, role, content, meta_json FROM chat_messages"
-                " WHERE owner_key=? AND session_id=? ORDER BY scope_hash, seq",
+                " WHERE owner_key=? AND session_id=? ORDER BY seq",
                 (owner, session_id),
             ).fetchall()
             return [dict(r) for r in rows]
@@ -339,12 +418,18 @@ class SqliteHistoryStore:
             conn.close()
 
     def delete_sessions_by_library(self, owner: str, library_id: str) -> int:
+        # 阶段三：成员判定——多库会话勾选任一并触发删除即整会话清掉
+        membership = (
+            " AND (library_id=?"
+            " OR EXISTS (SELECT 1 FROM json_each(chat_sessions.library_ids_json)"
+            " WHERE json_each.value=?))"
+        )
         conn = _get_conn(self._db_path)
         try:
             with conn:
                 ids = [r["session_id"] for r in conn.execute(
-                    "SELECT session_id FROM chat_sessions WHERE owner_key=? AND library_id=?",
-                    (owner, library_id),
+                    "SELECT session_id FROM chat_sessions WHERE owner_key=?" + membership,
+                    (owner, library_id, library_id),
                 ).fetchall()]
                 for sid in ids:
                     conn.execute(
@@ -352,8 +437,8 @@ class SqliteHistoryStore:
                         (owner, sid),
                     )
                 conn.execute(
-                    "DELETE FROM chat_sessions WHERE owner_key=? AND library_id=?",
-                    (owner, library_id),
+                    "DELETE FROM chat_sessions WHERE owner_key=?" + membership,
+                    (owner, library_id, library_id),
                 )
             return len(ids)
         finally:

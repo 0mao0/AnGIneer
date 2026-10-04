@@ -39,6 +39,8 @@ def _session_out(row: Dict[str, Any]) -> Dict[str, Any]:
         "id": row["session_id"],
         "scene": row.get("scene") or "qa",
         "libraryId": row.get("library_id") or "default",
+        # 阶段三：多库集合出参（空集合回退 [libraryId]，旧行兼容）
+        "libraryIds": json.loads(row.get("library_ids_json") or "[]") or [row.get("library_id") or "default"],
         "title": row.get("title") or "未命名对话",
         "createdAt": _iso_to_ms(row.get("created_at") or ""),
         "updatedAt": _iso_to_ms(row.get("updated_at") or ""),

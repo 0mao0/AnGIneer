@@ -1,7 +1,8 @@
 """聊天历史存储测试（计划 §5 步 1/§6）。
 
 覆盖：HistoryStore 协议两方法、round-trip（含 tool_calls/meta）、seq 服务端权威、
-行级隔离（跨 owner 查不到）、scope_hash 过滤、回灌仅池内新建触发一次（D11）、
+行级隔离（跨 owner 查不到）、load 会话级全量回灌（阶段三 D6：scope_hash 降级为
+消息级来源标记）、回灌仅池内新建触发一次（D11）、
 claim 改挂与在跑 run 跟随（§8，步 2 语义先行验证 DAO 层）。
 """
 import os
@@ -86,13 +87,25 @@ class StoreProtocolTests(unittest.TestCase):
         self.assertEqual(self.store.load("u:1", "s2", self.scope), [])
 
     def test_scope_hash_filtering(self):
+        # 阶段三 D6：load 会话级全量回灌，scope_hash 不再参与过滤，只降级为消息级来源标记。
+        # （旧期望「换 scope 互不串」已按 spec 作废：三格 2/2/0 → 全量 4。）
         other_scope = scope_hash_for("lib-a", [])
         self.store.append("u:1", "s1", self.scope, _msgs(), {"run_id": "a", "status": "completed"})
         self.store.append("u:1", "s1", other_scope, _msgs(), {"run_id": "b", "status": "completed"})
-        self.assertEqual(len(self.store.load("u:1", "s1", self.scope)), 2)
-        self.assertEqual(len(self.store.load("u:1", "s1", other_scope)), 2)
-        # 换库/文档集 → 新 scope，互不串
-        self.assertEqual(self.store.load("u:1", "s1", scope_hash_for("default", ["d1"])), [])
+        # 任传 scope_hash 都返回会话全量，且跨 scope 按 seq 有序（user/assistant 交替不碎）
+        expected_roles = ["user", "assistant", "user", "assistant"]
+        for probe in (self.scope, other_scope, scope_hash_for("default", ["d1"])):
+            loaded = self.store.load("u:1", "s1", probe)
+            self.assertEqual([m.role for m in loaded], expected_roles)
+        # scope_hash 值原样保留为来源标记（兼容铁律 2：不删不改写）
+        import sqlite3
+        conn = sqlite3.connect(self.db)
+        marks = {r[0] for r in conn.execute(
+            "SELECT DISTINCT scope_hash FROM chat_messages"
+            " WHERE owner_key='u:1' AND session_id='s1'"
+        ).fetchall()}
+        conn.close()
+        self.assertEqual(marks, {self.scope, other_scope})
 
     def test_empty_messages_noop(self):
         self.assertEqual(self.store.append("u:1", "s1", self.scope, [], {"run_id": "a"}), [])
