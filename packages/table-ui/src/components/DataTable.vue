@@ -181,6 +181,9 @@ const props = withDefaults(defineProps<{
   emptyText?: string
   /** 列宽持久化 key（localStorage），传入后拖拽列宽刷新不丢 */
   storageKey?: string
+  /** 筛选快照值：宿主每次筛选条件变化就换新值，组件收到新值即回卷到第 1 页。
+   *  不由组件自行按行集变化推断——行集变动也包含后台轮询刷新，那样会把翻页中的用户弹回页 1。 */
+  resetPageToken?: string | number
 }>(), {
   loading: false,
   pagination: false,
@@ -191,6 +194,7 @@ const props = withDefaults(defineProps<{
   emptyText: '暂无数据',
   storageKey: '',
   expandRowByClick: false,
+  resetPageToken: '',
 })
 
 const emit = defineEmits<{
@@ -468,6 +472,15 @@ const paginationProps = computed(() => {
     showTotal: props.pagination.showTotal ?? ((t: number) => `共 ${t} 条`),
   }
 })
+
+// 筛选变化回卷页 1（2026-10-04 业主报障：切状态筛选后页码停在第 2 页空转）。
+// 只认宿主的 resetPageToken，pageSize 保留用户选择不动。
+watch(
+  () => props.resetPageToken,
+  () => {
+    internalPagination.current = 1
+  },
+)
 
 function onTableChange(pagination: unknown, filters: unknown, sorter: unknown): void {
   // 受控分页：回写当前页码和每页条数
