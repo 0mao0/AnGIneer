@@ -453,6 +453,28 @@ class DefaultSourcesProviderTests(unittest.TestCase):
             self.assertEqual(sources.count_vectors("lib", "doc"), 147)
             self.assertIsNone(sources.vector_store_error())
 
+    def test_list_docs_walks_registry_roots(self):
+        """回归守卫（2026-10-04 生产 nightly 实踩）：list_docs 真身经注册表
+        list_libraries() 扇出多库根——9d5625f 曾误写成不存在的 list_records()，
+        全仓单测都注入 stub list_docs，拼写洞直漏到生产。此用例跑 list_docs 真身
+        （conftest 已隔离注册表 + 数据根），注册一库 + 造产物即钉死。"""
+        from docs_core import library_registry
+
+        library_registry.register_library("parity-lib", name="回归守卫库")
+        # resolve_libraries_dir 口径：组的 libraries_dir 在盘上存在才生效
+        graph = (
+            library_registry.resolve_data_root()
+            / "knowledge/libraries/parity-lib/documents/doc-1/parsed/doc_blocks_graph.jsonl"
+        )
+        graph.parent.mkdir(parents=True)
+        graph.write_text("", encoding="utf-8")
+
+        def _unused(*args, **kwargs):
+            raise AssertionError("list_docs 不应触碰向量存储")
+
+        with self._patched("sqlite", _unused, sqlite_count=0) as sources:
+            self.assertIn(("parity-lib", "doc-1"), sources.list_docs())
+
 
 if __name__ == "__main__":
     unittest.main()

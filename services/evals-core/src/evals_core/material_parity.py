@@ -396,7 +396,7 @@ def default_sources() -> Sources:
         from docs_core import library_registry
 
         bases: list = []
-        for record in library_registry.list_records():
+        for record in library_registry.list_libraries():
             base = library_registry.resolve_libraries_dir(record.library_id)
             if base not in bases:
                 bases.append(base)
