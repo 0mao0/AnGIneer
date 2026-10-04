@@ -191,6 +191,22 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
         envelope_unwrapped = unwrapped is not None
         if envelope_unwrapped:
             answer = unwrapped or ""
+        # 守卫内共用：证据内生效的标记集合（无工具消息时为空集，所有标记视为编造）。
+        # 所有保留正文的分支（half_refusal_stripped / refusal_kept / markers_cleaned）
+        # 都必须过无效标记清理——refusal_kept 此前早退跳过清理，L2→L1 回退段
+        # 跨轮照抄的 [K5] 裸给用户（2026-10-04 验收实测）
+        valid_markers = _valid_markers(added_messages)
+
+        def _clean_bad_markers(text: str) -> "tuple[str, int]":
+            markers_found = _MARKER_RE.findall(text)
+            bad_found = [m for m in markers_found if m not in valid_markers]
+            if not bad_found:
+                return text, 0
+            cleaned = _MARKER_RE.sub(
+                lambda m: m.group(0) if m.group(1) in valid_markers else "", text
+            )
+            return cleaned, len(bad_found)
+
         if tool_messages:
             evidence_parts: List[str] = []
             for message in tool_messages:
@@ -233,10 +249,15 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
             stripped = strip_half_refusal_lead(answer)
             if stripped != answer:
                 # 半拒答：模型先写了「没有检索到足够证据」又带着引用继续作答 —— 只删开头那句，
-                # 保留正文（旧实现（ANGINEER_GUARD_HALF_REFUSAL）整体替换成纯拒答，会把事实一起丢掉）
+                # 保留正文（旧实现（ANGINEER_GUARD_HALF_REFUSAL）整体替换成纯拒答，会把事实一起丢掉）；
+                # 正文里的无效标记同样剥净（有证据面时只剥证据外标记）
+                stripped, bad_n = _clean_bad_markers(stripped)
+                note = "边界规则：检测到半拒答（先声明无证据又继续作答），已删掉拒答开头、保留正文"
+                if bad_n:
+                    note += f"（另移除 {bad_n} 个无效引用标记）"
                 return (
                     stripped,
-                    "边界规则：检测到半拒答（先声明无证据又继续作答），已删掉拒答开头、保留正文",
+                    note,
                     "half_refusal_stripped",
                 )
             if answer and is_refusal_text(answer):
@@ -245,17 +266,18 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                     if evidence_text.strip()
                     else "边界规则：最终回答为拒答，保留原回答"
                 )
+                # 保留拒答+相邻片段形态，但跨轮照抄的无效标记必须剥净（本轮零命中时全剥）
+                answer_cleaned, bad_n = _clean_bad_markers(answer)
+                if bad_n:
+                    refusal_note += f"（另移除 {bad_n} 个无效引用标记）"
                 return (
-                    answer,
+                    answer_cleaned,
                     refusal_note,
                     "refusal_kept",
                 )
-        markers = _MARKER_RE.findall(answer)
-        valid = _valid_markers(added_messages)
-        bad = [m for m in markers if m not in valid]
-        if bad:
-            cleaned = _MARKER_RE.sub(lambda m: m.group(0) if m.group(1) in valid else "", answer)
-            return (cleaned, f"边界规则：检测到 {len(bad)} 个无效引用标记，已移除", "markers_cleaned")
+        cleaned_body, bad_total = _clean_bad_markers(answer)
+        if bad_total:
+            return (cleaned_body, f"边界规则：检测到 {bad_total} 个无效引用标记，已移除", "markers_cleaned")
         if envelope_unwrapped:
             return (
                 answer,

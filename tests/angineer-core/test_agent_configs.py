@@ -371,5 +371,87 @@ class JsonEnvelopeGuardTests(unittest.TestCase):
         self.assertTrue(is_substantive_refusal(new_answer))
 
 
+class RefusalKeptMarkerCleanTests(unittest.TestCase):
+    """2026-10-04 验收（生产 session chat-mutxuj82-bwr5de seq 14）：L2→L1 回退段检索全空、
+    守卫走 refusal_kept 保留「拒答头+相邻片段」原文——原文里跨轮照抄的 [K5]/[K4]
+    （本轮无任何 cite 分配）必须剥净，不能裸给用户；证据内标记不得误剥。
+
+    背景：用户实测拒答形态回答里 [K5]/[K1][K6] 裸标记未渲染成圆标；
+    数据侧 meta.citations 为空（本轮零命中）、正文标记来自上一轮，前端无对应引用可渲染。
+    """
+
+    @staticmethod
+    def _empty_tool():
+        return AgentMessage(role="tool", content='{"items": [], "total": 0}', is_error=False)
+
+    def test_refusal_kept_strips_bad_markers_when_evidence_empty(self):
+        guard = make_final_answer_guard(enforce_evidence=False)
+        answer = (
+            "没有检索到足够证据支持最终结论。未找到关于“乘潮水位”具体计算方法或公式的直接证据。"
+            "以下相关信息供参考：\n"
+            "- 水运工程混凝土结构设计需考虑结构所处的环境条件…与潮汐作用密切相关 [K5]。\n"
+            "- 需符合《海港工程混凝土结构防腐蚀技术规范》的相关规定 [K4]。"
+        )
+        new_answer, note, code = guard([
+            self._empty_tool(),
+            AgentMessage(role="assistant", content=answer),
+        ])
+        self.assertEqual(code, "refusal_kept")
+        self.assertNotIn("[K5]", new_answer)
+        self.assertNotIn("[K4]", new_answer)
+        self.assertIn("没有检索到足够证据", new_answer)   # 拒答头保留
+        self.assertIn("以下相关信息供参考", new_answer)     # 相邻片段形态保留
+
+    def test_refusal_kept_keeps_valid_markers(self):
+        guard = make_final_answer_guard(enforce_evidence=False)
+        answer = "没有检索到足够证据支持最终结论。以下相关信息供参考：\n- 相邻片段 [K16]。"
+        new_answer, note, code = guard([
+            JsonEnvelopeGuardTests._tool_with_k16(),
+            AgentMessage(role="assistant", content=answer),
+        ])
+        self.assertEqual(code, "refusal_kept")
+        self.assertIn("[K16]", new_answer)  # 证据内标记不得误剥
+
+    def test_half_refusal_stripped_cleans_bad_markers(self):
+        guard = make_final_answer_guard(enforce_evidence=False)
+        # 门槛：strip_half_refusal_lead 要求 >120 字且含引用（短文本不剥）；本条同时验证
+        # 剥头后正文里的无效标记一并剥净、证据内标记保留
+        answer = (
+            "没有检索到足够证据支持最终结论。根据现有资料，水运工程混凝土结构的耐久性设计"
+            "应结合环境条件与设计使用年限确定最低强度等级、最大水胶比与氯离子含量限制，"
+            "构造措施上还需控制裂缝宽度并保证保护层厚度满足规范要求 [K16]；"
+            "另有若干相邻条文涉及防腐蚀附加措施与施工阶段验算，可作延伸阅读 [K9]。"
+        )
+        new_answer, note, code = guard([
+            JsonEnvelopeGuardTests._tool_with_k16(),
+            AgentMessage(role="assistant", content=answer),
+        ])
+        self.assertEqual(code, "half_refusal_stripped")
+        self.assertNotIn("[K9]", new_answer)
+        self.assertIn("[K16]", new_answer)
+        self.assertNotIn("没有检索到足够证据", new_answer)
+
+    def test_end_to_end_l2_fallback_real_text(self):
+        """生产真实原文（seq 14 节选）：空证据 + refusal_kept 路径按最终用户可见形态验证。"""
+        guard = make_final_answer_guard(enforce_evidence=False)
+        answer = (
+            "没有检索到足够证据支持最终结论。未找到关于“乘潮水位”具体计算方法或公式的直接证据。"
+            "以下相关信息供参考：\n\n"
+            "- 水运工程混凝土结构设计需考虑结构所处的环境条件，包括海水环境中的水位变动区、"
+            "浪溅区等，这些区域与潮汐作用密切相关 [K5]。\n"
+            "- 对于有防腐蚀要求的构件，其设计需符合《海港工程混凝土结构防腐蚀技术规范》的"
+            "相关规定 [K4]。\n"
+            "- 水运工程混凝土施工与设计应遵循《水运工程混凝土结构设计规范》、"
+            "《水运工程混凝土施工规范》等国家标准 [K1][K6]。"
+        )
+        new_answer, note, code = guard([
+            self._empty_tool(),
+            AgentMessage(role="assistant", content=answer),
+        ])
+        for marker in ("[K1]", "[K4]", "[K5]", "[K6]"):
+            self.assertNotIn(marker, new_answer)
+        self.assertIn("以下相关信息供参考", new_answer)
+
+
 if __name__ == "__main__":
     unittest.main()
