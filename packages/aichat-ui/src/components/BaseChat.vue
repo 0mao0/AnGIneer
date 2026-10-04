@@ -291,18 +291,8 @@
           @select-citation="handleInlineCitationSelect"
         />
 
-        <div class="input-actions">
+          <div class="input-actions">
           <div class="left-actions">
-            <a-button
-              type="text"
-              size="small"
-              class="mention-trigger-btn"
-              :disabled="loading"
-              :title="mentionLabel"
-              @click="handleInsertMentionTrigger"
-            >
-              @
-            </a-button>
             <a-select
               v-if="libraryOptions.length"
               class="library-select"
@@ -321,6 +311,16 @@
                 {{ omitted.length }} 个知识库
               </template>
             </a-select>
+            <a-button
+              type="text"
+              size="small"
+              class="mention-trigger-btn"
+              :disabled="loading"
+              :title="mentionLabel"
+              @click="handleInsertMentionTrigger"
+            >
+              @
+            </a-button>
           </div>
 
           <div v-if="showModelSelect" class="center-actions">
