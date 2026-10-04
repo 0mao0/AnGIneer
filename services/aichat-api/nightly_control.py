@@ -237,6 +237,36 @@ def is_running() -> bool:
     return _active is not None and not _active.done()
 
 
+def attach_active(task: "asyncio.Task") -> None:
+    """登记当前流水线 task（launch 内部调用；单活跃位语义不变，与派发同事件循环）。"""
+    global _active
+    _active = task
+
+
+async def resume_on_startup(cfg: dict) -> bool:
+    """启动自动续跑（req-nightly-interrupt-resume §2-B1）：部署/重启砸掉带中断章的
+    run 后自动续跑，与手动派发共用 launch 入口。
+
+    2026-10-05 实踩教训：旧实现是路由 startup 里裸 create_task(_execute)，绕过 launch
+    → _active 不登记 → is_running 恒假 → 运行中徽章失明、stop_pipeline 无从下手、
+    当晚 04:00 调度器可能双派发。此函数把续跑拉回唯一入口：is_running 守卫
+    （launch 内）＋派发落盘（_mark_dispatch）＋内存登记一并生效，杜绝再分叉。
+    返回是否真的发起了续跑。"""
+    try:
+        resume_id = await asyncio.to_thread(
+            pipeline._find_resume_candidate, cfg["dataset_id"])
+    except Exception:  # noqa: BLE001 探测失败=不续跑，绝不拖垮启动
+        logger.exception("启动续跑探测失败（跳过本轮）")
+        return False
+    if not resume_id:
+        return False
+    logger.info("nightly 启动自动续跑：发现中断 run %s（窗口内，带启动清扫章）", resume_id)
+    result = await launch("resume")
+    if not result.get("ok"):
+        logger.warning("nightly 启动续跑被拒：%s", result.get("detail"))
+    return bool(result.get("ok"))
+
+
 def _on_run_started(run_id: str) -> None:
     global _current_run_id
     _current_run_id = run_id
@@ -305,8 +335,18 @@ def stop_pipeline() -> dict:
 
 
 def _slot_key(source: str, slot: Optional[str], now: datetime) -> str:
-    """派发记录的 slot 键：调度器=当日时段（幂等键），manual 带 "manual:" 前缀。"""
-    return slot if source == "scheduler" else f"manual:{now.astimezone(BJT).isoformat(timespec='minutes')}"
+    """派发记录的 slot 键三档（due 据此判「当日已跑」）：
+    - scheduler：当日排班时段（幂等键，due 认它算已跑）；
+    - manual：裸时刻（无 manual: 前缀）——手动跑完当晚定时不再重复烧一整轮；
+      旧带前缀行为=当晚 04:00 双跑，10-05 用户实测后定版改裸（幽灵评测的旧事故
+      根因是「读坏静默回默认」而非 manual 形态，fail-closed 三洞堵死后此改动安全）；
+    - resume 等其它：带前缀（启动续跑不占排班档，当晚 04:00 定时仍能跑——
+      续跑是故障补救，不是当晚评测）。"""
+    if source == "scheduler":
+        return slot or ""
+    if source == "manual":
+        return now.astimezone(BJT).isoformat(timespec="minutes")
+    return f"{source}:{now.astimezone(BJT).isoformat(timespec='minutes')}"
 
 
 def _record(cfg: dict, now: datetime, source: str, slot: Optional[str], result: dict) -> None:
@@ -426,7 +466,7 @@ async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
     cfg = load_settings()
     await _probe_resume_hint(cfg)
     _mark_dispatch(cfg, datetime.now(BJT), source, slot)
-    _active = asyncio.create_task(_execute(cfg, source, slot))
+    attach_active(asyncio.create_task(_execute(cfg, source, slot)))
     return {"ok": True, "started_at": datetime.now(BJT).isoformat(timespec="seconds"),
             "detail": "流水线已在后台启动，预计数十分钟至数小时，完成看企微与本页历史"}
 

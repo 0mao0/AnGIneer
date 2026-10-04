@@ -208,8 +208,9 @@ const columns: DataTableColumn[] = [
 
 const stateColor = (state: string) =>
   ({ running: 'processing', green: 'success', red: 'error', error: 'warning', corrupt: 'default', interrupted: 'orange' }[state] || 'default')
+// pending_conclusion=评测已跑完、结论文件还没写（收口间隙/写盘失败）——语义是等待，不是损坏
 const stateLabel = (state: string) =>
-  ({ running: '运行中', green: '通过', red: '回归', error: '失败', corrupt: '损坏', interrupted: '中断' }[state] || state || '—')
+  ({ running: '运行中', green: '通过', red: '回归', error: '失败', corrupt: '损坏', interrupted: '中断', pending_conclusion: '待出结论' }[state] || state || '—')
 const pct = (value?: number) => (value == null ? '—' : `${(value * 100).toFixed(2)}%`)
 const deltaText = (day: NightlyDay) =>
   day.delta == null ? '—' : `${day.delta > 0 ? '+' : ''}${(day.delta * 100).toFixed(2)}`
@@ -243,6 +244,8 @@ const durationText = (day: NightlyDay) => {
  *  列表载荷不带转错题数，故只报方向：「没有题目变差」要有 regress_count 才成立，这里不断言 */
 const fallbackVerdict = (day: NightlyDay) => {
   if (day.state === 'interrupted') return '评测被部署/重启中断，可断点续跑'
+  if (day.state === 'running') return '评测进行中，完成后出结论'
+  if (day.state === 'pending_conclusion') return '评测已完成，结论生成中'
   if (day.state === 'error' || day.state === 'corrupt') return '评测中断，未出结果'
   if (day.state === 'red') return '整体变差，需排查'
   if (day.delta != null && day.delta > 0.005) return '较基线提升'
@@ -265,7 +268,7 @@ const loadDetail = async (day: NightlyDay) => {
   try {
     details.value[uid] = await evalsApi.getNightlyDay(day.date, day.slot || '')
   } catch (e) {
-    details.value[uid] = { nightly: { date: day.date, slot: day.slot, state: 'corrupt', note: String((e as Error).message || '读取失败') } }
+    details.value[uid] = { nightly: { date: day.date, slot: day.slot, state: 'pending_conclusion', note: String((e as Error).message || '读取失败') } }
   }
 }
 

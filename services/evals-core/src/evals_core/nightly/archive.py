@@ -269,7 +269,8 @@ def read_entry(entry_dir: Path, date: str, slot: str = "") -> dict:
 
 
 def _bjt_day(iso: str) -> str:
-    """run 时间戳（UTC naive）的北京日期 YYYY-MM-DD；解析失败返回空串。"""
+    """run 时间戳（UTC naive）的北京日期 YYYY-MM-DD；解析失败返回空串。
+    口径实证（2026-10-05 生产）：evals 库 started_at=容器 UTC 时钟，容器默认 UTC 时区。"""
     return _to_bjt(str(iso or ""))[:10]
 
 
@@ -307,16 +308,40 @@ def _fill_interrupted(entry: dict, run: dict) -> None:
     })
 
 
+def _fill_running(entry: dict, run: dict) -> None:
+    """把 corrupt(missing) 占位条目改写成 running 展示态：评测在跑、结论文件还没写
+    （2026-10-05 实踩：流水线正常跑了 3 小时，页面一直顶「损坏」被当成事故）。
+    时间取 DB 口径（UTC naive → 北京），时长列由此可算；correct/total 供「题量」列。"""
+    total = int(run.get("total_questions") or 0)
+    completed = int(run.get("completed_questions") or 0)
+    entry.update({
+        "state": "running",
+        "run_id": run.get("run_id") or "",
+        "dataset_id": run.get("dataset_id") or "",
+        "started_at": _to_bjt(str(run.get("started_at") or "")),
+        # generated_at=当前时刻：前端只读展示不写库；时长列=「现在 − 起跑」实时推进
+        "generated_at": datetime.now(paths.BJT).isoformat(timespec="seconds"),
+        "correct": completed,
+        "total": total or None,
+        "verdict": f"评测进行中（{completed}/{total or '?'}），完成后自动出结论",
+    })
+
+
 def resolve_interrupted(entries: list, dataset_id: str = "") -> list:
-    """corrupt 挡重判（req-nightly-interrupt-resume §2-B2）：有 B 层产物、无结论文件的
-    挡位若存在「被部署/重启砸掉」的 run（cancelled + 启动清扫中断章）且活跃区间覆盖
-    挡日期，改判 interrupted 并回填 DB 口径的时间与已完成数。
+    """corrupt(missing) 挡按 DB 实况三态化（2026-10-05 重做）：
+
+    ① running：同题集有 status=running 且起跑覆盖挡日期的 run → 改判「在跑中」
+       （结论文件要等收口才写，缺失是正常状态，不是损坏）；
+    ② interrupted：带启动清扫章的 cancelled run（被部署/重启砸掉）且活跃区间覆盖
+       挡日期 → 改判「中断」，时间与进度取 DB 口径（req-nightly-interrupt-resume §2-B2）；
+    ③ 无候选维持 corrupt（真损坏语义不稀释）；unreadable（文件在、读不动）不参与
+       重判——「损坏」的原始含义保留。
 
     slot↔run 配对：slot 名（HHMM-6hex）不含 run_id，且素材检查先于评测建档、续跑保留
     原 started_at（result_store.reset_run_for_resume），都不能按分钟对时——改为同日内
     corrupt 挡按挡名序、候选 run 按 started_at 序一一配对（同日多中断是稀有形态，定序
-    配对保证确定性）。无候选维持 corrupt（真损坏语义不稀释）；无章 cancelled（人为停止）
-    不算中断——「中断」与断点续跑探测同判据，页面上中断=可续跑。"""
+    配对保证确定性）。running 挡优先于中断占用（在跑与带章中断是同 run 的前后两阶段，
+    先判在跑）；无章 cancelled（人为停止）不算中断——「中断」与断点续跑探测同判据。"""
     targets = [e for e in entries
                if e.get("state") == "corrupt" and e.get("corrupt_reason") == "missing"]
     if not targets:
@@ -327,6 +352,17 @@ def resolve_interrupted(entries: list, dataset_id: str = "") -> list:
     except Exception:  # noqa: BLE001 库不可用不拖垮列表（维持 corrupt）
         logger.warning("中断档重判读库失败", exc_info=True)
         return entries
+    # ① 在跑中：同题集唯一 running run 配给唯一在跑挡（nightly 单活跃流水线，
+    #    同日「running 挡 + 别的 missing 挡」的形态不存在，不做定序配对）
+    running_runs = [r for r in runs if r.get("status") == "running"
+                    and (not dataset_id or r.get("dataset_id") == dataset_id)]
+    for entry in sorted(targets, key=lambda e: (str(e.get("date") or ""), str(e.get("slot") or ""))):
+        hit = next((r for r in running_runs
+                    if _covers_day(r, str(entry.get("date") or ""))), None)
+        if hit is None:
+            continue
+        _fill_running(entry, hit)
+        targets.remove(entry)
     candidates = sorted(
         (r for r in runs
          if r.get("status") == "cancelled"

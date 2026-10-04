@@ -5,7 +5,7 @@ import os
 import sys
 import tempfile
 import unittest
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from unittest import mock
 from zoneinfo import ZoneInfo
@@ -214,8 +214,33 @@ class LaunchTests(unittest.TestCase):
                 await nc._active
             asyncio.run(scenario())
         stored = json.loads(Path(nc.paths.settings_file()).read_text(encoding="utf-8"))
-        self.assertTrue(stored["last_dispatch"]["slot"].startswith("manual:"))
+        # 定版（10-05 用户实测）：manual 裸时刻=算当日已跑，当晚定时不再重复烧一整轮；
+        # 带前缀的旧形态会致当晚 04:00 双派发
+        self.assertFalse(stored["last_dispatch"]["slot"].startswith("manual:"))
         self.assertEqual(stored["last_dispatch"]["state"], "green")
+
+    def test_manual_slot_satisfies_due_same_day(self):
+        """manual 裸时刻恰好落在 due 的 at 分支内：当日已跑成立（本次改动的语义锁）。"""
+        cfg = nc.normalize_settings({"enabled": True, "hour": 1, "minute": 0})
+        now = datetime(2026, 9, 6, 17, 5, tzinfo=timezone.utc)  # 北京 09-07 01:05
+        nc._mark_dispatch(cfg, now, "manual", None)
+        stored = nc.load_settings()
+        self.assertFalse(stored["last_dispatch"]["slot"].startswith("manual:"))
+        self.assertFalse(nc.due(stored, now))                     # 当晚不双跑
+        self.assertTrue(nc.due(stored, now + timedelta(days=1)))  # 次日照常
+
+    def test_resume_source_slot_prefixed_does_not_match_slot(self):
+        """resume 前缀键不匹配当日排班档（slot 相等分支不成立）。
+        due 的 at 分支对前缀与裸时刻行为一致（时刻早于排班点即算当日已跑），
+        「续跑不占当晚评测」由 launch 入口的 is_running 守卫兜底（流水线在跑），
+        不靠 slot 语义。"""
+        cfg = nc.normalize_settings({"enabled": True, "hour": 1, "minute": 0})
+        now = datetime(2026, 9, 6, 17, 5, tzinfo=timezone.utc)  # 北京 09-07 01:05
+        nc._mark_dispatch(cfg, now, "resume", None)
+        stored = nc.load_settings()
+        slot = stored["last_dispatch"]["slot"]
+        self.assertTrue(slot.startswith("resume:"))
+        self.assertNotEqual(slot, nc.slot_of(cfg, now))
 
     def test_scheduler_slot_recorded_and_blocks_same_slot(self):
         cfg = nc.normalize_settings({"enabled": True, "hour": 1, "minute": 0})
@@ -301,6 +326,45 @@ class LaunchTests(unittest.TestCase):
                 await nc._active
             asyncio.run(scenario())
         sweep.assert_called_once()
+
+    def test_resume_on_startup_uses_launch_and_registers(self):
+        """2026-10-05 实踩回归：续跑必须走 launch 唯一入口——_active 登记、派发落盘、
+        is_running 转真（旧裸 create_task 三失：徽章失明/停止失效/守卫形同虚设）。"""
+        nc._active = None
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=self._fake_pipeline), \
+             mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value="run-dead"), \
+             mock.patch.object(nc.retention, "enforce_after_run",
+                               return_value={"full": 0, "compacted_runs": 0,
+                                             "deleted_runs": 0, "deleted_ids": []}):
+            async def scenario():
+                started = await nc.resume_on_startup(nc.load_settings())
+                self.assertTrue(started)
+                self.assertTrue(nc.is_running())          # 徽章有依据
+                self.assertEqual(nc._current_run_id, "")  # run 未上报前为空（种子行形态）
+                await nc._active
+            asyncio.run(scenario())
+
+    def test_resume_on_startup_no_candidate_no_dispatch(self):
+        """无候选：不落派发记录、不登记、不抛错。"""
+        nc._active = None
+        with mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value=""):
+            started = asyncio.run(nc.resume_on_startup(nc.load_settings()))
+        self.assertFalse(started)
+        self.assertFalse(nc.is_running())
+        self.assertIsNone(nc.load_settings().get("last_dispatch"))
+
+    def test_resume_on_startup_concurrent_rejected(self):
+        """launch 内 is_running 守卫顺带兜底：已有流水线在跑时启动续跑被拒、不双派发。"""
+        nc._active = None
+        with mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value="run-dead"):
+            async def scenario():
+                holder = asyncio.create_task(asyncio.sleep(30))
+                nc.attach_active(holder)
+                started = await nc.resume_on_startup(nc.load_settings())
+                holder.cancel()
+                return started
+            started = asyncio.run(scenario())
+        self.assertFalse(started)
 
     def test_execute_survives_retention_sweep_failure(self):
         """补裁失败不得影响流水线收口：结果照常落盘、异常不外抛。"""

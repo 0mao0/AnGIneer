@@ -170,5 +170,68 @@ class InterruptedCase(unittest.TestCase):
         self.assertEqual(green["overall_score"], 0.9)
 
 
+class RunningStateCase(InterruptedCase):
+    """在跑中重判（2026-10-05 实踩）：评测跑了 3 小时、结论文件还没写，页面不得顶「损坏」。"""
+
+    def insert_running_run(self, run_id: str, started_utc: str, completed: int = 822,
+                           total: int = 1040, dataset_id: str = DS) -> None:
+        conn = result_store._get_conn()
+        conn.execute(
+            "INSERT INTO eval_run (run_id, dataset_id, status, total_questions,"
+            " completed_questions, started_at, owner_pid)"
+            " VALUES (?, ?, 'running', ?, ?, ?, 1)",
+            (run_id, dataset_id, total, completed, started_utc),
+        )
+        conn.commit()
+
+    def test_missing_slot_with_running_run_is_running(self):
+        """实况复刻：北京 04:01 起跑（容器=北京时区、started_at 同值）、挡名 0400、无结论文件。"""
+        self.insert_running_run("run-79a5e37a9a39", "2026-10-04T04:01:03")
+        self.make_slot("0400-efccaf")
+        got = self.entries()
+        e = got[0]
+        self.assertEqual(e["state"], "running")
+        self.assertEqual(e["run_id"], "run-79a5e37a9a39")
+        # started_at 展示暂维持 _to_bjt 原语义（UTC naive→北京）；容器=北京时区的口径问题另案
+        self.assertEqual(e["started_at"], "2026-10-04T12:01:03+08:00")
+        self.assertEqual((e["correct"], e["total"]), (822, 1040))
+        self.assertIn("评测进行中", e["verdict"])
+        self.assertTrue(e["generated_at"])  # 时长列锚点：现在−起跑
+
+    def test_running_not_matched_when_run_started_other_day(self):
+        """起跑日期不覆盖挡日期 → 不硬凑，维持 corrupt。"""
+        self.insert_running_run("run-old", "2026-10-01T01:00:00")
+        self.make_slot("1608-abcdef")
+        self.assertEqual(self.entries()[0]["state"], "corrupt")
+
+    def test_running_other_dataset_stays_corrupt(self):
+        self.insert_running_run("run-other", "2026-10-04T20:01:03", dataset_id="ds-other")
+        self.make_slot("1608-abcdef")
+        self.assertEqual(self.entries(dataset_id=DS)[0]["state"], "corrupt")
+
+    def test_running_and_interrupted_slots_resolve_independently(self):
+        """同库双挡（10-05 生产实况）：10-04 在跑挡配 running run、10-05 挡维持 corrupt
+        （running run 活跃区间不覆盖次日），互不串。"""
+        self.insert_running_run("run-live", "2026-10-04T04:01:03")
+        self.make_slot("1201-living")   # started 北京 10-04 12:01（_to_bjt 语义）覆盖 10-04
+        slot2 = self.root / "2026-10-05" / archive.RUNS_SUBDIR / "0400-tmr"
+        slot2.mkdir(parents=True)
+        (slot2 / "material_parity.json").write_text("{}", encoding="utf-8")
+        got = {e["slot"]: e["state"] for e in self.entries()}
+        self.assertEqual(got, {"1201-living": "running"})
+        # 10-05 无 running/cancelled 候选 → 维持 corrupt
+        got2 = archive.list_entries(self.root / "2026-10-05", "2026-10-05", dataset_id=DS)
+        self.assertEqual(got2[0]["state"], "corrupt")
+
+    def test_unreadable_never_becomes_running(self):
+        """真损坏（文件在、读不动）不参与重判：有在跑 run 也维持 corrupt/unreadable。"""
+        self.insert_running_run("run-live", "2026-10-04T20:01:03")
+        slot_dir = self.make_slot("0400-efccaf")
+        (slot_dir / "nightly.json").write_text("{坏 json", encoding="utf-8")
+        got = self.entries()
+        self.assertEqual(got[0]["state"], "corrupt")
+        self.assertEqual(got[0]["corrupt_reason"], "unreadable")
+
+
 if __name__ == "__main__":
     unittest.main()
