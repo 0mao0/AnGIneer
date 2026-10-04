@@ -193,9 +193,15 @@ class MinerUParser:
         self._abort_event.set()
 
     def _request_with_proxy_fallback(self, method: str, url: str, **kwargs):
-        """执行请求，代理失败时自动回退直连。"""
+        """执行请求。MinerU 端点走内网/自有网关，一律绕过系统代理直连。
+
+        2026-10-04：Windows 系统代理开着时请求会绕道海外出口再回国，白吃一次跨洋往返、
+        还让长连接挂在中继上（表现为贴闸线的超时）。显式绕过代理后，下面的
+        「代理失败回退直连」分支不再触发，保留作兜底。
+        """
         if self._abort_event.is_set():
             raise RuntimeError("MinerU 请求已取消")
+        kwargs.setdefault("proxies", {"http": None, "https": None})
         try:
             return requests.request(method=method, url=url, **kwargs)
         except (requests.exceptions.ProxyError, requests.exceptions.ConnectionError) as error:
