@@ -273,5 +273,107 @@ class PerDocBlockDedupTests(unittest.TestCase):
         self.assertEqual(len(kept), 10)
 
 
+class AdmissionTests(unittest.TestCase):
+    """证据上桌 admit_evidence（plan-evidence-admission §1）：判官批量一枪、吵架保留、fail-open。"""
+
+    @staticmethod
+    def _item(item_id: str, score: float, text: str = "候选正文") -> SimpleNamespace:
+        return SimpleNamespace(item_id=item_id, title="条款", text=text, rerank_score=score, metadata={})
+
+    def _items(self) -> list:
+        return [
+            self._item("0", 0.70),   # 头部豁免（判官给 0 也保留）
+            self._item("1", 0.50),   # 判 1 → 主桌
+            self._item("2", 0.40),   # 判 0 且 ≥0.3 → 吵架保留进桌尾
+            self._item("3", 0.10),   # 判 0 且 <0.3 → 一致丢弃
+            self._item("4", 0.55),   # 判 0 且 ≥0.3 → 吵架保留
+        ]
+
+    _VERDICTS = '[{"i":0,"keep":0},{"i":1,"keep":1},{"i":2,"keep":0},{"i":3,"keep":0},{"i":4,"keep":0}]'
+
+    def test_quarrel_matrix_head_exempt_and_ordering(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text=self._VERDICTS)
+            out, block = admit_evidence("查询", items, llm_client=object())
+        # 主桌（豁免+判1）按原序，吵架条贴尾
+        self.assertEqual([item.item_id for item in out], ["0", "1", "2", "4"])
+        self.assertEqual(block["kept"], 1)
+        self.assertEqual(block["exempted"], 1)
+        self.assertEqual(block["quarreled"], 2)
+        self.assertEqual(block["dropped"], 1)
+        self.assertFalse(block["fallback"])
+        self.assertIsNotNone(block["judge_config"])
+        self.assertIsInstance(block["judge_ms"], int)
+
+    def test_empty_table_no_fallback(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = [self._item(str(i), 0.1) for i in range(4)]
+        verdicts = ",".join(f'{{"i":{i},"keep":0}}' for i in range(4))
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text=f"[{verdicts}]")
+            out, block = admit_evidence("查询", items, llm_client=object())
+        self.assertEqual(out, [])  # 空桌不回退：交给调用方走标准拒答
+        self.assertEqual(block["dropped"], 4)
+        self.assertFalse(block["fallback"])
+
+    def test_judge_bad_output_fail_open(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text="我觉得都不错")
+            out, block = admit_evidence("查询", items, llm_client=object())
+        self.assertEqual([item.item_id for item in out], ["0", "1", "2", "3", "4"])
+        self.assertTrue(block["fallback"])
+        self.assertIsNone(block["kept"])
+        self.assertIsNone(block["dropped"])
+
+    def test_judge_exception_fail_open(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.side_effect = RuntimeError("端点炸了")
+            out, block = admit_evidence("查询", items, llm_client=object())
+        self.assertEqual(len(out), 5)
+        self.assertTrue(block["fallback"])
+
+    def test_missing_verdict_entries_treated_as_keep(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text='[{"i":3,"keep":0}]')  # 只回一条（且<0.3）
+            out, block = admit_evidence("查询", items, llm_client=object())
+        self.assertEqual([item.item_id for item in out], ["0", "1", "2", "4"])  # 缺席条目按判 1 放宽
+        self.assertEqual(block["dropped"], 1)
+
+    def test_wrapped_object_output_parsed(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = self._items()
+        with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+            guarded.return_value = SimpleNamespace(text='{"admission": %s}' % self._VERDICTS)
+            out, block = admit_evidence("查询", items, llm_client=object())
+        self.assertEqual(len(out), 4)
+        self.assertFalse(block["fallback"])
+
+    def test_excerpt_capped_and_config_overridable(self):
+        from angineer_core.retrieval_pipeline import admit_evidence
+
+        items = [self._item("0", 0.5, text="长" * 5000), self._item("1", 0.5)]
+        with mock.patch.dict(os.environ, {"ANGINEER_ADMISSION_EXCERPT_CHARS": "300"}):
+            with mock.patch("angineer_core.retrieval_pipeline.chat_result_guarded") as guarded:
+                guarded.return_value = SimpleNamespace(text='[{"i":0,"keep":1},{"i":1,"keep":1}]')
+                admit_evidence("查询", items, llm_client=object())
+        user_message = guarded.call_args.args[1][1]["content"]
+        self.assertLess(len(user_message), 300 * 3)  # 摘录 ≤300 字符/条，5000 字长文未整段进 prompt
+        self.assertEqual(guarded.call_args.kwargs["config_name"], "Qwen3.8-Flash-Next")
+
+
 if __name__ == "__main__":
     unittest.main()

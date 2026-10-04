@@ -242,6 +242,8 @@ class RetrievalEvaluator(BaseEvaluator):
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
             "runtime_flags": list(data.get("runtime_flags") or []),
+            # 证据上桌/软帽留痕（policy_query 聚合 _admission）→ evaluate 写入 all_scores.retrieval.admission
+            "admission": data.get("admission"),
         }
         return enrich_prediction_trace(question, data, prediction)
 
@@ -276,7 +278,7 @@ class RetrievalEvaluator(BaseEvaluator):
         citation_hit = compute_citation_hit(predicted_citations, gold_target_ids) if has_target_gold else None
         # 主分数：有 section 标注用 section 粒度，否则降级到 doc 粒度
         effective_hit5 = hit_at_5 if has_section_gold else hit_at_5_doc
-        return {
+        scores = {
             "score": effective_hit5,
             "evaluated": True,
             "retrieval_expected": True,
@@ -300,6 +302,10 @@ class RetrievalEvaluator(BaseEvaluator):
                 predicted_doc_ids=predicted_doc_ids,
             ),
         }
+        # nightly 归因可见：all_scores.retrieval.admission（上桌/帽子分开计数；未触发该题不带此键）
+        if prediction.get("admission"):
+            scores["admission"] = prediction["admission"]
+        return scores
 
 
 register_evaluator("retrieval", RetrievalEvaluator)

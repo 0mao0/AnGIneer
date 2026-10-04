@@ -59,6 +59,28 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
         return []
 
 
+_ADMISSION_COUNT_KEYS = ("kept", "dropped", "quarreled", "exempted", "cap_dropped")
+
+
+def _aggregate_admission(blocks: List[Dict[str, Any]]) -> Optional[Dict[str, Any]]:
+    """聚合各检索工具 `_admission` 私有键块（证据上桌/软帽留痕，plan-evidence-admission §1 决策留痕）。
+
+    计数键求和（fail-open 块该键为 None → 跳过，有数就加）；fallback 取或；
+    judge_config 取首个；judge_ms 求和。无块返回 None（评测侧 all_scores 不带此键）。"""
+    if not blocks:
+        return None
+    merged: Dict[str, Any] = {}
+    for key in _ADMISSION_COUNT_KEYS:
+        values = [block.get(key) for block in blocks if isinstance(block.get(key), (int, float))]
+        merged[key] = int(sum(values)) if values else None
+    merged["fallback"] = any(bool(block.get("fallback")) for block in blocks)
+    judge_configs = [str(block.get("judge_config")) for block in blocks if block.get("judge_config")]
+    merged["judge_config"] = judge_configs[0] if judge_configs else None
+    judge_ms_values = [block.get("judge_ms") for block in blocks if isinstance(block.get("judge_ms"), (int, float))]
+    merged["judge_ms"] = int(sum(judge_ms_values)) if judge_ms_values else None
+    return merged
+
+
 def _default_intent_result():
     from angineer_core.base_contracts import IntentResult
 
@@ -178,8 +200,12 @@ def run_policy_query(
         citations: List[Dict[str, Any]] = []
         seen_cites = set()
         sop_trace: List[Dict[str, Any]] = []
+        admission_blocks: List[Dict[str, Any]] = []
         for message in tool_messages:
             raw = message.meta or {}
+            block = raw.get("_admission")
+            if isinstance(block, dict):
+                admission_blocks.append(block)
             for item in raw.get("items") or []:
                 if not isinstance(item, dict):
                     continue
@@ -274,6 +300,8 @@ def run_policy_query(
             "strategy": strategy,
             "system_prompt": "",
             "retrieval_debug": retrieval_debug,
+            # 证据上桌/软帽留痕聚合（evals 经 prediction 写入 all_scores.retrieval.admission）
+            "admission": _aggregate_admission(admission_blocks),
             "llm_errors": llm_errors,
             "runtime_flags": (["llm_error_degraded"] if llm_errors else []),
             "route_debug": route_debug,

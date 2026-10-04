@@ -28,6 +28,107 @@ def _context_top_n() -> int:
         return 15
 
 
+def _evidence_cap_est() -> int:
+    """证据体积软帽（est 口径 = chars//2；ANGINEER_EVIDENCE_CAP_EST 默认 80000，0=关帽）。
+
+    挂装配公共末端、覆盖全部检索 kind。est 对中文低估约 2x（req-chat-history-bloat §3），
+    软帽只求把病态包砍到量级正常，精确顶由 llm_client 的 400 钳制兜底（plan-evidence-admission §2）。
+    """
+    try:
+        return max(0, int(os.environ.get("ANGINEER_EVIDENCE_CAP_EST", "80000") or "80000"))
+    except (TypeError, ValueError):
+        return 80_000
+
+
+def _apply_evidence_cap(items: list) -> "tuple[list, int]":
+    """软帽按 rank 装填：装得下整条留；装不下但剩余预算 ≥200 字符→截尾保留；
+    剩余预算 <200 字符→整条丢（cap_dropped 计数，截尾不计）。返回 (保留条目, cap_dropped)。"""
+    cap = _evidence_cap_est()
+    if cap <= 0 or not items:
+        return items, 0
+    budget = cap * 2  # est→字符：est = chars//2
+    kept: list = []
+    dropped = 0
+    for item in items:
+        text = str(getattr(item, "text", "") or "")
+        cost = len(text)
+        if cost <= budget:
+            kept.append(item)
+            budget -= cost
+            continue
+        if budget >= 200:
+            item.text = text[:budget]
+            kept.append(item)
+            budget = 0
+            continue
+        dropped += 1
+    if dropped:
+        logger.warning(
+            "证据软帽截尾：cap_est=%d 丢弃 %d/%d 条（est=chars//2，400 钳制兜底）",
+            cap, dropped, len(items),
+        )
+    return kept, dropped
+
+
+def _cap_entity_objects(entities: list) -> "tuple[list, int]":
+    """entity_search 纯实体结果不经 _assemble_search_result，软帽就地补装：
+    按 rank 装填、超帽整条丢（实体短小、不做截尾）。返回 (保留实体, cap_dropped)。"""
+    cap = _evidence_cap_est()
+    if cap <= 0 or not entities:
+        return entities, 0
+    budget = cap * 2
+    kept: list = []
+    dropped = 0
+    for entity in entities:
+        cost = len(json.dumps(_serialize_model(entity), ensure_ascii=False, default=str))
+        if cost <= budget:
+            kept.append(entity)
+            budget -= cost
+        else:
+            dropped += 1
+    if dropped:
+        logger.warning("实体软帽截断：cap_est=%d 丢弃 %d/%d 条", cap, dropped, len(entities))
+    return kept, dropped
+
+
+def _admission_mode() -> str:
+    """上桌触发模式（ANGINEER_ADMISSION_MODE）：oversize（默认）| all | off（逃生口）。"""
+    value = os.environ.get("ANGINEER_ADMISSION_MODE", "oversize").strip().lower()
+    return value if value in ("off", "all", "oversize") else "oversize"
+
+
+def _maybe_admit_evidence(query: str, items: list) -> "tuple[list, Optional[Dict[str, Any]]]":
+    """证据上桌（LLM 定员出 listA）：仅 knowledge_search 文本条目、rerank 截 15 后调用。
+
+    触发判定读**帽前 est**（原始 top15 体积，plan-evidence-admission §2 口径）；
+    oversize=仅 est>ANGINEER_ADMISSION_TRIGGER_EST 的病态包走上桌。
+    判官任何异常 → fail-open 全量放行（永不过滤层打死回答）。
+    """
+    mode = _admission_mode()
+    if mode == "off" or not items:
+        return items, None
+    pre_cap_est = sum(len(str(getattr(item, "text", "") or "")) for item in items) // 2
+    if mode == "oversize":
+        try:
+            trigger = int(os.environ.get("ANGINEER_ADMISSION_TRIGGER_EST", "90000") or "90000")
+        except (TypeError, ValueError):
+            trigger = 90_000
+        if pre_cap_est <= trigger:
+            return items, None
+    from angineer_core.retrieval_pipeline import admit_evidence
+
+    try:
+        return admit_evidence(query, items)
+    except Exception as exc:  # noqa: BLE001 fail-open：判官接线层异常也不许吞掉证据
+        logger.warning("证据上桌判官接线异常（fail-open 全量放行）: %s", exc)
+        return items, {
+            "kept": None, "dropped": None, "quarreled": None, "exempted": None,
+            "fallback": True,
+            "judge_config": os.environ.get("ANGINEER_ADMISSION_LLM_CONFIG", "").strip() or None,
+            "judge_ms": None,
+        }
+
+
 def _evidence_grade_enabled() -> bool:
     """证据相关性标注开关（拒答根因方案①）：默认开；关时同时建议回退
     ANGINEER_QA_PROMPT_VERSION=v10（V11 规则 17 引用该标签）。"""
@@ -677,7 +778,8 @@ def _assemble_search_result(
     config_name: Optional[str] = None,
     mode: str = "instruct",
 ) -> Dict[str, Any]:
-    """检索后装配：rerank → 引用标记 → doc_title 前缀 → items/evidences/citations。"""
+    """检索后装配：rerank → 上桌（仅文本）→ 引用标记 → doc_title 前缀 → 软帽 → items/evidences/citations。"""
+    admission_meta: Optional[Dict[str, Any]] = None
     if rerank:
         from angineer_core.retrieval_pipeline import rerank_candidates
 
@@ -700,6 +802,9 @@ def _assemble_search_result(
         )
         # rerank 已排序：截断进 agent 上下文，控制 prompt 长度（prefill 耗时与输入成正比）
         items = list(items[:_context_top_n()])
+        if kind == "text":
+            # 证据上桌只吃 rerank 截断后的 top15 文本条目（table/entity 只走硬帽）
+            items, admission_meta = _maybe_admit_evidence(query, items)
     _assign_cites(items, marker_allocator or MarkerAllocator(), prefix)
     grade_on = _evidence_grade_enabled()
     for item in items:
@@ -717,7 +822,19 @@ def _assemble_search_result(
                 text = str(item.text or "")
                 if text and not text.startswith("【相关性"):
                     item.text = f"{label} {text}"
-    result = {"items": [_serialize_model(item) for item in items], "total": len(items)}
+    # 证据体积软帽：公共末端、覆盖全部 kind（knowledge/table/entity 回退正文）
+    items, cap_dropped = _apply_evidence_cap(items)
+    if admission_meta is not None or cap_dropped:
+        # 决策留痕走 `_` 私有键：不进 LLM 投影（agent_loop 剥 `_` 前缀）、随 raw 进 meta 供评测链聚合
+        block = dict(admission_meta or {})
+        for key in ("kept", "dropped", "quarreled", "exempted", "fallback", "judge_config", "judge_ms"):
+            block.setdefault(key, None)
+        block["cap_dropped"] = cap_dropped
+        result = {"_admission": block}
+    else:
+        result = {}
+    result["items"] = [_serialize_model(item) for item in items]
+    result["total"] = len(items)
     if grade_on and items:
         result["relevance_scale"] = (
             "相关性为检索系统对『证据是否回答本问题』的独立打分（0-1）："
@@ -951,11 +1068,14 @@ class RetrieverAdapter:
                         query=query, library_id=library_id, db_path=graph_db, limit=limit
                     )
             # 图谱实体按 library_id 隔离（P3 起 graph_entities 有 scope 列）；scope 随行返回供前端/evals 追踪。
+            entities, entity_cap_dropped = _cap_entity_objects(entities)
             result: Dict[str, Any] = {
                 "entities": [_serialize_model(entity) for entity in entities],
                 "total": len(entities),
                 "scope": {"library_id": library_id, "doc_ids": list(doc_ids or [])},
             }
+            if entity_cap_dropped:
+                result["_admission"] = {"cap_dropped": entity_cap_dropped}
             result["evidences"] = _entities_to_evidences(entities, library_id=library_id)
             if not entities:
                 # 图谱无实体时自动回退正文检索，避免“是什么/定义”类问题被误判为无证据

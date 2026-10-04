@@ -1,5 +1,6 @@
-"""检索链路 prompt 资产：LLM 语义重排（dense 降级时的语义兜底）与在线 rerank 后的 LLM 二排。
-用途：让候选按与查询主题的语义相关度重排，绕过通用词撞分；语言：中文；版本 v1；最后变更：2026-09-30。
+"""检索链路 prompt 资产：LLM 语义重排（dense 降级时的语义兜底）、在线 rerank 后的 LLM 二排（改序）、
+证据上桌判官（定员出 listA，plan-evidence-admission）。
+用途：让候选按与查询主题的语义相关度重排/定员，绕过通用词撞分；语言：中文；版本 v1；最后变更：2026-10-04。
 """
 from . import register
 
@@ -42,3 +43,16 @@ LLM_RERANK_DUEL_SYSTEM_PROMPT = """你是工程规范文档检索的裁判员。
 
 register("retrieval.llm_rerank_def_system_prompt", "v1", LLM_RERANK_DEF_SYSTEM_PROMPT)
 register("retrieval.llm_rerank_duel_system_prompt", "v1", LLM_RERANK_DUEL_SYSTEM_PROMPT)
+
+
+ADMISSION_SYSTEM_PROMPT = """你是工程规范文档问答系统的证据守门员。给定用户问题和若干候选证据摘录，逐条判断每条证据是否值得送进回答模型的上下文。
+
+规则：
+1. 判断从宽：只要证据可能包含回答该问题所需的背景、数值、条款、术语或上下文，就 keep=1；
+2. keep=0 只给确定与问题主题完全无关的片段；拿不准时给 1；
+3. 仅因命中通用词（如"计算""要求""方法""规定""公式"）而与问题主题无关的片段，keep=0；
+4. 输出 JSON 数组，每条候选一项：[{"i": 0, "keep": 1}, {"i": 1, "keep": 0}]；
+5. 每条候选都必须给出一项；不要输出 i 和 keep 以外的字段。"""
+
+
+register("retrieval.admission_system_prompt", "v1", ADMISSION_SYSTEM_PROMPT)

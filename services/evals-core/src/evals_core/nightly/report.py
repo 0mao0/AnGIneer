@@ -128,6 +128,22 @@ def group_and_summarize(run_details, manifest, ci_resamples: int = 1000):
     summary["anomaly_pending"] = bool(
         [q for k in (anomaly.JUDGE_FAIL, anomaly.EXEC_ERROR) for q in anomalies.get(k, [])])
     summary["overall"]["slow_count"] = len(anomalies.get(anomaly.SLOW, []))
+    # 证据上桌/软帽归因聚合（plan-evidence-admission E）：逐题 all_scores.retrieval.admission 汇总
+    admission_blocks = [
+        block
+        for block in (
+            (d.get("all_scores") or {}).get("retrieval", {}).get("admission") for d in run_details
+        )
+        if isinstance(block, dict)
+    ]
+    summary["overall"]["admission"] = {
+        "triggered": len(admission_blocks),
+        "dropped": sum(int(b.get("dropped") or 0) for b in admission_blocks),
+        "quarreled": sum(int(b.get("quarreled") or 0) for b in admission_blocks),
+        "exempted": sum(int(b.get("exempted") or 0) for b in admission_blocks),
+        "cap_dropped": sum(int(b.get("cap_dropped") or 0) for b in admission_blocks),
+        "fallback": sum(1 for b in admission_blocks if b.get("fallback")),
+    }
     # 题干摘录：报告里给读者看题面而不是 UUID（慢题观察单等处消费；截 70 字符）
     summary["question_titles"] = {
         str(q.get("uuid")): str(q.get("query") or "")[:70]
@@ -187,6 +203,14 @@ def render_markdown(summary) -> str:
         if none_n:
             note += f"；另有 {none_n} 题无检索金标、不参与检索指标（拒答题属此类）"
         lines += ["", note + "。"]
+
+    # 证据上桌/软帽归因（plan-evidence-admission E）：有触发行才出现，全零夜保持安静
+    adm = (summary.get("overall") or {}).get("admission") or {}
+    if adm.get("triggered"):
+        lines += ["", f"> 证据上桌/软帽：{adm['triggered']} 题触发"
+                  f"（判 0 丢弃 {adm.get('dropped', 0)} 条、吵架保留 {adm.get('quarreled', 0)} 条、"
+                  f"高分豁免 {adm.get('exempted', 0)} 条、软帽整条丢 {adm.get('cap_dropped', 0)} 条、"
+                  f"判官 fail-open {adm.get('fallback', 0)} 题）。"]
 
     if anomaly_pending:
         pending = {k: v for k, v in (summary.get("anomalies") or {}).items() if k != anomaly.SLOW and v}

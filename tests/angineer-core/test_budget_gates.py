@@ -2,6 +2,7 @@
 import os
 import sys
 import unittest
+from unittest import mock
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
@@ -110,6 +111,28 @@ class BudgetStopperTests(unittest.TestCase):
             usage={},
         )
         self.assertFalse(stopper(context))
+
+    def test_default_threshold_reads_env(self):
+        """plan-evidence-admission D：停止线 env 化（ANGINEER_BUDGET_STOPPER_EST），显式传参仍优先。"""
+        context = TurnContext(
+            turn=1,
+            messages=[AgentMessage(role="tool", content="x" * 300)],  # est=150
+            tool_results=[],
+            usage={},
+        )
+        with mock.patch.dict(os.environ, {"ANGINEER_BUDGET_STOPPER_EST": "100"}):
+            self.assertTrue(make_budget_stopper()(context))
+            self.assertFalse(make_budget_stopper(threshold=10_000)(context))  # 显式参数优先
+
+    def test_default_without_env_is_120k(self):
+        with mock.patch.dict(os.environ, {}, clear=True):
+            context = TurnContext(
+                turn=1,
+                messages=[AgentMessage(role="tool", content="x" * 200_000)],  # est=100k
+                tool_results=[],
+                usage={},
+            )
+            self.assertFalse(make_budget_stopper()(context))  # 100k < 默认 120k
 
 
 class QaProtectCurrentRunTests(unittest.TestCase):

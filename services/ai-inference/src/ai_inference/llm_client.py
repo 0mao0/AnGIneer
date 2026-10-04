@@ -5,6 +5,7 @@ LLM 客户端实现，负责读取统一配置并提供对话调用能力。支�
 import asyncio
 import json
 import os
+import re
 import threading
 import time
 from dataclasses import dataclass, field
@@ -1296,6 +1297,7 @@ class LLMClient:
         """带重试机制的 API 调用（同步）。"""
         retry_config = self._config.retry
         last_error = None
+        context_clamped = False
 
         for attempt in range(retry_config.max_retries + 1):
             try:
@@ -1325,6 +1327,14 @@ class LLMClient:
                     logger.error(f"重试次数耗尽: {e}")
 
             except APIError as e:
+                # context-length 400 最后防线：按报错钳制 max_tokens 重试一次，仍败走原报错（plan-evidence-admission §2）
+                clamped = _context_clamp_tokens(e) if not context_clamped else None
+                if clamped is not None:
+                    context_clamped = True
+                    max_tokens = clamped
+                    last_error = e
+                    logger.warning(f"上下文超限 400：max_tokens 钳制为 {clamped} 单次重试: {e}")
+                    continue
                 last_error = e
                 logger.error(f"API 错误: {e}")
                 break
@@ -1349,6 +1359,7 @@ class LLMClient:
         """带重试机制的 API 调用（异步）。"""
         retry_config = self._config.retry
         last_error = None
+        context_clamped = False
 
         for attempt in range(retry_config.max_retries + 1):
             try:
@@ -1378,6 +1389,14 @@ class LLMClient:
                     logger.error(f"重试次数耗尽: {e}")
 
             except APIError as e:
+                # context-length 400 最后防线：按报错钳制 max_tokens 重试一次，仍败走原报错（plan-evidence-admission §2）
+                clamped = _context_clamp_tokens(e) if not context_clamped else None
+                if clamped is not None:
+                    context_clamped = True
+                    max_tokens = clamped
+                    last_error = e
+                    logger.warning(f"上下文超限 400：max_tokens 钳制为 {clamped} 单次重试: {e}")
+                    continue
                 last_error = e
                 logger.error(f"API 错误: {e}")
                 break
@@ -1403,6 +1422,47 @@ class LLMClient:
                 self._config.circuit_breaker
             )
             logger.info(f"已重置熔断器: {config_name}")
+
+
+_CONTEXT_LIMIT_RES = (
+    re.compile(r"maximum context length is\s+(\d+)", re.I),
+    re.compile(r"context length\s*[（(]?\s*(\d+)\s*tokens", re.I),
+)
+_CONTEXT_INPUT_RES = (
+    re.compile(r"(\d+)\s+input\s+tokens", re.I),
+    re.compile(r"parameter=input_tokens,?\s*value=(\d+)", re.I),
+    re.compile(r"the input\s*[（(]?\s*(\d+)\s+tokens", re.I),
+)
+
+
+def _context_clamp_tokens(error: Any) -> Optional[int]:
+    """context-length 400 → 钳制后的 max_tokens（limit − input − 512）；非该类报错/解析不出返回 None。
+
+    解析不出的 400 保留原报错通道（不改写、不吞）。仅降输出预算、不动输入——
+    输入压减由 angineer-core 的上桌/软帽负责（plan-evidence-admission §2 最后防线）。"""
+    if getattr(error, "status_code", None) != 400:
+        return None
+    message = str(error or "")
+    if "context length" not in message.lower():
+        return None
+    limit = None
+    for pattern in _CONTEXT_LIMIT_RES:
+        match = pattern.search(message)
+        if match:
+            limit = int(match.group(1))
+            break
+    if not limit:
+        return None
+    input_tokens = None
+    for pattern in _CONTEXT_INPUT_RES:
+        match = pattern.search(message)
+        if match:
+            input_tokens = int(match.group(1))
+            break
+    if not input_tokens:
+        return None
+    clamped = limit - input_tokens - 512
+    return clamped if clamped >= 64 else None
 
 
 def _shorten_messages_for_retry(messages: List[Dict]) -> List[Dict]:

@@ -7,15 +7,17 @@ dense 语义通道降级（embedding 不可用）时，rerank 降级链为：
 wide pass 重排 top-N + duel 复核后才允许换掉第 1 名；replay 投影 hit@1(sec) 0.785→0.838
 （scripts/rerank_replay.py，v4.1  nightly 冻结候选回放）。
 """
+import json
 import os
 import re
 import time
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 from ai_inference.llm_client import chat_result_guarded, get_llm_client
 from ai_inference.llm_response_parser import extract_json_from_text
 from angineer_core.base_logger import get_logger
 from angineer_core.prompts.retrieval import (
+    ADMISSION_SYSTEM_PROMPT,
     LLM_RERANK_DEF_SYSTEM_PROMPT,
     LLM_RERANK_DUEL_SYSTEM_PROMPT,
     LLM_RERANK_SYSTEM_PROMPT,
@@ -244,6 +246,149 @@ def llm_second_rerank(
         item.rerank_score = round((total - position) / total, 6)
     logger.info("LLM 二排 duel 确认覆盖：候选 #%s 升为第 1 名", order[0])
     return reranked
+
+
+# 上桌阈值与证据相关性标签档位对齐（_relevance_label / ANGINEER_EVIDENCE_GRADE_*）
+ADMISSION_EXEMPT_RERANK = 0.6   # 头部豁免：rerank ≥0.6 免判直接进 listA（防判官误杀头部）
+ADMISSION_QUARREL_RERANK = 0.3  # 吵架保留：判 0 但 rerank ≥0.3 保留进 listA 尾部（答案模型终裁）
+
+
+def _admission_config_name() -> str:
+    """上桌判官模型名（ANGINEER_ADMISSION_LLM_CONFIG）。默认对齐 llm2 条目（qwen3.8-flash-next，
+    端点级 enable_thinking=false）。不复用 evals-core 的 EVAL_JUDGE_MODEL——跨包读取违反模块解耦红线。"""
+    return os.environ.get("ANGINEER_ADMISSION_LLM_CONFIG", "").strip() or "Qwen3.8-Flash-Next"
+
+
+def _extract_admission_json(text: str) -> Any:
+    """判官文本 → JSON：先整段 json.loads（裸数组 [{i,keep}] 形态——
+    extract_json_from_text 会把裸数组剪成首个 {..} 片段必炸），失败再交它兜 fenced/对象形态。"""
+    try:
+        return json.loads(str(text or "").strip())
+    except (TypeError, ValueError):
+        return extract_json_from_text(text, strict=True)
+
+
+def _parse_admission_verdicts(parsed: Any, total: int) -> Optional[Dict[int, bool]]:
+    """判官输出 → {下标: keep}；不可解析返回 None（由调用方 fail-open）。
+
+    接受裸数组 [{"i":0,"keep":1},…] 或包一层的对象（admission/decisions/items/results 任一键）。
+    缺席的条目按「判 1 放宽」语义视为 keep（漏答≠确定无关）。"""
+    if isinstance(parsed, dict):
+        for key in ("admission", "decisions", "items", "results"):
+            if isinstance(parsed.get(key), list):
+                parsed = parsed[key]
+                break
+        else:
+            return None
+    if not isinstance(parsed, list):
+        return None
+    verdicts: Dict[int, bool] = {}
+    for entry in parsed:
+        if not isinstance(entry, dict):
+            continue
+        try:
+            index = int(entry.get("i"))
+        except (TypeError, ValueError):
+            continue
+        if not 0 <= index < total:
+            continue
+        raw_keep = entry.get("keep")
+        if isinstance(raw_keep, str):
+            keep = raw_keep.strip().lower() in ("1", "true", "yes")
+        else:
+            keep = bool(raw_keep)
+        verdicts[index] = keep
+    if not verdicts:
+        return None
+    return verdicts
+
+
+def admit_evidence(
+    query: str,
+    candidates: list,
+    *,
+    llm_client: Any = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> "tuple[list, Dict[str, Any]]":
+    """证据上桌（LLM 定员出 listA，plan-evidence-admission §1）：批量一枪 0/1 判，禁逐条连调。
+
+    输入 rerank 截断后的 top15；每条摘录 ≤ANGINEER_ADMISSION_EXCERPT_CHARS（默认 1000）字符。
+    规则：rerank ≥0.6 头部豁免免判直接进桌；判 1 进主桌；判 0 且 ≥0.3 吵架保留进桌尾；
+    判 0 且 <0.3 一致丢弃；判官缺席条目按判 1 放宽处理。
+    listA 空（判官全 0 且无豁免无吵架）→ 返回空列表，由调用方走标准拒答，**不回退**。
+    判官异常/超时/输出不可解析 → fail-open 全量放行（fallback=True，计数置 None），永不过滤层打死回答。
+    返回 (listA, admission_block)——block 八字段留痕，cap_dropped 由装配末端合并时填。
+    """
+    judge_config = config_name or _admission_config_name()
+
+    def _fail_open(reason: str, judge_ms: Optional[int] = None):
+        logger.warning("证据上桌判官 fail-open（%s），%d 条全量放行", reason, len(candidates))
+        return list(candidates), {
+            "kept": None, "dropped": None, "quarreled": None, "exempted": None,
+            "fallback": True, "judge_config": judge_config, "judge_ms": judge_ms,
+        }
+
+    if not candidates:
+        return [], {
+            "kept": 0, "dropped": 0, "quarreled": 0, "exempted": 0,
+            "fallback": False, "judge_config": judge_config, "judge_ms": 0,
+        }
+    excerpt_chars = max(100, _env_int("ANGINEER_ADMISSION_EXCERPT_CHARS", 1000))
+    lines: List[str] = []
+    for index, item in enumerate(candidates):
+        title = " ".join(str(getattr(item, "title", "") or "").split())[:60]
+        text = " ".join(str(getattr(item, "text", "") or "").split())[:excerpt_chars]
+        lines.append(f"[{index}] {title}\n{text}")
+    messages = [
+        {"role": "system", "content": ADMISSION_SYSTEM_PROMPT},
+        {"role": "user", "content": f"问题：{query}\n\n候选证据：\n\n" + "\n\n".join(lines)},
+    ]
+    client = llm_client if llm_client is not None else get_llm_client()
+    _t = time.perf_counter()
+    try:
+        result = chat_result_guarded(
+            client, messages, mode=mode, config_name=judge_config, max_tokens=512,
+        )
+        parsed = _extract_admission_json(result.text)
+    except Exception as exc:  # noqa: BLE001
+        return _fail_open(f"调用失败: {str(exc)[:200]}", int((time.perf_counter() - _t) * 1000))
+    judge_ms = int((time.perf_counter() - _t) * 1000)
+    verdicts = _parse_admission_verdicts(parsed, len(candidates))
+    if verdicts is None:
+        return _fail_open("输出不可解析", judge_ms)
+
+    main: List[Any] = []
+    quarreled: List[Any] = []
+    kept = exempted = quarreled_n = dropped = 0
+    for index, item in enumerate(candidates):
+        try:
+            score = float(getattr(item, "rerank_score", None) or 0.0)
+        except (TypeError, ValueError):
+            score = 0.0
+        if score >= ADMISSION_EXEMPT_RERANK:
+            main.append(item)
+            exempted += 1
+        elif verdicts.get(index, True):
+            main.append(item)
+            kept += 1
+        elif score >= ADMISSION_QUARREL_RERANK:
+            quarreled.append(item)
+            quarreled_n += 1
+        else:
+            dropped += 1
+    list_a = main + quarreled
+    if not list_a:
+        logger.info("证据上桌空桌（判官全 0 且无豁免/吵架条）：%d 条全弃，走标准拒答不回答", len(candidates))
+    else:
+        logger.info(
+            "证据上桌：入桌 %d/%d（判1=%d 豁免=%d 吵架=%d）丢弃 %d，judge=%s %dms",
+            len(list_a), len(candidates), kept, exempted, quarreled_n, dropped, judge_config, judge_ms,
+        )
+    return list_a, {
+        "kept": kept, "dropped": dropped, "quarreled": quarreled_n, "exempted": exempted,
+        "fallback": False, "judge_config": judge_config, "judge_ms": judge_ms,
+    }
 
 
 def rerank_candidates(

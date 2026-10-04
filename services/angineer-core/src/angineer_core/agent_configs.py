@@ -540,11 +540,21 @@ def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: 
     return transform
 
 
-def make_budget_stopper(threshold: int = 120_000):
-    """P4.3 闸门二：turn 结束估算超阈值 → 循环优雅停止（reason=should_stop）。"""
+def _budget_stopper_est() -> int:
+    """循环停止线（est=chars//2；ANGINEER_BUDGET_STOPPER_EST 默认 120000）。
+
+    env 化动因（plan-evidence-admission §2 P2）：换小上下文模型时停止线随 .env 调，不再裸奔硬编码。"""
+    return _budget_tokens_est("ANGINEER_BUDGET_STOPPER_EST", 120_000)
+
+
+def make_budget_stopper(threshold: Optional[int] = None):
+    """P4.3 闸门二：turn 结束估算超阈值 → 循环优雅停止（reason=should_stop）。
+
+    threshold 显式传参优先（测试/特殊档位用）；不传读 ANGINEER_BUDGET_STOPPER_EST。"""
+    resolved = threshold if threshold is not None else _budget_stopper_est()
 
     def should_stop(context: TurnContext) -> bool:
-        return _estimate_tokens(context.messages) > threshold
+        return _estimate_tokens(context.messages) > resolved
 
     return should_stop
 
@@ -567,7 +577,7 @@ def build_complex_config(
     step_callback: Optional[Any] = None,
     max_turns: int = 8,
     max_tokens_est: Optional[int] = None,
-    budget_threshold: int = 120_000,
+    budget_threshold: Optional[int] = None,
     route_note: Optional[str] = None,
     marker_allocator: Optional[Any] = None,
     final_answer_guard: Optional[Any] = None,
