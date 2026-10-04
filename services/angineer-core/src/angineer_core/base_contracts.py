@@ -8,7 +8,7 @@ angineer-core 数据契约定义。
 - IntentResponse / ActionResponse / StepParseResponse / ArgsExtractResponse：LLM 响应解析格式
 """
 from typing import List, Dict, Any, Literal, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 class InlineCitationDraftValue(BaseModel):
@@ -157,10 +157,22 @@ class RouteResult(BaseModel):
 class ScopeContext(BaseModel):
     """检索/会话范围上下文（门牌号）。默认 default 库，但链路上传递必须显式。"""
     library_id: str = "default"
+    # 多库勾选（阶段三 D8）：非空时 library_id 自动同步为首项（兼容单值字段）；
+    # 为空时自动补为 [library_id]——字段读取不变；序列化附加 library_ids
+    library_ids: List[str] = Field(default_factory=list)
     doc_ids: List[str] = Field(default_factory=list)
     filters: Dict[str, Any] = Field(default_factory=dict)
     source: str = "request"
     request_id: Optional[str] = None
+
+    @model_validator(mode="after")
+    def _sync_library_scope(self) -> "ScopeContext":
+        # 集合项 strip 去空后统一收敛：两分支共享同一尾部赋值，消除分叉
+        self.library_ids = [s for s in (str(x).strip() for x in self.library_ids) if s]
+        if not self.library_ids:
+            self.library_ids = [self.library_id or "default"]
+        self.library_id = self.library_ids[0]
+        return self
 
 
 class RouteDebug(BaseModel):

@@ -55,7 +55,7 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
-def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator) -> AttemptConfig:
+def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
@@ -63,6 +63,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             llm=llm_factory(),
             doc_nodes=load_nodes(),
             library_id=library_id,
+            library_ids=library_ids,
             doc_ids=doc_ids,
             task_type="content_qa",
             max_turns=3,
@@ -82,7 +83,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
     )
 
 
-def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator) -> AttemptConfig:
+def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
@@ -90,6 +91,7 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             llm=llm_factory(),
             doc_nodes=load_nodes(),
             library_id=library_id,
+            library_ids=library_ids,
             doc_ids=doc_ids,
             task_type="table_qa",
             knowledge_task_type="content_qa",
@@ -128,6 +130,7 @@ def build_attempts(
     mode: str = "instruct",
     sop_loader: Any = None,
     marker_allocator: Any = None,
+    library_ids: Optional[List[str]] = None,
 ) -> List[AttemptConfig]:
     level = str(getattr(intent_result, "intent_level", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
@@ -148,6 +151,7 @@ def build_attempts(
                 llm=llm_factory(),
                 doc_nodes=load_nodes(),
                 library_id=library_id,
+                library_ids=library_ids,
                 doc_ids=doc_ids,
                 max_turns=8,
                 config_name=config_name,
@@ -167,10 +171,10 @@ def build_attempts(
         )]
     if level == "L2" or service_mode in ("structured_lookup", "sql_first"):
         return [
-            _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator),
-            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator),
+            _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=library_ids),
+            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator, library_ids=library_ids),
         ]
-    return [_l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=True, marker_allocator=marker_allocator)]
+    return [_l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=True, marker_allocator=marker_allocator, library_ids=library_ids)]
 
 
 def format_route_note(intent_result: Any) -> Optional[str]:

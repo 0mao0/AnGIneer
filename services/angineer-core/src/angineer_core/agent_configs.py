@@ -349,6 +349,7 @@ def build_qa_config(
     llm: Any,
     doc_nodes: Optional[List[Any]] = None,
     library_id: str = "default",
+    library_ids: Optional[List[str]] = None,
     doc_ids: Optional[List[str]] = None,
     filters: Any = None,
     task_type: str = "content_qa",
@@ -374,6 +375,7 @@ def build_qa_config(
         effective_table_task_type = table_task_type or task_type
         knowledge_tool = RetrieverAdapter.knowledge_search(
             library_id=library_id,
+            library_ids=library_ids,
             doc_ids=doc_ids,
             doc_nodes=doc_nodes,
             top_k=20,
@@ -564,6 +566,7 @@ def build_complex_config(
     llm: Any,
     doc_nodes: Optional[List[Any]] = None,
     library_id: str = "default",
+    library_ids: Optional[List[str]] = None,
     doc_ids: Optional[List[str]] = None,
     filters: Any = None,
     inline_citations: Optional[List[Dict[str, Any]]] = None,
@@ -587,6 +590,7 @@ def build_complex_config(
         qa_tools = [
             RetrieverAdapter.knowledge_search(
                 library_id=library_id,
+                library_ids=library_ids,
                 doc_ids=doc_ids,
                 doc_nodes=doc_nodes,
                 top_k=20,

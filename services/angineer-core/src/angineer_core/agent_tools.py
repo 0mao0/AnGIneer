@@ -345,6 +345,9 @@ def _items_to_evidences(items: list, *, kind: str, source: str, library_id: str)
     evidences: List[Dict[str, Any]] = []
     for item in items:
         metadata = getattr(item, "metadata", None) or {}
+        # 阶段三 P0（评审 P0-1）：多库扇出下逐图标源——item 自带 library_id 优先，
+        # 空值回退入参（集合首库）；整批赋首库会把跨库证据全标错
+        item_lib = str(metadata.get("library_id") or "").strip()
         evidence = Evidence(
             evidence_id=str(getattr(item, "item_id", "") or ""),
             kind=kind,
@@ -356,7 +359,7 @@ def _items_to_evidences(items: list, *, kind: str, source: str, library_id: str)
             section_path=str(metadata.get("section_path") or ""),
             score=float(getattr(item, "rerank_score", None) or getattr(item, "score", 0.0) or 0.0),
             source=source,
-            library_id=library_id,
+            library_id=item_lib or library_id,
             metadata={
                 "cite": metadata.get("cite"),
                 "citation_target_id": getattr(item, "citation_target_id", None),
@@ -559,9 +562,14 @@ def _search_memo_store(
 def _search_memo_key(kwargs: Dict[str, Any]):
     if not route_parallel_enabled():
         return None
+    # 阶段三 D8：库维度取集合（strip 去空白后排序去重，与 scope_hash_for 归一口径
+    # 对齐）；无集合时回退单值——单元素集合与旧单值同键（赌博式预检与主路同源构键，不串桶）
+    library_scope = tuple(sorted(
+        {str(x).strip() for x in (kwargs.get("library_ids") or ()) if str(x).strip()}
+    )) or (str(kwargs.get("library_id") or "default"),)
     return (
         kwargs.get("query"),
-        kwargs.get("library_id"),
+        library_scope,
         tuple(kwargs.get("doc_ids") or ()),
         kwargs.get("top_k"),
         kwargs.get("task_type"),
@@ -586,6 +594,7 @@ def _record_retrieval_stages(
     task_type: str,
     top_k: int,
     library_id: str,
+    library_ids: Optional[List[str]] = None,
 ) -> None:
     """检索分段计时落盘（req-table-retrieval-latency §10 方案 E）。
 
@@ -609,6 +618,8 @@ def _record_retrieval_stages(
                 "task_type": task_type,
                 "top_k": top_k,
                 "library_id": library_id,
+                # 阶段三 D8：多库运维归因不再全记首库——libs 记集合（与分段计时日志同口径）
+                "libs": ",".join(map(str, library_ids)) if library_ids else library_id,
             },
         )
     except Exception:  # noqa: BLE001
@@ -665,6 +676,7 @@ def _run_knowledge_search_impl(
     *,
     query: str,
     library_id: str = "default",
+    library_ids: Optional[List[str]] = None,
     doc_ids: Optional[List[str]] = None,
     doc_nodes: Optional[List[Any]] = None,
     top_k: int = 20,
@@ -694,6 +706,14 @@ def _run_knowledge_search_impl(
         str(getattr(node, "id", "") or ""): str(getattr(node, "title", "") or "")
         for node in nodes
     }
+    # 阶段三 D8：仅在显式传集合时上浮 scope.library_ids（旧调用结果 shape 不变）
+    scope: Optional[Dict[str, Any]] = None
+    if library_ids:
+        scope = {
+            "library_id": library_id,
+            "library_ids": list(library_ids),
+            "doc_ids": list(doc_ids or []),
+        }
     if retrieval_client is None:
         from angineer_core.docs_retrieval_client import client_from_env
 
@@ -709,23 +729,29 @@ def _run_knowledge_search_impl(
                 top_k=top_k,
                 task_type=task_type,
                 filters=filters,
+                library_ids=library_ids or None,
             )
             logger.info(
-                "knowledge_search 分段计时: docs_api=%.2fs items=%d query=%r",
+                "knowledge_search 分段计时: docs_api=%.2fs items=%d query=%r libs=%s",
                 time.perf_counter() - _t, len(items), query[:40],
+                ",".join(map(str, library_ids)) if library_ids else library_id,
             )
             _record_retrieval_stages(
                 "knowledge_search",
                 {"stage_times": http_stages},
                 query=query, task_type=task_type, top_k=top_k, library_id=library_id,
+                library_ids=library_ids,
             )
-            return _assemble_search_result(
+            result = _assemble_search_result(
                 query=query, items=items, library_id=library_id,
                 doc_title_map=doc_title_map, prefix=prefix,
                 marker_allocator=marker_allocator, rerank=rerank, task_type=task_type,
                 kind="text", source="knowledge_search",
                 config_name=config_name, mode=mode,
             )
+            if scope:
+                result["scope"] = scope
+            return result
         except Exception as exc:  # noqa: BLE001
             logger.warning("docs-api 检索失败，回退本地进程内检索: %s", exc)
 
@@ -747,20 +773,28 @@ def _run_knowledge_search_impl(
         sparse=sparse,
         clause=clause,
         formula=formula,
+        # 阶段三 D8：仅显式传集合时才给端口 library_ids——旧调用端口 kwargs 逐位
+        # 不变（根 tests/angineer-core/test_ports_contract.py 钉死端口形参集，
+        # 无条件塞 library_ids=None 即破严格签名 fake 的契约，10-04 评审 blocking）
+        **({"library_ids": library_ids} if library_ids else {}),
     )
     _record_retrieval_stages(
-        "knowledge_search", result, query=query, task_type=task_type, top_k=top_k, library_id=library_id
+        "knowledge_search", result, query=query, task_type=task_type, top_k=top_k, library_id=library_id,
+        library_ids=library_ids,
     )
     if "error" in result:
         return result
     items = _keep_per_doc_blocks(result.get("items") or [])
-    return _assemble_search_result(
+    assembled = _assemble_search_result(
         query=query, items=items, library_id=library_id,
         doc_title_map=doc_title_map, prefix=prefix,
         marker_allocator=marker_allocator, rerank=rerank, task_type=task_type,
         kind="text", source="knowledge_search",
         config_name=config_name, mode=mode,
     )
+    if scope:
+        assembled["scope"] = scope
+    return assembled
 
 
 def _assemble_search_result(
@@ -871,6 +905,7 @@ class RetrieverAdapter:
     def knowledge_search(
         *,
         library_id: str = "default",
+        library_ids: Optional[List[str]] = None,
         doc_ids: Optional[List[str]] = None,
         doc_nodes: Optional[List[Any]] = None,
         top_k: int = 20,
@@ -897,6 +932,7 @@ class RetrieverAdapter:
             return _run_knowledge_search(
                 query=query,
                 library_id=library_id,
+                library_ids=library_ids,
                 doc_ids=doc_ids,
                 doc_nodes=doc_nodes,
                 top_k=top_k,

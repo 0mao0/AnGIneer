@@ -6,8 +6,8 @@
 契约要点（docs/plan-chat-history.md D10/D11）：
 - ``seq`` 唯一权威在服务端：``append`` 分配单调递增序号并返回，SSE run_end 帧
   据此下发 ``msg_seqs``，客户端快照 PUT 只接受已下发的 seq。
-- ``load`` 只在「会话池新建 session」时调用一次，且必须按 scope_hash 过滤——
-  引擎内存 history 与池 key（owner:scene:session_id:scope_hash）是上下文真相源。
+- ``load`` 只在「会话池新建 session」时调用一次；scope_hash 自阶段三起降级为消息级
+  来源标记，不参与加载过滤（见 docs/superpowers/specs/2026-10-04-kb-multi-library-qa-design.md D6）。
 """
 import hashlib
 from typing import Any, Dict, List, Protocol
@@ -15,13 +15,19 @@ from typing import Any, Dict, List, Protocol
 from angineer_core.agent_messages import AgentMessage
 
 
-def scope_hash_for(library_id: str, doc_ids: List[str]) -> str:
-    """scope 指纹：库 + 排序 doc_ids 的 sha1 前 8 位。
+def scope_hash_for(library_ids: "List[str] | str", doc_ids: List[str]) -> str:
+    """scope 指纹：库集合（排序去重后 join）+ 排序 doc_ids 的 sha1 前 8 位。
 
-    与 aichat-api 会话池 key 同算法（单真相源，池化/存储共用），
-    库或文档集变化即新 hash → 新会话，不回灌旧 scope 的历史。
+    阶段三（D6）：scope_hash 降级为消息级来源标记——不参与历史加载过滤，
+    也不参与会话池 key（chat_agent 池 key = owner:scene:session_id）。
+    多库时按集合计算；**单库输入（str 或单元素列表）与旧算法
+    逐位一致**（旧会话/旧消息行不需要数据迁移）。
     """
-    material = "|".join([library_id or "default", *sorted(str(d) for d in (doc_ids or []))])
+    if isinstance(library_ids, str):
+        libs = [library_ids]
+    else:
+        libs = sorted({str(x).strip() for x in (library_ids or []) if str(x).strip()})
+    material = "|".join([",".join(libs) or "default", *sorted(str(d) for d in (doc_ids or []))])
     return hashlib.sha1(material.encode("utf-8")).hexdigest()[:8]
 
 
@@ -29,7 +35,10 @@ class HistoryStore(Protocol):
     """聊天历史存储插件协议。实现方：chat_history.store.sqlite_store.SqliteHistoryStore。"""
 
     def load(self, owner: str, session_id: str, scope_hash: str) -> List[AgentMessage]:
-        """读出该 scope 下的全部历史消息（按 seq 升序），无则空列表。"""
+        """读出该会话全部历史消息（按 seq 升序），无则空列表。
+
+        scope_hash 参数自阶段三起仅作协议兼容，不参与过滤（D6 会话级加载）。
+        """
         ...
 
     def append(

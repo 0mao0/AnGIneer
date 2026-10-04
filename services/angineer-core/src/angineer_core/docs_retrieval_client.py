@@ -81,6 +81,7 @@ class DocsRetrievalClient:
         top_k: int = 20,
         task_type: str = "content_qa",
         filters: Any = None,
+        library_ids: Optional[List[str]] = None,
     ) -> "Tuple[List[RetrievedItem], Dict[str, float]]":
         payload = {
             "query": query,
@@ -91,6 +92,9 @@ class DocsRetrievalClient:
             "filters": filters,
             "mode": mode,
         }
+        # 阶段三 D8：多库集合透传；不传时载荷无该键（旧服务端逐位兼容）
+        if library_ids:
+            payload["library_ids"] = list(library_ids)
         resp = requests.post(
             f"{self.base_url}/api/knowledge/internal/retrieve",
             json=payload,
