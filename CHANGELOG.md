@@ -2,6 +2,18 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.90
+
+- 多库勾选问答阶段三 Phase B–E 全链路上线（60f349d/50fc410/1487de0/8f2bf8a，spec=docs/superpowers/specs/2026-10-04-kb-multi-library-qa-design.md）：主选择器多选 ≤5 库、同问跨库一次问答（docs-core 按向量 collection 分组扇出 + 按库分池 RRF 融合、多库 40 候选池 D9、FTS 库过滤求交前移）；ScopeContext 集合化与 scope_hash 降级为消息级来源标记（单库调用逐位不变）、工具链/memo 键/Evidence 逐项来源库标注全链带集合（P0 修复：原按首库整批赋值）；chat-history 表结构迁移（chat_messages PK 去 scope_hash + 存量 seq 重排 + chat_sessions 加 library_ids_json，随服务重启自动执行、幂等）；集合鉴权先于截断（任一越权 403 不做静默剔除，ANGINEER_MAX_CHAT_LIBRARIES 默认 5 夹 1..10）；会话池 key=owner:scene:session_id（会话内改集合不轮换、上下文跨集合续接）；前端多选选择器与历史单桶、引用溯源按来源库定位（citations 帧无标源，由同消息 items 三级对账回填 library_id）
+- 多库验收修复批次（581a710/7b5f3e7/0e78343/ebc1219/bd5052f/427c327/858242f，业主本地逐项验收反馈）：库名登录后补加载（游客→登录路径此前回退显示 lib-xxxx id）；勾选 >1 库收口显示「N 个知识库」、单库显示库名（悬停仍列全名）；@ 提及按钮与库选择器位置对调（业主定式）；下拉面板脱离触发器宽度（中文库名不再截断，minWidth 200px）；空库警示横幅随最近一次请求（原只赋值从不清除，答对后仍常驻）；@引用 hover 预览卡贴紧锚点（原向上展开按 maxHeight 预留顶边留空隙）并优先向上展开（原「下方≥220px 就向下」在输入区恒真压住输入框）；空库警示文案用中文库名替代 lib-xxxx id（get_docs_service().list_libraries() 映射，查名失败回退 id）；最终答案守卫 refusal_kept/半拒答剥头分支补无效标记剥离（生产实测 L2→L1 回退段检索全空、拒答形态原文里跨轮照抄的 [K5]/[K4]/[K1][K6] 裸标记，守卫在标记清理段之前早退 return——修后保留拒答+相邻片段形态但剥净无出处标记）
+- nightly 中断恢复（550d6c2，req-nightly-interrupt-resume）：部署砸 run 四 bug 合一——中断可见性与断点续跑（中断态可识别、补跑从断点继续而非整跑重来）
+- MinerU 请求显式绕过系统代理直连（ea27985，2026-10-04 OfficeQA 入库实踩：Windows 系统代理开着时请求绕道海外出口再回国、长连接挂在中继上被吞——客户端静默 11–27 分钟后 RemoteDisconnected、网关侧却记 200；与 httpx 同源坑 eec9438 的 requests 侧）：proxies 置空后原「代理失败回退直连」分支保留作兜底；company 端点超时同步登记 .env.example（默认 600s，大册扫描件可合法超 600s，客户端掐活任务→重试双烧 GPU，当日误杀已改 3600 走运行时配置）
+- docs-api 解析取消收敛 + 启动行级自愈（79c0aa4，业主报障「取消失败: 任务不存在」）：行状态存 sqlite、任务在进程内存，重启后互不认账致僵尸行永远点不动——取消接口查不到内存任务不再直接 404，按行实况幂等收敛（占位行 pending-<doc_id> 不动、queued/processing 悬空行写 cancelled 并同步节点、行不存在仍 404）；启动自愈补行级兜底 reconcile_stale_records（parse_records 非终态行内存无活线程即标 failed，补任务级清扫只认内存任务的盲区）；tests/conftest 补注册表与数据根隔离（修 test_parse_route_source_fallback 两例本机数据依赖存量红）
+- admin 知识库页交互增强（4598e35 + table-ui 1324bfa）：组切换恢复该组上次选中库（localStorage ag_admin_group_libs，tab 随选中库跟随；radio-group 事件值在 e.target.value 的坑已修）；状态筛选 8 并 6 档、每档带当前条数、0 计数隐藏；大小/页数表头排序（客户端比较器）；筛选变化经 table-ui 新 resetPageToken 回卷第 1 页（刻意不监听行集变化，防后台轮询把翻页用户弹回）；'pending' 移出在跑集合三处同修（上传占位态从未进队列：待解析行点取消无事发生、占位行让轮询永不停、批量解析误过滤未开跑文件）
+- 「黑板」术语统一为「变量黑板」（bb620f7，落实 AGENTS.md 对话黑板≠变量黑板约定）：源码注释/日志/sop-ui 文案/README 与 tech-report 图例同改，代码标识符 blackboard 维持原名
+- 文档回仓（b895013/a544741/6a232aa）：对话黑板需求按阶段三 D6 改版收口并正名（会话身份=(owner_key,session_id)、scope_hash/library_ids_json 降为节点来源列）；M0 三臂判分预注册施工单入库（状态=可开工，题集与判据已冻结）；DGX 视觉端点调用规格收口（32MiB 请求体/降采样按 token 每图=4096÷图数/并发同 8 lane 池，交叉核对上游文档一处口径差异）
+- 多库线上验收探针（971d979）：scripts/multi_library_acceptance.py（同题 1/2/5 库各 ≥20 次取 p90，阈值多库 ≤ 单库 ×1.5；求和口径单库=dense+sparse+clause+fuse、多库=retrieve_fanout+fuse；结果落 data/ops/ 并在白天低峰使用）
+
 ## v0.2.89
 
 - 空闲保温探针空转根治（10-03 生产复盘，31aa999/0f522a5）：首版探针两处零召回根因——doc_nodes=None 直达 dense 空节点门（dense=0.00s、embed 从未发出）＋查询词「知识库保温探针」系索引外 token、FTS5 隐式 AND 整条清零，日志恒「成功」实则一页未读；修复=节点与真实请求同源装载＋高频词「规范 设计」（业主复核砍掉「的 规范 设计」：生产实测三字 AND 仅 37 条、保温翻页量少两个量级）＋ANGINEER_KEEPWARM_QUERY 可覆盖（已登记 .env.example）＋items==0 必须 WARNING；行为锁 4 例＋端到端复验 items=8
