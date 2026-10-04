@@ -197,12 +197,22 @@ const updateCitationPopoverPosition = (anchor: HTMLElement) => {
     horizontalMargin,
     viewportWidth - panelWidth - horizontalMargin
   )
-  const top = placeBelow
-    ? clamp(rect.bottom + verticalGap, horizontalMargin, viewportHeight - maxHeight - horizontalMargin)
-    : clamp(rect.top - maxHeight - verticalGap, horizontalMargin, viewportHeight - maxHeight - horizontalMargin)
+  if (placeBelow) {
+    const top = clamp(rect.bottom + verticalGap, horizontalMargin, viewportHeight - maxHeight - horizontalMargin)
+    citationPopoverStyle.value = {
+      left: `${left}px`,
+      top: `${top}px`,
+      width: `${panelWidth}px`,
+      maxHeight: `${maxHeight}px`
+    }
+    return
+  }
+  // 向上展开：锚底边（bottom）贴近锚点顶边，弹框随内容高度向上生长。
+  // 此前按 maxHeight 预留顶边（top = rect.top - maxHeight），内容不足满高时
+  // 底边与锚点间留出 maxHeight−实际高度 的空隙（2026-10-04 验收：弹框离得太远）
   citationPopoverStyle.value = {
     left: `${left}px`,
-    top: `${top}px`,
+    bottom: `${viewportHeight - rect.top + verticalGap}px`,
     width: `${panelWidth}px`,
     maxHeight: `${maxHeight}px`
   }
