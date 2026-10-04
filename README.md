@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.88** ——检索 memo 三态在途登记+等待复用（同请求双份检索根治：共享 allocator 引用号段＋失败/超时回收＋等待可取消，ANGINEER_MEMO_INFLIGHT 默认开）；空闲保温探针每 5 分钟轻查询压冷启动尾（ANGINEER_IDLE_KEEPWARM 默认开）；生产关闭在线 LLM 二排（52% duel 否决白烧，nightly 对照判据 ±1.5pp 噪声带）；R5 探针定案：qdrant dense 0.11s 结构健康、量化/拆集合/VACUUM 不做（慢源=冷启动＋负载窗争抢，施工单入库）；GDP.pdf import_docs 支持预置 Key 免登录并去 pandas 依赖；评测单题详情 light 裁剪（首屏不回传重复证据副本）；题集题目列表服务端分页与跨全量筛选；intent 题集 task_type 取真实 service_mode＋卡片标签修正；前端文档深链断裂与管理端切主题弹层错色修复＋工作区收口。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.89** ——空闲保温探针空转根治（零召回双根因=空节点门＋索引外毒词；修复=节点同源装载＋高频词「规范 设计」＋空转必 WARN）；拒答识别补英文句式与降级输出形态（英文拒答 evidence 句式族与 error-JSON 开篇形态都接住，评测判分与线上守卫经单一入口同修）；最终答案 JSON 信封三修（错误检测判定前剥围栏、answer 单键信封拆封带保守三锁、实质拒答词表补「未覆盖」）；aichat-ui 公式渲染 % 归一化（occamy 照抄 R_{1%} 致 KaTeX 报错红字，未转义 % 统一转义，对任意模型裸公式形态免疫）；L3/L4 复杂档补装最终答案守卫（occamy T/K 前缀错位裸标记实测，enforce_evidence 与 L2 同口径＋followup 规则补齐）；QA 提示词 v15（规则 8 引用标注改逐字照抄 metadata.cite 实际值，禁止按提示词示范改写前缀编号）；知识库容量拆分阶段一+二（库组注册表独立单文件＋qdrant 按组拆 collection 74.1 万点对账＋sqlite 按组拆文件＋data 三域归位；admin 加生产/评测组 segment、user-web 滤评测组；迁移脚本补双白名单）；证据上桌三层防线（LLM 批量一枪定员：rerank≥0.6 豁免、判 0 且 ≥0.3 吵架保留贴尾、空桌不回退、fail-open；上下文软帽 80k est 挂装配公共末端；400 钳制 limit−input−512 只重发一次；ANGINEER_ADMISSION_MODE 默认 oversize、留痕进 nightly 报告）；多库勾选问答 Phase A（契约归一、融合库感知、FTS 库过滤、多库 collection 扇出、单库 FTS 求交前移）；素材检查 B 层拼写洞修复（default_sources 误调不存在的 list_records 改 list_libraries，回归守卫真跑注册表扇出钉死注入 stub 的 CI 盲区）；OfficeQA Pro 133 本地回归压测集（官方零判官数值判分、成绩可对官方口径直比；不进生产；MinerU 超时 600→3600 治大册重试双烧误杀）；文档回仓（拆分计划四阶段验收、blackboard 业主目标补述、DGX 4c47 两窗口结案、CHANGELOG 补账）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 

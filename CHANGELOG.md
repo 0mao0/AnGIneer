@@ -2,7 +2,7 @@
 
 All notable changes to AnGIneer are documented here.
 
-## Unreleased
+## v0.2.89
 
 - 空闲保温探针空转根治（10-03 生产复盘，31aa999/0f522a5）：首版探针两处零召回根因——doc_nodes=None 直达 dense 空节点门（dense=0.00s、embed 从未发出）＋查询词「知识库保温探针」系索引外 token、FTS5 隐式 AND 整条清零，日志恒「成功」实则一页未读；修复=节点与真实请求同源装载＋高频词「规范 设计」（业主复核砍掉「的 规范 设计」：生产实测三字 AND 仅 37 条、保温翻页量少两个量级）＋ANGINEER_KEEPWARM_QUERY 可覆盖（已登记 .env.example）＋items==0 必须 WARNING；行为锁 4 例＋端到端复验 items=8
 - 拒答识别补英文句式与 error 模板降级输出（bb91316，occamy 关思考实测 run-94c0ac9e9e3f：名义拒答分 41%→31% 系检测器漏认、真实拒答行为两轮持平 17/39）：REFUSAL_EN_PATTERNS 小句窗口正则接住 "did not retrieve/find … evidence" 族插字变体（否定动词与 evidence 须同句，跨句部分覆盖不误伤、反例进测试）；REFUSAL_ERROR_TEMPLATE_RE 认「整段以 ```json {"error" 开篇」形态（全仓 grep 证实系模型模仿工具报错格式、非代码泄漏），守卫换标准拒答话术；is_refusal_text 单一入口，评测判分与线上守卫同修
@@ -10,6 +10,12 @@ All notable changes to AnGIneer are documented here.
 - aichat-ui 公式渲染 % 归一化（生产会话 chat-musnnodn-qc733j 实测：occamy 照抄规范原文 R_{1%}，% 系 LaTeX 注释符、KaTeX 解析报错整条红字；Qwen3.6 时代每次输出 $$…\%…$$ 标准 LaTeX 形所以从未暴露——模型换型暴露前端裸公式启发式盲区，JTS 165 的 1%/2% 记法高频）：renderFormula 归一化把未转义 % 统一转 \%（lookbehind 不重复转义模型已写对的 \%；KaTeX 中 \% 渲染为字面 %）；单测 4 例进包内 test 脚本（tsx --test 下 katex ESM 引 css 的加载问题用 node:module register css 空模块 loader 解决，vite 构建不受影响）
 - L3/L4 复杂档补装最终答案守卫（生产会话 chat-musq16g seq 8 实锤：该轮检索只分配 T1–T15（表格检索先跑、前缀 T），occamy 正文却写 [K1]/[K3]/[K8]——不照抄工具结果里的实际 cite 值，而是按提示词示范编 K 号；守卫此前只装 L1/L2 档，build_complex_config 无 final_answer_guard → 无效标记不剥除、前端匹配不到引用项、用户看到裸 [K3]；Qwen3.6 时代照抄实际标记从未触发）：build_complex_config 增 final_answer_guard 参数并默认 make_final_answer_guard(enforce_evidence=True, followup_question 同 QA 档)，agent_policy L3/L4 分支显式传 enforce_evidence=True 与 L2 同口径（防复杂档无证据出结论）；同批补漏齐 followup 规则（COMPLEX prompt 追加 FOLLOWUP_QUESTION_RULE、config 挂 followup_question，与 QA 档一致）；回归测试 3 例（装配非空、T/K 前缀错位场景剥 [K1]/[K99] 留 [T3]、空证据 no_evidence 拒答）
 - QA 提示词 v14→v15（同案 B 配套，prompt 资产化注册）：规则 8 引用标注废除旧示范「如 [K3]」形态示例（occamy 系被模型当字面模板、无视工具返回的实际 cite 值），改为「逐字照抄该条证据 metadata.cite 的实际值（正文写 [T3] 还是 [K3] 由它决定，不得自行改写前缀）」；latest 断言随迁（test_prompts 两例：latest 解析 v15、照抄条款在文）；COMPLEX 档共享同一条款文本随之生效
+- 知识库容量拆分阶段一+二（plan-kb-split-groups，5dd0d11/15709f9/9d5625f，本机与服务器搬迁演练均对账通过）：库组注册表独立单文件 data/registry.sqlite（读穿不缓存、未注册回退旧单 collection/单文件行为）；qdrant 按组拆 collection（本机 741,581 点拆 standards 30,741/dredgeai 151,916/evals_corpus 552,034，verify 三组全 OK、--flip 原子切换幂等、payload 补 library_id 与索引）；sqlite 按组拆文件（canonical/index 双 store per-path 组路由、批量 for-docs 跨组分桶合并、全局 FTS/chunk 反查扇出全组文件按 bm25 重排，迁移脚本 split_sqlite_groups 显式列清单逐列对账＋--flip-sqlite 原子翻转＋跳过源库缺失表——10-04 服务器实踩 knowledge_index 已无 canonical_vectors 致崩）；data/ 三域归位（knowledge/evals/platform 收编、libraries 按注册表组分目录、docs-api 预览白名单与容器路径适配）；admin 知识库页加生产/评测组 segment、user-web @ 库选择器滤掉评测组；.dockerignore 与 Dockerfile 两处同改白名单补三个库组迁移脚本（2026-09-11 同类坑复现：首推部署 Build images 直接 file not found）
+- 证据上桌三层防线（plan-evidence-admission v2 全量落地，a81ca32；动机=10-04 nightly 9 题 L1 档输入 61,441 tokens＋max_tokens 4,096 超模型顶 1 token、400→自动拒答 ≈0.87pp/晚，根因=QA 档当轮证据豁免＋评测全新会话致预算闸门空转）：①LLM 批量一枪给定员 listA——rerank≥0.6 头部豁免直进、判 1 门槛放宽（可能相关即 1）、判 0 且 rerank≥0.3 吵架保留贴尾、<0.3 才丢、空桌=双信号一致不回退、判官异常 fail-open 全量放行；②上下文软帽 ANGINEER_EVIDENCE_CAP_EST（80k est，挂检索装配公共末端覆盖全部 kind，entity 纯实体路径 _cap_entity_objects 补装）；③400 钳制（context-length 报错→从报文解析 limit 与 input、max_tokens=limit−input−512 同请求只重发一次）；判官 env 独立可配（默认 llm2 条目，不复用 evals-core 的 EVAL_JUDGE_MODEL 避免跨包耦合）；admission 留痕（kept/dropped/quarreled/cap_dropped）经 _admission 私有键上浮进 all_scores.retrieval.admission＋nightly 报告行；6 键登记 .env.example，ANGINEER_ADMISSION_MODE 默认 oversize（只打帽前 est>90k 病态包，all 转正待 A/B 夜）；新增 33 例全绿
+- 多库勾选问答 Phase A（阶段三计划 A1-A7，f11058d/48b2df9）：契约归一、融合库感知、FTS 库过滤、多库 collection 扇出；Phase A4 单库 FTS 求交前移——sparse 路 doc_id=None 携带库集合、收敛为本库 SQL 过滤（独立回退单元）
+- 素材检查 B 层拼写洞修复（3459dd8，生产 nightly B 层实踩 AttributeError）：default_sources 调用不存在的 library_registry.list_records()（真名 list_libraries，9d5625f 引入）；全仓单测均注入 stub list_docs、真身从未被覆盖=CI 盲区，补回归守卫真跑 list_docs 经注册表扇出多库根（注册一库＋造 graph 产物即钉死，改回拼写即翻红）
+- OfficeQA Pro 133 本地回归压测集（ca4f509，不进生产）：官方零判官数值判分器 vendored（Apache 2.0）＋numeric_eval 评测器（0 容差数值判、成绩可对官方口径直比）＋numeric_gold 列四表接线；筛库 191/697 册、multi_doc 66/133；预注册 docs/plan-officeqa-arms.md 判分跑前锁死；配套 MinerU 客户端超时 600→3600 治大册扫描解析误杀＝重试双烧 GPU（同 09-27 PoPo 教训）
+- 文档回仓：知识库拆分计划四阶段验收入库（3756602）、blackboard 新对话模式业主目标补述（§0.1 终态=多轮对话实时图＋用户沿图走路径、§7.1 降为地基代理指标）、DGX 4c47 两窗口结案（窗口1=反隧道传输段滞留 10-13s 非服务卡死；窗口2=我方 curl 调试流量误报）、CHANGELOG Unreleased 补账
 
 ## v0.2.88
 
