@@ -115,6 +115,10 @@
           <a-descriptions-item label="异常自动补判">
             最多 {{ runModal.plan.retry_rounds }} 轮（judge 抖动仅重判分，执行错误整题重跑）
           </a-descriptions-item>
+          <a-descriptions-item v-if="runModal.plan.resume" label="断点续跑">
+            检测到 10h 窗口内中断的同类评测（已完成 {{ runModal.plan.resume.completed }}/{{
+              runModal.plan.resume.total || '?' }}），本次将断点续跑
+          </a-descriptions-item>
           <a-descriptions-item label="结果去向">
             本页新增当日结论条目 + 企微通知（评测逐题结果进「日常测试」历史）
           </a-descriptions-item>
@@ -203,9 +207,9 @@ const columns: DataTableColumn[] = [
 ]
 
 const stateColor = (state: string) =>
-  ({ running: 'processing', green: 'success', red: 'error', error: 'warning', corrupt: 'default' }[state] || 'default')
+  ({ running: 'processing', green: 'success', red: 'error', error: 'warning', corrupt: 'default', interrupted: 'orange' }[state] || 'default')
 const stateLabel = (state: string) =>
-  ({ running: '运行中', green: '通过', red: '回归', error: '失败', corrupt: '损坏' }[state] || state || '—')
+  ({ running: '运行中', green: '通过', red: '回归', error: '失败', corrupt: '损坏', interrupted: '中断' }[state] || state || '—')
 const pct = (value?: number) => (value == null ? '—' : `${(value * 100).toFixed(2)}%`)
 const deltaText = (day: NightlyDay) =>
   day.delta == null ? '—' : `${day.delta > 0 ? '+' : ''}${(day.delta * 100).toFixed(2)}`
@@ -238,6 +242,7 @@ const durationText = (day: NightlyDay) => {
 /** 老数据没有 verdict 字段时按状态兜底生成一句话（措辞与发布端 verdict() 同风格，面向普通读者）。
  *  列表载荷不带转错题数，故只报方向：「没有题目变差」要有 regress_count 才成立，这里不断言 */
 const fallbackVerdict = (day: NightlyDay) => {
+  if (day.state === 'interrupted') return '评测被部署/重启中断，可断点续跑'
   if (day.state === 'error' || day.state === 'corrupt') return '评测中断，未出结果'
   if (day.state === 'red') return '整体变差，需排查'
   if (day.delta != null && day.delta > 0.005) return '较基线提升'
@@ -318,6 +323,8 @@ interface NightlyRunPlan {
   concurrency?: number
   timeout_minutes?: number
   retry_rounds?: number
+  /** 断点续跑预览（仅 10h 窗口内有带章中断 run 时后端才带）：弹框明示「本次将断点续跑」 */
+  resume?: { run_id: string; completed: number; total?: number }
 }
 
 const running = ref(false)

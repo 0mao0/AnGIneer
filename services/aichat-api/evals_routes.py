@@ -561,11 +561,13 @@ async def list_nightly_days():
     if not os.path.isdir(root):
         return {"days": []}
     archive = _nightly_archive()
+    # 中断重判的题集口径：只认 nightly 配置 dataset 下的带章 run（resolve_interrupted）
+    cfg_dataset = str(nightly_control.load_settings().get("dataset_id") or "")
     days: list = []
     for name in sorted(os.listdir(root), reverse=True):
         day_dir = os.path.join(root, name)
         if _NIGHTLY_DATE_RE.match(name) and os.path.isdir(day_dir):
-            days.extend(archive.list_entries(day_dir, name))
+            days.extend(archive.list_entries(day_dir, name, dataset_id=cfg_dataset))
     entry = nightly_control.running_entry()
     if entry:
         days.insert(0, entry)
@@ -634,6 +636,10 @@ async def delete_nightly_day(date: str, slot: str = ""):
         if not os.path.isfile(os.path.join(day_dir, "nightly.json")):
             raise HTTPException(status_code=404, detail="该日期无夜间维护记录")
     entry = archive.read_entry(entry_dir, date, slot=slot)
+    if entry.get("state") == "corrupt":
+        # 中断档重判（与列表同规则）：带章 run 存在则回填 run_id，删除才能连带对应 run
+        archive.resolve_interrupted(
+            [entry], str(nightly_control.load_settings().get("dataset_id") or ""))
     stopped_run = deleted_run = False
     run_id = str(entry.get("run_id") or "")
     if run_id:
@@ -673,6 +679,10 @@ async def get_nightly_day(date: str, slot: str = ""):
     if not slot and not os.path.isfile(os.path.join(day_dir, "nightly.json")):
         raise HTTPException(status_code=404, detail="该日期无夜间维护记录")
     entry = _nightly_archive().read_entry(entry_dir, date, slot=slot)
+    if entry.get("state") == "corrupt":
+        # 中断档详情与列表同口径（state/时间/进度回填）
+        _nightly_archive().resolve_interrupted(
+            [entry], str(nightly_control.load_settings().get("dataset_id") or ""))
     report_md = ""
     report_path = os.path.join(entry_dir, "report.md")
     try:

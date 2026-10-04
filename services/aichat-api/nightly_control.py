@@ -194,7 +194,7 @@ def run_plan() -> dict:
     judge_names = []
     for candidate in answer_eval._judge_candidates():
         judge_names.append(candidate or "兜底=作答模型")
-    return {
+    plan = {
         "dataset": {"id": cfg["dataset_id"], "title": ds.get("title") or cfg["dataset_id"],
                     "question_count": ds.get("question_count")},
         "answer_model": ordered[0] if ordered else "默认模型（LLM_CONFIGS 首个可用端点）",
@@ -203,6 +203,21 @@ def run_plan() -> dict:
         "timeout_minutes": cfg["timeout_minutes"],
         "retry_rounds": cfg["retry_rounds"],
     }
+    # 断点续跑预览（req-nightly-interrupt-resume §2-B3）：10h 窗口内有带章中断 run 时
+    # 弹框明示「本次将断点续跑」。只读探测，判据与 pipeline._find_resume_candidate
+    # 同一函数（不改派发行为）；无候选不出现该字段（不添噪）
+    try:
+        resume_id = pipeline._find_resume_candidate(cfg["dataset_id"])
+        if resume_id:
+            run = result_store.get_run(resume_id) or {}
+            plan["resume"] = {
+                "run_id": resume_id,
+                "completed": int(run.get("completed_questions") or 0),
+                "total": int(run.get("total_questions") or 0),
+            }
+    except Exception:  # noqa: BLE001 预览探测失败不阻塞弹框
+        logger.warning("run_plan 续跑候选探测失败", exc_info=True)
+    return plan
 
 
 # ── 流水线触发（进程内唯一，天然替代 GH 的 concurrency 锁）──
@@ -212,6 +227,10 @@ _active: Optional[asyncio.Task] = None
 # 人为停止意图（pipeline 收到后走 stopped 收口：不落 error 结论、不发企微）
 _current_run_id: str = ""
 _stop_requested: bool = False
+# 断点续跑提示（req-nightly-interrupt-resume §2-B3）：launch 派发前探测命中即写入，
+# 种子行据此显示「续跑中」而非与全新起跑无差别。一次性消费——真实 run 行出现即不再
+# 参与渲染；_execute finally 兜底清空，防探测落空后残留误导下次全新起跑。
+_resume_hint: Optional[dict] = None
 
 
 def is_running() -> bool:
@@ -249,14 +268,23 @@ def running_entry() -> Optional[dict]:
             generated = started
     if not started:
         generated = datetime.now(BJT).isoformat(timespec="seconds")  # 种子行时间=按下时刻
-    return {
+    verdict = "评测进行中，完成后出结论" if run else "评测启动中…"
+    entry = {
         "date": "running", "running": True, "state": "running",
         "generated_at": generated, "run_id": _current_run_id,
         "dataset_id": cfg["dataset_id"], "subject": subject,
         "correct": (run or {}).get("completed_questions"),
         "total": (run or {}).get("total_questions"),
-        "verdict": "评测进行中，完成后出结论" if run else "评测启动中…",
     }
+    # 种子行 + 续跑 hint：起跑间隙就可见「续跑中（已完成 N/总）」，与全新起跑可区分；
+    # hint 只是提示语（派发探测与 pipeline 内部探测是两次独立调用，以实际派发为准）
+    if run is None and _resume_hint:
+        verdict = f"断点续跑中（已完成 {_resume_hint['already_done']}/{_resume_hint['total'] or '?'}）"
+        entry["resuming_from"] = _resume_hint["run_id"]
+        entry["correct"] = _resume_hint["already_done"]
+        entry["total"] = _resume_hint["total"] or None
+    entry["verdict"] = verdict
+    return entry
 
 
 def stop_pipeline() -> dict:
@@ -321,8 +349,31 @@ def _resolve_webhook() -> str:
     return (os.getenv("NIGHTLY_WECOM_WEBHOOK") or os.getenv("WEBHOOK") or "").strip()
 
 
+async def _probe_resume_hint(cfg: dict) -> None:
+    """派发前探测断点续跑候选，命中留 hint 给种子行（起跑间隙即显示「续跑中」）。
+
+    与 pipeline 内部探测（pipeline.py:426）是两次独立调用，窗口边界上可能不一致
+    （种子说续跑、实际全新跑）——hint 只是提示语，不构成行为契约。探测失败按全新
+    起跑显示，绝不影响派发本身。"""
+    global _resume_hint
+    _resume_hint = None
+    try:
+        resume_id = await asyncio.to_thread(pipeline._find_resume_candidate, cfg["dataset_id"])
+        if not resume_id:
+            return
+        run = await asyncio.to_thread(result_store.get_run, resume_id) or {}
+        _resume_hint = {
+            "run_id": resume_id,
+            "already_done": int(run.get("completed_questions") or 0),
+            "total": int(run.get("total_questions") or 0),
+        }
+    except Exception:  # noqa: BLE001
+        logger.exception("续跑提示探测失败（按全新起跑显示）")
+        _resume_hint = None
+
+
 async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
-    global _stop_requested, _current_run_id
+    global _stop_requested, _current_run_id, _resume_hint
     _stop_requested = False
     _current_run_id = ""
     t0 = time.monotonic()
@@ -344,6 +395,7 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
         )
     finally:
         _current_run_id = ""
+        _resume_hint = None  # 一次性消费兜底：无论成败，hint 不活到下次派发
     logger.info("nightly 流水线结束（source=%s）: state=%s 用时 %.1f min",
                 source, result.get("state"), (time.monotonic() - t0) / 60.0)
     _record(cfg, datetime.now(BJT), source, slot, result)
@@ -372,6 +424,7 @@ async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
         return {"ok": False, "detail": "已有一条夜间流水线在运行，请等待其完成"}
     _stop_requested = False
     cfg = load_settings()
+    await _probe_resume_hint(cfg)
     _mark_dispatch(cfg, datetime.now(BJT), source, slot)
     _active = asyncio.create_task(_execute(cfg, source, slot))
     return {"ok": True, "started_at": datetime.now(BJT).isoformat(timespec="seconds"),

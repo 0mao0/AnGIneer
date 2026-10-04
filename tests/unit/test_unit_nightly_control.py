@@ -155,13 +155,32 @@ class RunPlanTests(unittest.TestCase):
                  mock.patch("evals_core.runner.answer_eval._judge_candidates",
                             return_value=["DeepSeek-V4-Flash-Judge", None]), \
                  mock.patch("ai_inference.llm_config.load_llm_models_from_env",
-                            return_value=[ns(name="Qwen3.6-35B"), ns(name="Other")]):
+                            return_value=[ns(name="Qwen3.6-35B"), ns(name="Other")]), \
+                 mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value=""):
                 plan = nc.run_plan()
         self.assertEqual(plan["dataset"]["title"], "冒烟集")
         self.assertEqual(plan["dataset"]["question_count"], 25)
         self.assertEqual(plan["answer_model"], "Qwen3.6-35B")
         self.assertEqual(plan["judge_models"], ["DeepSeek-V4-Flash-Judge", "兜底=作答模型"])
         self.assertEqual(plan["concurrency"], 5)
+
+    def test_plan_resume_line_only_when_candidate(self):
+        """A3：有续跑候选 → 弹框带 resume 行（只读探测，不改派发判据）；无候选不添噪。"""
+        base = {"dataset_id": "ds-1", "title": "T", "question_count": 10}
+        with tempfile.TemporaryDirectory() as td, mock.patch.dict(
+                os.environ, {"NIGHTLY_SETTINGS_FILE": str(Path(td) / "s.json")}):
+            with mock.patch("evals_core.dataset.manager.get_dataset", return_value=base), \
+                 mock.patch("evals_core.runner.answer_eval._judge_candidates", return_value=[]), \
+                 mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value="run-old"), \
+                 mock.patch.object(nc.result_store, "get_run",
+                                   return_value={"completed_questions": 869, "total_questions": 1040}):
+                plan = nc.run_plan()
+                self.assertEqual(plan["resume"],
+                                 {"run_id": "run-old", "completed": 869, "total": 1040})
+            with mock.patch("evals_core.dataset.manager.get_dataset", return_value=base), \
+                 mock.patch("evals_core.runner.answer_eval._judge_candidates", return_value=[]), \
+                 mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value=""):
+                self.assertNotIn("resume", nc.run_plan())
 
 
 class LaunchTests(unittest.TestCase):
@@ -173,8 +192,14 @@ class LaunchTests(unittest.TestCase):
         env = mock.patch.dict(os.environ, {"NIGHTLY_SETTINGS_FILE": str(Path(self.tmp.name) / "s.json")})
         env.start()
         self.addCleanup(env.stop)
+        # 派发前的续跑探测与真实库解耦（默认无候选；各用例自行覆盖命中场景）
+        probe = mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value="")
+        probe.start()
+        self.addCleanup(probe.stop)
         self.result = {"state": "green", "ok": True, "run_id": "run-x", "detail": ""}
         nc._active = None
+        nc._resume_hint = None
+        self.addCleanup(setattr, nc, "_resume_hint", None)
 
     async def _fake_pipeline(self, **kwargs):
         return dict(self.result)
@@ -227,6 +252,41 @@ class LaunchTests(unittest.TestCase):
         self.assertFalse(second["ok"])
         self.assertIn("运行", second["detail"])
 
+    def test_launch_resume_hint_lifecycle(self):
+        """A3：探测命中 → 派发间隙种子行可见「续跑中」；收口后 hint 一次性清空，
+        下次全新起跑不残留（req-nightly-interrupt-resume §2-B3 生命周期）。"""
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=self._fake_pipeline), \
+             mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value="run-old"), \
+             mock.patch.object(nc.result_store, "get_run",
+                               return_value={"completed_questions": 869, "total_questions": 1040}), \
+             mock.patch.object(nc.retention, "enforce_after_run",
+                               return_value={"full": 0, "compacted_runs": 0,
+                                             "deleted_runs": 0, "deleted_ids": []}):
+            async def scenario():
+                started = await nc.launch("manual")
+                self.assertTrue(started["ok"])
+                self.assertEqual(nc._resume_hint,
+                                 {"run_id": "run-old", "already_done": 869, "total": 1040})
+                await nc._active
+            asyncio.run(scenario())
+        self.assertIsNone(nc._resume_hint)  # 一次性消费，活到下次派发即事故
+
+    def test_launch_probe_failure_does_not_block_dispatch(self):
+        """探测异常按全新起跑显示，绝不影响派发（hint 兜底为空）。"""
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=self._fake_pipeline), \
+             mock.patch.object(nc.pipeline, "_find_resume_candidate",
+                               side_effect=RuntimeError("db locked")), \
+             mock.patch.object(nc.retention, "enforce_after_run",
+                               return_value={"full": 0, "compacted_runs": 0,
+                                             "deleted_runs": 0, "deleted_ids": []}), \
+             mock.patch.object(nc.logger, "exception"):
+            async def scenario():
+                started = await nc.launch("manual")
+                self.assertTrue(started["ok"])
+                await nc._active
+            asyncio.run(scenario())
+        self.assertIsNone(nc._resume_hint)
+
     def test_execute_sweeps_retention_after_pipeline(self):
         """日终全表补裁（10-02 缺口回归）：suite_runner 的 enforce 只挂 run 收尾，
         滑出 3 天窗的全量 run 要等下一次评测收尾才可能被裁。_execute 收口必须再调
@@ -263,6 +323,7 @@ class StopAndRunningRowTests(unittest.TestCase):
         nc._stop_requested = False
         nc._current_run_id = ""
         nc._active = None
+        nc._resume_hint = None
 
     def test_stop_rejected_when_not_running(self):
         nc._active = None
@@ -336,6 +397,42 @@ class StopAndRunningRowTests(unittest.TestCase):
         self.assertTrue(seed["running"])
         self.assertIsNone(seed["correct"])
         self.assertIn("启动中", seed["verdict"])
+
+    def test_running_entry_seed_row_shows_resume_hint(self):
+        """A3：派发间隙种子行带 hint →「续跑中（已完成 N/总）」，与全新起跑可区分。"""
+        async def scenario():
+            holder = asyncio.create_task(asyncio.sleep(30))
+            nc._active = holder
+            nc._current_run_id = ""
+            nc._resume_hint = {"run_id": "run-old", "already_done": 869, "total": 1040}
+            seed = nc.running_entry()
+            holder.cancel()
+            return seed
+
+        seed = asyncio.run(scenario())
+        self.assertIn("续跑中", seed["verdict"])
+        self.assertIn("869/1040", seed["verdict"])
+        self.assertEqual(seed["resuming_from"], "run-old")
+        self.assertEqual((seed["correct"], seed["total"]), (869, 1040))
+
+    def test_running_entry_real_run_row_ignores_hint(self):
+        """真实 run 行一出现 hint 即不参与渲染（一次性消费的读侧）。"""
+        async def scenario():
+            holder = asyncio.create_task(asyncio.sleep(30))
+            nc._active = holder
+            nc._current_run_id = "run-live"
+            nc._resume_hint = {"run_id": "run-old", "already_done": 869, "total": 1040}
+            with mock.patch.object(nc.result_store, "get_run", return_value={
+                    "status": "running", "started_at": "2026-09-07T07:09:53",
+                    "completed_questions": 870, "total_questions": 1040}):
+                entry = nc.running_entry()
+            holder.cancel()
+            return entry
+
+        entry = asyncio.run(scenario())
+        self.assertNotIn("resuming_from", entry)
+        self.assertEqual(entry["verdict"], "评测进行中，完成后出结论")
+        self.assertEqual(entry["correct"], 870)
 
     def test_running_entry_fields_and_none_when_running_row_exists(self):
         async def scenario():

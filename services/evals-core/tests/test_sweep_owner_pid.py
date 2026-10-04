@@ -1,13 +1,18 @@
-"""启动清扫所有权守卫：running 只在属主进程确实死亡时才被标 cancelled。
+"""启动清扫所有权判定表（req-nightly-interrupt-resume §2-B1 / 验收 A1）。
 
 回归 2026-09-06 事故：多实例共用 evals.sqlite 时，后启动实例的清扫把前一个
-还活着的实例正在跑的 run（53/487）误标为 cancelled，评测在"没有任何错误"
-的情况下被判死。
+还活着的实例正在跑的 run（53/487）误标为 cancelled。
+回归 2026-10-04 事故：docker 容器主进程恒 PID 1，旧判定 `_pid_alive(owner_pid)`
+对 owner_pid=1 恒真 → 回收分支成死代码，被部署砸掉的 run 永久 status=running。
+判定表：本实例内存活体不动；owner==self 且不在内存 = pid 复用幽灵 → 回收；
+owner 为另一活进程 → 不动；owner 已死 / owner_pid=0 → 回收。
 """
 
 import os
+import subprocess
 import sys
 import tempfile
+import threading
 import unittest
 from pathlib import Path
 
@@ -17,6 +22,7 @@ for p in (str(SRC), str(TESTS_DIR)):
     if p not in sys.path:
         sys.path.insert(0, p)
 
+from evals_core.runner import suite_runner
 from evals_core.runner.suite_runner import _pid_alive, sweep_interrupted_runs
 from evals_core.storage import result_store
 
@@ -69,13 +75,55 @@ class TestPidAlive(unittest.TestCase):
 
 
 class TestSweepOwnerGuard(EvalsDbCase):
-    def test_alive_owner_run_is_never_swept(self):
-        """活体 run（owner=当前进程）不得被清扫——这是 53/487 事故的守卫。"""
-        self.insert_run("run-alive-owner", os.getpid())
+    def tearDown(self):
+        # 内存登记表是模块级状态，用例间必须清干净
+        suite_runner._stop_events.clear()
+        super().tearDown()
+
+    def insert_detail(self, run_id: str, qid: str, status: str, quality=None) -> None:
+        result_store.insert_run_detail({
+            "run_id": run_id, "question_id": qid, "status": status, "quality": quality,
+        })
+
+    def test_container_form_pid_reuse_is_swept(self):
+        """A1①容器形态：owner_pid==self（上一容器 PID 1 被本进程复用）且不在本实例
+        内存 → 幽灵，盖章回收；correct/wrong 与明细一致（部署砸 run 实踩形态）。"""
+        self.insert_run("run-ghost", os.getpid())
+        self.insert_detail("run-ghost", "q1", "completed", "correct")
+        self.insert_detail("run-ghost", "q2", "completed", "correct")
+        self.insert_detail("run-ghost", "q3", "completed", "wrong")
+        self.insert_detail("run-ghost", "q4", "pending")
+        self.assertEqual(sweep_interrupted_runs(), 1)
+        run = result_store.get_run("run-ghost")
+        self.assertEqual(run["status"], "cancelled")
+        self.assertTrue(run["summary_scores"]["interrupted_by_startup_sweep"])
+        self.assertEqual(
+            (run["summary_scores"]["correct"], run["summary_scores"]["wrong"],
+             run["summary_scores"]["skipped"]), (2, 1, 7))
+        # B4 回归锁：盖章后日常测试列表不再有永久「评测中」幽灵行
+        self.assertEqual(suite_runner.list_running_runs(), [])
+
+    def test_running_here_is_never_swept(self):
+        """A1②本实例内存活体（登记了停止信号）→ 不动，即使 owner==self。"""
+        self.insert_run("run-here", os.getpid())
+        suite_runner._stop_events["run-here"] = threading.Event()
         self.assertEqual(sweep_interrupted_runs(), 0)
-        self.assertEqual(result_store.get_run("run-alive-owner")["status"], "running")
+        self.assertEqual(result_store.get_run("run-here")["status"], "running")
+
+    def test_other_live_instance_is_never_swept(self):
+        """A1③他实例活体（pid 活着且≠self）→ 不动：53/487 误杀事故的守卫。
+        用真实子进程拿一个「活着的他 pid」，不 mock _pid_alive。"""
+        child = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(60)"])
+        try:
+            self.insert_run("run-other", child.pid)
+            self.assertEqual(sweep_interrupted_runs(), 0)
+            self.assertEqual(result_store.get_run("run-other")["status"], "running")
+        finally:
+            child.terminate()
+            child.wait(timeout=10)
 
     def test_dead_owner_run_is_swept(self):
+        """A1③ 对偶：owner 已死（pid 不存在）→ 回收。"""
         self.insert_run("run-dead-owner", DEAD_PID)
         self.assertEqual(sweep_interrupted_runs(), 1)
         run = result_store.get_run("run-dead-owner")
@@ -84,7 +132,7 @@ class TestSweepOwnerGuard(EvalsDbCase):
         self.assertEqual(run["summary_scores"]["skipped"], 10)
 
     def test_legacy_zero_pid_run_is_swept(self):
-        """历史行 owner_pid=0 无法判属主，照旧回收（不改变旧行为）。"""
+        """A1④历史行 owner_pid=0 无法判属主，照旧回收（不改变旧行为）。"""
         self.insert_run("run-legacy", 0)
         self.assertEqual(sweep_interrupted_runs(), 1)
         self.assertEqual(result_store.get_run("run-legacy")["status"], "cancelled")

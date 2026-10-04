@@ -802,14 +802,17 @@ def sweep_interrupted_runs() -> int:
     （2026-09-06 实踩：停止无效的 20/25 僵尸行）。按实况标记为已取消并写
     真实的部分汇总；"继续评测"按钮随即可断点续跑。返回清扫条数。
 
-    所有权守卫（2026-09-06 二次实踩后的根治）：owner_pid 仍存活的 running 属于
-    其他活着的实例，绝不取消——旧实现把一切 running 一律标 cancelled，多实例
-    共库时新起实例会误杀活体评测（53/487 事故）。owner_pid=0 的历史行照旧回收。"""
+    所有权判定表（2026-10-04 容器化修复，req-nightly-interrupt-resume §2-B1）：
+    仅「owner 是另一个活着的进程」才放行（09-06 多实例 53/487 保护）；owner==self 但
+    本进程内存无此 run = pid 复用的幽灵（docker 主进程恒 PID 1，旧判定 os.kill(1,0)
+    恒活 → 回收分支成死代码）；owner 已死 / owner_pid=0 历史行照旧回收。"""
     swept = 0
+    self_pid = os.getpid()
     for r in result_store.list_runs():
         if r.get("status") != "running" or is_running_here(r.get("run_id") or ""):
             continue
-        if _pid_alive(int(r.get("owner_pid") or 0)):
+        owner = int(r.get("owner_pid") or 0)
+        if owner > 0 and owner != self_pid and _pid_alive(owner):
             continue
         details = result_store.list_run_details(r["run_id"], light=True)
         completed = [d for d in details if d.get("status") not in ("pending", "running")]

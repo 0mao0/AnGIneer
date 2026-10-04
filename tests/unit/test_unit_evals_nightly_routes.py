@@ -46,7 +46,9 @@ def _patch_auth(is_authenticated: bool, is_admin: bool = False):
 
 class NightlyRoutesTests(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
+        # TestClient 门户线程持有的 sqlite 连接主线程关不掉，Windows 下临时目录清理
+        # 会撞文件锁——ignore_cleanup_errors 容忍残留（tmp 目录由 OS 回收）
+        self.tmp = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.tmp.cleanup)
         self.eval_dir = Path(self.tmp.name) / "evals"
         self.eval_dir.mkdir()
@@ -206,6 +208,81 @@ class NightlyRoutesTests(unittest.TestCase):
         with _patch_auth(True, is_admin=True):
             r = self._client().get("/api/evals/nightly")
         self.assertEqual(r.json(), {"days": []})
+
+    # ---- 中断档重判（req-nightly-interrupt-resume §2-B2：部署砸 run 的档不再显示「损坏」）----
+
+    def _insert_interrupted_run(self, run_id: str, dataset_id: str,
+                                started_utc: str, ended_utc: str,
+                                completed: int = 869, total: int = 1040) -> None:
+        from evals_core.storage import result_store
+        result_store._LOCAL = None  # 防串用上一个用例的线程连接
+        result_store.init_db()
+        summary = {"overall_score": 0.0, "total": total, "correct": 758, "wrong": 107,
+                   "skipped": total - completed, "errored": 0,
+                   "interrupted_by_startup_sweep": True}
+        conn = result_store._get_conn()
+        conn.execute(
+            "INSERT INTO eval_run (run_id, dataset_id, status, total_questions,"
+            " completed_questions, started_at, completed_at, summary_scores, owner_pid)"
+            " VALUES (?, ?, 'cancelled', ?, ?, ?, ?, ?, 1)",
+            (run_id, dataset_id, total, completed, started_utc, ended_utc,
+             json.dumps(summary, ensure_ascii=False)),
+        )
+        conn.commit()
+
+        def _release_conn():  # Windows：先关连接再让临时目录清理，否则文件锁报错
+            try:
+                result_store._get_conn().close()
+            except Exception:
+                pass
+            result_store._LOCAL = None
+        self.addCleanup(_release_conn)
+
+    def _make_interrupted_slot(self, date: str, slot: str) -> None:
+        """中断现场：有素材产物、无 nightly.json（corrupt 占位）。"""
+        slot_dir = self.nightly / date / "runs" / slot
+        slot_dir.mkdir(parents=True)
+        (slot_dir / "material_parity.json").write_text("{}", encoding="utf-8")
+
+    def test_interrupted_slot_listed_with_progress_and_time(self):
+        from evals_core.nightly import paths
+        self._insert_interrupted_run("run-061266cfa555", paths.DATASET_DEFAULT,
+                                     "2026-10-04T08:08:07", "2026-10-04T12:31:00")
+        self._make_interrupted_slot("2026-10-04", "1608-abcdef")
+        with _patch_auth(True, is_admin=True):
+            c = self._client()
+            days = c.get("/api/evals/nightly").json()["days"]
+            self.assertEqual(days[0]["state"], "interrupted")
+            self.assertEqual(days[0]["started_at"], "2026-10-04T16:08:07+08:00")
+            self.assertEqual((days[0]["progress"]["completed"], days[0]["progress"]["total"]),
+                             (869, 1040))
+            # 详情同口径
+            d = c.get("/api/evals/nightly/2026-10-04", params={"slot": "1608-abcdef"}).json()["nightly"]
+            self.assertEqual(d["state"], "interrupted")
+            self.assertEqual(d["run_id"], "run-061266cfa555")
+
+    def test_interrupted_slot_delete_removes_run(self):
+        """中断档删除可连带删 run（重判回填 run_id 前，删除只清目录、run 成孤儿）。"""
+        from evals_core.nightly import paths
+        from evals_core.storage import result_store
+        self._insert_interrupted_run("run-del", paths.DATASET_DEFAULT,
+                                     "2026-10-04T08:08:07", "2026-10-04T12:31:00")
+        self._make_interrupted_slot("2026-10-04", "1608-abcdef")
+        with _patch_auth(True, is_admin=True):
+            r = self._client().delete("/api/evals/nightly/2026-10-04",
+                                      params={"slot": "1608-abcdef"})
+        self.assertEqual(r.status_code, 200)
+        self.assertTrue(r.json()["deleted_run"])
+        result_store._get_conn().close()
+        result_store._LOCAL = None
+        self.assertIsNone(result_store.get_run("run-del"))
+
+    def test_corrupt_slot_without_candidate_stays_corrupt(self):
+        """真损坏（无任何带章 run）不硬凑中断。"""
+        self._make_interrupted_slot("2026-10-04", "1608-abcdef")
+        with _patch_auth(True, is_admin=True):
+            days = self._client().get("/api/evals/nightly").json()["days"]
+        self.assertEqual(days[0]["state"], "corrupt")
 
     # ---- 调度配置接口（GET/PUT settings、POST run-now）----
 

@@ -247,15 +247,19 @@ def publish_day(entry: dict, report_md: Optional[str], root: Optional[Path] = No
 
 def read_entry(entry_dir: Path, date: str, slot: str = "") -> dict:
     """读一挡（slot 目录或旧版日目录）的 nightly.json 为列表/详情条目。
-    缺失/损坏降级为 corrupt，不炸整个列表；同日 error sidecar 要点随条目透出（旧版单档规矩）。"""
+    缺失/损坏降级为 corrupt，不炸整个列表；corrupt_reason 区分「文件缺失」（中断档，
+    resolve_interrupted 可重判）与「真不可读」（维持 corrupt 语义不稀释）；
+    同日 error sidecar 要点随条目透出（旧版单档规矩）。"""
     entry_dir = Path(entry_dir)
     try:
         data = json.loads((entry_dir / "nightly.json").read_text(encoding="utf-8"))
         if not isinstance(data, dict):
             raise ValueError("nightly.json 不是对象")
         data.setdefault("slot", slot)
+    except FileNotFoundError:
+        return {"date": date, "slot": slot, "state": "corrupt", "corrupt_reason": "missing"}
     except (OSError, ValueError):
-        return {"date": date, "slot": slot, "state": "corrupt"}
+        return {"date": date, "slot": slot, "state": "corrupt", "corrupt_reason": "unreadable"}
     data["date"] = date
     sidecar = read_day_error(entry_dir)
     if sidecar:
@@ -264,11 +268,91 @@ def read_entry(entry_dir: Path, date: str, slot: str = "") -> dict:
     return data
 
 
-def list_entries(day_dir: Path, date: str) -> list:
+def _bjt_day(iso: str) -> str:
+    """run 时间戳（UTC naive）的北京日期 YYYY-MM-DD；解析失败返回空串。"""
+    return _to_bjt(str(iso or ""))[:10]
+
+
+def _covers_day(run: dict, day: str) -> bool:
+    """run 的活跃区间 [started_at, completed_at]（北京日期）是否覆盖 day。"""
+    start = _bjt_day(run.get("started_at"))
+    if not start or not day:
+        return False
+    end = _bjt_day(run.get("completed_at")) or start
+    return start <= day <= end
+
+
+def _fill_interrupted(entry: dict, run: dict) -> None:
+    """把 corrupt 占位条目改写成 interrupted：时间/进度/指路文案全部取 DB 口径。"""
+    summary = run.get("summary_scores") or {}
+    total = int(run.get("total_questions") or summary.get("total") or 0)
+    completed = int(run.get("completed_questions") or 0)
+    correct = int(summary.get("correct") or 0)
+    entry.update({
+        "state": "interrupted",
+        "run_id": run.get("run_id") or "",
+        "dataset_id": run.get("dataset_id") or "",
+        "started_at": _to_bjt(str(run.get("started_at") or "")),
+        # 盖章时刻=中断收口时刻，作 generated_at 供「时长」列
+        "generated_at": _to_bjt(str(run.get("completed_at") or "")),
+        # 部分进度只进展示（同 error 档 progress 语义），不参与门禁；sweep 汇总的
+        # overall_score 恒 0.0，绝不回填成「平均分」列
+        "progress": {
+            "completed": completed,
+            "total": total,
+            "correct": correct,
+            "score": round(correct / completed, 4) if completed else None,
+        },
+        "verdict": f"评测被部署/重启中断于 {completed}/{total or '?'}，可到「日常测试」点「继续评测」断点续跑",
+    })
+
+
+def resolve_interrupted(entries: list, dataset_id: str = "") -> list:
+    """corrupt 挡重判（req-nightly-interrupt-resume §2-B2）：有 B 层产物、无结论文件的
+    挡位若存在「被部署/重启砸掉」的 run（cancelled + 启动清扫中断章）且活跃区间覆盖
+    挡日期，改判 interrupted 并回填 DB 口径的时间与已完成数。
+
+    slot↔run 配对：slot 名（HHMM-6hex）不含 run_id，且素材检查先于评测建档、续跑保留
+    原 started_at（result_store.reset_run_for_resume），都不能按分钟对时——改为同日内
+    corrupt 挡按挡名序、候选 run 按 started_at 序一一配对（同日多中断是稀有形态，定序
+    配对保证确定性）。无候选维持 corrupt（真损坏语义不稀释）；无章 cancelled（人为停止）
+    不算中断——「中断」与断点续跑探测同判据，页面上中断=可续跑。"""
+    targets = [e for e in entries
+               if e.get("state") == "corrupt" and e.get("corrupt_reason") == "missing"]
+    if not targets:
+        return entries
+    from evals_core.storage import result_store  # 延迟导入：archive 模块级不依赖存储层
+    try:
+        runs = result_store.list_runs(dataset_id or None)
+    except Exception:  # noqa: BLE001 库不可用不拖垮列表（维持 corrupt）
+        logger.warning("中断档重判读库失败", exc_info=True)
+        return entries
+    candidates = sorted(
+        (r for r in runs
+         if r.get("status") == "cancelled"
+         and (r.get("summary_scores") or {}).get("interrupted_by_startup_sweep")),
+        key=lambda r: str(r.get("started_at") or ""),
+    )
+    if not candidates:
+        return entries
+    used = set()
+    for entry in sorted(targets, key=lambda e: (str(e.get("date") or ""), str(e.get("slot") or ""))):
+        day = str(entry.get("date") or "")
+        hit = next((r for r in candidates
+                    if str(r.get("run_id") or "") not in used and _covers_day(r, day)), None)
+        if hit is None:
+            continue
+        used.add(str(hit.get("run_id") or ""))
+        _fill_interrupted(entry, hit)
+    return entries
+
+
+def list_entries(day_dir: Path, date: str, dataset_id: str = "") -> list:
     """一日内全部结论挡（新版每 run 一挡 + 旧版当日单档），按时间新→旧。
 
     排序键：started_at 优先（表「时间」列语义=开跑时刻），退 generated_at，再退挡名；
-    corrupt 挡排在该日最后（无时间可比）。"""
+    corrupt 挡排在该日最后（无时间可比）。dataset_id 非空时 corrupt 挡先做中断重判
+    （resolve_interrupted），重判命中的档带时间，参与正常排序。"""
     day_dir = Path(day_dir)
     entries = []
     if (day_dir / "nightly.json").exists():
@@ -278,6 +362,8 @@ def list_entries(day_dir: Path, date: str) -> list:
         for slot_dir in runs.iterdir():
             if slot_dir.is_dir():
                 entries.append(read_entry(slot_dir, date, slot=slot_dir.name))
+    if dataset_id:
+        resolve_interrupted(entries, dataset_id)
 
     def _key(entry):
         if entry.get("state") == "corrupt":
