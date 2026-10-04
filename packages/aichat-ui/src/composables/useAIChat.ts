@@ -417,6 +417,10 @@ export function useAIChat(options?: {
       inline_citations: inlineCitations,
     }
 
+    // 警示随最近一次请求（2026-10-04 验收）：后端仅在范围全空时发 warning 帧，
+    // 本次成功检索则无帧可覆盖——不主动清，上一轮的空库横幅会在提问成功后常驻
+    systemWarning.value = ''
+
     abortController.value = new AbortController()
 
     try {

@@ -303,6 +303,8 @@
               :disabled="loading || (conversationStarted && !libraryMulti)"
               :options="libraryOptions"
               :title="libraryTitle"
+              :dropdown-match-select-width="false"
+              :dropdown-style="{ minWidth: '200px' }"
               @update:value="onLibrarySelectChange"
             >
               <!-- 多库收口（用户定式 2026-10-04）：勾选 >1 库时不逐个出 tag，折叠占位统一显示「N 个知识库」；
