@@ -49,7 +49,7 @@ def test_sparse_retriever_carries_page_label(tmp_path) -> None:
         def search_citation_targets(self, doc_id, query, limit=20):
             return store.search_citation_targets(doc_id, query, limit)
 
-        def search_chunk_fts(self, doc_id, query, limit=20):
+        def search_chunk_fts(self, doc_id, query, limit=20, library_ids=None):
             return []
 
         def list_canonical_chunks(self, **kwargs):

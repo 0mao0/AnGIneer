@@ -1054,11 +1054,31 @@ class DocsService:
         """按文本检索引用目标。"""
         return self._canonical_store_for_doc(doc_id).search_citation_targets(doc_id, query, limit)
 
-    def search_chunk_fts(self, doc_id: Optional[str], query: str, limit: int = 20) -> List[Dict[str, object]]:
-        """按 FTS 检索 chunk；doc_id 为 None 时全库检索（拆文件后=各组文件扇出按 bm25 重排）。"""
+    def search_chunk_fts(
+        self,
+        doc_id: Optional[str],
+        query: str,
+        limit: int = 20,
+        library_ids: Optional[List[str]] = None,
+    ) -> List[Dict[str, object]]:
+        """按 FTS 检索 chunk；doc_id 为 None 时按库集合路由：
+        给了 library_ids 只查这些库涉及的组文件（组内截断再合并，BM25 同组可比）；
+        不给时保持旧行为（全部组文件扇出，单库调用方不受影响）。"""
         if doc_id:
             return self._canonical_store_for_doc(doc_id).search_chunk_fts(doc_id, query, limit)
-        merged: List[Dict[str, object]] = []
+        if library_ids:
+            stores: Dict[str, CanonicalSQLiteStore] = {}
+            for lib in library_ids:
+                store = self._canonical_store_for(lib)
+                # 去重键优先 db_path；无 db_path 的伪 store 用对象 id 兜底防误合并
+                db_path = str(getattr(store, "db_path", "") or "")
+                stores.setdefault(db_path or f"obj:{id(store)}", store)
+            merged: List[Dict[str, object]] = []
+            for store in stores.values():
+                merged.extend(store.search_chunk_fts(None, query, limit, library_ids=library_ids))
+            merged.sort(key=lambda row: (float(row.get("bm25_score") or 0.0), str(row.get("chunk_id") or "")))
+            return merged[: max(1, min(200, limit))]
+        merged = []
         for store in self._all_canonical_stores():
             merged.extend(store.search_chunk_fts(None, query, limit))
         merged.sort(key=lambda row: (float(row.get("bm25_score") or 0.0), str(row.get("chunk_id") or "")))

@@ -59,7 +59,13 @@ class QueryDataPort(Protocol):
 
     def search_citation_targets(self, doc_id: str, query: str, limit: int = 20) -> List[Dict[str, object]]: ...
 
-    def search_chunk_fts(self, doc_id: Optional[str], query: str, limit: int = 20) -> List[Dict[str, object]]: ...
+    def search_chunk_fts(
+        self,
+        doc_id: Optional[str],
+        query: str,
+        limit: int = 20,
+        library_ids: Optional[List[str]] = None,
+    ) -> List[Dict[str, object]]: ...
 
     def list_blocks_by_clause_refs(
         self,

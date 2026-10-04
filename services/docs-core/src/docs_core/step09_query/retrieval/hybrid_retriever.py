@@ -103,22 +103,25 @@ def get_task_type_bonus(task_type: str, item: RetrievedItem) -> float:
     return 0.0
 
 
-# 构造候选去重键。
+# 构造候选去重键。多库扇出时 item.metadata["library_id"] 有值 → key 加库前缀，
+# 防止跨库相同 citation_target_id 被误合并；单库路径不打标，key 与旧版逐位一致。
 def build_candidate_key(item: RetrievedItem) -> str:
+    library_id = str(item.metadata.get("library_id") or "").strip()
+    prefix = f"lib:{library_id}:" if library_id else ""
     citation_target_id = str(item.citation_target_id or item.metadata.get("citation_target_id") or "").strip()
     if citation_target_id:
-        return f"target:{citation_target_id}"
+        return f"{prefix}target:{citation_target_id}"
     chunk_type = str(item.metadata.get("chunk_type") or "")
     source_kind = str(item.metadata.get("source_kind") or "")
     if chunk_type.startswith("table_") or source_kind.startswith("table_"):
         table_id = item.metadata.get("table_id", "") or ""
-        return f"table:{table_id}" if table_id else (item.item_id or "")
+        return f"{prefix}table:{table_id}" if table_id else (item.item_id or "")
     if chunk_type in {"formula_block", "formula_context", "formula_clause"} or source_kind in {"formula_block", "formula_context", "formula_clause"}:
         base_id = (item.item_id or "").rsplit(":", 1)[0]
-        return f"formula:{base_id}" if base_id else (item.item_id or "")
+        return f"{prefix}formula:{base_id}" if base_id else (item.item_id or "")
     if item.entity_type in {"figure", "figure_caption"} or chunk_type == "figure":
-        return f"figure:{item.item_id}" if item.item_id else (item.item_id or "")
-    return item.item_id or f"{item.doc_id}:{item.entity_type}:{item.title}"
+        return f"{prefix}figure:{item.item_id}" if item.item_id else (item.item_id or "")
+    return item.item_id or f"{prefix}{item.doc_id}:{item.entity_type}:{item.title}"
 
 
 # 应用 metadata filter，控制 section 与页码范围。
@@ -153,8 +156,10 @@ def prefer_non_toc_candidates(
     candidates: List[RetrievedItem],
     task_type: str,
     top_k: int,
+    cap: int | None = 20,
 ) -> List[RetrievedItem]:
-    limit = max(1, min(20, top_k))
+    # cap 默认 20（单库/旧调用方逐位不变）；多库路径显式传 None 放开（D9 的 40 池不被砍）
+    limit = max(1, top_k) if cap is None else max(1, min(cap, top_k))
     if task_type == "locate_qa":
         return candidates[:limit]
     non_toc_candidates = [item for item in candidates if not is_toc_candidate(item)]
@@ -180,6 +185,7 @@ def fuse_candidates(
     top_k: int,
     filters: KnowledgeQueryFilter | None = None,
     policy: Dict[str, Dict[str, float]] | None = None,
+    pool_cap: int | None = 20,
 ) -> Tuple[List[RetrievedItem], Dict[str, Any]]:
     fused: Dict[str, RetrievedItem] = {}
     source_debug: Dict[str, Any] = {}
@@ -217,8 +223,10 @@ def fuse_candidates(
             if current is None or item_score > current_score:
                 best_per_key[key] = item
         normalized = list(best_per_key.values())
-        source_weight = get_source_weight(source_kind, task_type, policy)
-        if source_kind == "dense" and any(
+        # 多库扇出池键为 "dense@libA" 形状（Task A5）：权重/降级判定按基名查
+        base_kind = source_kind.split("@", 1)[0]
+        source_weight = get_source_weight(base_kind, task_type, policy)
+        if base_kind == "dense" and any(
             bool(item.metadata.get("embedding_fallback"))
             for item in normalized
         ):
@@ -288,7 +296,7 @@ def fuse_candidates(
         ),
         reverse=True,
     )
-    preferred = prefer_non_toc_candidates(ranked, task_type, top_k)
+    preferred = prefer_non_toc_candidates(ranked, task_type, top_k, cap=pool_cap)
     return preferred, {
         "sources": source_debug,
         "deduped_hits": len(fused),

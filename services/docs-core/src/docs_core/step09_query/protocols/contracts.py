@@ -62,6 +62,8 @@ class KnowledgeQueryRequest(BaseModel):
 
     query: str
     library_id: str = "default"
+    # 多库勾选（阶段三 D8）：空列表=单库（library_id），非空=集合且 library_id=集合首项
+    library_ids: List[str] = Field(default_factory=list)
     doc_ids: List[str] = Field(default_factory=list)
     session_id: Optional[str] = None
     history: List[Dict[str, Any]] = Field(default_factory=list)
@@ -70,6 +72,25 @@ class KnowledgeQueryRequest(BaseModel):
     include_debug: bool = False
     include_retrieved: bool = False
     filters: Optional[KnowledgeQueryFilter] = None
+
+
+def normalize_library_ids(
+    library_ids: Optional[List[str]] = None,
+    library_id: str = "",
+) -> List[str]:
+    """归一化知识库集合：去重（保持顺序）、去空白项；空集回退 [library_id or "default"]。
+
+    多库问答（阶段三）的唯一归一化点：docs-api / aichat-api / retrieve_service 共用，
+    各层不得各自再去重排序（顺序=主库语义，首项即兼容单值）。
+    """
+    seen: List[str] = []
+    for raw in library_ids or []:
+        lib = str(raw or "").strip()
+        if lib and lib not in seen:
+            seen.append(lib)
+    if not seen:
+        seen = [str(library_id or "").strip() or "default"]
+    return seen
 
 
 class CitationRichMedia(BaseModel):

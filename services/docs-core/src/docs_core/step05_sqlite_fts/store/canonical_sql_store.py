@@ -1339,7 +1339,13 @@ class CanonicalSQLiteStore:
         return [dict(row) for row in rows]
 
     # 使用 FTS5 + bm25 查询 chunk 候选
-    def search_chunk_fts(self, doc_id: Optional[str], query: str, limit: int = 20) -> List[dict[str, object]]:
+    def search_chunk_fts(
+        self,
+        doc_id: Optional[str],
+        query: str,
+        limit: int = 20,
+        library_ids: Optional[List[str]] = None,
+    ) -> List[dict[str, object]]:
         normalized_query = " ".join(str(query or "").split()).strip()
         if not normalized_query:
             return []
@@ -1350,13 +1356,22 @@ class CanonicalSQLiteStore:
         params: List[object] = []
         if doc_id:
             params.append(doc_id)
+        # 多库勾选（阶段三）：库过滤进 SQL（截断前求交），BM25 只在同组文件内可比
+        lib_filter = ""
+        if library_ids:
+            placeholders = ", ".join("?" for _ in library_ids)
+            lib_filter = (
+                " AND doc_id IN (SELECT doc_id FROM canonical_documents"
+                f" WHERE library_id IN ({placeholders}))"
+            )
+            params.extend(library_ids)
         params.extend([match_query, max(1, min(200, limit))])
         with self.connect() as conn:
             rows = conn.execute(
                 f"""
                 SELECT chunk_id, doc_id, chunk_type, section_path, text_clean, bm25(canonical_chunk_fts) AS bm25_score
                 FROM canonical_chunk_fts
-                WHERE {doc_filter} AND canonical_chunk_fts MATCH ?
+                WHERE {doc_filter}{lib_filter} AND canonical_chunk_fts MATCH ?
                 ORDER BY bm25_score ASC, chunk_id ASC
                 LIMIT ?
                 """,

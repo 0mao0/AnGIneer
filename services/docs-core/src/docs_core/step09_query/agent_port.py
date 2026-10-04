@@ -39,6 +39,7 @@ def knowledge_local_search(
     *,
     query: str,
     library_id: str = "default",
+    library_ids: Optional[List[str]] = None,
     doc_ids: Optional[List[str]] = None,
     top_k: int = 20,
     task_type: str = "content_qa",
@@ -54,13 +55,20 @@ def knowledge_local_search(
     返回 {"items": [...]}（已 fuse+兜底，未做 per-doc 去重截断——那一步在引擎装配层）
     或 {"error": "检索全部失败", "detail": {...}}。平移自 angineer_core.agent_tools
     ._run_knowledge_search 本地分支，逻辑零改动。
+
+    library_ids（阶段三 A7）：多库勾选集合透传——空=单库（library_id），非空=集合且
+    library_id 归一为首项。集合语义分路生效：稀疏路按勾选集合做 SQL 过滤求交；
+    稠密/条款/表格/公式路按集合首库路由 collection（降级路径暂无跨组扇出）。
     """
-    from .protocols.contracts import KnowledgeQueryRequest
+    from .protocols.contracts import KnowledgeQueryRequest, normalize_library_ids
     from .retrieval import fuse_candidates
 
+    library_ids = normalize_library_ids(library_ids, library_id)
+    library_id = library_ids[0]
     request = KnowledgeQueryRequest(
         query=query,
         library_id=library_id,
+        library_ids=library_ids,
         doc_ids=list(doc_ids or []),
         top_k=top_k,
         filters=filters,

@@ -181,3 +181,24 @@ class TestLocalStatsTitles:
         assert len(docs["titles"]) == 100
         assert docs["titles_truncated"]
         assert docs["titles_total"] == 105
+
+
+def test_knowledge_local_search_passes_library_ids():
+    """A7（现码校准）：knowledge_local_search 是进程内本地召回配方、不经 retrieve_knowledge
+    （计划的 mock 目标不存在）——改用伪检索器验证多库集合透传进 KnowledgeQueryRequest。"""
+    from docs_core.step09_query import agent_port
+
+    captured = []
+
+    class _Capturing:
+        def retrieve(self, request, nodes, *args):
+            captured.append(request)
+            return []
+
+    agent_port.knowledge_local_search(
+        query="q", library_id="libA", library_ids=["libA", "libB"], top_k=20,
+        nodes=[], dense=_Capturing(), sparse=_Capturing(), clause=_Capturing(),
+    )
+    assert captured  # 三路检索器均被调用
+    assert all(request.library_ids == ["libA", "libB"] for request in captured)
+    assert all(request.library_id == "libA" for request in captured)

@@ -25,6 +25,8 @@ retrieve_router = APIRouter()
 class RetrieveInternalRequest(BaseModel):
     query: str
     library_id: str = "default"
+    # 多库勾选（阶段三 D8）：空=单库（library_id），非空=集合且 library_id 兼容=首项
+    library_ids: List[str] = Field(default_factory=list)
     doc_ids: List[str] = Field(default_factory=list)
     top_k: int = 20
     task_type: str = "content_qa"
@@ -37,6 +39,7 @@ def retrieve_internal(request: RetrieveInternalRequest) -> Dict[str, Any]:
     return retrieve_knowledge(
         query=request.query,
         library_id=request.library_id,
+        library_ids=request.library_ids or None,
         doc_ids=request.doc_ids,
         top_k=request.top_k,
         task_type=request.task_type,
