@@ -465,7 +465,20 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     else _load_doc_nodes(library_ids[0], doc_ids)
                 )
                 if not _probe_nodes:
-                    _libs_label = "、".join(f"「{x}」" for x in library_ids)
+                    # 库名映射（2026-10-04 验收）：告警文案给中文库名而非 lib-xxxx id；
+                    # 查名失败回退 id（告警本身不能被查名连累）
+                    try:
+                        from docs_core.docs_service import get_docs_service
+
+                        _name_map = {
+                            lib.id: (lib.name or "")
+                            for lib in get_docs_service().list_libraries()
+                        }
+                    except Exception:
+                        _name_map = {}
+                    _libs_label = "、".join(
+                        f"「{_name_map.get(x) or x}」" for x in library_ids
+                    )
                     empty_scope_msg = (
                         f"知识库{_libs_label}当前没有可检索的文档"
                         "（或检索服务尚未就绪），本次回答可能不准确，稍后重试通常可恢复。"
