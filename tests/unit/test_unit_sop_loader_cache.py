@@ -1,6 +1,6 @@
 """SOP 加载缓存单测（需求 §5.6）：mtime 信号失效（跨实例写可见）+ TTL=0 停用。
 
-回归动机：原实现每请求全量重读 60 个 JSON + 因 raw/ 黑板缺失每请求重写 index.json
+回归动机：原实现每请求全量重读 60 个 JSON + 因 raw/ 变量黑板缺失每请求重写 index.json
 （实测 ~47ms/请求 + 一次磁盘写）；缓存化后写路径（含 sop_routes 的独立 loader 实例）
 落盘 → mtime 变化 → 下次 load_all 自动重建。
 """
@@ -63,7 +63,7 @@ class SopLoaderCacheTests(unittest.TestCase):
         self.assertEqual(self._index_mtime_ns(), mtime)  # 重复 load 不重写 index.json
 
     def test_blackboard_less_raw_sop_no_per_request_rewrite(self):
-        # 回归核心：raw/ 无黑板 SOP 在旧实现会触发每请求 refresh_index 重写 index.json
+        # 回归核心：raw/ 无变量黑板 SOP 在旧实现会触发每请求 refresh_index 重写 index.json
         raw_dir = os.path.join(self.sop_base, "raw")
         os.makedirs(raw_dir, exist_ok=True)
         with open(os.path.join(raw_dir, "raw-sop.md"), "w", encoding="utf-8") as f:

@@ -57,9 +57,9 @@
           </div>
         </div>
 
-        <!-- SOP 变量 / 黑板 -->
+        <!-- SOP 变量黑板 -->
         <div v-if="!isEval && variablesKeys.length" class="detail-section">
-          <h5>变量 / 黑板</h5>
+          <h5>变量黑板</h5>
           <a-descriptions size="small" :column="1" bordered>
             <a-descriptions-item
               v-for="key in variablesKeys"

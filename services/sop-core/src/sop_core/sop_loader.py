@@ -169,7 +169,7 @@ class SopLoader:
 
         self.sops = self._load_from_index()
         if any(s.blackboard is None for s in self.sops):
-            # 原实现每次请求都因 raw/ 黑板缺失重跑此分支并重写 index.json；
+            # 原实现每次请求都因 raw/ 变量黑板缺失重跑此分支并重写 index.json；
             # 缓存化后只在重建时补跑一次，结果照旧接受（不无限循环）。
             self.refresh_index()
             self.sops = self._load_from_index()

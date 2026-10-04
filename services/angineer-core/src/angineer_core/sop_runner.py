@@ -74,7 +74,7 @@ class SopRunner:
         if self.result_md_path:
             with open(self.result_md_path, "w", encoding="utf-8") as f:
                 f.write("# SOP 执行日志 (LLM 风格小结版)\n\n")
-                f.write("> **说明**: 本日志展示了每一步的执行小结与 Blackboard 状态快照。更新的内容已高亮显示。\n\n")
+                f.write("> **说明**: 本日志展示了每一步的执行小结与变量黑板状态快照。更新的内容已高亮显示。\n\n")
 
     @property
     def llm_client(self):
@@ -791,8 +791,8 @@ class SopRunner:
             
             f.write(f"**LLM 小结** (耗时: {summary_duration:.2f}s): {llm_summary}\n\n")
             
-            # 2. 写入 Blackboard 更新表格
-            f.write(f"**Blackboard 状态**:\n\n")
+            # 2. 写入变量黑板更新表格
+            f.write(f"**变量黑板状态**:\n\n")
             f.write("| 序号 | 参数 | 类型 | 取值 | 状态 | 耗时 | 备注 |\n")
             f.write("| --- | --- | --- | --- | --- | --- | --- |\n")
             

@@ -176,7 +176,7 @@ export function useSopFlow() {
   const isDirty = ref(false)
   const selectedStepId = ref<string | null>(null)
   const dirtyStepIds = ref<Set<string>>(new Set())
-  /** SOP 全局黑板变量，只读展示用。 */
+  /** SOP 变量黑板（步骤变量槽），只读展示用。 */
   const blackboard = ref<Record<string, any> | null>(null)
 
   /**

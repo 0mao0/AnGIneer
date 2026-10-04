@@ -101,7 +101,7 @@
       </a-tooltip>
     </div>
 
-    <!-- 全局黑板面板 -->
+    <!-- 变量黑板面板（SOP 步骤变量槽，非「对话黑板」） -->
     <div v-if="blackboardEntries.length" class="sop-blackboard-panel" :class="{ collapsed: blackboardCollapsed }">
       <div class="blackboard-header" @click="blackboardCollapsed = !blackboardCollapsed">
         <span class="blackboard-title">全局变量 ({{ blackboardEntries.length }})</span>

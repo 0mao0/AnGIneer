@@ -202,7 +202,7 @@ SOP 自动生成链路：
 flowchart LR
     GRAPH["知识图谱<br/>framework / ACTION 实体链"] --> CAND["候选 SOP 识别"]
     CAND --> GEN["规则骨架生成 / LLM 生成<br/>含原则/案例/反例/术语标注"]
-    GEN --> BB["黑板变量依赖提取<br/>required / outputs"]
+    GEN --> BB["变量黑板依赖提取<br/>required / outputs"]
     BB --> VAL["SOP 校验<br/>步骤图 / 工具契约"]
     VAL --> REV2["审核闸门<br/>POST /{sop_id}/review"]
     REV2 --> LIB["可执行库<br/>data/sops"]

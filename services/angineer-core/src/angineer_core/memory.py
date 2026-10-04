@@ -1,5 +1,9 @@
 """
-上下文记忆核心模块，负责黑板、执行历史与临时工作记忆管理。
+上下文记忆核心模块，负责变量黑板（SOP 步骤变量槽／数据流契约）、执行历史与临时工作记忆管理。
+
+术语：本模块的 `blackboard` 一律称**变量黑板**（生命周期 = 单次 sop_execute，内容为步骤变量
+与 required/outputs 契约）；会话记忆那套叫**对话黑板**（`conv_graph_*`，见
+`docs/req-blackboard-conversation-mode.md`）。代码标识符维持 `blackboard` 不改。
 """
 from typing import Dict, Any, List, Optional
 import re
@@ -59,10 +63,10 @@ class Memory(BaseModel):
         self._config = config
 
     def update_context(self, updates: Dict[str, Any]):
-        """更新黑板数据并同步上下文快照。"""
+        """更新变量黑板数据并同步上下文快照。"""
         self.blackboard.update(updates)
         self._sync_global_context()
-        logger.debug(f"黑板已更新: {list(updates.keys())}")
+        logger.debug(f"变量黑板已更新: {list(updates.keys())}")
 
     def set_working_memory(self, data: Dict[str, Any]):
         """为当前操作设置临时数据。"""
@@ -156,7 +160,7 @@ class Memory(BaseModel):
             logger.error(f"未定义变量: ${{{variable_name}}}")
             raise UndefinedVariableError(
                 variable_name,
-                context=f"黑板键: {list(self.blackboard.keys())}"
+                context=f"变量黑板键: {list(self.blackboard.keys())}"
             )
 
         logger.warning(f"变量 ${{{variable_name}}} 未定义，保留模板标记以便上层检测")

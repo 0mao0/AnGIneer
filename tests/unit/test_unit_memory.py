@@ -29,7 +29,7 @@ class TestMemory(unittest.TestCase):
         self.assertEqual(self.memory.chat_context, [])
     
     def test_update_context(self):
-        """测试更新黑板。"""
+        """测试更新变量黑板。"""
         self.memory.update_context({"key1": "value1", "key2": 123})
         self.assertEqual(self.memory.blackboard["key1"], "value1")
         self.assertEqual(self.memory.blackboard["key2"], 123)
