@@ -30,7 +30,7 @@ from users_routes import router as users_router
 from routes.v1 import router as v1_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from orchestrator import parse_orchestrator
-from startup_recovery import reconcile_stale_parse_tasks
+from startup_recovery import reconcile_stale_parse_tasks, reconcile_stale_records
 from models.user import ensure_admin_user
 
 app = FastAPI(
@@ -58,6 +58,11 @@ def _reconcile_stale_parse_tasks_on_startup() -> None:
         count = reconcile_stale_parse_tasks(parse_orchestrator)
         if count:
             logger.warning("启动自愈: 标记 %d 个中断解析任务为 failed", count)
+        # 行级兜底必须在任务级清扫之后跑：任务级已把内存里能标的全标 failed，
+        # 剩下的非终态行即任务悬空遗留（2026-10-04 取消 404 事故对账）。
+        row_count = reconcile_stale_records(parse_orchestrator)
+        if row_count:
+            logger.warning("启动自愈: 标记 %d 条遗留解析记录为 failed", row_count)
     except Exception:
         logger.exception("启动自愈执行失败")
 

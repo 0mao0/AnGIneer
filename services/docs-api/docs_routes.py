@@ -28,7 +28,7 @@ from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_gra
 from docs_core.docs_file_io import file_storage
 from docs_core.paths import resolve_repo_root
 from models.parse_record import DB_PATH as RECORDS_DB_PATH
-from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record, get_record_by_id
+from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record, get_record_by_id, update_record_status
 from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
 
 logger = logging.getLogger(__name__)
@@ -832,19 +832,64 @@ def restore_deleted_record(record_id: int):
     return {"status": "success", "message": "已恢复"}
 
 
+# 记录行终态：命中则取消不再改写（2026-10-04，与 pipeline 取消语义同集合）
+_ROW_TERMINAL_STATUSES = ("completed", "partial", "failed", "cancelled", "deleted")
+
+
 @docs_router.post("/parse/{task_id}/cancel")
 def cancel_parse_task(task_id: str):
-    """取消正在运行的解析任务。"""
+    """取消正在运行的解析任务。
+
+    2026-10-04 取消收敛（业主报障「取消失败: 任务不存在」）：行状态存 sqlite、任务在
+    进程内存，两边重启后互不认账，404 让取消永远点不动。查不到任务时不再直接 404，
+    改按库行实况幂等收敛到用户要的终点状态（见 _cancel_row_without_task）。
+    """
     ks = get_docs_service()
     task = ks.get_parse_task(task_id)
     if not task:
-        raise HTTPException(status_code=404, detail="任务不存在")
+        return _cancel_row_without_task(ks, task_id)
     if task.status in ("completed", "failed", "cancelled"):
         return {"status": "success", "task_id": task_id, "message": f"任务已处于「{task.status}」状态，无需停止"}
     success = parse_orchestrator.cancel_parse_task(task_id)
     if not success:
         raise HTTPException(status_code=400, detail="无法取消")
     return {"status": "success", "task_id": task_id, "message": "任务已取消"}
+
+
+def _cancel_row_without_task(ks: Any, task_id: str) -> Dict[str, Any]:
+    """内存无任务时按库行收敛取消（行是唯一真相源）。
+
+    - 占位行（task_id=pending-<doc_id>，上传后从未解析）：本来就无任务在跑，
+      幂等成功、不改写状态——把未开跑的书标成「已取消」反而丢掉了待解析语义；
+    - queued/processing 行但任务缺失（重启遗留/meta 悬空）：写 cancelled，
+      并按 pipeline 取消同款语义同步节点（node failed + parse_stage cancelled）；
+    - 行已是终态：幂等成功（已停就是停）；
+    - 行不存在：仍然 404——没有东西可收敛。
+    """
+    rec = next((r for r in list_records(limit=5000) if str(r.get("task_id") or "") == task_id), None)
+    if rec is None:
+        raise HTTPException(status_code=404, detail="任务不存在")
+    row_status = str(rec.get("status") or "")
+    if row_status == "pending":
+        return {"status": "success", "task_id": task_id, "message": "该文档尚未开始解析，无在跑任务，无需取消"}
+    if row_status in _ROW_TERMINAL_STATUSES:
+        return {"status": "success", "task_id": task_id, "message": f"任务已处于「{row_status}」状态，无需停止"}
+    doc_id = str(rec.get("doc_id") or "")
+    update_record_status(task_id, "cancelled", "任务已不在运行队列（后端重启遗留），取消已生效")
+    if doc_id:
+        try:
+            node = ks.get_node(doc_id)
+            if node is not None and str(getattr(node, "status", "")) in ("pending", "queued", "processing"):
+                ks.update_node(
+                    doc_id,
+                    status="failed",
+                    parse_progress=100,
+                    parse_stage="cancelled",
+                    parse_error="取消已生效（任务已不在运行队列）",
+                )
+        except Exception:
+            logger.warning("取消收敛同步节点失败 doc=%s", doc_id, exc_info=True)
+    return {"status": "success", "task_id": task_id, "message": "取消已生效（任务已不在运行队列，状态已归位）"}
 
 
 @docs_router.post("/parse/retry")
