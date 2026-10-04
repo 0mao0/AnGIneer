@@ -186,7 +186,9 @@ const updateCitationPopoverPosition = (anchor: HTMLElement) => {
   const verticalGap = 2
   const availableBelow = viewportHeight - rect.bottom - horizontalMargin
   const availableAbove = rect.top - horizontalMargin
-  const placeBelow = availableBelow >= 220 || availableBelow >= availableAbove
+  // 优先向上（用户定式 2026-10-04）：hover 输入区引用时弹框向下会压住输入框/操作行，
+  // 向上落在消息区无遮挡；仅当上方放不下最小可视高度（140）时才向下兜底
+  const placeBelow = availableAbove < 140 && availableBelow > availableAbove
   const maxHeight = Math.max(
     140,
     Math.min(panelMaxHeight, placeBelow ? availableBelow - verticalGap : availableAbove - verticalGap)
