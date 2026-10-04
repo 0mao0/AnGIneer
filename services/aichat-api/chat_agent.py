@@ -87,6 +87,9 @@ def make_policy_config_factory(
     sop_loader: Any = None,
     route_debug: Any = None,
     marker_allocator: Any = None,
+    conv_graph_store: Any = None,
+    owner_key: str = "",
+    session_id: str = "",
 ):
     """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。
 
@@ -94,6 +97,8 @@ def make_policy_config_factory(
     route_debug：路由可观测投影（含 classify_ms）——「意图判断」便签带分类耗时用（2026-09-27）。
     marker_allocator（F3 共享 allocator）：预检与主路共用同一实例（施工单变更 A）；
     None 时工厂自建（route_parallel 关闭或无预检的请求，现行为）。
+    conv_graph_store / owner_key / session_id（2026-10-04）：对话黑板读路径接线——开关关或
+    store 缺省时**完全不介入**（attempt 原样返回），行为与现状逐字一致。
     """
 
     def factory() -> AgentLoopConfig:
@@ -123,6 +128,9 @@ def make_policy_config_factory(
             sop_loader=sop_loader,
             marker_allocator=allocator,
         )
+        attempts = _wrap_attempts_with_conv_graph(
+            attempts, conv_graph_store, owner_key=owner_key, session_id=session_id
+        )
         return AgentLoopConfig(
             llm=get_llm_client(),
             tools=[],
@@ -134,6 +142,45 @@ def make_policy_config_factory(
         )
 
     return factory
+
+
+def _wrap_attempts_with_conv_graph(attempts: List[Any], store: Any, *, owner_key: str,
+                                   session_id: str) -> List[Any]:
+    """把对话黑板读路径挂在每个 attempt 的 config_factory 上（**先图装配、后预算压缩**）。
+
+    BB §6：A-min 预算闸保留为保险丝——所以顺序是「移出历史 tool + 插子图段」→「预算压缩」。
+    开关关 / store 缺省 / 非图模式：原样返回，一次都不介入。
+    """
+    if store is None:
+        return attempts
+    try:
+        from dataclasses import replace
+
+        from angineer_core.conv_graph import conv_graph_enabled, make_conv_graph_transformer
+
+        if not conv_graph_enabled():
+            return attempts
+        graph_transform = make_conv_graph_transformer(
+            store, owner_key=owner_key, session_id=session_id
+        )
+    except Exception:  # noqa: BLE001
+        return attempts
+    wrapped: List[Any] = []
+    for attempt in attempts:
+        inner_factory = attempt.config_factory
+
+        def build(_inner=inner_factory):
+            config = _inner()
+            budget = getattr(config, "transform_context", None)
+
+            def composed(messages, _budget=budget):
+                out = graph_transform(messages)
+                return _budget(out) if _budget else out
+
+            return replace(config, transform_context=composed)
+
+        wrapped.append(replace(attempt, config_factory=build))
+    return wrapped
 
 
 def _make_config_factory(

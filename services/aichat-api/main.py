@@ -391,6 +391,72 @@ def _get_history_store():
     return _history_store
 
 
+# —— 对话黑板（Blackboard 新对话模式）接线（BB §3 写路径 / §5 落位；开关默认关）——
+_conv_graph_store = None
+_conv_graph_store_failed = False
+_graph_executor = None
+
+
+def _get_conv_graph_store():
+    """图存储单例（与聊天历史同库）；失败降级 None → 图模式静默退回 A-min 行为。"""
+    global _conv_graph_store, _conv_graph_store_failed
+    if _conv_graph_store is not None or _conv_graph_store_failed:
+        return _conv_graph_store
+    try:
+        from chat_history.store.graph_store import ConvGraphStore
+
+        _conv_graph_store = ConvGraphStore()
+        _conv_graph_store.init()
+        logger.info("对话黑板图存储就绪: %s", _conv_graph_store.db_path)
+    except Exception as exc:  # noqa: BLE001
+        _conv_graph_store_failed = True
+        logger.warning("对话黑板图存储初始化失败，图模式降级: %s", exc)
+    return _conv_graph_store
+
+
+def _graph_pool():
+    """异步蒸馏线程池：**并发上限 1**（BB §3.5 硬约束①：跨会话也要限流，下游算力同一批）。"""
+    global _graph_executor
+    if _graph_executor is None:
+        from concurrent.futures import ThreadPoolExecutor
+
+        _graph_executor = ThreadPoolExecutor(max_workers=1, thread_name_prefix="conv-graph")
+    return _graph_executor
+
+
+def _schedule_conv_graph_distill(messages: List[Any], *, run_id: str, owner_key: str,
+                                 session_id: str, scope_hash: str,
+                                 library_ids: Optional[List[str]]) -> None:
+    """run_end 之后异步蒸馏（不进关键路径）。
+
+    - **在 persist 之后调用**（BB §3 / arms 落地纪律③：水位不得先于落库前进），
+      且输入取内存切片，不重读库；
+    - 蒸馏入口用引擎的 ``distill_run``（可被离线壳/评测共用，arms 落地纪律②）；
+    - 失败只告警：图是派生缓存，可从消息流重建（BB §5）。
+    """
+    try:
+        from angineer_core.conv_graph import conv_graph_enabled, distill_run
+
+        if not conv_graph_enabled() or not messages:
+            return
+        store = _get_conv_graph_store()
+        if store is None:
+            return
+
+        def _job() -> None:
+            try:
+                result = distill_run(list(messages), run_id=run_id, store=store,
+                                     owner_key=owner_key, session_id=session_id,
+                                     scope_hash=scope_hash, library_ids=library_ids)
+                logger.info("对话黑板蒸馏: %s", result.summary)
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("对话黑板蒸馏失败（派生缓存，可重建）: %s", exc)
+
+        _graph_pool().submit(_job)
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("对话黑板蒸馏调度失败（忽略）: %s", exc)
+
+
 try:
     from chat_history.routes import build_chat_router
 
@@ -571,6 +637,10 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 sop_loader=sop_loader,
                 route_debug=route_debug,
                 marker_allocator=shared_allocator,
+                # 对话黑板读路径接线（开关默认关；store 失败为 None → 不介入）
+                conv_graph_store=_get_conv_graph_store(),
+                owner_key=owner,
+                session_id=eff_session_id,
             )
             # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
             # 经 run_end 帧下发 msg_seqs（D10）。消息取 session.history 增量切片——
@@ -654,6 +724,10 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     # 追加全部消息再发 run_end），切片无竞态
                     msgs = list(hist_list[hist_base:])
                     seqs = persist(msgs, str(event.payload.get("reason", "")), event.run_id, event.ts)
+                    # 对话黑板：persist 之后异步蒸馏（开关默认关；BB §3 写路径）
+                    _schedule_conv_graph_distill(msgs, run_id=event.run_id, owner_key=owner,
+                                                 session_id=eff_session_id, scope_hash=scope_hash,
+                                                 library_ids=list(library_ids))
                 frame = json.loads(map_event_to_agent_frame(event))
                 frame["frame_version"] = 1
                 if seqs:
@@ -664,7 +738,12 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             await run_future
             if not persisted and store is not None and len(hist_list) > hist_base:
                 # 客户端断开/异常路径：run_end 帧未送出，按 cancel 语义兜底补写
-                persist(list(hist_list[hist_base:]), "cancelled", "", time.time())
+                tail = list(hist_list[hist_base:])
+                persist(tail, "cancelled", "", time.time())
+                # 断连/异常分支**同接蒸馏**（BB §3：这一支此前被漏掉过）
+                _schedule_conv_graph_distill(tail, run_id="", owner_key=owner,
+                                             session_id=eff_session_id, scope_hash=scope_hash,
+                                             library_ids=list(library_ids))
 
             yield "data: [DONE]\n\n"
         except Exception as e:
