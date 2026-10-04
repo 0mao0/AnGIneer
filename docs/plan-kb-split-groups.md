@@ -145,6 +145,7 @@ data/
 | 迁移中断 | 幂等设计（block id 去重），源不动、目标可删重跑 |
 | collection 碎片化 | 库组数量控制在个位数；评测组设总量拆分阈值 |
 | 历史会话绑旧单库 | 单库读作单元素列表，零迁移 |
+| 阶段三改 scope 语义波及会话图计划（`conv_graph_*` 原主键写死 `scope_hash`） | ✅ **已收口（2026-10-04）**：阶段三 Phase B–E 落地后，`req-blackboard-conversation-mode.md` §5 按 **D6** 改版——会话身份 = `(owner_key, session_id)`，`scope_hash`/`library_ids_json` 降为节点来源列；原「预留过渡列」作废。两份文档已同步（BB §5/§5.1、`plan-blackboard-arms.md` §7） |
 | qdrant 多 collection 固定开销 | 个位数 collection 无碍（每份 MB 级）；不拆几十个 |
 | 目录改名与服务器侧引用漂移（.env、备份脚本、compose 挂载） | 动手前全库 grep 列全引用点一处清单改齐；改后重启＋检索探针复验才收工 |
 

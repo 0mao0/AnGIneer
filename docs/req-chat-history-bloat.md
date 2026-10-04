@@ -6,11 +6,11 @@
 > `docs/req-table-retrieval-latency.md`，彼为本需求的前置观测来源之一）。
 > 观测数据入口已就绪（data/ops/ttft-*.jsonl），认领即可量化。
 > 2026-09-27 与业主讨论收敛方案形态：一期=分层压缩，二期=blackboard 滚动语义板。
-> 2026-09-29 通读复核修订：§5.5 未引用证据改指针行（UI resultItems 证伪「用户没看过」）、
+> 2026-09-29 通读复核修订：§5.2 未引用证据改指针行（原编号 §5.5；UI resultItems 证伪「用户没看过」）、
 > skip 前缀修法、当轮自超豁免、prefix-cache 对照。
 > 2026-09-29 二次定版（与业主讨论）：**一期/二期不是先后两期，是两条替代路线**——
 > A=阈值压缩（治标，削斜率），B=会话语义图（治本，收敛为常数）；
-> 本轮只做 A-min 止血，A 的分层携带（原 §5.5）挂起让位给 B，避免工程量浪费。
+> 本轮只做 A-min 止血，A 的分层携带（现 §5.2，原编号 §5.5）挂起让位给 B，避免工程量浪费。
 
 ## 1. 背景与现状证据
 
@@ -62,7 +62,7 @@ input tokens × 每请求）+ 检索证据在闲聊轮纯属浪费。
 └─ [Kx] 引用标记 → marker_allocator 每 run 独立分配
 
 真正依赖历史的只有两处（裁剪红线）：
-├─ _latest_user_query 全表倒扫 → 代检索/§8.6 改写取「上一问」→ 最近一条 user 必须保留
+├─ _latest_user_query 全表倒扫 → 代检索/上下文化改写取「上一问」（实现：`agent_loop.py:_contextualize_followup_query`）→ 最近一条 user 必须保留
 └─ run_end persist 返回 history[start_idx:] 切片 → 不能原地裁 history 本体（A1 投影式教训）
 ```
 
@@ -73,7 +73,7 @@ input tokens × 每请求）+ 检索证据在闲聊轮纯属浪费。
 1. 本地同会话连发 ≥6 题（混合 L1/L2/L0），ops jsonl 逐轮 prompt_tokens ≤ 25k；
    **豁免口径**：当轮自身证据即超 25k 的题（重表题 L2 table_search / L3 大计算）单列观测
    不判失败——当轮证据受 protect_current_run 保护，本就不该压。
-2. **连贯性不劣化**：跟进式追问（§8.6 上下文化改写依赖上一问）与证据追问（「刚才第二条规范说什么」）
+2. **连贯性不劣化**：跟进式追问（上下文化改写 `agent_loop.py:_contextualize_followup_query` 依赖上一问）与证据追问（「刚才第二条规范说什么」）
    人工比对不回退；nightly 整体不低于基线。
 3. 新增行为有开关，默认值经实测后再定。
 4. **ttft 改善须排除 prefix-cache 假象**：实测报告补「同档连发 vs 跨档切换」ttft 对照——
@@ -112,7 +112,7 @@ input tokens × 每请求）+ 检索证据在闲聊轮纯属浪费。
 
 压缩语义（沿用 A1 现状）：est 超阈值 → 从最老的历史 tool 消息开始，压成
 `[已压缩: 工具 xx 的结果，要点: …]` 一行，压到达标为止；当轮（边界之后）绝不压。
-保留红线：最近一条真实 user 逐字（§8.6 改写与代检索靠它）。
+保留红线：最近一条真实 user 逐字（上下文化改写 `agent_loop.py:_contextualize_followup_query` 与代检索靠它）。
 
 预期收益：Q5 73k → ~5-15k（L0 无工具无证据，prompt 只剩 system + 历史文本 + 历史摘要；
 ~5k 是本题集最好情况，L3 长答案会话十几轮约 15-20k，仍在 25k 目标内）。
@@ -132,12 +132,18 @@ input tokens × 每请求）+ 检索证据在闲聊轮纯属浪费。
   思考过程面板把全部检索条目渲染给用户（`aichat-ui types/chat.ts` `resultItems`），
   用户会指着未引用条目追问；指针行保住「用户见过」的指涉可捞（模型按指针重检索）。
 - **循环内部注入的 user 提示**与历轮 tool_calls 入参是引擎脚手架，一律不进回灌
-  （§8.6 已被内部提示坑过、取「上一问」须绕它）。
+  （`agent_loop.py:_contextualize_followup_query` 已被内部提示坑过、取「上一问」须绕它）。
 - 实施口径建议：历史 tool 消息降维**常驻执行**（不依赖 est 阈值），阈值退化为兜底保险丝——
   压缩是无损投影，本体还在，没有「不超就不压」的保留价值。
 
 **挂起理由**：若路线 B 立项落地，分层携带的 cite 映射重建与指针行会被图结构整个替换，
 工程量浪费；且 A-min 后 25k 大概率已达标，A-full 的边际收益待决策点数据判定。
+
+**【2026-10-03 修订单】**：路线 B 已立项，但上面「整个替换」的判断被收窄了——
+B 的五评（`req-blackboard-conversation-mode.md` §11）把本节的**指针半边**（未引用 items →
+`doc_title + (clause_id|section_path)` 指针行，由 `[Kx]` × `metadata.cite` 的确定性 join 生成、零 LLM）
+留作**构件**：图的 clause 节点 key 只能从这段 join 来，所以它不会被替换，而是提前到 M0 的臂 2 落地
+（≈1 小时）。仍被替换的是**引用 item 的自描述摘要**那一半。别再把本节整体当成「等 B 落地就作废」。
 
 ### 5.3 不做（定论）
 
@@ -146,7 +152,7 @@ input tokens × 每请求）+ 检索证据在闲聊轮纯属浪费。
 
 ## 6. 路线 B：会话语义图（治本，独立立项）
 
-**设计文档已独立成文并正名：`docs/req-blackboard-conversation-mode.md`（原名 req-conversation-memory-graph.md，2026-10-02 定名「Blackboard 新对话模式」）**——
+**设计文档已独立成文并正名：`docs/req-blackboard-conversation-mode.md`（原名 req-conversation-memory-graph.md，2026-10-02 定名「Blackboard 新对话模式」，**2026-10-04 再定名为「对话黑板」**——术语去撞名，见该文头部「正名轨迹」）**——
 形态定版、写/读路径、存储与载体裁决、质量闸、里程碑均以该文为准；本节保留原始讨论要点备查。
 
 **形态定版（2026-09-29 与业主讨论，取代原「blackboard 滚动摘要板」表述）**：
