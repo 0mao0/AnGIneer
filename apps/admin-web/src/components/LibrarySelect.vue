@@ -6,9 +6,10 @@
       option-type="button"
       class="library-group-tabs"
       :options="[
-        { label: '生产', value: 'prod' },
-        { label: '评测', value: 'evals' },
+        { label: '外服', value: 'prod' },
+        { label: '内测', value: 'evals' },
       ]"
+      @change="handleGroupChange"
     />
     <template v-if="props.mode === 'title'">
       <a-dropdown :trigger="['hover']" v-model:open="selectOpen">
@@ -163,7 +164,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import { message } from 'ant-design-vue'
 import { PlusOutlined, EditOutlined, DeleteOutlined, AuditOutlined, DownOutlined } from '@ant-design/icons-vue'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
@@ -181,12 +182,43 @@ const store = useLibraryStore()
 
 // 组 segment（plan-kb-split-groups）：评测语料与生产知识分栏展示，操作能力一致；
 // 组判定由后端注册表直出 group_name，前端只过滤（evals=评测语料，其余=生产）。
-const groupTab = ref<'prod' | 'evals'>('prod')
-const filteredLibraries = computed(() =>
-  groupTab.value === 'evals'
+// 切组 = 恢复该组「上次选中」的库（store.groupLibraries）；无记录则取该组默认库/首库。
+const groupTab = ref<'prod' | 'evals'>(store.currentLibraryGroup)
+
+function libsOfGroup(group: 'prod' | 'evals') {
+  return group === 'evals'
     ? store.libraries.filter((l) => l.group_name === 'evals')
-    : store.libraries.filter((l) => l.group_name !== 'evals'),
+    : store.libraries.filter((l) => l.group_name !== 'evals')
+}
+
+const filteredLibraries = computed(() => libsOfGroup(groupTab.value))
+
+// 选中库变化（含库列表加载完成后的纠正）时，组 tab 跟随，避免「tab=生产、右侧库属于评测」的错位
+watch(
+  () => store.currentLibraryGroup,
+  (g) => {
+    groupTab.value = g
+  },
 )
+
+function handleGroupChange(e: unknown) {
+  // ant-design-vue 的 radio-group change 传的是 RadioChangeEvent（值在 e.target.value），不是裸值；
+  // 直接比对第一个参数会恒判为非 evals（业主实踩：点「评测」右侧仍回默认库）。兼容两种调用形态。
+  const raw = (e as { target?: { value?: unknown } })?.target?.value ?? e
+  const group: 'prod' | 'evals' = raw === 'evals' ? 'evals' : 'prod'
+  groupTab.value = group
+  const list = libsOfGroup(group)
+  const remembered = store.groupLibraries[group]
+  const next =
+    list.find((l) => l.id === remembered)?.id ??
+    list.find((l) => l.id === 'default')?.id ??
+    list[0]?.id
+  if (next) {
+    store.setLibrary(next)
+  } else {
+    message.warning(group === 'evals' ? '内测组暂无知识库' : '外服组暂无知识库')
+  }
+}
 
 // 下拉菜单受控：item 内点击操作 icon 时主动收起，避免抽屉/弹框打开后菜单残留
 const selectOpen = ref(false)

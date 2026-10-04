@@ -30,8 +30,12 @@
         class="stats-filter-item"
         style="width: 140px"
       >
+        <!-- 计数右对齐；下拉面板挂在 body，scoped 样式够不到 → 计数样式走内联 -->
         <a-select-option v-for="opt in statusFilterOptions" :key="opt.value" :value="opt.value">
-          {{ opt.label }}
+          <span style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; width: 100%">
+            <span>{{ opt.label }}</span>
+            <span style="opacity: 0.55; font-variant-numeric: tabular-nums">{{ opt.count }}</span>
+          </span>
         </a-select-option>
       </a-select>
       <a-select
@@ -96,6 +100,7 @@
       row-key="id"
       :card="false"
       :pagination="{ pageSize: 20, showSizeChanger: true, pageSizeOptions: ['10', '20', '50', '100'], showTotal: (total: number) => `共 ${total} 条` }"
+      :reset-page-token="filterSignature"
       storage-key="angineer-admin-knowledge-v4"
     >
       <template #bodyCell="{ column, record }">
@@ -798,17 +803,39 @@ const keywordFilter = ref('')
 const statusFilter = ref<string | undefined>(undefined)
 const formatFilter = ref<string | undefined>(undefined)
 
-const STATUS_FILTER_OPTIONS = [
-  { value: 'completed', label: '完成' },
-  { value: 'processing', label: '进行中' },
-  { value: 'queued', label: '排队中' },
-  { value: 'pending', label: '待解析' },
-  { value: 'partial', label: '部分完成' },
-  { value: 'failed', label: '失败' },
-  { value: 'cancelled', label: '已取消' },
-  { value: 'deleted', label: '用户已删' },
+// 筛选快照：任一条件变（含「用户已删」开关、切库）→ DataTable 回卷第 1 页。
+// 不含 records 本身——后台轮询刷新行集时不许弹用户的页码。
+const filterSignature = computed(
+  () =>
+    `${libraryStore.libraryId}|${keywordFilter.value}|${statusFilter.value ?? ''}|${formatFilter.value ?? ''}|${showDeletedOnly.value}`,
+)
+
+// 2026-10-04 精简（业主要求）：8 个原始状态并成 6 档——排队中/待解析同语义并一档，
+// 已取消/用户已删并成「其他」；计数为 0 的档不显示；每档尾带当前条数。行内徽章仍用原细分文案。
+const STATUS_BUCKETS: Array<{ value: string; label: string; statuses: string[] }> = [
+  { value: 'completed', label: '完成', statuses: ['completed'] },
+  { value: 'partial', label: '部分完成', statuses: ['partial'] },
+  { value: 'processing', label: '进行中', statuses: ['processing'] },
+  { value: 'waiting', label: '排队中', statuses: ['queued', 'pending'] },
+  { value: 'failed', label: '失败', statuses: ['failed'] },
+  { value: 'other', label: '其他', statuses: ['cancelled', 'deleted'] },
 ]
-const statusFilterOptions = STATUS_FILTER_OPTIONS
+const statusCounts = computed(() => {
+  const counts: Record<string, number> = {}
+  for (const b of STATUS_BUCKETS) counts[b.value] = 0
+  for (const r of records.value) {
+    const bucket = STATUS_BUCKETS.find((b) => b.statuses.includes(r.status))
+    if (bucket) counts[bucket.value] += 1
+  }
+  return counts
+})
+const statusFilterOptions = computed(() =>
+  STATUS_BUCKETS.filter((b) => statusCounts.value[b.value] > 0).map((b) => ({
+    value: b.value,
+    label: b.label,
+    count: statusCounts.value[b.value],
+  })),
+)
 const formatFilterOptions = ['pdf', 'doc', 'docx', 'md', 'txt'].map((f) => ({
   value: f,
   label: f.toUpperCase(),
@@ -817,7 +844,10 @@ const formatFilterOptions = ['pdf', 'doc', 'docx', 'md', 'txt'].map((f) => ({
 const filteredRecords = computed(() => {
   const kw = keywordFilter.value.trim().toLowerCase()
   return records.value.filter((r) => {
-    if (statusFilter.value && r.status !== statusFilter.value) return false
+    if (statusFilter.value) {
+      const bucket = STATUS_BUCKETS.find((b) => b.value === statusFilter.value)
+      if (!bucket || !bucket.statuses.includes(r.status)) return false
+    }
     if (formatFilter.value && String(r.file_format || '').toLowerCase() !== formatFilter.value) return false
     if (kw && !String(r.file_name || '').toLowerCase().includes(kw)) return false
     return true
@@ -853,7 +883,10 @@ const batchParsing = ref(false)
 
 // 列表轮询：存在进行中记录时持续静默刷新，全部终态后停止
 let recordsPollTimer: number | null = null
-const RUNNING_STATUSES = new Set(['queued', 'pending', 'processing'])
+// 'pending' 不算在跑（2026-10-04 业主实踩「取消死局」）：它是上传占位态、从未进队列，
+// 混进来的三处全错——待解析行显「取消」点了无事发生、占位行让轮询永不停止、
+// 批量解析把最该解析的未开跑文件全过滤掉。
+const RUNNING_STATUSES = new Set(['queued', 'processing'])
 
 function hasRunningRecords(): boolean {
   return records.value.some(r => RUNNING_STATUSES.has(r.status))
@@ -890,8 +923,10 @@ const columns = ref<DataTableColumn[]>([
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true, flex: true },
   { title: '格式', dataIndex: 'file_format', key: 'file_format', width: 60 },
   { title: '文件夹', key: 'folder', width: 170 },
-  { title: '大小', key: 'file_size', width: 80 },
-  { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60 },
+  // 大小/页数点击表头排序（客户端比较器，作用在 filteredRecords 上）；
+  // 页数未解析时为空（页面显 '-'），按 0 参与比较——未解析本就等于「还没页数」。
+  { title: '大小', key: 'file_size', width: 80, sorter: (a: ParseRecordItem, b: ParseRecordItem) => (a.file_size ?? 0) - (b.file_size ?? 0) },
+  { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60, sorter: (a: ParseRecordItem, b: ParseRecordItem) => (a.page_count ?? 0) - (b.page_count ?? 0) },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
   { title: '操作', key: 'action', width: 260, fixed: 'right' },
