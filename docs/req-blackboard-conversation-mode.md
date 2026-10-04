@@ -122,6 +122,7 @@
 | 21 | **【2026-10-04 正名与路径校准】**：① **术语去撞名**——本文档定名**对话黑板**（Dialogue Blackboard），SOP 侧 `Memory.blackboard` 定名**变量黑板**（代码标识符不改，理由同 9d5625f「`KNOWLEDGE_BASE_DIR` 变量名保留」）：该对象生命周期 = 单次 sop_execute、内容是步骤变量（T/Z0/result…）与 required/outputs 数据流契约，不装跨轮经验，故不叫「经验黑板」；② **§5 路径校准**——聊天历史库已随 DB 改造阶段二迁至 `data/platform/chat.sqlite`（`chat_history.store.DB_PATH`），本节旧写 `data/chat.sqlite` 作废，M1 一律跟随路径常量；③ **状态**：闸 1（阶段一/二）已过、闸 2（阶段三 多库勾选）未过，见文档头部 | 业主 2026-10-04 定名；`15709f9` / `9d5625f` 核验 |
 | 22 | **【2026-10-04 键模型定版：闸 2 已过】**：阶段三多库勾选落地（`60f349d`/`50fc410`/`1487de0`/`8f2bf8a`），会话身份按 **D6** 定在 `(owner_key, session_id)`，`scope_hash` 降为消息级来源标记 → **§5 的 `conv_graph_*` 主键去掉 `scope_hash`**，改为 `(owner_key, session_id)` + `library_ids_json`/`scope_hash` 作来源列；原「预留 `scope_key + scope_version`」作废；补「库集合变化时召回只取有交集的节点、不删历史节点」；§5.1 级联补第 5 处（库拆/合/退役，retire ≠ delete）。依据 `docs/superpowers/specs/2026-10-04-kb-multi-library-qa-design.md` D6/§5.3 | `history_store.scope_hash_for` 接列表；`sqlite_store.py` `_CHAT_MESSAGES_BODY` 主键 = (owner,session,seq) |
 | 23 | **【2026-10-04 外部评审 P1 回写】**：① **§3.2 数字与正则更正**——实测 `data/platform/chat.sqlite`：带 cite 的 items 3,289（K 2,533 / **T 756 = 23.0%**）、assistant 560 条中**含任一引用标记 221 = 39.5%**（原 3,139 / 174 / 534 / 32.6% 作废）；**正则必须覆盖三类前缀 `\[([KTE])(\d+)\]`**，只抽 `[Kx]` 会漏 23% 的被引用 item 并系统性低估臂 2；② **§7.2 拆两闸**——闸 A（斜率闸，只读语义层增量，差分口径）＋ 闸 B（子图渲染段 ≤2,000 est 硬上限，§2 同步钉死）；原文把水平项与斜率项混在一句，±25% 容差容不下子图波动；③ **臂 3 必须自带通道 1**（离线直连 `list_blocks_by_clause_refs`，不等 M1 的 HTTP 端点），否则「收缩边界」可能是假阴性；④ **§3 两条落地约束**——蒸馏入口必须可调用（禁止内联在 SSE 分支，否则多轮评测测不到图）＋ 蒸馏读内存切片、水位在 persist 之后；⑤ A5 改判为「机制自检题」，不计入 §7.1 净改善分母 | 评审意见（2026-10-04）＋本次自测：`data/platform/chat.sqlite` 只读复算、`agent_tools.py` 的 `prefix=` 三处、`agent_loop.py:transform_context` 签名 |
+| 24 | **【2026-10-04 臂 2 落地 + 三处实测口径更正】**：**臂 2（变体 ii 候选指针行）已实现**——`agent_configs.py:pointer_skeleton_enabled / _item_pointer_parts / _pointer_suffix`，在 `_summarize_tool_raw` 的 items 分支**追加**后缀（前缀与「检索到 N 条候选」逐字不动）；开关 `ANGINEER_POINTER_SKELETON` 默认关；上限 ≤5 条 / 文档名 30 字（先去扩展名）/ 条款 30 字 / 整段 280 字。三处口径更正（本节 §3.2 同步）：① `doc_title`/`clause_id` 覆盖是**按工具全有/全无**（knowledge 100% / table 0%），原「75.9% 部分覆盖」把两类混算、掩盖结构；② **落库 `meta_json` 只留 `{name, tool_call_id}`**，items 必须从 `content` 解析（260/260 实测无反例），否则重建/离线/评测路径静默拿空；③ `section_path` 最具体的一级在**最后一段**（单段 1,694 / 两段 1,524 / 三段 144 / 四段 2），从头截断会丢条款号。另：真实数据渲染校准出两条质量规则——同 doc+section 的重复条目**合并标记**（`T3,T4=…`，标记是 `[Tx]` join 键不可丢）、去 `.pdf` 扩展名 | 实现即证据：`tests/angineer-core/test_budget_gates.py` 新增 10 例（39 passed）；真实 `data/platform/chat.sqlite` 渲染对照；`agent_loop.py:915/1160/1277` 的 `meta=result_raw` |
 
 ## 1. 形态定版：一张持续演化的会话图
 
@@ -364,6 +365,11 @@ ops 校验（§3.3）→ 合并进图（append-only 为主，修订走追加标�
   （§3.2）随之丢失；投影式纪律的好处恰恰是「本体永不动」。
   **「取原文」指的是取投影前的切片，不是把 tool 原文整段喂给蒸馏模型**——喂进去的是
   「全部 items 元数据 + 被引用 item 正文」（见 §3 流程与成本段）。
+- ⚠️ **items 必须从 `content` 解析，不能读 `meta_json`（2026-10-04 实测）**：落库时
+  `chat_messages.meta_json` 只剩 `{name, tool_call_id}`（260 条 tool 消息里 0 条带 `items`），
+  而完整 JSON（`items`/`citations`/`total`）在 `content` 列。凡走「回读 chat.sqlite」的路径
+  （图重建、M0 离线壳、M3 评测）读 `meta_json` 都**静默拿到空 items**；
+  在线压缩路径读 `message.meta`（内存态 = `result_raw`）才是对的——两条路不要混。
 - 本轮切片口径直接复用 `main.py` 中 `hist_list[hist_base:]` 的语义（`hist_base` 在 run_future 创建前
   capture），**不要另算基线**——那段注释记录了三次实踩（丢本轮 user 消息、空列表 `or []` 快照脱节、
   基线 capture 竞态；两次生产 + 一次本地）。
@@ -386,11 +392,17 @@ assistant 消息 **560** 条，含 `[Kx]` 179、含 `[Tx]` 51、含 `[Ex]` 0、*
 | 字段 | 覆盖率 | 说明 |
 | --- | --- | --- |
 | `cite`（`[Kx]`/`[Tx]`/`[Ex]` 标记） | **100.0%** | `agent_tools.py:MarkerAllocator.next` 分配，写进 `items[].metadata.cite`（赋值点 `agent_tools.py:_assign_cites`） |
-| `doc_title` | 75.9% | 只能取 `metadata.doc_title`（2,383/3,139，按 2026-10-02 口径；重测时同步更新） |
-| `title`（item 顶层） | 100% | ⚠️ **是章节标题不是文档名**，不得拿它冒充 doc_title 把覆盖率「凑到 100%」 |
-| `clause_id`（规范号+条款号） | **11.0%** | ⚠️ 大多拿不到（345/3,139，同上） |
-| `section_path` | 100%，多为「3 基本规定 / 3.4 耐久性规定」 | **0 条含规范号**（JTS/JTG/JTJ/GB 全无），86.5% 带条款或附录数字 |
-| `library_id`（**新增，阶段三后**） | item 自带优先、缺失回退请求库 | `agent_tools.py:_items_to_evidences` 的「多库扇出下逐图标源」——**节点来源列直接取它**，不必用整个会话的库集合近似 |
+| `doc_title` | **knowledge 100% / table 0%**（合计 ~76.6%） | ⚠️ **2026-10-04 实测更正**：不是「75.9% 部分覆盖」，而是**按工具全有/全无**——table_search 侧上游传 `doc_title_map={}`，故 table item 只能退 `doc_id`。原「2,383/3,139 = 75.9%」把两类混算，掩盖了这个结构 |
+| `clause_id`（规范号+条款号） | **knowledge 14.4% / table 0%**（合计 11.0%） | ⚠️ 同样按工具分：只有 knowledge_search 的部分条目带（371/2,578） |
+| `title`（item 顶层） | 100% | ⚠️ **是章节标题/表名不是文档名**，不得拿它冒充 doc_title 把覆盖率「凑到 100%」 |
+| `section_path` | 100% | 单段 1,694 / 两段 1,524 / 三段 144 / 四段 2——**最具体的一级在最后一段**，从头截断会丢条款号（`_last_section_segment` 的理由）；**0 条含规范号** |
+| `library_id` | 单库会话 0%，多库扇出时逐项带 | `agent_tools.py:_items_to_evidences` 的「多库扇出下逐图标源」——**多库请求直接取它；单库请回退会话库集合**，别当必填字段 |
+
+**⚠️ 另有一条实现级陷阱（2026-10-04 实测，会静默毁掉重建/离线路径）**：**落库的 `chat_messages.meta_json`
+只保留 `{name, tool_call_id}`，没有 `items`**（260 条 tool 消息实测 0 条带 items）。
+内存态相反：`agent_loop.py` 构造 tool 消息时传的是 `meta=result_raw`，所以**在线压缩**读 `message.meta` 是对的；
+但凡**从 chat.sqlite 回读的路径（图重建、M0 离线壳、M3 评测）必须解析 `content`（JSON 文本）取 items**，
+读 `meta_json` 会得到空结果且不报错。样本：`content` 顶层键 = `citations / items / relevance_scale / total`。
 
 据此更正：
 
