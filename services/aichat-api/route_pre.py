@@ -43,13 +43,17 @@ def route_parallel_enabled() -> bool:
 def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids: Optional[List[str]],
                               load_nodes: Optional[Callable[[], list]] = None,
                               has_history: bool = True,
-                              marker_allocator: Optional[Any] = None):
+                              marker_allocator: Optional[Any] = None,
+                              library_ids: Optional[List[str]] = None):
     """赌博式预检：乐观发起 L1 首轮检索（fire-and-forget 独立 daemon 线程）。
 
     参数必须与 agent_policy._l1_attempt → build_qa_config → RetrieverAdapter.knowledge_search
     的有效参数逐项一致（top_k=20 / task_type=content_qa / rerank=True / config_name=None /
-    mode="instruct" / doc_nodes=同源 _load_doc_nodes 结果），否则 agent_tools 的检索 memo
-    键对不齐，预检白做甚至污染 citations（doc_title_map 缺失）。拿不到 load_nodes 宁可不预检。
+    mode="instruct" / library_ids=同轮集合且仅多库上浮——单元素集合与缺省一律收敛 None，
+    与主路单库传 None 逐位同形（B1：truthy 集合会给结果挂 scope 键）；memo 键由
+    _search_memo_key 对回退单值与集合归一同键 / doc_nodes=同源 _load_doc_nodes(_multi)
+    结果），否则 agent_tools 的检索 memo 键对不齐，预检白做甚至污染 citations
+    （doc_title_map 缺失）。拿不到 load_nodes 宁可不预检。
 
     marker_allocator（F3 共享 allocator）：主流程创建、预检与主路共用同一实例——预检的
     引用号段即主路号段，复用成品不重分配；失败/放弃由 memo 按快照回收（施工单变更 A）。
@@ -90,8 +94,16 @@ def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids
 
     def _run():
         try:
+            # 阶段三 B1（2026-10-04 质量评审）：集合仅多库（len>1）时上浮——
+            # 单元素集合与缺省同样收敛为 None。原因：agent_tools 对 truthy 的
+            # library_ids 会给结果挂 scope 键（D8「仅显式传集合才上浮」），主路单库传
+            # None 不挂；若预检带 ["lib"] 则单库请求的 tool 观测 shape 取决于预检竞态
+            # 是否命中，破「旧 body 行为逐位不变」。memo 键不受影响：_search_memo_key
+            # 对回退单值与单元素集合产出同一元组。
+            _libs = [x for x in (library_ids or []) if x]
             tool = RetrieverAdapter.knowledge_search(
                 library_id=library_id or "default",
+                library_ids=_libs if len(_libs) > 1 else None,
                 doc_ids=list(doc_ids or []),
                 doc_nodes=doc_nodes,
                 top_k=20,
@@ -120,9 +132,17 @@ async def route_request(
     config_name: Optional[str],
     mode: str,
     classify: ClassifyFn,
+    library_ids: Optional[List[str]] = None,
 ) -> RouteDecision:
-    """生成本次请求的派工单；分类失败 -> fallback 决策（scope 仍显式保留）。"""
-    scope = ScopeContext(library_id=library_id or "default", doc_ids=list(doc_ids or []))
+    """生成本次请求的派工单；分类失败 -> fallback 决策（scope 仍显式保留）。
+
+    阶段三：library_ids 非空时集合进 ScopeContext（validator 同步首项为 library_id，D8）；
+    缺省按单库构造，旧调用产出的字段值不变。
+    """
+    scope = ScopeContext(
+        library_ids=list(library_ids or []) or [library_id or "default"],
+        doc_ids=list(doc_ids or []),
+    )
     import time as _time
 
     _t0 = _time.perf_counter()

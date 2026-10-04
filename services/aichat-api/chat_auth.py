@@ -26,7 +26,10 @@ def resolve_session_principal(request: Request) -> bool:
 
 
 def enforce_bound_library(state, requested: str) -> str:
-    """会话用户按库集合校验；Key 保持原单库逻辑。空/default → 默认库。"""
+    """会话用户按库集合校验；Key 保持原单库逻辑。空/default → 默认库。
+
+    零生产调用方（main 端点已走集合版 enforce_bound_libraries），仅作旧单值语义回归基准。
+    """
     user = getattr(state, "session_user", None)
     if user is not None and getattr(user, "is_admin", False) is True:
         # 管理员跨库视野：允许访问任意知识库（与 admin-web 全局库选择一致）
@@ -55,6 +58,60 @@ def enforce_bound_library(state, requested: str) -> str:
         from fastapi import HTTPException
         raise HTTPException(status_code=403, detail=f"API key 仅授权访问知识库 '{bound}'")
     return bound
+
+
+def max_chat_libraries() -> int:
+    """多库勾选上限（阶段三 D1）：默认 5，环境变量可调（夹 1..10）。"""
+    try:
+        return min(10, max(1, int(os.getenv("ANGINEER_MAX_CHAT_LIBRARIES", "5") or 5)))
+    except ValueError:
+        return 5
+
+
+def enforce_bound_libraries(state, requested: "list[str]") -> "list[str]":
+    """集合版库归属校验：先整集鉴权（任一越权即 403），再按上限截断（spec §P1-5）。
+
+    会话用户按 bound_library_ids 集合校验；管理员任意集合；Key 维持单库绑定
+    （集合收敛为 [bound]，集合含非绑定库成员同样 403——与旧 enforce_bound_library
+    的冲突拒绝逐位一致，不静默剔除）；匿名仅默认库。空集合回退默认库。
+    """
+    from fastapi import HTTPException
+
+    user = getattr(state, "session_user", None)
+    if user is not None and getattr(user, "is_admin", False) is True:
+        # 管理员跨库视野：允许访问任意知识库（与 admin-web 全局库选择一致）
+        libs = [str(x).strip() for x in requested if str(x).strip()] or ["default"]
+        return libs[: max_chat_libraries()]
+    ids = getattr(state, "bound_library_ids", None)
+    if ids is not None:
+        libs = [str(x).strip() for x in requested if str(x).strip()]
+        if not libs or libs == ["default"]:
+            # 空/default 回退直返（不进成员校验）：零绑库登录用户（ids=set()、bound=""）
+            # 旧 body 下 enforce_bound_library 放行 "default"，此处若仍过 ids 即 403，
+            # 破兼容铁律 1（2026-10-04 评审 blocking 修正；bound 非空时该值恒 ∈ ids，
+            # 跳过校验与有绑库用户的现行为等价）。
+            return [getattr(state, "bound_library_id", "") or "default"][: max_chat_libraries()]
+        for lib in libs:
+            if lib not in ids:
+                raise HTTPException(status_code=403, detail=f"用户无权访问知识库 '{lib}'")
+        return libs[: max_chat_libraries()]
+    bound = getattr(state, "bound_library_id", "") or ""
+    if not bound:
+        # 匿名（无 API key 也无会话）：只允许默认库（2026-09-17 收紧语义的集合版）。
+        libs = [str(x).strip() for x in requested if str(x).strip()]
+        if not libs or libs == ["default"]:
+            return ["default"]
+        raise HTTPException(status_code=403, detail="未登录访问仅限默认知识库，请登录后选择其它知识库")
+    # API key：单库绑定不变（spec：Key 仍单库），集合收敛为 [bound]；
+    # 计划 v3 片段此处直接 return [bound] 会把旧 enforce_bound_library 的冲突 403 吞成静默收敛，
+    # 破兼容铁律 1（2026-10-04 实施时修正：非绑定成员一律 403）。
+    libs = [str(x).strip() for x in requested if str(x).strip()]
+    if not libs or libs == ["default"]:
+        return [bound]
+    for lib in libs:
+        if lib != bound:
+            raise HTTPException(status_code=403, detail=f"API key 仅授权访问知识库 '{bound}'")
+    return [bound]
 
 
 def _client_ip_digest(request: Request) -> str:

@@ -48,6 +48,7 @@ from angineer_core.base_contracts import ScopeContext
 from chat_agent import (
     find_session_by_run_id,
     get_agent_session,
+    is_multi_scope,
     make_policy_config_factory,
     map_event_to_agent_frame,
 )
@@ -57,8 +58,9 @@ import geo_core.GisTool
 from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
-from chat_auth import enforce_bound_library, guest_gate_blocked, resolve_pool_owner
+from chat_auth import enforce_bound_libraries, guest_gate_blocked, resolve_pool_owner
 from angineer_core.history_store import scope_hash_for
+from docs_core.step09_query.protocols.contracts import normalize_library_ids
 
 
 def _resolve_principal(request) -> tuple:
@@ -321,6 +323,8 @@ class QueryRequest(BaseModel):
     scene: str = "docs"
     session_id: Optional[str] = None
     library_id: str = "default"
+    # 多库勾选（阶段三）：空=单库（library_id），非空=集合；服务端 normalize 后首项=主库
+    library_ids: List[str] = Field(default_factory=list)
     doc_ids: List[str] = Field(default_factory=list)
     inline_citations: List[Dict[str, Any]] = Field(default_factory=list)
     config: Optional[str] = None
@@ -402,7 +406,12 @@ except Exception as exc:  # noqa: BLE001
 @app.post("/api/chat/agent")
 async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     """Agent SSE：run/turn/tool 事件按 AgentEvent 帧输出。"""
-    request.library_id = enforce_bound_library(raw_request.state, request.library_id)
+    # 多库勾选（阶段三 D2）：归一化 → 先整集鉴权（任一越权即 403）→ 上限截断
+    # （鉴权必须先于截断：截断在前则 cap 外的越权成员可随截断蒙混放行）；
+    # 旧 body 只带 library_id 时归一为单元素集合，行为与现状逐位一致（兼容铁律 1）。
+    library_ids = normalize_library_ids(request.library_ids or None, request.library_id or "")
+    library_ids = enforce_bound_libraries(raw_request.state, library_ids)
+    request.library_id = library_ids[0]  # 首库回填（D8）：单值消费点（entity_search/审计/落库）不变
     # 会话池按主体隔离：session_id 客户端可控，不隔离则同库不同用户会共用 history
     owner = resolve_pool_owner(raw_request)
     # 历史存储：组装层注入；不可用则降级为纯内存池（行为同改造前）
@@ -417,7 +426,8 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             },
         )
     eff_session_id = request.session_id or "default"
-    scope_hash = scope_hash_for(request.library_id, request.doc_ids)
+    doc_ids = list(request.doc_ids or [])
+    scope_hash = scope_hash_for(library_ids, doc_ids)
 
     async def event_stream():
         try:
@@ -425,7 +435,8 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 request.scene or "qa",
                 request.session_id,
                 library_id=request.library_id,
-                doc_ids=request.doc_ids,
+                library_ids=library_ids,
+                doc_ids=doc_ids,
                 owner=owner,
                 history_loader=(
                     (lambda: store.load(owner, eff_session_id, scope_hash))
@@ -445,11 +456,18 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             # 文档范围为空时显式提示：否则检索恒为 0 条，模型会把「检索拿不到东西」
             # 说成「知识库里没有证据」（2026-09-11 排查：payload 干净、库里有 26 篇文档）
             try:
-                from chat_agent import _load_doc_nodes
+                from chat_agent import _load_doc_nodes, _load_doc_nodes_multi
 
-                if not _load_doc_nodes(request.library_id, request.doc_ids):
+                # 多库时逐库合并探测（任一库有文档即不告警）；单库走原路径，行为逐位不变
+                _probe_nodes = (
+                    _load_doc_nodes_multi(library_ids, doc_ids)
+                    if is_multi_scope(library_ids)
+                    else _load_doc_nodes(library_ids[0], doc_ids)
+                )
+                if not _probe_nodes:
+                    _libs_label = "、".join(f"「{x}」" for x in library_ids)
                     empty_scope_msg = (
-                        f"知识库「{request.library_id}」当前没有可检索的文档"
+                        f"知识库{_libs_label}当前没有可检索的文档"
                         "（或检索服务尚未就绪），本次回答可能不准确，稍后重试通常可恢复。"
                     )
                     warning_frame = {"type": "warning", "message": empty_scope_msg}
@@ -490,16 +508,22 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 if route_parallel_enabled():
                     try:
                         from chat_agent import _load_doc_nodes as _speculative_load_nodes
+                        from chat_agent import _load_doc_nodes_multi as _speculative_load_nodes_multi
                         from angineer_core.agent_tools import MarkerAllocator as _SpecAllocator
 
                         shared_allocator = _SpecAllocator()
                         fire_speculative_first_search(
                             request.query,
                             request.library_id,
-                            request.doc_ids,
-                            load_nodes=lambda: _speculative_load_nodes(request.library_id, request.doc_ids),
+                            doc_ids,
+                            load_nodes=(
+                                (lambda: _speculative_load_nodes_multi(library_ids, doc_ids))
+                                if is_multi_scope(library_ids)
+                                else (lambda: _speculative_load_nodes(library_ids[0], doc_ids))
+                            ),
                             has_history=bool(getattr(session, "history", None)),
                             marker_allocator=shared_allocator,
+                            library_ids=library_ids,
                         )
                     except Exception:  # noqa: BLE001
                         logger.debug("赌博式预检未发起（忽略）", exc_info=True)
@@ -507,7 +531,8 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     query=request.query,
                     scene=request.scene or "qa",
                     library_id=request.library_id,
-                    doc_ids=request.doc_ids,
+                    library_ids=library_ids,
+                    doc_ids=doc_ids,
                     config_name=request.config,
                     mode=request.mode or "instruct",
                     classify=classify_intent_offloaded,
@@ -524,7 +549,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     config_name=request.config,
                     mode=request.mode or "instruct",
                 )
-                scope = ScopeContext(library_id=request.library_id or "default", doc_ids=list(request.doc_ids or []))
+                scope = ScopeContext(library_ids=list(library_ids), doc_ids=doc_ids)
                 route_debug = None
             config_factory = make_policy_config_factory(
                 request.scene or "qa",
@@ -584,7 +609,10 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                             "error": last_error,
                             "scene": request.scene or "qa",
                             "library_id": request.library_id,
-                            "doc_ids": list(request.doc_ids or []),
+                            # 阶段三：落库带集合（chat-history append 消费 run_meta["library_ids"]）；
+                            # 单库请求也记 [首库]——来源标记列可区分新旧行
+                            "library_ids": list(library_ids),
+                            "doc_ids": doc_ids,
                         },
                     )
                     persisted = True

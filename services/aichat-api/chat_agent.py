@@ -1,7 +1,8 @@
 """P7 API 层统一：agent 会话池与 AgentEvent SSE 帧序列化。
 
-按 ``owner:scene:session_id:scope_hash`` 复用 AgentSession（阶段 2a：scope 变化开新会话，
-不复用旧 history；owner 为身份隔离位）；``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
+按 ``owner:scene:session_id`` 复用 AgentSession（阶段三 D6 去 scope_hash：scope 每轮经
+config_factory 新鲜注入，会话可跨集合续接；owner 为身份隔离位）；
+``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
 """
 import logging
 import threading
@@ -12,7 +13,6 @@ from angineer_core.agent_events import AgentEvent
 from angineer_core.agent_loop import AgentLoopConfig
 from angineer_core.agent_session import AgentSession
 from angineer_core.base_contracts import ScopeContext
-from angineer_core.history_store import scope_hash_for
 
 logger = logging.getLogger(__name__)
 
@@ -58,6 +58,28 @@ def _load_doc_nodes(library_id: str, doc_ids: Optional[List[str]]) -> list:
         return []
 
 
+def is_multi_scope(library_ids: Optional[List[str]]) -> bool:
+    """多库集合判定唯一谓词（阶段三）：len>1 才算多库，单元素按旧单库语义处理。
+
+    节点加载分支（_load_doc_nodes_multi vs 单库路径）与预检集合上浮（route_pre B1
+    同口径）共用此谓词——「集合仅多库时上浮」的规则只写一遍，防三拷贝漂移。
+    """
+    return len(list(library_ids or [])) > 1
+
+
+def _load_doc_nodes_multi(library_ids: List[str], doc_ids: Optional[List[str]]) -> list:
+    """多库节点加载（阶段三）：逐库加载合并，按节点 id 去重（每库内部沿用 _load_doc_nodes 的告警语义）。"""
+    seen: set = set()
+    nodes: list = []
+    for lib in library_ids:
+        for node in _load_doc_nodes(lib, doc_ids):
+            node_id = str(getattr(node, "id", "") or "")
+            if node_id and node_id not in seen:
+                seen.add(node_id)
+                nodes.append(node)
+    return nodes
+
+
 def make_policy_config_factory(
     scene: str,
     scope: ScopeContext,
@@ -81,12 +103,20 @@ def make_policy_config_factory(
         from angineer_core.agent_tools import MarkerAllocator
 
         allocator = marker_allocator or MarkerAllocator()
+        # 阶段三：集合仅在真正多库时上浮（谓词 is_multi_scope）——单库保持 None，
+        # 旧单库调用的检索结果 shape 逐位不变（agent_tools D8 口径，兼容铁律 1）
+        multi = is_multi_scope(scope.library_ids)
         attempts = build_attempts(
             intent_result=intent_result,
             scene=scene,
             library_id=scope.library_id,
+            library_ids=list(scope.library_ids) if multi else None,
             doc_ids=list(scope.doc_ids),
-            load_nodes=lambda: _load_doc_nodes(scope.library_id, scope.doc_ids),
+            load_nodes=lambda: (
+                _load_doc_nodes_multi(scope.library_ids, scope.doc_ids)
+                if multi
+                else _load_doc_nodes(scope.library_id, scope.doc_ids)
+            ),
             llm_factory=get_llm_client,
             config_name=None,
             mode="instruct",
@@ -106,9 +136,21 @@ def make_policy_config_factory(
     return factory
 
 
-def _make_config_factory(scene: str, library_id: str, doc_ids: Optional[List[str]]):
-    """池化会话默认工厂（policy 版，无单次意图时按 scene 路由）。"""
-    scope = ScopeContext(library_id=library_id or "default", doc_ids=list(doc_ids or []))
+def _make_config_factory(
+    scene: str,
+    library_id: str,
+    doc_ids: Optional[List[str]],
+    library_ids: Optional[List[str]] = None,
+):
+    """池化会话默认工厂（policy 版，无单次意图时按 scene 路由）。
+
+    阶段三：library_ids 非空时集合进 ScopeContext（首项=主库，validator 同步 library_id）；
+    缺省时回退单库 [library_id]——旧调用构造出的字段值不变（兼容铁律 3）。
+    """
+    scope = ScopeContext(
+        library_ids=list(library_ids or []) or [library_id or "default"],
+        doc_ids=list(doc_ids or []),
+    )
     return make_policy_config_factory(scene, scope=scope, intent_result=None)
 
 
@@ -132,12 +174,13 @@ def _session_pool_key(
     doc_ids: Optional[List[str]],
     owner: str = "",
 ) -> str:
-    """池化 key：owner:scene:session_id:scope_hash；scope 变化开新会话，不复用旧 history。
+    """池化 key：owner:scene:session_id（阶段三 D6：去 scope_hash——scope 每轮经
+    config_factory 新鲜注入，会话可跨集合续接；library_id/doc_ids 参数保留仅兼容旧调用）。
 
     owner（``u:<id>``/``k:<id>``/``ip:<hash>``，来自 chat_auth.resolve_pool_owner）是身份隔离位：
     session_id 由客户端生成（``chat-<毫秒时间戳>`` 形状可枚举），缺了它不同主体会命中同一份 history。
     """
-    return f"{owner or '-'}:{scene}:{session_id or 'default'}:{scope_hash_for(library_id, doc_ids or [])}"
+    return f"{owner or '-'}:{scene}:{session_id or 'default'}"
 
 
 def get_agent_session(
@@ -147,8 +190,12 @@ def get_agent_session(
     doc_ids: Optional[List[str]] = None,
     owner: str = "",
     history_loader: Optional[Callable[[], List[Any]]] = None,
+    library_ids: Optional[List[str]] = None,
 ) -> AgentSession:
-    """按 ``owner:scene:session_id:scope_hash`` 获取或创建 AgentSession（复用 history/steer）。
+    """按 ``owner:scene:session_id`` 获取或创建 AgentSession（复用 history/steer）。
+
+    阶段三 D6：池 key 不含 scope——同 session_id 换勾选集合续接同一会话；
+    本轮实际检索范围由请求级 make_policy_config_factory(scope=...) 新鲜注入，与池无关。
 
     ``history_loader`` 只在**池内新建 session** 时调用一次（D11：池命中时内存 history
     已是真相，重复回灌会双写双序）；由组装层注入 DB 历史回灌，失败仅告警不阻断。
@@ -159,7 +206,9 @@ def get_agent_session(
         _evict_expired()
         session = _AGENT_SESSION_POOL.get(key)
         if session is None:
-            session = AgentSession(_make_config_factory(scene, library_id, doc_ids or []))
+            session = AgentSession(_make_config_factory(
+                scene, library_id, doc_ids or [], library_ids=library_ids,
+            ))
             if history_loader is not None:
                 try:
                     session.history.extend(history_loader())

@@ -1,5 +1,5 @@
-"""阶段 2a 测试：session pool key 带 scope_hash（+ 2026-09-17 起的 owner 隔离位）；
-make_policy_config_factory 消费 ScopeContext。"""
+"""session pool 基础测试（2026-10-04 阶段三 D6 更新：池 key 去 scope_hash，
+owner 隔离位保留；make_policy_config_factory 消费 ScopeContext 不变）。"""
 import os
 import sys
 import unittest
@@ -29,17 +29,20 @@ class SessionScopeKeyTests(unittest.TestCase):
         s2 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=[])
         self.assertIs(s1, s2)
 
-    def test_different_library_opens_new_session(self):
+    def test_different_library_reuses_session_after_d6(self):
+        """阶段三 D6：池 key 去 scope_hash，换库不换会话（scope 每轮经 config_factory 新鲜注入）。
+
+        旧断言（换库开新会话）钉的是阶段 2a 语义，随多库勾选（会话内可改集合）作废。
+        """
         s1 = chat_agent.get_agent_session("qa", "s1", library_id="lib-a", doc_ids=[])
         s2 = chat_agent.get_agent_session("qa", "s1", library_id="lib-b", doc_ids=[])
-        self.assertIsNot(s1, s2)
-        s3 = chat_agent.get_agent_session("qa", "s1", library_id="lib-a", doc_ids=[])
-        self.assertIs(s1, s3)
+        self.assertIs(s1, s2)
 
-    def test_different_doc_ids_opens_new_session(self):
+    def test_different_doc_ids_reuses_session_after_d6(self):
+        """D6 同理：换文档范围不换会话。"""
         s1 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=["d1"])
         s2 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=["d2"])
-        self.assertIsNot(s1, s2)
+        self.assertIs(s1, s2)
 
     def test_doc_ids_order_is_irrelevant(self):
         s1 = chat_agent.get_agent_session("qa", "s1", library_id="default", doc_ids=["d1", "d2"])
