@@ -32,7 +32,8 @@ from .agent_messages import AgentMessage
 CONV_GRAPH_ENV = "ANGINEER_CONV_GRAPH"
 CONV_GRAPH_SUBGRAPH_EST_ENV = "ANGINEER_CONV_GRAPH_SUBGRAPH_EST"   # 渲染段 est 上限
 _DEFAULT_SUBGRAPH_EST = 2000        # BB §7.2 闸 B
-_DEFAULT_MAX_OPS = 20               # BB §3.3 单批次 op 上限
+_DEFAULT_MAX_OPS = 120              # BB §3.3 单批次 op 上限（实测单轮 22~60 条：定 20 会丢一半引用；
+                                    # 容量超限现在是**截断 + 注记**，不再整批拒收）
 _DEFAULT_MAX_NODES = 500            # BB §3.3 单会话节点上限
 
 MARKER_RE = re.compile(r"\[([KTE])(\d+)\]")
@@ -49,6 +50,11 @@ VALUE_RE = re.compile(
     r"(m/s|m³|m3|m²|m2|mm|cm|km|m|t|kN|kPa|MPa|℃|%|h|s)\b"
 )
 _DOC_EXT_RE = re.compile(r"\.(pdf|docx?|xlsx?|pptx?)$", re.IGNORECASE)
+# PDF 解析残留的 HTML 标签会直接进节点 key 与提示词（实测：`3<sub>.</sub> 4 码头设计水位和高程`）
+_HTML_RE = re.compile(r"<[^>]{1,24}>")
+_NODE_DOC_CHARS = 40        # 节点文档名上限
+_NODE_LOCATOR_CHARS = 40    # 节点条款/章节上限（实测 section_path 可能是整句）
+_CLIP_ELLIPSIS = "…"
 _CODE_RE = re.compile(r"\b((?:JTS|JTJ|JTG|GB|CJJ|SL|DL|TB)\s?[A-Z]?\s?\d{1,5})\b", re.IGNORECASE)
 _CLAUSE_RE = re.compile(r"\b\d{1,2}(?:\.\d{1,2}){1,3}\b")
 _TOKEN_RE = re.compile(r"[A-Za-z]{2,}|\d{3,}|[\u4e00-\u9fff]{2,}")
@@ -80,6 +86,17 @@ def _is_injected(content: Optional[str]) -> bool:
 
 def strip_doc_extension(title: str) -> str:
     return _DOC_EXT_RE.sub("", str(title or "")).strip()
+
+
+def strip_html(text: Any) -> str:
+    """去掉解析残留的 HTML 标签（实测 <sub>/<sup> 会跟着 doc_title/section_path 进提示词）。"""
+    return _HTML_RE.sub("", str(text or ""))
+
+
+def clip_text(text: Any, limit: int) -> str:
+    """压平空白 + 截断（节点 key 必须短：实测 section_path 有时是整句，会把渲染段撑长）。"""
+    flat = " ".join(strip_html(text).split())
+    return flat if len(flat) <= limit else flat[: max(1, limit - 1)] + _CLIP_ELLIPSIS
 
 
 def last_section_segment(section_path: Any) -> str:
@@ -158,9 +175,12 @@ def _clause_node_from_item(item: Dict[str, Any]) -> Tuple[str, Dict[str, Any]]:
     md = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
     library_id = str(md.get("library_id") or "").strip()
     doc_id = str(item.get("doc_id") or "").strip()
-    doc_title = strip_doc_extension(str(md.get("doc_title") or ""))
-    locator = str(md.get("clause_id") or "") or last_section_segment(md.get("section_path")) \
-        or str(item.get("title") or "").strip()
+    doc_title = clip_text(strip_doc_extension(str(md.get("doc_title") or "")), _NODE_DOC_CHARS)
+    locator = clip_text(
+        str(md.get("clause_id") or "") or last_section_segment(md.get("section_path"))
+        or str(item.get("title") or ""),
+        _NODE_LOCATOR_CHARS,
+    )
     node_id = clause_node_id(library_id, doc_id, locator)
     display = "/".join(part for part in (doc_title or doc_id, locator) if part)
     return node_id, {
@@ -225,20 +245,24 @@ def extract_ops(messages: Sequence[AgentMessage], run_id: int = 1) -> List[Dict[
 
 def validate_ops(ops: Sequence[Dict[str, Any]], *, existing_node_ids: Iterable[str] = (),
                  assistant_text: str = "", max_ops: int = _DEFAULT_MAX_OPS,
-                 max_nodes: int = _DEFAULT_MAX_NODES) -> Tuple[List[Dict[str, Any]], List[str]]:
+                 max_nodes: int = _DEFAULT_MAX_NODES) -> Tuple[List[Dict[str, Any]], List[str], List[str]]:
     """BB §3.3 的 ops 校验：白名单 / 悬挂边 / 单位 / 原文回查 / 批量与总量上限。
 
-    返回 ``(接受的 ops, 拒收原因列表)``；**整批丢弃不部分应用**的语义由调用方决定——
-    这里逐条给出裁定，``distill_run`` 按「有拒收即整批不进图」执行（BB §3.3 原文）。
+    返回 ``(接受的 ops, 致命拒收原因, 容量注记)``——**致命与容量必须分开**：
+    - 致命（非法 op / 悬挂边 / 缺单位 / 原文回查失败）→ 调用方按「整批不进图」处理（BB §3.3 原文）；
+    - 容量（单批 ops 或节点数超上限）→ **截断 + 注记**，不整批拒收。
+    ⚠️ 这条区分是 2026-10-05 端到端实测逼出来的：真实 19 轮会话里 7 轮（37%）的 ops 数是 22~60，
+    按「超限即拒收」会把这些轮**整轮丢掉**（图规模从应有量级掉到 5 节点）。
     """
     accepted: List[Dict[str, Any]] = []
     rejected: List[str] = []
+    notes: List[str] = []
     existing = list(existing_node_ids)
     known = set(existing)
     batch_nodes = {op["node_id"] for op in ops if op.get("op") == "add_node"}
     known |= batch_nodes
     if len(existing) + len(batch_nodes) > max_nodes:
-        rejected.append(f"节点数超上限 {max_nodes}")
+        notes.append(f"节点数超上限 {max_nodes}（{len(existing) + len(batch_nodes)}）")
     for op in ops:
         name = op.get("op")
         if name not in OP_WHITELIST:
@@ -262,9 +286,9 @@ def validate_ops(ops: Sequence[Dict[str, Any]], *, existing_node_ids: Iterable[s
                 continue
         accepted.append(op)
     if len(accepted) > max_ops:
-        rejected.append(f"批次 ops 超上限 {max_ops}（{len(accepted)} 条）")
+        notes.append(f"批次 ops 超上限 {max_ops}（{len(accepted)} 条）→ 截断保留前 {max_ops} 条")
         accepted = accepted[:max_ops]
-    return accepted, rejected
+    return accepted, rejected, notes
 
 
 # ————————————————————— 内存态重建（离线 / 单测） —————————————————————
@@ -431,13 +455,15 @@ class DistillResult:
     ops: List[Dict[str, Any]] = field(default_factory=list)
     accepted: List[Dict[str, Any]] = field(default_factory=list)
     rejected: List[str] = field(default_factory=list)
+    notes: List[str] = field(default_factory=list)
     applied: bool = False
     note: str = ""
 
     @property
     def summary(self) -> Dict[str, Any]:
         return {"run_id": self.run_id, "ops": len(self.ops), "accepted": len(self.accepted),
-                "rejected": self.rejected, "applied": self.applied, "note": self.note}
+                "rejected": self.rejected, "notes": self.notes, "applied": self.applied,
+                "note": self.note}
 
 
 def distill_run(slice_messages: Sequence[AgentMessage], *, run_id: int,
@@ -453,11 +479,13 @@ def distill_run(slice_messages: Sequence[AgentMessage], *, run_id: int,
     """
     ops = extract_ops(slice_messages, run_id)
     assistant_text = "\n".join(m.content or "" for m in slice_messages if m.role == "assistant")
-    accepted, rejected = validate_ops(ops, existing_node_ids=existing_node_ids,
-                                      assistant_text=assistant_text)
-    result = DistillResult(run_id=run_id, ops=ops, accepted=accepted, rejected=rejected)
+    accepted, rejected, notes = validate_ops(ops, existing_node_ids=existing_node_ids,
+                                             assistant_text=assistant_text)
+    result = DistillResult(run_id=run_id, ops=ops, accepted=accepted, rejected=rejected,
+                           notes=notes)
     if rejected:
-        # BB §3.3：有拒收即整批不进图（不部分应用），但 ops 留痕进 conv_graph_version
+        # BB §3.3：**致命**问题（非法 op / 悬挂边 / 缺单位 / 回查失败）→ 整批不进图，不部分应用；
+        # 容量超限走 notes（下面照常进图，只是被截断）
         result.note = "整批拒收（存在非法/悬挂/回查失败 op）"
         if store is not None:
             store.record_rejected(owner_key, session_id, run_id, ops, rejected,
@@ -469,7 +497,11 @@ def distill_run(slice_messages: Sequence[AgentMessage], *, run_id: int,
     applied = store.apply_ops(owner_key, session_id, run_id, accepted, scope_hash=scope_hash,
                               library_ids=library_ids)
     result.applied = bool(applied)
-    result.note = "已进图" if applied else "run 已处理过（幂等跳过）"
+    if notes:
+        result.note = ("已进图（" + "；".join(notes) + "）") if applied else \
+            "run 已处理过（幂等跳过）"
+    else:
+        result.note = "已进图" if applied else "run 已处理过（幂等跳过）"
     return result
 
 

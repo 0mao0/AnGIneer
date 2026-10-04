@@ -70,13 +70,14 @@ class ExtractOpsTests(unittest.TestCase):
 class ValidateOpsTests(unittest.TestCase):
     def test_hanging_edge_rejected_but_structural_src_allowed(self):
         good = extract_ops(_slice(), run_id="r1")
-        accepted, rejected = validate_ops(good, assistant_text="结论：T=12.8m，依据 [K1] 计算。")
+        accepted, rejected, notes = validate_ops(good, assistant_text="结论：T=12.8m，依据 [K1] 计算。")
         self.assertEqual(rejected, [])
+        self.assertEqual(notes, [])
         self.assertTrue(any(op["op"] == "add_edge" and op["src"].startswith("assistant:")
                             for op in accepted))
         hanging = [{"op": "add_edge", "edge_id": "e1", "type": "cites",
                     "src": "assistant:r1", "dst": "clause:missing:x:y", "run": "r1"}]
-        accepted2, rejected2 = validate_ops(hanging, existing_node_ids=[])
+        accepted2, rejected2, _notes2 = validate_ops(hanging, existing_node_ids=[])
         self.assertEqual(accepted2, [])
         self.assertTrue(rejected2)
 
@@ -85,16 +86,33 @@ class ValidateOpsTests(unittest.TestCase):
             {"op": "add_node", "node_id": "value:x:1", "kind": "value", "key": "x=1", "run": "r1"},
             {"op": "delete_everything", "node_id": "z"},
         ]
-        accepted, rejected = validate_ops(ops, existing_node_ids=[], assistant_text="x=1")
+        accepted, rejected, _notes = validate_ops(ops, existing_node_ids=[], assistant_text="x=1")
         self.assertEqual(accepted, [])
         self.assertEqual(len(rejected), 2)
 
-    def test_batch_cap(self):
+    def test_batch_cap_truncates_instead_of_rejecting(self):
+        """容量超限 = 截断 + 注记，**不是**致命拒收（2026-10-05 端到端实测：真实单轮 22~60 条 op，
+        按「超限即拒收」会让 7/19 轮整轮丢图）。"""
         ops = [{"op": "add_node", "node_id": f"clause:a:d{i}:s", "kind": "clause",
                 "key": f"k{i}", "run": "r1"} for i in range(30)]
-        accepted, rejected = validate_ops(ops, existing_node_ids=[], max_ops=20)
-        self.assertEqual(len(accepted), 20)
-        self.assertTrue(any("超上限" in reason for reason in rejected))
+        accepted, rejected, notes = validate_ops(ops, existing_node_ids=[], max_ops=20)
+        self.assertEqual(rejected, [])                 # 无致命错误
+        self.assertEqual(len(accepted), 20)            # 截断
+        self.assertTrue(any("超上限" in note for note in notes))
+
+    def test_html_tags_stripped_and_keys_clipped(self):
+        """实测 <sub> 标签会进节点 key；section_path 可能是整句——都要在节点层收口。"""
+        item = _item("K1", section_path="3<sub>.</sub> 4 码头设计水位和高程" + "很长" * 40)
+        ops = extract_ops([
+            AgentMessage(role="tool", name="knowledge_search", content="K" * 10,
+                         meta={"items": [item], "total": 1}),
+            AgentMessage(role="assistant", content="见 [K1]。"),
+        ], run_id="r1")
+        node = [op for op in ops if op["op"] == "add_node"][0]
+        self.assertNotIn("<sub>", node["key"])
+        self.assertNotIn("<sub>", node["locator"])
+        self.assertLessEqual(len(node["locator"]), 40)
+        self.assertTrue(node["locator"].endswith("…"))
 
 
 class DistillEntryTests(unittest.TestCase):

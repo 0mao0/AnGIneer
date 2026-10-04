@@ -21,12 +21,32 @@
 | 项 | 证据 |
 | --- | --- |
 | 单测 | `tests/angineer-core/`（含新增 `test_conv_graph.py` 12 例、`test_budget_gates.py` 39 例）**368 passed**；`services/chat-history/tests/` **15 passed**；`services/evals-core/tests/test_blackboard_m0.py` **15 passed**；`tests/aichat-api/` **111 passed** |
-| 存量红（非本次引入，均已复现证明） | ① `test_search_memo.py::test_second_identical_call_hits_memo_single_use`（v0.2.90 的 `_prefetch_ms`，stash 干净树同样红）；② `test_route_pre.py` 3 例（同上，v0.2.90 提交信息里已记录同一批） |
+| 存量红（非本次引入，均已复现证明） | ① `test_search_memo.py::test_second_identical_call_hits_memo_single_use`（v0.2.90 的 `_prefetch_ms`，stash 干净树同样红）；② `test_route_pre.py` 3 例（同上，v0.2.90 提交信息里已记录同一批）；③ **`tests/angineer-core/test_llm_turn_liveness.py` 整文件挂死**——它是**另一个并发会话的未提交在飞文件**（07:18 创建、`git status` 为 `??`，同一批还有 `agent_loop.py`/`.env.example` 未提交改动），**不是仓库里的存量回归**：stash 掉本次改动后同样挂死 → 与本次无关。卡点已定位：文件内假生成器的 `self.abandoned.wait()` **无超时**（`tests/angineer-core/test_llm_turn_liveness.py:36`）。**未改动该文件**（属他人在飞工作） |
 | 干跑实测（22 例真实会话） | 题面保真 **22/22**；臂 2 指针在场 **17/22**；臂 3 子图段 est 中位 63 / max 270（闸 B 上限 2,000）；臂 2 指针开销中位 +318 est、max +989 |
 | 生产默认行为未变 | `ANGINEER_CONV_GRAPH` / `ANGINEER_POINTER_SKELETON` 均未在任何 `.env` 里设置；接线路径「store 缺省 / 开关关 / 异常」三种情形都原样返回 |
 | 未发版、未 push | `git status` 干净；`main` 领先 `origin/main` 若干（本地提交），无 tag 变更 |
 
-## 三、干跑暴露并当场修掉的四个真问题
+## 三、M1 写路径端到端验证（2026-10-05 晨，**不调模型**）
+
+用本地真库最长会话（`chat-muj4iiw7-2jwt5v`，92 条消息 / 19 run）逐轮跑 `distill_run` → `ConvGraphStore`，
+合成 owner `u:verify-20261005`（不碰真实会话的图）：
+
+| 指标 | 修前 | 修后 |
+| --- | --- | --- |
+| 进图轮次 | 12/19（**7 轮整轮丢图，37%**） | **19/19** |
+| 图规模 | 5 节点 / 13 边 | **24 节点 / 41 边** |
+| 拒收原因 | 「批次 ops 超上限 20」被当致命错 | 容量超限改为**截断 + 注记**，不再拒收 |
+| 节点 key 质量 | `doc-cac5bc0e/3<sub>.</sub> 4 …`（HTML 泄漏）、整句 locator | HTML 已剥离、字段 ≤40 字截断 |
+| 幂等 / 水位 | — | 同 run 复跑 `applied=False`；水位 `last_run_id=verify-19` ✓ |
+| 渲染段体量 | — | 三个真实追问分别为 32 / 34 / 151 est（上限 2,000） |
+
+**顺带测得的两条设计信号（未修，留给 M2）**：
+1. **value 节点产出率 = 0/19 轮**：真实文本里的量多以「12.8m」「T 取 12.8m」这类形式出现，
+   而严格正则只认 `X=12.8m` → B 类题（值复用）的靶面在确定性蒸馏下**抓不到**，
+   M2 要么放宽抽取、要么由小模型蒸馏产出 value 节点。
+2. **表类节点仍只能用 `doc_id` 当显示名**（上游 `doc_title_map={}`）→ T 类指针可读性弱。
+
+## 四、干跑暴露并当场修掉的四个真问题
 
 1. **召回命中率是最大缺口**：修前 22 例只有 **4 例**能召回出子图段（BB §4 首版只匹配规范号/条款号，
    覆盖不了「DWT=40000 的满载吃水」这类无线索追问）→ 补 token 匹配 + 近邻兜底后 20/22；
