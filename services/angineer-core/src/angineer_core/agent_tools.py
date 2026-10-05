@@ -101,8 +101,10 @@ def _maybe_admit_evidence(query: str, items: list) -> "tuple[list, Optional[Dict
     """证据上桌（LLM 定员出 listA）：仅 knowledge_search 文本条目、rerank 截 15 后调用。
 
     触发判定读**帽前 est**（原始 top15 体积，plan-evidence-admission §2 口径）；
-    oversize=仅 est>ANGINEER_ADMISSION_TRIGGER_EST 的病态包走上桌。
-    判官任何异常 → fail-open 全量放行（永不过滤层打死回答）。
+    oversize=仅 est>ANGINEER_ADMISSION_TRIGGER_EST 的病态包走上桌；
+    all=每题都过判官（prompt 经济性：实测判 1 条目仅剩 ~17%，可答题 prompt 减 60%+；
+    代价 +1 判官调用/题，答质过闸前默认仍 oversize）。
+    判官任何异常 → fail-open 全量放行（fallback=True，计数置 None），永不过滤层打死回答。
     """
     mode = _admission_mode()
     if mode == "off" or not items:

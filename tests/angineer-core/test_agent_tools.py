@@ -1,4 +1,5 @@
 """P2 工具契约与适配器单测。"""
+import json
 import os
 import sys
 import unittest
@@ -404,6 +405,113 @@ class AdmissionWiringTests(unittest.TestCase):
         admit.assert_not_called()
         self.assertEqual(result["total"], 3)
         self.assertNotIn("_admission", result)  # 无上桌、帽未丢 → 不发块
+
+    def test_all_mode_triggers_on_small_packet(self):
+        """常开档：小包（est 远低于触发线）也必须过判官——D2 上桌常开的核心语义。"""
+        from unittest.mock import patch
+
+        from angineer_core.agent_tools import _maybe_admit_evidence
+
+        items = self._items(n=3, size=50)  # est=75，触发线下
+        block = {"kept": 1, "dropped": 2, "quarreled": 0, "exempted": 0,
+                 "fallback": False, "judge_config": "cfg", "judge_ms": 5}
+        env = {"ANGINEER_ADMISSION_MODE": "all", "ANGINEER_ADMISSION_TRIGGER_EST": "90000"}
+        with mock.patch.dict(os.environ, env):
+            with patch("angineer_core.retrieval_pipeline.admit_evidence", return_value=(items[:1], block)) as admit:
+                out, got = _maybe_admit_evidence("q", items)
+        admit.assert_called_once()
+        self.assertEqual(len(out), 1)
+        self.assertIs(got, block)
+
+    def test_all_mode_fail_open_keeps_all(self):
+        """常开档判官异常仍 fail-open 全量放行（每条都判 ≠ 每条都可能被打死）。"""
+        from unittest.mock import patch
+
+        from angineer_core.agent_tools import _maybe_admit_evidence
+
+        items = self._items(n=3, size=50)
+        with mock.patch.dict(os.environ, {"ANGINEER_ADMISSION_MODE": "all"}):
+            with patch("angineer_core.retrieval_pipeline.admit_evidence", side_effect=RuntimeError("boom")) as admit:
+                out, block = _maybe_admit_evidence("q", items)
+        admit.assert_called_once()
+        self.assertEqual(len(out), 3)
+        self.assertTrue(block["fallback"])
+        self.assertIsNone(block["kept"])
+
+
+class LlmProjectionShellTests(unittest.TestCase):
+    """投影 V2（_llm_content_payload + _project_items）：剥 items[] 遥测外壳、保正文与引用号。"""
+
+    def _raw(self):
+        return {
+            "items": [
+                {
+                    "item_id": "i1", "entity_type": "chunk", "doc_id": "d1",
+                    "title": "公路水泥规范", "text": "混凝土标号 C30。", "score": 0.9,
+                    "rerank_score": 0.72, "citation_target_id": "ct1",
+                    "retrieval_policy": "hybrid",
+                    "metadata": {
+                        "page_idx": 3, "page_label": "12", "cite": "K3",
+                        "source_kind": "mineru", "chunk_type": "text", "strategy": "rrf",
+                        "table_id": "t9", "raw_score": 0.11, "normalized_score": 0.2,
+                        "rrf_score": 0.3, "fusion_score": 0.4, "fusion_sources": ["dense"],
+                        "retrieval_policy": "hybrid", "relevance": "【相关性 高 0.72】",
+                    },
+                }
+            ],
+            "total": 1,
+            "evidences": [{"content": "混凝土标号 C30。"}],
+            "_admission": {"kept": 1},
+        }
+
+    def test_shell_stripped_text_cite_kept(self):
+        from angineer_core.agent_loop import _llm_content_payload
+
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_SHELL_STRIP": "1", "ANGINEER_LLM_EVIDENCE_DEDUP": "1"}):
+            out = _llm_content_payload(self._raw())
+        item = out["items"][0]
+        self.assertEqual(item["text"], "混凝土标号 C30。")
+        self.assertEqual(item["cite"], "K3")  # metadata.cite 提升顶层
+        self.assertEqual(item["page_label"], "12")
+        self.assertEqual(item["rerank_score"], 0.72)
+        self.assertEqual(item["title"], "公路水泥规范")
+        for gone in ("metadata", "item_id", "doc_id", "citation_target_id", "retrieval_policy",
+                     "score", "entity_type"):
+            self.assertNotIn(gone, item)
+        self.assertNotIn("evidences", out)   # 旧去重仍在
+        self.assertNotIn("_admission", out)  # 私有键仍不进
+
+    def test_shell_strip_off_keeps_full_item(self):
+        from angineer_core.agent_loop import _llm_content_payload
+
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_SHELL_STRIP": "0", "ANGINEER_LLM_EVIDENCE_DEDUP": "1"}):
+            out = _llm_content_payload(self._raw())
+        self.assertIn("metadata", out["items"][0])
+        self.assertIn("fusion_sources", out["items"][0]["metadata"])
+
+    def test_non_text_items_untouched(self):
+        """表格/实体形态（无 text 键）与非 dict 条目原样保留，不猜结构。"""
+        from angineer_core.agent_loop import _llm_content_payload
+
+        raw = {"items": [{"rows": [[1, 2]]}, "plain-string"], "total": 2}
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_SHELL_STRIP": "1"}):
+            out = _llm_content_payload(raw)
+        self.assertEqual(out["items"][0], {"rows": [[1, 2]]})
+        self.assertEqual(out["items"][1], "plain-string")
+
+    def test_raw_meta_channel_untouched(self):
+        """投影只动 content，raw（meta 通道）原样——评测 policy_query 依赖 meta 里的 retrieval_policy。"""
+        from angineer_core.agent_loop import _run_tool_inner
+
+        call = mock.Mock(id="c1", arguments={})
+        tool = mock.Mock(name="knowledge_search", handler=lambda **kw: self._raw())
+        with mock.patch.dict(os.environ, {"ANGINEER_LLM_SHELL_STRIP": "1", "ANGINEER_LLM_EVIDENCE_DEDUP": "1"}):
+            result = _run_tool_inner(call, tool)
+        self.assertIn("retrieval_policy", result.raw["items"][0])
+        self.assertIn("evidences", result.raw)
+        content = json.loads(result.content)
+        self.assertNotIn("retrieval_policy", content["items"][0])
+        self.assertNotIn("evidences", content)
 
 
 if __name__ == "__main__":

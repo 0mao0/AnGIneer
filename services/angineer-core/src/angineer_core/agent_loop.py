@@ -436,6 +436,48 @@ def _llm_evidence_dedup_enabled() -> bool:
     return os.environ.get("ANGINEER_LLM_EVIDENCE_DEDUP", "1").strip().lower() not in ("0", "false", "off")
 
 
+def _llm_shell_strip_enabled() -> bool:
+    """投影 V2 回退开关：剥 items[] 检索器遥测外壳（正文才是模型要读的），默认开，设 0 回退。"""
+    return os.environ.get("ANGINEER_LLM_SHELL_STRIP", "1").strip().lower() not in ("0", "false", "off")
+
+
+# LLM 投影 items[] 白名单：模型作答/引用需要的最小面。
+#   text 正文、cite 引用号（规则 17 依赖）、title/doc_title 出处、
+#   rerank_score 相关性分（证据相关性标注链依赖）、page_label 页码（引用展示）。
+#   引擎判定只读 text（_tool_evidence_present/_tool_evidence_parts）；
+#   retrieval_policy/fusion_*/table_* 等检索器遥测走 raw/meta 通道供评测（policy_query 读 message.meta），不进 prompt。
+_LLM_ITEM_KEEP_KEYS = ("text", "title", "doc_title", "cite", "rerank_score", "page_label")
+
+
+def _project_items(payload: Dict[str, Any]) -> Dict[str, Any]:
+    """items[] 逐条投影：只留白名单键（metadata 里的 cite/page_label 提升到顶层）。
+
+    实测（2026-10-05 生产 chat.sqlite 40 条 tool result）：正文占 29%、外壳占 53%——
+    外壳里的 rerank_score 以 relevance 标签进 text 顶层，metadata 副本对模型是纯重复。
+    非 dict 条目原样保留（防御未知工具形态）；无 text 键的条目原样保留（表格/实体形态不猜结构）。
+    """
+    items = payload.get("items")
+    if not isinstance(items, list):
+        return payload
+    projected = []
+    for item in items:
+        if not isinstance(item, dict) or "text" not in item:
+            projected.append(item)
+            continue
+        meta = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
+        slim: Dict[str, Any] = {}
+        for key in _LLM_ITEM_KEEP_KEYS:
+            if key in item:
+                slim[key] = item[key]
+        for key in ("cite", "page_label"):
+            if key in meta and key not in slim:
+                slim[key] = meta[key]
+        projected.append(slim)
+    out = dict(payload)
+    out["items"] = projected
+    return out
+
+
 def _force_first_search_enabled() -> bool:
     """需求 C 回退开关：L1 段首轮直达证据注入，默认开，设 0/false/off 可关。"""
     return os.environ.get("ANGINEER_FORCE_FIRST_SEARCH", "1").strip().lower() not in ("0", "false", "off")
@@ -489,9 +531,11 @@ def _llm_content_payload(raw: Dict[str, Any]) -> Dict[str, Any]:
     供链路展示，避免内部观测字段混进提示词（2026-09-30）。
     """
     payload = {key: value for key, value in raw.items() if not str(key).startswith("_")}
-    if "evidences" not in payload or not _llm_evidence_dedup_enabled():
-        return payload
-    return {key: value for key, value in payload.items() if key != "evidences"}
+    if _llm_evidence_dedup_enabled():
+        payload = {key: value for key, value in payload.items() if key != "evidences"}
+    if _llm_shell_strip_enabled() and "items" in payload:
+        payload = _project_items(payload)
+    return payload
 
 
 @functools.lru_cache(maxsize=512)
