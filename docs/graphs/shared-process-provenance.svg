@@ -1,0 +1,54 @@
+<svg viewBox="0 0 680 462" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-ok{fill:#f0fdf4;stroke:#22c55e;stroke-width:1.2}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.box-dim{fill:#f1f5f9;stroke:#cbd5e1;stroke-width:1}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-ok{fill:#059669}
+.t-danger{fill:#dc2626}
+</style></defs>
+<text class="t" x="18" y="24" font-size="15">同一进程双入口：哪些本话之前就有，哪些是我加的</text>
+
+<text class="t" x="18" y="48" font-size="13">对话 API（/api/chat）</text>
+<rect class="box" x="18" y="56" width="120" height="52" rx="7"/>
+<text class="t-dim" x="78" y="86" text-anchor="middle" font-size="12">会话管理</text>
+<rect class="box-danger" x="146" y="56" width="120" height="52" rx="7"/>
+<text class="t-danger" x="206" y="80" text-anchor="middle" font-size="12">对话黑板</text>
+<text class="t-danger" x="206" y="98" text-anchor="middle" font-size="12">注入</text>
+<rect class="box" x="274" y="56" width="120" height="52" rx="7"/>
+<text class="t-dim" x="334" y="86" text-anchor="middle" font-size="12">流式 SSE</text>
+<rect class="box" x="402" y="56" width="120" height="52" rx="7"/>
+<text class="t-dim" x="462" y="86" text-anchor="middle" font-size="12">agent_loop</text>
+<rect class="box" x="530" y="56" width="132" height="52" rx="7"/>
+<text class="t-dim" x="596" y="86" text-anchor="middle" font-size="12">落库</text>
+<text class="t-ok" x="78" y="126" text-anchor="middle" font-size="12">之前就有</text>
+<text class="t-danger" x="206" y="126" text-anchor="middle" font-size="12">本话新增·默认关</text>
+<text class="t-ok" x="334" y="126" text-anchor="middle" font-size="12">之前就有</text>
+<text class="t-ok" x="462" y="126" text-anchor="middle" font-size="12">之前就有</text>
+<text class="t-ok" x="596" y="126" text-anchor="middle" font-size="12">之前就有</text>
+
+<text class="t" x="18" y="160" font-size="13">评测 runner（同进程内跑，不是另一个服务）</text>
+<rect class="box" x="18" y="168" width="160" height="52" rx="7"/>
+<text class="t-dim" x="98" y="198" text-anchor="middle" font-size="12">全新会话</text>
+<rect class="box" x="186" y="168" width="220" height="52" rx="7"/>
+<text class="t-dim" x="296" y="198" text-anchor="middle" font-size="12">agent_loop（同一份代码）</text>
+<rect class="box" x="414" y="168" width="248" height="52" rx="7"/>
+<text class="t-dim" x="538" y="198" text-anchor="middle" font-size="12">判分（answer/numeric/…）</text>
+<text class="t-ok" x="98" y="238" text-anchor="middle" font-size="12">之前就有</text>
+<text class="t-ok" x="296" y="238" text-anchor="middle" font-size="12">之前就有</text>
+<text class="t-ok" x="538" y="238" text-anchor="middle" font-size="12">之前就有</text>
+
+<rect class="box-dim" x="18" y="252" width="644" height="56" rx="7"/>
+<text class="t-dim" x="340" y="276" text-anchor="middle" font-size="12">共享层：意图路由 / 检索 / 工具 / 守卫 / 循环</text>
+<text class="t-ok" x="340" y="298" text-anchor="middle" font-size="12">之前就有（本话一行没碰）</text>
+
+<rect class="box" x="18" y="322" width="644" height="130" rx="8"/>
+<text class="t" x="340" y="346" text-anchor="middle" font-size="13">证据与影响</text>
+<text class="t-dim" x="34" y="372" font-size="12">① 评测内置在 aichat-api：nightly_control.py 直接调 evals_core.nightly.pipeline.run_nightly（10-02 及更早）</text>
+<text class="t-dim" x="34" y="394" font-size="12">② 评测执行走 evals_core.runner._query_helper / case_trace 的引擎端口（10-04 之前就在）</text>
+<text class="t-dim" x="34" y="416" font-size="12">③ 我唯一加进去的是「对话黑板注入 + run_end 异步蒸馏」，默认关，且这次审计把它列为建议回退</text>
+<text class="t" x="34" y="440" font-size="12">④ 这个共享结构正是 BB §7.6 的约束来源：评测不过 SSE、无会话 → 蒸馏不触发</text>
+</svg>
