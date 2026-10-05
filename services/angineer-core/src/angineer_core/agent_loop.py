@@ -9,13 +9,14 @@ import json
 import functools
 import logging
 import os
+import queue
 import re
 import threading
 import time
 import uuid
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from dataclasses import dataclass, field, replace
-from typing import Any, Callable, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, Iterator, List, Optional, Tuple
 
 from angineer_core.agent_events import AgentEvent
 from angineer_core.agent_messages import (
@@ -166,11 +167,115 @@ class AgentLoopConfig:
     # 「意图判断」步耗时（=分类耗时，思考过程标签用；2026-09-27）
     route_note_ms: Optional[int] = None
     tool_timeout_s: int = 120
+    # 首字存活线（秒）：首字前挂起超该时长即放弃拉流并抛错收口；0=禁用。
+    # 未显式传时走环境变量（见 _first_token_liveness_default，默认 90s）。
+    first_token_liveness_s: float = -1.0
     followup_question: Optional[bool] = None
     pending_messages_provider: Optional[Callable[[], List[AgentMessage]]] = None
     # 被吞掉的 LLM 失败落点（哨兵 b）：调用方传入列表即可回收"降级继续跑"的失败明细，
     # 评测据此区分"校准过的拒答"与"故障吞错式拒答"（2026-09-06 53 题全灭事故驱动）
     error_sink: Optional[List[str]] = None
+
+
+def _first_token_liveness_default() -> float:
+    """ANGINEER_FIRST_TOKEN_LIVENESS_S：首字存活线默认秒数，0=禁用。默认 90s。
+
+    90s 取值依据：生产网关 proxy_read_timeout 600s 之下、read 超时 600s 之下，
+    正常首字 p99 < 60s（llm_turn 打点）；挂起时 90s 收口，用户不会等满 10 分钟。
+    非法值回退默认（fail-open 不拖垮启动）。
+    """
+    raw = os.getenv("ANGINEER_FIRST_TOKEN_LIVENESS_S", "90").strip()
+    try:
+        return max(0.0, float(raw))
+    except ValueError:
+        logger.warning("ANGINEER_FIRST_TOKEN_LIVENESS_S 非法值 %r，按默认 90 处理", raw)
+        return 90.0
+
+
+def _iter_with_liveness(
+    source_iter: Iterator[Dict[str, Any]],
+    limit_s: float,
+    cancel: Optional[threading.Event] = None,
+    cancel_wait: float = 0.15,
+):
+    """给 LLM 流换线程拉流，套两条退出维度：
+
+    - 首字存活线（limit_s>0 时）：首字前挂起超该时长即放弃拉流并抛错；
+    - cancel（传入时）：等待期每 cancel_wait 秒检查一次，设位即静默收口。
+
+    为什么必须换线程拉流：阻塞在 stream.__next__() 时，httpx read 超时与循环里的
+    cancel 检查都碰不到它（2026-10-04 squad2 实锤：连接活着但上游永不回数据，
+    一题卡死 90 分钟；main.py:564 注释同实——客户端 abort 只断开连接）。
+    首字之后的生成段间隙由 read 超时（600s）管，不属此域。
+
+    挂起被收口时拉流线程显式放弃并 close 源 generator（触发 ai-inference 侧
+    finally 关 HTTP 响应），挂起线程随连接关闭解阻塞后静默退出。
+    limit_s<=0 时只保留 cancel 维度（存活线禁用 ≠ 挂起不可打断）。
+    """
+    out: queue.Queue = queue.Queue(maxsize=256)
+    _stop = threading.Event()
+
+    def _pull() -> None:
+        while not _stop.is_set():
+            try:
+                item = next(source_iter)
+            except StopIteration:
+                _put(("end", None))
+                return
+            except BaseException as exc:  # noqa: BLE001 —— 异常经队列回传消费线程再抛
+                _put(("err", exc))
+                return
+            if not _put(("item", item)):
+                return  # 消费方已放弃
+
+    def _put(msg) -> bool:
+        # 有界队列 + 退出感知：消费方收口后无人再取，阻塞 put 会让拉流线程永驻
+        while not _stop.is_set():
+            try:
+                out.put(msg, timeout=0.2)
+                return True
+            except queue.Full:
+                continue
+        # 被放弃：close 源 generator，触发 ai-inference 侧 finally（HTTP 响应关闭、
+        # 熔断记账），挂起线程随连接关闭解阻塞后静默退出
+        try:
+            source_iter.close()  # type: ignore[attr-defined]
+        except Exception:  # noqa: BLE001
+            pass
+        return False
+
+    threading.Thread(target=_pull, daemon=True).start()
+    deadline = time.monotonic() + limit_s if limit_s and limit_s > 0 else None
+    # 薄壳 generator：消费方 break/GeneratorExit（cancel、异常、done 后早退）时
+    # finally 置 _stop，拉流线程才会退出——否则有界队列满后它永驻
+    def _drain():
+        # got_first 局部于 _drain（nonlocal 会被外层先读后用——UnboundLocalError 实踩）
+        got_first = False
+        try:
+            while True:
+                try:
+                    kind, payload = out.get(timeout=cancel_wait if cancel is not None else 1.0)
+                except queue.Empty:
+                    if cancel is not None and cancel.is_set():
+                        # 停止按钮：等待期响应收到约 0.15s（此前 __next__ 阻塞期 cancel 完全不可达）
+                        return
+                    if deadline is not None and not got_first and time.monotonic() >= deadline:
+                        raise RuntimeError(
+                            f"模型首字前挂起（{limit_s:.0f}s 无任何返回），已放弃本轮拉流"
+                        )
+                    continue
+                if kind == "item":
+                    if payload.get("type") == "delta" and (payload.get("text") or ""):
+                        got_first = True
+                    yield payload
+                elif kind == "err":
+                    raise payload
+                else:
+                    return
+        finally:
+            _stop.set()
+
+    yield from _drain()
 
 
 def _safe_emit(emit: Optional[Callable[[AgentEvent], None]], event: AgentEvent) -> None:
@@ -623,15 +728,23 @@ def _run_llm_turn(
     fence_filter = _DeltaFenceFilter()
     _turn_t0 = time.monotonic()
     _turn_first_delta_at: Optional[float] = None
+    _liveness_s = (
+        config.first_token_liveness_s
+        if config.first_token_liveness_s >= 0
+        else _first_token_liveness_default()
+    )
     try:
-        for event in config.llm.chat_stream_events(
+        _raw_stream = config.llm.chat_stream_events(
             llm_messages,
             model=config.model,
             mode=config.mode,
             config_name=config.config_name,
             max_tokens=config.max_tokens,
-        ):
+        )
+        for event in _iter_with_liveness(iter(_raw_stream), _liveness_s, cancel):
             if cancel.is_set():
+                # cancel 期间不再消费剩余帧；拉流线程随 generator 关闭而退出。
+                # 挂起时退出点：done 路径即时 / cancel 检查 1s / 存活线（首字前挂起）。
                 break
             if event.get("type") == "delta":
                 delta = event.get("text") or ""
