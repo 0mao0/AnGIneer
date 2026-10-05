@@ -207,11 +207,17 @@ SELECT seq, content FROM chat_messages
    classifier v4 / QA v14 / P-1 已生效）。改造前的 intent 97/100、financebench 58% 等数字**跨口径不可比**。
 
 ```
-基线文件：<path>            sha256: <填>
-跑数时间：<填>              模型配置：<填>
-开关快照：<ANGINEER_* 清单>  库/scope：<填>
-题集确认时间：2026-10-05      题集 sha256: 05264ca6f0dd88da6f5138e838eba78872be15234139c6a2ff537fcf468b1a7c（21 题，§3 冻结）
+基线文件：data/evals/blackboard-m0/baseline-arm1.jsonl
+           sha256: a01758c8a94d7912fab8c68318442aa8131d168302fd4bc24e7a344386d5b8d3（32,534 字节 / 21 题）
+跑数时间：2026-10-05 09:31–10:43（72 分钟）   模型配置：Qwen3.6-35B-A3B（/api/llm，mode=instruct）
+开关快照：ANGINEER_NO_RELOAD=1；ANGINEER_CONV_GRAPH / ANGINEER_POINTER_SKELETON **均未设（＝关）**
+库：data/platform/chat.sqlite（单库 default）  会话：每题独立会话 m0-arm1-<题号>（链由本臂现答）
+题集确认时间：2026-10-05      题集 sha256: 05264ca6f0dd88da6f5138e838eba78872be15234139c6a2ff537fcf468b1a7c（21 题）
+基线自读数：答案字数中位 503 / 合计 12,359；**「没有检索到足够证据」收尾 8/21 题**；跑数错误 0
 ```
+
+> ⚠️ 基线在**对照臂之前**冻结（本节顺序要求）：臂 2/臂 3 的答案文件 sha256 待其跑完后追加于下，
+> 三者皆以本文件口径为准；中途不改题集、不改开关快照。
 
 ## 7. M0 待确认项（跑前能关就关）
 
