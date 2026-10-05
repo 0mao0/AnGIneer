@@ -1,0 +1,52 @@
+<svg viewBox="0 0 680 452" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-ok{fill:#f0fdf4;stroke:#22c55e;stroke-width:1.2}
+.box-warn{fill:#fffbeb;stroke:#f59e0b;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-ok{fill:#059669}
+.line{stroke:#94a3b8;stroke-width:1.4}
+</style></defs>
+<text class="t" x="18" y="24" font-size="15">evals-core 是什么：产品给自己排的定时体检，外加我这次放的对照实验装置</text>
+
+<rect class="box" x="18" y="42" width="644" height="130" rx="8"/>
+<text class="t" x="34" y="66" font-size="13">它本来的职责（之前就有，本话一行没改）</text>
+<rect class="box" x="34" y="76" width="150" height="80" rx="8"/>
+<text class="t-dim" x="109" y="100" text-anchor="middle" font-size="12">题库与数据</text>
+<text class="t-dim" x="109" y="120" text-anchor="middle" font-size="12">dataset /</text>
+<text class="t-dim" x="109" y="140" text-anchor="middle" font-size="12">parse_struct</text>
+<rect class="box" x="196" y="76" width="150" height="80" rx="8"/>
+<text class="t-dim" x="271" y="100" text-anchor="middle" font-size="12">评测器</text>
+<text class="t-dim" x="271" y="120" text-anchor="middle" font-size="12">answer / numeric / intent</text>
+<text class="t-dim" x="271" y="140" text-anchor="middle" font-size="12">retrieval / rubric / sop</text>
+<rect class="box" x="358" y="76" width="150" height="80" rx="8"/>
+<text class="t-dim" x="433" y="100" text-anchor="middle" font-size="12">流水线与门禁</text>
+<text class="t-dim" x="433" y="120" text-anchor="middle" font-size="12">nightly/pipeline</text>
+<text class="t-dim" x="433" y="140" text-anchor="middle" font-size="12">gate / report</text>
+<rect class="box" x="520" y="76" width="126" height="80" rx="8"/>
+<text class="t-dim" x="583" y="100" text-anchor="middle" font-size="12">结论与播报</text>
+<text class="t-dim" x="583" y="120" text-anchor="middle" font-size="12">落盘 + 企微</text>
+<text class="t-dim" x="583" y="140" text-anchor="middle" font-size="12">每晚自动跑</text>
+
+<rect class="box-warn" x="18" y="186" width="644" height="118" rx="8"/>
+<text class="t" x="34" y="210" font-size="13">我这次加进去的（evals_core/blackboard，548 行）</text>
+<text class="t-dim" x="34" y="234" font-size="12">用途：对「同一批真实历史题」做离线对照实验——三臂组装 + 分段读数，不调模型也能跑</text>
+<text class="t-dim" x="34" y="256" font-size="12">它证明的三条判据：压缩只省 3.5%；指针/子图段被引用仅 3~5%；噪声大于效应</text>
+<text class="t-dim" x="34" y="278" font-size="12">与 nightly 的关系：现在不是 nightly 的 suite，只是一次性对照装置</text>
+
+<rect class="box-ok" x="18" y="318" width="316" height="118" rx="8"/>
+<text class="t" x="176" y="342" text-anchor="middle" font-size="13">归宿 A：升级成 nightly 的一个 suite</text>
+<text class="t-dim" x="34" y="366" font-size="12">把指标换成图 A/B 的（节点确认率、</text>
+<text class="t-dim" x="34" y="386" font-size="12">边正确率、主题聚合准确率）</text>
+<text class="t-dim" x="34" y="406" font-size="12">收益：每次改图自动出分、回归可见</text>
+<text class="t-dim" x="34" y="426" font-size="12">成本：接进 pipeline + 题目入库</text>
+
+<rect class="box" x="346" y="318" width="316" height="118" rx="8"/>
+<text class="t" x="504" y="342" text-anchor="middle" font-size="13">归宿 B：搬去 scripts/ 归档</text>
+<text class="t-dim" x="362" y="366" font-size="12">如果图 A/B 的验证不用每晚跑，</text>
+<text class="t-dim" x="362" y="386" font-size="12">就把它当一次性实验脚本存起来</text>
+<text class="t-dim" x="362" y="406" font-size="12">收益：评测服务保持干净</text>
+<text class="t-dim" x="362" y="426" font-size="12">成本：以后想复跑要手动</text>
+</svg>
