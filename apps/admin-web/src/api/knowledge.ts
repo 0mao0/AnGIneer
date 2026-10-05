@@ -71,12 +71,32 @@ interface DeleteNodePreviewResponse {
 
 const api = docsApiClient
 
+/** 多库管理 tab：按组聚合的库清单（后端 /knowledge/libraries/groups 直出） */
+export interface LibraryGroupItem {
+  group_name: string
+  is_default_group: boolean
+  known_group: boolean
+  libraries: {
+    id: string
+    name: string
+    description?: string | null
+    collection?: string
+    status?: string
+    doc_count: number
+  }[]
+}
+
 export const knowledgeApi = {
   getLibraries: () => api.get('/knowledge/libraries'),
-  createLibrary: (name: string, description: string = '') =>
-    api.post('/knowledge/libraries', { name, description }) as Promise<{ id: string; name: string }>,
+  createLibrary: (name: string, description: string = '', groupName: string = '') =>
+    api.post('/knowledge/libraries', {
+      name,
+      description,
+      ...(groupName ? { group_name: groupName } : {}),
+    }) as Promise<{ id: string; name: string }>,
+  getLibraryGroups: () => api.get('/knowledge/libraries/groups') as Promise<LibraryGroupItem[]>,
   getLibrary: (libraryId: string) => api.get(`/knowledge/libraries/${libraryId}`),
-  updateLibrary: (libraryId: string, data: { name?: string; description?: string }) =>
+  updateLibrary: (libraryId: string, data: { name?: string; description?: string; group_name?: string }) =>
     api.patch(`/knowledge/libraries/${libraryId}`, data) as Promise<{ id: string; name: string }>,
   deleteLibrary: (libraryId: string) =>
     api.delete(`/knowledge/libraries/${libraryId}`) as Promise<{ status: string; library_id: string }>,

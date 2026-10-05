@@ -71,8 +71,8 @@ const route = useRoute()
 const authStore = useAdminAuthStore()
 const { themeConfig, appClass } = useTheme()
 
-/** 知识库视图状态（日常维护|夜间测试|AI对话）：由头部统一控制 */
-const knowledgeView = ref<'maintenance' | 'nightly' | 'aichat'>('maintenance')
+/** 知识库视图状态（多库管理|日常维护|夜间测试|AI对话）：由头部统一控制 */
+const knowledgeView = ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>('maintenance')
 provide('knowledgeView', knowledgeView)
 
 /** 评测集视图状态（日常测试|夜间测试|解析回归）：?view=nightly|parse-regression 深链直达
@@ -85,10 +85,11 @@ watch(() => route.query.view, (v) => {
   else if (v === 'parse-regression') evalView.value = 'parse-regression'
 }, { immediate: true })
 
-/** 头部视图切换按模块显示：知识库=日常维护|夜间维护|AI对话，评测集=日常测试|夜间测试|解析回归 */
+/** 头部视图切换按模块显示：知识库=多库管理|日常维护|夜间维护|AI对话，评测集=日常测试|夜间测试|解析回归 */
 const viewItems = computed(() => {
   if (activeNav.value === 'knowledge') {
     return [
+      { key: 'multilib', label: '多库管理' },
       { key: 'maintenance', label: '日常维护' },
       { key: 'nightly', label: '夜间维护' },
       { key: 'aichat', label: 'AI对话' }
@@ -162,7 +163,7 @@ const handleViewChange = (key: string) => {
   if (activeNav.value === 'evals') {
     evalView.value = key as 'workbench' | 'nightly' | 'parse-regression'
   } else if (activeNav.value === 'knowledge') {
-    knowledgeView.value = key as 'maintenance' | 'nightly' | 'aichat'
+    knowledgeView.value = key as 'multilib' | 'maintenance' | 'nightly' | 'aichat'
   }
 }
 

@@ -193,6 +193,36 @@ def register_library(
     return record
 
 
+def set_group(library_id: str, group_name: str) -> LibraryRecord:
+    """改组迁移（多库管理 tab）：换组名 + 组默认 collection + sqlite_file 按新组现状重新推导。
+
+    只改注册行，不搬数据——与 register_library 缺省推导同口径：新组组文件已存在则挂组文件，
+    否则挂过渡单文件。数据物理搬迁属阶段二 flip，拆组前置条件见 plan-kb-split-groups。
+    """
+    if group_name not in GROUP_DEFAULTS:
+        raise ValueError(f"未知库组: {group_name}（合法组 {sorted(GROUP_DEFAULTS)}）")
+    group_file = GROUP_DEFAULTS[group_name].get("sqlite_file")
+    file_value = group_file if group_file and (resolve_data_root() / group_file).exists() else _DEFAULT_SQLITE_FILE
+    collection_value = GROUP_DEFAULTS[group_name].get("collection") or group_name
+    db_path = ensure_schema()
+    now = datetime.now(timezone.utc).isoformat()
+
+    def _write() -> None:
+        with _connect() as conn:
+            cursor = conn.execute(
+                "UPDATE library_registry SET group_name=?, sqlite_file=?, collection=?, updated_at=? "
+                "WHERE library_id=?",
+                (group_name, file_value, collection_value, now, library_id),
+            )
+            if cursor.rowcount == 0:
+                raise KeyError(f"注册表无此库: {library_id}")
+
+    run_with_write_lock(db_path, _write)
+    record = get_library(library_id)
+    assert record is not None
+    return record
+
+
 def set_status(library_id: str, status: str) -> None:
     if status not in _VALID_STATUS:
         raise ValueError(f"非法注册状态: {status}（合法值 {sorted(_VALID_STATUS)}）")
@@ -349,6 +379,7 @@ __all__ = [
     "list_libraries",
     "register_library",
     "resolve_collection",
+    "set_group",
     "resolve_data_root",
     "resolve_index_db_path",
     "resolve_libraries_dir",

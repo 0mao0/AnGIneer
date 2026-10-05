@@ -553,6 +553,8 @@ class DocsService:
     # 创建知识库（group_name 缺省落注册表默认组；注册表写入失败降级为仅 meta 记录，
     # 存储位置解析走回退默认，行为与注册表出现前一致）
     def create_library(self, library_id: str, name: str, description: str = "", group_name: str = "") -> KnowledgeLibrary:
+        if group_name and group_name not in library_registry.GROUP_DEFAULTS:
+            raise ValueError(f"未知库组: {group_name}（合法组 {sorted(library_registry.GROUP_DEFAULTS)}）")
         library = KnowledgeLibrary(id=library_id, name=name, description=description)
         self.libraries.append(library)
         self.meta_store.upsert_library(library)
@@ -574,8 +576,17 @@ class DocsService:
                 return library
         return None
 
-    # 更新知识库名称/描述
-    def update_library(self, library_id: str, name: Optional[str] = None, description: Optional[str] = None) -> Optional[KnowledgeLibrary]:
+    # 更新知识库名称/描述/所属组。改组只动注册行（collection 随组默认换），不搬数据——
+    # 数据物理搬迁属阶段二 flip（plan-kb-split-groups）；未注册库改组时补登记注册行。
+    def update_library(
+        self,
+        library_id: str,
+        name: Optional[str] = None,
+        description: Optional[str] = None,
+        group_name: Optional[str] = None,
+    ) -> Optional[KnowledgeLibrary]:
+        if group_name is not None and group_name not in library_registry.GROUP_DEFAULTS:
+            raise ValueError(f"未知库组: {group_name}（合法组 {sorted(library_registry.GROUP_DEFAULTS)}）")
         library = self.get_library(library_id)
         if library is None:
             return None
@@ -585,7 +596,55 @@ class DocsService:
             library.description = description
         library.updated_at = datetime.now()
         self.meta_store.upsert_library(library)
-        return library
+        if group_name is not None:
+            try:
+                library_registry.set_group(library_id, group_name)
+            except KeyError:
+                # 存量库可能从未进过注册表（注册表晚于 meta），补登记即完成改组
+                library_registry.register_library(
+                    library_id,
+                    name=library.name,
+                    description=library.description or "",
+                    group_name=group_name,
+                )
+            except Exception as exc:
+                logger.warning("注册表改组失败: library=%s group=%s err=%s", library_id, group_name, exc)
+        return self.get_library(library_id)
+
+    # 按组聚合库清单（多库管理 tab 数据源）：组 → 该组库列表（含文档数）。
+    # 未注册库归默认组（与前端 libraryGroupOf 口径一致）；文档数以 nodes 表为准（deleted=0）。
+    def list_grouped_libraries(self) -> List[Dict[str, Any]]:
+        doc_counts: Dict[str, int] = {}
+        try:
+            with self.meta_store.connect() as conn:
+                for row in conn.execute(
+                    "SELECT library_id, COUNT(*) FROM nodes WHERE deleted=0 GROUP BY library_id"
+                ):
+                    doc_counts[row[0]] = row[1]
+        except Exception as exc:
+            logger.warning("分组统计文档数失败: %s", exc)
+        by_group: Dict[str, List[Dict[str, Any]]] = {}
+        for library in self.list_libraries():
+            group = library.group_name or library_registry.DEFAULT_GROUP
+            by_group.setdefault(group, []).append(
+                {
+                    "id": library.id,
+                    "name": library.name,
+                    "description": library.description,
+                    "collection": library.collection,
+                    "status": library.status,
+                    "doc_count": doc_counts.get(library.id, 0),
+                }
+            )
+        return [
+            {
+                "group_name": group,
+                "is_default_group": group == library_registry.DEFAULT_GROUP,
+                "known_group": group in library_registry.GROUP_DEFAULTS,
+                "libraries": sorted(items, key=lambda item: item["id"]),
+            }
+            for group, items in sorted(by_group.items())
+        ]
 
     # 删除知识库：级联清理该库全部节点、文档产物、图谱数据与库记录。default 禁止删除。
     def delete_library(self, library_id: str) -> bool:

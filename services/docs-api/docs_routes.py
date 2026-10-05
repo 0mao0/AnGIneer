@@ -46,6 +46,7 @@ class KnowledgeLibraryCreate(BaseModel):
     library_id: Optional[str] = ''
     name: str
     description: Optional[str] = ''
+    group_name: Optional[str] = ''
 
 
 class KnowledgeNodeCreate(BaseModel):
@@ -278,6 +279,13 @@ def list_knowledge_libraries():
     return ks.list_libraries()
 
 
+@docs_router.get("/libraries/groups")
+def list_knowledge_library_groups():
+    """按组聚合的库清单（多库管理 tab）：组 → 库列表（含文档数）。"""
+    ks = get_docs_service()
+    return ks.list_grouped_libraries()
+
+
 @docs_router.get("/stats")
 def get_knowledge_stats(library_id: Optional[str] = None):
     """知识库统计聚合（实时查询）：文档总数/状态分布/库分布/上传趋势/页数/存储。
@@ -421,7 +429,11 @@ def create_knowledge_library(request: KnowledgeLibraryCreate):
         library_id = f"lib-{secrets.token_hex(4)}"
     if ks.get_library(library_id) is not None:
         raise HTTPException(status_code=409, detail=f"知识库 {library_id} 已存在")
-    library = ks.create_library(library_id, request.name, request.description)
+    group = (request.group_name or '').strip()
+    try:
+        library = ks.create_library(library_id, request.name, request.description or '', group_name=group)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
     return library
 
 
@@ -439,18 +451,30 @@ class KnowledgeLibraryUpdate(BaseModel):
     """更新知识库请求。"""
     name: Optional[str] = None
     description: Optional[str] = None
+    group_name: Optional[str] = None
 
 
 @docs_router.patch("/libraries/{library_id}")
 def update_knowledge_library(library_id: str, request: KnowledgeLibraryUpdate):
-    """更新知识库名称/描述。default 库不允许改名。"""
-    if library_id == "default":
-        raise HTTPException(status_code=400, detail="默认知识库不允许修改")
+    """更新知识库名称/描述/所属组。default 库不允许改名。
+
+    group_name 换组只改注册行（collection 随组默认换），数据物理搬迁属阶段二 flip；
+    default 库允许改组（外服/内测分组口径由注册表决定）。
+    """
     ks = get_docs_service()
     name = (request.name or "").strip() if request.name is not None else None
     if name is not None and not name:
         raise HTTPException(status_code=400, detail="名称不能为空")
-    library = ks.update_library(library_id, name=name, description=request.description)
+    group = (request.group_name or "").strip() if request.group_name is not None else None
+    if group is not None and not group:
+        raise HTTPException(status_code=400, detail="组名不能为空")
+    # default 只豁免「改名」，描述与改组照常（多库管理 tab 需给 default 换组）
+    if library_id == "default" and (request.name or "").strip():
+        raise HTTPException(status_code=400, detail="默认知识库不允许改名")
+    try:
+        library = ks.update_library(library_id, name=name, description=request.description, group_name=group)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
     if not library:
         raise HTTPException(status_code=404, detail="Library not found")
     return library
