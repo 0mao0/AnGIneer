@@ -20,6 +20,7 @@ M0 离线壳（``evals_core.blackboard``）与生产读写路径（M1/M2）都�
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 from dataclasses import dataclass, field
@@ -27,6 +28,8 @@ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 from .agent_loop import _INJECTED_USER_PROMPTS
 from .agent_messages import AgentMessage
+
+logger = logging.getLogger(__name__)
 
 # —— 开关（默认关）——
 CONV_GRAPH_ENV = "ANGINEER_CONV_GRAPH"
@@ -533,9 +536,13 @@ def make_conv_graph_transformer(store: Any, *, owner_key: str, session_id: str,
         graph = store.load_graph(owner_key, session_id)
         if not graph.nodes:
             return messages
-        segment = render(recall(graph, question))
+        nodes = recall(graph, question)
+        segment = render(nodes)
         if not segment:
             return messages
+        # 影子期可观测点（BB §7.6）：读路径是否真注入、注入了多少——一行即可归因
+        logger.info("对话黑板读路径：召回 %d 节点／注入子图段 %d 字符（%.0f est，上限 %d est）",
+                    len(nodes), len(segment), len(segment) / 2, subgraph_est_cap())
         kept = [m for index, m in enumerate(messages)
                 if not (m.role == "tool" and index < last_user)]
         anchor = -1
