@@ -1,0 +1,61 @@
+<svg viewBox="0 0 680 712" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-danger{fill:#dc2626}
+.t-ok{fill:#059669}
+.line{stroke:#94a3b8;stroke-width:1.2}
+</style></defs>
+
+<text class="t" x="18" y="26" font-size="15">图 B 原型：堤顶高程怎么计算</text>
+<text class="t-dim" x="18" y="46" font-size="12">LLM 从检索证据内化出的计算流程图（分层＝依赖深度；虚线框＝证据缺失）</text>
+<line class="line" x1="186" y1="91" x2="228" y2="91"/>
+<line class="line" x1="186" y1="165" x2="228" y2="91"/>
+<line class="line" x1="186" y1="165" x2="228" y2="91"/>
+<line class="line" x1="186" y1="387" x2="228" y2="91"/>
+<line class="line" x1="186" y1="461" x2="228" y2="91"/>
+<line class="line" x1="186" y1="535" x2="228" y2="91"/>
+<line class="line" x1="186" y1="239" x2="228" y2="91"/>
+<line class="line" x1="186" y1="313" x2="228" y2="91"/>
+<rect class="box" x="228" y="62" width="168" height="58" rx="8"/>
+<text class="t" x="312" y="84" text-anchor="middle" font-size="13">堤顶高程（m）</text>
+<text class="t-dim" x="312" y="102" text-anchor="middle" font-size="12">结果</text>
+<text class="t-dim" x="312" y="116" text-anchor="middle" font-size="12">JTS 165-2013 5.8.5, JTS 1…</text>
+<rect class="box" x="18" y="62" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="84" text-anchor="middle" font-size="13">设计高水位（m）</text>
+<text class="t-dim" x="102" y="102" text-anchor="middle" font-size="12">输入</text>
+<text class="t-dim" x="102" y="116" text-anchor="middle" font-size="12">JTS 165-2013 5.8.5.2, JTS…</text>
+<rect class="box" x="18" y="136" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="158" text-anchor="middle" font-size="13">设计波高（m）</text>
+<text class="t-dim" x="102" y="176" text-anchor="middle" font-size="12">输入</text>
+<text class="t-dim" x="102" y="190" text-anchor="middle" font-size="12">JTS 165-2013 5.7.11</text>
+<rect class="box" x="18" y="210" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="232" text-anchor="middle" font-size="13">泥沙运动形态</text>
+<text class="t-dim" x="102" y="250" text-anchor="middle" font-size="12">参数</text>
+<text class="t-dim" x="102" y="264" text-anchor="middle" font-size="12">JTS 165-2013 5.8.5.2</text>
+<rect class="box" x="18" y="284" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="306" text-anchor="middle" font-size="13">越浪允许情况</text>
+<text class="t-dim" x="102" y="324" text-anchor="middle" font-size="12">参数</text>
+<text class="t-dim" x="102" y="338" text-anchor="middle" font-size="12">JTS 165-2013 5.7.11</text>
+<rect class="box" x="18" y="358" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="380" text-anchor="middle" font-size="13">波浪爬高（m）</text>
+<text class="t-dim" x="102" y="398" text-anchor="middle" font-size="12">中间量</text>
+<text class="t-dim" x="102" y="412" text-anchor="middle" font-size="12">JTS 165-5-2016 5.5.2</text>
+<rect class="box" x="18" y="432" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="454" text-anchor="middle" font-size="13">模拟试验</text>
+<text class="t-dim" x="102" y="472" text-anchor="middle" font-size="12">中间量</text>
+<text class="t-dim" x="102" y="486" text-anchor="middle" font-size="12">JTS 165-2013 5.8.5.1, JTS…</text>
+<rect class="box" x="18" y="506" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="528" text-anchor="middle" font-size="13">技术经济论证</text>
+<text class="t-dim" x="102" y="546" text-anchor="middle" font-size="12">中间量</text>
+<text class="t-dim" x="102" y="560" text-anchor="middle" font-size="12">JTS 165-2013 5.8.5.1</text>
+<rect class="box" x="18" y="588" width="644" height="120" rx="8"/>
+<text class="t" x="34" y="612" font-size="13">主计算式：堤顶高程 = f(设计高水位, 设计波高, 泥沙运动形态, 越浪允许情况, 波浪爬高, 模拟试验, 技术经济论证)</text>
+<text class="t-dim" x="34" y="634" font-size="12">证据缺项 5 项：具体工况下的设计高水位数值；具体工况下的设计波高数值；泥沙垂线分布特征的具体数据；波浪爬高的具体计算值；模拟试验的具体结果…
+</text>
+<text class="t-dim" x="34" y="656" font-size="12">置信度自评：证据未提供统一的代数计算公式，而是规定了基于功能要求（防沙/导流/防浪）的分段确定原则及系数法，置信度中等，依赖具体工程参数。</text>
+<text class="t-dim" x="34" y="680" font-size="12">来源：ttft-B-check-1 seq=25 · items=8（真实检索证据）</text>
+</svg>

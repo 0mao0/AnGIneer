@@ -1,0 +1,184 @@
+{
+  "question": "堤顶高程怎么计算",
+  "source": {
+    "session_id": "ttft-B-check-1",
+    "seq": 25,
+    "items": 8
+  },
+  "graph": {
+    "elements": [
+      {
+        "id": "crest_elevation",
+        "name": "堤顶高程",
+        "kind": "result",
+        "unit": "m",
+        "citations": [
+          "JTS 165-2013 5.8.5",
+          "JTS 165-2013 5.7.11"
+        ],
+        "missing": false
+      },
+      {
+        "id": "design_high_water_level",
+        "name": "设计高水位",
+        "kind": "input",
+        "unit": "m",
+        "citations": [
+          "JTS 165-2013 5.8.5.2",
+          "JTS 165-2013 5.7.11"
+        ],
+        "missing": false
+      },
+      {
+        "id": "design_wave_height",
+        "name": "设计波高",
+        "kind": "input",
+        "unit": "m",
+        "citations": [
+          "JTS 165-2013 5.7.11"
+        ],
+        "missing": false
+      },
+      {
+        "id": "wave_runup",
+        "name": "波浪爬高",
+        "kind": "intermediate",
+        "unit": "m",
+        "citations": [
+          "JTS 165-5-2016 5.5.2"
+        ],
+        "missing": false
+      },
+      {
+        "id": "simulation_test",
+        "name": "模拟试验",
+        "kind": "intermediate",
+        "unit": "",
+        "citations": [
+          "JTS 165-2013 5.8.5.1",
+          "JTS 165-5-2016 5.5.2"
+        ],
+        "missing": false
+      },
+      {
+        "id": "technical_economic_demonstration",
+        "name": "技术经济论证",
+        "kind": "intermediate",
+        "unit": "",
+        "citations": [
+          "JTS 165-2013 5.8.5.1"
+        ],
+        "missing": false
+      },
+      {
+        "id": "sand_transport_type",
+        "name": "泥沙运动形态",
+        "kind": "parameter",
+        "unit": "",
+        "citations": [
+          "JTS 165-2013 5.8.5.2"
+        ],
+        "missing": false
+      },
+      {
+        "id": "overwash_allowance",
+        "name": "越浪允许情况",
+        "kind": "parameter",
+        "unit": "",
+        "citations": [
+          "JTS 165-2013 5.7.11"
+        ],
+        "missing": false
+      }
+    ],
+    "relations": [
+      {
+        "from": "design_high_water_level",
+        "to": "crest_elevation",
+        "type": "computes",
+        "formula": "堤顶高程 = 设计高水位",
+        "citations": [
+          "JTS 165-2013 5.8.5.2"
+        ]
+      },
+      {
+        "from": "design_wave_height",
+        "to": "crest_elevation",
+        "type": "computes",
+        "formula": "堤顶高程 = 设计高水位 + 0.7 * 设计波高",
+        "citations": [
+          "JTS 165-2013 5.7.11.1"
+        ]
+      },
+      {
+        "from": "design_wave_height",
+        "to": "crest_elevation",
+        "type": "computes",
+        "formula": "堤顶高程 = 设计高水位 + 1.25 * 设计波高",
+        "citations": [
+          "JTS 165-2013 5.7.11.2"
+        ]
+      },
+      {
+        "from": "wave_runup",
+        "to": "crest_elevation",
+        "type": "computes",
+        "formula": "堤顶高程 = 防浪墙顶高程 (由波浪爬高确定)",
+        "citations": [
+          "JTS 165-5-2016 5.5.2"
+        ]
+      },
+      {
+        "from": "simulation_test",
+        "to": "crest_elevation",
+        "type": "constrains",
+        "formula": "",
+        "citations": [
+          "JTS 165-2013 5.8.5.1",
+          "JTS 165-5-2016 5.5.2"
+        ]
+      },
+      {
+        "from": "technical_economic_demonstration",
+        "to": "crest_elevation",
+        "type": "constrains",
+        "formula": "",
+        "citations": [
+          "JTS 165-2013 5.8.5.1"
+        ]
+      },
+      {
+        "from": "sand_transport_type",
+        "to": "crest_elevation",
+        "type": "constrains",
+        "formula": "",
+        "citations": [
+          "JTS 165-2013 5.8.5.2"
+        ]
+      },
+      {
+        "from": "overwash_allowance",
+        "to": "crest_elevation",
+        "type": "constrains",
+        "formula": "",
+        "citations": [
+          "JTS 165-2013 5.7.11"
+        ]
+      }
+    ],
+    "formula": "堤顶高程 = f(设计高水位, 设计波高, 泥沙运动形态, 越浪允许情况, 波浪爬高, 模拟试验, 技术经济论证)",
+    "assumptions": [
+      "防沙、导流堤堤顶高程需分段考虑",
+      "半圆型防波堤需区分允许越浪与基本不越浪",
+      "液化天然气码头防浪墙需考虑波浪爬高"
+    ],
+    "missing": [
+      "具体工况下的设计高水位数值",
+      "具体工况下的设计波高数值",
+      "泥沙垂线分布特征的具体数据",
+      "波浪爬高的具体计算值",
+      "模拟试验的具体结果数据"
+    ],
+    "notes": "证据未提供统一的代数计算公式，而是规定了基于功能要求（防沙/导流/防浪）的分段确定原则及系数法，置信度中等，依赖具体工程参数。"
+  }
+}

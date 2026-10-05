@@ -1,0 +1,59 @@
+<svg viewBox="0 0 680 642" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-danger{fill:#dc2626}
+.t-ok{fill:#059669}
+.line{stroke:#94a3b8;stroke-width:1.2}
+</style></defs>
+
+<text class="t" x="18" y="26" font-size="15">图 A 原型：会话轨迹图（每轮一个节点 + 该轮引用的条款）</text>
+<text class="t-dim" x="18" y="46" font-size="12">真实会话 chat-municgem-i8m5b5 · 6 轮（节点=提问，右侧=该轮真正引用的条款）</text>
+<line class="line" x1="34" y1="126" x2="34" y2="156"/>
+<line class="line" x1="34" y1="218" x2="34" y2="248"/>
+<line class="line" x1="34" y1="310" x2="34" y2="340"/>
+<line class="line" x1="34" y1="402" x2="34" y2="432"/>
+<line class="line" x1="34" y1="494" x2="34" y2="524"/>
+<rect class="box" x="18" y="64" width="250" height="62" rx="8"/>
+<text class="t" x="32" y="88" font-size="13">第1轮 · 堤顶高程怎么计算</text>
+<text class="t-dim" x="32" y="108" font-size="12">引用 9 条</text>
+<text class="t-dim" x="284" y="90" font-size="12">K9=JTS 154-2018 防波堤与护岸设计规范.p…/4.2 断面型式与尺度、K3=JTS 165-2013 海港总…</text>
+<text class="t-dim" x="284" y="108" font-size="12">…等 9 条</text>
+<rect class="box" x="18" y="156" width="250" height="62" rx="8"/>
+<text class="t" x="32" y="180" font-size="13">第5轮 · 想知道的</text>
+<text class="t-dim" x="32" y="200" font-size="12">引用 11 条</text>
+<text class="t-dim" x="284" y="182" font-size="12">K9=JTS 154-2018 防波堤与护岸设计规范.p…/4.2 断面型式与尺度、K15=JTS 165-2013 海港…</text>
+<text class="t-dim" x="284" y="200" font-size="12">…等 11 条</text>
+<rect class="box" x="18" y="248" width="250" height="62" rx="8"/>
+<text class="t" x="32" y="272" font-size="13">第9轮 · 想的</text>
+<text class="t-dim" x="32" y="292" font-size="12">引用 4 条</text>
+<text class="t-dim" x="284" y="274" font-size="12">K9=GB 50139-2014 内河通航标准.pdf/表 3.0.2-3 珠江三角洲至港澳线内河…、K8=GB 5013…</text>
+<text class="t-dim" x="284" y="292" font-size="12">…等 4 条</text>
+<rect class="box" x="18" y="340" width="250" height="62" rx="8"/>
+<text class="t" x="32" y="364" font-size="13">第13轮 · 好的</text>
+<text class="t-dim" x="32" y="384" font-size="12">引用 5 条</text>
+<text class="t-dim" x="284" y="366" font-size="12">K9=码头结构设计规范 JTS 167-2018.pdf/表 9.1.8 浮码头和斜坡码头钢引桥单位…、K15=JTS 1…</text>
+<text class="t-dim" x="284" y="384" font-size="12">…等 5 条</text>
+<rect class="box" x="18" y="432" width="250" height="62" rx="8"/>
+<text class="t" x="32" y="456" font-size="13">第17轮 · 乘潮水位怎么计算</text>
+<text class="t-dim" x="32" y="476" font-size="12">引用 3 条</text>
+<text class="t-dim" x="284" y="458" font-size="12">K2=JTS 181—2016-航道工程设计规范.pdf/5.4.1、K10=JTS 145—2015 港口与航道水文规范…</text>
+<rect class="box" x="18" y="524" width="250" height="62" rx="8"/>
+<text class="t" x="32" y="548" font-size="13">第21轮 · 刚才第二个问题说了什么</text>
+<text class="t-dim" x="32" y="568" font-size="12">引用 4 条</text>
+<text class="t-dim" x="284" y="550" font-size="12">K2=JTS 181—2016-航道工程设计规范.pdf/5.4.2、K4=JTS 181—2016-航道工程设计规范.p…</text>
+<text class="t-dim" x="284" y="568" font-size="12">…等 4 条</text>
+<line class="line" x1="268" y1="95" x2="272" y2="279"/>
+<line class="line" x1="268" y1="95" x2="272" y2="371"/>
+<line class="line" x1="268" y1="95" x2="272" y2="463"/>
+<line class="line" x1="268" y1="95" x2="272" y2="555"/>
+<line class="line" x1="268" y1="187" x2="272" y2="371"/>
+<line class="line" x1="268" y1="187" x2="272" y2="463"/>
+<line class="line" x1="268" y1="187" x2="272" y2="555"/>
+<line class="line" x1="268" y1="279" x2="272" y2="555"/>
+<line class="line" x1="268" y1="371" x2="272" y2="555"/>
+<text class="t-dim" x="18" y="632" font-size="12">实线=时间顺序；细线=跨轮同条款（主题延续，共 9 处） —— 这就是"会话轨迹"，但还没有你要的"会话节点"聚合</text>
+</svg>

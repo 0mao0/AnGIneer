@@ -1,0 +1,90 @@
+{
+  "question": "码头前沿设计水深",
+  "source": {
+    "session_id": "m0-arm1-B4",
+    "seq": 49,
+    "items": 8
+  },
+  "graph": {
+    "elements": [
+      {
+        "id": "Dm",
+        "name": "码头前沿设计水深",
+        "kind": "result",
+        "unit": "m",
+        "citations": [
+          "3.4.4"
+        ],
+        "missing": false
+      },
+      {
+        "id": "T",
+        "name": "船舶吃水",
+        "kind": "input",
+        "unit": "m",
+        "citations": [
+          "3.4.4"
+        ],
+        "missing": false
+      },
+      {
+        "id": "Z",
+        "name": "龙骨下最小富裕深度",
+        "kind": "parameter",
+        "unit": "m",
+        "citations": [
+          "3.4.4"
+        ],
+        "missing": false
+      },
+      {
+        "id": "DeltaZ",
+        "name": "富余水深修正值",
+        "kind": "intermediate",
+        "unit": "m",
+        "citations": [
+          "3.4.4"
+        ],
+        "missing": false
+      }
+    ],
+    "relations": [
+      {
+        "from": "T",
+        "to": "Dm",
+        "type": "computes",
+        "formula": "T",
+        "citations": [
+          "3.4.4"
+        ]
+      },
+      {
+        "from": "Z",
+        "to": "Dm",
+        "type": "computes",
+        "formula": "Z",
+        "citations": [
+          "3.4.4"
+        ]
+      },
+      {
+        "from": "DeltaZ",
+        "to": "Dm",
+        "type": "computes",
+        "formula": "DeltaZ",
+        "citations": [
+          "3.4.4"
+        ]
+      }
+    ],
+    "formula": "Dm = T + Z + DeltaZ",
+    "assumptions": [
+      "适用条件：平原河流、山区河流、运河和潮汐影响不明显的感潮河段"
+    ],
+    "missing": [
+      "Z的具体取值（需查表3.4.4，证据中未提供表格内容）",
+      "DeltaZ的具体数值或计算逻辑（证据中仅列出变量，未给出具体修正值或公式）"
+    ],
+    "notes": "基于证据T6中公式3.4.4提取，仅适用于非潮汐影响明显的河段，缺少Z和DeltaZ的具体数值来源。"
+  }
+}

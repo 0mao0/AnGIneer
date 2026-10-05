@@ -1,0 +1,40 @@
+<svg viewBox="0 0 680 416" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-danger{fill:#dc2626}
+.t-ok{fill:#059669}
+.line{stroke:#94a3b8;stroke-width:1.2}
+</style></defs>
+
+<text class="t" x="18" y="26" font-size="15">图 B 原型：码头前沿设计水深</text>
+<text class="t-dim" x="18" y="46" font-size="12">LLM 从检索证据内化出的计算流程图（分层＝依赖深度；虚线框＝证据缺失）</text>
+<line class="line" x1="186" y1="91" x2="228" y2="91"/>
+<line class="line" x1="186" y1="165" x2="228" y2="91"/>
+<line class="line" x1="186" y1="239" x2="228" y2="91"/>
+<rect class="box" x="228" y="62" width="168" height="58" rx="8"/>
+<text class="t" x="312" y="84" text-anchor="middle" font-size="13">码头前沿设计水深（m）</text>
+<text class="t-dim" x="312" y="102" text-anchor="middle" font-size="12">结果</text>
+<text class="t-dim" x="312" y="116" text-anchor="middle" font-size="12">3.4.4</text>
+<rect class="box" x="18" y="62" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="84" text-anchor="middle" font-size="13">船舶吃水（m）</text>
+<text class="t-dim" x="102" y="102" text-anchor="middle" font-size="12">输入</text>
+<text class="t-dim" x="102" y="116" text-anchor="middle" font-size="12">3.4.4</text>
+<rect class="box" x="18" y="136" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="158" text-anchor="middle" font-size="13">龙骨下最小富裕深度（m）</text>
+<text class="t-dim" x="102" y="176" text-anchor="middle" font-size="12">参数</text>
+<text class="t-dim" x="102" y="190" text-anchor="middle" font-size="12">3.4.4</text>
+<rect class="box" x="18" y="210" width="168" height="58" rx="8"/>
+<text class="t" x="102" y="232" text-anchor="middle" font-size="13">富余水深修正值（m）</text>
+<text class="t-dim" x="102" y="250" text-anchor="middle" font-size="12">中间量</text>
+<text class="t-dim" x="102" y="264" text-anchor="middle" font-size="12">3.4.4</text>
+<rect class="box" x="18" y="292" width="644" height="120" rx="8"/>
+<text class="t" x="34" y="316" font-size="13">主计算式：Dm = T + Z + DeltaZ</text>
+<text class="t-dim" x="34" y="338" font-size="12">证据缺项 2 项：Z的具体取值（需查表3.4.4，证据中未提供表格内容）；DeltaZ的具体数值或计算逻辑（证据中仅列出变量，未给出具体修正…
+</text>
+<text class="t-dim" x="34" y="360" font-size="12">置信度自评：基于证据T6中公式3.4.4提取，仅适用于非潮汐影响明显的河段，缺少Z和DeltaZ的具体数值来源。</text>
+<text class="t-dim" x="34" y="384" font-size="12">来源：m0-arm1-B4 seq=49 · items=8（真实检索证据）</text>
+</svg>
