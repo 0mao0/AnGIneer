@@ -24,7 +24,7 @@ from evals_core.blackboard.arms import (  # noqa: E402
     compose_all,
     estimate,
 )
-from evals_core.blackboard.cases import CASES, cases_by_kind  # noqa: E402
+from evals_core.blackboard.cases import CASES, cases_by_kind, cases_by_role  # noqa: E402
 from evals_core.blackboard.graph import build_graph, recall, render  # noqa: E402
 from evals_core.blackboard.runner import case_fidelity, resolve_chat_db, run_dry  # noqa: E402
 
@@ -49,13 +49,25 @@ def _item(cite, doc_id="doc-a", doc_title="JTS 165-2013 海港总体设计规范
 
 class CaseListTests(unittest.TestCase):
     def test_case_list_shape(self):
-        """主集 22 题、四类齐全、D5 合成题不入主集。"""
-        self.assertEqual(len(CASES), 22)
+        """冻结后主集 21 题（原 22 − B5 去重）、四类齐全、两道对照题、D5/B5 不入主集。"""
+        self.assertEqual(len(CASES), 21)
         self.assertEqual(len(cases_by_kind("A")), 7)
-        self.assertEqual(len(cases_by_kind("B")), 5)
+        self.assertEqual(len(cases_by_kind("B")), 4)     # B5 与 B4 近重复，冻结时删除
         self.assertEqual(len(cases_by_kind("C")), 6)
         self.assertEqual(len(cases_by_kind("D")), 4)
-        self.assertNotIn("D5", [case.case_id for case in CASES])
+        ids = [case.case_id for case in CASES]
+        self.assertNotIn("D5", ids)                      # 合成题不入主集
+        self.assertNotIn("B5", ids)                      # 去重删除
+
+    def test_controls_are_preregistered_and_excluded_from_capability_denominator(self):
+        """对照题必须是预注册的两道（C6 单轮无链 / D4 图空护栏），且与能力题分开计数。"""
+        controls = {case.case_id for case in cases_by_role("control")}
+        self.assertEqual(controls, {"C6", "D4"})
+        self.assertEqual(len(cases_by_role("case")), 19)
+        for case in CASES:
+            self.assertIn(case.role, ("case", "control"))
+        for case in cases_by_role("control"):
+            self.assertIn("对照题", case.criterion)      # 角色必须写在判定要点里，判分时才不会被误计入
 
     @unittest.skipUnless(DB_AVAILABLE, "需要本地 chat.sqlite")
     def test_case_questions_match_db_verbatim(self):
