@@ -1,0 +1,68 @@
+<svg viewBox="0 0 680 528" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.box-ok{fill:#f0fdf4;stroke:#22c55e;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-danger{fill:#dc2626}
+.t-ok{fill:#059669}
+.line{stroke:#94a3b8;stroke-width:1.2}
+</style></defs>
+<text class="t" x="18" y="24" font-size="15">后续产品：用户在哪看到 A 和 B</text>
+
+<text class="t" x="18" y="48" font-size="13">一、两个入口（谁在哪儿看）</text>
+<rect class="box" x="18" y="58" width="316" height="66" rx="8"/>
+<text class="t" x="34" y="80" font-size="12">聊天页 · 会话轨迹（图 A）</text>
+<text class="t-dim" x="34" y="100" font-size="12">右侧抽屉：默认折叠成主题链（会话节点）</text>
+<text class="t-dim" x="34" y="118" font-size="12">展开看每轮：问了什么 / 引用了哪些条款</text>
+<rect class="box" x="346" y="58" width="316" height="66" rx="8"/>
+<text class="t" x="362" y="80" font-size="12">知识库 · 领域图（图 B，只读）</text>
+<text class="t-dim" x="362" y="100" font-size="12">按库/领域分区的画布：要素 + 计算关系</text>
+<text class="t-dim" x="362" y="118" font-size="12">列＝依赖深度；节点带条款出处</text>
+<rect class="box" x="18" y="132" width="644" height="50" rx="8"/>
+<text class="t" x="34" y="154" font-size="12">管理端 · 审阅台（图 B 的唯一写入口）</text>
+<text class="t-dim" x="34" y="172" font-size="12">改草稿 / 合并重复元素 / 否定错误关系 / 发布版本</text>
+
+<text class="t" x="18" y="210" font-size="13">二、状态流（决定这张图能不能被用）</text>
+<rect class="box" x="18" y="220" width="150" height="54" rx="8"/>
+<text class="t" x="93" y="242" text-anchor="middle" font-size="12">draft 草稿</text>
+<text class="t-dim" x="93" y="261" text-anchor="middle" font-size="12">机器产出、未审</text>
+<rect class="box" x="188" y="220" width="150" height="54" rx="8"/>
+<text class="t" x="263" y="242" text-anchor="middle" font-size="12">审阅中</text>
+<text class="t-dim" x="263" y="261" text-anchor="middle" font-size="12">人看、人改</text>
+<rect class="box box-ok" x="358" y="220" width="150" height="54" rx="8"/>
+<text class="t" x="433" y="242" text-anchor="middle" font-size="12">published</text>
+<text class="t-dim" x="433" y="261" text-anchor="middle" font-size="12">带版本号</text>
+<rect class="box box-ok" x="528" y="220" width="134" height="54" rx="8"/>
+<text class="t" x="595" y="242" text-anchor="middle" font-size="12">回注回答</text>
+<text class="t-dim" x="595" y="261" text-anchor="middle" font-size="12">只引用已发布</text>
+<line class="line" x1="168" y1="247" x2="188" y2="247"/>
+<line class="line" x1="338" y1="247" x2="358" y2="247"/>
+<line class="line" x1="508" y1="247" x2="528" y2="247"/>
+
+<text class="t" x="18" y="306" font-size="13">三、分期落地（先能看，再能改，最后闭环）</text>
+<rect class="box" x="18" y="316" width="158" height="76" rx="8"/>
+<text class="t" x="97" y="338" text-anchor="middle" font-size="12">P0 只读影子</text>
+<text class="t-dim" x="97" y="358" text-anchor="middle" font-size="12">轨迹抽屉 + 只读领域图</text>
+<text class="t-dim" x="97" y="376" text-anchor="middle" font-size="12">目的：先看图对不对</text>
+<rect class="box" x="184" y="316" width="158" height="76" rx="8"/>
+<text class="t" x="263" y="338" text-anchor="middle" font-size="12">P1 可审可改</text>
+<text class="t-dim" x="263" y="358" text-anchor="middle" font-size="12">四个动作 + 版本</text>
+<text class="t-dim" x="263" y="376" text-anchor="middle" font-size="12">目的：让图可信</text>
+<rect class="box" x="350" y="316" width="158" height="76" rx="8"/>
+<text class="t" x="429" y="338" text-anchor="middle" font-size="12">P2 回注回答</text>
+<text class="t-dim" x="429" y="358" text-anchor="middle" font-size="12">答案可点开图定位</text>
+<text class="t-dim" x="429" y="376" text-anchor="middle" font-size="12">目的：闭环</text>
+<rect class="box" x="516" y="316" width="146" height="76" rx="8"/>
+<text class="t" x="589" y="338" text-anchor="middle" font-size="12">P3 多库多领域</text>
+<text class="t-dim" x="589" y="358" text-anchor="middle" font-size="12">跨库合并 / 权限</text>
+<text class="t-dim" x="589" y="376" text-anchor="middle" font-size="12">版本回滚</text>
+
+<rect class="box" x="18" y="410" width="644" height="98" rx="8"/>
+<text class="t" x="34" y="434" font-size="13">四、先定这三件事</text>
+<text class="t-dim" x="34" y="456" font-size="12">① 图会错 → 人审不可省（所以只回注 published）</text>
+<text class="t-dim" x="34" y="476" font-size="12">② 图会大 → 必须主题聚合 + 搜索 + 按库分区</text>
+<text class="t-dim" x="34" y="496" font-size="12">③ 权限：能改图 = 能影响所有后续回答（重权限，只给管理员发布）</text>
+</svg>
