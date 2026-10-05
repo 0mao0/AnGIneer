@@ -1,0 +1,41 @@
+<svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-ok{fill:#f0fdf4;stroke:#22c55e;stroke-width:1.2}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-ok{fill:#059669}
+.t-danger{fill:#dc2626}
+</style></defs>
+<text class="t" x="18" y="24" font-size="15">领域图会很大：同一张画布给三种视图范围</text>
+
+<rect class="box-danger" x="18" y="44" width="200" height="150" rx="8"/>
+<text class="t" x="118" y="68" text-anchor="middle" font-size="12">① 全领域图</text>
+<text class="t-dim" x="118" y="90" text-anchor="middle" font-size="12">跨会话累积的全部节点</text>
+<text class="t-dim" x="118" y="110" text-anchor="middle" font-size="12">可能上千节点</text>
+<text class="t-danger" x="118" y="134" text-anchor="middle" font-size="12">直接打开会晕</text>
+<text class="t-dim" x="118" y="158" text-anchor="middle" font-size="12">只在后台全览用</text>
+<text class="t-dim" x="118" y="180" text-anchor="middle" font-size="12">聊天页不作为默认</text>
+
+<rect class="box" x="240" y="44" width="200" height="150" rx="8"/>
+<text class="t" x="340" y="68" text-anchor="middle" font-size="12">② 本主题子图</text>
+<text class="t-dim" x="340" y="90" text-anchor="middle" font-size="12">当前问题命中的主题</text>
+<text class="t-dim" x="340" y="110" text-anchor="middle" font-size="12">及其上下游依赖</text>
+<text class="t-dim" x="340" y="134" text-anchor="middle" font-size="12">几十个节点</text>
+<text class="t" x="340" y="158" text-anchor="middle" font-size="12">聊天页默认视图</text>
+<text class="t-dim" x="340" y="180" text-anchor="middle" font-size="12">（回答后自动聚焦）</text>
+
+<rect class="box-ok" x="462" y="44" width="200" height="150" rx="8"/>
+<text class="t" x="562" y="68" text-anchor="middle" font-size="12">③ 本会话贡献</text>
+<text class="t-dim" x="562" y="90" text-anchor="middle" font-size="12">刚才这几轮新增的节点</text>
+<text class="t-dim" x="562" y="110" text-anchor="middle" font-size="12">在②上高亮</text>
+<text class="t-ok" x="562" y="134" text-anchor="middle" font-size="12">用户最关心这个</text>
+<text class="t-dim" x="562" y="158" text-anchor="middle" font-size="12">「我的对话长了什么」</text>
+<text class="t-dim" x="562" y="180" text-anchor="middle" font-size="12">切 Tab 即见</text>
+
+<rect class="box" x="18" y="212" width="644" height="72" rx="8"/>
+<text class="t" x="340" y="238" text-anchor="middle" font-size="13">关键交互：每轮回答后，图 B 自动切到 ②，并把③闪一下</text>
+<text class="t-dim" x="340" y="262" text-anchor="middle" font-size="12">这才是「在对话过程中梳理业务逻辑」的直观呈现，而不是让用户自己去知识库找图</text>
+</svg>

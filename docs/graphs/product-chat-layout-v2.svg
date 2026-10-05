@@ -1,0 +1,46 @@
+<svg viewBox="0 0 680 372" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-ok{fill:#f0fdf4;stroke:#22c55e;stroke-width:1.2}
+.box-dim{fill:#f1f5f9;stroke:#cbd5e1;stroke-width:1}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-ok{fill:#059669}
+.line{stroke:#94a3b8;stroke-width:1.4}
+</style></defs>
+<text class="t" x="18" y="24" font-size="15">修正：两张图都在聊天页看，后台只管审阅与发布</text>
+
+<rect class="box" x="18" y="42" width="452" height="252" rx="10"/>
+<text class="t" x="34" y="66" font-size="13">聊天页（用户只看这里）</text>
+<rect class="box-dim" x="34" y="78" width="228" height="200" rx="8"/>
+<text class="t-dim" x="148" y="102" text-anchor="middle" font-size="12">对话流</text>
+<text class="t-dim" x="148" y="124" text-anchor="middle" font-size="12">提问 / 答案 / 引用</text>
+<text class="t-dim" x="148" y="146" text-anchor="middle" font-size="12">（原有主区，不动）</text>
+<rect class="box" x="278" y="78" width="176" height="26" rx="6"/>
+<text class="t" x="366" y="96" text-anchor="middle" font-size="12">Tab① 轨迹＝图 A</text>
+<rect class="box-ok" x="278" y="110" width="176" height="26" rx="6"/>
+<text class="t-ok" x="366" y="128" text-anchor="middle" font-size="12">Tab② 领域＝图 B（只读）</text>
+<rect class="box" x="278" y="144" width="176" height="134" rx="8"/>
+<text class="t" x="366" y="168" text-anchor="middle" font-size="12">右侧抽屉画布</text>
+<text class="t-dim" x="366" y="190" text-anchor="middle" font-size="12">本轮新蒸馏的节点</text>
+<text class="t-dim" x="366" y="210" text-anchor="middle" font-size="12">实时高亮并闪一下</text>
+<text class="t-dim" x="366" y="234" text-anchor="middle" font-size="12">点节点 → 条款原文</text>
+<text class="t-dim" x="366" y="254" text-anchor="middle" font-size="12">点节点 → 出自哪一轮</text>
+<text class="t-dim" x="366" y="272" text-anchor="middle" font-size="12">（回跳到对话流）</text>
+
+<rect class="box-dim" x="486" y="42" width="176" height="252" rx="10"/>
+<text class="t" x="502" y="66" font-size="13">后台（治理）</text>
+<text class="t-dim" x="502" y="94" font-size="12">审阅台 / 知识库页</text>
+<text class="t-dim" x="502" y="118" font-size="12">合并重复元素</text>
+<text class="t-dim" x="502" y="140" font-size="12">否定错误关系</text>
+<text class="t-dim" x="502" y="162" font-size="12">发布版本</text>
+<text class="t-dim" x="502" y="184" font-size="12">权限与回滚</text>
+<text class="t-dim" x="502" y="216" font-size="12">这里不看图，</text>
+<text class="t-dim" x="502" y="236" font-size="12">只决定图能不能</text>
+<text class="t-dim" x="502" y="256" font-size="12">被回注到回答</text>
+
+<rect class="box" x="18" y="306" width="644" height="52" rx="8"/>
+<text class="t" x="340" y="330" text-anchor="middle" font-size="13">原来把图 B 放知识库页是错的：用户不该为看图离开对话</text>
+<text class="t-dim" x="340" y="350" text-anchor="middle" font-size="12">后台只保留「写」：审阅、修订、发布、权限</text>
+</svg>
