@@ -23,8 +23,6 @@ from shared.paths import resolve_data_file
 
 from angineer_core.agent_messages import AgentMessage, ToolCall
 
-from .graph_store import delete_graph, init_graph_schema, reassign_owner, sweep_orphans
-
 DB_PATH = resolve_data_file("CHAT_DB_PATH", "platform/chat.sqlite")
 
 logger = logging.getLogger(__name__)
@@ -40,9 +38,6 @@ def _get_conn(db_path: Optional[str] = None) -> sqlite3.Connection:
     conn = sqlite3.connect(path)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
-    # 对话黑板引入第二个写入方（异步蒸馏）后，缺 busy_timeout 会让 SQLITE_BUSY 变成偶发丢图
-    # （BB §5 双写并发；图写与消息写共用本连接配置，短事务 + 5s 等待）
-    conn.execute("PRAGMA busy_timeout=5000")
     return conn
 
 
@@ -101,7 +96,6 @@ def init_db(db_path: Optional[str] = None) -> None:
         """)
         _migrate_scope_out_of_pk(conn)
         _migrate_sessions_library_ids(conn)
-        init_graph_schema(conn)   # 对话黑板四表（BB §5：建表只此一处入口）
         conn.commit()
     finally:
         conn.close()
@@ -419,8 +413,6 @@ class SqliteHistoryStore:
                     "DELETE FROM chat_messages WHERE owner_key=? AND session_id=?",
                     (owner, session_id),
                 )
-            # 图级联（BB §5.1 第 1 处）：否则孤儿图永久残留
-            delete_graph(conn, owner, session_id)
             return cur.rowcount > 0
         finally:
             conn.close()
@@ -448,9 +440,6 @@ class SqliteHistoryStore:
                     "DELETE FROM chat_sessions WHERE owner_key=?" + membership,
                     (owner, library_id, library_id),
                 )
-            # 图级联（BB §5.1 第 2 处）：判据与上面的成员匹配同源（命中任一勾选库即整会话清）
-            for sid in ids:
-                delete_graph(conn, owner, sid)
             return len(ids)
         finally:
             conn.close()
@@ -525,8 +514,6 @@ class SqliteHistoryStore:
                     "UPDATE chat_runs SET owner_key=? WHERE owner_key=?",
                     (user_owner, guest_owner),
                 )
-            # 图级联（BB §5.1 第 3 处）：owner 改挂，图行一并 UPDATE，否则按 owner 查询漏图
-            reassign_owner(conn, guest_owner, user_owner)
             return len(sids)
         finally:
             conn.close()
@@ -598,32 +585,6 @@ class SqliteHistoryStore:
                 n_run = conn.execute(
                     "DELETE FROM chat_runs WHERE created_at<?", (cutoff,)
                 ).rowcount
-                # 图级联（BB §5.1 第 4 处）：会话行删掉前先按同一判据清图，否则「消息已删、
-                # 会话行还在」的时间窗里图无法验证、且此后会话行消失就再也找不到它
-                conn.execute(
-                    "DELETE FROM conv_graph_node WHERE EXISTS (SELECT 1 FROM chat_sessions s"
-                    " WHERE s.owner_key=conv_graph_node.owner_key"
-                    " AND s.session_id=conv_graph_node.session_id AND s.updated_at<?)",
-                    (cutoff,),
-                )
-                conn.execute(
-                    "DELETE FROM conv_graph_edge WHERE EXISTS (SELECT 1 FROM chat_sessions s"
-                    " WHERE s.owner_key=conv_graph_edge.owner_key"
-                    " AND s.session_id=conv_graph_edge.session_id AND s.updated_at<?)",
-                    (cutoff,),
-                )
-                conn.execute(
-                    "DELETE FROM conv_graph_version WHERE EXISTS (SELECT 1 FROM chat_sessions s"
-                    " WHERE s.owner_key=conv_graph_version.owner_key"
-                    " AND s.session_id=conv_graph_version.session_id AND s.updated_at<?)",
-                    (cutoff,),
-                )
-                conn.execute(
-                    "DELETE FROM conv_graph_state WHERE EXISTS (SELECT 1 FROM chat_sessions s"
-                    " WHERE s.owner_key=conv_graph_state.owner_key"
-                    " AND s.session_id=conv_graph_state.session_id AND s.updated_at<?)",
-                    (cutoff,),
-                )
                 n_sess = conn.execute(
                     "DELETE FROM chat_sessions WHERE updated_at<?", (cutoff,)
                 ).rowcount
@@ -631,8 +592,6 @@ class SqliteHistoryStore:
                     "DELETE FROM chat_guests"
                     " WHERE COALESCE(last_seen_at, created_at)<?", (cutoff,)
                 ).rowcount
-            # 兜底：清孤儿图（会话行已不存在的一切残留，含历史遗留与上述窗口的边角）
-            sweep_orphans(conn)
             return {"messages": n_msg, "runs": n_run, "sessions": n_sess, "guests": n_guest}
         finally:
             conn.close()

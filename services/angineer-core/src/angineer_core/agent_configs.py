@@ -484,120 +484,6 @@ def _estimate_tokens(messages: List[AgentMessage]) -> int:
     return sum(len(message.content or "") for message in messages) // 2
 
 
-# —— 臂 2「指针骨架」（Blackboard M0；docs/plan-blackboard-arms.md §1 变体 ii）——
-# 开关默认关是硬纪律：关态必须与现状逐字一致，否则生产里再也找不到「臂 1 = 现状」，
-# M0 失去对照物、也失去一行回退（plan-blackboard-arms §1 落地纪律）。
-POINTER_SKELETON_ENV = "ANGINEER_POINTER_SKELETON"
-_POINTER_MAX_ITEMS = 5        # 单条压缩行最多贴几条指针
-_POINTER_DOC_CHARS = 30       # 文档名截断上限（先去掉文件扩展名再截；实测 pdf 文档名 p50=26）
-_POINTER_SECTION_CHARS = 30   # 条款号/章节路径截断上限
-_POINTER_MAX_TOTAL = 280      # 整段指针字符上限（预算断言与 prefix-cache 稳定性都要它）
-_DOC_EXTENSIONS = (".pdf", ".docx", ".doc", ".xlsx", ".xls", ".pptx", ".ppt")
-
-
-def pointer_skeleton_enabled() -> bool:
-    """ANGINEER_POINTER_SKELETON 解析：true/1/yes/on 为开，未设置或其余值一律为关。
-
-    口径对齐 agent_configs._followup_question_enabled（同一套 env 布尔约定，不新造平行变量）。
-    """
-    return os.getenv(POINTER_SKELETON_ENV, "false").strip().lower() in ("true", "1", "yes", "on")
-
-
-def _clip_text(text: Any, limit: int) -> str:
-    """压平空白后截断（章节路径常带换行，压平后才能单行渲染）。"""
-    flat = " ".join(str(text or "").split())
-    return flat if len(flat) <= limit else flat[: max(1, limit - 1)] + "…"
-
-
-def _strip_doc_extension(title: str) -> str:
-    """去掉文档名尾部的文件扩展名（实测 98.3% 的 doc_title 带 `.pdf`，纯噪音占 4 字）。"""
-    for ext in _DOC_EXTENSIONS:
-        if title.lower().endswith(ext):
-            return title[: -len(ext)]
-    return title
-
-
-def _last_section_segment(section_path: Any) -> str:
-    """取章节路径的**最后一段**——最具体的那一级才是指针要指的东西。
-
-    实测分布：单段 1,694、两段 1,524、三段 144、四段 2。两段以上时头部是泛化章节名
-    （如「7 斜坡式护岸设计 / 7.1 一般规定」），从头截断保住的是泛化名、丢掉的恰是条款号。
-    """
-    parts = [part.strip() for part in str(section_path or "").split(" / ")]
-    parts = [part for part in parts if part]
-    return parts[-1] if parts else ""
-
-
-def _item_pointer_parts(item: Any) -> tuple:
-    """单条 item → `(body, cite)`；任一不可用则返回 `("", "")`。
-
-    body = `规范名/条款号`（table_search 无 doc_title 时退 `doc_id`）；cite = `K3`/`T1` 等标记。
-    字段口径（2026-10-04 实测 data/platform/chat.sqlite，n=3,364）：
-    - knowledge_search：`doc_title` 100%、`clause_id` 14.4%、`section_path` 100%；
-    - table_search：**`doc_title` 0%**（上游 `doc_title_map` 传空）、`section_path` 100%（=表名）→ 退 `doc_id`；
-    - 两类都带 `cite`（`K`/`T` 前缀）——它是与历史回答里 `[Kx]`/`[Tx]` 对齐的 join 键。
-    """
-    if not isinstance(item, dict):
-        return "", ""
-    md = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
-    cite = str(md.get("cite") or "").strip()
-    raw_doc = str(md.get("doc_title") or item.get("doc_title") or "").strip()
-    doc = _clip_text(_strip_doc_extension(raw_doc), _POINTER_DOC_CHARS) if raw_doc else ""
-    if not doc:
-        doc = _clip_text(item.get("doc_id") or "", _POINTER_DOC_CHARS)
-    locator = md.get("clause_id") or _last_section_segment(md.get("section_path")) or item.get("title") or ""
-    locator = _clip_text(locator, _POINTER_SECTION_CHARS).rstrip("。. ")
-    body = "/".join(part for part in (doc, locator) if part)
-    if not body and not cite:
-        return "", ""
-    return body, cite
-
-
-def _item_pointer(item: Any) -> str:
-    """单条 item → `K3=规范名/条款号`（无 body 时只留标记）；无可用字段返回空串。"""
-    body, cite = _item_pointer_parts(item)
-    if not body:
-        return f"{cite}=" if cite else ""
-    return f"{cite}={body}" if cite else body
-
-
-def _pointer_suffix(items: Any) -> str:
-    """把前 N 条 item 压成一段「；候选指针 …」后缀；无可用指针时返回空串。
-
-    变体 ii（候选指针行）：贴的是**检索到的**前 k 条，不是被引用的——纯函数，只吃 tool raw，
-    不依赖同 run 的 assistant 原文，故零 run 划界风险（见 plan-blackboard-arms §1 变体表）。
-
-    去重口径：**同 body 合并标记**（`T3,T4=doc-xx/5.10 陆域高程`），不是整条丢弃——
-    实测重复条目常见（同 doc + 同 section 换个标记），但标记是历史回答 `[Tx]` 的 join 键，
-    丢了标记等于断了那条引用；合并既省预算又不丢键。
-    """
-    if not isinstance(items, list):
-        return ""
-    order: List[str] = []
-    markers: Dict[str, List[str]] = {}
-    for item in items:
-        body, cite = _item_pointer_parts(item)
-        if not body and not cite:
-            continue
-        if body and body not in markers:
-            if len(order) >= _POINTER_MAX_ITEMS:
-                continue
-            order.append(body)
-            markers[body] = []
-        if body and cite and cite not in markers[body]:
-            markers[body].append(cite)
-    parts = [
-        f"{','.join(markers[body])}={body}" if markers[body] else body
-        for body in order
-    ]
-    if not parts:
-        return ""
-    blob = "、".join(parts)
-    if len(blob) > _POINTER_MAX_TOTAL:
-        blob = _clip_text(blob, _POINTER_MAX_TOTAL)
-    return f"；候选指针 {blob}"
-
-
 def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
     """把工具 raw 结果压缩为一行要点（仅用于预算压缩后的摘要）。"""
     if not isinstance(raw, dict):
@@ -608,13 +494,7 @@ def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
         return f"SOP {raw.get('sop_id', '')} 执行 {len(sop_trace)} 步，成功 {success} 步"
     if "items" in raw:
         items = raw.get("items") or []
-        # ⚠️ 前缀与 base 逐字不变，指针只在其后追加——test_budget_gates 的既有断言依赖这一点
-        base = f"检索到 {raw.get('total', len(items))} 条候选"
-        if pointer_skeleton_enabled():
-            suffix = _pointer_suffix(items)
-            if suffix:
-                return base + suffix
-        return base
+        return f"检索到 {raw.get('total', len(items))} 条候选"
     if "entities" in raw:
         entities = raw.get("entities") or []
         return f"图谱检索到 {raw.get('total', len(entities))} 个实体"
