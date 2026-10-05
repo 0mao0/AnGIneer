@@ -1,0 +1,61 @@
+<svg viewBox="0 0 680 470" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+text{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+.box{fill:#f8fafc;stroke:#94a3b8;stroke-width:1}
+.box-ok{fill:#f0fdf4;stroke:#22c55e;stroke-width:1.2}
+.box-warn{fill:#fffbeb;stroke:#f59e0b;stroke-width:1.2}
+.box-danger{fill:#fff1f2;stroke:#f43f5e;stroke-width:1.2}
+.t{fill:#1f2937}
+.t-dim{fill:#64748b}
+.t-ok{fill:#059669}
+.t-danger{fill:#dc2626}
+</style></defs>
+<text class="t" x="18" y="24" font-size="15">evals-core 已有的 vs 我重复造的 vs 真正新增的</text>
+
+<rect class="box" x="18" y="40" width="206" height="252" rx="8"/>
+<text class="t" x="121" y="64" text-anchor="middle" font-size="13">① 已有（我该复用的）</text>
+<text class="t" x="32" y="90" font-size="12">测试框架</text>
+<text class="t-dim" x="32" y="108" font-size="12">24 个测试文件</text>
+<text class="t" x="32" y="132" font-size="12">口径指纹</text>
+<text class="t-dim" x="32" y="150" font-size="12">caliber_fingerprint（更完整）</text>
+<text class="t" x="32" y="174" font-size="12">离线驱动引擎</text>
+<text class="t-dim" x="32" y="192" font-size="12">case_trace + 引擎端口装配</text>
+<text class="t" x="32" y="216" font-size="12">题库形态</text>
+<text class="t-dim" x="32" y="234" font-size="12">dataset 的 schema/loader/manager</text>
+<text class="t" x="32" y="258" font-size="12">公开数据集</text>
+<text class="t-dim" x="32" y="276" font-size="12">OmniDocBench / RAGBench 已在用</text>
+
+<rect class="box-danger" x="237" y="40" width="206" height="252" rx="8"/>
+<text class="t-danger" x="340" y="64" text-anchor="middle" font-size="13">② 我重复造的（该并流或删）</text>
+<text class="t" x="251" y="90" font-size="12">cases.py 写死 21 题</text>
+<text class="t-dim" x="251" y="108" font-size="12">没走 dataset 的 schema/loader</text>
+<text class="t" x="251" y="132" font-size="12">runner.py</text>
+<text class="t-dim" x="251" y="150" font-size="12">重造读库切片与组装</text>
+<text class="t-dim" x="251" y="168" font-size="12">（case_trace 已有同类）</text>
+<text class="t" x="251" y="192" font-size="12">题集 sha256 冻结</text>
+<text class="t-dim" x="251" y="210" font-size="12">没接 caliber_fingerprint</text>
+<text class="t" x="251" y="234" font-size="12">graph.py</text>
+<text class="t-dim" x="251" y="252" font-size="12">与既有 join 逻辑并行一套</text>
+<text class="t-danger" x="251" y="276" font-size="12">占 548 行里约一半</text>
+
+<rect class="box-ok" x="456" y="40" width="206" height="252" rx="8"/>
+<text class="t" x="559" y="64" text-anchor="middle" font-size="13">③ 真正新增（值得留）</text>
+<text class="t" x="470" y="90" font-size="12">三臂干预对比</text>
+<text class="t-dim" x="470" y="108" font-size="12">同一段历史 × 三种装配</text>
+<text class="t-dim" x="470" y="126" font-size="12">nightly 没有这个能力</text>
+<text class="t" x="470" y="150" font-size="12">分段读数</text>
+<text class="t-dim" x="470" y="168" font-size="12">语义层 / tool 行 / 子图段 est</text>
+<text class="t" x="470" y="192" font-size="12">21 题 gold set</text>
+<text class="t-dim" x="470" y="210" font-size="12">跨轮指涉 + 中文水运 + 同库</text>
+<text class="t-dim" x="470" y="228" font-size="12">公开集覆盖不到</text>
+<text class="t-ok" x="470" y="256" font-size="12">约 200 行是真新</text>
+<text class="t-dim" x="470" y="276" font-size="12">其余应并流</text>
+
+<rect class="box" x="18" y="304" width="644" height="150" rx="8"/>
+<text class="t" x="340" y="328" text-anchor="middle" font-size="13">为什么公开数据集替代不了这 21 题</text>
+<text class="t-dim" x="34" y="352" font-size="12">RAGBench / OmniDocBench / OfficeQA 都是单轮：问答或解析，没有「跨轮指涉」这一维</text>
+<text class="t-dim" x="34" y="374" font-size="12">本话要测的是「刚才第二条」「那抗倾稳定呢」这类追问 —— 必须有同一会话的历史与同一批检索证据</text>
+<text class="t-dim" x="34" y="396" font-size="12">而且要在中文水运语料 + 真实检索链上测，公开集没有这个组合</text>
+<text class="t" x="34" y="424" font-size="12">动作：① 21 题改成 dataset 的 gold set 入库；② 题集指纹接 caliber_fingerprint；</text>
+<text class="t" x="34" y="444" font-size="12">③ 组装与读数并进 case_trace；做完再删平行脚手架</text>
+</svg>
