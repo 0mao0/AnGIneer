@@ -5,8 +5,13 @@
       <div class="page-header-left">
         <LibrarySelect class="library-select-inline" mode="title" @review="onEntityReview" />
         <a-tooltip title="打开 AI对话（原解析工作台）">
-          <a-button class="aichat-entry-btn" @click="knowledgeView = 'aichat'">
-            AI对话
+          <a-button class="aichat-entry-btn" aria-label="AI对话" @click="knowledgeView = 'aichat'">
+            <svg class="aichat-bubble" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path d="M12 3C6.9 3 3 6.4 3 10.6c0 2.3 1.3 4.4 3.4 5.7-.1.9-.5 2.2-1.3 3.3 1.8-.2 3.4-1 4.5-1.8.8.2 1.6.3 2.4.3 5.1 0 9-3.4 9-7.5S17.1 3 12 3Z" fill="#eef1ff"/>
+              <circle cx="7.8" cy="10.6" r="1.15" fill="#4c43a8"/>
+              <circle cx="12" cy="10.6" r="1.15" fill="#4c43a8"/>
+              <circle cx="16.2" cy="10.6" r="1.15" fill="#4c43a8"/>
+            </svg>
           </a-button>
         </a-tooltip>
       </div>
@@ -18,16 +23,16 @@
         placeholder="按文件名搜索"
         allow-clear
         class="stats-filter-item"
-        style="width: 240px"
+        style="width: 202px"
       >
-        <template #prefix><search-outlined /></template>
+        <template #prefix><search-outlined style="color: rgba(255, 255, 255, 0.25)" /></template>
       </a-input>
       <a-select
         v-model:value="statusFilter"
         placeholder="全部状态"
         allow-clear
         class="stats-filter-item"
-        style="width: 140px"
+        style="width: 118px"
       >
         <!-- 计数右对齐；下拉面板挂在 body，scoped 样式够不到 → 计数样式走内联 -->
         <a-select-option v-for="opt in statusFilterOptions" :key="opt.value" :value="opt.value">
@@ -42,7 +47,7 @@
         placeholder="全部格式"
         allow-clear
         class="stats-filter-item"
-        style="width: 120px"
+        style="width: 101px"
       >
         <a-select-option v-for="opt in formatFilterOptions" :key="opt.value" :value="opt.value">
           {{ opt.label }}
@@ -150,8 +155,6 @@
         </template>
         <template v-if="column.key === 'action'">
           <span class="action-btns">
-            <a-button type="link" size="small" @click="viewParseSteps(record)">过程</a-button>
-            <a-button type="link" size="small" @click="viewDetail(record)">结果</a-button>
             <template v-if="record.status !== 'deleted'">
               <a-button
                 v-if="RUNNING_STATUSES.has(record.status)"
@@ -160,8 +163,11 @@
                 danger
                 @click="stopTask(record)"
               >取消</a-button>
-              <a-button v-else type="link" size="small" @click="restartTask(record)">解析</a-button>
+              <a-popconfirm v-else title="确定开始解析该文件？" @confirm="restartTask(record)">
+                <a-button type="link" size="small" class="parse-start-btn">解析</a-button>
+              </a-popconfirm>
             </template>
+            <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
             <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
             <a-button type="link" size="small" :loading="downloadingId === record.id" @click="downloadRecordFiles(record)">下载</a-button>
           </span>
@@ -172,27 +178,11 @@
     </div>
 
     <a-drawer
-      v-model:open="stepsModalOpen"
-      title="解析阶段"
-      placement="right"
-      :width="640"
-      :footer="null"
-    >
-      <DocStageStepper
-        v-if="currentStepDocId"
-        :stages="currentStages"
-        @retry="onRetryStage"
-        @launch="onLaunchStage"
-        @cancel="onCancelRunning"
-      />
-      <a-empty v-else description="暂无解析阶段记录" />
-    </a-drawer>
-
-    <a-drawer
       v-model:open="viewerOpen"
       placement="right"
       :width="'85vw'"
       :footer="null"
+      :body-style="{ padding: '12px 16px' }"
       @close="onViewerClose"
     >
       <template #title>
@@ -205,18 +195,24 @@
             </a-button>
           </a-popconfirm>
         </template>
-        <a-button
-          v-else
-          size="small"
-          type="primary"
-          @click="onViewerParse"
-          style="margin-left: 12px;"
-        >
-          {{ viewerParseButtonText }}
-        </a-button>
       </template>
+      <!-- 头部下方常驻：九阶段=「过程」弹框同款 DocStageStepper；耗时显示在面板头。
+           forceRender：面板 DOM 在抽屉打开帧就建好，点击展开只剩 CSS 动画，
+           不等 PDF 大组件挂载（原「点击很慢」＝主线程被 PDF 渲染占着） -->
+      <a-collapse v-if="viewerNode" v-model:activeKey="viewerStageActive" class="viewer-stage-collapse" ghost>
+        <a-collapse-panel key="stages" force-render>
+          <template #header>
+            <span class="viewer-stage-header">
+              解析过程
+              <span class="viewer-stage-total">（总耗时 {{ viewerStageTotalText }}）</span>
+            </span>
+          </template>
+          <DocStageStepper :stages="viewerStages" @retry="onViewerRetryStage" @launch="onViewerLaunchStage" @cancel="onViewerCancelRunning" />
+        </a-collapse-panel>
+      </a-collapse>
+      <!-- PDF 大组件延后两帧挂载：让折叠面板先完成首帧渲染，点击不再卡 -->
       <DocViewerPane
-        v-if="viewerNode"
+        v-if="viewerNode && viewerPaneReady"
         ref="docParsedWorkspaceRef"
         :node="viewerNode"
         :content="viewerContent"
@@ -886,10 +882,6 @@ const viewerContent = ref('')
 const viewerStructuredItems = ref([])
 const viewerGraphData = ref<{ nodes: any[]; edges: any[] } | null>(null)
 const viewerRenderPdfPath = ref('')
-const stepsModalOpen = ref(false)
-const currentStepDocId = ref('')
-const currentStepTaskId = ref('')
-const currentStages = ref<any[]>([])
 const errorDetailOpen = ref(false)
 const errorDetailTitle = ref('')
 const errorDetailText = ref('')
@@ -899,6 +891,148 @@ const adminDeleteRecordId = ref(0)
 const adminDeleteFileName = ref('')
 const adminDeleteInput = ref('')
 const batchParsing = ref(false)
+
+/* ── 文档抽屉「解析过程」折叠面板：与「过程」弹框同款九阶段，数据独立 ── */
+// PDF 大组件延后两帧挂载，先让折叠面板首帧渲染完成
+const viewerPaneReady = ref(false)
+let viewerPaneRaf = 0
+function mountViewerPaneNextFrames() {
+  cancelAnimationFrame(viewerPaneRaf)
+  viewerPaneReady.value = false
+  viewerPaneRaf = requestAnimationFrame(() => {
+    viewerPaneRaf = requestAnimationFrame(() => { viewerPaneReady.value = true })
+  })
+}
+const viewerStageActive = ref<string[]>([])
+const viewerStages = ref<any[]>([])
+const viewerStageTick = ref(Date.now())
+let viewerStageTimer: number | null = null
+
+async function loadViewerStages() {
+  const docId = viewerNode.value?.key
+  if (!docId) return
+  try {
+    const res = await knowledgeApi.getDocStages(docId) as any
+    viewerStages.value = res?.stages || []
+  } catch {
+    viewerStages.value = []
+  }
+}
+
+function viewerStageRunning(): boolean {
+  return viewerStages.value.some((s: any) => s.status === 'running' || s.status === 'queued')
+}
+
+function startViewerStagePolling() {
+  if (viewerStageTimer !== null) return
+  viewerStageTimer = window.setInterval(async () => {
+    await loadViewerStages()
+    viewerStageTick.value = Date.now()
+  }, 1000)
+}
+
+function stopViewerStagePolling() {
+  if (viewerStageTimer !== null) {
+    window.clearInterval(viewerStageTimer)
+    viewerStageTimer = null
+  }
+}
+
+function viewerFormatHms(ms: number): string {
+  const safeMs = Number.isFinite(ms) ? Math.max(0, ms) : 0
+  const sec = safeMs / 1000
+  if (sec < 60) return `${(Math.round(sec * 10) / 10).toFixed(1)}秒`
+  const total = Math.round(sec)
+  const h = Math.floor(total / 3600)
+  const m = Math.floor((total % 3600) / 60)
+  const s = total % 60
+  if (h > 0) return `${h}小时${m}分${s}秒`
+  return `${m}分${s}秒`
+}
+
+// 后端时间戳无时区（容器 TZ=UTC），补 Z 按 UTC 解析，防本地时区多算 8 小时
+function viewerParseBackendTime(value?: string): number {
+  if (!value) return 0
+  const normalized = /(Z|[+-]\d{2}:?\d{2})$/.test(value) ? value : `${value}Z`
+  const ms = new Date(normalized).getTime()
+  return Number.isFinite(ms) ? ms : 0
+}
+
+const viewerStageTotalText = computed(() => {
+  let total = 0
+  let anyStarted = false
+  for (const s of viewerStages.value as any[]) {
+    if (s.status === 'running' && s.started_at) {
+      anyStarted = true
+      total += viewerStageTick.value - viewerParseBackendTime(s.started_at)
+      continue
+    }
+    if ((s.status === 'completed' || s.status === 'failed') && s.started_at && s.finished_at) {
+      anyStarted = true
+      total += Math.max(0, viewerParseBackendTime(s.finished_at) - viewerParseBackendTime(s.started_at))
+    }
+  }
+  return anyStarted && total > 0 ? viewerFormatHms(total) : '—'
+})
+
+watch(viewerOpen, async (open) => {
+  if (open) {
+    viewerStageActive.value = []
+    await loadViewerStages()
+    viewerStageTick.value = Date.now()
+    if (viewerStageRunning()) startViewerStagePolling()
+    mountViewerPaneNextFrames()
+  } else {
+    stopViewerStagePolling()
+    viewerStages.value = []
+    cancelAnimationFrame(viewerPaneRaf)
+    viewerPaneReady.value = false
+  }
+})
+
+// 面板从收起转展开且任务仍在跑时，补上每秒轮询（收起期间不取数）
+watch(viewerStageActive, (keys) => {
+  if (keys.includes('stages') && viewerStageRunning()) startViewerStagePolling()
+})
+
+async function onViewerRetryStage(stageKey: string) {
+  const docId = viewerNode.value?.key
+  if (!docId) return
+  try {
+    await knowledgeApi.retryDocStage(docId, stageKey)
+    startViewerStagePolling()
+    await loadViewerStages()
+  } catch (e: any) {
+    message.error(`重试失败: ${e?.response?.data?.detail || e?.message}`)
+  }
+}
+
+async function onViewerLaunchStage(stageKey: string) {
+  const docId = viewerNode.value?.key
+  if (!docId) return
+  try {
+    await knowledgeApi.retryDocStage(docId, stageKey)
+    startViewerStagePolling()
+    await loadViewerStages()
+  } catch (e: any) {
+    message.error(`启动失败: ${e?.response?.data?.detail || e?.message}`)
+  }
+}
+
+async function onViewerCancelRunning() {
+  const taskId = viewerNode.value?.parseTaskId
+  if (!taskId) {
+    message.warning('没有正在运行的任务')
+    return
+  }
+  try {
+    await knowledgeApi.cancelParseTask(taskId)
+    message.success('已取消当前任务')
+    setTimeout(() => void loadViewerStages(), 1000)
+  } catch (e: any) {
+    message.error(`取消失败: ${e?.response?.data?.detail || e?.message}`)
+  }
+}
 
 // 列表轮询：存在进行中记录时持续静默刷新，全部终态后停止
 let recordsPollTimer: number | null = null
@@ -930,13 +1064,6 @@ function syncRecordsPolling() {
   }
 }
 
-const viewerParseButtonText = computed(() => {
-  const status = viewerNode.value?.status
-  if (status === 'completed' || status === 'failed' || status === 'cancelled' || status === 'partial') return '重新解析'
-  if (status === 'processing') return '解析中...'
-  return '开始解析'
-})
-
 const columns = ref<DataTableColumn[]>([
   { title: '上传人员', dataIndex: 'uploaded_by', key: 'uploaded_by', width: 96 },
   { title: '文件名称', dataIndex: 'file_name', key: 'file_name', ellipsis: true, flex: true },
@@ -948,7 +1075,8 @@ const columns = ref<DataTableColumn[]>([
   { title: '页数', dataIndex: 'page_count', key: 'page_count', width: 60, sorter: (a: ParseRecordItem, b: ParseRecordItem) => (a.page_count ?? 0) - (b.page_count ?? 0) },
   { title: '解析状态', key: 'status', width: 80 },
   { title: '上传时间', dataIndex: 'created_at', key: 'created_at', width: 140 },
-  { title: '操作', key: 'action', width: 260, fixed: 'right' },
+  // 「过程」按钮已删，操作列收窄；四颗 13px 链接按钮约 160px
+  { title: '操作', key: 'action', width: 168, fixed: 'right' },
 ])
 
 // 表格容器宽度：内容总宽超出容器时横向滚动（操作列 fixed:right 保持可见），否则自适应铺满
@@ -1074,47 +1202,16 @@ async function restartTask(record: ParseRecordItem) {
   try {
     await knowledgeApi.retryParseTask(record.doc_id)
     message.success('已开始解析')
-    // 清空阶段抽屉的旧状态（含子阶段/文件核查），避免展示上一次解析的残留
-    currentStages.value = []
     await loadRecords()
   } catch (e: any) {
     message.error('解析失败: ' + (e.message || e))
   }
 }
 
-async function viewParseSteps(record: ParseRecordItem) {
-  stepsModalOpen.value = true
-  currentStepDocId.value = record.doc_id
-  currentStepTaskId.value = record.task_id || ''
-  await loadDocStages(record.doc_id)
-}
-
-// 抽屉打开期间持续轮询阶段状态（1s），关闭才停止
-let stagesPollTimer: number | null = null
-
-function startStagesPolling() {
-  if (stagesPollTimer !== null) return
-  stagesPollTimer = window.setInterval(async () => {
-    if (!currentStepDocId.value) return
-    await loadDocStages(currentStepDocId.value)
-  }, 1000)
-}
-
-function stopStagesPolling() {
-  if (stagesPollTimer !== null) {
-    window.clearInterval(stagesPollTimer)
-    stagesPollTimer = null
-  }
-}
-
-watch(stepsModalOpen, (open) => {
-  if (open) startStagesPolling()
-  else stopStagesPolling()
-})
-
 onBeforeUnmount(() => {
-  stopStagesPolling()
+  cancelAnimationFrame(viewerPaneRaf)
   stopRecordsPolling()
+  stopViewerStagePolling()
 })
 
 /** 被 keep-alive 缓存后 onMounted 只跑一次：每次回到本视图静默补刷列表，
@@ -1128,60 +1225,15 @@ onActivated(() => {
   }
   loadRecords(true)
   void refreshDeletedCount()
-  // 阶段抽屉可能在离开时还开着，缓存后 watch(stepsModalOpen) 不会再触发，这里补启
-  if (stepsModalOpen.value) startStagesPolling()
 })
 
-/** deactivate 不触发 onBeforeUnmount：两个轮询表必须在这里收口，否则在后台一直跑。 */
+/** deactivate 不触发 onBeforeUnmount：轮询表必须在这里收口，否则在后台一直跑。 */
 onDeactivated(() => {
-  stopStagesPolling()
+  cancelAnimationFrame(viewerPaneRaf)
+  viewerPaneReady.value = false
   stopRecordsPolling()
+  stopViewerStagePolling()
 })
-
-async function loadDocStages(docId: string) {
-  try {
-    const res = await knowledgeApi.getDocStages(docId) as any
-    currentStages.value = (res as any).stages || []
-  } catch {
-    currentStages.value = []
-  }
-}
-
-async function onRetryStage(stageKey: string) {
-  if (!currentStepDocId.value) return
-  try {
-    await knowledgeApi.retryDocStage(currentStepDocId.value, stageKey)
-    startStagesPolling()
-    await loadDocStages(currentStepDocId.value)
-  } catch (e: any) {
-    message.error(`重试失败: ${e?.response?.data?.detail || e?.message}`)
-  }
-}
-
-async function onLaunchStage(stageKey: string) {
-  if (!currentStepDocId.value) return
-  try {
-    await knowledgeApi.retryDocStage(currentStepDocId.value, stageKey)
-    startStagesPolling()
-    await loadDocStages(currentStepDocId.value)
-  } catch (e: any) {
-    message.error(`启动失败: ${e?.response?.data?.detail || e?.message}`)
-  }
-}
-
-async function onCancelRunning() {
-  if (!currentStepTaskId.value) {
-    message.warning('没有正在运行的任务')
-    return
-  }
-  try {
-    await knowledgeApi.cancelParseTask(currentStepTaskId.value)
-    message.success('已取消当前任务')
-    setTimeout(() => loadDocStages(currentStepDocId.value || ''), 1000)
-  } catch (e: any) {
-    message.error(`取消失败: ${e?.response?.data?.detail || e?.message}`)
-  }
-}
 
 function viewDetail(record: ParseRecordItem) {
   viewerTitle.value = record.file_name || record.doc_id
@@ -1218,6 +1270,8 @@ async function handleViewSource(payload: { docId: string; sectionPath: string; l
   } as unknown as KnowledgeTreeNode
   viewerOpen.value = true
   await loadViewerData(docId, libraryId)
+  // PDF 大组件延后两帧才挂，定位到具体段落也要等它就绪后再设激活项
+  await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))
   await nextTick()
   const item = (viewerStructuredItems.value as any[]).find((s: any) => {
     const path = s?.meta?.section_path || s?.title || ''
@@ -1229,6 +1283,9 @@ async function handleViewSource(payload: { docId: string; sectionPath: string; l
 }
 
 function onViewerClose() {
+  stopViewerStagePolling()
+  cancelAnimationFrame(viewerPaneRaf)
+  viewerPaneReady.value = false
   viewerNode.value = null
   viewerContent.value = ''
   viewerStructuredItems.value = []
@@ -1264,19 +1321,6 @@ async function loadViewerData(docId: string, libraryId?: string) {
     viewerGraphData.value = graph?.data || null
   } catch {
     viewerGraphData.value = null
-  }
-}
-
-async function onViewerParse() {
-  if (!viewerNode.value) return
-  try {
-    await knowledgeApi.retryParseTask(viewerNode.value.key)
-    viewerNode.value.status = 'processing'
-    viewerNode.value.parseError = ''
-    viewerNode.value.parseStage = 'queued'
-    message.success('已开始解析')
-  } catch (e: any) {
-    message.error('解析失败: ' + (e.message || e))
   }
 }
 
@@ -1544,6 +1588,32 @@ onMounted(() => {
   width: 100%;
   margin: 0 auto;
 }
+.parse-start-btn, .action-btns :deep(.ant-btn-link.parse-start-btn) {
+  color: #52c41a;
+}
+.parse-start-btn:hover, .action-btns :deep(.ant-btn-link.parse-start-btn:hover) {
+  color: #73d13d;
+}
+.viewer-stage-collapse {
+  margin: 0 0 4px;
+}
+.viewer-stage-collapse :deep(.ant-collapse-header) {
+  padding-inline: 4px;
+}
+.viewer-stage-header {
+  font-weight: 600;
+}
+.viewer-stage-total {
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+.viewer-stage-collapse :deep(.ant-collapse-content-box) {
+  max-height: none;
+  overflow: visible;
+}
+.viewer-stage-collapse :deep(.stage-total) {
+  display: none;
+}
 .page-header {
   margin-bottom: 16px;
   display: flex;
@@ -1555,30 +1625,35 @@ onMounted(() => {
   align-items: center;
   gap: 8px;
 }
-/* 霓虹玻璃胶囊：中紫玻璃底托亮字 + 常态微光，hover 提亮上浮 */
 .aichat-entry-btn {
-  border: 1px solid rgba(165, 180, 252, 0.5);
-  border-radius: 999px;
+  border: none;
+  border-radius: 10px;
   font-weight: 800;
-  font-size: 14.5px;
-  letter-spacing: 0.02em;
-  padding-inline: 20px;
-  background: linear-gradient(160deg, rgba(109, 95, 246, 0.5), rgba(72, 61, 180, 0.55) 55%, rgba(35, 120, 205, 0.45));
-  box-shadow: 0 0 18px rgba(129, 140, 248, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  margin-left: -18px;
+  width: 36px;
+  padding-inline: 0;
+  height: 30px;
+  background: transparent;
+  box-shadow: none;
   transition: border-color 0.2s, box-shadow 0.25s, transform 0.2s, background 0.25s;
 }
-/* 圆润科技体 + 高亮渐变字：渐变压到最内层文字节点（antd 默认包 span，渐变换层会被切） */
+.aichat-bubble {
+  display: inline-block;
+  vertical-align: middle;
+}
 .aichat-entry-btn :deep(span) {
-  font-family: "Yuanti SC", "YouYuan", "幼圆", "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", sans-serif;
   background: linear-gradient(120deg, #eef1ff, #cdd8ff 52%, #b6f0ff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .aichat-entry-btn:hover {
-  border-color: rgba(190, 200, 255, 0.9);
-  background: linear-gradient(160deg, rgba(124, 108, 255, 0.62), rgba(86, 73, 205, 0.62) 55%, rgba(45, 135, 225, 0.55));
-  box-shadow: 0 0 26px rgba(139, 148, 255, 0.5), 0 4px 14px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  background: rgba(109, 95, 246, 0.22);
+  box-shadow: 0 0 14px rgba(129, 140, 248, 0.35);
   transform: translateY(-1px);
 }
 .aichat-entry-btn:hover :deep(span) {
@@ -1610,36 +1685,30 @@ onMounted(() => {
 .stats-filter-item {
   min-width: 0;
 }
-/* 批量移动：壳按钮不可点（pointer-events:none），点击透到叠在其上的透明树选择器；
-   面板锚定在 selector rect = 按钮位置，视觉上就是"点按钮弹树面板"。
-   样式走 :deep(.ant-select)——class="batch-move-select" 并未落到 a-tree-select 根元素（实测 DOM 无此类），
-   按类名写会整段落空：选择器背景 #1F1F1F 盖在按钮上（2026-09-28 用户截图实锤） */
 .stats-filter-batch-move {
   position: relative;
   display: inline-flex;
-  :deep(.ant-select) {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    .ant-select-selector {
-      height: 100% !important;
-      background: transparent;
-      border: none;
-    }
-  }
+}
+.stats-filter-batch-move :deep(.ant-select) {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.stats-filter-batch-move :deep(.ant-select) .ant-select-selector {
+  height: 100%;
+  background: transparent;
+  border: none;
 }
 .batch-move-shell {
   pointer-events: none;
-  /* 用户定版（2026-09-28）：批量移动按钮底色改绿（解析紫/删除红/移动绿，语义分色） */
-  &.ant-btn-primary {
-    background: #52c41a;
-    border-color: #52c41a;
-    &:hover,
-    &:focus {
-      background: #73d13d;
-      border-color: #73d13d;
-    }
-  }
+}
+.batch-move-shell.ant-btn-primary {
+  background: #52c41a;
+  border-color: #52c41a;
+}
+.batch-move-shell.ant-btn-primary:hover, .batch-move-shell.ant-btn-primary:focus {
+  background: #73d13d;
+  border-color: #73d13d;
 }
 .folder-delete-warning {
   color: var(--error-color, #ff4d4f);
@@ -1668,9 +1737,7 @@ onMounted(() => {
   background: var(--bg-secondary, #fafafa);
   border-color: var(--border-color, #d9d9d9);
 }
-.stats-filter-upload,
-.stats-filter-batch-delete,
-.stats-filter-batch-parse {
+.stats-filter-upload,.stats-filter-batch-delete, .stats-filter-batch-parse {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1682,8 +1749,8 @@ onMounted(() => {
 .stats-filter-upload {
   margin-left: auto;
 }
-:deep(.ant-table) {
-  th, td { text-align: center !important; }
+:deep(.ant-table) th, :deep(.ant-table) td {
+  text-align: center;
 }
 :deep(.ant-table-thead > tr > th) {
   position: relative;
@@ -1693,34 +1760,31 @@ onMounted(() => {
   align-items: baseline;
   gap: 2px;
   white-space: nowrap;
-  // 五个文字按钮统一字号，高度贴合文字，保证视觉对齐
-  :deep(.ant-btn) {
-    padding-inline: 4px;
-    margin-inline: 0;
-    height: auto;
-    font-size: 13px;
-    line-height: 1.5;
-  }
+}
+.action-btns :deep(.ant-btn) {
+  padding-inline: 4px;
+  margin-inline: 0;
+  height: auto;
+  font-size: 13px;
+  line-height: 1.5;
 }
 .error-detail-trigger {
   padding: 0 4px;
   height: auto;
 }
-.error-detail-body {
-  pre {
-    white-space: pre-wrap;
-    word-break: break-all;
-    font-size: 12px;
-    line-height: 1.5;
-    max-height: 60vh;
-    overflow-y: auto;
-    margin-bottom: 8px;
-    padding: 8px 10px;
-    background: var(--bg-secondary, #fafafa);
-    border: 1px solid var(--border-color, #f0f0f0);
-    color: var(--text-primary, rgba(0, 0, 0, 0.88));
-    border-radius: 4px;
-  }
+.error-detail-body pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-size: 12px;
+  line-height: 1.5;
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  background: var(--bg-secondary, #fafafa);
+  border: 1px solid var(--border-color, #f0f0f0);
+  color: var(--text-primary, rgba(0, 0, 0, 0.88));
+  border-radius: 4px;
 }
 .admin-delete-warning {
   color: var(--error-color, #ff4d4f);
@@ -1743,17 +1807,15 @@ onMounted(() => {
   color: var(--text-secondary, rgba(0, 0, 0, 0.45));
   background: var(--bg-secondary, #fafafa);
   border-color: var(--border-color, #d9d9d9);
-  &:hover {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-    background: var(--bg-secondary, #fafafa);
-  }
 }
-.library-select-inline {
-  :deep(.ant-select .ant-select-selector) {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-  }
+.admin-delete-fill-btn:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  background: var(--bg-secondary, #fafafa);
+}
+.library-select-inline :deep(.ant-select .ant-select-selector) {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 </style>
 
