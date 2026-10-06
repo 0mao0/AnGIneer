@@ -1,7 +1,25 @@
 <template>
   <div class="multi-lib-manager" :class="appClass">
-    <!-- 表头克隆「详情」筛选条：左=筛选+刷新（纯图标），右=新建与迁移记录 -->
-    <div class="ml-header">
+    <!-- 第一行：与「详情」页 page-header 同款——左=名字，右=刷新（纯图标）/新建/迁移记录 -->
+    <div class="ml-page-header">
+      <div class="ml-page-header-left"><h2>知识库</h2></div>
+      <div class="ml-page-header-right">
+        <a-button :loading="loading" title="刷新" @click="load">
+          <template #icon><reload-outlined /></template>
+        </a-button>
+        <a-button type="primary" @click="openCreate">
+          <template #icon><plus-outlined /></template>
+          新建知识库
+        </a-button>
+        <a-button @click="showHistory = true">
+          <template #icon><history-outlined /></template>
+          迁移记录
+        </a-button>
+      </div>
+    </div>
+
+    <!-- 第二行：与「详情」页 stats-filter-bar 同款筛选条 -->
+    <div class="ml-filter-bar">
       <a-input
         v-model:value="libFilter"
         placeholder="按库名搜索"
@@ -22,17 +40,6 @@
           {{ opt.label }}
         </a-select-option>
       </a-select>
-      <a-button :loading="loading" title="刷新" @click="load">
-        <template #icon><reload-outlined /></template>
-      </a-button>
-      <a-button type="primary" style="margin-left: auto" @click="openCreate">
-        <template #icon><plus-outlined /></template>
-        新建知识库
-      </a-button>
-      <a-button @click="showHistory = true">
-        <template #icon><history-outlined /></template>
-        迁移记录
-      </a-button>
     </div>
 
     <!-- 单表全库一览（spec v2.3：组是列不是分段）；表体克隆「详情」tab 的 DataTable -->
@@ -534,8 +541,29 @@ onActivated(load)
   overflow: auto;
   padding: 16px 24px;
 }
+/* 第一行：克隆「详情」页 .page-header（左右两段、下边距 16） */
+.ml-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.ml-page-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ml-page-header-left h2 {
+  margin: 0;
+  color: var(--text-primary);
+}
+.ml-page-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 /* 第二行筛选栏：与「详情」tab 的 .stats-filter-bar 同款（flex-wrap、gap 8、下边距 12） */
-.ml-header {
+.ml-filter-bar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
