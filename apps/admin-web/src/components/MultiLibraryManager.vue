@@ -1,6 +1,6 @@
 <template>
   <div class="multi-lib-manager" :class="appClass">
-    <!-- 第一行：与「详情」页 page-header 同款——左=名字，右=刷新（纯图标）/新建/迁移记录 -->
+    <!-- 第一行：与「详情」页 page-header 同款——左=名字+刷新（纯图标），右=迁移记录 -->
     <div class="ml-page-header">
       <div class="ml-page-header-left">
         <h2>知识库</h2>
@@ -9,10 +9,6 @@
         </a-button>
       </div>
       <div class="ml-page-header-right">
-        <a-button type="primary" @click="openCreate">
-          <template #icon><plus-outlined /></template>
-          新建知识库
-        </a-button>
         <a-button @click="showHistory = true">
           <template #icon><history-outlined /></template>
           迁移记录
@@ -42,6 +38,11 @@
           {{ opt.label }}
         </a-select-option>
       </a-select>
+      <!-- 新建右对齐，形态克隆「详情」筛选条右端的上传按钮 -->
+      <a-button type="primary" style="margin-left: auto" @click="openCreate">
+        <template #icon><plus-outlined /></template>
+        新建
+      </a-button>
     </div>
 
     <!-- 单表全库一览（spec v2.3：组是列不是分段）；表体克隆「详情」tab 的 DataTable -->
