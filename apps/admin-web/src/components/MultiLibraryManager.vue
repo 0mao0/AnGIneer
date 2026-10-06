@@ -99,6 +99,14 @@
               >
                 合并
               </a-button>
+              <a-button
+                type="link"
+                size="small"
+                title="实体审核：查看该库图谱实体的待审队列"
+                @click="openReviewFor(record)"
+              >
+                审核
+              </a-button>
               <a-button type="link" size="small" @click="openEdit(record, group.group_name)">编辑</a-button>
               <a-button
                 type="link"
@@ -167,6 +175,14 @@
     <MergeWizardModal v-model:open="showMerge" :library="migrationLib" @submitted="onMigrationSubmitted" />
     <MigrationHistoryModal v-model:open="showHistory" @open-task="(id: string) => (activeTaskId = id)" />
     <MigrationTaskDrawer :open="!!activeTaskId" :task-id="activeTaskId" @close="activeTaskId = ''" />
+
+    <!-- 实体审核（原 LibrarySelect 下拉图标入口整体迁入，spec v2.3） -->
+    <EntityReviewDrawer
+      v-model:open="reviewOpen"
+      :library-id="reviewLibraryId"
+      @changed="loadMigrationState"
+      @view-source="onReviewViewSource"
+    />
   </div>
 </template>
 
@@ -186,6 +202,7 @@ import SplitWizardModal from './kb-migration/SplitWizardModal.vue'
 import MergeWizardModal from './kb-migration/MergeWizardModal.vue'
 import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
 import MigrationTaskDrawer from './kb-migration/MigrationTaskDrawer.vue'
+import EntityReviewDrawer from './EntityReviewDrawer.vue'
 
 const { appClass } = useTheme()
 const libraryStore = useLibraryStore()
@@ -223,7 +240,7 @@ const columns = [
   { title: '磁盘', key: 'disk', width: 80 },
   { title: '更新', key: 'updated', width: 120 },
   { title: '状态', key: 'status', width: 130 },
-  { title: '操作', key: 'actions', width: 230 },
+  { title: '操作', key: 'actions', width: 290 },
 ]
 
 // ── 体量看板（§5.10：只提示不自动动作；失败整列「—」，缓存由服务端 5 分钟承担）──
@@ -332,6 +349,22 @@ function hasPeerInGroup(group: LibraryGroupItem, record: LibraryGroupItem['libra
 function enterLibrary(record: LibraryGroupItem['libraries'][number]) {
   libraryStore.setLibrary(record.id)
   if (knowledgeView) knowledgeView.value = 'maintenance'
+}
+
+// ── 实体审核（从 LibrarySelect 下拉迁入）──
+const reviewOpen = ref(false)
+const reviewLibraryId = ref('default')
+
+function openReviewFor(record: LibraryGroupItem['libraries'][number]) {
+  reviewLibraryId.value = record.id
+  reviewOpen.value = true
+}
+
+/** 「查看原文」在多库页无解析工作台可承接：切到该库的单库管理视图就地定位 */
+function onReviewViewSource(payload: { docId: string; libraryId: string }) {
+  libraryStore.setLibrary(payload.libraryId || reviewLibraryId.value)
+  if (knowledgeView) knowledgeView.value = 'maintenance'
+  reviewOpen.value = false
 }
 
 function onMigrationSubmitted(taskId: string) {

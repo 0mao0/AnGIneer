@@ -7,6 +7,8 @@ export interface KnowledgeLibraryItem {
   description?: string | null
   /** 注册表组名（standards/dredgeai/evals；未注册为空，视为生产组） */
   group_name?: string
+  /** 注册表状态（active/migrating/retired，docs_service 合入）；下拉「迁移中」徽章据此显示 */
+  status?: string
 }
 
 /** 组归类：evals=评测语料，其余（含未注册）=生产（与 LibrarySelect 过滤口径一致）。 */
