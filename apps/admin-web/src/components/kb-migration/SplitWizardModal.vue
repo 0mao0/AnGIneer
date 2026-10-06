@@ -23,6 +23,7 @@
         :row-key="(r: any) => r.id"
         size="small"
         :pagination="{ pageSize: 200, showSizeChanger: false }"
+        :scroll="{ y: '52vh' }"
         :custom-row="customRow"
         :row-selection="{
           selectedRowKeys: selectedDocIds,
