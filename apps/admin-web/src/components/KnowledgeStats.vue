@@ -1588,12 +1588,7 @@ onMounted(() => {
   width: 100%;
   margin: 0 auto;
 }
-.parse-start-btn, .action-btns :deep(.ant-btn-link.parse-start-btn) {
-  color: #52c41a;
-}
-.parse-start-btn:hover, .action-btns :deep(.ant-btn-link.parse-start-btn:hover) {
-  color: #73d13d;
-}
+/* 「解析」恢复 antd link 默认蓝（10-06 业主改令）；二次确认弹框保留防误点 */
 .viewer-stage-collapse {
   margin: 0 0 4px;
 }
