@@ -9,6 +9,10 @@
         <template #icon><reload-outlined /></template>
         刷新
       </a-button>
+      <a-button @click="showHistory = true">
+        <template #icon><history-outlined /></template>
+        迁移记录
+      </a-button>
       <span class="ml-header-hint">外服=生产知识（standards / dredgeai），内测=评测语料（evals）。换组只改归属登记，数据物理搬迁属阶段二。</span>
     </div>
 
@@ -38,16 +42,46 @@
             </template>
             <template v-else-if="column.key === 'status'">
               <a-tag v-if="record.status === 'retired'" color="red">已退役</a-tag>
-              <a-tag v-else-if="record.status === 'migrating'" color="gold">迁移中</a-tag>
-              <a-tag v-else>正常</a-tag>
+              <a-tag
+                v-else-if="record.status === 'migrating'"
+                color="gold"
+                class="ml-clickable-tag"
+                title="查看迁移任务进度"
+                @click="openTaskForLib(record.id)"
+              >
+                迁移中
+              </a-tag>
+              <template v-else>
+                <a-tag>正常</a-tag>
+                <a-tag v-if="migratedLibIds.has(record.id)" color="blue" title="该库由迁移任务产生或接收了迁入文档">已迁移</a-tag>
+              </template>
             </template>
             <template v-else-if="column.key === 'actions'">
+              <a-button type="link" size="small" @click="enterLibrary(record)">进入</a-button>
+              <a-button
+                type="link"
+                size="small"
+                title="拆分知识库：把选中的文档拆成新库"
+                :disabled="record.id === 'default' || record.status === 'migrating' || !record.doc_count"
+                @click="openSplitFor(record, group.group_name)"
+              >
+                拆分
+              </a-button>
+              <a-button
+                type="link"
+                size="small"
+                title="合并知识库：把本库并入另一个库"
+                :disabled="record.id === 'default' || record.status === 'migrating' || !hasPeerInGroup(group, record)"
+                @click="openMergeFor(record, group.group_name)"
+              >
+                合并
+              </a-button>
               <a-button type="link" size="small" @click="openEdit(record, group.group_name)">编辑</a-button>
               <a-button
                 type="link"
                 size="small"
                 danger
-                :disabled="record.id === 'default'"
+                :disabled="record.id === 'default' || record.status === 'migrating'"
                 @click="openDelete(record)"
               >
                 删除
@@ -104,6 +138,12 @@
       <p class="ml-delete-name">{{ deleteTarget?.name }}</p>
       <a-input v-model:value="deleteInput" :placeholder="deleteTarget?.name" @pressEnter="handleDelete" />
     </a-modal>
+
+    <!-- 拆分/合并向导 + 迁移记录 + 任务详情（kb-split-merge Task 15-18） -->
+    <SplitWizardModal v-model:open="showSplit" :library="migrationLib" @submitted="onMigrationSubmitted" />
+    <MergeWizardModal v-model:open="showMerge" :library="migrationLib" @submitted="onMigrationSubmitted" />
+    <MigrationHistoryModal v-model:open="showHistory" @open-task="(id: string) => (activeTaskId = id)" />
+    <MigrationTaskDrawer :open="!!activeTaskId" :task-id="activeTaskId" @close="activeTaskId = ''" />
   </div>
 </template>
 
@@ -113,15 +153,22 @@
  * 数据源 GET /knowledge/libraries/groups（后端注册表聚合）；换组只改注册行，
  * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups）。
  */
-import { onActivated, onMounted, ref } from 'vue'
+import { inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { PlusOutlined, ReloadOutlined } from '@ant-design/icons-vue'
+import { HistoryOutlined, PlusOutlined, ReloadOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
-import { useLibraryStore } from '@/stores/library'
+import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
+import SplitWizardModal from './kb-migration/SplitWizardModal.vue'
+import MergeWizardModal from './kb-migration/MergeWizardModal.vue'
+import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
+import MigrationTaskDrawer from './kb-migration/MigrationTaskDrawer.vue'
 
 const { appClass } = useTheme()
 const libraryStore = useLibraryStore()
+
+// 头部视图状态（App.vue provide）：「进入」= 切到单库管理并选中该库
+const knowledgeView = inject<Ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'> | null>('knowledgeView', null)
 
 const groups = ref<LibraryGroupItem[]>([])
 const loading = ref(false)
@@ -148,9 +195,85 @@ function groupDocTotal(group: LibraryGroupItem) {
 const columns = [
   { title: '知识库', key: 'name', dataIndex: 'name' },
   { title: '文档数', key: 'doc_count', width: 90 },
-  { title: '状态', key: 'status', width: 90 },
-  { title: '操作', key: 'actions', width: 130 },
+  { title: '状态', key: 'status', width: 130 },
+  { title: '操作', key: 'actions', width: 230 },
 ]
+
+// ── 迁移入口与任务态（kb-split-merge Task 15）──
+const showSplit = ref(false)
+const showMerge = ref(false)
+const showHistory = ref(false)
+const migrationLib = ref<KnowledgeLibraryItem | null>(null)
+const activeTaskId = ref('')
+/** 库 id → 未完成任务（进行中/中断/失败/取消中，点开可达任务详情） */
+const activeTaskIdByLib = ref(new Map<string, string>())
+/** 已完成迁移任务涉及的新库/目标库 →「已迁移」角标 */
+const migratedLibIds = ref(new Set<string>())
+
+async function loadMigrationState() {
+  try {
+    const tasks = (await knowledgeApi.listMigrations()).tasks
+    const byLib = new Map<string, string>()
+    const migrated = new Set<string>()
+    for (const t of tasks) {
+      const p = t.params || {}
+      const libs = [p.source_library_id, p.new_library_id, p.target_library_id,
+        p.library_id, p.original_source_library_id].filter(Boolean) as string[]
+      if (!['completed', 'cancelled'].includes(t.status)) {
+        for (const l of libs) byLib.set(l, t.id)
+      }
+      if (t.status === 'completed') {
+        // 拆分的「已迁移」标给新库；合并给目标库；回滚给收回文档的原目的库
+        if (t.op === 'split' && p.new_library_id) migrated.add(p.new_library_id)
+        else if (t.op === 'merge' && p.target_library_id) migrated.add(p.target_library_id)
+        else if (t.op === 'rollback' && p.original_source_library_id) migrated.add(p.original_source_library_id)
+      }
+    }
+    activeTaskIdByLib.value = byLib
+    migratedLibIds.value = migrated
+  } catch {
+    // 迁移态失败不影响库列表主功能
+  }
+}
+
+function openTaskForLib(libId: string) {
+  const id = activeTaskIdByLib.value.get(libId)
+  if (id) activeTaskId.value = id
+  else message.info('未找到该库的进行中迁移任务，可在「迁移记录」中查看历史')
+}
+
+function asMigrationLib(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string): KnowledgeLibraryItem {
+  return { id: record.id, name: record.name || record.id, group_name: groupNameOfRow }
+}
+
+function openSplitFor(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string) {
+  migrationLib.value = asMigrationLib(record, groupNameOfRow)
+  showSplit.value = true
+}
+
+function openMergeFor(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string) {
+  migrationLib.value = asMigrationLib(record, groupNameOfRow)
+  showMerge.value = true
+}
+
+/** 同组还有第二个可并库（非 default、未退役、不在迁移）才允许合并 */
+function hasPeerInGroup(group: LibraryGroupItem, record: LibraryGroupItem['libraries'][number]) {
+  return group.libraries.some((l) => {
+    if (l.id === record.id || l.id === 'default') return false
+    return !l.status || l.status === 'active'
+  })
+}
+
+function enterLibrary(record: LibraryGroupItem['libraries'][number]) {
+  libraryStore.setLibrary(record.id)
+  if (knowledgeView) knowledgeView.value = 'maintenance'
+}
+
+function onMigrationSubmitted(taskId: string) {
+  activeTaskId.value = taskId
+  void loadMigrationState()
+  void load()
+}
 
 async function load() {
   loading.value = true
@@ -161,6 +284,7 @@ async function load() {
   } finally {
     loading.value = false
   }
+  void loadMigrationState()
 }
 
 // ── 新建 ──
@@ -309,6 +433,9 @@ onActivated(load)
 }
 .ml-num {
   font-variant-numeric: tabular-nums;
+}
+.ml-clickable-tag {
+  cursor: pointer;
 }
 .ml-delete-warning {
   color: var(--error-color, #ff4d4f);
