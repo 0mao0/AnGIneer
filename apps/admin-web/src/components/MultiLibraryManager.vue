@@ -1,13 +1,22 @@
 <template>
   <div class="multi-lib-manager" :class="appClass">
+    <!-- 表头克隆「详情」筛选条：左=筛选+刷新（纯图标），右=新建与迁移记录 -->
     <div class="ml-header">
-      <a-button type="primary" @click="openCreate">
+      <a-input
+        v-model:value="libFilter"
+        placeholder="按库名搜索"
+        allow-clear
+        style="width: 220px"
+      >
+        <template #prefix><search-outlined /></template>
+      </a-input>
+      <a-select v-model:value="groupFilter" style="width: 160px" :options="groupFilterOptions" />
+      <a-button :loading="loading" title="刷新" @click="load">
+        <template #icon><reload-outlined /></template>
+      </a-button>
+      <a-button type="primary" style="margin-left: auto" @click="openCreate">
         <template #icon><plus-outlined /></template>
         新建知识库
-      </a-button>
-      <a-button :loading="loading" @click="load">
-        <template #icon><reload-outlined /></template>
-        刷新
       </a-button>
       <a-button @click="showHistory = true">
         <template #icon><history-outlined /></template>
@@ -18,7 +27,7 @@
     <!-- 单表全库一览（spec v2.3：组是列不是分段）；表体克隆「详情」tab 的 DataTable -->
     <DataTable
       :columns="columns"
-      :data-source="flatLibraries"
+      :data-source="filteredLibraries"
       :loading="loading"
       row-key="id"
       :card="false"
@@ -188,7 +197,7 @@
  */
 import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { HistoryOutlined, PlusOutlined, ReloadOutlined } from '@ant-design/icons-vue'
+import { HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
@@ -229,6 +238,24 @@ const flatLibraries = computed(() =>
     g.libraries.map((lib) => ({ ...lib, group_name: g.group_name, known_group: g.known_group })),
   ),
 )
+
+// 表头筛选（克隆详情筛选条）：库名模糊 + 组精确
+const libFilter = ref('')
+const groupFilter = ref('all')
+
+const groupFilterOptions = computed(() => [
+  { value: 'all', label: '全部组' },
+  ...groups.value.map((g) => ({ value: g.group_name, label: groupName(g.group_name) })),
+])
+
+const filteredLibraries = computed(() => {
+  const kw = libFilter.value.trim().toLowerCase()
+  return flatLibraries.value.filter((lib) => {
+    if (groupFilter.value !== 'all' && lib.group_name !== groupFilter.value) return false
+    if (kw && !`${lib.name || ''} ${lib.id}`.toLowerCase().includes(kw)) return false
+    return true
+  })
+})
 
 const columns = [
   { title: '知识库', key: 'name', dataIndex: 'name', flex: true, minWidth: 200 },
