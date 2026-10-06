@@ -2,11 +2,13 @@
   <div class="multi-lib-manager" :class="appClass">
     <!-- 第一行：与「详情」页 page-header 同款——左=名字，右=刷新（纯图标）/新建/迁移记录 -->
     <div class="ml-page-header">
-      <div class="ml-page-header-left"><h2>知识库</h2></div>
-      <div class="ml-page-header-right">
+      <div class="ml-page-header-left">
+        <h2>知识库</h2>
         <a-button :loading="loading" title="刷新" @click="load">
           <template #icon><reload-outlined /></template>
         </a-button>
+      </div>
+      <div class="ml-page-header-right">
         <a-button type="primary" @click="openCreate">
           <template #icon><plus-outlined /></template>
           新建知识库
