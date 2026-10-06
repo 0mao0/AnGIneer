@@ -86,6 +86,54 @@ export interface LibraryGroupItem {
   }[]
 }
 
+// ---- 知识库拆分/合并迁移（kb-split-merge 计划 Task 14）----
+export interface MigrationSubmitInput {
+  op: 'split' | 'merge'
+  source_library_id: string
+  target_library_id?: string
+  new_library_id?: string
+  new_name?: string
+  doc_ids?: string[]
+}
+export interface MigrationPreview {
+  op: string
+  source_library_id: string
+  target_library_id: string
+  doc_ids: string[]
+  new_name: string
+  counts: Record<string, any>
+  eval_refs: { datasets: { dataset_id: string; title: string }[]; question_count: number; questions_on_moved_docs?: number }
+  blockers: string[]
+  digest: string
+}
+export interface MigrationTask {
+  id: string
+  op: string
+  params: Record<string, any>
+  status: 'running' | 'cancelling' | 'completed' | 'failed' | 'cancelled' | 'cancel_failed' | 'interrupted' | 'switch_reload_failed'
+  stage: string
+  progress_done: number
+  progress_total: number
+  stage_message?: string
+  error?: string
+  steps: { at: string; stage: string; step: string; status: string }[]
+  migrated_doc_ids: string[]
+  preview?: MigrationPreview
+  verify?: { ok: boolean; mismatches: string[] }
+  rollback_deadline?: string
+  created_at: string
+}
+export interface LibraryVolume {
+  library_id: string
+  name: string
+  status: string
+  docs: number
+  chunks: number
+  vectors: number
+  disk_bytes: number
+  updated_at?: string
+}
+
 export const knowledgeApi = {
   getLibraries: () => api.get('/knowledge/libraries'),
   createLibrary: (name: string, description: string = '', groupName: string = '') =>
@@ -358,6 +406,25 @@ export const knowledgeApi = {
 
   retryDocStage: (docId: string, stageKey: string) =>
     api.post(`/knowledge/documents/${docId}/stages/${stageKey}/retry`) as Promise<{ status: string; task_id: string }>,
+
+  // ---- 知识库拆分/合并迁移 ----
+  previewMigration: (data: MigrationSubmitInput) =>
+    api.post('/knowledge/migrations/preview', data) as Promise<MigrationPreview>,
+  submitMigration: (data: MigrationSubmitInput & { preview_digest: string }) =>
+    api.post('/knowledge/migrations', data) as Promise<{ task_id: string; status: string }>,
+  listMigrations: () => api.get('/knowledge/migrations') as Promise<{ tasks: MigrationTask[] }>,
+  getMigration: (taskId: string) =>
+    api.get(`/knowledge/migrations/${taskId}`) as Promise<MigrationTask>,
+  cancelMigration: (taskId: string) =>
+    api.post(`/knowledge/migrations/${taskId}/cancel`) as Promise<{ status: string; message: string }>,
+  resumeMigration: (taskId: string) =>
+    api.post(`/knowledge/migrations/${taskId}/resume`) as Promise<{ status: string; message: string }>,
+  rollbackMigration: (taskId: string) =>
+    api.post(`/knowledge/migrations/${taskId}/rollback`) as Promise<{ task_id: string; message: string }>,
+  getMigrationAudit: (params?: { offset?: number; limit?: number }) =>
+    api.get('/knowledge/migrations/audit', { params }) as Promise<{ entries: any[]; total: number }>,
+  getLibraryVolumes: () =>
+    api.get('/knowledge/migrations/volumes') as Promise<{ volumes: LibraryVolume[]; thresholds: { docs: number; vectors: number; disk_bytes: number } }>,
 }
 
 export interface ParseRecordItem {
