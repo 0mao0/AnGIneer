@@ -276,7 +276,8 @@ const columns = [
   { title: '磁盘', key: 'disk', width: 70 },
   { title: '更新', key: 'updated', width: 100 },
   { title: '状态', key: 'status', width: 130 },
-  { title: '操作', key: 'actions', width: 290 },
+  // 横向滚动时钉右侧（antdv 原生 fixed，经 table-ui 透传）
+  { title: '操作', key: 'actions', width: 290, fixed: 'right' as const },
 ]
 
 // ── 体量看板（§5.10：只提示不自动动作；失败整列「—」，缓存由服务端 5 分钟承担）──
