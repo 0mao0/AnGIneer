@@ -298,3 +298,126 @@ class KbMigrator:
         )
         if fresh.digest != preview.digest:
             raise PreviewStaleError("预览已过期（数据在预览后发生变化），请重新预览")
+
+    # ---- 单 doc 原子单元（设计 §5.3：任一步失败 → 本 doc 内回滚 → 任务报错停）----
+    # collection 由 run_task 在任务开始时从源库注册行解析一次传入（评审 P0-2）：
+    # 同组同桶恒成立；补偿/回滚方向不再碰注册表，未注册新库也不会回退默认桶。
+    def migrate_doc(self, doc_id: str, source: str, target: str, collection: str = "") -> None:
+        self._move_doc(doc_id, source, target, collection)
+
+    def rollback_doc(self, doc_id: str, source: str, target: str, collection: str = "") -> None:
+        self._move_doc(doc_id, target, source, collection)
+
+    def _move_doc(self, doc_id: str, from_lib: str, to_lib: str, collection: str = "") -> None:
+        done: List[str] = []
+        try:
+            self._move_doc_files(doc_id, from_lib, to_lib)
+            done.append("files")
+            self._relabel_group_tables(doc_id, to_lib)
+            done.append("group")
+            self._relabel_meta(doc_id, from_lib, to_lib)
+            done.append("meta")
+            self._relabel_vectors(doc_id, to_lib, collection)
+            done.append("vectors")
+            self._move_doc_graph(doc_id, from_lib, to_lib)
+            done.append("graph")
+        except Exception:
+            for face in reversed(done):
+                try:
+                    self._undo_face(face, doc_id, from_lib, to_lib, collection)
+                except Exception:  # noqa: BLE001 — 补偿尽力而为，原异常优先抛出
+                    pass
+            raise
+
+    def _undo_face(self, face: str, doc_id: str, from_lib: str, to_lib: str, collection: str) -> None:
+        if face == "files":
+            self._move_doc_files(doc_id, to_lib, from_lib)
+        elif face == "group":
+            self._relabel_group_tables(doc_id, from_lib)
+        elif face == "meta":
+            self._relabel_meta(doc_id, to_lib, from_lib)
+        elif face == "vectors":
+            self._relabel_vectors(doc_id, from_lib, collection)
+        elif face == "graph":
+            self._move_doc_graph(doc_id, to_lib, from_lib)
+
+    def _move_doc_files(self, doc_id: str, from_lib: str, to_lib: str) -> None:
+        src = self.libraries_root_for(from_lib) / "documents" / doc_id
+        dst = self.libraries_root_for(to_lib) / "documents" / doc_id
+        if src.resolve() == dst.resolve():
+            return
+        if dst.exists() and not src.exists():
+            return  # 幂等：已迁过
+        if src.exists():
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            os.rename(src, dst)
+
+    def _relabel_group_tables(self, doc_id: str, to_lib: str) -> None:
+        group_db = self.group_db_for(to_lib)
+        now = datetime.now().isoformat(timespec="seconds")
+
+        def _write() -> None:
+            with create_connection(group_db) as conn:
+                conn.execute("UPDATE canonical_documents SET library_id=?, updated_at=? WHERE doc_id=?",
+                             (to_lib, now, doc_id))
+                conn.execute("UPDATE document_segments SET library_id=?, updated_at=? WHERE doc_id=?",
+                             (to_lib, now, doc_id))
+        run_with_write_lock(group_db, _write)
+
+    def _relabel_meta(self, doc_id: str, from_lib: str, to_lib: str) -> None:
+        now = datetime.now().isoformat(timespec="seconds")
+        old_root = str(self.libraries_root_for(from_lib) / "documents" / doc_id)
+        new_root = str(self.libraries_root_for(to_lib) / "documents" / doc_id)
+
+        def _write() -> None:
+            with create_connection(self.meta_db) as conn:
+                row = conn.execute("SELECT file_path FROM nodes WHERE id=?", (doc_id,)).fetchone()
+                file_path = row["file_path"] if row else None
+                if file_path and str(file_path).startswith(old_root):
+                    file_path = new_root + str(file_path)[len(old_root):]
+                elif file_path:
+                    # P0-2 认账：file_path 不在旧 doc 目录下（外部上传路径）→ 不改写、留痕告警，
+                    # 该 doc 重解析可能报「源文件不存在」，需人工核（AGENTS.md 数据目录迁移契约）
+                    import logging
+                    logging.getLogger(__name__).warning(
+                        "迁移改写跳过: doc=%s file_path 不在旧目录前缀下: %s", doc_id, file_path)
+                    file_path = None
+                conn.execute("UPDATE nodes SET library_id=?, file_path=COALESCE(?, file_path), updated_at=? "
+                             "WHERE id=?", (to_lib, file_path, now, doc_id))
+                conn.execute("UPDATE tree_node SET scope_id=?, updated_at=? WHERE node_id=?",
+                             (to_lib, now, doc_id))
+                conn.execute("UPDATE parse_tasks SET library_id=?, updated_at=? WHERE doc_id=?",
+                             (to_lib, now, doc_id))
+        run_with_write_lock(self.meta_db, _write)
+        update_library_for_docs([doc_id], to_lib)
+
+    def _relabel_vectors(self, doc_id: str, to_lib: str, collection: str) -> None:
+        if self.vector_store is None or not collection:
+            return
+        current = self._payload_library_id(doc_id, collection)
+        if current == to_lib:
+            return  # 幂等
+        self.vector_store.set_payload_by_docs([doc_id], to_lib, collection=collection)
+
+    def _payload_library_id(self, doc_id: str, collection: str) -> Optional[str]:
+        # 读一个点的 payload 判幂等；vector_store 无 scroll 接口时退化为总是改标（幂等写无害）
+        try:
+            from qdrant_client import models
+            client = self.vector_store._get_client()
+            points, _ = client.scroll(
+                collection_name=collection,
+                scroll_filter=models.Filter(
+                    must=[models.FieldCondition(key="doc_id", match=models.MatchValue(value=doc_id))]
+                ),
+                limit=1, with_payload=True,
+            )
+            if points:
+                return str((points[0].payload or {}).get("library_id") or "")
+        except Exception:  # noqa: BLE001
+            return None
+        return None
+
+    def _move_doc_graph(self, doc_id: str, from_lib: str, to_lib: str) -> None:
+        if not self.graph_db.exists():
+            return
+        self._graph_store().move_doc_graph(from_lib, to_lib, [doc_id])
