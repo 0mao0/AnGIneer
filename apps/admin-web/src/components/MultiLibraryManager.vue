@@ -34,11 +34,34 @@
         >
           <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'name'">
-              <div class="ml-lib-name">{{ record.name || record.id }}</div>
+              <div class="ml-lib-name">
+                {{ record.name || record.id }}
+                <a-tag
+                  v-if="isOversize(record.id)"
+                  color="orange"
+                  class="ml-clickable-tag"
+                  title="体量超过拆分建议阈值，点击打开拆分向导"
+                  @click="openSplitFor(record, group.group_name)"
+                >
+                  体量偏大，建议评估拆分
+                </a-tag>
+              </div>
               <div class="ml-lib-id" :title="record.id">{{ record.id }}{{ record.collection ? ` · ${record.collection}` : '' }}</div>
             </template>
             <template v-else-if="column.key === 'doc_count'">
               <span class="ml-num">{{ record.doc_count }}</span>
+            </template>
+            <template v-else-if="column.key === 'chunks'">
+              <span class="ml-num">{{ volumeCell(record.id, 'chunks') }}</span>
+            </template>
+            <template v-else-if="column.key === 'vectors'">
+              <span class="ml-num">{{ volumeCell(record.id, 'vectors') }}</span>
+            </template>
+            <template v-else-if="column.key === 'disk'">
+              <span class="ml-num">{{ volumeCell(record.id, 'disk') }}</span>
+            </template>
+            <template v-else-if="column.key === 'updated'">
+              <span class="ml-num">{{ volumeCell(record.id, 'updated') }}</span>
             </template>
             <template v-else-if="column.key === 'status'">
               <a-tag v-if="record.status === 'retired'" color="red">已退役</a-tag>
@@ -195,9 +218,51 @@ function groupDocTotal(group: LibraryGroupItem) {
 const columns = [
   { title: '知识库', key: 'name', dataIndex: 'name' },
   { title: '文档数', key: 'doc_count', width: 90 },
+  { title: '块', key: 'chunks', width: 80 },
+  { title: '向量', key: 'vectors', width: 80 },
+  { title: '磁盘', key: 'disk', width: 80 },
+  { title: '更新', key: 'updated', width: 120 },
   { title: '状态', key: 'status', width: 130 },
   { title: '操作', key: 'actions', width: 230 },
 ]
+
+// ── 体量看板（§5.10：只提示不自动动作；失败整列「—」，缓存由服务端 5 分钟承担）──
+const volumesById = ref(new Map<string, { docs: number; chunks: number; vectors: number; disk_bytes: number; updated_at?: string }>())
+const volumeThresholds = ref<{ docs: number; vectors: number; disk_bytes: number } | null>(null)
+
+async function loadVolumes() {
+  try {
+    const resp = await knowledgeApi.getLibraryVolumes()
+    volumesById.value = new Map(resp.volumes.map((v) => [v.library_id, v]))
+    volumeThresholds.value = resp.thresholds
+  } catch {
+    volumesById.value = new Map()
+  }
+}
+
+function volumeCell(libId: string, field: 'chunks' | 'vectors' | 'disk' | 'updated'): string {
+  const v = volumesById.value.get(libId)
+  if (!v) return '—'
+  if (field === 'chunks') return fmtWan(v.chunks)
+  if (field === 'vectors') return fmtWan(v.vectors)
+  if (field === 'disk') {
+    const gb = v.disk_bytes / 1024 ** 3
+    return gb >= 1 ? `${gb.toFixed(1)}G` : `${Math.round(v.disk_bytes / 1024 ** 2)}M`
+  }
+  return v.updated_at ? String(v.updated_at).slice(0, 10) : '—'
+}
+
+function fmtWan(n: number): string {
+  return n >= 10000 ? `${(n / 10000).toFixed(1)}万` : String(n)
+}
+
+/** 超任一阈值（用响应 thresholds，不硬编码）→ 名称旁软提醒 */
+function isOversize(libId: string): boolean {
+  const v = volumesById.value.get(libId)
+  const t = volumeThresholds.value
+  if (!v || !t) return false
+  return v.docs > t.docs || v.vectors > t.vectors || v.disk_bytes > t.disk_bytes
+}
 
 // ── 迁移入口与任务态（kb-split-merge Task 15）──
 const showSplit = ref(false)
@@ -285,6 +350,7 @@ async function load() {
     loading.value = false
   }
   void loadMigrationState()
+  void loadVolumes()
 }
 
 // ── 新建 ──
