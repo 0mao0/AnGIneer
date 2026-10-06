@@ -37,6 +37,11 @@ const routes: RouteRecordRaw[] = [
     component: () => import('../views/UserManage.vue')
   },
   {
+    path: '/arch',
+    name: 'arch',
+    component: () => import('../views/ArchMapView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/knowledge'
   }

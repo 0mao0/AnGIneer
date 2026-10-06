@@ -161,24 +161,34 @@ flowchart TB
 
 ```mermaid
 flowchart TB
-    U["用户输入"] --> S["AgentSession 会话池<br/>多轮记忆 / steer / cancel"]
-    S --> L["run_agent_loop<br/>LLM 流式生成 + 工具编解码 + 预算闸门"]
-    L --> C{"意图分级 L0-L4"}
-    C -->|"L1 概念/正文"| A1["L1 Agentic RAG"]
-    C -->|"L2 规范查询"| A2["L2 条款/查表链路"]
-    C -->|"L3 标准作业"| A3["SOP 执行链路"]
-    C -->|"L4 综合大题"| A4["L4 Agentic 编排"]
-    A2 -->|"失败回退"| A1
-    A3 -->|"失败回退"| A1
-    A1 --> T["工具：knowledge_search / table_search / entity_search"]
-    A4 --> T2["工具：sop_execute / calculator / conditional"]
-    T --> R["五路召回：dense + sparse + clause + table + formula"]
-    R --> F2["RRF 加权融合 + 重排"]
-    F2 --> E["证据构建 + 引用定位"]
-    E --> G{"证据是否足够"}
-    G -->|"是"| Ans["带引用答案 + 置信度"]
-    G -->|"否"| Ref["拒答 / 沿执行计划回退"]
+    subgraph BE["后端逻辑（aichat-api / angineer-core，手写循环零框架）"]
+        U["用户提问<br/>POST /api/chat/agent"] --> GATE["接入闸门<br/>游客轮闸 + 库级授权"]
+        GATE --> ROUTE["路由层<br/>意图分类 ∥ 赌博式预检"]
+        ROUTE --> LEVEL{"意图分级 L0–L4"}
+        LEVEL -->|"L0 闲聊"| L0["直接作答"]
+        LEVEL -->|"L1 语义检索"| INJ["首轮强检注入<br/>memo 复用预检"]
+        INJ --> KS["knowledge_search top_k=20"]
+        KS --> PIPE["4路召回 dense/sparse/clause/formula<br/>→ 加权RRF → rerank 截 top15"]
+        PIPE --> TABLE["上桌处理<br/>判官 / cite / 标签 / 软帽"]
+        LEVEL -->|"L2 查表"| TS["table_search /<br/>entity_search"]
+        TS -->|"失败回退"| INJ
+        LEVEL -->|"L3/L4 SOP"| SOP["sop_execute<br/>TF-IDF+LLM 路由 → SopRunner"]
+        L0 & TABLE & TS & SOP --> LOOP["Agent 循环<br/>预算压缩 → LLM 流式 → 工具批"]
+        LOOP --> GUARD["终答守卫<br/>无证据/外引/半拒答 → 拒答；重试+代检索"]
+        GUARD --> ENDN["run_end 落库 chat.sqlite<br/>（未压缩原文）"]
+    end
+    subgraph FE["前端展示（user-web / aichat-ui，与后端并行收帧渲染）"]
+        TRANS["chatTransport<br/>SSE 按行解析"] --> STATE["useAIChat<br/>50ms 合帧 + 会话池"]
+        STATE --> REND["聊天渲染<br/>流式气泡 / 思考轨迹 / 引用圆标"]
+        REND --> DOC["溯源面板<br/>PDF 跳页+bbox / md 章节定位"]
+    end
+    ROUTE -.->|"route_debug 首帧"| TRANS
+    LOOP -.->|"turn_start / message_delta / tool_start/end"| TRANS
+    GUARD -.->|"answer"| TRANS
+    ENDN -.->|"run_end 末帧"| TRANS
 ```
+
+> 同一张图的可交互版（hover 机制详情 + 源码锚点 + 问题标记 + 意图线收起/展开）：管理端右上角「链路架构图」入口（`/arch`）。
 
 #### (2) 分级路由策略
 
