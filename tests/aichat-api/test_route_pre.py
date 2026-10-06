@@ -187,14 +187,17 @@ class RoutePreSseTests(unittest.TestCase):
         self._post_chat(frames, classify=fake_classify, enabled=True)
         frames = _drop_warning_frames(frames)
         self.assertGreaterEqual(len(frames), 3)
-        self.assertEqual(frames[0]["type"], "route_debug")
-        debug = frames[0]["payload"]["route_debug"]
+        # 阶段帧契约（68c440c7，09-27 起）：stage(classify) 恒为第一帧，前端耗时锚点
+        self.assertEqual(frames[0]["type"], "stage")
+        self.assertEqual(frames[0]["stage"], "classify")
+        idx = next(i for i, f in enumerate(frames) if f["type"] == "route_debug")
+        debug = frames[idx]["payload"]["route_debug"]
         self.assertEqual(debug["level"], "L2")
         self.assertEqual(debug["service_mode"], "sql_first")
         self.assertEqual(debug["reason"], "规则命中")
         self.assertFalse(debug["fallback"])
-        self.assertEqual(frames[0]["payload"]["scope"]["library_id"], "lib-a")
-        self.assertEqual(frames[1]["type"], "run_start")
+        self.assertEqual(frames[idx]["payload"]["scope"]["library_id"], "lib-a")
+        self.assertEqual(frames[idx + 1]["type"], "run_start")
         self.assertEqual(frames[-1]["type"], "run_end")
 
     def test_fallback_frames_when_classifier_fails(self):
@@ -204,11 +207,12 @@ class RoutePreSseTests(unittest.TestCase):
         frames = []
         self._post_chat(frames, classify=none_classify, enabled=True)
         frames = _drop_warning_frames(frames)
-        self.assertEqual(frames[0]["type"], "route_debug")
-        self.assertTrue(frames[0]["payload"]["route_debug"]["fallback"])
-        self.assertEqual(frames[0]["payload"]["scope"]["library_id"], "lib-a")
-        self.assertEqual(frames[1]["type"], "note")
-        self.assertIn("路由失败", frames[1]["payload"]["detail"])
+        self.assertEqual(frames[0]["type"], "stage")
+        idx = next(i for i, f in enumerate(frames) if f["type"] == "route_debug")
+        self.assertTrue(frames[idx]["payload"]["route_debug"]["fallback"])
+        self.assertEqual(frames[idx]["payload"]["scope"]["library_id"], "lib-a")
+        self.assertEqual(frames[idx + 1]["type"], "note")
+        self.assertIn("路由失败", frames[idx + 1]["payload"]["detail"])
 
     def test_flag_off_keeps_legacy_first_frame(self):
         async def fake_classify(query, config_name, mode):
@@ -217,7 +221,8 @@ class RoutePreSseTests(unittest.TestCase):
         frames = []
         self._post_chat(frames, classify=fake_classify, enabled=False)
         frames = _drop_warning_frames(frames)
-        self.assertEqual(frames[0]["type"], "run_start")
+        # 阶段帧契约：关闸也发 stage(classify)，且全程无 route_debug
+        self.assertEqual(frames[0]["type"], "stage")
         self.assertNotIn("route_debug", [f["type"] for f in frames])
 
 
