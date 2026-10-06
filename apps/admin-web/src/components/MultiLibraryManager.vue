@@ -128,7 +128,7 @@
                 迁移中
               </a-tag>
               <template v-else>
-                <a-tag>正常</a-tag>
+                <a-tag color="green">正常</a-tag>
                 <a-tag v-if="migratedLibIds.has(record.id)" color="blue" title="该库由迁移任务产生或接收了迁入文档">已迁移</a-tag>
               </template>
             </template>
@@ -336,14 +336,29 @@ const filteredLibraries = computed(() => {
   })
 })
 
+// 体量列排序取 volumesById 原始值（非展示字符串）；无体量数据记 -1/空串，升序时沉底
+function volSortNum(field: 'chunks' | 'vectors' | 'disk') {
+  return (a: FlatLib, b: FlatLib): number => {
+    const av = volumesById.value.get(a.id)
+    const bv = volumesById.value.get(b.id)
+    if (!av || !bv) return (av ? 0 : -1) - (bv ? 0 : -1)
+    return field === 'disk' ? av.disk_bytes - bv.disk_bytes : av[field] - bv[field]
+  }
+}
+
 const columns = [
   { title: '知识库', key: 'name', dataIndex: 'name', flex: true, minWidth: 200 },
   { title: '组', key: 'group', width: 130 },
-  { title: '文档数', key: 'doc_count', width: 80 },
-  { title: '块', key: 'chunks', width: 70 },
-  { title: '向量', key: 'vectors', width: 70 },
-  { title: '磁盘', key: 'disk', width: 70 },
-  { title: '更新', key: 'updated', width: 100 },
+  { title: '文档数', key: 'doc_count', width: 80, sorter: (a: FlatLib, b: FlatLib) => (a.doc_count || 0) - (b.doc_count || 0) },
+  { title: '块', key: 'chunks', width: 70, sorter: volSortNum('chunks') },
+  { title: '向量', key: 'vectors', width: 70, sorter: volSortNum('vectors') },
+  { title: '磁盘', key: 'disk', width: 70, sorter: volSortNum('disk') },
+  {
+    title: '更新',
+    key: 'updated',
+    width: 100,
+    sorter: (a: FlatLib, b: FlatLib) => (volumesById.value.get(a.id)?.updated_at || '').localeCompare(volumesById.value.get(b.id)?.updated_at || ''),
+  },
   { title: '状态', key: 'status', width: 130 },
   // 横向滚动时钉右侧（antdv 原生 fixed，经 table-ui 透传）
   { title: '操作', key: 'actions', width: 290, fixed: 'right' as const },
