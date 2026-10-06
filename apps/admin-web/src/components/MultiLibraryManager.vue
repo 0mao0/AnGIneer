@@ -605,13 +605,17 @@ onActivated(load)
 .multi-lib-manager {
   height: 100%;
   overflow: auto;
-  padding: 16px 24px;
+  /* 上 24 与「详情」页外壳同位（实测其 page-header top=80，本容器原 16 会顶到 72） */
+  padding: 24px 24px 16px;
 }
-/* 第一行：克隆「详情」页 .page-header（左右两段、下边距 16） */
+/* 第一行：克隆「详情」页 .page-header（左右两段、下边距 16）；
+   高 39 = 详情标题实测行高（20px 字 × 1.5714 行高 + 触发器上下 padding 4）——
+   两页头部总高锁定一致，表格起始坐标才能逐像素对齐 */
 .ml-page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 39px;
   margin-bottom: 16px;
 }
 .ml-page-header-left {
