@@ -41,6 +41,14 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
+# KB 迁移门禁：migrating 库上的写入统一 409（前端按 detail 提示「迁移进行中」）
+from docs_core.kb_migrator import LibraryMigratingError
+from fastapi.responses import JSONResponse
+
+@app.exception_handler(LibraryMigratingError)
+async def _library_migrating_handler(request, exc):  # noqa: ANN001
+    return JSONResponse(status_code=409, content={"detail": str(exc)})
+
 # root 日志兜底：库代码普遍用 logging.getLogger(__name__) 且不设 handler，
 # 不配 root 会导致 INFO 级日志（如解析阶段/检索分段计时）静默丢失；basicConfig 幂等。
 logging.basicConfig(

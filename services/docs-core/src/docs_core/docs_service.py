@@ -31,6 +31,7 @@ from docs_core.paths import (
     resolve_knowledge_meta_db_path,
 )
 from docs_core import library_registry
+from docs_core.kb_migrator import assert_library_not_migrating
 from docs_core.step06_vectors import (
     ChromaVectorStore,
     QdrantVectorStore,
@@ -690,6 +691,7 @@ class DocsService:
 
     # 创建节点，sort_order 由 tree_store 自动计算。
     def create_node(self, node: KnowledgeNode) -> KnowledgeNode:
+        assert_library_not_migrating(getattr(node, "library_id", None))  # 迁移门禁（D6）
         self.nodes.append(node)
         self.meta_store.upsert_node(node)
         with self.meta_store.connect() as conn:
@@ -726,6 +728,11 @@ class DocsService:
 
     # 更新节点，树属性变更委托给 tree_store。
     def update_node(self, node_id: str, **kwargs: Any) -> Optional[KnowledgeNode]:
+        if any(k in kwargs for k in ("parent_id", "library_id")):  # 迁移门禁（D6）：移动/换库双向都查
+            current = self.get_node(node_id)
+            assert_library_not_migrating(current.library_id if current else None)
+            if kwargs.get("library_id"):
+                assert_library_not_migrating(str(kwargs["library_id"]))
         for node in self.nodes:
             if node.id != node_id:
                 continue
@@ -762,6 +769,8 @@ class DocsService:
 
     # 删除节点
     def delete_node(self, node_id: str) -> bool:
+        current = self.get_node(node_id)
+        assert_library_not_migrating(current.library_id if current else None)  # 迁移门禁（D6）
         if node_id not in {node.id for node in self.nodes}:
             return False
         target = self.get_node(node_id)
@@ -777,6 +786,8 @@ class DocsService:
 
     # 软删除节点及子树：仅标记 deleted，节点与文件系统内容保留。
     def soft_delete_node(self, node_id: str) -> bool:
+        current = self.get_node(node_id)
+        assert_library_not_migrating(current.library_id if current else None)  # 迁移门禁（D6）
         if node_id not in {node.id for node in self.nodes}:
             return False
         to_delete = self._collect_subtree_node_ids(node_id)
@@ -815,6 +826,7 @@ class DocsService:
 
     # 创建解析任务
     def create_parse_task(self, task_id: str, library_id: str, doc_id: str) -> ParseTask:
+        assert_library_not_migrating(library_id)  # 迁移门禁（D6）：migrating 库拒绝入库/重解析
         now = datetime.now()
         task = ParseTask(
             id=task_id,
