@@ -96,7 +96,7 @@ class TextToolCallCodec:
         return self._parse_calls_from_value(parsed)
 
     def _salvage_malformed_json(self, raw: str) -> Optional[Any]:
-        """宽谷修复常见畸形：模型偶发少打闭合大括号（如 arguments 闭合后直接 ]）。"""
+        """宽谷修复常见畸形：模型偶发少打/多打闭合大括号（如 arguments 闭合后直接 ]）。"""
         stripped = raw.rstrip()
         candidates = [raw + "}" * extra for extra in (1, 2, 3)]
         if stripped.endswith("]"):
@@ -108,7 +108,31 @@ class TextToolCallCodec:
                 return json.loads(cand)
             except json.JSONDecodeError:
                 continue
+        # 多打闭合符/对象间杂散字符（2026-10-06 occamy 实锤 '{"arguments": {...}}}]}'
+        # 多打一个 }）：整段 loads 必败，按对象粒度 raw_decode 抢救
+        objects = self._salvage_objects(raw)
+        if objects:
+            return objects
         return None
+
+    def _salvage_objects(self, raw: str) -> List[dict]:
+        """从残缺 JSON 文本里逐对象提取 dict（容忍对象间杂散括号/字符）。"""
+        decoder = json.JSONDecoder()
+        objects: List[dict] = []
+        i, n = 0, len(raw)
+        while i < n:
+            if raw[i] != "{":
+                i += 1
+                continue
+            try:
+                obj, end = decoder.raw_decode(raw, i)
+            except json.JSONDecodeError:
+                i += 1
+                continue
+            if isinstance(obj, dict):
+                objects.append(obj)
+            i = max(end, i + 1)
+        return objects
 
     def _parse_calls_from_value(self, parsed: Any) -> Optional[List[ToolCall]]:
         if not isinstance(parsed, list):

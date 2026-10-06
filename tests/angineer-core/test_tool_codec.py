@@ -92,6 +92,25 @@ class TextToolCallCodecTests(unittest.TestCase):
         self.assertEqual(calls[0].arguments, {"q": "x"})
         self.assertEqual(text.strip(), "")
 
+    def test_parse_salvages_extra_closing_brace(self):
+        """模型偶发多打一个 }（2026-10-06 occamy 实锤：'...{}}}]}』），逐对象抢救应解析出调用。"""
+        body = '[{"name": "calculator", "arguments": {"expression": "2912853 / 3527457", "variables": {}}}]}'
+        with self.assertRaises(json.JSONDecodeError):
+            json.loads(body)
+        codec = TextToolCallCodec()
+        text, calls = codec.parse_assistant("```tool_calls\n" + body + "\n```")
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0].name, "calculator")
+        self.assertEqual(calls[0].arguments["expression"], "2912853 / 3527457")
+        self.assertNotIn("tool_calls", text)
+
+    def test_parse_salvages_objects_with_interleaved_junk(self):
+        """对象间夹杂物（多余括号/逗号）不影响逐对象提取。"""
+        body = '[{"name": "a", "arguments": {"x": 1}},}, {"name": "b", "arguments": {"y": 2}}]'
+        codec = TextToolCallCodec()
+        text, calls = codec.parse_assistant("```tool_calls\n" + body + "\n```")
+        self.assertEqual([c.name for c in calls], ["a", "b"])
+
     def test_parse_plain_json_array_mixed_with_text(self):
         codec = TextToolCallCodec()
         text, calls = codec.parse_assistant(

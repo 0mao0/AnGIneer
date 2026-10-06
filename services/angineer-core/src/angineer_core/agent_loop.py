@@ -41,6 +41,8 @@ logger = logging.getLogger(__name__)
 _TOOL_FENCE_START_RE = re.compile(r"(?:```\s*)?tool_calls\s*[\r\n]?\s*\[", re.IGNORECASE)
 _TOOL_FENCE_HOLD_RE = re.compile(r"(?:```\s*)?tool_calls\s*$", re.IGNORECASE)
 _TOOL_FENCE_PREFIXES = ("```tool_calls", "tool_calls")
+# 整块剥离（终答守卫用）：从围栏起点到闭合 ```（或文本末尾——流截断时围栏可能未闭合）
+_TOOL_FENCE_BLOCK_RE = re.compile(r"(?:```\s*)?tool_calls\s*\[.*?(?:```|$)", re.DOTALL | re.IGNORECASE)
 
 
 class _DeltaFenceFilter:
@@ -820,6 +822,16 @@ def _run_llm_turn(
         logger.debug("codec 解析失败，按纯文本答案处理: %s", exc)
         calls = []
 
+    # 泄漏守卫（2026-10-06 occamy 实锤：'{"arguments": {...}}}]}』多打一个 } 抢救失败，
+    # 整段 tool JSON 被当最终答案上桌，判官 0 分）：围栏在而调用解析全败时，
+    # 围栏外有正文 → 剥围栏放行；围栏外无正文 → 走下方喂回通道逼模型重新作答。
+    fence_unparsed = not calls and bool(_TOOL_FENCE_START_RE.search(full_text or ""))
+    if fence_unparsed:
+        full_text = _TOOL_FENCE_BLOCK_RE.sub(" ", full_text).strip()
+    elif not allow_tools and calls:
+        # 禁工具轮（requires_tools 收尾段）：调用不会被下游执行，剥掉围栏只留正文
+        full_text = _TOOL_FENCE_BLOCK_RE.sub(" ", full_text).strip() or full_text
+
     has_tool_calls = bool(calls)
     _turn_dur_ms = int((time.monotonic() - _turn_t0) * 1000)
     _turn_first_delta_ms = int((_turn_first_delta_at - _turn_t0) * 1000) if _turn_first_delta_at is not None else None
@@ -912,6 +924,23 @@ def _run_llm_turn(
 
     assistant = AgentMessage(role="assistant", content=full_text, tool_calls=calls)
     direct_results: List[ToolResult] = []
+
+    # 泄漏守卫喂回：整条输出只有一个解析不了的 tool_calls 块 → 伪造工具错误结果，
+    # 逼模型直接作答（复用 P5 截断守卫的 direct_results 通道，受 max_turns 上限约束）
+    if fence_unparsed and not full_text.strip():
+        direct_results.append(
+            ToolResult(
+                call_id=f"call_{turn}_fence_unparsed",
+                name="",
+                content=(
+                    "检测到无法解析的工具调用块（JSON 畸形或输出被截断），本次调用未执行。"
+                    "请直接给出最终答案；如需计算，重新发起规范的 tool_calls 调用，"
+                    "不要在最终答案中夹杂工具调用文本。"
+                ),
+                is_error=True,
+            )
+        )
+        return assistant, [], direct_results, usage
 
     # 截断守卫（P5）：finish_reason == "length" 时本轮 tool_calls 全部作废
     if finish_reason == "length":
