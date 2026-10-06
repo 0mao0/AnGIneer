@@ -327,6 +327,11 @@ def _followup_question_enabled() -> bool:
     return os.getenv("ANGINEER_FOLLOWUP_QUESTION", "true").strip().lower() in ("true", "1", "yes", "on")
 
 
+def _eager_compress_enabled() -> bool:
+    """ANGINEER_EAGER_COMPRESS 开关解析（默认关）：每轮即压跨 run 工具结果为带 doc 指针的摘要，不等预算阈值。"""
+    return os.getenv("ANGINEER_EAGER_COMPRESS", "false").strip().lower() in ("true", "1", "yes", "on")
+
+
 def _budget_tokens_est(env_key: str, default: int) -> int:
     raw = os.getenv(env_key, str(default)).strip()
     try:
@@ -459,7 +464,11 @@ def build_qa_config(
 
     budget_est = _qa_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
     qa_transformer = (
-        make_budget_transformer(max_tokens_est=budget_est, protect_current_run=True)
+        make_budget_transformer(
+            max_tokens_est=budget_est,
+            protect_current_run=True,
+            eager=_eager_compress_enabled(),
+        )
         if budget_est > 0
         else None
     )
@@ -485,7 +494,15 @@ def _estimate_tokens(messages: List[AgentMessage]) -> int:
 
 
 def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
-    """把工具 raw 结果压缩为一行要点（仅用于预算压缩后的摘要）。"""
+    """把工具 raw 结果压缩为一行要点（仅用于预算压缩后的摘要）。
+
+    检索类结果必须保留回看指针（doc 级：doc_id + 文档名 + cite 标记），
+    模型后续可用 knowledge_search 的 doc_ids 参数按指针调取原文（显式回看），
+    只写「检索到 N 条候选」会让跨轮指代（「刚才第二条规范」）彻底断链。
+    入参约定：调用方传 message.meta（{"raw": ...} 外壳），此处先剥壳。
+    """
+    if isinstance(raw, dict) and "raw" in raw:
+        raw = raw.get("raw")
     if not isinstance(raw, dict):
         return str(raw)[:120]
     sop_trace = raw.get("sop_trace")
@@ -494,13 +511,34 @@ def _summarize_tool_raw(raw: Dict[str, Any]) -> str:
         return f"SOP {raw.get('sop_id', '')} 执行 {len(sop_trace)} 步，成功 {success} 步"
     if "items" in raw:
         items = raw.get("items") or []
-        return f"检索到 {raw.get('total', len(items))} 条候选"
+        return f"检索到 {raw.get('total', len(items))} 条候选{_item_pointer_keys(items)}"
     if "entities" in raw:
         entities = raw.get("entities") or []
         return f"图谱检索到 {raw.get('total', len(entities))} 个实体"
     if raw.get("error"):
         return f"工具出错: {raw['error']}"
     return json.dumps(raw, ensure_ascii=False, default=str)[:120]
+
+
+def _item_pointer_keys(items: List[Any], limit: int = 6) -> str:
+    """从检索候选中提取 doc 级回看指针（去重、限量、限长），无指针时返回空串。"""
+    keys: List[str] = []
+    seen: set = set()
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        doc_id = str(item.get("doc_id") or "")
+        if not doc_id or doc_id in seen:
+            continue
+        seen.add(doc_id)
+        meta = item.get("metadata") or {}
+        title = str(meta.get("doc_title") or item.get("title") or "")[:24]
+        cite = str(meta.get("cite") or "")
+        tag = f"{cite}·{title}" if cite and title else (cite or title or doc_id)
+        keys.append(f"{tag}[doc_id={doc_id}]")
+        if len(keys) >= limit:
+            break
+    return f"，要点: {'、'.join(keys)}" if keys else ""
 
 
 def _is_injected_user_prompt(content: Optional[str]) -> bool:
@@ -514,7 +552,7 @@ def _is_injected_user_prompt(content: Optional[str]) -> bool:
     return bool(text) and text.startswith(_INJECTED_USER_PROMPTS)
 
 
-def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: bool = False):
+def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: bool = False, eager: bool = False):
     """P4.3 闸门一：超预算时按 oldest-first 压缩工具结果（投影式，copy-on-write）。
 
     2026-09-24（plan-ttft-improvement 需求 A1）：原版直接改写消息对象的 content，
@@ -529,26 +567,36 @@ def make_budget_transformer(max_tokens_est: int = 100_000, protect_current_run: 
     跨 run 历史工具结果——这正是多轮膨胀的主因（每轮全量证据 dump 永久留存回灌）。
     压完仍可能超阈值：当轮证据是硬需求，宁可超限也不压当轮。
     complex 档保持 False（长 run 内部轮间压缩是它的原始语义）。
+
+    eager=True（ANGINEER_EAGER_COMPRESS，仅 QA 档接线）：不等阈值，
+    每轮都把「最后一条 user 之前」的跨 run 工具结果压成带 doc 指针的摘要——
+    压掉的体积可用 knowledge_search 的 doc_ids 入参按指针回看（2026-10-06 起 schema 开放），
+    损失从「永久丢失」降级为「按需可取」，因此不必再用阈值保护保真度。
+    当 run 证据（最后一条 user 之后）任何模式下都不压。
     """
 
     summary_cache: Dict[int, str] = {}
 
     def transform(messages: List[AgentMessage]) -> List[AgentMessage]:
         total_chars = sum(len(message.content or "") for message in messages)
-        if total_chars // 2 <= max_tokens_est:
-            return messages
         last_user_index = -1
         if protect_current_run:
             for index, message in enumerate(messages):
                 if message.role == "user" and not _is_injected_user_prompt(message.content):
                     last_user_index = index
+        eager_active = eager and protect_current_run and last_user_index > 0
+        if total_chars // 2 <= max_tokens_est and not eager_active:
+            return messages
         result = list(messages)
         for index, message in enumerate(result):
-            if total_chars // 2 <= max_tokens_est:
+            if not eager_active and total_chars // 2 <= max_tokens_est:
                 break
             if message.role != "tool":
                 continue
             if protect_current_run and index > last_user_index:
+                continue
+            if eager_active and index >= last_user_index:
+                # eager 只压「最后一条 user 之前」的跨 run 历史；当 run 起点及其后全豁免
                 continue
             summary = summary_cache.get(id(message))
             if summary is None:

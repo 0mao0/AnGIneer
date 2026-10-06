@@ -922,8 +922,11 @@ class RetrieverAdapter:
         config_name: Optional[str] = None,
         mode: str = "instruct",
     ) -> AgentTool:
+        doc_ids_bound = doc_ids
+
         def handler(
             query: Optional[str] = None,
+            doc_ids: Optional[List[str]] = None,
             *,
             cancel_event: Optional[threading.Event] = None,
             _from_speculative: bool = False,
@@ -935,7 +938,7 @@ class RetrieverAdapter:
                 query=query,
                 library_id=library_id,
                 library_ids=library_ids,
-                doc_ids=doc_ids,
+                doc_ids=doc_ids if doc_ids else doc_ids_bound,
                 doc_nodes=doc_nodes,
                 top_k=top_k,
                 task_type=task_type,
@@ -958,7 +961,14 @@ class RetrieverAdapter:
             description="在知识库正文中检索规范条文、概念、定义与条款，返回候选段落。概念/定义/“XX 是什么”类问题应优先使用本工具。",
             parameters_schema={
                 "type": "object",
-                "properties": {"query": {"type": "string", "description": "检索问句"}},
+                "properties": {
+                    "query": {"type": "string", "description": "检索问句"},
+                    "doc_ids": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "可选：只在指定文档内检索。历史证据被压缩成 [已压缩…] 摘要行时，可用其中标注的 doc_id 回看原文",
+                    },
+                },
                 "required": ["query"],
             },
             handler=handler,
