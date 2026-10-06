@@ -9,6 +9,7 @@ import hashlib
 import json
 import os
 import sqlite3
+import threading
 import uuid
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
@@ -687,3 +688,41 @@ class KbMigrator:
             write_audit(operator=operator, action="switch", params=params,
                         result="switch_reload_failed", error=str(exc))
             return
+
+
+# ---- 后台任务执行器（设计 §5.4，克隆解析任务模式，不发明新框架）----
+class KbMigrationRunner:
+    def __init__(self, migrator: Optional["KbMigrator"] = None) -> None:
+        self.migrator = migrator or KbMigrator()
+        self._threads: Dict[str, threading.Thread] = {}
+        self._lock = threading.Lock()
+
+    def _has_live_task(self) -> bool:
+        return any(t.is_alive() for t in self._threads.values())
+
+    def submit(self, task_id: str, *, operator: str = "admin") -> threading.Thread:
+        """全局单飞：同一时间只允许一个迁移任务（设计 §5.4 互斥）。
+
+        返回线程句柄——_run 收尾会把任务从 _threads 自摘，调用方（含测试）
+        必须拿返回值 join，不能按下标回读字典（施工修：计划测试按下标读有竞态）。
+        """
+        with self._lock:
+            if self._has_live_task():
+                raise MigrationBlocked("已有迁移任务在运行，请等待完成")
+            worker = threading.Thread(
+                target=self._run, args=(task_id, operator), daemon=True, name=f"kb-migration-{task_id}",
+            )
+            self._threads[task_id] = worker
+            worker.start()
+            return worker
+
+    def _run(self, task_id: str, operator: str) -> None:
+        try:
+            self.migrator.run_task(task_id, operator=operator)
+        except Exception:  # noqa: BLE001 — run_task 内部已落任务行 error/audit
+            pass
+        finally:
+            self._threads.pop(task_id, None)
+
+    def request_cancel(self, task_id: str) -> None:
+        self.migrator.store.request_cancel(task_id)
