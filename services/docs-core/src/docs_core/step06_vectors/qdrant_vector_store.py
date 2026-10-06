@@ -361,6 +361,32 @@ class QdrantVectorStore(VectorStore):
         )
         return int(getattr(res, "count", 0))
 
+    # 按 doc 集合改标 payload library_id（同组拆/并库，设计 D7）；point id 不变、不重嵌入。
+    def set_payload_by_docs(
+        self,
+        doc_ids: List[str],
+        library_id: str,
+        collection: Optional[str] = None,
+    ) -> int:
+        from qdrant_client import models
+
+        name = self._collection_name(collection, self._collection)
+        client = self._get_client()
+        total = 0
+        for start in range(0, len(doc_ids), 256):
+            batch = doc_ids[start : start + 256]
+            flt = models.Filter(
+                must=[models.FieldCondition(key="doc_id", match=models.MatchAny(any=batch))]
+            )
+            total += int(client.count(collection_name=name, count_filter=flt, exact=True).count)
+            client.set_payload(
+                collection_name=name,
+                payload={"library_id": library_id},
+                points=models.FilterSelector(filter=flt),
+                wait=True,
+            )
+        return total
+
     # 获取单文档的向量索引统计（按 entity_type 聚合计数）
     def get_document_stats(self, doc_id: str, collection: Optional[str] = None) -> Dict[str, Any]:
         empty = {"doc_id": doc_id, "total_count": 0, "by_entity_type": {}}
