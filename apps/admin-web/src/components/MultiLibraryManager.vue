@@ -1,11 +1,35 @@
 <template>
   <div class="multi-lib-manager" :class="appClass">
-    <!-- 第一行：与「详情」页 page-header 同款——左=名字+刷新（纯图标），右=迁移记录 -->
+    <!-- 第一行：左=组切换下拉（详情标题同款）+刷新+建组加号，右=迁移记录 -->
     <div class="ml-page-header">
       <div class="ml-page-header-left">
-        <h2>知识库</h2>
+        <a-dropdown :trigger="['click']">
+          <div class="ml-group-trigger">
+            <a-tag v-if="titleDomain" class="ml-domain-tag" :color="titleDomain === '外服' ? 'blue' : 'purple'">
+              {{ titleDomain }}
+            </a-tag>
+            <span class="ml-group-name">{{ titleName }}</span>
+            <down-outlined class="ml-group-caret" />
+          </div>
+          <template #overlay>
+            <a-menu :selected-keys="[groupFilter || '__all__']" @click="onGroupMenuClick">
+              <a-menu-item key="__all__">知识库（全部组）</a-menu-item>
+              <a-menu-item v-for="opt in groupMenuOptions" :key="opt.value">
+                <span class="ml-menu-group">
+                  <a-tag v-if="opt.domain" :color="opt.domain === '外服' ? 'blue' : 'purple'" style="margin: 0">
+                    {{ opt.domain }}
+                  </a-tag>
+                  {{ opt.rest }}
+                </span>
+              </a-menu-item>
+            </a-menu>
+          </template>
+        </a-dropdown>
         <a-button :loading="loading" title="刷新" @click="load">
           <template #icon><reload-outlined /></template>
+        </a-button>
+        <a-button title="新建知识库组" @click="openCreateGroup">
+          <template #icon><plus-outlined /></template>
         </a-button>
       </div>
       <div class="ml-page-header-right">
@@ -157,16 +181,7 @@
           <a-input v-model:value="createForm.description" placeholder="可选" />
         </a-form-item>
         <a-form-item label="所属组">
-          <div class="ml-group-row">
-            <a-select v-model:value="createForm.group_name" :options="groupOptions" />
-            <a-button size="small" @click="openNewGroup('create')">新建组</a-button>
-          </div>
-          <div v-if="newGroupTarget === 'create'" class="ml-new-group">
-            <a-input v-model:value="newGroupName" placeholder="组名（小写英文，如 bridge）" style="width: 180px" />
-            <a-input v-model:value="newGroupDisplay" placeholder="显示名（如：外服 · 桥梁工程）" style="width: 190px" />
-            <a-button type="primary" size="small" :loading="newGroupSaving" @click="handleCreateGroup('create')">确定</a-button>
-            <a-button size="small" @click="newGroupTarget = ''">取消</a-button>
-          </div>
+          <a-select v-model:value="createForm.group_name" :options="groupOptions" />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -181,16 +196,7 @@
           <a-input v-model:value="editForm.description" placeholder="可选" />
         </a-form-item>
         <a-form-item label="所属组">
-          <div class="ml-group-row">
-            <a-select v-model:value="editForm.group_name" :options="groupOptions" />
-            <a-button size="small" @click="openNewGroup('edit')">新建组</a-button>
-          </div>
-          <div v-if="newGroupTarget === 'edit'" class="ml-new-group">
-            <a-input v-model:value="newGroupName" placeholder="组名（小写英文，如 bridge）" style="width: 180px" />
-            <a-input v-model:value="newGroupDisplay" placeholder="显示名（如：外服 · 桥梁工程）" style="width: 190px" />
-            <a-button type="primary" size="small" :loading="newGroupSaving" @click="handleCreateGroup('edit')">确定</a-button>
-            <a-button size="small" @click="newGroupTarget = ''">取消</a-button>
-          </div>
+          <a-select v-model:value="editForm.group_name" :options="groupOptions" />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -210,6 +216,27 @@
       <p>请输入完整库名确认：</p>
       <p class="ml-delete-name">{{ deleteTarget?.name }}</p>
       <a-input v-model:value="deleteInput" :placeholder="deleteTarget?.name" @pressEnter="handleDelete" />
+    </a-modal>
+
+    <!-- 建组（大数据库）：头部加号入口——归入库群二选一，显示名由域前缀拼出 -->
+    <a-modal v-model:open="showGroupCreate" title="新建知识库组" ok-text="创建" :confirm-loading="groupCreating" @ok="handleCreateGroup">
+      <a-form layout="vertical">
+        <a-form-item label="归入库群" required>
+          <a-radio-group
+            v-model:value="groupCreateForm.domain"
+            :options="[
+              { label: '外服（生产知识库）', value: 'prod' },
+              { label: '内测（评测语料）', value: 'evals' },
+            ]"
+          />
+        </a-form-item>
+        <a-form-item label="组名称" required>
+          <a-input v-model:value="groupCreateForm.name" placeholder="如：桥梁工程" />
+        </a-form-item>
+        <a-form-item label="内部标识">
+          <a-input v-model:value="groupCreateForm.slug" placeholder="留空自动生成（英文小写/数字/_/-，2–32 位）" />
+        </a-form-item>
+      </a-form>
     </a-modal>
 
     <!-- 拆分/合并向导 + 迁移记录 + 任务详情（kb-split-merge Task 15-18） -->
@@ -236,7 +263,7 @@
  */
 import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { message } from 'ant-design-vue'
-import { HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
+import { DownOutlined, HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
@@ -472,7 +499,6 @@ const createForm = ref({ name: '', description: '', group_name: 'standards' })
 
 function openCreate() {
   createForm.value = { name: '', description: '', group_name: 'standards' }
-  newGroupTarget.value = ''
   showCreate.value = true
 }
 
@@ -505,7 +531,6 @@ function openEdit(record: FlatLib) {
     description: record.description || '',
     group_name: record.group_name,
   }
-  newGroupTarget.value = ''
   showEdit.value = true
 }
 
@@ -532,37 +557,59 @@ async function handleEdit() {
   }
 }
 
-// ── 建自定义组（内联在新建/编辑弹框的所属组项里；slug 校验后端兜底，400 原因直出）──
-const newGroupTarget = ref<'' | 'create' | 'edit'>('')
-const newGroupName = ref('')
-const newGroupDisplay = ref('')
-const newGroupSaving = ref(false)
+// ── 建组（大数据库）：头部加号弹框，归入外服/内测二选一；显示名 = 域前缀 + 组名，slug 留空自动生成 ──
+const showGroupCreate = ref(false)
+const groupCreating = ref(false)
+const groupCreateForm = ref({ domain: 'prod' as 'prod' | 'evals', name: '', slug: '' })
 
-function openNewGroup(target: 'create' | 'edit') {
-  newGroupTarget.value = newGroupTarget.value === target ? '' : target
-  newGroupName.value = ''
-  newGroupDisplay.value = ''
+function openCreateGroup() {
+  groupCreateForm.value = { domain: 'prod', name: '', slug: '' }
+  showGroupCreate.value = true
 }
 
-async function handleCreateGroup(target: 'create' | 'edit') {
-  const slug = newGroupName.value.trim()
-  if (!slug) {
-    message.warning('请填写组名')
+async function handleCreateGroup() {
+  const name = groupCreateForm.value.name.trim()
+  if (!name) {
+    message.warning('请填写组名称')
     return
   }
-  newGroupSaving.value = true
+  const slug = groupCreateForm.value.slug.trim() || 'grp-' + crypto.randomUUID().replace(/-/g, '').slice(0, 8)
+  const display = `${groupCreateForm.value.domain === 'evals' ? '内测' : '外服'} · ${name}`
+  groupCreating.value = true
   try {
-    await knowledgeApi.createLibraryGroup(slug, newGroupDisplay.value.trim())
-    message.success(`组「${newGroupDisplay.value.trim() || slug}」已创建`)
-    newGroupTarget.value = ''
+    await knowledgeApi.createLibraryGroup(slug, display)
+    message.success(`组「${display}」已创建`)
+    showGroupCreate.value = false
     await load()
-    if (target === 'create') createForm.value.group_name = slug
-    else editForm.value.group_name = slug
+    groupFilter.value = slug
   } catch (err) {
     message.error(`建组失败：${(err as Error).message}`)
   } finally {
-    newGroupSaving.value = false
+    groupCreating.value = false
   }
+}
+
+// ── 标题组切换（详情标题同款）：菜单选择即按组过滤，与第二行组筛选同一状态源 ──
+/** 拆「外服 · 规范标准」= 域 tag + 组名；无域前缀的组不挂 tag */
+function splitGroupLabel(label: string): { domain: string; rest: string } {
+  const [head, ...rest] = label.split('·')
+  const domain = (head || '').trim()
+  return domain === '外服' || domain === '内测'
+    ? { domain, rest: rest.join('·').trim() || label }
+    : { domain: '', rest: label }
+}
+
+const groupMenuOptions = computed(() =>
+  groups.value.map((g) => ({ value: g.group_name, ...splitGroupLabel(groupName(g.group_name)) })),
+)
+const titleName = computed(() =>
+  groupFilter.value ? splitGroupLabel(groupName(groupFilter.value)).rest : '知识库',
+)
+const titleDomain = computed(() =>
+  groupFilter.value ? splitGroupLabel(groupName(groupFilter.value)).domain : '',
+)
+function onGroupMenuClick(info: { key: string | number }) {
+  groupFilter.value = String(info.key) === '__all__' ? undefined : String(info.key)
 }
 
 // ── 删除 ──
@@ -643,21 +690,32 @@ onActivated(load)
 .ml-filter-item {
   min-width: 0;
 }
-/* 弹框内所属组：下拉占满 + 新建组按钮贴右；展开的内联建组行 */
-.ml-group-row {
+/* 标题组切换：克隆「详情」LibrarySelect title 模式（hover 底色、20px/600 名、12px 箭头） */
+.ml-group-trigger {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
-.ml-group-row .ant-select {
-  flex: 1;
-  min-width: 0;
+.ml-group-trigger:hover {
+  background-color: var(--bg-secondary, #f5f5f5);
 }
-.ml-new-group {
-  display: flex;
+.ml-group-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.ml-group-caret {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+.ml-menu-group {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 8px;
 }
 .ml-lib-name {
   font-weight: 500;
