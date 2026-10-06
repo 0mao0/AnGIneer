@@ -63,6 +63,14 @@ class TextToolCallCodec:
             "6. 调用工具前不要输出任何解释或引导语，直接输出工具调用代码块；工具调用块之外不要夹杂对话文字。\n"
             "7. 最终答案不要以提问方式收尾（如「您是否想知道…」），直接给出结论后结束。"
         )
+        # 计算纪律（2026-10-07）：FinanceBench 实测计算器 0/150 次被调用，模型全靠心算，
+        # 数值小错（如 2.1% vs 金标 1.9%）即源于此——工具清单含 calculator 时追加强制规则。
+        if any(tool.name == "calculator" for tool in tools):
+            protocol += (
+                "\n8. 计算纪律：答案中凡是需要通过运算得出的数值（差值、比值、百分比、增长率、"
+                "均值、汇总等），必须先调用 calculator 执行运算，并以工具返回结果为准；"
+                "直接从证据抄录的原始数值不需要计算。禁止心算后直接给出结果。"
+            )
         return base + protocol
 
     def parse_assistant(self, text: str) -> Tuple[str, List[ToolCall]]:

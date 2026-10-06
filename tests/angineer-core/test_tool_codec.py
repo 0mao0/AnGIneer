@@ -39,6 +39,15 @@ class TextToolCallCodecTests(unittest.TestCase):
         self.assertIn("禁用", prompt)
         self.assertNotIn("tool_calls", prompt)
 
+    def test_augment_appends_calculation_discipline_only_with_calculator(self):
+        """计算纪律规则只在工具清单含 calculator 时追加（2026-10-07：计算器 0/150 被调用，模型全靠心算）。"""
+        codec = TextToolCallCodec()
+        with_calc = codec.augment_system_prompt("base", [dummy_tool(), dummy_tool(name="calculator")])
+        without = codec.augment_system_prompt("base", [dummy_tool()])
+        self.assertIn("8. 计算纪律", with_calc)
+        self.assertIn("必须先调用 calculator", with_calc)
+        self.assertNotIn("8. 计算纪律", without)
+
     def test_parse_assistant_single_tool_call(self):
         codec = TextToolCallCodec()
         text, calls = codec.parse_assistant(
