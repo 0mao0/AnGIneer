@@ -453,6 +453,10 @@ class DocsService:
             for row in self.meta_store.list_parse_tasks()
         ]
 
+    # 拆/并库迁移后刷新三快照（设计 D5）：_load_from_db 即装载逻辑，直接复用。
+    def reload_scope_cache(self) -> None:
+        self._load_from_db()
+
     # 删除指定节点集合
     def _delete_nodes(self, node_ids: List[str]) -> None:
         self.meta_store.delete_nodes(node_ids)
