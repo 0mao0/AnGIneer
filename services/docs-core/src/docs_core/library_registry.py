@@ -13,6 +13,7 @@
 """
 
 import os
+import re
 import sqlite3
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
@@ -60,6 +61,14 @@ GROUP_DEFAULTS: Dict[str, Dict[str, str]] = {
 
 _DEFAULT_SQLITE_FILE = "knowledge/knowledge_index.sqlite"
 
+# 自定义组名 slug 规则：组名会进文件路径（knowledge/groups/<组>.sqlite）与 qdrant
+# collection 名，只许小写字母开头 + 小写/数字/_/-，2–32 位——挡掉路径穿越与中文组名
+GROUP_NAME_RE = re.compile(r"^[a-z][a-z0-9_-]{1,31}$")
+
+# 自定义组的派生存储布局（与内置组同口径：组文件 lazy、目录走公共 libraries 目录）
+_CUSTOM_GROUP_SQLITE_FILE = "knowledge/groups/{group}.sqlite"
+_CUSTOM_GROUP_LIBRARIES_DIR = "knowledge/libraries"
+
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS library_registry (
     library_id  TEXT PRIMARY KEY,
@@ -73,6 +82,12 @@ CREATE TABLE IF NOT EXISTS library_registry (
     updated_at  TEXT NOT NULL
 );
 CREATE INDEX IF NOT EXISTS idx_library_registry_group ON library_registry(group_name);
+CREATE TABLE IF NOT EXISTS library_groups (
+    group_name   TEXT PRIMARY KEY,
+    display_name TEXT NOT NULL DEFAULT '',
+    created_at   TEXT NOT NULL,
+    updated_at   TEXT NOT NULL
+);
 """
 
 
@@ -88,6 +103,29 @@ class LibraryRecord:
 
     def to_dict(self) -> Dict[str, str]:
         return asdict(self)
+
+
+@dataclass(frozen=True)
+class GroupRecord:
+    group_name: str
+    display_name: str
+
+    def to_dict(self) -> Dict[str, str]:
+        return asdict(self)
+
+
+def _group_defaults(group_name: str) -> Dict[str, str]:
+    """组的存储默认：内置组查注册表；已登记的自定义组按约定派生；其余返回空表（走回退）。"""
+    builtin = GROUP_DEFAULTS.get(group_name)
+    if builtin is not None:
+        return builtin
+    if get_custom_group(group_name) is not None:
+        return {
+            "collection": group_name,
+            "sqlite_file": _CUSTOM_GROUP_SQLITE_FILE.format(group=group_name),
+            "libraries_dir": _CUSTOM_GROUP_LIBRARIES_DIR,
+        }
+    return {}
 
 
 # ---- 路径解析 ----
@@ -143,7 +181,7 @@ def register_library(
     """登记/更新注册行（幂等 upsert）。sqlite_file/collection 缺省按组默认推导。"""
     if status not in _VALID_STATUS:
         raise ValueError(f"非法注册状态: {status}（合法值 {sorted(_VALID_STATUS)}）")
-    defaults = GROUP_DEFAULTS.get(group_name, {})
+    defaults = _group_defaults(group_name)
     # sqlite_file 缺省推导：组文件已存在（flip-sqlite 后）走组文件，否则挂过渡单文件——
     # 新建库自动跟随该组当前实际存储位置，跨翻转窗口不出错
     if sqlite_file is None:
@@ -199,11 +237,12 @@ def set_group(library_id: str, group_name: str) -> LibraryRecord:
     只改注册行，不搬数据——与 register_library 缺省推导同口径：新组组文件已存在则挂组文件，
     否则挂过渡单文件。数据物理搬迁属阶段二 flip，拆组前置条件见 plan-kb-split-groups。
     """
-    if group_name not in GROUP_DEFAULTS:
-        raise ValueError(f"未知库组: {group_name}（合法组 {sorted(GROUP_DEFAULTS)}）")
-    group_file = GROUP_DEFAULTS[group_name].get("sqlite_file")
+    if group_name not in GROUP_DEFAULTS and get_custom_group(group_name) is None:
+        raise ValueError(f"未知库组: {group_name}（合法组 {sorted(GROUP_DEFAULTS)} + 已建自定义组）")
+    defaults = _group_defaults(group_name)
+    group_file = defaults.get("sqlite_file")
     file_value = group_file if group_file and (resolve_data_root() / group_file).exists() else _DEFAULT_SQLITE_FILE
-    collection_value = GROUP_DEFAULTS[group_name].get("collection") or group_name
+    collection_value = defaults.get("collection") or group_name
     db_path = ensure_schema()
     now = datetime.now(timezone.utc).isoformat()
 
@@ -239,6 +278,40 @@ def set_status(library_id: str, status: str) -> None:
                 raise KeyError(f"注册表无此库: {library_id}")
 
     run_with_write_lock(db_path, _write)
+
+
+# ---- 自定义库组（界面建组；内置三组仍是 GROUP_DEFAULTS 硬编码，不落此表） ----
+
+
+def create_group(group_name: str, display_name: str = "") -> GroupRecord:
+    """建/更新自定义组（幂等 upsert display_name）。组名走 slug 校验，禁止撞内置组名。"""
+    if not GROUP_NAME_RE.match(group_name or ""):
+        raise ValueError(
+            f"非法组名: {group_name!r}（须以小写字母开头，仅小写字母/数字/_/-，2–32 位）"
+        )
+    if group_name in GROUP_DEFAULTS:
+        raise ValueError(f"组名与内置组冲突: {group_name}（内置组不可覆盖）")
+    display = (display_name or "").strip() or group_name
+    db_path = ensure_schema()
+    now = datetime.now(timezone.utc).isoformat()
+
+    def _write() -> None:
+        with _connect() as conn:
+            conn.execute(
+                """
+                INSERT INTO library_groups (group_name, display_name, created_at, updated_at)
+                VALUES (?, ?, ?, ?)
+                ON CONFLICT(group_name) DO UPDATE SET
+                    display_name=excluded.display_name,
+                    updated_at=excluded.updated_at
+                """,
+                (group_name, display, now, now),
+            )
+
+    run_with_write_lock(db_path, _write)
+    record = get_custom_group(group_name)
+    assert record is not None
+    return record
 
 
 # ---- 读取（读穿，不缓存） ----
@@ -285,6 +358,29 @@ def list_libraries(*, include_retired: bool = False) -> List[LibraryRecord]:
     return [_row_to_record(row) for row in rows]
 
 
+def get_custom_group(group_name: str) -> Optional[GroupRecord]:
+    """读穿查自定义组；注册表未初始化或无此行返回 None。"""
+    if not _registry_exists():
+        return None
+    with _connect() as conn:
+        row = conn.execute(
+            "SELECT group_name, display_name FROM library_groups WHERE group_name=?",
+            (group_name,),
+        ).fetchone()
+    return GroupRecord(group_name=row["group_name"], display_name=row["display_name"]) if row else None
+
+
+def list_custom_groups() -> List[GroupRecord]:
+    """全部自定义组（含尚未挂库的空组）；注册表未初始化返回空表。"""
+    if not _registry_exists():
+        return []
+    with _connect() as conn:
+        rows = conn.execute(
+            "SELECT group_name, display_name FROM library_groups ORDER BY created_at ASC"
+        ).fetchall()
+    return [GroupRecord(group_name=r["group_name"], display_name=r["display_name"]) for r in rows]
+
+
 # ---- 存储位置解析（注册表优先，回退旧默认） ----
 
 
@@ -318,7 +414,7 @@ def resolve_libraries_dir(library_id: str) -> Path:
     """
     record = get_library(library_id)
     if record is not None:
-        lib_dir = GROUP_DEFAULTS.get(record.group_name, {}).get("libraries_dir")
+        lib_dir = _group_defaults(record.group_name).get("libraries_dir")
         if lib_dir:
             candidate = resolve_data_root() / lib_dir
             if candidate.exists():
@@ -369,13 +465,18 @@ __all__ = [
     "DEFAULT_GROUP",
     "DATA_ROOT_ENV",
     "GROUP_DEFAULTS",
+    "GROUP_NAME_RE",
+    "GroupRecord",
     "LibraryRecord",
     "REGISTRY_DB_ENV",
     "STATUS_ACTIVE",
     "STATUS_MIGRATING",
     "STATUS_RETIRED",
+    "create_group",
     "ensure_schema",
+    "get_custom_group",
     "get_library",
+    "list_custom_groups",
     "list_libraries",
     "register_library",
     "resolve_collection",

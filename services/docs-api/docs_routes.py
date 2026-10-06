@@ -281,9 +281,26 @@ def list_knowledge_libraries():
 
 @docs_router.get("/libraries/groups")
 def list_knowledge_library_groups():
-    """按组聚合的库清单（多库管理 tab）：组 → 库列表（含文档数）。"""
+    """按组聚合的库清单（多库管理 tab）：组 → 库列表（含文档数）；自定义组含空组与 display_name。"""
     ks = get_docs_service()
     return ks.list_grouped_libraries()
+
+
+class KnowledgeGroupCreate(BaseModel):
+    """建自定义库组请求。"""
+    group_name: str
+    display_name: Optional[str] = ''
+
+
+@docs_router.post("/libraries/groups")
+def create_knowledge_library_group(request: KnowledgeGroupCreate):
+    """建自定义库组（界面建组）。组名 slug 校验与内置组冲突检查在注册表层，失败转 400。"""
+    ks = get_docs_service()
+    try:
+        group = ks.create_group((request.group_name or '').strip(), request.display_name or '')
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    return group.to_dict()
 
 
 @docs_router.get("/stats")

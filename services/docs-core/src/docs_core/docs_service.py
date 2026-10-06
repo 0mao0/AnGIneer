@@ -555,11 +555,23 @@ class DocsService:
                 library.status = record.status
         return libraries
 
+    # 组合法性 = 内置组 ∪ 已登记自定义组（建组走 create_group；注册表读穿，不缓存）
+    @staticmethod
+    def _known_group(group_name: str) -> bool:
+        return (
+            group_name in library_registry.GROUP_DEFAULTS
+            or library_registry.get_custom_group(group_name) is not None
+        )
+
+    # 建自定义库组（界面「新建组」入口；slug/内置组冲突校验在注册表层）
+    def create_group(self, group_name: str, display_name: str = "") -> library_registry.GroupRecord:
+        return library_registry.create_group(group_name, display_name)
+
     # 创建知识库（group_name 缺省落注册表默认组；注册表写入失败降级为仅 meta 记录，
     # 存储位置解析走回退默认，行为与注册表出现前一致）
     def create_library(self, library_id: str, name: str, description: str = "", group_name: str = "") -> KnowledgeLibrary:
-        if group_name and group_name not in library_registry.GROUP_DEFAULTS:
-            raise ValueError(f"未知库组: {group_name}（合法组 {sorted(library_registry.GROUP_DEFAULTS)}）")
+        if group_name and not self._known_group(group_name):
+            raise ValueError(f"未知库组: {group_name}（合法组 = 内置组 + 已建自定义组）")
         library = KnowledgeLibrary(id=library_id, name=name, description=description)
         self.libraries.append(library)
         self.meta_store.upsert_library(library)
@@ -590,8 +602,8 @@ class DocsService:
         description: Optional[str] = None,
         group_name: Optional[str] = None,
     ) -> Optional[KnowledgeLibrary]:
-        if group_name is not None and group_name not in library_registry.GROUP_DEFAULTS:
-            raise ValueError(f"未知库组: {group_name}（合法组 {sorted(library_registry.GROUP_DEFAULTS)}）")
+        if group_name is not None and not self._known_group(group_name):
+            raise ValueError(f"未知库组: {group_name}（合法组 = 内置组 + 已建自定义组）")
         library = self.get_library(library_id)
         if library is None:
             return None
@@ -641,11 +653,16 @@ class DocsService:
                     "doc_count": doc_counts.get(library.id, 0),
                 }
             )
+        # 自定义组全量并入（含尚未挂库的空组，前端组下拉靠它列全）+ display_name
+        display_names = {g.group_name: g.display_name for g in library_registry.list_custom_groups()}
+        for group in display_names:
+            by_group.setdefault(group, [])
         return [
             {
                 "group_name": group,
                 "is_default_group": group == library_registry.DEFAULT_GROUP,
-                "known_group": group in library_registry.GROUP_DEFAULTS,
+                "known_group": group in library_registry.GROUP_DEFAULTS or group in display_names,
+                "display_name": display_names.get(group, ""),
                 "libraries": sorted(items, key=lambda item: item["id"]),
             }
             for group, items in sorted(by_group.items())

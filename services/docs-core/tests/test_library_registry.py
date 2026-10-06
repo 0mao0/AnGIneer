@@ -143,3 +143,51 @@ class TestSeedFromMeta:
         seeded = reg.seed_from_meta(Path(meta_path), {"omnidocbench": "evals"})
         assert seeded == []  # 已注册的行不被种子覆盖
         assert reg.get_library("lib-officeqa").group_name == "standards"
+
+
+class TestCustomGroups:
+    """自定义库组（界面建组）：slug 校验、派生存储布局、与内置组同权的注册/改组。"""
+
+    def test_create_group_roundtrip(self, reg):
+        rec = reg.create_group("bridge", "外服 · 桥梁工程")
+        assert rec.group_name == "bridge" and rec.display_name == "外服 · 桥梁工程"
+        assert [g.group_name for g in reg.list_custom_groups()] == ["bridge"]
+
+    def test_create_group_display_update_idempotent(self, reg):
+        reg.create_group("bridge", "v1")
+        rec = reg.create_group("bridge", "v2")
+        assert rec.display_name == "v2"
+        assert len(reg.list_custom_groups()) == 1
+
+    def test_group_name_slug_enforced(self, reg):
+        # 大写/空格/路径穿越/数字开头/单字符/超长/中文——组名会进文件路径与 qdrant collection，一律拒
+        for bad in ("Bridge", "bri dge", "../evil", "1abc", "a", "x" * 33, "桥梁"):
+            with pytest.raises(ValueError):
+                reg.create_group(bad, "占位")
+
+    def test_builtin_name_rejected(self, reg):
+        with pytest.raises(ValueError):
+            reg.create_group("standards", "占位")
+
+    def test_register_in_custom_group_derives_layout(self, reg):
+        reg.create_group("bridge", "桥梁")
+        record = reg.register_library("lib-b", group_name="bridge")
+        assert record.collection == "bridge"
+        # 组文件未落盘 → 挂过渡单文件（与内置组同口径）
+        assert record.sqlite_file == "knowledge/knowledge_index.sqlite"
+
+    def test_set_group_to_custom(self, reg):
+        reg.register_library("lib-a", group_name="standards")
+        reg.create_group("bridge", "桥梁")
+        record = reg.set_group("lib-a", "bridge")
+        assert record.group_name == "bridge" and record.collection == "bridge"
+
+    def test_set_group_unknown_still_rejected(self, reg):
+        reg.register_library("lib-a")
+        with pytest.raises(ValueError):
+            reg.set_group("lib-a", "no-such-group")
+
+    def test_unknown_group_registration_still_falls_back(self, reg):
+        """未注册自定义组名：register_library 维持旧宽容行为（校验在 docs_service 层做）。"""
+        record = reg.register_library("lib-w", group_name="ghost")
+        assert record.collection == "ghost"
