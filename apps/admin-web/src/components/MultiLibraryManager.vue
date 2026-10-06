@@ -1,5 +1,7 @@
 <template>
   <div class="multi-lib-manager" :class="appClass">
+    <!-- 内容宽度与「详情」.stats-content 同款：1100px 居中，不横向铺满 -->
+    <div class="ml-content">
     <!-- 第一行：左=组切换下拉（详情标题同款）+刷新+建组加号，右=迁移记录 -->
     <div class="ml-page-header">
       <div class="ml-page-header-left">
@@ -171,6 +173,7 @@
             </template>
       </template>
     </DataTable>
+    </div><!-- /ml-content -->
 
     <!-- 新建：名称/描述/所属组 -->
     <a-modal v-model:open="showCreate" title="新建知识库" :confirm-loading="saving" @ok="handleCreate">
@@ -655,6 +658,12 @@ onActivated(load)
   overflow: auto;
   /* 上 24 与「详情」页外壳同位（实测其 page-header top=80，本容器原 16 会顶到 72） */
   padding: 24px 24px 16px;
+}
+/* 内容列宽与「详情」.stats-content 逐字同款：1100px 居中（业主定版：不横向铺满） */
+.ml-content {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
 }
 /* 第一行：克隆「详情」页 .page-header（左右两段、下边距 16）；
    高 39 = 详情标题实测行高（20px 字 × 1.5714 行高 + 触发器上下 padding 4）——
