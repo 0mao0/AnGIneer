@@ -188,7 +188,7 @@
 
 <script setup lang="ts">
 /**
- * 多库管理 tab：全库一览（按组分组）+ 新建 / 改名 / 换组 / 删除。
+ * 总览 tab：全库一览（按组分组）+ 新建 / 改名 / 换组 / 删除。
  * 数据源 GET /knowledge/libraries/groups（后端注册表聚合）；换组只改注册行，
  * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups）。
  */
@@ -477,7 +477,7 @@ async function handleDelete() {
   }
 }
 
-/** 改动后同步刷新本表与全局库 store（日常维护等其它视图立即看到新库/换组） */
+/** 改动后同步刷新本表与全局库 store（详情等其它视图立即看到新库/换组） */
 async function refreshAll() {
   await Promise.all([load(), libraryStore.loadLibraries()])
 }

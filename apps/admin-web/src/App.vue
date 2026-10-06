@@ -22,6 +22,9 @@
             <a-button type="text" title="AI 对话" @click="openUserChat">
               <WechatFilled />
             </a-button>
+            <a-button type="text" title="链路架构图" @click="router.push('/arch')">
+              <DeploymentUnitOutlined />
+            </a-button>
             <a-button type="text" title="API 管理" class="api-text-btn" @click="router.push('/api-keys')">
               API
             </a-button>
@@ -58,7 +61,7 @@
 
 <script setup lang="ts">
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import { LogoutOutlined, TeamOutlined, WechatFilled } from '@ant-design/icons-vue'
+import { DeploymentUnitOutlined, LogoutOutlined, TeamOutlined, WechatFilled } from '@ant-design/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
 import { computed, provide, ref, watch } from 'vue'
 import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
@@ -71,11 +74,12 @@ const route = useRoute()
 const authStore = useAdminAuthStore()
 const { themeConfig, appClass } = useTheme()
 
-/** 知识库视图状态（多库管理|日常维护|夜间测试|AI对话）：由头部统一控制 */
+/** 知识库视图状态（总览|详情|夜巡）：由头部统一控制。
+ *  'aichat'（AI对话/原解析）不再是头部 tab，改由单库列表工具条按钮进入（KnowledgeStats）。 */
 const knowledgeView = ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>('maintenance')
 provide('knowledgeView', knowledgeView)
 
-/** 评测集视图状态（日常测试|夜间测试|解析回归）：?view=nightly|parse-regression 深链直达
+/** 评测集视图状态（日测|夜测|解析回归）：?view=nightly|parse-regression 深链直达
  * （企微卡片入口）。mount 未等 router.isReady()，setup 时 route.query 恒为空，
  * 必须 watch 到导航解析后再同步。 */
 const evalView = ref<'workbench' | 'nightly' | 'parse-regression'>('workbench')
@@ -85,20 +89,20 @@ watch(() => route.query.view, (v) => {
   else if (v === 'parse-regression') evalView.value = 'parse-regression'
 }, { immediate: true })
 
-/** 头部视图切换按模块显示：知识库=多库管理|日常维护|夜间维护|AI对话，评测集=日常测试|夜间测试|解析回归 */
+/** 头部视图切换按模块显示：知识库=总览|详情|夜巡，评测集=日测|夜测|解析回归。
+ *  AI对话入口已移出头部（tab 改按钮，见 KnowledgeStats 工具条），'aichat' 不在清单里。 */
 const viewItems = computed(() => {
   if (activeNav.value === 'knowledge') {
     return [
-      { key: 'multilib', label: '多库管理' },
-      { key: 'maintenance', label: '日常维护' },
-      { key: 'nightly', label: '夜间维护' },
-      { key: 'aichat', label: 'AI对话' }
+      { key: 'multilib', label: '总览' },
+      { key: 'maintenance', label: '详情' },
+      { key: 'nightly', label: '夜巡' }
     ]
   }
   if (activeNav.value === 'evals') {
     return [
-      { key: 'workbench', label: '日常测试' },
-      { key: 'nightly', label: '夜间测试' },
+      { key: 'workbench', label: '日测' },
+      { key: 'nightly', label: '夜测' },
       { key: 'parse-regression', label: '解析回归' }
     ]
   }
@@ -125,7 +129,7 @@ const navItems: NavItem[] = [
 
 /** 下拉只承载功能性模块；管理类入口（用户管理/API 管理）不占用选中态，下拉显示灰色占位 */
 const activeModule = computed(() => {
-  if (['users', 'api-keys'].includes(activeNav.value)) return ''
+  if (['users', 'api-keys', 'arch'].includes(activeNav.value)) return ''
   return activeNav.value
 })
 
@@ -136,6 +140,7 @@ const activeNav = computed(() => {
   if (path.startsWith('/experience')) return 'experience'
   if (path.startsWith('/users')) return 'users'
   if (path.startsWith('/api-keys')) return 'api-keys'
+  if (path.startsWith('/arch')) return 'arch'
   return 'knowledge'
 })
 

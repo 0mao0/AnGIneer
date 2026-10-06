@@ -71,7 +71,7 @@ interface DeleteNodePreviewResponse {
 
 const api = docsApiClient
 
-/** 多库管理 tab：按组聚合的库清单（后端 /knowledge/libraries/groups 直出） */
+/** 总览 tab：按组聚合的库清单（后端 /knowledge/libraries/groups 直出） */
 export interface LibraryGroupItem {
   group_name: string
   is_default_group: boolean

@@ -14,7 +14,7 @@
           type="link"
           @click="$emit('open-run', { datasetId: cur.dataset_id || DEFAULT_NIGHTLY_DATASET, runId: cur.run_id })"
         >
-          在日常测试中打开本次运行
+          在日测中打开本次运行
         </a-button>
         <a-alert
           v-for="(reason, i) in cur.gate_reasons || []"

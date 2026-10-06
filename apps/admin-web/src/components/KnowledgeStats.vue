@@ -4,14 +4,11 @@
     <div class="page-header">
       <div class="page-header-left">
         <LibrarySelect class="library-select-inline" mode="title" @review="onEntityReview" />
-      </div>
-      <div class="page-header-right">
-        <a-switch
-          :checked="showDeletedOnly"
-          size="small"
-          @change="toggleDeletedFilter"
-        />
-        <span class="page-header-label">用户已删</span>
+        <a-tooltip title="打开 AI对话（原解析工作台）">
+          <a-button class="aichat-entry-btn" @click="knowledgeView = 'aichat'">
+            AI对话
+          </a-button>
+        </a-tooltip>
       </div>
     </div>
 
@@ -22,7 +19,9 @@
         allow-clear
         class="stats-filter-item"
         style="width: 240px"
-      />
+      >
+        <template #prefix><search-outlined /></template>
+      </a-input>
       <a-select
         v-model:value="statusFilter"
         placeholder="全部状态"
@@ -371,7 +370,7 @@
 </template>
 
 <script setup lang="ts">
-import { defineAsyncComponent, ref, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, computed, watch, h } from 'vue'
+import { defineAsyncComponent, inject, ref, nextTick, onMounted, onBeforeUnmount, onActivated, onDeactivated, computed, watch, h, type Ref } from 'vue'
 import dayjs from 'dayjs'
 import { message, Modal, Button } from 'ant-design-vue'
 import {
@@ -383,6 +382,7 @@ import {
   DeleteOutlined,
   UpOutlined,
   DownOutlined,
+  SearchOutlined,
 } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
@@ -397,6 +397,9 @@ import BatchUploadModal from '@/components/BatchUploadModal.vue'
 import FolderModal from '@/views/components/FolderModal.vue'
 import { useLibraryStore } from '@/stores/library'
 import type { KnowledgeLibraryItem } from '@/stores/library'
+
+/** 知识库视图状态（provide 自 App.vue），按钮切到 'aichat' 即进 AI对话（原解析） */
+const knowledgeView = inject<Ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>>('knowledgeView')!
 
 /**
  * 预览工作区只在「查看」抽屉里用：经 DocViewerPane 薄包装动态引入，把 pdf.js /
@@ -807,18 +810,20 @@ const formatFilter = ref<string | undefined>(undefined)
 // 不含 records 本身——后台轮询刷新行集时不许弹用户的页码。
 const filterSignature = computed(
   () =>
-    `${libraryStore.libraryId}|${keywordFilter.value}|${statusFilter.value ?? ''}|${formatFilter.value ?? ''}|${showDeletedOnly.value}`,
+    `${libraryStore.libraryId}|${keywordFilter.value}|${statusFilter.value ?? ''}|${formatFilter.value ?? ''}`,
 )
 
 // 2026-10-04 精简（业主要求）：8 个原始状态并成 6 档——排队中/待解析同语义并一档，
 // 已取消/用户已删并成「其他」；计数为 0 的档不显示；每档尾带当前条数。行内徽章仍用原细分文案。
+// 2026-10-06：「用户已删」从页头开关并入本下拉（业主）。deleted_filter 是服务端语义
+// （true=只看已删行），它不能与其它档混用，故从「其他」拆出单独成档、计数常显。
 const STATUS_BUCKETS: Array<{ value: string; label: string; statuses: string[] }> = [
   { value: 'completed', label: '完成', statuses: ['completed'] },
   { value: 'partial', label: '部分完成', statuses: ['partial'] },
   { value: 'processing', label: '进行中', statuses: ['processing'] },
   { value: 'waiting', label: '排队中', statuses: ['queued', 'pending'] },
   { value: 'failed', label: '失败', statuses: ['failed'] },
-  { value: 'other', label: '其他', statuses: ['cancelled', 'deleted'] },
+  { value: 'other', label: '其他', statuses: ['cancelled'] },
 ]
 const statusCounts = computed(() => {
   const counts: Record<string, number> = {}
@@ -829,12 +834,26 @@ const statusCounts = computed(() => {
   }
   return counts
 })
+const deletedCount = ref(0)
+
+async function refreshDeletedCount() {
+  try {
+    const res = await knowledgeApi.listRecords({
+      show_deleted: true,
+      library_id: libraryStore.libraryId || 'default',
+      limit: 500,
+    })
+    deletedCount.value = (res.data || []).length
+  } catch {
+    // 计数失败不打扰用户，选项仍保留（选中后自然触发全量拉取）
+  }
+}
+
 const statusFilterOptions = computed(() =>
-  STATUS_BUCKETS.filter((b) => statusCounts.value[b.value] > 0).map((b) => ({
-    value: b.value,
-    label: b.label,
-    count: statusCounts.value[b.value],
-  })),
+  STATUS_BUCKETS.filter((b) => statusCounts.value[b.value] > 0)
+    .map((b) => ({ value: b.value, label: b.label, count: statusCounts.value[b.value] }))
+    // 「用户已删」计数独立拉（常规列表不含已删行），0 也显示，入口不能消失
+    .concat([{ value: 'deleted', label: '用户已删', count: deletedCount.value }]),
 )
 const formatFilterOptions = ['pdf', 'doc', 'docx', 'md', 'txt'].map((f) => ({
   value: f,
@@ -844,7 +863,8 @@ const formatFilterOptions = ['pdf', 'doc', 'docx', 'md', 'txt'].map((f) => ({
 const filteredRecords = computed(() => {
   const kw = keywordFilter.value.trim().toLowerCase()
   return records.value.filter((r) => {
-    if (statusFilter.value) {
+    // 「用户已删」由服务端过滤（records 已是已删全集），客户端不再二次过滤
+    if (statusFilter.value !== 'deleted' && statusFilter.value) {
       const bucket = STATUS_BUCKETS.find((b) => b.value === statusFilter.value)
       if (!bucket || !bucket.statuses.includes(r.status)) return false
     }
@@ -854,7 +874,6 @@ const filteredRecords = computed(() => {
   })
 })
 const loading = ref(false)
-const showDeletedOnly = ref(false)
 const selectedRowKeys = ref<number[]>([])
 
 /** 异步组件取不到内层实例类型；抽屉里只用到这一个方法 */
@@ -1012,7 +1031,8 @@ async function loadRecords(silent = false) {
   }
   try {
     const res = await knowledgeApi.listRecords({
-      show_deleted: showDeletedOnly.value,
+      // 原「用户已删」开关并入状态筛选（2026-10-06）：选中该档时服务端只回已删行
+      show_deleted: statusFilter.value === 'deleted',
       library_id: libraryStore.libraryId || 'default',
     })
     records.value = res.data
@@ -1026,12 +1046,13 @@ async function loadRecords(silent = false) {
 
 watch(() => libraryStore.libraryId, () => {
   loadRecords()
+  void refreshDeletedCount()
 })
 
-function toggleDeletedFilter(checked: boolean) {
-  showDeletedOnly.value = checked
-  loadRecords()
-}
+// 状态筛选变化 → 重拉（「用户已删」档需要服务端切换 show_deleted）
+watch(statusFilter, () => {
+  void loadRecords()
+})
 
 // 下拉 item 内的实体审核入口：切换库并打开审核抽屉
 function onEntityReview(lib: KnowledgeLibraryItem) {
@@ -1106,6 +1127,7 @@ onActivated(() => {
     return
   }
   loadRecords(true)
+  void refreshDeletedCount()
   // 阶段抽屉可能在离开时还开着，缓存后 watch(stepsModalOpen) 不会再触发，这里补启
   if (stepsModalOpen.value) startStagesPolling()
 })
@@ -1501,6 +1523,7 @@ async function purgeNodeIfExists(docId: string) {
 
 onMounted(() => {
   loadRecords()
+  void refreshDeletedCount()
   // 空闲预热预览栈：落地页不再为 pdf.js / docx-preview / xlsx 买单，
   // 用户点「查看」时组件已在内存里（预热失败不影响功能，异步组件会自行重试加载）
   const prime = () => { void docViewerLoader().catch(() => {}) }
@@ -1531,6 +1554,38 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+/* 霓虹玻璃胶囊：中紫玻璃底托亮字 + 常态微光，hover 提亮上浮 */
+.aichat-entry-btn {
+  border: 1px solid rgba(165, 180, 252, 0.5);
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 14.5px;
+  letter-spacing: 0.02em;
+  padding-inline: 20px;
+  background: linear-gradient(160deg, rgba(109, 95, 246, 0.5), rgba(72, 61, 180, 0.55) 55%, rgba(35, 120, 205, 0.45));
+  box-shadow: 0 0 18px rgba(129, 140, 248, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: border-color 0.2s, box-shadow 0.25s, transform 0.2s, background 0.25s;
+}
+/* 圆润科技体 + 高亮渐变字：渐变压到最内层文字节点（antd 默认包 span，渐变换层会被切） */
+.aichat-entry-btn :deep(span) {
+  font-family: "Yuanti SC", "YouYuan", "幼圆", "HarmonyOS Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(120deg, #eef1ff, #cdd8ff 52%, #b6f0ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.aichat-entry-btn:hover {
+  border-color: rgba(190, 200, 255, 0.9);
+  background: linear-gradient(160deg, rgba(124, 108, 255, 0.62), rgba(86, 73, 205, 0.62) 55%, rgba(45, 135, 225, 0.55));
+  box-shadow: 0 0 26px rgba(139, 148, 255, 0.5), 0 4px 14px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+.aichat-entry-btn:hover :deep(span) {
+  background: linear-gradient(120deg, #ffffff, #e4ebff 52%, #d2f8ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .page-header-right {
   display: flex;

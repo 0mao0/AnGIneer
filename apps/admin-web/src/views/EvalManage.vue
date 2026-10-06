@@ -299,12 +299,12 @@
 
   </div>
 
-  <!-- 夜间测试视图：门禁结论历史（与日常测试共享页面，头部切换） -->
+  <!-- 夜测视图：门禁结论历史（与日测共享页面，头部切换） -->
   <div v-if="evalView === 'nightly'" class="eval-nightly-wrap" :class="appClass">
     <div class="eval-nightly-content">
       <div class="page-header">
         <div class="page-header-left">
-          <h2>夜间测试</h2>
+          <h2>夜测</h2>
         </div>
         <div class="page-header-right">
           <a-switch :checked="nightlyEnabled" size="small" @change="onNightlyEnabledChange" />
@@ -397,11 +397,11 @@ const {
   getContainerWidth: () => workspaceRef.value?.clientWidth || window.innerWidth,
 })
 
-/** 视图模式（日常测试|夜间测试|解析回归）：App.vue 头部统一控制，?view=nightly|parse-regression 深链进入 */
+/** 视图模式（日测|夜测|解析回归）：App.vue 头部统一控制，?view=nightly|parse-regression 深链进入 */
 const evalView = inject<Ref<'workbench' | 'nightly' | 'parse-regression'>>(
   'evalView', ref<'workbench' | 'nightly' | 'parse-regression'>('workbench'))
 
-/** 夜间测试头部：定时开关+时间（改哪项存哪项，开关状态以服务端为准；改时间不再隐式开启定时）；
+/** 夜测头部：定时开关+时间（改哪项存哪项，开关状态以服务端为准；改时间不再隐式开启定时）；
  *  立即运行打开面板内的执行计划确认框（计划/模型/并发先看清楚再起跑），running 态与轮询由面板负责 */
 const nightlyPanelRef = ref<{ openRunModal: () => void } | null>(null)
 const nightlyEnabled = ref(false)
@@ -922,7 +922,7 @@ const onSelectHistoricalRun = async (runId: string) => {
   await selectHistoricalRun(runId)
 }
 
-/** 夜间维护面板点"在日常测试中打开"：切回工作台、选对测试集并加载该 run。
+/** 夜间维护面板点"在日测中打开"：切回工作台、选对测试集并加载该 run。
  * run 存于当前环境的评测库（本地/站点各自独立），查不到时以前会静默空态，必须言明 */
 const onNightlyOpenRun = async (payload: { datasetId: string; runId: string }) => {
   evalView.value = 'workbench'

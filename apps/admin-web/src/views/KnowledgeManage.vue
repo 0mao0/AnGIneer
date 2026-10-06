@@ -1,21 +1,21 @@
 <template>
   <div class="knowledge-workspace" :class="appClass">
-    <!-- 多库管理（全库一览 / 新建 / 换组 / 删除） -->
+    <!-- 总览（全库一览 / 新建 / 换组 / 删除） -->
     <div v-if="activeView === 'multilib'" class="knowledge-list-view">
       <MultiLibraryManager />
     </div>
 
-    <!-- 日常维护（原列表） -->
+    <!-- 详情（原列表） -->
     <div v-else-if="activeView === 'maintenance'" class="knowledge-list-view">
       <KnowledgeStats />
     </div>
 
-    <!-- 夜间维护（健康检查） -->
+    <!-- 夜巡（健康检查） -->
     <div v-else-if="activeView === 'nightly'" class="knowledge-nightly-view">
       <DreamCycleView />
     </div>
 
-    <!-- AI对话（原解析） -->
+    <!-- AI对话（原解析）：兜底支（activeView 无其它匹配时显示），由详情工具条按钮进入 -->
     <KnowledgeParseWorkspace
       v-else
       :api="knowledgeApi"
@@ -26,8 +26,10 @@
 
 <script setup lang="ts">
 /**
- * 知识库管理 - 四视图
- * 多库管理 + 日常维护 + 夜间维护 + AI对话，通过 App.vue 头部统一控制
+ * 知识库管理 - 视图容器
+ * 总览 + 详情 + 夜巡：头部 tab 控制；
+ * AI对话（原解析）：头部 tab 已撤（2026-10-06），入口改为详情工具条按钮，
+ * 写入同一个 knowledgeView 状态（provide 自 App.vue）。
  */
 import { defineAsyncComponent, inject, onMounted, ref, type Ref } from 'vue'
 import { useTheme } from '@angineer/ui-kit'

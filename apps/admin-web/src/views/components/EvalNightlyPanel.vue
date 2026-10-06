@@ -120,7 +120,7 @@
               runModal.plan.resume.total || '?' }}），本次将断点续跑
           </a-descriptions-item>
           <a-descriptions-item label="结果去向">
-            本页新增当日结论条目 + 企微通知（评测逐题结果进「日常测试」历史）
+            本页新增当日结论条目 + 企微通知（评测逐题结果进「日测」历史）
           </a-descriptions-item>
         </a-descriptions>
         <a-empty v-else-if="!runModal.loading" description="执行计划读取失败" />
@@ -437,7 +437,7 @@ defineExpose({ openRunModal })
 
 <style scoped>
 /* 宽度封顶/居中、外边距与滚动全部交给外层 .eval-nightly-wrap + .eval-nightly-content
-   （与知识库日常维护的 .knowledge-stats/.stats-content 同构），此处再包一层会让表格比头部窄 */
+   （与知识库详情的 .knowledge-stats/.stats-content 同构），此处再包一层会让表格比头部窄 */
 .eval-nightly-panel {
   min-width: 0;
 }
