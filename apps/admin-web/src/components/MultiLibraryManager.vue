@@ -49,7 +49,8 @@
         class="ml-filter-item"
         style="width: 202px"
       >
-        <template #prefix><search-outlined /></template>
+        <!-- 放大镜颜色照抄「详情」搜索框（KnowledgeStats 内联 rgba .25），两页筛选条同款 -->
+        <template #prefix><search-outlined style="color: rgba(255, 255, 255, 0.25)" /></template>
       </a-input>
       <a-select
         v-model:value="groupFilter"
