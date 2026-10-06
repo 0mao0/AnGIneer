@@ -6,11 +6,22 @@
         v-model:value="libFilter"
         placeholder="按库名搜索"
         allow-clear
-        style="width: 220px"
+        class="ml-filter-item"
+        style="width: 202px"
       >
         <template #prefix><search-outlined /></template>
       </a-input>
-      <a-select v-model:value="groupFilter" style="width: 160px" :options="groupFilterOptions" />
+      <a-select
+        v-model:value="groupFilter"
+        placeholder="全部组"
+        allow-clear
+        class="ml-filter-item"
+        style="width: 140px"
+      >
+        <a-select-option v-for="opt in groupFilterOptions" :key="opt.value" :value="opt.value">
+          {{ opt.label }}
+        </a-select-option>
+      </a-select>
       <a-button :loading="loading" title="刷新" @click="load">
         <template #icon><reload-outlined /></template>
       </a-button>
@@ -239,19 +250,18 @@ const flatLibraries = computed(() =>
   ),
 )
 
-// 表头筛选（克隆详情筛选条）：库名模糊 + 组精确
+// 筛选栏（克隆详情 tab 筛选条）：库名模糊 + 组精确；清空 = 全部组（与详情的状态筛选同形态）
 const libFilter = ref('')
-const groupFilter = ref('all')
+const groupFilter = ref<string | undefined>(undefined)
 
-const groupFilterOptions = computed(() => [
-  { value: 'all', label: '全部组' },
-  ...groups.value.map((g) => ({ value: g.group_name, label: groupName(g.group_name) })),
-])
+const groupFilterOptions = computed(() =>
+  groups.value.map((g) => ({ value: g.group_name, label: groupName(g.group_name) })),
+)
 
 const filteredLibraries = computed(() => {
   const kw = libFilter.value.trim().toLowerCase()
   return flatLibraries.value.filter((lib) => {
-    if (groupFilter.value !== 'all' && lib.group_name !== groupFilter.value) return false
+    if (groupFilter.value && lib.group_name !== groupFilter.value) return false
     if (kw && !`${lib.name || ''} ${lib.id}`.toLowerCase().includes(kw)) return false
     return true
   })
@@ -523,11 +533,16 @@ onActivated(load)
   overflow: auto;
   padding: 16px 24px;
 }
+/* 第二行筛选栏：与「详情」tab 的 .stats-filter-bar 同款（flex-wrap、gap 8、下边距 12） */
 .ml-header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+.ml-filter-item {
+  min-width: 0;
 }
 .ml-lib-name {
   font-weight: 500;
