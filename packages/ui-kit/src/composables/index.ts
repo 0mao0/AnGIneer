@@ -1,4 +1,5 @@
 export { useTheme } from './useTheme'
+export { installThemeTransition } from './useThemeTransition'
 export { useLayout } from './useLayout'
 export { useSplitPanesLayout } from './useSplitPanesLayout'
 export type { SplitPanesLayoutOptions, SplitPanesLayout } from './useSplitPanesLayout'

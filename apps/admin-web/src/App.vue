@@ -64,7 +64,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { DeploymentUnitOutlined, LogoutOutlined, TeamOutlined, WechatFilled } from '@ant-design/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
 import { computed, provide, ref, watch } from 'vue'
-import { AppHeader, useTheme, type NavItem } from '@angineer/ui-kit'
+import { AppHeader, useTheme, installThemeTransition, type NavItem } from '@angineer/ui-kit'
 import AuthGate from './components/AuthGate.vue'
 import { useAdminAuthStore } from './stores/auth'
 import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
@@ -73,6 +73,8 @@ const router = useRouter()
 const route = useRoute()
 const authStore = useAdminAuthStore()
 const { themeConfig, appClass } = useTheme()
+// 主题切换防闪黑：CSS 变量当帧生效、AntD cssinjs 晚 1–2 帧，中间帧用旧主题底色遮罩盖掉
+installThemeTransition()
 
 /** 知识库视图状态（总览|详情|夜巡）：由头部统一控制。
  *  'aichat'（AI对话/原解析）不再是头部 tab，改由单库列表工具条按钮进入（KnowledgeStats）。 */
