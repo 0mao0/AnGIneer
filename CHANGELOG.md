@@ -2,6 +2,20 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.91
+
+- 知识库拆分/合并迁移全链路（docs-core 迁移器预览/执行/校验/补偿与 jsonl 审计、graph/qdrant/parse_records 重标、migrating 写拒绝 409、admin 多库管理 tab 与拆分/合并向导、volumes 体量 API）
+- 对话黑板（conv_graph）M0-M2 全链路落地并接线 aichat（图存储/run_end 蒸馏/读路径召回渲染），全程默认关、开关启用
+- 终答工具调用泄漏守卫：畸形 tool_calls JSON（多/少括号）逐对象抢救，救不回时剥离围栏或喂回逼真答案（根治 qwen3.6-35b 在 FinanceBench 型题 7/150 静默 0 分）
+- LLM 流式首字存活线（默认 90s，ANGINEER_FIRST_TOKEN_LIVENESS_S 可调或 0 禁用）＋停止按钮等待窗可打断——挂起型卡死收口
+- LLM 投影 V2：items[] 检索器遥测外壳不进 prompt（prompt 经济性）
+- nightly 中断恢复：损坏占位三态化＋续跑收敛回 launch 唯一入口
+- 压缩摘要留 doc 指针＋knowledge_search 开放 doc_ids 回看＋ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关）
+- QA prompt v16：规则 2 放宽，正文恢复散文式出处「根据《…》」
+- 评测 harness：LLM_CONFIGS extra_body 全量接管（reasoning_effort 思考档位入口，与 enable_thinking 互斥）＋StartEvalRunRequest.workers 每 run 并发数
+- admin 总览与知识库页系列改版：表头排序、组切换下拉与内联建组、操作列改版（危险操作沉底）、manager 单表化带迁移入口、实体复核入口、主题切换防闪黑、链路架构图 /arch
+- 杂项：db_snapshot 三条过期库路径改现位、route_pre 三例测试按阶段帧契约（stage 恒为首帧）更新、对话黑板与图谱文档出账、.env.example 登记黑板三开关
+
 ## v0.2.90
 
 - 多库勾选问答阶段三 Phase B–E 全链路上线（60f349d/50fc410/1487de0/8f2bf8a，spec=docs/superpowers/specs/2026-10-04-kb-multi-library-qa-design.md）：主选择器多选 ≤5 库、同问跨库一次问答（docs-core 按向量 collection 分组扇出 + 按库分池 RRF 融合、多库 40 候选池 D9、FTS 库过滤求交前移）；ScopeContext 集合化与 scope_hash 降级为消息级来源标记（单库调用逐位不变）、工具链/memo 键/Evidence 逐项来源库标注全链带集合（P0 修复：原按首库整批赋值）；chat-history 表结构迁移（chat_messages PK 去 scope_hash + 存量 seq 重排 + chat_sessions 加 library_ids_json，随服务重启自动执行、幂等）；集合鉴权先于截断（任一越权 403 不做静默剔除，ANGINEER_MAX_CHAT_LIBRARIES 默认 5 夹 1..10）；会话池 key=owner:scene:session_id（会话内改集合不轮换、上下文跨集合续接）；前端多选选择器与历史单桶、引用溯源按来源库定位（citations 帧无标源，由同消息 items 三级对账回填 library_id）

@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.90** ——多库勾选问答全链路上线（选择器多选 ≤5、同问跨库一次问答 RRF 融合 40 候选、集合鉴权越权 403、会话内改集合上下文跨集合续接、chat-history 表迁移随重启自动执行、引用溯源按来源库定位）；多库验收修复（库名登录后补加载与「N 个知识库」收口、@ 与库选择器对调、下拉面板加宽、空库横幅随最近一次请求、hover 卡贴锚点并优先向上、警示用中文库名、守卫补无效标记剥离）；nightly 中断恢复（部署砸 run 中断可见性与断点续跑）；MinerU 显式绕系统代理直连（长连接被中继吞 11–27 分钟的根治，超时键同登记）；docs-api 取消收敛与启动行级自愈（「取消失败: 任务不存在」死局与悬空行僵尸消除）；admin 知识库页交互增强（组记忆切换、状态筛选 6 档带计数、大小/页数排序、筛选回卷页码）与 table-ui resetPageToken；术语统一「黑板」→「变量黑板」；文档回仓（对话黑板按阶段三 D6 改版收口、M0 三臂施工单、DGX 视觉端点规格）；多库验收探针脚本（单库×1.5 阈值 p90 口径、结果落 data/ops/）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.91** ——知识库拆分/合并迁移全链路（docs-core 迁移器预览/执行/校验/补偿与 jsonl 审计、graph/qdrant/parse_records 重标、migrating 写拒绝 409、admin 多库管理 tab 与拆分/合并向导、volumes 体量 API）；对话黑板（conv_graph）M0-M2 全链路落地并接线 aichat（图存储/run_end 蒸馏/读路径召回渲染），全程默认关、开关启用；终答工具调用泄漏守卫：畸形 tool_calls JSON（多/少括号）逐对象抢救，救不回时剥离围栏或喂回逼真答案（根治 qwen3.6-35b 在 FinanceBench 型题 7/150 静默 0 分）；LLM 流式首字存活线（默认 90s，ANGINEER_FIRST_TOKEN_LIVENESS_S 可调或 0 禁用）＋停止按钮等待窗可打断——挂起型卡死收口；LLM 投影 V2：items[] 检索器遥测外壳不进 prompt（prompt 经济性）；nightly 中断恢复：损坏占位三态化＋续跑收敛回 launch 唯一入口；压缩摘要留 doc 指针＋knowledge_search 开放 doc_ids 回看＋ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关）；QA prompt v16：规则 2 放宽，正文恢复散文式出处「根据《…》」；评测 harness：LLM_CONFIGS extra_body 全量接管（reasoning_effort 思考档位入口，与 enable_thinking 互斥）＋StartEvalRunRequest.workers 每 run 并发数；admin 总览与知识库页系列改版：表头排序、组切换下拉与内联建组、操作列改版（危险操作沉底）、manager 单表化带迁移入口、实体复核入口、主题切换防闪黑、链路架构图 /arch；杂项：db_snapshot 三条过期库路径改现位、route_pre 三例测试按阶段帧契约（stage 恒为首帧）更新、对话黑板与图谱文档出账、.env.example 登记黑板三开关。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（六个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
