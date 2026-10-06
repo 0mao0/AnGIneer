@@ -257,11 +257,15 @@ class KbMigrator:
         "doc_block_corrections",
     )
 
-    def _doc_table_fingerprint(self, source: str, doc_ids: List[str]) -> Dict[str, Any]:
-        """按 doc_id 锚定的搬迁不变量（二轮评审 P0-1 改法）：逐表行数 + 逐列长度和。
+    # 迁移有意改写的列，不计入长度和不变量（施工修：计划稿「改标不改变这些值」的前提
+    # 对 updated_at/library_id 两列不成立——迁移恰恰会重写它们）
+    _FP_EXCLUDE_COLS = ("updated_at", "library_id")
 
-        改标 library_id 不改变这些值 → 预览与对账两侧同形状可比，
-        杜绝「按 library_id 查源库恒得 0」的假对账。
+    def _doc_table_fingerprint(self, source: str, doc_ids: List[str]) -> Dict[str, Any]:
+        """按 doc_id 锚定的搬迁不变量（二轮评审 P0-1 改法）：逐表行数 + 内容列长度和。
+
+        预览与对账两侧同形状可比，杜绝「按 library_id 查源库恒得 0」的假对账；
+        排除列见 _FP_EXCLUDE_COLS（迁移有意重写，非搬迁内容）。
         """
         if not doc_ids:
             return {}
@@ -279,6 +283,8 @@ class KbMigrator:
                     ).fetchone()[0]
                     len_sum = 0
                     for c in cols:
+                        if c in self._FP_EXCLUDE_COLS:
+                            continue
                         len_sum += conn.execute(
                             f"SELECT COALESCE(SUM(LENGTH(CAST({c} AS TEXT))), 0) "
                             f"FROM {table} WHERE doc_id IN ({ph})", doc_ids,
@@ -421,3 +427,263 @@ class KbMigrator:
         if not self.graph_db.exists():
             return
         self._graph_store().move_doc_graph(from_lib, to_lib, [doc_id])
+
+    # ---- 主循环（设计 §5.3 全局两阶段 + 评审 P0-3 显式回滚分支）----
+    def run_task(self, task_id: str, *, operator: str = "admin") -> None:
+        task = self.store.get_task(task_id)
+        if task is None:
+            raise KeyError(f"迁移任务不存在: {task_id}")
+        params = task["params"]
+        if task["op"] == "rollback":
+            self._run_rollback(task, operator)
+            return
+        op = params["op"]
+        source = params["source_library_id"]
+        target = params.get("new_library_id") if op == "split" else params.get("target_library_id")
+        # P0-1：doc_ids 三层兜底——params（提交时落入）→ 任务行 preview → merge 现查源库全部文档
+        doc_ids = list(params.get("doc_ids") or (task.get("preview") or {}).get("doc_ids") or [])
+        if not doc_ids and op == "merge":
+            with create_connection(self.meta_db) as conn:
+                doc_ids = sorted(r[0] for r in conn.execute(
+                    "SELECT id FROM nodes WHERE library_id=? AND type='document' AND COALESCE(deleted,0)=0",
+                    (source,),
+                ))
+        if not doc_ids:
+            self.store.update_task(task_id, status="failed", error="文档集合为空，无可迁移内容")
+            return
+        # P0-2：桶在任务开始时解析一次（同组同桶恒成立），全程不再碰注册表
+        source_rec = library_registry.get_library(source)
+        collection = source_rec.collection if source_rec else ""
+        try:
+            self._gate_libraries(source, target if op == "merge" else None, on=True)
+            migrated = set(task["migrated_doc_ids"])
+            for doc_id in doc_ids:
+                if self.store.is_cancel_requested(task_id):
+                    self._compensate(task_id, source, target, collection, operator)
+                    return
+                if doc_id in migrated:
+                    continue  # 幂等续跑跳过
+                self.migrate_doc(doc_id, source, target, collection)
+                self.store.mark_doc_migrated(task_id, doc_id)
+                self.store.append_step(task_id, "execute", f"{doc_id} 迁移完成")
+            if self.store.is_cancel_requested(task_id):
+                self._compensate(task_id, source, target, collection, operator)
+                return
+            self.store.update_task(task_id, stage="verify")
+            # 施工修：_verify 原从 params 重推 doc_ids，merge 任务 params 无此键 → 空集假对账；
+            # 执行侧已解析的有效 doc_ids 显式传入
+            verify = self._verify(params, task.get("preview"), collection, doc_ids=doc_ids)
+            self.store.update_task(task_id, verify=verify)
+            if not verify["ok"]:
+                raise RuntimeError(f"对账不一致: {verify['mismatches']}")
+            self._switch(params, task_id, operator)
+            # _switch 内部失败已自行标 switch_reload_failed 并 return（评审 P2），不抛进本 except
+            if self.store.get_task(task_id)["status"] == "switch_reload_failed":
+                return
+            self.store.update_task(
+                task_id, status="completed", stage="switch", stage_message="迁移完成",
+                rollback_deadline=(datetime.now() + timedelta(days=ROLLBACK_WINDOW_DAYS)).isoformat(timespec="seconds"),
+            )
+            write_audit(operator=operator, action="switch", params=params,
+                        verify_digest=verify.get("digest"), result="completed")
+        except Exception as exc:
+            self.store.update_task(task_id, status="failed", error=str(exc), stage_message=str(exc))
+            write_audit(operator=operator, action="switch", params=params, result="failed", error=str(exc))
+            try:
+                self._gate_libraries(source, target if op == "merge" else None, on=False)
+            except Exception:  # noqa: BLE001
+                pass
+            raise
+
+    def _run_rollback(self, task: Dict[str, Any], operator: str) -> None:
+        """回滚分支（评审 P0-3）：全程禁止 register_library——它是 7 列覆盖 upsert，只允许在拆分切换时刻注册新库。
+
+        doc_ids 取法（两条规则，提交时已落进 params）：
+        - 拆分回滚 = 新库当前全部文档（migrated + 增量，业主已确认增量一并带走）
+        - 合并回滚 = 原任务行 migrated_doc_ids（目标库自有文档绝不动）
+        注册表收尾：拆分回滚=新库 retired；合并回滚=源库回 active（A 行从未消失，只是 retired）。
+        """
+        params = task["params"]
+        task_id = task["id"]  # N①修正：原代码未绑定 task_id，下文引用必 NameError
+        original_source = params["original_source_library_id"]
+        new_lib = params["library_id"]           # 拆分的新库 / 合并的源库 A
+        rollback_kind = params["rollback_kind"]  # split | merge
+        doc_ids = list(params.get("doc_ids") or [])
+        collection = params.get("collection", "")
+        try:
+            self._gate_libraries(new_lib, original_source if rollback_kind == "merge" else None, on=True)
+            verify_before = self._verify(
+                {"op": "split", "source_library_id": new_lib, "new_library_id": original_source,
+                 "doc_ids": doc_ids}, None, collection)  # 回滚前各面计数落 verify（兑现 spec §5.5「同样预览+对账」）
+            migrated = set(task["migrated_doc_ids"])
+            for doc_id in doc_ids:
+                if self.store.is_cancel_requested(task_id):
+                    self._compensate(task_id, new_lib, original_source, collection, operator)
+                    return
+                if doc_id in migrated:
+                    continue
+                self.rollback_doc(doc_id, original_source, new_lib, collection)
+                self.store.mark_doc_migrated(task_id, doc_id)
+                self.store.append_step(task_id, "rollback", f"{doc_id} 已撤回")
+            verify_after = self._verify(
+                {"op": "split", "source_library_id": new_lib, "new_library_id": original_source,
+                 "doc_ids": doc_ids}, None, collection)
+            verify_after["before"] = verify_before.get("digest")
+            self.store.update_task(task_id, verify=verify_after)
+            if not verify_after["ok"]:
+                raise RuntimeError(f"回滚对账不一致: {verify_after['mismatches']}")
+            # 注册表收尾（禁止 register_library）
+            if rollback_kind == "split":
+                library_registry.set_status(new_lib, library_registry.STATUS_RETIRED)
+                library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
+            else:
+                # 合并回滚：源库 A 回 active；当前持有方 B 从 migrating 门禁放回 active
+                library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
+                library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+            try:
+                from docs_core.docs_service import get_docs_service
+                get_docs_service().reload_scope_cache()
+            except Exception as exc:  # noqa: BLE001
+                self.store.update_task(task_id, status="switch_reload_failed",
+                                       error=f"reload_scope_cache 失败，请重启 docs-api 容器: {exc}")
+                write_audit(operator=operator, action="rollback", params=params,
+                            result="switch_reload_failed", error=str(exc))
+                return
+            self.store.update_task(task_id, status="completed", stage="rollback",
+                                   stage_message="回滚完成")
+            write_audit(operator=operator, action="rollback", params=params,
+                        verify_digest=verify_after.get("digest"), result="completed")
+        except Exception as exc:
+            self.store.update_task(task_id, status="failed", error=str(exc), stage_message=str(exc))
+            # N2 修正：回滚异常按方向恢复门禁，避免库锁死 migrating
+            try:
+                if rollback_kind == "merge":
+                    library_registry.set_status(original_source, library_registry.STATUS_RETIRED)
+                    library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+                else:
+                    library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+            except Exception:  # noqa: BLE001
+                pass
+            write_audit(operator=operator, action="rollback", params=params, result="failed", error=str(exc))
+            raise
+
+    def _compensate(self, task_id: str, source: str, target: str, collection: str, operator: str) -> None:
+        """取消 = doc 边界停止 + 自动反向补偿已迁 doc（设计 D10）。"""
+        task = self.store.get_task(task_id)
+        failed = False
+        for doc_id in list(task["migrated_doc_ids"]):
+            try:
+                self.rollback_doc(doc_id, source, target, collection)
+                self.store.unmark_doc_migrated(task_id, doc_id)
+            except Exception as exc:  # noqa: BLE001
+                failed = True
+                self.store.append_step(task_id, "rollback", f"{doc_id} 补偿失败: {exc}", status="failed")
+        params = task["params"]
+        try:
+            # N2 修正：合并判定兼容回滚任务（rollback_params 没有 target_library_id），第二库改用入参 target
+            self._gate_libraries(source, target if (params.get("op") or params.get("rollback_kind")) == "merge" else None, on=False)
+        finally:
+            status = "cancel_failed" if failed else "cancelled"
+            self.store.update_task(task_id, status=status, stage="rollback",
+                                   stage_message="已取消并回滚" if not failed else "取消补偿部分失败，需人工介入")
+            write_audit(operator=operator, action="cancel", params=params, result=status)
+
+    def _gate_libraries(self, source: str, target: Optional[str], *, on: bool) -> None:
+        for lib in filter(None, (source, target)):
+            library_registry.set_status(
+                lib, library_registry.STATUS_MIGRATING if on else library_registry.STATUS_ACTIVE,
+            )
+
+    def _verify(self, params: Dict[str, Any], preview: Optional[Dict[str, Any]],
+                collection: str = "", doc_ids: Optional[List[str]] = None) -> Dict[str, Any]:
+        """逐面对比实际 vs 预览（设计 §5.3 Phase V + 评审 P2 补向量/文件两面）。
+
+        doc_ids 显式传入优先；未传才回退 params（merge 提交体不带 doc_ids，
+        靠回退会拿空集做指纹/文件面 → 假对账）。
+        """
+        op = params["op"]
+        source = params["source_library_id"]
+        target = params.get("new_library_id") if op == "split" else params.get("target_library_id")
+        doc_ids = list(doc_ids if doc_ids is not None else (params.get("doc_ids") or []))
+        mismatches: List[str] = []
+        actual_target_docs = self._lib_doc_count(target)
+        expected = (preview or {}).get("counts", {}).get("docs", {}).get("target_after")
+        if expected is not None and actual_target_docs != expected:
+            mismatches.append(f"docs: 目标库实际 {actual_target_docs} != 预览 {expected}")
+        ph = ",".join("?" for _ in doc_ids) or "''"
+        with create_connection(self.group_db_for(source)) as conn:
+            relabeled = conn.execute(
+                f"SELECT COUNT(*) FROM canonical_documents WHERE library_id=? AND doc_id IN ({ph})",
+                [target, *doc_ids],
+            ).fetchone()[0]
+        if relabeled != len(doc_ids):
+            mismatches.append(f"group: 组文件改标 {relabeled}/{len(doc_ids)}")
+        if self.graph_db.exists():
+            with create_connection(self.graph_db) as conn:
+                moved_rel = conn.execute(
+                    f"SELECT COUNT(*) FROM graph_relations WHERE library_id=? AND doc_id IN ({ph})",
+                    [target, *doc_ids],
+                ).fetchone()[0]
+            graph = self._graph_counts(doc_ids)
+            if moved_rel != graph["relations"]:
+                mismatches.append(f"graph: 关系改标 {moved_rel}/{graph['relations']}")
+        # 向量面（评审 P2：缺这面 P0-2 类漏迁永远不可发现）
+        if self.vector_store is not None and collection:
+            expected_vectors = (preview or {}).get("counts", {}).get("vectors", {}).get("moved")
+            actual_vectors = sum(
+                int(self.vector_store.count_points_for_doc(d, collection=collection)) for d in doc_ids)
+            if expected_vectors is not None and actual_vectors != expected_vectors:
+                mismatches.append(f"vectors: 实际 {actual_vectors} != 预览 {expected_vectors}")
+        # 文件面
+        files_found = self._file_counts(target, doc_ids)["doc_dirs"]
+        expected_files = (preview or {}).get("counts", {}).get("files", {}).get("doc_dirs")
+        if expected_files is not None and files_found != expected_files:
+            mismatches.append(f"files: 目标目录 {files_found} != 预览 {expected_files}")
+        # 搬迁不变量（P0-1 改法）：fingerprint 逐表比对——改标 library_id 不影响行数/列长和，必须全等
+        expected_fp = (preview or {}).get("counts", {}).get("fingerprint")
+        if expected_fp is not None:
+            actual_fp = self._doc_table_fingerprint(source, doc_ids)
+            for table, exp in expected_fp.items():
+                act = actual_fp.get(table)
+                if act != exp:
+                    mismatches.append(f"fingerprint.{table}: 实际 {act} != 预览 {exp}")
+        digest = hashlib.sha256(json.dumps(
+            {"target_docs": actual_target_docs, "relabeled": relabeled, "files": files_found},
+            sort_keys=True).encode()).hexdigest()
+        return {"ok": not mismatches, "mismatches": mismatches, "digest": digest}
+
+    def _switch(self, params: Dict[str, Any], task_id: str, operator: str) -> None:
+        """原子切换（设计 §5.5）：拆分=此刻才注册新库 + meta libraries 行；合并=源库 retired。
+
+        reload 失败：标 switch_reload_failed 并 return（评审 P2），不抛进 run_task 通用 except——
+        避免「failed 覆写 + 把已 retired 源库拉回 active」的中间态。
+        """
+        op = params["op"]
+        source = params["source_library_id"]
+        source_rec = library_registry.get_library(source)
+        try:
+            from docs_core.docs_service import KnowledgeLibrary, get_docs_service
+            ks = get_docs_service()
+            if op == "split":
+                new_lib = params["new_library_id"]
+                library_registry.register_library(
+                    new_lib, name=params.get("new_name") or new_lib,
+                    group_name=source_rec.group_name, sqlite_file=source_rec.sqlite_file,
+                    collection=source_rec.collection, status=library_registry.STATUS_ACTIVE,
+                )
+                # meta libraries 行（spec 面 5；list_libraries 读穿 meta，缺这行新库对读方不可见）
+                ks.meta_store.upsert_library(KnowledgeLibrary(
+                    id=new_lib, name=params.get("new_name") or new_lib))
+                library_registry.set_status(source, library_registry.STATUS_ACTIVE)
+            else:
+                target = params["target_library_id"]
+                library_registry.set_status(target, library_registry.STATUS_ACTIVE)
+                library_registry.set_status(source, library_registry.STATUS_RETIRED)
+            # 运行中进程内存一致性（D5）
+            ks.reload_scope_cache()
+        except Exception as exc:  # noqa: BLE001
+            self.store.update_task(task_id, status="switch_reload_failed",
+                                   error=f"切换失败，请重启 docs-api 容器后核对: {exc}")
+            write_audit(operator=operator, action="switch", params=params,
+                        result="switch_reload_failed", error=str(exc))
+            return
