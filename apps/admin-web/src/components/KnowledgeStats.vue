@@ -168,8 +168,8 @@
               </a-popconfirm>
             </template>
             <a-button type="link" size="small" @click="viewDetail(record)">查看</a-button>
-            <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
             <a-button type="link" size="small" :loading="downloadingId === record.id" @click="downloadRecordFiles(record)">下载</a-button>
+            <a-button type="link" size="small" danger @click="deleteRecord(record)">删除</a-button>
           </span>
         </template>
       </template>
