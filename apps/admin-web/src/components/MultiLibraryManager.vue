@@ -96,7 +96,7 @@
               </template>
             </template>
             <template v-else-if="column.key === 'actions'">
-              <a-button type="link" size="small" @click="enterLibrary(record)">进入</a-button>
+              <a-button type="link" size="small" @click="enterLibrary(record)">查看</a-button>
               <a-button
                 type="link"
                 size="small"
@@ -222,7 +222,7 @@ import EntityReviewDrawer from './EntityReviewDrawer.vue'
 const { appClass } = useTheme()
 const libraryStore = useLibraryStore()
 
-// 头部视图状态（App.vue provide）：「进入」= 切到单库管理并选中该库
+// 头部视图状态（App.vue provide）：「查看」= 切到单库管理并选中该库
 const knowledgeView = inject<Ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'> | null>('knowledgeView', null)
 
 const groups = ref<LibraryGroupItem[]>([])
