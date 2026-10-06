@@ -76,6 +76,8 @@ export interface LibraryGroupItem {
   group_name: string
   is_default_group: boolean
   known_group: boolean
+  /** 自定义组的显示名（内置组为空串，前端用 GROUP_LABELS） */
+  display_name?: string
   libraries: {
     id: string
     name: string
@@ -143,6 +145,12 @@ export const knowledgeApi = {
       ...(groupName ? { group_name: groupName } : {}),
     }) as Promise<{ id: string; name: string }>,
   getLibraryGroups: () => api.get('/knowledge/libraries/groups') as Promise<LibraryGroupItem[]>,
+  /** 建自定义库组（slug 非法/撞内置组名 → 400，detail 为中文原因） */
+  createLibraryGroup: (groupName: string, displayName: string = '') =>
+    api.post('/knowledge/libraries/groups', {
+      group_name: groupName,
+      display_name: displayName,
+    }) as Promise<{ group_name: string; display_name: string }>,
   getLibrary: (libraryId: string) => api.get(`/knowledge/libraries/${libraryId}`),
   updateLibrary: (libraryId: string, data: { name?: string; description?: string; group_name?: string }) =>
     api.patch(`/knowledge/libraries/${libraryId}`, data) as Promise<{ id: string; name: string }>,

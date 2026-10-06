@@ -157,7 +157,16 @@
           <a-input v-model:value="createForm.description" placeholder="可选" />
         </a-form-item>
         <a-form-item label="所属组">
-          <a-select v-model:value="createForm.group_name" :options="groupOptions" />
+          <div class="ml-group-row">
+            <a-select v-model:value="createForm.group_name" :options="groupOptions" />
+            <a-button size="small" @click="openNewGroup('create')">新建组</a-button>
+          </div>
+          <div v-if="newGroupTarget === 'create'" class="ml-new-group">
+            <a-input v-model:value="newGroupName" placeholder="组名（小写英文，如 bridge）" style="width: 180px" />
+            <a-input v-model:value="newGroupDisplay" placeholder="显示名（如：外服 · 桥梁工程）" style="width: 190px" />
+            <a-button type="primary" size="small" :loading="newGroupSaving" @click="handleCreateGroup('create')">确定</a-button>
+            <a-button size="small" @click="newGroupTarget = ''">取消</a-button>
+          </div>
         </a-form-item>
       </a-form>
     </a-modal>
@@ -172,7 +181,16 @@
           <a-input v-model:value="editForm.description" placeholder="可选" />
         </a-form-item>
         <a-form-item label="所属组">
-          <a-select v-model:value="editForm.group_name" :options="groupOptions" />
+          <div class="ml-group-row">
+            <a-select v-model:value="editForm.group_name" :options="groupOptions" />
+            <a-button size="small" @click="openNewGroup('edit')">新建组</a-button>
+          </div>
+          <div v-if="newGroupTarget === 'edit'" class="ml-new-group">
+            <a-input v-model:value="newGroupName" placeholder="组名（小写英文，如 bridge）" style="width: 180px" />
+            <a-input v-model:value="newGroupDisplay" placeholder="显示名（如：外服 · 桥梁工程）" style="width: 190px" />
+            <a-button type="primary" size="small" :loading="newGroupSaving" @click="handleCreateGroup('edit')">确定</a-button>
+            <a-button size="small" @click="newGroupTarget = ''">取消</a-button>
+          </div>
         </a-form-item>
       </a-form>
     </a-modal>
@@ -248,10 +266,20 @@ const GROUP_LABELS: Record<string, string> = {
 }
 
 function groupName(name: string) {
-  return GROUP_LABELS[name] ?? name
+  if (GROUP_LABELS[name]) return GROUP_LABELS[name]
+  // 自定义组：显示名跟后端 display_name
+  return groups.value.find((g) => g.group_name === name)?.display_name || name
 }
 
-const groupOptions = Object.entries(GROUP_LABELS).map(([value, label]) => ({ value, label }))
+/** 组下拉 = 内置三组 + 已建自定义组（后端聚合含空组，新建后即时可选） */
+const groupOptions = computed(() => {
+  const opts = Object.entries(GROUP_LABELS).map(([value, label]) => ({ value, label }))
+  const builtin = new Set(opts.map((o) => o.value))
+  for (const g of groups.value) {
+    if (!builtin.has(g.group_name)) opts.push({ value: g.group_name, label: g.display_name || g.group_name })
+  }
+  return opts
+})
 
 /** 单表扁平化：组内顺序保持后端聚合序，行间带 group_name/known_group 供组列与合并禁用判断 */
 const flatLibraries = computed(() =>
@@ -444,6 +472,7 @@ const createForm = ref({ name: '', description: '', group_name: 'standards' })
 
 function openCreate() {
   createForm.value = { name: '', description: '', group_name: 'standards' }
+  newGroupTarget.value = ''
   showCreate.value = true
 }
 
@@ -476,6 +505,7 @@ function openEdit(record: FlatLib) {
     description: record.description || '',
     group_name: record.group_name,
   }
+  newGroupTarget.value = ''
   showEdit.value = true
 }
 
@@ -499,6 +529,39 @@ async function handleEdit() {
     message.error(`保存失败：${(err as Error).message}`)
   } finally {
     saving.value = false
+  }
+}
+
+// ── 建自定义组（内联在新建/编辑弹框的所属组项里；slug 校验后端兜底，400 原因直出）──
+const newGroupTarget = ref<'' | 'create' | 'edit'>('')
+const newGroupName = ref('')
+const newGroupDisplay = ref('')
+const newGroupSaving = ref(false)
+
+function openNewGroup(target: 'create' | 'edit') {
+  newGroupTarget.value = newGroupTarget.value === target ? '' : target
+  newGroupName.value = ''
+  newGroupDisplay.value = ''
+}
+
+async function handleCreateGroup(target: 'create' | 'edit') {
+  const slug = newGroupName.value.trim()
+  if (!slug) {
+    message.warning('请填写组名')
+    return
+  }
+  newGroupSaving.value = true
+  try {
+    await knowledgeApi.createLibraryGroup(slug, newGroupDisplay.value.trim())
+    message.success(`组「${newGroupDisplay.value.trim() || slug}」已创建`)
+    newGroupTarget.value = ''
+    await load()
+    if (target === 'create') createForm.value.group_name = slug
+    else editForm.value.group_name = slug
+  } catch (err) {
+    message.error(`建组失败：${(err as Error).message}`)
+  } finally {
+    newGroupSaving.value = false
   }
 }
 
@@ -575,6 +638,22 @@ onActivated(load)
 }
 .ml-filter-item {
   min-width: 0;
+}
+/* 弹框内所属组：下拉占满 + 新建组按钮贴右；展开的内联建组行 */
+.ml-group-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ml-group-row .ant-select {
+  flex: 1;
+  min-width: 0;
+}
+.ml-new-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
 }
 .ml-lib-name {
   font-weight: 500;
