@@ -13,7 +13,6 @@
         <template #icon><history-outlined /></template>
         迁移记录
       </a-button>
-      <span class="ml-header-hint">外服=生产知识（standards / dredgeai），内测=评测语料（evals）。换组只改归属登记，数据物理搬迁属阶段二。</span>
     </div>
 
     <!-- 单表全库一览（spec v2.3：组是列不是分段）；表体克隆「详情」tab 的 DataTable -->
@@ -502,11 +501,6 @@ onActivated(load)
   align-items: center;
   gap: 8px;
   margin-bottom: 16px;
-}
-.ml-header-hint {
-  margin-left: auto;
-  font-size: 12px;
-  color: var(--text-tertiary, rgba(0, 0, 0, 0.45));
 }
 .ml-lib-name {
   font-weight: 500;
