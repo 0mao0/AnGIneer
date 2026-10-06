@@ -106,3 +106,25 @@ def reconcile_stale_records(orchestrator: Any, docs_service: Optional[Any] = Non
         except Exception:
             logger.warning("启动自愈(行级)失败 task=%s", task_id, exc_info=True)
     return count
+
+
+def reconcile_stale_migration_tasks(runner) -> int:
+    """迁移任务启动自愈（设计 §5.4）：running/cancelling 且线程不活 → interrupted；
+    switch_reload_failed → completed（N4：重启即内存快照已新，给该态一个出口，不留死态）。"""
+    store = runner.migrator.store
+    count = 0
+    for task in store.list_tasks(limit=200):
+        if task["status"] == "switch_reload_failed":
+            store.update_task(task["id"], status="completed",
+                              stage_message="服务重启后内存快照已刷新，切换视为完成")
+            count += 1
+            continue
+        if task["status"] not in ("running", "cancelling"):
+            continue
+        thread = getattr(runner, "_threads", {}).get(task["id"])
+        if thread is not None and thread.is_alive():
+            continue
+        store.update_task(task["id"], status="interrupted",
+                          stage_message="服务重启导致迁移中断，可选择「继续完成」或「全部回滚」")
+        count += 1
+    return count

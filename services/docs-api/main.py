@@ -30,7 +30,9 @@ from users_routes import router as users_router
 from routes.v1 import router as v1_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from orchestrator import parse_orchestrator
-from startup_recovery import reconcile_stale_parse_tasks, reconcile_stale_records
+from startup_recovery import (reconcile_stale_parse_tasks, reconcile_stale_records,
+                              reconcile_stale_migration_tasks)
+from kb_migration_routes import kb_migration_router, get_runner as get_migration_runner
 from models.user import ensure_admin_user
 
 app = FastAPI(
@@ -71,6 +73,10 @@ def _reconcile_stale_parse_tasks_on_startup() -> None:
         row_count = reconcile_stale_records(parse_orchestrator)
         if row_count:
             logger.warning("启动自愈: 标记 %d 条遗留解析记录为 failed", row_count)
+        # 迁移任务自愈此处首建 Runner 单例：docs_service 启动期已就绪，早于任何请求
+        mig_count = reconcile_stale_migration_tasks(get_migration_runner())
+        if mig_count:
+            logger.warning("启动自愈: 收敛 %d 个迁移任务状态", mig_count)
     except Exception:
         logger.exception("启动自愈执行失败")
 
@@ -115,6 +121,7 @@ app.add_middleware(
 app.add_middleware(APIKeyAuthMiddleware, scope="doc")
 
 app.include_router(docs_router, prefix="/api/knowledge", tags=["Knowledge"])
+app.include_router(kb_migration_router, prefix="/api/knowledge", tags=["Knowledge Migration"])
 app.include_router(retrieve_router, prefix="/api/knowledge", tags=["Knowledge Internal"])
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
