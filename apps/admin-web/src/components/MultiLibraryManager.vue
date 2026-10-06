@@ -16,23 +16,16 @@
       <span class="ml-header-hint">外服=生产知识（standards / dredgeai），内测=评测语料（evals）。换组只改归属登记，数据物理搬迁属阶段二。</span>
     </div>
 
-    <a-spin :spinning="loading && !groups.length">
-      <div v-if="!loading && !groups.length" class="ml-empty">暂无知识库</div>
-      <div v-for="group in groups" :key="group.group_name" class="ml-group">
-        <div class="ml-group-header">
-          <span class="ml-group-name">{{ groupName(group.group_name) }}</span>
-          <a-tag v-if="!group.known_group" color="orange">未注册组</a-tag>
-          <a-tag>{{ group.libraries.length }} 库</a-tag>
-          <a-tag>{{ groupDocTotal(group) }} 文档</a-tag>
-        </div>
-        <a-table
-          :data-source="group.libraries"
-          :columns="columns"
-          :pagination="false"
-          row-key="id"
-          size="small"
-        >
-          <template #bodyCell="{ column, record }">
+    <!-- 单表全库一览（spec v2.3：组是列不是分段）；表体克隆「详情」tab 的 DataTable -->
+    <DataTable
+      :columns="columns"
+      :data-source="flatLibraries"
+      :loading="loading"
+      row-key="id"
+      :card="false"
+      :pagination="false"
+    >
+      <template #bodyCell="{ column, record }">
             <template v-if="column.key === 'name'">
               <div class="ml-lib-name">
                 {{ record.name || record.id }}
@@ -41,12 +34,16 @@
                   color="orange"
                   class="ml-clickable-tag"
                   title="体量超过拆分建议阈值，点击打开拆分向导"
-                  @click="openSplitFor(record, group.group_name)"
+                  @click="openSplitFor(record)"
                 >
                   体量偏大，建议评估拆分
                 </a-tag>
               </div>
               <div class="ml-lib-id" :title="record.id">{{ record.id }}{{ record.collection ? ` · ${record.collection}` : '' }}</div>
+            </template>
+            <template v-else-if="column.key === 'group'">
+              <a-tag :color="record.known_group ? 'geekblue' : 'orange'">{{ groupName(record.group_name) }}</a-tag>
+              <div v-if="!record.known_group" class="ml-lib-id">未注册组</div>
             </template>
             <template v-else-if="column.key === 'doc_count'">
               <span class="ml-num">{{ record.doc_count }}</span>
@@ -86,7 +83,7 @@
                 size="small"
                 title="拆分知识库：把选中的文档拆成新库"
                 :disabled="record.id === 'default' || record.status === 'migrating' || !record.doc_count"
-                @click="openSplitFor(record, group.group_name)"
+                @click="openSplitFor(record)"
               >
                 拆分
               </a-button>
@@ -94,8 +91,8 @@
                 type="link"
                 size="small"
                 title="合并知识库：把本库并入另一个库"
-                :disabled="record.id === 'default' || record.status === 'migrating' || !hasPeerInGroup(group, record)"
-                @click="openMergeFor(record, group.group_name)"
+                :disabled="record.id === 'default' || record.status === 'migrating' || !hasPeerInGroup(record)"
+                @click="openMergeFor(record)"
               >
                 合并
               </a-button>
@@ -107,7 +104,7 @@
               >
                 审核
               </a-button>
-              <a-button type="link" size="small" @click="openEdit(record, group.group_name)">编辑</a-button>
+              <a-button type="link" size="small" @click="openEdit(record)">编辑</a-button>
               <a-button
                 type="link"
                 size="small"
@@ -118,10 +115,8 @@
                 删除
               </a-button>
             </template>
-          </template>
-        </a-table>
-      </div>
-    </a-spin>
+      </template>
+    </DataTable>
 
     <!-- 新建：名称/描述/所属组 -->
     <a-modal v-model:open="showCreate" title="新建知识库" :confirm-loading="saving" @ok="handleCreate">
@@ -192,10 +187,11 @@
  * 数据源 GET /knowledge/libraries/groups（后端注册表聚合）；换组只改注册行，
  * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups）。
  */
-import { inject, onActivated, onMounted, ref, type Ref } from 'vue'
+import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { message } from 'ant-design-vue'
 import { HistoryOutlined, PlusOutlined, ReloadOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
+import { DataTable } from '@angineer/table-ui'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 import SplitWizardModal from './kb-migration/SplitWizardModal.vue'
@@ -228,17 +224,21 @@ function groupName(name: string) {
 
 const groupOptions = Object.entries(GROUP_LABELS).map(([value, label]) => ({ value, label }))
 
-function groupDocTotal(group: LibraryGroupItem) {
-  return group.libraries.reduce((sum, lib) => sum + (lib.doc_count || 0), 0)
-}
+/** 单表扁平化：组内顺序保持后端聚合序，行间带 group_name/known_group 供组列与合并禁用判断 */
+const flatLibraries = computed(() =>
+  groups.value.flatMap((g) =>
+    g.libraries.map((lib) => ({ ...lib, group_name: g.group_name, known_group: g.known_group })),
+  ),
+)
 
 const columns = [
-  { title: '知识库', key: 'name', dataIndex: 'name' },
-  { title: '文档数', key: 'doc_count', width: 90 },
-  { title: '块', key: 'chunks', width: 80 },
-  { title: '向量', key: 'vectors', width: 80 },
-  { title: '磁盘', key: 'disk', width: 80 },
-  { title: '更新', key: 'updated', width: 120 },
+  { title: '知识库', key: 'name', dataIndex: 'name', flex: true, minWidth: 200 },
+  { title: '组', key: 'group', width: 130 },
+  { title: '文档数', key: 'doc_count', width: 80 },
+  { title: '块', key: 'chunks', width: 70 },
+  { title: '向量', key: 'vectors', width: 70 },
+  { title: '磁盘', key: 'disk', width: 70 },
+  { title: '更新', key: 'updated', width: 100 },
   { title: '状态', key: 'status', width: 130 },
   { title: '操作', key: 'actions', width: 290 },
 ]
@@ -324,29 +324,34 @@ function openTaskForLib(libId: string) {
   else message.info('未找到该库的进行中迁移任务，可在「迁移记录」中查看历史')
 }
 
-function asMigrationLib(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string): KnowledgeLibraryItem {
-  return { id: record.id, name: record.name || record.id, group_name: groupNameOfRow }
+/** 单表扁平行 = 库行 + 组信息（flatLibraries 直出） */
+type FlatLib = LibraryGroupItem['libraries'][number] & { group_name: string; known_group: boolean }
+
+function asMigrationLib(record: FlatLib): KnowledgeLibraryItem {
+  return { id: record.id, name: record.name || record.id, group_name: record.group_name }
 }
 
-function openSplitFor(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string) {
-  migrationLib.value = asMigrationLib(record, groupNameOfRow)
+function openSplitFor(record: FlatLib) {
+  migrationLib.value = asMigrationLib(record)
   showSplit.value = true
 }
 
-function openMergeFor(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string) {
-  migrationLib.value = asMigrationLib(record, groupNameOfRow)
+function openMergeFor(record: FlatLib) {
+  migrationLib.value = asMigrationLib(record)
   showMerge.value = true
 }
 
 /** 同组还有第二个可并库（非 default、未退役、不在迁移）才允许合并 */
-function hasPeerInGroup(group: LibraryGroupItem, record: LibraryGroupItem['libraries'][number]) {
+function hasPeerInGroup(record: FlatLib) {
+  const group = groups.value.find((g) => g.group_name === record.group_name)
+  if (!group) return false
   return group.libraries.some((l) => {
     if (l.id === record.id || l.id === 'default') return false
     return !l.status || l.status === 'active'
   })
 }
 
-function enterLibrary(record: LibraryGroupItem['libraries'][number]) {
+function enterLibrary(record: FlatLib) {
   libraryStore.setLibrary(record.id)
   if (knowledgeView) knowledgeView.value = 'maintenance'
 }
@@ -417,12 +422,12 @@ async function handleCreate() {
 const showEdit = ref(false)
 const editForm = ref({ id: '', name: '', description: '', group_name: 'standards' })
 
-function openEdit(record: LibraryGroupItem['libraries'][number], groupNameOfRow: string) {
+function openEdit(record: FlatLib) {
   editForm.value = {
     id: record.id,
     name: record.name || '',
     description: record.description || '',
-    group_name: groupNameOfRow,
+    group_name: record.group_name,
   }
   showEdit.value = true
 }
@@ -502,25 +507,6 @@ onActivated(load)
   margin-left: auto;
   font-size: 12px;
   color: var(--text-tertiary, rgba(0, 0, 0, 0.45));
-}
-.ml-empty {
-  padding: 48px 0;
-  text-align: center;
-  color: var(--text-tertiary, rgba(0, 0, 0, 0.45));
-}
-.ml-group {
-  margin-bottom: 24px;
-}
-.ml-group-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.ml-group-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-primary);
 }
 .ml-lib-name {
   font-weight: 500;
