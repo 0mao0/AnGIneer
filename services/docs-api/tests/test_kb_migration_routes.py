@@ -79,6 +79,21 @@ def test_submit_rejects_stale_preview(client):
     assert resp.status_code == 409
 
 
+def test_volumes_endpoint_shape(client, monkeypatch):
+    c, mig = client  # fixture 已 patch get_migrator/get_runner（stub 已按 N3 补齐 volumes 成员）
+    import types
+    from docs_core import library_registry
+    # 缓存 5 分钟：测试间强制失效，避免顺序依赖
+    monkeypatch.setattr(kmr, "_VOLUMES_CACHE", {"at": 0.0, "data": None})
+    monkeypatch.setattr(library_registry, "list_libraries", lambda: [
+        types.SimpleNamespace(library_id="lib-a", name="A", status="active", collection="g1")])
+    resp = c.get("/api/knowledge/migrations/volumes")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert len(body["volumes"]) == 1 and body["volumes"][0]["library_id"] == "lib-a"
+    assert body["thresholds"]["docs"] == 1000
+
+
 def test_endpoints_require_admin(client):
     # 不 override 时（新 app 未挂 override）必须 401——鉴权不是纸糊的
     from fastapi import FastAPI as _F

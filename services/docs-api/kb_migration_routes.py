@@ -5,8 +5,11 @@
 """
 from __future__ import annotations
 
+import os
 import secrets
+import time
 from datetime import datetime
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -114,9 +117,68 @@ def get_audit(offset: int = 0, limit: int = 100,
 
 # 注意注册顺序（评审 P1-6）：/migrations/volumes 必须在 /migrations/{task_id} 之前，
 # 否则 "volumes" 被当 task_id 匹配走
+_VOLUMES_CACHE: Dict[str, Any] = {"at": 0.0, "data": None}
+_VOLUMES_TTL_S = 300
+
+# 阈值可配置（业主定默认：1000 篇 / 150 万向量 / 5GB），登记 .env.example
+_VOLUMES_THRESHOLDS = {
+    "docs": int(os.environ.get("ANGINEER_KB_SPLIT_HINT_DOCS", "1000")),
+    "vectors": int(os.environ.get("ANGINEER_KB_SPLIT_HINT_VECTORS", "1500000")),
+    "disk_bytes": int(os.environ.get("ANGINEER_KB_SPLIT_HINT_DISK_GB", "5")) * 1024 ** 3,
+}
+
+
 @kb_migration_router.get("/migrations/volumes")
 def library_volumes(session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
-    ...  # 实现见 Task 13
+    if _VOLUMES_CACHE["data"] is not None and time.time() - _VOLUMES_CACHE["at"] < _VOLUMES_TTL_S:
+        return _VOLUMES_CACHE["data"]
+    from docs_core import library_registry
+    from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
+    mig = get_migrator()
+    volumes = []
+    for rec in library_registry.list_libraries():
+        chunks = vectors = 0
+        disk_bytes = 0
+        with create_connection(Path(mig.meta_db)) as conn:
+            docs = conn.execute(
+                "SELECT COUNT(*) FROM nodes WHERE library_id=? AND type='document' AND COALESCE(deleted,0)=0",
+                (rec.library_id,),
+            ).fetchone()[0]
+            updated_at = conn.execute(
+                "SELECT COALESCE(MAX(updated_at), '') FROM nodes WHERE library_id=?", (rec.library_id,),
+            ).fetchone()[0] or ""
+        try:
+            with create_connection(Path(mig.group_db_for(rec.library_id))) as conn:
+                chunks = conn.execute(
+                    "SELECT COUNT(*) FROM canonical_chunks c JOIN canonical_documents d "
+                    "ON c.doc_id=d.doc_id WHERE d.library_id=?", (rec.library_id,),
+                ).fetchone()[0]
+        except Exception:  # noqa: BLE001 — 单库失败不拖垮整表
+            pass
+        if mig.vector_store is not None:
+            try:
+                from qdrant_client import models
+                client = mig.vector_store._get_client()
+                vectors = int(client.count(
+                    collection_name=rec.collection,
+                    count_filter=models.Filter(must=[models.FieldCondition(
+                        key="library_id", match=models.MatchValue(value=rec.library_id))]),
+                    exact=True,
+                ).count)
+            except Exception:  # noqa: BLE001
+                pass
+        try:
+            root = mig.libraries_root_for(rec.library_id)
+            for dirpath, _dirs, files in os.walk(root):
+                disk_bytes += sum(os.path.getsize(os.path.join(dirpath, f)) for f in files)
+        except Exception:  # noqa: BLE001
+            pass
+        volumes.append({"library_id": rec.library_id, "name": rec.name, "status": rec.status,
+                        "docs": docs, "chunks": chunks, "vectors": vectors,
+                        "disk_bytes": disk_bytes, "updated_at": updated_at})
+    data = {"volumes": volumes, "thresholds": _VOLUMES_THRESHOLDS}
+    _VOLUMES_CACHE.update({"at": time.time(), "data": data})
+    return data
 
 
 @kb_migration_router.get("/migrations/{task_id}")
@@ -193,7 +255,7 @@ def rollback_migration(task_id: str, session: Any = Depends(resolve_admin_sessio
     if op == "split":
         # 拆分回滚 = 新库当前全部文档（migrated + 增量，业主已确认增量一并带走）
         from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
-        with create_connection(mig.meta_db) as conn:
+        with create_connection(Path(mig.meta_db)) as conn:
             doc_ids = sorted(r[0] for r in conn.execute(
                 "SELECT id FROM nodes WHERE library_id=? AND type='document' AND COALESCE(deleted,0)=0",
                 (new_lib,),
