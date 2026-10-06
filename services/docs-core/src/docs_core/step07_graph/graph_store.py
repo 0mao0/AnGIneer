@@ -1035,3 +1035,148 @@ class GraphStore:
                 (library_id,),
             ).fetchall()
         return [{"library_id": r["library_id"], "doc_id": r["doc_id"], "relation_count": r["relation_count"]} for r in rows]
+
+    # ---- 拆/并库图谱迁移（设计 D3/D4）：独占改标、共享复制、撞名收敛 ----
+    # 产物表（library_id+doc_id 键）与其实体联结表
+    _ARTIFACT_TABLES = ("graph_principles", "graph_examples", "graph_warnings", "graph_frameworks")
+    _JUNCTION_TABLES = {  # 联结表 → (父表, 父表主键列)
+        "principle_entities": ("graph_principles", "principle_id"),
+        "example_entities": ("graph_examples", "example_id"),
+        "warning_entities": ("graph_warnings", "warning_id"),
+    }
+
+    def move_doc_graph(self, source_library_id: str, target_library_id: str,
+                       doc_ids: List[str]) -> Dict[str, int]:
+        """把 doc 集合的图谱归属从源库迁到目标库。幂等，可重入；反向再调即回滚。
+
+        规则（D3）：实体被引关系全部属于被迁 doc → 独占 → 改标 library_id；
+        否则共享 → 在目标库复制副本，被迁 doc 的关系/联结重指副本。
+        撞 UNIQUE(name, library_id)（D4 合并场景）→ 引用重指目标行、删源行。
+        """
+        stats = {"entities_moved": 0, "entities_copied": 0, "entities_merged": 0,
+                 "relations_moved": 0, "artifacts_moved": 0}
+        if not doc_ids:
+            return stats
+        doc_set = set(doc_ids)
+        merged_map: Dict[str, str] = {}  # 收敛（D4）删行的源实体 → 目标行
+        with self._connect() as conn:
+            ph = ",".join("?" for _ in doc_ids)
+            relations = conn.execute(
+                f"SELECT relation_id, source_id, target_id FROM graph_relations "
+                f"WHERE library_id=? AND doc_id IN ({ph})",
+                [source_library_id, *doc_ids],
+            ).fetchall()
+            entity_ids = {r["source_id"] for r in relations} | {r["target_id"] for r in relations}
+            entity_map: Dict[str, str] = {}  # 源 entity_id → 目标库应指向的 entity_id（共享复制/撞名时非自身）
+            for eid in entity_ids:
+                row = conn.execute(
+                    "SELECT * FROM graph_entities WHERE entity_id=?", (eid,)
+                ).fetchone()
+                if row is None or row["library_id"] != source_library_id:
+                    continue
+                refs = conn.execute(
+                    "SELECT DISTINCT doc_id FROM graph_relations "
+                    "WHERE (source_id=? OR target_id=?) AND library_id=? AND doc_id != ''",
+                    (eid, eid, source_library_id),
+                ).fetchall()
+                exclusive = all(r["doc_id"] in doc_set for r in refs)
+                existing = conn.execute(
+                    "SELECT entity_id FROM graph_entities WHERE name=? AND library_id=?",
+                    (row["name"], target_library_id),
+                ).fetchone()
+                if exclusive and existing is None:
+                    conn.execute(
+                        "UPDATE graph_entities SET library_id=? WHERE entity_id=?",
+                        (target_library_id, eid),
+                    )
+                    stats["entities_moved"] += 1
+                    entity_map[eid] = eid
+                elif exclusive and existing is not None:
+                    # D4：独占但目标库已有同名 → 收敛到目标行。
+                    # FK(ON) 不允许先删被引用行——只登记，删行挪到全部引用重指之后（施工序）
+                    entity_map[eid] = existing["entity_id"]
+                    merged_map[eid] = existing["entity_id"]
+                    stats["entities_merged"] += 1
+                else:
+                    # 共享：目标库无副本则复制（entity_id 换新，其余列照搬）
+                    if existing is None:
+                        new_id = _generate_id()  # 模块级函数（graph_store.py:11）
+                        cols = [c[1] for c in conn.execute("PRAGMA table_info(graph_entities)")]
+                        values = {c: row[c] for c in cols if c not in ("entity_id", "library_id")}
+                        values["entity_id"] = new_id
+                        values["library_id"] = target_library_id
+                        conn.execute(
+                            f"INSERT INTO graph_entities ({', '.join(values.keys())}) "
+                            f"VALUES ({', '.join('?' for _ in values)})",
+                            list(values.values()),
+                        )
+                        entity_map[eid] = new_id
+                        stats["entities_copied"] += 1
+                    else:
+                        entity_map[eid] = existing["entity_id"]
+            for rel in relations:
+                new_src = entity_map.get(rel["source_id"], rel["source_id"])
+                new_tgt = entity_map.get(rel["target_id"], rel["target_id"])
+                try:
+                    conn.execute(
+                        "UPDATE graph_relations SET library_id=?, source_id=?, target_id=? "
+                        "WHERE relation_id=?",
+                        (target_library_id, new_src, new_tgt, rel["relation_id"]),
+                    )
+                    stats["relations_moved"] += 1
+                except sqlite3.IntegrityError:
+                    conn.execute("DELETE FROM graph_relations WHERE relation_id=?", (rel["relation_id"],))
+            for table in self._ARTIFACT_TABLES:
+                cur = conn.execute(
+                    f"UPDATE {table} SET library_id=? WHERE library_id=? AND doc_id IN ({ph})",
+                    [target_library_id, source_library_id, *doc_ids],
+                )
+                stats["artifacts_moved"] += cur.rowcount
+            for junction, (parent, pk) in self._JUNCTION_TABLES.items():
+                rows = conn.execute(
+                    f"SELECT j.rowid AS jrowid, j.entity_id FROM {junction} j JOIN {parent} p ON j.{pk}=p.{pk} "
+                    f"WHERE p.library_id=? AND p.doc_id IN ({ph})",
+                    [target_library_id, *doc_ids],
+                ).fetchall()
+                for jrow in rows:
+                    mapped = entity_map.get(jrow["entity_id"])
+                    if mapped and mapped != jrow["entity_id"]:
+                        try:
+                            conn.execute(
+                                f"UPDATE {junction} SET entity_id=? WHERE rowid=?",
+                                (mapped, jrow["jrowid"]),
+                            )
+                        except sqlite3.IntegrityError:
+                            conn.execute(f"DELETE FROM {junction} WHERE rowid=?", (jrow["jrowid"],))
+            # 收敛实体收尾（FK 序，D4）：被删源行的全部残留引用先重指目标行，最后统一删源行。
+            # FK(ON) 下任何「先删后指」都会撞约束；引用面 = relations + 三张实体联结表。
+            for src_eid, tgt_eid in merged_map.items():
+                for rrow in conn.execute(
+                    "SELECT relation_id, source_id, target_id FROM graph_relations "
+                    "WHERE source_id=? OR target_id=?", (src_eid, src_eid),
+                ).fetchall():
+                    new_src = tgt_eid if rrow["source_id"] == src_eid else rrow["source_id"]
+                    new_tgt = tgt_eid if rrow["target_id"] == src_eid else rrow["target_id"]
+                    try:
+                        conn.execute(
+                            "UPDATE graph_relations SET source_id=?, target_id=? WHERE relation_id=?",
+                            (new_src, new_tgt, rrow["relation_id"]),
+                        )
+                    except sqlite3.IntegrityError:
+                        # 目标行与源行在此 doc 已有同型关系 → 重复边，弃源边
+                        conn.execute("DELETE FROM graph_relations WHERE relation_id=?", (rrow["relation_id"],))
+                for junction, (parent, pk) in self._JUNCTION_TABLES.items():
+                    # 先清「同一父件已同时联 src 与 tgt」的重复行，再整体改指（避开 UNIQUE(parent,entity)）
+                    conn.execute(
+                        f"DELETE FROM {junction} WHERE entity_id=? AND {pk} IN "
+                        f"(SELECT {pk} FROM {junction} WHERE entity_id=?)", (src_eid, tgt_eid),
+                    )
+                    conn.execute(
+                        f"UPDATE {junction} SET entity_id=? WHERE entity_id=?", (tgt_eid, src_eid),
+                    )
+            for src_eid in merged_map:
+                conn.execute("DELETE FROM graph_entities WHERE entity_id=?", (src_eid,))
+            # 墓碑表 graph_entity_deletions v1 不迁移（评审 P2：共享复制给目标库插墓碑
+            # 会屏蔽活实体再抽取；独占改标场景墓碑留源库属可接受残留，回滚随实体改标一并消失）
+            conn.commit()
+        return stats
