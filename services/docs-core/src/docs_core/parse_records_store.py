@@ -19,7 +19,7 @@ import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 logger = logging.getLogger("docs_core.parse_records_store")
 
@@ -229,3 +229,25 @@ def sync_record_for_task(task_id: str, doc_id: str, status: str, error: Optional
                 _backfill_file_meta_if_empty(task_id, doc_id)
     except Exception as exc:  # noqa: BLE001 记录同步失败不该打断解析
         logger.warning("同步解析记录失败 task=%s doc=%s: %s", task_id, doc_id, exc)
+
+
+def update_library_for_docs(doc_ids: List[str], new_library_id: str) -> int:
+    """迁移拆/并库：把 doc 的全部台账行改标到新库（含历史重解析行，全量归属新库）。"""
+    if not doc_ids:
+        return 0
+    changed = 0
+    conn = connect()
+    try:
+        init_schema(conn)
+        for start in range(0, len(doc_ids), 500):
+            batch = doc_ids[start : start + 500]
+            ph = ",".join("?" for _ in batch)
+            cur = conn.execute(
+                f"UPDATE parse_records SET library_id=? WHERE doc_id IN ({ph})",
+                [new_library_id, *batch],
+            )
+            changed += cur.rowcount  # 计划稿用累计 total_changes，多批会重复计，改逐批 rowcount
+        conn.commit()
+    finally:
+        conn.close()
+    return changed
