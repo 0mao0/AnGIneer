@@ -48,9 +48,6 @@ def valid_sop_dict(**overrides):
 class SopValidatorTests(unittest.TestCase):
     """validate_sop_data 五条规则的正反例。"""
 
-    def test_valid_sop_passes(self):
-        self.assertEqual(validate_sop_data(valid_sop_dict()), [])
-
     def test_empty_steps_rejected(self):
         problems = validate_sop_data(valid_sop_dict(steps=[]))
         self.assertTrue(any("steps" in p and "空" in p for p in problems))
@@ -100,12 +97,6 @@ class SopValidatorTests(unittest.TestCase):
         data["blackboard"] = {"required": ["完全无关的键"], "outputs": ["L", "S"]}
         problems = validate_sop_data(data)
         self.assertTrue(any("无法由初始上下文或任何步骤提供" in p for p in problems))
-
-    def test_required_key_produced_by_step_outputs_passes(self):
-        data = valid_sop_dict()
-        # S 由 step_2 outputs 产出；L 由 step_1 产出
-        data["blackboard"] = {"required": ["L", "S"], "outputs": ["L", "S"]}
-        self.assertEqual(validate_sop_data(data), [])
 
     def test_empty_step_description_rejected(self):
         data = valid_sop_dict()

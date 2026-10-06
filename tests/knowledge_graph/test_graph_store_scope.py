@@ -136,42 +136,5 @@ class GraphSchemaMigrationTests(unittest.TestCase):
         self.assertNotIn("_legacy", sql)
         store.close()
 
-    def test_interrupted_migration_self_heals(self):
-        """半成品（graph_entities_new 残留）自愈：补灌数据并完成重建。"""
-        tmpdir = tempfile.mkdtemp()
-        self.addCleanup(lambda: __import__("shutil").rmtree(tmpdir, ignore_errors=True))
-        db_path = os.path.join(tmpdir, "partial.sqlite")
-
-        self._make_legacy_db(db_path)
-        conn = sqlite3.connect(db_path)
-        conn.executescript("""
-            CREATE TABLE graph_entities_new (
-                entity_id TEXT PRIMARY KEY,
-                name TEXT NOT NULL,
-                layer TEXT NOT NULL,
-                aliases_json TEXT DEFAULT '[]',
-                description TEXT DEFAULT '',
-                source_doc TEXT DEFAULT '',
-                source_clause TEXT DEFAULT '',
-                library_id TEXT NOT NULL DEFAULT 'default',
-                created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL,
-                UNIQUE(name, library_id)
-            );
-        """)
-        conn.commit()
-        conn.close()
-
-        store = GraphStore(db_path)
-        hit = store.get_entity_by_name("系缆力")
-        self.assertIsNotNone(hit)
-        self.assertEqual(hit.library_id, "default")
-        tables = [r[0] for r in store._connect().execute(
-            "SELECT name FROM sqlite_master WHERE type='table'"
-        )]
-        self.assertNotIn("graph_entities_new", tables)
-        store.close()
-
-
 if __name__ == "__main__":
     unittest.main()

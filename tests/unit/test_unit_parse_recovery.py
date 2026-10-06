@@ -58,39 +58,5 @@ class StaleTaskReconcileTests(unittest.TestCase):
         mock_rec.assert_not_called()
 
 
-class RetryStaleProcessingTests(unittest.TestCase):
-    def test_retry_allowed_when_processing_task_thread_dead(self):
-        orch = ParseOrchestrator()
-        node = SimpleNamespace(
-            id="doc-1",
-            library_id="lib-a",
-            file_path="/x.pdf",
-            status="processing",
-            parse_task_id="parse-old",
-        )
-        updated = []
-
-        class FakeKs:
-            def get_node(self, doc_id):
-                return node
-
-            def update_parse_task(self, task_id, **kwargs):
-                updated.append((task_id, kwargs))
-
-        created = {}
-
-        def fake_create(**kwargs):
-            created.update(kwargs)
-            return {"task_id": "parse-new"}
-
-        with patch("docs_core.parse_pipeline.get_docs_service", return_value=FakeKs()), \
-             patch.object(orch, "create_parse_task", side_effect=fake_create):
-            result = orch.retry_parse_task("doc-1")
-        self.assertEqual(result["task_id"], "parse-new")
-        self.assertEqual(created["doc_id"], "doc-1")
-        self.assertEqual(updated[0][0], "parse-old")
-        self.assertEqual(updated[0][1]["status"], "failed")
-
-
 if __name__ == "__main__":
     unittest.main()

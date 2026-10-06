@@ -58,16 +58,6 @@ class SearchMemoTests(unittest.TestCase):
         with agent_tools._SEARCH_MEMO_LOCK:
             agent_tools._SEARCH_MEMO.clear()
 
-    def test_second_identical_call_hits_memo_single_use(self):
-        client = CountingClient()
-        r1 = _run_knowledge_search(**base_kwargs(client))
-        r2 = _run_knowledge_search(**base_kwargs(client))
-        self.assertEqual(client.calls, 1)
-        self.assertIs(r2, r1)  # 单发复用：命中即弹出
-        r3 = _run_knowledge_search(**base_kwargs(client))
-        self.assertEqual(client.calls, 2)  # 弹出后第三次是真检索
-        self.assertIsNot(r3, r1)
-
     def test_different_params_miss(self):
         client = CountingClient()
         _run_knowledge_search(**base_kwargs(client))

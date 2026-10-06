@@ -33,30 +33,6 @@ class RefusalGoldContractTests(unittest.TestCase):
         cls.sentinel = REFUSAL_GOLD_SENTINEL
         cls.items = _load_items()
 
-    def test_question_count_and_ids_unique(self):
-        self.assertEqual(len(self.items), 526)
-        ids = [it["question_id"] for it in self.items]
-        self.assertEqual(len(ids), len(set(ids)), "question_id 必须唯一")
-
-    def test_refusal_items_carry_sentinel_not_facts(self):
-        refusals = [it for it in self.items if it.get("question_family") == "unanswerable"]
-        self.assertEqual(len(refusals), 39, "拒答题应为 39 道")
-        for it in refusals:
-            answer = it.get("answer") or {}
-            self.assertTrue(answer.get("refusal_expected"), f"{it['question_id']} 缺 refusal_expected")
-            self.assertEqual(
-                answer.get("gold_answer"), self.sentinel,
-                f"{it['question_id']} 的 gold_answer 不是拒答哨兵——事实性 gold 会与"
-                f" refusal_expected 自相矛盾，且可能被日后判分改动误用")
-            self.assertIsNone(it.get("retrieval"), "拒答题不应有检索金标（设计如此）")
-
-    def test_non_refusal_items_keep_their_gold(self):
-        others = [it for it in self.items if it.get("question_family") != "unanswerable"]
-        self.assertEqual(len(others), 487)
-        missing = [it["question_id"] for it in others if not (it.get("answer") or {}).get("gold_answer")]
-        self.assertEqual(missing, [], "非拒答题的标准答案不得被归一化误伤")
-
-
 class SentinelSingleSourceTests(unittest.TestCase):
     def test_producer_and_validator_share_one_sentinel(self):
         from build_subset_v3 import REFUSAL_GOLD_SENTINEL

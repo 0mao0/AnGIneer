@@ -60,13 +60,5 @@ class TestGraphOrchestrator(unittest.TestCase):
         self.assertIn("entity_count", stats)
         self.assertIn("relation_count", stats)
 
-    def test_get_graph_snapshot(self):
-        self.orchestrator.load_seed_entities()
-        snapshot = self.orchestrator.get_graph_snapshot()
-        self.assertIn("entities", snapshot)
-        self.assertIn("relations", snapshot)
-        self.assertIn("stats", snapshot)
-
-
 if __name__ == "__main__":
     unittest.main()

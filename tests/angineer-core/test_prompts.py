@@ -131,12 +131,12 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v15(self):
+    def test_qa_prompt_latest_is_v16(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V15
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V16
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V15)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v15")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V16)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v16")
 
     def test_qa_prompt_v15_cite_verbatim_rule(self):
         """v15（2026-10-04）：引用标记必须逐字照抄 metadata.cite 实际值——
