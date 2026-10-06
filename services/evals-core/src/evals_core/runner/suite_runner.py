@@ -601,6 +601,7 @@ def _run_suite_thread(
     config_name: Optional[str] = None,
     rescore_map: Optional[Dict[str, Dict[str, Any]]] = None,
     judge_config_name: Optional[str] = None,
+    workers_override: Optional[int] = None,
 ) -> None:
     """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
 
@@ -641,7 +642,8 @@ def _run_suite_thread(
                 "question_id": qid,
                 "status": "pending",
             })
-        workers = _eval_concurrency()
+        # 每 run 并发数：请求显式指定（多道矩阵按道限流）优先，缺省沿用环境档
+        workers = max(1, int(workers_override)) if workers_override else _eval_concurrency()
         if workers > 1:
             executed = _run_questions_concurrent(
                 run_id=run_id,
@@ -878,7 +880,7 @@ def start_eval_run(
     override_doc_ids: Optional[List[str]] = None, resume_run_id: Optional[str] = None,
     config_name: Optional[str] = None, rescore_question_ids: Optional[List[str]] = None,
     judge_config_name: Optional[str] = None, restart_run_id: Optional[str] = None,
-    allow_concurrent: bool = False,
+    allow_concurrent: bool = False, workers: Optional[int] = None,
 ) -> Dict[str, Any]:
     """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。
 
@@ -941,7 +943,7 @@ def start_eval_run(
         thread = threading.Thread(
             target=_run_suite_thread,
             args=(run_id, dataset_id, questions, override_doc_ids, {}, False,
-                  config_name, None, judge_config_name),
+                  config_name, None, judge_config_name, workers),
             daemon=True,
         )
         thread.start()
@@ -985,7 +987,7 @@ def start_eval_run(
     thread = threading.Thread(
         target=_run_suite_thread,
         args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume,
-              config_name, rescore_map, judge_config_name),
+              config_name, rescore_map, judge_config_name, workers),
         daemon=True,
     )
     thread.start()

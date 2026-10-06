@@ -285,7 +285,7 @@ async def start_run(req: StartEvalRunRequest):
                 override_doc_ids=req.doc_ids, resume_run_id=req.resume_run_id,
                 config_name=req.config_name, rescore_question_ids=req.rescore_question_ids,
                 judge_config_name=req.judge_config_name, restart_run_id=req.restart_run_id,
-                allow_concurrent=req.allow_concurrent,
+                allow_concurrent=req.allow_concurrent, workers=req.workers,
             ),
         )
         return run_data

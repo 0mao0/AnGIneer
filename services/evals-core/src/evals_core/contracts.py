@@ -60,6 +60,8 @@ class StartEvalRunRequest(BaseModel):
     rescore_question_ids: Optional[List[str]] = None
     # 用户在「已有评测正在运行」弹框里点了确定：跳过占用拦截，与在跑评测并发（POST /runs 否则返 409）
     allow_concurrent: bool = False
+    # 本 run 的并行 worker 数；缺省沿用 EVAL_CONCURRENCY（多道并行跑矩阵时按道限流用）
+    workers: Optional[int] = None
 
 
 class EvalRunProgress(BaseModel):

@@ -4,7 +4,7 @@ LLM 配置管理模块。
 """
 import json
 import os
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
@@ -28,6 +28,10 @@ class LLMModelConfig(BaseModel):
     # null=沿用环境变量与隐式 URL/模型名规则；true/false=显式覆盖，优先级最高。
     # 直连 vLLM/DGX 的思考模型隐式规则不命中（53 题全灭事故触发面），应在此显式声明。
     enable_thinking: Optional[bool] = None
+    # 端点级 extra_body 全量接管（reasoning_effort 等思考档位参数的唯一入口）：
+    # 声明后 _build_extra_body 原样采用、跳过 enable_thinking/环境变量/隐式规则，
+    # 避免 chat_template_kwargs 与 reasoning_effort 两套思考机制叠加打架。
+    extra_body: Optional[Dict[str, Any]] = None
 
 
 class RetryConfig(BaseModel):
@@ -136,6 +140,7 @@ def load_llm_models_from_env() -> List[LLMModelConfig]:
             # 端点级思考开关必须在这里落地：漏传即等于「LLM_CONFIGS 里的声明被静默丢弃」
             # （v0.2.1 缺陷报告 A，2026-09-12）
             enable_thinking=_opt_bool(item.get("enable_thinking")),
+            extra_body=item.get("extra_body") if isinstance(item.get("extra_body"), dict) else None,
         ))
 
     models.sort(key=lambda m: m.priority, reverse=True)
