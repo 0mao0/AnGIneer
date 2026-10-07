@@ -54,17 +54,7 @@
         <!-- 放大镜颜色照抄「详情」搜索框（KnowledgeStats 内联 rgba .25），两页筛选条同款 -->
         <template #prefix><search-outlined style="color: rgba(255, 255, 255, 0.25)" /></template>
       </a-input>
-      <a-select
-        v-model:value="groupFilter"
-        placeholder="全部组"
-        allow-clear
-        class="ml-filter-item"
-        style="width: 140px"
-      >
-        <a-select-option v-for="opt in groupFilterOptions" :key="opt.value" :value="opt.value">
-          {{ opt.label }}
-        </a-select-option>
-      </a-select>
+      <!-- 组筛选不在此重复放下拉：标题组切换（本组件头部）与本行共用 groupFilter 状态源，双入口一个语义（2026-10-07 业主定版删冗余） -->
       <!-- 新建右对齐，形态克隆「详情」筛选条右端的上传按钮 -->
       <a-button type="primary" style="margin-left: auto" @click="openCreate">
         <template #icon><plus-outlined /></template>
@@ -311,13 +301,9 @@ const flatLibraries = computed(() =>
   ),
 )
 
-// 筛选栏（克隆详情 tab 筛选条）：库名模糊 + 组精确；清空 = 全部组（与详情的状态筛选同形态）
+// 筛选栏（克隆详情 tab 筛选条）：库名模糊；组精确筛选走标题组切换下拉（同一 groupFilter 状态源，清空=全部组在其菜单内）
 const libFilter = ref('')
 const groupFilter = ref<string | undefined>(undefined)
-
-const groupFilterOptions = computed(() =>
-  groups.value.map((g) => ({ value: g.group_name, label: groupName(g.group_name) })),
-)
 
 const filteredLibraries = computed(() => {
   const kw = libFilter.value.trim().toLowerCase()
