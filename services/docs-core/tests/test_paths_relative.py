@@ -1,0 +1,37 @@
+"""nodes.file_path 相对化改造的地基：to_data_relative / resolve_node_file_path。
+
+背景（plan-standards-kb-corpus-package Stage A）：file_path 现存上传机的绝对路径，
+跨环境（语料包 export→生产 import）必然过期成「源文件不存在」雷。本任务把
+data 根之下的路径收敛为相对 data 根的 POSIX 相对路径；库外/旧绝对值原样透传，
+读取一律经 resolve_node_file_path 展开（相对/绝对/旧三态兼容）。
+"""
+from pathlib import Path
+
+from docs_core import paths
+
+
+def test_to_data_relative_posix_under_root(tmp_path, monkeypatch):
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path))
+    p = tmp_path / "knowledge" / "libraries" / "lib-x" / "documents" / "d1" / "source" / "a.pdf"
+    got = paths.to_data_relative(p)
+    assert "\\" not in got
+    assert got == "knowledge/libraries/lib-x/documents/d1/source/a.pdf"
+
+
+def test_to_data_relative_outside_root_passthrough(tmp_path, monkeypatch):
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path))
+    outside = tmp_path.parent / "elsewhere.pdf"
+    assert paths.to_data_relative(outside) == str(outside)
+
+
+def test_resolve_node_file_path_relative_and_legacy(tmp_path, monkeypatch):
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path))
+    rel = "knowledge/libraries/lib-x/documents/d1/source/a.pdf"
+    assert paths.resolve_node_file_path(rel) == tmp_path / rel
+    # 旧绝对行原样（含 Windows 盘符形态，source_prep 兜底契约依赖它不抛错）
+    legacy = str(tmp_path / "abs.pdf")
+    assert paths.resolve_node_file_path(legacy) == Path(legacy)
+    legacy_win = r"D:\AI\AnGIneer\data\knowledge\x.pdf"
+    assert paths.resolve_node_file_path(legacy_win) == Path(legacy_win)
+    assert paths.resolve_node_file_path("") is None
+    assert paths.resolve_node_file_path(None) is None

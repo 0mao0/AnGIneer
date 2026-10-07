@@ -76,6 +76,34 @@ def resolve_graph_db_path() -> Path:
     return resolve_knowledge_base_dir() / KNOWLEDGE_GRAPH_DB_NAME
 
 
+def to_data_relative(path: Path | str) -> str:
+    """data 根之下的绝对路径收敛为相对 data 根的 POSIX 相对路径；库外路径原样返回字符串。
+
+    写入 nodes.file_path 用（plan-standards-kb-corpus-package Stage A）：语料包
+    export→import 跨环境时相对路径零改写；data 根口径与 library_registry 共用。
+    """
+    from .library_registry import resolve_data_root  # 懒加载：registry 顶层 import paths
+
+    p = Path(path)
+    root = resolve_data_root()
+    try:
+        return p.resolve().relative_to(root.resolve()).as_posix()
+    except ValueError:
+        return str(p)
+
+
+def resolve_node_file_path(value: str | None) -> Path | None:
+    """nodes.file_path 统一展开：相对值按 data 根展开；绝对/旧值原样；空返回 None。"""
+    from .library_registry import resolve_data_root
+
+    if not value:
+        return None
+    p = Path(value)
+    if p.is_absolute() or (len(value) > 1 and value[0].isalpha() and value[1] == ":"):
+        return p
+    return resolve_data_root() / p
+
+
 def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
     """解析向量持久化目录（默认 knowledge_base/vectorstore/chroma，测试可传 base_path）。"""
     if base_path is not None:
@@ -202,4 +230,6 @@ __all__ = [
     "resolve_knowledge_meta_db_path",
     "resolve_repo_root",
     "resolve_structured_input_dir",
+    "resolve_node_file_path",
+    "to_data_relative",
 ]
