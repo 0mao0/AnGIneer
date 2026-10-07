@@ -448,6 +448,25 @@ def build_qa_config(
         # knowledge_stats 下沉 L1 统一工具箱（废 meta_query 路由第二步，2026-10-02）：
         # 统计题与正文题同档、模型按工具描述自选；工具描述已把「只在问知识库本身」边界写死（§2.5 暴露面）
         ordered.append(StatsAdapter.knowledge_stats(default_library_id=library_id))
+        # 计算器进 QA 工具箱（2026-10-07）：此前只在 complex 档，QA 档数值题全靠心算
+        # （FinanceBench 150 题 0 次调用、数值小错即源于此）；协议侧计算纪律规则
+        # （tool_codec 规则 8）以工具在清单里为前提。
+        ordered.append(
+            EngtoolAdapter.from_registry(
+                "calculator",
+                description="工程计算器，支持变量替换与方程求解。输入 expression（表达式）、variables（变量字典）、solve_for（可选求解变量）。",
+                parameters_schema={
+                    "type": "object",
+                    "properties": {
+                        "expression": {"type": "string", "description": "数学表达式，如 T+Z0+Z1"},
+                        "variables": {"type": "object", "description": "变量字典，如 {\"T\": 12.8}"},
+                        "solve_for": {"type": "string", "description": "可选：要求解的变量名"},
+                    },
+                    "required": ["expression"],
+                },
+                read_only=False,
+            )
+        )
         effective_tools = ordered
 
     system_prompt = _load_qa_system_prompt()
