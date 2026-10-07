@@ -69,12 +69,16 @@ class TestStatsQuestionsRouteL1:
 class TestQaToolboxHasStats:
     """knowledge_stats 下沉 L1 统一工具箱（2026-10-02 第二步）：统计题与正文题同档由模型自选。"""
 
-    def test_qa_default_toolbox_has_four_tools(self):
+    def test_qa_default_toolbox_has_five_tools(self):
         from angineer_core.agent_configs import build_qa_config
 
         config = build_qa_config(llm=object(), config_name="t")
         names = {t.name for t in config.tools}
-        assert names == {"knowledge_search", "table_search", "entity_search", "knowledge_stats"}
+        # calculator 于 2026-10-07 进 QA 档（数值题不再心算，配套 tool_codec 计算纪律）
+        assert names == {
+            "knowledge_search", "table_search", "entity_search",
+            "knowledge_stats", "calculator",
+        }
 
     def test_qa_table_first_toolbox_keeps_stats(self):
         from angineer_core.agent_configs import build_qa_config
@@ -202,6 +206,9 @@ def fake_dbs(tmp_path, monkeypatch):
     rconn.commit()
     rconn.close()
 
+    # 本 fixture 注册的是 docs-core 侧真实适配器（Seam 4 端口），独立安装
+    # angineer-core 的环境没有 docs-core：跳过依赖它的用例而不是报错。
+    pytest.importorskip("docs_core.step09_query.agent_port")
     import docs_core.paths as paths
     from docs_core.step09_query import agent_port
 

@@ -42,7 +42,8 @@
 
 .PARAMETER Packages
     Package names to sync. Defaults to @('docs-ui', 'aichat-ui', 'smartree',
-    'table-ui', 'ai-inference').
+    'table-ui', 'ai-inference', 'core'). 'core' is the short id for the
+    angineer-core python package (services/angineer-core, repo angineer-core).
 
 .EXAMPLE
     powershell -ExecutionPolicy Bypass -File scripts/sync-standalone.ps1 -Message "fix: update preview"
@@ -54,7 +55,7 @@
 param(
     [string]$Message = '',
     [switch]$DryRun,
-    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference')
+    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference', 'core')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -62,7 +63,10 @@ $ErrorActionPreference = 'Stop'
 # npm package names are lowercase, GitHub repo names may not be: dir name -> repo name
 $RepoNameOverrides = @{ 'smartree' = 'angineer-smartree-ui' }
 # packages whose source does not live under packages/<pkg>: dir name -> main-repo path
-$SourcePathOverrides = @{ 'ai-inference' = 'services/ai-inference' }
+$SourcePathOverrides = @{
+    'ai-inference' = 'services/ai-inference'
+    'core' = 'services/angineer-core'
+}
 # standalone-owned or diverging files: never auto-overwritten, main-side diff is
 # printed for manual porting instead
 $ProtectedPaths = @('package.json', 'CHANGELOG.md', 'LICENSE')

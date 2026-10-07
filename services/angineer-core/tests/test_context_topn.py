@@ -3,12 +3,18 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 SERVICES = Path(__file__).resolve().parents[3]
 for pkg in ("angineer-core", "docs-core"):
     sys.path.insert(0, str(SERVICES / pkg / "src"))
 
 import angineer_core.agent_tools as agent_tools
-from docs_core.step09_query.protocols.contracts import RetrievedItem
+
+# docs-core 是组装层依赖，独立安装 angineer-core 的环境里没有它：
+# 缺它就整模块跳过，不让抓取期 ImportError 把整次测试跑打断。
+pytest.importorskip("docs_core.step09_query.protocols.contracts")
+from docs_core.step09_query.protocols.contracts import RetrievedItem  # noqa: E402
 
 
 def _items(n):
