@@ -313,11 +313,11 @@ apps/
   admin-web/          管理后台（知识库 / 评测 / SOP / API Key / Dream Cycle）· 3002
   shared/             端口契约 ports.json + API 客户端
 packages/
-  docs-ui/  aichat-ui/  evals-ui/  sop-ui/  geo-ui/  engtools-ui/  ui-kit/  共享 UI 与组件
+  docs-ui/  aichat-ui/  evals-ui/  sop-ui/  geo-ui/  engtools-ui/  ui-kit/  共享 UI 与组件（docs-ui、aichat-ui 亦独立发版）
   smartree/            通用树组件 SmartTree（独立仓库 angineer-smartree-ui）
   table-ui/            通用表格组件 DataTable（独立仓库 angineer-table-ui）
 services/
-  ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析（唯一底座）
+  ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析（唯一底座 · 独立仓库 angineer-ai-inference · PyPI）
   tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座）
   angineer-core/      意图分类、L0-L4 调度、Agent 循环、SOP 执行引擎、Prompt 资产（独立仓库 angineer-core · PyPI）
   docs-core/          一体化解析管线（8 阶段）、五路检索、图谱、维护、导出（PoPo 已内化）
