@@ -2,6 +2,18 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.92
+
+- 链路架构图 /arch：admin 新增 VueFlow 交互架构页（后端/前端双列 + SSE 总线纵条、意图线折叠、P1-P7 问题清单与参考文献折叠区、节点详情带 file:line 锚点）；README 问答链路 mermaid 同步升级为前后端双子图版
+- 证据压缩留 doc 指针＋knowledge_search 开放 doc_ids 入参回看＋ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关）：修复 _summarize_tool_raw 未剥 meta.raw 外壳致指针从未生效；eager 开启时每轮即压跨 run 证据不等阈值（A/B 实测 turn2 prompt 17127→9940），当 run 证据豁免
+- QA prompt v17：新增规则 15 指代回看——追问历史证据原文时按压缩摘要行 doc_id 调 knowledge_search 回看，禁止指代词原样重搜（dump 探针实证 v16 行为缺陷）；配套 inspect_evidence ops 埋点使线上回看率可观测
+- answer_format 答案形态注入口子：评测侧可选穿线（默认 None 提示词逐字节不变，chat 不暴露），§7.7 注入实验形态合规率 14.8→51.3%；/arch 架构页同步挂上该注入链
+- 知识库拆分/合并增强：支持「并入已有库」目的地＋默认库放开拆分＋对账假失败修复；admin 总览「拆分/合并」并为一颗「拆并」三形态合一向导；README 补分组分库存储说明
+- calculator 进 QA 档工具箱＋工具协议计算纪律（QA 档数值题不再心算）
+- 出处守卫补《》书名号闸：答案引用标题全部核不到才判编造出处（10-07 全集 981 条《》引用实测 0 误杀）
+- 勘误：v0.2.91 发版说明中「对话黑板落地」条目更正为「落地后按业主指令全量回退，代码树不含黑板实现」
+- 杂项：组读路径容忍旧 registry 无 library_groups 表（v0.2.91 发版后总览 500 止血）；清理 13 例陈年红测试释放发版信号
+
 ## v0.2.91
 
 - 知识库拆分/合并迁移全链路（docs-core 迁移器预览/执行/校验/补偿与 jsonl 审计、graph/qdrant/parse_records 重标、migrating 写拒绝 409、admin 多库管理 tab 与拆分/合并向导、volumes 体量 API）
