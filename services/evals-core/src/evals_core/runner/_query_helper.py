@@ -40,6 +40,7 @@ def run_eval_query(
     config_name: Optional[str] = None,
     stage_callback=None,
     step_callback=None,
+    answer_format: Optional[str] = None,
 ) -> Dict[str, Any]:
     """
     评测器专用查询入口，通过 angineer-core.policy_query.run_policy_query() 执行。
@@ -73,6 +74,8 @@ def run_eval_query(
             sop_loader=sop_loader,
             stage_callback=stage_callback,
             step_callback=step_callback,
+            # 注入实验穿线（§7.7）：评测调用方可传「答案收尾形态」要求，默认 None＝现行为
+            answer_format=answer_format,
         )
 
         return result

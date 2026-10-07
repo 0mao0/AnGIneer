@@ -112,8 +112,14 @@ def run_policy_query(
     inline_citations: Optional[List[Dict[str, Any]]] = None,
     stage_callback=None,
     step_callback=None,  # noqa: ARG001  # SOP 步骤回调由 agent 工具内部处理，这里保持签名兼容
+    answer_format: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """策略化查询：返回与旧 /api/query 相同结构的字典。"""
+    """策略化查询：返回与旧 /api/query 相同结构的字典。
+
+    answer_format=评测侧注入的「答案收尾形态」要求（OfficeQA 注入实验
+    docs/plan-officeqa-arms.md §7.7）：仅 QA 档与 L3 复杂档系统提示词追加，
+    None＝现行为逐字节不变；随返回 dict 同名字段上浮供 prediction 留痕。
+    """
     started_at = time.time()
     query_id = f"q-{uuid.uuid4().hex[:12]}"
     doc_ids = list(doc_ids or [])
@@ -158,6 +164,7 @@ def run_policy_query(
             mode=mode,
             sop_loader=sop_loader,
             marker_allocator=allocator,
+            answer_format=answer_format,
         )
         config = AgentLoopConfig(
             llm=get_llm_client(),
@@ -310,6 +317,8 @@ def run_policy_query(
             "final_outcome": final_outcome,
             "path_trace": path_trace,
             "answer_pre_strip": answer_pre_strip,
+            # 注入实验逐题留痕（§7.7）：随 prediction 持久化，判读时可按题核对注入态
+            "answer_format": answer_format,
             "trace_notes": notes,
             "stage_timings": stage_timings,
             "prompt_versions": pv,

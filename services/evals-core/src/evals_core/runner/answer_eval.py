@@ -284,6 +284,8 @@ class AnswerEvaluator(BaseEvaluator):
             doc_ids=list(question.get("doc_ids") or []),
             session_id=f"eval-{question_id}",
             config_name=question.get("config_name"),
+            # §7.7 注入实验：suite_runner 把 run 级注入文本铺到题上；缺省 None＝现行为
+            answer_format=question.get("answer_format"),
             stage_callback=(lambda partial: self._emit_enriched_stage(question, partial, stage_callback)) if stage_callback else None,
         )
 
@@ -317,6 +319,8 @@ class AnswerEvaluator(BaseEvaluator):
             "trace_notes": list(data.get("trace_notes") or []),
             # 判分口径豁免（2026-09-27）：半拒答剥头前原文，拒答题按原文判（剥头仅展示）
             "answer_pre_strip": data.get("answer_pre_strip"),
+            # 注入实验逐题留痕（§7.7）：注入文本原样随 prediction 落库
+            "answer_format": data.get("answer_format"),
         }
         result = enrich_prediction_trace(question, data, prediction)
 

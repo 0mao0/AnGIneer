@@ -55,7 +55,7 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
-def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None) -> AttemptConfig:
+def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None, answer_format=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
@@ -71,6 +71,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             mode=mode,
             enforce_evidence=enforce_evidence,
             marker_allocator=marker_allocator,
+            answer_format=answer_format,
         )
 
     return AttemptConfig(
@@ -83,7 +84,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
     )
 
 
-def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=None) -> AttemptConfig:
+def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=None, answer_format=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
@@ -100,6 +101,7 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             mode=mode,
             enforce_evidence=True,
             marker_allocator=marker_allocator,
+            answer_format=answer_format,
         )
 
     def success(added: List[AgentMessage]) -> bool:
@@ -131,6 +133,7 @@ def build_attempts(
     sop_loader: Any = None,
     marker_allocator: Any = None,
     library_ids: Optional[List[str]] = None,
+    answer_format: Optional[str] = None,
 ) -> List[AttemptConfig]:
     level = str(getattr(intent_result, "intent_level", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
@@ -159,6 +162,7 @@ def build_attempts(
                 sops=sops,
                 sop_loader=sop_loader,
                 marker_allocator=marker_allocator,
+                answer_format=answer_format,
                 # 与 L1/L2 同口径：复杂档答案必须过证据闸（2026-10-04 补装，防无证据出结论）
                 final_answer_guard=make_final_answer_guard(enforce_evidence=True),
             )
@@ -171,10 +175,10 @@ def build_attempts(
         )]
     if level == "L2" or service_mode in ("structured_lookup", "sql_first"):
         return [
-            _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=library_ids),
-            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator, library_ids=library_ids),
+            _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=library_ids, answer_format=answer_format),
+            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator, library_ids=library_ids, answer_format=answer_format),
         ]
-    return [_l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=True, marker_allocator=marker_allocator, library_ids=library_ids)]
+    return [_l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=True, marker_allocator=marker_allocator, library_ids=library_ids, answer_format=answer_format)]
 
 
 def format_route_note(intent_result: Any) -> Optional[str]:

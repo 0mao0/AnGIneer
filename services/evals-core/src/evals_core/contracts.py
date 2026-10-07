@@ -62,6 +62,9 @@ class StartEvalRunRequest(BaseModel):
     allow_concurrent: bool = False
     # 本 run 的并行 worker 数；缺省沿用 EVAL_CONCURRENCY（多道并行跑矩阵时按道限流用）
     workers: Optional[int] = None
+    # §7.7 注入实验：「答案收尾形态」注入文本（仅 QA 档与 L3 复杂档提示词追加；原文与
+    # 开关态记进 run manifest）。缺省 None＝现行为逐字节不变，chat 侧不暴露。
+    answer_format: Optional[str] = None
 
 
 class EvalRunProgress(BaseModel):

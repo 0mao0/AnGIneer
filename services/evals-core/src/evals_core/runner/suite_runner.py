@@ -116,7 +116,11 @@ def caliber_fingerprint() -> Dict[str, Any]:
     }
 
 
-def _manifest_with_judge(config_name: Optional[str], judge_config_name: Optional[str]) -> Dict[str, Any]:
+def _manifest_with_judge(
+    config_name: Optional[str],
+    judge_config_name: Optional[str],
+    answer_format: Optional[str] = None,
+) -> Dict[str, Any]:
     """run manifest + 判分模型记录（UI 弹框选定的评价模型，供历史 item 回溯与展示）。"""
     from angineer_core.run_manifest import build_run_manifest
 
@@ -126,6 +130,9 @@ def _manifest_with_judge(config_name: Optional[str], judge_config_name: Optional
         manifest["judge_config"] = judge
     # 口径指纹入 config_snapshot：nightly 断点续跑的唯一性守卫（见 caliber_fingerprint）
     manifest["caliber_fp"] = caliber_fingerprint()
+    # §7.7 注入实验留痕（预注册判据：缺留痕判实验无效）——注入文本原文 + 开关态
+    injected = str(answer_format or "").strip()
+    manifest["answer_format"] = {"enabled": bool(injected), "text": injected or None}
     return manifest
 
 
@@ -493,6 +500,7 @@ def _run_questions_concurrent(
     config_name: Optional[str],
     rescore_map: Optional[Dict[str, Dict[str, Any]]] = None,
     judge_config_name: Optional[str] = None,
+    answer_format: Optional[str] = None,
 ) -> int:
     """线程池并行跑题：提交阶段检查停止信号，as_completed 收结果写库。"""
     from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -532,6 +540,8 @@ def _run_questions_concurrent(
                 prepared["config_name"] = config_name
             if judge_config_name:
                 prepared["judge_config_name"] = judge_config_name
+            if answer_format:
+                prepared["answer_format"] = answer_format
 
             def _task(prep: Dict[str, Any], names, override, qid: str = question_id):
                 # 停止命令后仍在池队列里的任务：不执行、不改状态行（保持 pending
@@ -602,6 +612,7 @@ def _run_suite_thread(
     rescore_map: Optional[Dict[str, Dict[str, Any]]] = None,
     judge_config_name: Optional[str] = None,
     workers_override: Optional[int] = None,
+    answer_format: Optional[str] = None,
 ) -> None:
     """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
 
@@ -657,6 +668,7 @@ def _run_suite_thread(
                 config_name=config_name,
                 rescore_map=rescore_map,
                 judge_config_name=judge_config_name,
+                answer_format=answer_format,
             )
             if stop_event.is_set():
                 _finish_cancelled(run_id, questions)
@@ -697,6 +709,8 @@ def _run_suite_thread(
                     question = {**question, "config_name": config_name}
                 if judge_config_name:
                     question = {**question, "judge_config_name": judge_config_name}
+                if answer_format:
+                    question = {**question, "answer_format": answer_format}
                 # 清理该题残留/重复详情行，避免续跑后同一题出现多条记录
                 result_store.delete_run_detail(run_id, question_id)
                 result_store.insert_run_detail({
@@ -881,11 +895,15 @@ def start_eval_run(
     config_name: Optional[str] = None, rescore_question_ids: Optional[List[str]] = None,
     judge_config_name: Optional[str] = None, restart_run_id: Optional[str] = None,
     allow_concurrent: bool = False, workers: Optional[int] = None,
+    answer_format: Optional[str] = None,
 ) -> Dict[str, Any]:
     """启动评测运行（异步线程），立即返回 run_id，前端轮询获取进度。
 
     config_name=运行（被测）模型；judge_config_name=评价模型（UI 新增评测弹框选定，
     判分候选链首位、失败回退环境链），记录进 run manifest 供历史 item 回溯与展示。
+
+    answer_format=「答案收尾形态」注入文本（OfficeQA 注入实验 §7.7）：非空时铺到每题、
+    仅 QA 档与 L3 复杂档系统提示词追加；注入原文与开关态记进 run manifest（缺留痕判实验无效）。
 
     allow_concurrent=False（默认）时若已有在跑的评测，抛 EvalBusyError（带在跑清单）；
     用户在弹框里选「确定」后由前端带 allow_concurrent=True 重发——并发与否是用户的
@@ -937,13 +955,13 @@ def start_eval_run(
         if question_id:
             raise ValueError("重来仅支持整体评测")
         # 原地重来：清空旧明细/进度、复用同一条记录，重跑全部题目
-        result_store.restart_run_for_retry(restart_run_id, _manifest_with_judge(config_name, judge_config_name))
+        result_store.restart_run_for_retry(restart_run_id, _manifest_with_judge(config_name, judge_config_name, answer_format))
         run_id = restart_run_id
         run_name = source_run.get("run_name") or _generate_run_name(config_name)
         thread = threading.Thread(
             target=_run_suite_thread,
             args=(run_id, dataset_id, questions, override_doc_ids, {}, False,
-                  config_name, None, judge_config_name, workers),
+                  config_name, None, judge_config_name, workers, answer_format),
             daemon=True,
         )
         thread.start()
@@ -972,7 +990,7 @@ def start_eval_run(
         if not pre_done and not rescore_map:
             raise ValueError("续跑源 run 没有可复用的已完成题目")
         # 原地续跑：复用原 run 记录，避免同一轮评测产生两条记录
-        result_store.reset_run_for_resume(resume_run_id, _manifest_with_judge(config_name, judge_config_name))
+        result_store.reset_run_for_resume(resume_run_id, _manifest_with_judge(config_name, judge_config_name, answer_format))
         in_place_resume = True
         run_id = resume_run_id
         run_name = source_run.get("run_name") or _generate_run_name(config_name)
@@ -980,14 +998,14 @@ def start_eval_run(
         run_name = _generate_run_name(config_name) if is_full_run else ""
         run_data = result_store.create_run(
             dataset_id, len(questions), run_name=run_name, is_full_run=is_full_run,
-            config_snapshot=_manifest_with_judge(config_name, judge_config_name),
+            config_snapshot=_manifest_with_judge(config_name, judge_config_name, answer_format),
         )
         run_id = run_data["run_id"]
 
     thread = threading.Thread(
         target=_run_suite_thread,
         args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume,
-              config_name, rescore_map, judge_config_name, workers),
+              config_name, rescore_map, judge_config_name, workers, answer_format),
         daemon=True,
     )
     thread.start()

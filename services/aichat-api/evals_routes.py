@@ -286,6 +286,7 @@ async def start_run(req: StartEvalRunRequest):
                 config_name=req.config_name, rescore_question_ids=req.rescore_question_ids,
                 judge_config_name=req.judge_config_name, restart_run_id=req.restart_run_id,
                 allow_concurrent=req.allow_concurrent, workers=req.workers,
+                answer_format=req.answer_format,
             ),
         )
         return run_data

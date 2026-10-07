@@ -398,8 +398,14 @@ def build_qa_config(
     marker_allocator: Optional[Any] = None,
     followup_question: Optional[bool] = None,
     max_tokens_est: Optional[int] = None,
+    answer_format: Optional[str] = None,
 ) -> AgentLoopConfig:
-    """装配 QA 档 agent 循环：四个只读工具（三检索 + 知识库统计）+ 内联 QA prompt（P5 前）。"""
+    """装配 QA 档 agent 循环：四个只读工具（三检索 + 知识库统计）+ 内联 QA prompt（P5 前）。
+
+    answer_format=评测侧注入的「答案收尾形态」要求（OfficeQA 注入实验，
+    docs/plan-officeqa-arms.md §7.7）：非空时原样追加到系统提示词末尾；
+    None＝现行为逐字节不变，仅评测调用方传参，HTTP chat 不暴露。
+    """
     effective_tools = tools
     if effective_tools is None:
         effective_knowledge_task_type = knowledge_task_type or task_type
@@ -477,6 +483,10 @@ def build_qa_config(
     followup_enabled = _followup_question_enabled() if followup_question is None else bool(followup_question)
     if followup_enabled:
         system_prompt += FOLLOWUP_QUESTION_RULE
+
+    # §7.7 注入实验：非空原样追加（规则位置在追问规则之后＝最末一条，指令优先级最高）
+    if answer_format:
+        system_prompt += "\n\n" + str(answer_format).strip()
 
     guard = final_answer_guard
     if guard is None:
@@ -678,8 +688,12 @@ def build_complex_config(
     route_note: Optional[str] = None,
     marker_allocator: Optional[Any] = None,
     final_answer_guard: Optional[Any] = None,
+    answer_format: Optional[str] = None,
 ) -> AgentLoopConfig:
-    """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。"""
+    """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。
+
+    answer_format 与 build_qa_config 同义（§7.7 注入实验）：非空追加到系统提示词末尾，None 不变。
+    """
     if tools is None:
         qa_tools = [
             RetrieverAdapter.knowledge_search(
@@ -771,6 +785,10 @@ def build_complex_config(
     complex_followup = _followup_question_enabled()
     if complex_followup:
         system_prompt += FOLLOWUP_QUESTION_RULE
+
+    # §7.7 注入实验：与 QA 档各追加同一条规则（同一注入文本经穿线同时到达两档）
+    if answer_format:
+        system_prompt += "\n\n" + str(answer_format).strip()
 
     complex_budget_est = _complex_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
     complex_transformer = (
