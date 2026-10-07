@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.93
+
+- 出处守卫书名号闸「标题核不到」降级为软信号（4cf8dd5c）：v0.2.92 书名号闸把答案引用的论文真题名对在库 doc_title=文件名的证据面上全灭（OpenRAG 85.67% -2.6pp、24 题误杀实踩），现若「第"X"章/节/条」引号章节名或裸数字条款号在证据中可核（归一化命中/数字链 X.Y+）则放行落入原有编号核对；标题与章节号双双核不到仍判编造出处不卸牙
+- nightly 支持附加门禁/观察集 extra_dataset_ids（2e1c2200）：主集收口后顺序各跑一轮完整流水线（各自门禁+基线+企微），单集失败不拖垮后续集、素材检查不重复；选配对照改动面：refusal-39 盯拒答校准、intent-router 盯路由漂移、clause-probe 盯条款直达、financebench-150 盯数值计算（v0.2.92 书名号闸回归只有手工补跑的 refusal-39 抓到，覆盖面不能只靠主集）
+- 知识库拆并：迁移组文件桶在任务开始时从已注册侧钉定（912959ad，生产 mig-cd0e1350f7fe 实踩）——拆到未注册新库时 _relabel_group_tables 落 knowledge_index 回退桶写脏陈年副本、对账「组文件改标 0/5」必败；组桶随 migrate/rollback/补偿/校验显式传递，门禁与回滚注册表收尾改走 set_status_if_registered
+- admin 组显示定版批次（9daf5298/eff47798/e4905455/f1b16b7b）：组下拉顺序定版（外服在前内测在后，外服内 系统库→规范库→DredgeAI）＋疏浚工程组改名 DredgeAI；内置 standards 组显示名定版「外服 · 系统库」；总览第二行筛选条删组下拉（与标题组切换双入口一语义）
+- kb_std_plan 归位口径换轨 GB/T 50841 功能分类（472fcc49）：库名不再内置枚举（按裁决 CSV 实际取值校验），tier=待裁决 补回退链，10-07 裁决版 2348 册全量落位 0 跳过 0 未分类
+- angineer-docs-core v0.1.0→v0.1.1 与 angineer-tree-core v0.1.0 独立首发（cd0cd551/9e3ffe25/a79e1fcf）：docs-core 依赖对账/路径注入/PoPo 随包/测试独立化，0.1.1 修 import 不再依赖数据根（PyPI 实装验收抓到）；README 版本表登记（独立仓库七个→九个）
+
 ## v0.2.92
 
 - 链路架构图 /arch：admin 新增 VueFlow 交互架构页（后端/前端双列 + SSE 总线纵条、意图线折叠、P1-P7 问题清单与参考文献折叠区、节点详情带 file:line 锚点）；README 问答链路 mermaid 同步升级为前后端双子图版
