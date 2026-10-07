@@ -98,6 +98,66 @@ class SettingsTests(_TmpSettings):
             nc.normalize_settings({"dataset_id": "open-ragbench-subset-v4.1"})["dataset_id"],
             "open-ragbench-subset-v4.1")
 
+    def test_extra_dataset_ids_normalize(self):
+        # 附加门禁/观察集（2026-10-07）：去重、剔除与主集重复项、缺省为空
+        cfg = nc.normalize_settings({"dataset_id": "main-set",
+                                     "extra_dataset_ids": ["a", "b", "a", "main-set", " "]})
+        self.assertEqual(cfg["extra_dataset_ids"], ["a", "b"])
+        self.assertEqual(nc.normalize_settings({"enabled": True})["extra_dataset_ids"], [])
+        for bad in ({"extra_dataset_ids": ["a/../b"]}, {"extra_dataset_ids": ["a\\b"]},
+                    {"extra_dataset_ids": "not-list"}):
+            with self.assertRaises(ValueError):
+                nc.normalize_settings(bad)
+
+    def test_execute_runs_extra_datasets_after_main(self):
+        """附加集在主集收口后顺序各跑一轮完整流水线；素材检查不重复（主集已跑）。"""
+        nc._active = None
+        calls = []
+
+        async def fake(**kwargs):
+            calls.append(kwargs)
+            return {"state": "green", "ok": True, "run_id": "run-x", "detail": ""}
+
+        cfg = nc.normalize_settings({"enabled": True, "dataset_id": "main-set",
+                                     "extra_dataset_ids": ["extra-a", "extra-b"]})
+        nc.save_settings(cfg)
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=fake), \
+             mock.patch.object(nc.retention, "enforce_after_run",
+                               return_value={"full": 0, "compacted_runs": 0,
+                                             "deleted_runs": 0, "deleted_ids": []}):
+            async def scenario():
+                await nc.launch("manual")
+                await nc._active
+            asyncio.run(scenario())
+        self.assertEqual([c["dataset_id"] for c in calls], ["main-set", "extra-a", "extra-b"])
+        self.assertTrue(calls[0]["parse_health_enabled"])
+        self.assertFalse(calls[1]["parse_health_enabled"])
+        self.assertFalse(calls[2]["parse_health_enabled"])
+
+    def test_execute_extra_failure_does_not_block_rest(self):
+        """单个附加集失败只记日志，后续集照常跑、主集结果照常落盘。"""
+        nc._active = None
+        calls = []
+
+        async def fake(**kwargs):
+            calls.append(kwargs["dataset_id"])
+            if kwargs["dataset_id"] == "extra-a":
+                raise RuntimeError("boom")
+            return {"state": "green", "ok": True, "run_id": "run-x", "detail": ""}
+
+        cfg = nc.normalize_settings({"enabled": True, "dataset_id": "main-set",
+                                     "extra_dataset_ids": ["extra-a", "extra-b"]})
+        nc.save_settings(cfg)
+        with mock.patch.object(nc.pipeline, "run_nightly", side_effect=fake), \
+             mock.patch.object(nc.retention, "enforce_after_run",
+                               return_value={"full": 0, "compacted_runs": 0,
+                                             "deleted_runs": 0, "deleted_ids": []}):
+            async def scenario():
+                await nc.launch("manual")
+                await nc._active
+            asyncio.run(scenario())
+        self.assertEqual(calls, ["main-set", "extra-a", "extra-b"])
+
     def test_corrupt_file_is_fail_closed(self):
         """09-28 幽灵跑回归：文件在但读坏 ≠ 首装——界面仍可按默认值渲染，
         但调度器必须拒跑（旧行为静默回默认 v3/01:00/启用 → 补跑一轮并覆写配置）。"""

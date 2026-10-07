@@ -26,6 +26,11 @@ DEFAULT_SETTINGS = {
     "hour": 1,
     "minute": 0,
     "dataset_id": paths.DATASET_DEFAULT,
+    # 附加门禁/观察集（2026-10-07）：主集跑完后顺序各跑一轮完整流水线（各自门禁+基线+企微）。
+    # 选配逻辑＝按改动面对照：refusal-39 盯拒答校准、intent-router 盯路由漂移、clause-probe
+    # 盯条款直达、financebench-150 盯数值/计算（v0.2.92 书名号闸回归只有手工补跑的 refusal-39
+    # 抓到——覆盖面不能只靠主集）。
+    "extra_dataset_ids": [],
     "timeout_minutes": 270,       # 487 题全量含补判最坏 4.5h
     "retry_rounds": 2,
     # 素材检查（B 层：jsonl→canonical/chunk→向量 的传递性断言，见 docs/parse-struct-eval.md）
@@ -81,11 +86,18 @@ def normalize_settings(raw: dict) -> dict:
             raise ValueError("dataset_id 不合法")
     else:
         dataset_id = DEFAULT_SETTINGS["dataset_id"]
+    extra_ids = []
+    for x in _str_list("extra_dataset_ids", DEFAULT_SETTINGS["extra_dataset_ids"]):
+        if "/" in x or "\\" in x or ".." in x:
+            raise ValueError(f"extra_dataset_ids 含不合法 id: {x}")
+        if x != dataset_id and x not in extra_ids:
+            extra_ids.append(x)
     return {
         "enabled": enabled,
         "hour": _int("hour", DEFAULT_SETTINGS["hour"], *HOURLY_WINDOW),
         "minute": _int("minute", DEFAULT_SETTINGS["minute"], *MINUTE_WINDOW),
         "dataset_id": dataset_id,
+        "extra_dataset_ids": extra_ids,
         "timeout_minutes": _int("timeout_minutes", DEFAULT_SETTINGS["timeout_minutes"], *TIMEOUT_WINDOW),
         "retry_rounds": _int("retry_rounds", DEFAULT_SETTINGS["retry_rounds"], *RETRY_WINDOW),
         "parse_health_enabled": _bool("parse_health_enabled", DEFAULT_SETTINGS["parse_health_enabled"]),
@@ -438,6 +450,32 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
         _resume_hint = None  # 一次性消费兜底：无论成败，hint 不活到下次派发
     logger.info("nightly 流水线结束（source=%s）: state=%s 用时 %.1f min",
                 source, result.get("state"), (time.monotonic() - t0) / 60.0)
+    # 附加集：主集收口后顺序各跑一轮完整流水线（门禁/基线/企微各自独立，2026-10-07）。
+    # 单集失败只记日志不拖垮后续集；停止意图沿用同一开关（stop_pipeline 停当前 run，
+    # 下一起跑间隙 should_stop 置位即收尾）。
+    extras = cfg.get("extra_dataset_ids") or []
+    for extra_id in extras:
+        if _stop_requested:
+            logger.info("nightly 附加集跳过（收到停止意图）: %s", extra_id)
+            break
+        t1 = time.monotonic()
+        try:
+            extra_result = await pipeline.run_nightly(
+                dataset_id=extra_id,
+                timeout_hours=cfg["timeout_minutes"] / 60.0,
+                retry_rounds=cfg["retry_rounds"],
+                site_url=site_url,
+                webhook=webhook,
+                on_run_started=_on_run_started,
+                should_stop=lambda: _stop_requested,
+                parse_health_enabled=False,  # 素材检查主集已跑，附加集不重复
+            )
+            logger.info("nightly 附加集 %s 收口: state=%s 用时 %.1f min",
+                        extra_id, extra_result.get("state"), (time.monotonic() - t1) / 60.0)
+        except Exception:  # noqa: BLE001
+            logger.exception("nightly 附加集 %s 失败（继续后续集）", extra_id)
+        finally:
+            _current_run_id = ""
     _record(cfg, datetime.now(BJT), source, slot, result)
     # 全表补裁：suite_runner 只在"自己的 run 收尾时"调 enforce，而刚收尾的 run 都在
     # 3 天窗内不动。若此后几天没有别的评测收尾，滑出窗口的全量 run 就没人裁（10-02
