@@ -271,9 +271,10 @@ const loading = ref(false)
 const saving = ref(false)
 const deleting = ref(false)
 
-/** 展示组名与外服/内测 tab 口径一致：注册组中文显示，未知组直出原名 */
+/** 展示组名与外服/内测 tab 口径一致：注册组中文显示，未知组直出原名。
+ *  standards 是系统内置组（含不可删的默认库），不贴业务域 tag，故无「外服/内测」前缀。 */
 const GROUP_LABELS: Record<string, string> = {
-  standards: '外服 · 规范标准',
+  standards: '系统库',
   dredgeai: '外服 · 疏浚工程',
   evals: '内测 · 评测语料',
 }
