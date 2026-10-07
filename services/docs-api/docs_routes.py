@@ -1572,8 +1572,15 @@ def _get_or_build_web_pdf(source_path: str) -> Optional[str]:
 
 @preview_router.get("/files")
 def get_file_for_preview(path: str, raw: int = 0):
-    """按绝对路径预览文件。raw=1 返回原件（下载用），否则 PDF 走预览副本。"""
-    remapped = _remap_path_for_container(path)
+    """按路径预览文件。raw=1 返回原件（下载用），否则 PDF 走预览副本。
+
+    Stage A：nodes.file_path 现为相对 data 根路径，前端原样回传，须先按 data 根展开
+    （相对值交给 os.path.abspath 会按进程 cwd 解析→容器里指向 /app 而非 data 卷）。
+    """
+    from docs_core.paths import resolve_node_file_path
+
+    expanded = resolve_node_file_path(path)
+    remapped = _remap_path_for_container(str(expanded) if expanded else path)
     normalized_path = os.path.abspath(os.path.normpath(remapped))
     allowed_roots = _allowed_roots()
     if not _is_path_allowed(normalized_path, allowed_roots):

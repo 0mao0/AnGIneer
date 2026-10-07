@@ -24,6 +24,13 @@ def test_to_data_relative_outside_root_passthrough(tmp_path, monkeypatch):
     assert paths.to_data_relative(outside) == str(outside)
 
 
+def test_to_data_relative_is_idempotent_on_relative_input():
+    """幂等：已是相对 POSIX 形态的值必须逐字符原样——清洗脚本可重入依赖此处。
+    （Windows 上 str(Path("a/b")) 会重塑成反斜杠形态，透传不许经过 Path。）"""
+    rel = "knowledge/libraries/lib-x/documents/d1/source/a.pdf"
+    assert paths.to_data_relative(rel) == rel
+
+
 def test_resolve_node_file_path_relative_and_legacy(tmp_path, monkeypatch):
     monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path))
     rel = "knowledge/libraries/lib-x/documents/d1/source/a.pdf"

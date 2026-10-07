@@ -89,7 +89,8 @@ def to_data_relative(path: Path | str) -> str:
     try:
         return p.resolve().relative_to(root.resolve()).as_posix()
     except ValueError:
-        return str(p)
+        # 原样返回，绝不经过 Path 重塑（Windows 上 Path 会把 / 改写为 \，幂等性依赖此处）
+        return path if isinstance(path, str) else str(p)
 
 
 def resolve_node_file_path(value: str | None) -> Path | None:
