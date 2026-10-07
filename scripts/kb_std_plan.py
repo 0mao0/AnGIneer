@@ -4,8 +4,10 @@
 层级=库内文件夹），默认只出 CSV 清单交用户裁决，--apply 才移动文件。
 
 目标布局：资料/正式规范/<专业>/<层级>/<原文件名>
-专业枚举：公路 水运 水利 市政 建筑 电力 铁路 其他行业 综合（含待裁决的人工归宿）
-层级枚举：国家标准 行业标准 地方标准 团体标准 国际标准 法规制度
+专业（库）名以裁决 CSV 为准（10-07 定版走 GB/T 50841 功能分类，如 房屋建筑工程/市政工程…），
+脚本只校验目录名合法性，不再内置枚举——换分类口径零改码。
+层级枚举：国家标准 行业标准 地方标准 团体标准 国际标准 法规制度 未分类（兜底）；
+CSV 里 tier=待裁决 的行按回退链定层级：文件名法规形态→法规制度，旧目录即层级→沿用，否则→未分类。
 
 用法：
     python scripts/kb_std_plan.py --out data/scratch/std-plan.csv     # 出清单（不动文件）
@@ -26,8 +28,28 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_ROOT = REPO_ROOT / "资料" / "正式规范"
 
 DOC_EXTS = {".pdf", ".doc", ".docx"}
-TARGET_LIBS = {"公路", "水运", "水利", "市政", "建筑", "电力", "铁路", "其他行业", "综合"}
 TIERS = {"国家标准", "行业标准", "地方标准", "团体标准", "国际标准", "法规制度"}
+FALLBACK_TIER = "未分类"
+# 法规形态 token（条例/办法/令/文号/强制性条文）：无标准代号又长得像红头文件
+_REGULATION_RE = re.compile(
+    r"(条例|办法|管理规定|令第|强制性条文|通知|决定|【\d{4}】\d*号|\[\d{4}\]\d*号|发.{0,3}\d{4}.*号)"
+)
+_BAD_DIRNAME = re.compile(r'[\\/:*?"<>|\r\n]')
+
+
+def safe_dirname(value: str) -> bool:
+    """可作文件夹名：非空、非「待裁决」、不含非法字符。"""
+    v = value.strip()
+    return bool(v) and v != "待裁决" and not _BAD_DIRNAME.search(v)
+
+
+def derive_tier(name: str, old_dir: str) -> str:
+    """CSV tier=待裁决 时的回退链（见模块 docstring）。"""
+    if _REGULATION_RE.search(name):
+        return "法规制度"
+    if old_dir in TIERS:
+        return old_dir
+    return FALLBACK_TIER
 
 # 代号前缀 → 专业。按前缀长度降序匹配（JTG 必须先于 JT 命中）。
 _LIB_PREFIX = [
@@ -58,7 +80,7 @@ _CODE_RE = re.compile(r"^\s*([A-Za-z]{1,6})(?:[/／]?([A-Za-z0-9]{0,3}))?")
 
 @dataclass(frozen=True)
 class RouteResult:
-    library: str      # TARGET_LIBS 之一，或 "待裁决"
+    library: str      # 自动归类结果（旧 9 专业口径），或 "待裁决"
     code: str         # 识别出的代号 token（可空，仅备查）
 
 
@@ -164,7 +186,9 @@ def apply_csv(rows: list[dict], root: Path, log: Path) -> tuple[int, int, list[s
             if not src.is_file():
                 skips += 1  # 已移动过的行（幂等重跑）
                 continue
-            if lib not in TARGET_LIBS or tier not in TIERS:
+            if tier == "待裁决":
+                tier = derive_tier(row["filename"], src.parent.name)
+            if not safe_dirname(lib) or tier not in (TIERS | {FALLBACK_TIER}):
                 warnings.append(f"非法归宿跳过: {row['filename']} → {lib}/{tier}")
                 skips += 1
                 continue
