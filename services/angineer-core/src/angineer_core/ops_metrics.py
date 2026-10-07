@@ -5,6 +5,10 @@
 
 开关与健壮性：全程 best-effort，任何 IO 异常吞掉（观测失败绝不能影响主链路）；
 ``ANGINEER_OPS_DIR`` 覆盖目录；``ANGINEER_OPS_DISABLE=1`` 整体停用。
+
+落盘目录口径（2026-10-07 独立发版自审）：主仓库树内默认 ``<仓库根>/data/ops``；
+树外（第三方 pip 装到 site-packages）未显式配置 ``ANGINEER_OPS_DIR`` 时**不落盘**——
+库不往宿主工作目录写文件，需要落盘必须显式给目录。
 """
 import contextvars
 import json
@@ -32,20 +36,28 @@ def current_run_id() -> Optional[str]:
     return _current_run_id.get()
 
 
-def _repo_root() -> Path:
-    """仓库根探测（同 services/shared/paths.py 的标记：同时含 services/ 与 apps/）。"""
+def _repo_root() -> Optional[Path]:
+    """仓库根探测（同 services/shared/paths.py 的标记：同时含 services/ 与 apps/）。
+
+    找不到标记说明代码不是从主仓库树里跑的（第三方 pip 安装、单包分发）：
+    返回 None，由调用方按「不落盘」处理——**不回落当前工作目录**。
+    """
     here = Path(__file__).resolve()
     for parent in here.parents:
         if (parent / "services").is_dir() and (parent / "apps").is_dir():
             return parent
-    return Path.cwd()
+    return None
 
 
 def ops_dir() -> str:
+    """观测落盘目录；返回空字符串＝不落盘（不在主仓库树里且未显式配置）。"""
     override = (os.getenv("ANGINEER_OPS_DIR", "") or "").strip()
     if override:
         return override
-    return str(_repo_root() / "data" / "ops")
+    root = _repo_root()
+    if root is None:
+        return ""
+    return str(root / "data" / "ops")
 
 
 def ops_enabled() -> bool:
@@ -56,8 +68,13 @@ def record_event(kind: str, payload: Optional[Dict[str, Any]] = None) -> None:
     """追加一条观测到 data/ops/<kind>-<当日>.jsonl；失败静默（打点永不影响业务）。
 
     payload 未显式带 run_id 时自动附加上下文绑定的 run_id（见 set_run_id）；
-    显式值优先，上下文无绑定则不落该键。"""
+    显式值优先，上下文无绑定则不落该键。
+
+    没地方落（不在主仓库树里且没配 ``ANGINEER_OPS_DIR``）时静默跳过。"""
     if not kind or not ops_enabled():
+        return
+    directory = ops_dir()
+    if not directory:
         return
     try:
         now = datetime.now(timezone.utc)
@@ -76,9 +93,9 @@ def record_event(kind: str, payload: Optional[Dict[str, Any]] = None) -> None:
             },
             ensure_ascii=False,
         )
-        directory = Path(ops_dir())
-        directory.mkdir(parents=True, exist_ok=True)
-        path = directory / f"{kind}-{day}.jsonl"
+        target_dir = Path(directory)
+        target_dir.mkdir(parents=True, exist_ok=True)
+        path = target_dir / f"{kind}-{day}.jsonl"
         with open(path, "a", encoding="utf-8") as f:
             f.write(line + "\n")
     except Exception:  # noqa: BLE001

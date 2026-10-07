@@ -41,7 +41,7 @@ if TYPE_CHECKING:  # 仅为类型检查器保留的静态视图，运行时不�
         initialize_services,
     )
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # 导出名 → 所属子模块：__getattr__ 命中时才 importlib.import_module
 _LAZY_EXPORTS = {

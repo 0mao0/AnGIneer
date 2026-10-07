@@ -58,7 +58,7 @@ flowchart TB
 pip install angineer-core
 
 # 或从 GitHub 钉版本安装
-pip install "angineer-core @ git+https://github.com/0mao0/angineer-core.git@v0.1.0"
+pip install "angineer-core @ git+https://github.com/0mao0/angineer-core.git@v0.1.1"
 
 # 本地开发（主仓库 AnGIneer 内）
 pip install -e services/angineer-core
@@ -177,6 +177,10 @@ note（过程说明） / answer（守卫替换后的最终回答） / error
 配置全部来自环境变量；LLM 侧变量（`LLM_CONFIGS` / `ANGINEER_*` 超时重试等）见
 angineer-ai-inference README，这里只列引擎自身常用的：
 
+> 注：本库与其依赖 `angineer-ai-inference` 在 **import 时**各按 python-dotenv 规则
+> 加载一次 `.env`（`override=False`，已存在的环境变量不被覆盖）。宿主若希望环境完全自控，
+> 在 import 前设好变量即可。
+
 | 变量 | 默认 | 说明 |
 | :--- | :--- | :--- |
 | `ANGINEER_DOCS_API_URL` | 空 | docs-api 基址；配了就优先走 HTTP 检索 |
@@ -187,6 +191,8 @@ angineer-ai-inference README，这里只列引擎自身常用的：
 | `ANGINEER_FIRST_TOKEN_LIVENESS_S` | 90 | 流式首字存活线（秒），0 = 关闭；防上游挂起不返回 |
 | `ANGINEER_ROUTE_PARALLEL` | true | 赌博式预检：请求进来就并行预跑一次 L1 检索 |
 | `ANGINEER_EAGER_COMPRESS` | false | 激进压缩开关：每轮即压跨对话证据，不等预算阈值 |
+| `ANGINEER_OPS_DIR` | 树内 `data/ops` | 观测 jsonl（TTFT / 工具耗时 / 检索分段）落盘目录；**不在主仓库树里（pip 安装）且未显式配置时默认不落盘**——库不往宿主工作目录写文件 |
+| `ANGINEER_OPS_DISABLE` | 空 | 置 `1` 整体停用观测落盘（优先级高于 `ANGINEER_OPS_DIR`） |
 | `ANGINEER_LOG_LEVEL` | INFO | 日志级别 |
 
 ## 不在本库范围
