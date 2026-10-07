@@ -571,6 +571,14 @@ async def list_nightly_days():
             days.extend(archive.list_entries(day_dir, name, dataset_id=cfg_dataset))
     entry = nightly_control.running_entry()
     if entry:
+        # 虚拟运行行已代表该 run 的在跑态，归档侧同 run 的重判「运行中」挡不再重复出一行：
+        # 起跑即由素材检查建槽目录、nightly.json 要收口才写，resolve_interrupted 会把该槽挡
+        # 也重判成运行中——虚拟行信息更全（带停止、带标题），去掉重判行
+        # （2026-10-07 实锤：同一 run 在列表里出现两条「运行中」）。
+        run_id = str(entry.get("run_id") or "")
+        if run_id:
+            days = [d for d in days
+                    if not (str(d.get("run_id") or "") == run_id and d.get("state") == "running")]
         days.insert(0, entry)
     return {"days": days}
 

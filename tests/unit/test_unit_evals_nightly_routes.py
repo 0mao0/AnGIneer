@@ -284,6 +284,58 @@ class NightlyRoutesTests(unittest.TestCase):
             days = self._client().get("/api/evals/nightly").json()["days"]
         self.assertEqual(days[0]["state"], "corrupt")
 
+    # ---- 在跑 run 去重（2026-10-07 实锤：页面同时顶「虚拟行 + 重判行」两条同一 run）----
+
+    def _insert_running_run(self, run_id: str, dataset_id: str, started_utc: str,
+                            completed: int = 14, total: int = 1040) -> None:
+        from evals_core.storage import result_store
+        result_store._LOCAL = None
+        result_store.init_db()
+        conn = result_store._get_conn()
+        conn.execute(
+            "INSERT INTO eval_run (run_id, dataset_id, status, total_questions,"
+            " completed_questions, started_at, owner_pid)"
+            " VALUES (?, ?, 'running', ?, ?, ?, 1)",
+            (run_id, dataset_id, total, completed, started_utc),
+        )
+        conn.commit()
+
+        def _release_conn():
+            try:
+                result_store._get_conn().close()
+            except Exception:
+                pass
+            result_store._LOCAL = None
+        self.addCleanup(_release_conn)
+
+    def test_running_row_deduped_against_rejudged_slot(self):
+        """在跑 run 只出一行：虚拟运行行在时，归档侧同 run 的重判「运行中」挡被去重。
+
+        实况链：起跑即由素材检查建槽目录、nightly.json 要收口才写 → 槽挡被
+        resolve_interrupted 重判成运行中，与虚拟行构成同 run 双行。虚拟行信息更全
+        （带停止、带标题），保留它、去掉重判行。"""
+        import nightly_control
+        from datetime import datetime, timedelta, timezone
+        from evals_core.nightly import archive, paths
+        today = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d")
+        started_utc = datetime.now(timezone.utc).replace(tzinfo=None).isoformat(timespec="seconds")
+        self._insert_running_run("run-live", paths.DATASET_DEFAULT, started_utc)
+        self._make_interrupted_slot(today, "2059-320ba1")   # 有素材产物、无 nightly.json
+        self._write_day("2026-09-26", self.DAY)             # 他日挡不受牵连
+        # 先钉前置：归档侧重判确实产出同 run 的运行中挡（否则用例会空过）
+        raw = archive.list_entries(self.nightly / today, today, dataset_id=paths.DATASET_DEFAULT)
+        self.assertEqual([e.get("state") for e in raw if e.get("run_id") == "run-live"],
+                         ["running"])
+        with self._settings_env(), \
+                mock.patch.object(nightly_control, "is_running", return_value=True), \
+                mock.patch.object(nightly_control, "_current_run_id", "run-live"), \
+                _patch_auth(True, is_admin=True):
+            days = self._client().get("/api/evals/nightly").json()["days"]
+        self.assertEqual(len([d for d in days if d.get("run_id") == "run-live"]), 1)
+        self.assertEqual(days[0]["date"], "running")        # 留下的是虚拟运行行
+        self.assertTrue(days[0].get("running"))
+        self.assertIn("2026-09-26", [d["date"] for d in days])
+
     # ---- 调度配置接口（GET/PUT settings、POST run-now）----
 
     def _settings_env(self):

@@ -15,6 +15,7 @@ All notable changes to AnGIneer are documented here.
 - angineer-core@0.1.1 随发（67e068cf）：观测打点不再写宿主工作目录——ops_metrics 找不到主仓库标记（同时含 services/ 与 apps/）时改判「不落盘」，不再回落 Path.cwd()（pip 装到 site-packages 的宿主里 TTFT/工具耗时/检索分段 jsonl 连用户提问片段一起被写进宿主工作目录）；树内默认目录不变＝<仓库根>/data/ops；record_event 目录为空即静默跳过；补六例测试（树外不碰 cwd／显式目录照落／树内默认不变／OPS_DISABLE 优先／run_id 随打点／树内能命中标记）；README 补 ANGINEER_OPS_DIR·OPS_DISABLE 口径
 - sync-standalone 首发同步修复（302357b2）：缺 remote 时 git 写 stderr，PowerShell 5.1 在 $ErrorActionPreference='Stop' 下升级为 NativeCommandError，「remote 不存在 → 抛异常」永远走不到 add 分支（angineer-core 首发实踩）；改为列 git remote 名单判定
 - 评测时间戳时区口径迁移（af97d242，生产历史时间早 8 小时止血）：result_store 7 处写库时间戳收口 _now_iso 带偏移串（...+00:00）；消费方双口径安全（retention 日界/企微卡片起止/nightly 续跑窗口改 astimezone 或 aware 比较——naive cutoff vs aware 行直接比较抛 TypeError 的迁移必炸点已钉）；前端 EvalRunPanel/EvalBusyModal.formatTime 与 admin formatDate 无偏移串按 UTC 读，生产历史旧行不迁数据即刻显示正确；新增 tests/test_timestamp_timezone.py 7 例、evals-core 全量 234 绿
+- 夜测列表在跑 run 去重：虚拟运行行存在时滤掉归档侧同 run 的「运行中」重判挡（起跑即由素材检查建槽目录、结论要收口才写，重判机制把同一 run 顶成两条——2026-10-07 实锤页面双行「运行中」）；路由用例覆盖（前置钉住重判确实产出该挡，防用例空过）
 - 勘误：v0.2.91 发版说明中「对话黑板落地」条目更正为「落地后按业主指令全量回退，代码树不含黑板实现」
 - README：angineer-core v0.1.1 登记版本表（六个独立仓库→七个）、仓库布局清单独立仓标注补齐一致（cad994e8/8eb9b792）
 - 杂项：组读路径容忍旧 registry 无 library_groups 表（v0.2.91 发版后总览 500 止血）；清理 13 例陈年红测试释放发版信号
