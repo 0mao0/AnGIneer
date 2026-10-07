@@ -18,7 +18,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 > **当前版本：0.2.92** ——链路架构图 /arch（admin 交互架构页＋README 链路图升级）；证据压缩留 doc 指针＋knowledge_search 开放 doc_ids 回看＋ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关，A/B 实测 turn2 prompt -42%）；QA prompt v17 规则 15 指代回看＋inspect_evidence 观测埋点；answer_format 答案形态注入口子（评测侧可选穿线，形态合规率 14.8→51.3%）；知识库拆分/合并增强（并入已有库＋默认库放开＋对账修复）＋admin 拆并三形态合一向导；calculator 进 QA 档＋计算纪律；出处守卫补《》书名号闸（981 条引用实测 0 误杀）；语料包离线搬运 kb_corpus_export/import（三硬闸+sha256+qdrant snapshot）；评测时间戳时区口径迁移（生产历史时间早 8 小时止血）；angineer-core@0.1.1 随发（观测打点不落宿主目录）；sync-standalone 首发同步修复；勘误 v0.2.91 黑板条目；杂项：组读路径 500 止血、清理 13 例陈年红测试。详见 [CHANGELOG.md](CHANGELOG.md)。
 
-**仓库版本**（七个独立仓库各自用 git tag 发布，发版时同步更新本表）：
+**仓库版本**（九个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
@@ -29,6 +29,8 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.3` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.2` | Python AI 推理客户端库 |
 | [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.1` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫） |
+| [angineer-tree-core](https://github.com/0mao0/angineer-tree-core) | `v0.1.0` | Python 树节点存储层（sqlite：CRUD / 移动重排 / 作用域隔离） |
+| [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.1` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；PoPo 随包） |
 
 ***
 
@@ -318,9 +320,9 @@ packages/
   table-ui/            通用表格组件 DataTable（独立仓库 angineer-table-ui）
 services/
   ai-inference/       LLM 客户端（多模型/重试/熔断/流式）+ 响应解析（唯一底座 · 独立仓库 angineer-ai-inference · PyPI）
-  tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座）
+  tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座 · 独立仓库 angineer-tree-core · PyPI）
   angineer-core/      意图分类、L0-L4 调度、Agent 循环、SOP 执行引擎、Prompt 资产（独立仓库 angineer-core · PyPI）
-  docs-core/          一体化解析管线（8 阶段）、五路检索、图谱、维护、导出（PoPo 已内化）
+  docs-core/          一体化解析管线（九阶段）、五路检索、图谱、维护、导出（PoPo 随包 · 独立仓库 angineer-docs-core · PyPI）
   sop-core/           SOP 解析/校验/加载/自动生成
   evals-core/         题集管理、评测运行、结果对比、nightly 流水线（算法真相源）
   geo-core/           GIS 工程计算工具
