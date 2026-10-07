@@ -5,10 +5,30 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "angineer-tree-core"
 version = "0.1.0"
-description = "AnGIneer tree operations infrastructure"
+description = "AnGIneer tree node store (sqlite): CRUD, move with sibling re-ordering, scope isolation"
+readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "AnGIneer Team"}
+]
+keywords = ["ai", "tree", "sqlite", "storage"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "pydantic>=2.0.0,<3.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
 ]
 
 [tool.setuptools]
@@ -16,3 +36,13 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.urls]
+Repository = "https://github.com/0mao0/angineer-tree-core"
+Issues = "https://github.com/0mao0/angineer-tree-core/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

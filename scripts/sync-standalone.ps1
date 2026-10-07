@@ -42,8 +42,9 @@
 
 .PARAMETER Packages
     Package names to sync. Defaults to @('docs-ui', 'aichat-ui', 'smartree',
-    'table-ui', 'ai-inference', 'core'). 'core' is the short id for the
-    angineer-core python package (services/angineer-core, repo angineer-core).
+    'table-ui', 'ai-inference', 'core', 'tree-core'). 'core' is the short id for
+    the angineer-core python package (services/angineer-core, repo angineer-core);
+    'tree-core' maps to services/tree-core (repo angineer-tree-core).
 
 .EXAMPLE
     powershell -ExecutionPolicy Bypass -File scripts/sync-standalone.ps1 -Message "fix: update preview"
@@ -55,7 +56,7 @@
 param(
     [string]$Message = '',
     [switch]$DryRun,
-    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference', 'core')
+    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference', 'core', 'tree-core')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -66,6 +67,7 @@ $RepoNameOverrides = @{ 'smartree' = 'angineer-smartree-ui' }
 $SourcePathOverrides = @{
     'ai-inference' = 'services/ai-inference'
     'core' = 'services/angineer-core'
+    'tree-core' = 'services/tree-core'
 }
 # standalone-owned or diverging files: never auto-overwritten, main-side diff is
 # printed for manual porting instead

@@ -10,7 +10,13 @@ from typing import Any, Dict, List, Optional
 
 
 def init_table(conn: sqlite3.Connection) -> None:
-    """建表建索引。幂等，可重复调用。"""
+    """建表建索引。幂等，可重复调用。
+
+    同时确保连接按列名取行（``row_factory = sqlite3.Row``）：本库读回节点时按列名组装字典，
+    未设置时会在取值处抛 `TypeError`。仅在调用方尚未设置 row_factory 时补上，不覆盖既有设置。
+    """
+    if conn.row_factory is None:
+        conn.row_factory = sqlite3.Row
     conn.execute("""
         CREATE TABLE IF NOT EXISTS tree_node (
             node_id TEXT PRIMARY KEY,
@@ -153,9 +159,9 @@ def mark_node_deleted(conn: sqlite3.Connection, node_id: str, deleted: bool) -> 
 
 
 def is_node_deleted(conn: sqlite3.Connection, node_id: str) -> bool:
-    """查询节点是否被软删除。"""
+    """查询节点是否被软删除（节点不存在返回 False）。"""
     row = conn.execute("SELECT deleted FROM tree_node WHERE node_id = ?", (node_id,)).fetchone()
-    return bool(row and row.get("deleted"))
+    return bool(row and row["deleted"])
 
 
 def move_node(conn: sqlite3.Connection, node_id: str, new_parent_id: Optional[str], sort_order: int = -1) -> Optional[Dict[str, Any]]:
@@ -212,7 +218,11 @@ def normalize_siblings(conn: sqlite3.Connection, parent_id: Optional[str], scope
 
 
 def _next_sort_order(conn: sqlite3.Connection, parent_id: Optional[str], scope_id: str) -> int:
-    """获取同级下一个 sort_order。"""
+    """获取同级下一个 sort_order（空组返回 0）。
+
+    注意 `row[0]` 为 0 是合法值（同级已有第一个节点），不能写成 `row[0] or -1`——
+    那会把 0 当成"没有"，使第二个及以后的兄弟节点都拿到 0（2026-10-07 独立发版回归测试抓出）。
+    """
     if parent_id is None:
         row = conn.execute(
             "SELECT MAX(sort_order) FROM tree_node WHERE parent_id IS NULL AND scope_id = ?",
@@ -223,7 +233,8 @@ def _next_sort_order(conn: sqlite3.Connection, parent_id: Optional[str], scope_i
             "SELECT MAX(sort_order) FROM tree_node WHERE parent_id = ? AND scope_id = ?",
             (parent_id, scope_id),
         ).fetchone()
-    return (row[0] or -1) + 1
+    current = row[0] if row is not None else None
+    return (current if current is not None else -1) + 1
 
 
 def _collect_subtree_ids(conn: sqlite3.Connection, node_id: str) -> List[str]:
