@@ -2,6 +2,7 @@
  * 对话全链路架构图数据：节点 / 边 / 问题清单（纯静态，锚点均为源码 file:line）
  * 布局：纵向两大主线——上=后端逻辑（主轴直下，意图分级横向扇出 L0/L1/L2/L3·L4 四列，
  *       底部汇入共享循环与守卫），下=前端展示；SSE 总线是两侧唯一的连接点。
+ *       左侧外挂评测注入链（answer_format 口子）：评测调用方→注入槽→汇入意图分级装配。
  * 状态语义：ok=现役正常 warn=有隐患 gap=缺失 planned=◇待新建
  */
 
@@ -137,6 +138,53 @@ export const ARCH_NODES: ArchNode[] = [
       'L3 标准计算 / L4 动态编排：complex 档（max_turns=8）+ sop_execute 工具'
     ],
     anchors: ['services/aichat-api/agent_policy.py:121', 'services/aichat-api/classifier.py:60']
+  }),
+
+  // ── 评测侧注入链（answer_format 口子，左侧外挂）──────────────
+  N('n-eval', 30, 110, {
+    label: '评测调用方',
+    sub: 'POST /api/evals/runs · answer_format',
+    status: 'ok',
+    summary: '评测请求体可带一条「答案收尾形态」注入句；聊天线无此参数',
+    details: [
+      'StartEvalRunRequest.answer_format 可选，evals_routes 透传进 runner',
+      'suite_runner 铺到每题；manifest 留痕 {enabled, text}，缺留痕判实验无效',
+      'OfficeQA §7.7 注入实验首用：旁证口径 15.0%/24.1% vs 对照 12.8%/14.3%'
+    ],
+    anchors: [
+      'services/aichat-api/evals_routes.py:271',
+      'services/evals-core/src/evals_core/contracts.py:67',
+      'services/evals-core/src/evals_core/runner/suite_runner.py:712'
+    ]
+  }),
+  N('n-afslot', 30, 220, {
+    label: '答案格式注入槽',
+    sub: 'None＝提示词逐字节不变',
+    status: 'ok',
+    summary: '核心装配链的可选空位：仅评测调用方传参，非空才追加进系统提示词',
+    details: [
+      '穿线：run_eval_query → run_policy_query → build_attempts → build_qa/complex_config',
+      '终端消费：system_prompt += 换行 + 注入句（QA 档与 L3 复杂档各一处）',
+      '默认 None 时提示词逐字节不变（8 条回归测锁形态）；每题 prediction 留痕',
+      'L0 聊天线永不携带；生产生效随下次发版'
+    ],
+    anchors: [
+      'services/angineer-core/src/angineer_core/agent_configs.py:488',
+      'services/angineer-core/src/angineer_core/agent_configs.py:790',
+      'services/angineer-core/src/angineer_core/agent_policy.py:136'
+    ]
+  }),
+  N('n-afprod', 30, 330, {
+    label: '◇ 注入口子对外产品化',
+    sub: 'HTTP 暴露 / 发包 / 模板约束（未拍板）',
+    status: 'planned',
+    summary: '待产品决策：把评测侧口子升级为客户可自定义答案格式的产品能力',
+    details: [
+      'HTTP chat 路由有意不暴露该参数（防提示词注入面外扩）',
+      '外部应用当前只能以函数签名调 angineer-core（该包未上 PyPI）',
+      '产品化三件：HTTP 暴露评估、angineer-core 打包发版、注入面收敛（模板约束）'
+    ],
+    anchors: ['docs/plan-officeqa-arms.md §7.7']
   }),
 
   // ── 四列意图线（y 自上而下）────────────────────────────────
@@ -468,7 +516,12 @@ export const ARCH_EDGES: ArchEdge[] = [
   { id: 'e27', source: 'n-transport', target: 'n-state', kind: 'flow' },
   { id: 'e28', source: 'n-state', target: 'n-render', kind: 'flow' },
   { id: 'e29', source: 'n-render', target: 'n-doc', label: '点引用', kind: 'flow' },
-  { id: 'e30', source: 'n-render', target: 'n-graphb', label: '◇ sop 结构帧', kind: 'planned', sourceHandle: 's-r', targetHandle: 't-l' }
+  { id: 'e30', source: 'n-render', target: 'n-graphb', label: '◇ sop 结构帧', kind: 'planned', sourceHandle: 's-r', targetHandle: 't-l' },
+
+  // 评测注入链：调用方→槽→汇入意图分级装配；◇ 为待产品化
+  { id: 'e31', source: 'n-eval', target: 'n-afslot', label: '穿线', kind: 'flow' },
+  { id: 'e32', source: 'n-afslot', target: 'n-level', label: '注入 system prompt', kind: 'flow', sourceHandle: 's-r', targetHandle: 't-l' },
+  { id: 'e33', source: 'n-afslot', target: 'n-afprod', label: '◇ 产品化', kind: 'planned' }
 ]
 
 export const ARCH_PROBLEMS: ArchProblem[] = [
