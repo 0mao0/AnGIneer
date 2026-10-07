@@ -1,4 +1,6 @@
 """@ 文档级提及检索冒烟测试：types=['document'] 只按标题匹配文档，不下探块级；current_doc_id 请求字段存在（此前漏定义导致 /knowledge/references/search 必 500）。"""
+import pytest
+
 from docs_core.docs_service import get_docs_service
 from docs_core.step09_query.protocols.contracts import KnowledgeNode
 
@@ -52,7 +54,12 @@ def test_references_search_request_has_current_doc_id_field() -> None:
     api_dir = Path(__file__).resolve().parents[2] / "docs-api"
     if str(api_dir) not in sys.path:
         sys.path.insert(0, str(api_dir))
-    from docs_routes import KnowledgeReferenceSearchRequest
+    try:
+        from docs_routes import KnowledgeReferenceSearchRequest
+    except ImportError:
+        # 本用例断言的是 docs-api 侧的请求模型，属跨服务集成用例：
+        # 独立安装（wheel / 独立仓）里没有 docs-api，跳过而不是报错。
+        pytest.skip("docs-api 不在（独立仓 / 独立安装），跳过跨服务集成用例")
 
     payload = KnowledgeReferenceSearchRequest(library_id="default", query="", types=["document"])
     assert hasattr(payload, "current_doc_id")

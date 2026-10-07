@@ -57,7 +57,12 @@ class MineruParseMetaTests(unittest.TestCase):
         self.assertTrue(persisted.get("ocr_retried"))
 
     def test_ocr_retry_branch_marks_ocr_retried(self):
-        parser = MinerUParser()
+        # 端点自带：本用例走真实解析分支，不能依赖环境里的 .env——独立安装/独立仓没有 .env，
+        # 缺 MINERU_CONFIGS 会在到达 mock 之前就按「未配置解析端点」直接失败。
+        with patch.dict(os.environ, {
+            "MINERU_CONFIGS": '[{"name":"test","url":"http://mineru.test","api_key":"k"}]',
+        }):
+            parser = MinerUParser()
         parser.ocr_enabled = False
         responses = [
             _FakeResp(409, {"task_id": "t1", "status": "failed", "error": "no text layer"}),

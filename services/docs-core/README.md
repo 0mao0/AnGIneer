@@ -1,710 +1,157 @@
-# AnGIneer Docs Core
+# angineer-docs-core
 
-> 工程规范知识库核心引擎 —— 让规范文档"可读、可查、可算、可引用"
+[![PyPI](https://img.shields.io/pypi/v/angineer-docs-core)](https://pypi.org/project/angineer-docs-core/)
 
-## 📌 模块定位
+AnGIneer 的文档解析入库引擎（纯 Python 库）：把工程规范 / PDF / Office 文档跑成
+「**可读、可查、可算、可引用**」的知识库数据——一条管线覆盖
+**源文件准备 → 格式转换 → MinerU 解析 → PoPo 强化 → 结构化 → 图描述 → SQLite+FTS → 向量索引 → 知识图谱**，
+外加五路检索、text2sql 与产物导出。
 
-`docs-core` 是 AnGIneer 的**知识基础设施**，负责工程规范文档的解析、增强、存储与查询。它既作为 AnGIneer 的核心模块，也可独立部署为通用的**规范文档智能平台**。
+| 能力 | 说明 | 靠什么 |
+| :--- | :--- | :--- |
+| 📖 可读 | 高保真解析 PDF，保留结构、公式、图表 | MinerU 端点（HTTP） |
+| 🔍 可查 | 语义检索 + 表格精确查询 + 条款定位（五路召回 + 重排） | canonical 七表 + qdrant |
+| 🧮 可算 | 公式语义、表格插值、条款计算（供上层工具消费） | 结构化的 canonical 产物 |
+| 📎 可引用 | 条文 / 表格 / 图片的块级溯源 | `citation_targets` + 块 id |
 
-### 核心价值
+> 定位：只做**数据面**（解析 / 建索引 / 图谱 / 检索），**不含 HTTP 服务与前端**。
+> 大算力全部在外部服务：版面解析、视觉结构强化、图描述、embedding、rerank 都走 HTTP 端点（配置见下）。
 
-| 能力 | 描述 | 差异化 |
-|------|------|--------|
-| 📖 **可读** | 高保真解析 PDF，保留结构、公式、图表 | 基于 MinerU |
-| 🔍 **可查** | 语义检索 + 表格精确查询 | 双轨查询 |
-| 🧮 **可算** | 公式解析与计算、表格插值 | 工程计算 |
-| 📎 **可引用** | 条文、表格、图片的精确引用 | 块级溯源 |
+## 管线（9 个阶段 + 导出）
 
-### 与其他模块的关系
+`hard` = 失败即中止；`soft` = 失败降级继续并在 `parse_stages` 留痕。
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        AnGIneer                             │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  ┌─────────────┐    ┌─────────────┐    ┌─────────────┐     │
-│  │  sop-core   │───▶│  docs-core  │◀───│  engtools   │     │
-│  │  (流程引擎)  │    │  (知识引擎)  │    │  (计算工具)  │     │
-│  └─────────────┘    └─────────────┘    └─────────────┘     │
-│         │                  │                  │             │
-│         └──────────────────┼──────────────────┘             │
-│                            ▼                                │
-│                   ┌─────────────┐                          │
-│                   │ angineer-   │                          │
-│                   │   core      │                          │
-│                   │ (LLM调度)   │                          │
-│                   └─────────────┘                          │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
+| # | 阶段 key | 名称 | 类型 | 依赖 | 做什么 |
+| :-- | :--- | :--- | :--- | :--- | :--- |
+| 1 | `source_prep` | 源文件准备 | hard | — | 落地源文件、登记文档节点、准备解析输入 |
+| 2 | `convert` | 格式转换 | hard | source_prep | 非 PDF（doc/docx/xls…）经 LibreOffice 转 PDF |
+| 3 | `raw_parse` | MinerU 解析 | hard | convert | 调 MinerU 端点（file_parse ZIP 协议），产出 markdown / 图片 / `middle.json` |
+| 4 | `popo` | PoPo 强化 | **soft** | raw_parse | PoPo 做视觉结构强化，产出 enriched blocks（需 VLM 端点） |
+| 5 | `structure` | 结构化 | hard | raw_parse | **Solo 是唯一构建者**；PoPo 信号只作为增强注入（对齐 / 合并 / 层级融合 / 续表） |
+| 6 | `figure_describe` | 图描述 | soft | structure | VLM 描述图表内容（可关） |
+| 7 | `fts` | SQLite + FTS | hard | structure | canonical 七表 + 全文索引（检索数据面） |
+| 8 | `vectors` | 向量索引 | soft | fts | qdrant（默认）/ sqlite / chroma |
+| 9 | `graph` | 知识图谱 | soft | structure | 实体与关系抽取入库 |
 
----
+第 10 步是产物导出（`step10_export`：按册导 markdown / 图片 / 索引 / 图谱）。
 
-## 🏗️ 整体架构
+## 安装
 
-### AnGIneer IDE 风格界面布局
-
-```mermaid
-flowchart TB
-    subgraph MainApp["🖥️ AnGIneer 主界面 (IDE 风格)"]
-        subgraph Left["📁 左侧 - 资源区"]
-            TabBar["Tab 切换栏"]
-            subgraph Tabs["资源 Tabs"]
-                KB["📚 知识库<br/>(docs-ui)"]
-                SOP["📋 SOP经验库<br/>(sop-ui)"]
-                PRJ["📂 项目文件夹"]
-            end
-        end
-
-        subgraph Center["📄 中间 - 工作区"]
-            Editor["编辑器/查看器<br/>(多标签页)"]
-            GIS["GIS 视图<br/>(geo-ui)"]
-            Preview["预览面板"]
-        end
-
-        subgraph Right["💬 右侧 - 对话区"]
-            ModelSel["模型选择"]
-            Chat["对话界面"]
-            Context["@上下文引用"]
-        end
-    end
-
-    TabBar --> KB
-    TabBar --> SOP
-    TabBar --> PRJ
-
-    KB --> Editor
-    SOP --> Editor
-    PRJ --> Editor
-
-    Chat --> KB
-    Chat --> SOP
-    Context --> KB
-    Context --> SOP
-
-    style Left fill:#e3f2fd,stroke:#1565c0
-    style Center fill:#f3e5f5,stroke:#7b1fa2
-    style Right fill:#e8f5e9,stroke:#2e7d32
-    style KB fill:#bbdefb,stroke:#1976d2
+```bash
+pip install angineer-docs-core
+# 或钉版本
+pip install "angineer-docs-core @ git+https://github.com/0mao0/angineer-docs-core.git@v0.1.0"
 ```
 
-### 前端模块集成架构
+Python 要求 `>=3.10`。运行依赖：`angineer-tree-core`（树表底座）、`angineer-ai-inference`（LLM 客户端）、
+`pydantic>=2`、`PyMuPDF`、`numpy`、`python-dateutil`、`qdrant-client`、`requests`、`python-dotenv`。
+可选 extras：`[chroma]`（旧向量后端）、`[text2sql]`（领域关键词 YAML）。
 
-```mermaid
-flowchart TB
-    subgraph WebConsole["🖥️ web-console (主应用容器)"]
-        subgraph Layout["布局框架"]
-            LeftPanel["左侧面板<br/>SidePanel"]
-            CenterPanel["中间面板<br/>Workbench"]
-            RightPanel["右侧面板<br/>ChatPanel"]
-        end
+## 另有外部依赖（不随包提供）
 
-        subgraph LeftModules["左侧模块 (可插拔)"]
-            DocsSidebar["docs-ui<br/>知识库侧边栏"]
-            SOPSidebar["sop-ui<br/>SOP侧边栏"]
-            FileSidebar["文件浏览器"]
-        end
+| 依赖 | 用途 | 怎么配 |
+| :--- | :--- | :--- |
+| MinerU 端点 | 版面解析（GPU 大头） | `MINERU_CONFIGS` |
+| PoPo 端点 | 视觉结构强化 | `POPO_CONFIGS` |
+| 图描述端点 | 图表描述 | `FIGURE_DESCRIBE_CONFIGS` |
+| embedding 端点 | 向量化 | `EMBEDDING_CONFIGS` |
+| rerank 端点 | 重排 | `RERANKER_CONFIGS` |
+| Qdrant | 向量库（默认 provider） | `QDRANT_URL`（也可换 sqlite / chroma） |
+| LibreOffice | 非 PDF → PDF | 系统安装，`LIBREOFFICE_BIN` 或 PATH |
 
-        subgraph CenterModules["中间模块 (可插拔)"]
-            DocsViewer["docs-ui<br/>文档查看器"]
-            SOPViewer["sop-ui<br/>流程查看器"]
-            GISViewer["geo-ui<br/>地图查看器"]
-            CodeEditor["代码编辑器"]
-        end
+## 快速开始
 
-        subgraph RightModules["右侧模块"]
-            ChatUI["对话组件<br/>(angineer-core)"]
-            ContextPicker["上下文选择器"]
-        end
+```python
+import os
 
-        subgraph Shared["共享层"]
-            UIKit["ui-kit<br/>基础组件"]
-            EventBus["事件总线"]
-            Store["全局状态<br/>(Pinia)"]
-        end
-    end
+os.environ["KNOWLEDGE_BASE_DIR"] = "/srv/knowledge"          # 数据根（也可用 ANGINEER_DATA_ROOT）
+os.environ["MINERU_CONFIGS"] = '[{"name":"dgx","url":"https://your-gateway/api/mineru","api_key":"..."}]'
+os.environ["POPO_CONFIGS"]   = '[{"name":"dgx","url":"https://your-gateway/api/popo/v1","api_key":"...","model":"Popo"}]'
+os.environ["DOCS_VECTORSTORE_PROVIDER"] = "qdrant"
+os.environ["QDRANT_URL"] = "http://localhost:6333"
 
-    LeftPanel --> LeftModules
-    CenterPanel --> CenterModules
-    RightPanel --> RightModules
+from docs_core.parse_pipeline import ParseOrchestrator
 
-    LeftModules --> UIKit
-    CenterModules --> UIKit
-    RightModules --> UIKit
+orch = ParseOrchestrator()                                             # 不注入时用包内置的解析记录表
+doc_id = orch.ensure_document("default", "/abs/path/spec.pdf")         # 登记文档节点
+task = orch.create_parse_task("default", doc_id, "/abs/path/spec.pdf") # 后台线程跑全链
+print(task["task_id"])
 
-    LeftModules <--> EventBus
-    CenterModules <--> EventBus
-    RightModules <--> EventBus
-
-    LeftModules <--> Store
-    CenterModules <--> Store
-    RightModules <--> Store
-
-    style WebConsole fill:#fafafa,stroke:#424242
-    style Layout fill:#e0e0e0,stroke:#616161
-    style LeftModules fill:#e3f2fd,stroke:#1565c0
-    style CenterModules fill:#f3e5f5,stroke:#7b1fa2
-    style RightModules fill:#e8f5e9,stroke:#2e7d32
-    style Shared fill:#fff8e1,stroke:#f57f17
+orch.get_parse_task(task["task_id"])     # 查进度 / 当前阶段
+orch.cancel_parse_task(task["task_id"])  # 协作式取消
+orch.retry_parse_task(doc_id)            # 失败重跑
 ```
 
-### docs-ui 组件架构
+- 阶段级重跑与校验：`STAGE_REGISTRY` / `resolve_stage_order` / `validate_stage_retry` / `compute_resume_stages`；
+- 检索侧入口：`docs_core.step09_query`（五路召回 + 重排 + text2sql）；
+- 知识库与节点管理：`docs_core.get_docs_service()` / `DocsService`。
 
-```mermaid
-flowchart TB
-    subgraph DocsUI["📚 docs-ui 模块"]
-        subgraph Sidebar["侧边栏组件"]
-            LibTree["知识库树<br/>KnowledgeTree"]
-            SearchBox["搜索框<br/>SearchBox"]
-            FilterPanel["筛选面板<br/>FilterPanel"]
-        end
+## 配置（常用）
 
-        subgraph Viewer["查看器组件"]
-            DocView["文档视图<br/>DocumentViewer"]
-            TableView["表格视图<br/>TableView"]
-            FormulaView["公式视图<br/>FormulaViewer"]
-            RefView["引用视图<br/>ReferenceViewer"]
-        end
+| 变量 | 默认 | 说明 |
+| :--- | :--- | :--- |
+| `KNOWLEDGE_BASE_DIR` | — | **数据根（最高优先）**：元库 / 索引 / 图谱 / 文档目录都挂它下面 |
+| `ANGINEER_DATA_ROOT` | — | 数据根（次优先，取 `<root>/knowledge`） |
+| `ANGINEER_REPO_ROOT` | 仓库标记探测 | 仓库树根。独立安装（wheel）里没有仓库树，需要数据根请显式给上面两个之一 |
+| `MINERU_CONFIGS` / `POPO_CONFIGS` / `FIGURE_DESCRIBE_CONFIGS` / `EMBEDDING_CONFIGS` / `RERANKER_CONFIGS` | — | JSON 数组，顺序=优先级，第一项为默认；连接失败/超时自动切下一项 |
+| `DOCS_VECTORSTORE_PROVIDER` | —（必填） | `qdrant` / `sqlite` / `chroma`；不设会直接报错（防静默连空库） |
+| `QDRANT_URL` | — | `provider=qdrant` 时必填 |
+| `LIBREOFFICE_BIN` | PATH 探测 | `soffice` 路径（非 PDF 输入必需） |
+| `POPO_MAX_CONCURRENCY` | 4 | PoPo 强化的并发闸（FIFO 排队） |
+| `FIGURE_DESCRIBE_ENABLED` | 见 `.env.example` | 图描述开关 |
 
-        subgraph Common["通用组件"]
-            DocCard["文档卡片<br/>DocumentCard"]
-            TableRenderer["表格渲染器<br/>TableRenderer"]
-            FormulaRenderer["公式渲染器<br/>FormulaRenderer"]
-            RefAnchor["引用锚点<br/>RefAnchor"]
-        end
+## 包里包含什么
 
-        subgraph State["状态管理"]
-            DocStore["文档状态<br/>useDocStore"]
-            QueryStore["查询状态<br/>useQueryStore"]
-        end
+- **`docs_core`**：管线与数据面本体（9 阶段、canonical 存储、五路检索、图谱、导出）；
+- **`popo`**：PoPo fork（上游 MinerU-Popo 的定制版）随包发布，两个要点：
+  - 它是**顶层导入名 `popo`**（上游没有 `__init__.py`，按命名空间包收集），装完 site-packages 里会多出这个目录；
+  - 缺失也不报错——第 4 步按「软阶段」跳过，结构由 Solo 单独构建（质量降级、链路不断）。
+    自定义位置可用 `POPO_REPO_PATH` 指定。
+- 依赖 **`angineer-tree-core`** 与 **`angineer-ai-inference`**，pip 会自动带上。
 
-        subgraph API["API 层"]
-            DocAPI["文档 API"]
-            QueryAPI["查询 API"]
-            RefAPI["引用 API"]
-        end
-    end
+## 目录结构
 
-    Sidebar --> Common
-    Viewer --> Common
-    Common --> State
-    State --> API
-
-    style DocsUI fill:#e8eaf6,stroke:#283593
-    style Sidebar fill:#bbdefb,stroke:#1976d2
-    style Viewer fill:#c5cae9,stroke:#303f9f
-    style Common fill:#d1c4e9,stroke:#512da8
-    style State fill:#e1bee7,stroke:#7b1fa2
-    style API fill:#f3e5f5,stroke:#4a148c
-```
-
-### 后端架构
-
-```mermaid
-flowchart TB
-    subgraph Input["📥 输入层"]
-        PDF["PDF 文档"]
-        IMG["图片/扫描件"]
-        MD["Markdown"]
-    end
-
-    subgraph MinerU["🔧 MinerU-RAG (复用)"]
-        MC["MinerUClient<br/>文档解析"]
-        RB["Chunk Builder<br/>切片与结构化"]
-        LC["LLMClient<br/>基础问答"]
-    end
-
-    subgraph Enhance["⚡ 增强层 (核心差异化)"]
-        TE["TableEnhancer<br/>表格增强器"]
-        FE["FormulaEngine<br/>公式引擎"]
-        RI["RefIndexer<br/>引用索引器"]
-    end
-
-    subgraph Storage["💾 存储层"]
-        VS["canonical SQLite<br/>证据检索"]
-        SS["结构化数据库<br/>表格数据"]
-        FS["文件存储<br/>原图/缓存"]
-    end
-
-    subgraph Query["🔎 查询服务层"]
-        SQ["语义查询"]
-        TQ["表格查询"]
-        FQ["公式计算"]
-        RF["引用获取"]
-    end
-
-    subgraph Output["📤 输出层"]
-        API["REST API"]
-        SDK["Python SDK"]
-        WS["WebSocket"]
-    end
-
-    PDF --> MC
-    IMG --> MC
-    MD --> RB
-
-    MC --> RB
-    RB --> LC
-    RB --> VS
-
-    MC --> TE
-    MC --> FE
-    MC --> RI
-
-    TE --> SS
-    FE --> SS
-    RI --> FS
-
-    VS --> SQ
-    SS --> TQ
-    SS --> FQ
-    FS --> RF
-
-    SQ --> API
-    TQ --> API
-    FQ --> API
-    RF --> API
-
-    SQ --> SDK
-    TQ --> SDK
-    FQ --> SDK
-    RF --> SDK
-
-    style MinerU fill:#e1f5fe,stroke:#01579b
-    style Enhance fill:#fff3e0,stroke:#e65100
-    style Storage fill:#e8f5e9,stroke:#1b5e20
-    style Query fill:#fce4ec,stroke:#880e4f
-```
-
-### 前后端交互
-
-```mermaid
-sequenceDiagram
-    participant U as 用户
-    participant L as 左侧面板
-    participant C as 中间工作区
-    participant R as 右侧对话
-    participant A as docs-core API
-
-    Note over U,A: 场景1: 浏览知识库
-    U->>L: 点击知识库 Tab
-    L->>A: GET /libraries
-    A-->>L: 知识库列表
-    L-->>U: 展示知识库树
-
-    Note over U,A: 场景2: 查看文档
-    U->>L: 点击文档节点
-    L->>C: 打开文档标签页
-    C->>A: GET /documents/{id}
-    A-->>C: 文档内容
-    C-->>U: 渲染文档
-
-    Note over U,A: 场景3: @引用知识
-    U->>R: 输入 @
-    R->>L: 触发上下文选择
-    L-->>R: 可引用内容列表
-    U->>R: 选择引用项
-    R->>A: POST /query/semantic
-    A-->>R: 相关内容
-    R-->>U: 展示答案+引用
-
-    Note over U,A: 场景4: 表格查询
-    U->>C: 点击表格
-    C->>A: POST /query/table
-    A-->>C: 表格数据+结构
-    C-->>U: 可交互表格视图
-```
-
----
-
-## 🔗 与 MinerU-RAG 的关系
-
-### 能力复用与增强
-
-```mermaid
-flowchart LR
-    subgraph MinerU["MinerU-RAG (开源)"]
-        M1["PDF解析"]
-        M2["Markdown输出"]
-        M3["语义切片"]
-        M4["证据索引"]
-        M5["基础问答"]
-    end
-
-    subgraph DocsCore["docs-core (增强)"]
-        D1["表格结构化"]
-        D2["公式可计算化"]
-        D3["引用索引"]
-        D4["精确查表"]
-        D5["工程计算"]
-    end
-
-    M1 --> M2
-    M2 --> M3
-    M3 --> M4
-    M4 --> M5
-
-    M2 --> D1
-    M2 --> D2
-    M2 --> D3
-    D1 --> D4
-    D2 --> D5
-
-    style MinerU fill:#c8e6c9,stroke:#2e7d32
-    style DocsCore fill:#ffccbc,stroke:#d84315
-```
-
-### 复用比例
-
-| 功能模块 | 复用 MinerU | 自研增强 | 说明 |
-|---------|------------|---------|------|
-| PDF 解析 | ✅ 100% | - | 直接使用 MinerUClient |
-| Markdown 输出 | ✅ 100% | - | 高保真输出 |
-| 语义切片 | ✅ 80% | 20% | 保留块边界信息 |
-| 证据索引 | ⚠️ 0% | ✅ 100% | 当前使用 canonical SQLite 与规则打分 |
-| 基础问答 | ✅ 100% | - | 使用 LLMClient |
-| 表格处理 | ❌ 0% | ✅ 100% | **核心差异化** |
-| 公式计算 | ❌ 0% | ✅ 100% | **核心差异化** |
-| 引用溯源 | ⚠️ 30% | ✅ 70% | 增强块级索引 |
-
-**结论**: MinerU-RAG 解决了 80% 的通用问题，docs-core 专注 20% 的工程规范差异化能力。
-
----
-
-## 📦 目录结构
-
-### 后端 (services/docs-core)
-
-```
+```text
 services/docs-core/
 ├── src/
 │   ├── docs_core/
-│   │   ├── paths.py                 # 布局：仓库/知识库根 + 文档目录（纯路径，全局共用）
-│   │   ├── docs_service.py          # 门面：SQLite 落库 + 查询的统一入口
-│   │   ├── parse_pipeline.py        # 10 步流水线调度（阶段注册 / 顺序 / 状态机）
-│   │   ├── docs_file_io.py          # 文件 IO（全局共用，不属于任何步骤）
-│   │   ├── models/                  # 全流水线共享契约 types.py（04/05/06/09 + 根）
-│   │   ├── step01_source_prep/      # 第 1 步：源文件准备
-│   │   │   └── source_prep.py
-│   │   ├── step02_convert2pdf/      # 第 2 步：转换 PDF（LibreOffice）
-│   │   │   └── convert2pdf.py
-│   │   ├── step03_mineru_parse/     # 第 3 步：MinerU 解析（3.1）+ PoPo 强化（3.2）
-│   │   │   ├── mineru_parser.py
-│   │   │   └── popo_enhance.py
-│   │   ├── step04_structure/        # 第 4 步：结构化 → jsonl
-│   │   │   ├── solo_engine.py       # 唯一构建引擎（规则 → 块/层级/语义，自包含）
-│   │   │   ├── solo2json_pipeline.py # 主控流程：建块 → PoPo 信号 → LLM 复核 → 落 jsonl
-│   │   │   ├── popo/                # 信号读取：aligner / 续接表格合并注入 / 层级融合（Solo 单管线）
-│   │   │   │   └── popo_block_merger.py # PoPo contd/table_merge 物理合并（jsonl 落盘前）
-│   │   │   └── shared/              # 跨步共享工具（04 写、05 读/调用）
-│   │   │       ├── jsonl_io.py            # jsonl/meta 读写（04 写、05 读）
-│   │   │       ├── formula_semantics.py   # 公式语义契约（04 生产/05 兜底）
-│   │   │       ├── title_level_refiner.py # 标题层级 LLM 复核
-│   │   │       └── table_html_utils.py    # 表格 HTML 解析（injector + builder 双消费）
-│   │   ├── step05_sqlite_fts/       # 第 5 步：SQLite 建库 + FTS（含 graph_editor 编辑同步）
-│   │   │   ├── rebuild/             # jsonl → canonical（graph_rebuilder + canonical_builder + table_semantics + tag_rules）
-│   │   │   ├── store/               # canonical_sql_store / blocks_sql_store / sqlite_utils
-│   │   │   ├── rows_projection.py   # doc_blocks 行 / segments
-│   │   │   ├── sqlite_index.py      # jsonl → canonical SQLite + FTS
-│   │   │   └── graph_editor.py      # 图谱编辑（改 jsonl + 同步 SQLite）
-│   │   ├── step06_vectors/          # 第 6 步：向量索引
-│   │   │   ├── embedding_provider.py / vector_store.py / vector_indexer.py
-│   │   │   ├── sqlite_vector_store.py / chroma_vector_store.py / config.py
-│   │   ├── step07_graph/            # 第 7 步：知识图谱
-│   │   │   ├── graph_orchestrator.py / graph_store.py / entity_extractor.py
-│   │   │   ├── relation_infer.py / question_mapper.py / evidence_builder.py
-│   │   │   ├── extractor_prompts.py / config.py / push_to_graph.py
-│   │   ├── step08_maintain/         # 维护（巡检 / 周期任务）
-│   │   │   ├── runner.py / report.py / config.py
-│   │   ├── step09_query/            # 检索：retrieval + protocols（text2sql 休眠）
-│   │   │   ├── retrieval/           # sparse / dense / hybrid / table / formula
-│   │   │   ├── text2sql/            # schema linker / planner / generator / validator / executor（保留，未接入）
-│   │   │   └── protocols/           # contracts / data_port
-│   │   ├── step10_export/           # 第 10 步：对外产物导出
-│   │   │   └── export_artifacts.py
-│   │   └── __init__.py
-│   └── popo/                        # MinerU-Popo 子模块（本地定制，更新上游注意保留）
-├── tests/
-├── pyproject.toml
-└── README.md
-
+│   │   ├── paths.py                 # 布局：数据根 + 文档目录（纯路径计算，无 IO 副作用）
+│   │   ├── docs_service.py          # 门面：知识库/节点/任务落库与查询的统一入口
+│   │   ├── parse_pipeline.py        # 阶段注册 / 顺序 / 状态机 / 编排器
+│   │   ├── models/                  # 全管线共享契约（canonical 七表类型等）
+│   │   ├── step01_source_prep/      # 源文件准备
+│   │   ├── step02_convert2pdf/      # LibreOffice 转 PDF
+│   │   ├── step03_mineru_parse/     # MinerU 解析 + PoPo 强化（popo_enhance）
+│   │   ├── step04_structure/        # Solo 结构构建 + PoPo 信号消费（popo/ 六件套）
+│   │   ├── step05_sqlite_fts/       # canonical SQLite + FTS（rebuild / store）
+│   │   ├── step06_vectors/          # 向量索引（qdrant / sqlite / chroma + embedding 客户端）
+│   │   ├── step07_graph/            # 知识图谱（实体 / 关系 / 证据包）
+│   │   ├── step08_maintain/         # 巡检与维护
+│   │   ├── step09_query/            # 检索（五路召回）、text2sql、对外协议
+│   │   ├── step10_export/           # 产物导出
+│   │   └── library_registry.py / parse_records_store.py / kb_migrator.py …
+│   └── popo/                        # PoPo fork（本地定制，随包发布；上游同步见 UPSTREAM_SYNC.md）
+├── tests/                           # 88 个测试文件 / 500+ 用例
+└── pyproject.toml
 ```
 
-### 前端 (packages/docs-ui)
+## 不在本库范围
 
-```
-packages/docs-ui/
-├── src/
-│   ├── components/              # 组件
-│   │   ├── sidebar/                 # 侧边栏组件
-│   │   │   ├── KnowledgeTree.vue        # 知识库树
-│   │   │   ├── SearchBox.vue            # 搜索框
-│   │   │   └── FilterPanel.vue          # 筛选面板
-│   │   ├── viewer/                  # 查看器组件
-│   │   │   ├── DocumentViewer.vue       # 文档视图
-│   │   │   ├── TableView.vue            # 表格视图
-│   │   │   ├── FormulaViewer.vue        # 公式视图
-│   │   │   └── ReferenceViewer.vue      # 引用视图
-│   │   └── common/                  # 通用组件
-│   │       ├── DocumentCard.vue         # 文档卡片
-│   │       ├── TableRenderer.vue        # 表格渲染器
-│   │       ├── FormulaRenderer.vue      # 公式渲染器
-│   │       └── RefAnchor.vue            # 引用锚点
-│   │
-│   ├── composables/             # 组合式函数
-│   │   ├── useDocument.ts           # 文档操作
-│   │   ├── useQuery.ts              # 查询操作
-│   │   └── useRefAnchor.ts          # 引用操作
-│   │
-│   ├── stores/                  # 状态管理
-│   │   ├── documentStore.ts         # 文档状态
-│   │   └── queryStore.ts            # 查询状态
-│   │
-│   ├── api/                     # API 层
-│   │   ├── document.ts              # 文档 API
-│   │   ├── query.ts                 # 查询 API
-│   │   └── reference.ts             # 引用 API
-│   │
-│   ├── types/                   # 类型定义
-│   │   ├── document.ts
-│   │   ├── table.ts
-│   │   └── reference.ts
-│   │
-│   ├── styles/                  # 样式
-│   │   └── index.less
-│   │
-│   └── index.ts                 # 入口
-│
-├── package.json
-└── README.md
-```
+- HTTP / API 服务（由主仓库的 docs-api 实现）、前端与管理台；
+- MinerU / PoPo / VLM / embedding / rerank 的推理服务本身；
+- 知识库数据的业务展示与权限。
 
----
-
-## 🗓️ 开发计划
-
-### 版本规划总览
-
-```mermaid
-gantt
-    title docs-core 开发路线图 (前后端并行)
-    dateFormat  YYYY-MM-DD
-    section 前端基础
-    v0.2.1-0.2.3 前端骨架        :f1, 2026-03-01, 7d
-    v0.2.4-0.2.8 侧边栏组件      :f2, after f1, 14d
-    v0.2.9-0.2.13 文档查看器     :f3, after f2, 14d
-    v0.2.14-0.2.18 表格交互      :f4, after f3, 14d
-    v0.2.19-0.2.22 引用集成      :f5, after f4, 10d
-    section 后端基础
-    v0.2.1-0.2.3 后端骨架        :b1, 2026-03-01, 7d
-    v0.2.4-0.2.8 MinerU集成      :b2, after b1, 14d
-    v0.2.9-0.2.13 表格增强器     :b3, after b2, 14d
-    v0.2.14-0.2.18 公式引擎      :b4, after b3, 14d
-    v0.2.19-0.2.22 引用索引      :b5, after b4, 10d
-    section 集成完善
-    v0.2.23-0.2.30 查询服务      :i1, after f5 b5, 21d
-    v0.2.31-0.2.40 对话集成      :i2, after i1, 28d
-    v0.2.41-0.2.50 优化完善      :i3, after i2, 28d
-```
-
-### 详细里程碑
-
-#### Phase 1: 基础骨架 (v0.2.1 - v0.2.3) [前后端并行]
-
-| 版本 | 前端目标 | 后端目标 |
-|------|---------|---------|
-| v0.2.1 | docs-ui 项目初始化、目录结构 | docs-core 项目初始化、pyproject.toml |
-| v0.2.2 | 基础组件框架、路由配置 | 核心数据模型定义 |
-| v0.2.3 | 与 web-console 集成测试 | API 骨架、Mock 数据 |
-
-#### Phase 2: 核心功能 (v0.2.4 - v0.2.8) [前后端并行]
-
-| 版本 | 前端目标 | 后端目标 |
-|------|---------|---------|
-| v0.2.4 | KnowledgeTree 组件 | MinerUClient 封装 |
-| v0.2.5 | SearchBox 组件 | PDF 解析测试 |
-| v0.2.6 | FilterPanel 组件 | Markdown 块解析 |
-| v0.2.7 | 侧边栏集成调试 | 增强器框架 |
-| v0.2.8 | 侧边栏样式优化 | 表格分类器 |
-
-#### Phase 3: 文档/表格 (v0.2.9 - v0.2.18) [前后端并行]
-
-| 版本 | 前端目标 | 后端目标 |
-|------|---------|---------|
-| v0.2.9 | DocumentViewer 组件 | 简单表处理 |
-| v0.2.10 | Markdown 渲染 | 条件表处理 |
-| v0.2.11 | 公式渲染 (KaTeX) | 区间匹配算法 |
-| v0.2.12 | 图片预览 | 插值表处理 |
-| v0.2.13 | 文档标签页管理 | 插值算法实现 |
-| v0.2.14 | TableRenderer 组件 | 图形式表格 |
-| v0.2.15 | 表格参数输入 | 表格存储 |
-| v0.2.16 | 表格结果展示 | 表格查询 API |
-| v0.2.17 | 表格插值交互 | 公式解析器 |
-| v0.2.18 | 表格导出功能 | 公式计算引擎 |
-
-#### Phase 4: 引用系统 (v0.2.19 - v0.2.22) [前后端并行]
-
-| 版本 | 前端目标 | 后端目标 |
-|------|---------|---------|
-| v0.2.19 | RefAnchor 组件 | 块标识生成 |
-| v0.2.20 | 引用跳转功能 | 位置索引 |
-| v0.2.21 | 引用复制功能 | 引用解析 |
-| v0.2.22 | 引用预览浮层 | 引用存储 |
-
-#### Phase 5: 查询服务 (v0.2.23 - v0.2.30) [集成开发]
-
-| 版本 | 目标 | 交付物 |
-|------|------|--------|
-| v0.2.23 | 语义查询集成 | 前端调用 canonical 检索接口 |
-| v0.2.24 | 查询结果展示 | 结果列表组件 |
-| v0.2.25 | 混合查询 | 语义+表格混合 |
-| v0.2.26 | 查询历史 | 历史记录功能 |
-| v0.2.27 | 查询缓存 | 前端缓存优化 |
-| v0.2.28 | 批量查询 | 批量接口实现 |
-| v0.2.29 | 查询导出 | 导出报告功能 |
-| v0.2.30 | 查询测试 | E2E 测试 |
-
-#### Phase 6: 对话集成 (v0.2.31 - v0.2.40) [核心集成]
-
-| 版本 | 目标 | 交付物 |
-|------|------|--------|
-| v0.2.31 | @提及功能 | 上下文选择器 |
-| v0.2.32 | 知识库选择 | 多知识库切换 |
-| v0.2.33 | 引用注入 | 对话携带引用上下文 |
-| v0.2.34 | 答案溯源 | 回答来源展示 |
-| v0.2.35 | 表格@查询 | @表格直接查询 |
-| v0.2.36 | 公式@计算 | @公式直接计算 |
-| v0.2.37 | 引用@跳转 | @引用直接跳转 |
-| v0.2.38 | 对话历史 | 对话记录管理 |
-| v0.2.39 | 对话导出 | 对话导出报告 |
-| v0.2.40 | 对话测试 | 集成测试 |
-
-#### Phase 7: 优化完善 (v0.2.41 - v0.2.50)
-
-| 版本 | 目标 | 交付物 |
-|------|------|--------|
-| v0.2.41 | 性能优化 | 虚拟滚动、懒加载 |
-| v0.2.42 | 错误处理 | 友好错误提示 |
-| v0.2.43 | 国际化 | i18n 支持 |
-| v0.2.44 | 主题定制 | 主题切换 |
-| v0.2.45 | 快捷键 | 键盘操作支持 |
-| v0.2.46 | 无障碍 | a11y 优化 |
-| v0.2.47 | 移动适配 | 响应式布局 |
-| v0.2.48 | 文档完善 | API 文档、使用指南 |
-| v0.2.49 | 测试覆盖 | 测试覆盖率 >80% |
-| v0.2.50 | 发布准备 | 发布检查、版本号更新 |
-
----
-
-## 🔌 前端集成指南
-
-### 与 web-console 的集成
-
-#### 1. 注册侧边栏模块
-
-```typescript
-import { createDocsSidebar } from '@angineer/docs-ui'
-import { useSidebarStore } from '@angineer/web-console'
-
-const sidebarStore = useSidebarStore()
-
-sidebarStore.registerModule({
-  id: 'knowledge-base',
-  label: '知识库',
-  icon: 'BookOutlined',
-  component: createDocsSidebar(),
-  order: 1
-})
-```
-
-#### 2. 注册工作区视图
-
-```typescript
-import { DocumentViewer, TableView } from '@angineer/docs-ui'
-import { useWorkbenchStore } from '@angineer/web-console'
-
-const workbenchStore = useWorkbenchStore()
-
-workbenchStore.registerViewer({
-  type: 'document',
-  component: DocumentViewer,
-  extensions: ['md', 'pdf']
-})
-
-workbenchStore.registerViewer({
-  type: 'table',
-  component: TableView,
-  extensions: ['table']
-})
-```
-
-#### 3. 注册上下文提供者
-
-```typescript
-import { DocsContextProvider } from '@angineer/docs-ui'
-import { useContextStore } from '@angineer/web-console'
-
-const contextStore = useContextStore()
-
-contextStore.registerProvider({
-  id: 'docs',
-  label: '知识库',
-  provider: DocsContextProvider,
-  trigger: '@'
-})
-```
-
-### 事件通信
-
-```typescript
-import { useEventBus } from '@angineer/web-console'
-
-const eventBus = useEventBus()
-
-eventBus.on('docs:open', (docId: string) => {
-  workbenchStore.openTab({ type: 'document', id: docId })
-})
-
-eventBus.on('docs:ref:selected', (ref: Reference) => {
-  chatStore.appendContext(ref)
-})
-```
-
----
-
-## 🚀 快速开始
-
-### 后端安装
+## 开发与测试
 
 ```bash
-cd services/docs-core
 pip install -e ".[dev]"
-pip install mineru-rag[rag]
+python -m pytest tests -q
 ```
 
-### 前端安装
+独立环境（无仓库树、无 `.env`）也能跑：`tests/conftest.py` 会先按 dotenv 规则加载 `.env`（若有），
+再补缺省 —— 向量后端用 `sqlite`、数据根指向临时目录；跨服务用例（需要 docs-api）自动跳过。
+当前基线：**507 passed, 17 skipped**（无外部服务、无网络）。
 
-```bash
-cd packages/docs-ui
-pnpm install
-pnpm run dev
-```
+## 许可
 
-### 基础使用
-
-```python
-from docs_core import get_docs_service
-
-ks = get_docs_service()
-
-# 文档解析由 docs-api 的 parse pipeline 编排（read → ingest → write），
-# 此处为知识库/节点管理侧入口示例：
-lib = ks.create_library(library_id="harbor_spec", name="港口规范")
-nodes = ks.list_nodes(library_id="harbor_spec")
-```
-
----
-
-## 📄 许可证
-
-MIT License - 详见 [LICENSE](../../LICENSE)
+MIT

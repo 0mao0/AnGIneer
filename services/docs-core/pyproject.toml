@@ -5,18 +5,65 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "angineer-docs-core"
 version = "0.1.0"
-description = "AnGIneer docs engine"
+description = "AnGIneer docs engine: parse pipeline (source_prep -> MinerU -> PoPo -> structure -> FTS -> vectors -> graph), retrieval and export"
+readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "AnGIneer Team"}
+]
+keywords = ["rag", "document-parsing", "retrieval", "knowledge-base", "mineru"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
-    "angineer-tree-core",
+    # 仓库内底座与兄弟包
+    "angineer-tree-core>=0.1.0,<0.2.0",
+    "angineer-ai-inference>=0.2.2,<0.3.0",
+    # 运行期硬依赖（顶层 import，缺一即 import 失败）
+    "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
     "requests>=2.31.0",
-    "chromadb>=0.5.5",
+    "PyMuPDF>=1.23.0",
+    "numpy>=1.24",
+    "python-dateutil>=2.8",
+    # 默认向量后端 qdrant（qdrant-client 仅在用到时惰性 import）
     "qdrant-client>=1.12",
+]
+
+[project.optional-dependencies]
+# 旧向量后端：DOCS_VECTORSTORE_PROVIDER=chroma 时才需要
+chroma = ["chromadb>=0.5.5"]
+# text2sql（step09）加载领域关键词 YAML 时才需要
+text2sql = ["PyYAML>=6.0"]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
 ]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
 
+# popo 是随包发布的 PoPo fork（上游无 __init__.py，按命名空间包收集）；
+# 只收源码目录，产物目录（figures / output_cases / outputs）一律不进包。
 [tool.setuptools.packages.find]
 where = ["src"]
+namespaces = true
+include = ["docs_core*", "popo*"]
+exclude = ["popo.figures*", "popo.output_cases*", "popo.outputs*"]
+
+[project.urls]
+Repository = "https://github.com/0mao0/angineer-docs-core"
+Issues = "https://github.com/0mao0/angineer-docs-core/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

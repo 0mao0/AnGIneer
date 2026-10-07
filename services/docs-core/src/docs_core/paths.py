@@ -34,7 +34,18 @@ def _knowledge_base(base_dir: Path | str | None) -> Path:
 
 
 def resolve_repo_root() -> Path:
-    """解析 monorepo 根目录（向上找 apps/services/package.json 并存）。"""
+    """解析主仓库根目录。
+
+    解析顺序（2026-10-07 独立发版改造）：``ANGINEER_REPO_ROOT`` 显式指定 > 向上探测仓库标记
+    （同时含 ``apps/`` / ``services/`` / ``package.json``）。两者都拿不到就抛错——
+    **不再回落到「往上数第 6 层」**：那个近似只在仓库树里碰巧成立，装成 wheel 后必然指向
+    site-packages 附近的错误目录，且要等写文件时才暴露。独立部署请显式给
+    ``ANGINEER_REPO_ROOT``（仓库树外的根），或直接给数据根 ``KNOWLEDGE_BASE_DIR`` /
+    ``ANGINEER_DATA_ROOT``（``resolve_knowledge_base_dir`` 会优先用它们，不再走本函数）。
+    """
+    explicit = os.getenv("ANGINEER_REPO_ROOT", "").strip()
+    if explicit:
+        return Path(explicit).expanduser()
     current_file = Path(__file__).resolve()
     for candidate in current_file.parents:
         if (
@@ -43,7 +54,11 @@ def resolve_repo_root() -> Path:
             and (candidate / "package.json").exists()
         ):
             return candidate
-    return current_file.parents[6]
+    raise RuntimeError(
+        "无法定位主仓库根目录：未设置 ANGINEER_REPO_ROOT，向上也找不到同时含 apps/、services/、"
+        "package.json 的目录（独立安装的 wheel 里没有仓库树）。请设置 ANGINEER_REPO_ROOT，"
+        "或直接指定数据根 KNOWLEDGE_BASE_DIR / ANGINEER_DATA_ROOT。"
+    )
 
 
 def resolve_knowledge_base_dir() -> Path:

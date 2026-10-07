@@ -1,5 +1,7 @@
 """docs-core 测试公共配置。"""
+import os
 import sys
+import tempfile
 from pathlib import Path
 
 import pytest
@@ -7,6 +9,36 @@ import pytest
 SRC = Path(__file__).resolve().parents[1] / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
+
+# ---- 环境兜底（2026-10-07 独立发版）----
+# 主仓库开发机：这些值来自仓库根 .env（dotenv 在 import 期加载、不覆盖已有变量），行为不变；
+# 独立安装（wheel / 独立仓 CI）没有 .env，缺值会让收集期就报「无法定位主仓库根目录」或
+# 「DOCS_VECTORSTORE_PROVIDER 未配置」。按同样的"不覆盖"语义补：
+#   - 先把仓库 .env 装进环境（若有）；
+#   - DOCS_VECTORSTORE_PROVIDER 缺省 sqlite（单测不依赖 qdrant 服务）；
+#   - 仅当本文件不在主仓库树里（无 apps/+services/+package.json 标记）时，
+#     才给 ANGINEER_REPO_ROOT 一个临时根——仓库树内绝不覆盖，免得改动开发机的路径解析。
+from dotenv import load_dotenv  # noqa: E402
+
+load_dotenv(override=False)
+os.environ.setdefault("DOCS_VECTORSTORE_PROVIDER", "sqlite")
+
+
+def _in_monorepo() -> bool:
+    for parent in Path(__file__).resolve().parents:
+        if (
+            (parent / "apps").exists()
+            and (parent / "services").exists()
+            and (parent / "package.json").exists()
+        ):
+            return True
+    return False
+
+
+if not _in_monorepo():
+    _TEST_ROOT = Path(os.environ.get("ANGINEER_TEST_ROOT") or tempfile.mkdtemp(prefix="docs-core-tests-"))
+    (_TEST_ROOT / "knowledge").mkdir(parents=True, exist_ok=True)
+    os.environ.setdefault("ANGINEER_REPO_ROOT", str(_TEST_ROOT))
 
 
 @pytest.fixture(autouse=True)
