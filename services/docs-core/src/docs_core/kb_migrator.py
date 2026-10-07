@@ -26,6 +26,23 @@ DEFAULT_LIBRARY_ID = "default"
 ROLLBACK_WINDOW_DAYS = 7
 
 
+def resolve_destination(params: Dict[str, Any]) -> str:
+    """目的地解析：拆分=新库或已有库二选一（new_library_id / target_library_id）；合并=目标库。"""
+    if params.get("op") == "split":
+        return str(params.get("new_library_id") or params.get("target_library_id") or "")
+    return str(params.get("target_library_id") or "")
+
+
+def second_lib_gated(params: Dict[str, Any]) -> bool:
+    """任务期间是否还有第二个库上门禁：目的地是「已有库」才有（拆到新库时新库尚不在注册表）。"""
+    if "gate_second" in params:
+        return bool(params["gate_second"])
+    if "rollback_kind" in params:
+        # 兼容部署前建的老任务：老形态只有 merge（第二库=原源库）与 split-new（无第二库）
+        return params.get("rollback_kind") == "merge"
+    return bool(params.get("target_library_id"))
+
+
 class MigrationBlocked(Exception):
     """预览阻断（同组校验/default 保护/迁移中冲突等），路由层转 400。"""
 
@@ -54,6 +71,9 @@ class PreviewResult:
     target_library_id: str
     doc_ids: List[str]
     new_name: str = ""
+    # 拆分到新库时记新库 ID（目的地形态判据：非空=新建、空=并入已有库）；
+    # 与 target_library_id 的关系：新建时两者同值，并入已有库时只有 target_library_id
+    new_library_id: str = ""
     counts: Dict[str, Any] = field(default_factory=dict)
     eval_refs: Dict[str, Any] = field(default_factory=dict)
     blockers: List[str] = field(default_factory=list)
@@ -102,10 +122,11 @@ class KbMigrator:
                 (source_library_id,),
             )]
         if op == "merge":
-            target = target_library_id
+            target = target_library_id or ""
             moved = sorted(source_docs)
         else:
-            target = new_library_id
+            # 目的地二选一（双给/双缺已由 _check_blockers 拦下）
+            target = new_library_id or target_library_id or ""
             moved = sorted(doc_ids or [])
             unknown = set(moved) - set(source_docs)
             if unknown:
@@ -113,7 +134,11 @@ class KbMigrator:
             if not moved:
                 blockers.append("至少选择 1 篇文档")
             if len(moved) == len(source_docs) and source_docs:
-                blockers.append("已选择全部文档，请改用合并")
+                if source_library_id == DEFAULT_LIBRARY_ID:
+                    # 默认库不能整体合并（是系统兜底库），提示不能指向死路
+                    blockers.append("默认库不能整体拆空，请至少保留 1 篇文档")
+                else:
+                    blockers.append("已选择全部文档，请改用合并")
         if blockers:
             raise MigrationBlocked("；".join(blockers))
         counts = self._face_counts(source_library_id, target, moved, op)
@@ -121,7 +146,8 @@ class KbMigrator:
         eval_refs = self._detect_eval_refs(source_library_id, moved)
         preview = PreviewResult(op=op, source_library_id=source_library_id,
                                 target_library_id=target or "", doc_ids=moved,
-                                new_name=new_name, counts=counts,
+                                new_name=new_name, new_library_id=new_library_id or "",
+                                counts=counts,
                                 eval_refs=eval_refs, blockers=[])
         preview.digest = self._digest(preview)
         write_audit(operator="admin", action="preview",
@@ -133,8 +159,14 @@ class KbMigrator:
     def _check_blockers(self, op: str, source: str, target: Optional[str],
                         new_library_id: Optional[str]) -> List[str]:
         blockers: List[str] = []
-        if source == DEFAULT_LIBRARY_ID:
-            blockers.append("默认库不支持拆分/合并")
+        if op not in ("split", "merge"):
+            return [f"未知操作: {op}"]
+        if op == "split":
+            # 目的地二选一：新库（new_library_id）或已有库（target_library_id）
+            if new_library_id and target:
+                blockers.append("拆分目的地只能二选一：新建库或并入已有库")
+            elif not new_library_id and not target:
+                blockers.append("拆分需指定目的地：新建库或并入已有库")
         source_rec = library_registry.get_library(source)
         if source_rec is None:
             blockers.append(f"源库未注册: {source}")
@@ -144,23 +176,37 @@ class KbMigrator:
         if source_rec.status == library_registry.STATUS_RETIRED:
             blockers.append("源库已停用")
         if op == "merge":
+            if source == DEFAULT_LIBRARY_ID:
+                # 默认库是匿名/未绑定请求的兜底库：retired 会静默断兜底检索；要腾挪请用拆分
+                blockers.append("默认库不支持整体合并，请改用拆分")
             if not target or target == source:
                 blockers.append("合并需指定不同的目标库")
             else:
-                target_rec = library_registry.get_library(target)
-                if target_rec is None:
-                    blockers.append(f"目标库未注册: {target}")
-                else:
-                    if target_rec.status != library_registry.STATUS_ACTIVE:
-                        blockers.append("目标库不是可用状态")
-                    if target_rec.group_name != source_rec.group_name:
-                        blockers.append("v1 仅支持同组合并（两库组不同）")
+                self._check_destination_blockers(target, source_rec, blockers)
         else:
-            if not new_library_id:
-                blockers.append("缺少新库 ID")
-            elif library_registry.get_library(new_library_id) is not None:
-                blockers.append(f"新库 ID 已存在: {new_library_id}")
+            if new_library_id:
+                if library_registry.get_library(new_library_id) is not None:
+                    blockers.append(f"新库 ID 已存在: {new_library_id}")
+            elif target == source:
+                blockers.append("目标库不能是源库自己")
+            else:
+                self._check_destination_blockers(target, source_rec, blockers)
         return blockers
+
+    def _check_destination_blockers(self, target: str, source_rec: Any,
+                                    blockers: List[str]) -> None:
+        """已有库目的地共用校验：可迁移、同组、非默认库（默认库只出不进）。"""
+        if target == DEFAULT_LIBRARY_ID:
+            blockers.append("默认库不支持作为迁移目标")
+            return
+        target_rec = library_registry.get_library(target)
+        if target_rec is None:
+            blockers.append(f"目标库未注册: {target}")
+            return
+        if target_rec.status != library_registry.STATUS_ACTIVE:
+            blockers.append("目标库不是可用状态")
+        if target_rec.group_name != source_rec.group_name:
+            blockers.append("v1 仅支持同组迁移（两库组不同）")
 
     def _face_counts(self, source: str, target: str, moved: List[str], op: str) -> Dict[str, Any]:
         ph = ",".join("?" for _ in moved) or "''"  # 空集兜底（合并空源库）
@@ -246,6 +292,8 @@ class KbMigrator:
         payload = json.dumps({
             "op": preview.op, "source": preview.source_library_id,
             "target": preview.target_library_id, "doc_ids": preview.doc_ids,
+            # 目的地形态入 digest：同 ID 的「新建」与「并入已有库」语义不同（退役与否），不可互认
+            "destination_new": bool(preview.new_library_id),
             "counts": preview.counts,
         }, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
@@ -296,11 +344,11 @@ class KbMigrator:
         return fp
 
     def assert_preview_fresh(self, preview: PreviewResult) -> None:
-        """提交前重算 digest 比对（设计 §5.7 防预览过期）。"""
+        """提交前重算 digest 比对（设计 §5.7 防预览过期）。目的地按形态回填，双给会被 blockers 拦。"""
         fresh = self.compute_preview(
             op=preview.op, source_library_id=preview.source_library_id,
-            target_library_id=preview.target_library_id or None,
-            new_library_id=preview.target_library_id if preview.op == "split" else None,
+            target_library_id=None if preview.new_library_id else (preview.target_library_id or None),
+            new_library_id=preview.new_library_id or None,
             new_name=preview.new_name, doc_ids=preview.doc_ids,
         )
         if fresh.digest != preview.digest:
@@ -440,7 +488,7 @@ class KbMigrator:
             return
         op = params["op"]
         source = params["source_library_id"]
-        target = params.get("new_library_id") if op == "split" else params.get("target_library_id")
+        target = resolve_destination(params)
         # P0-1：doc_ids 三层兜底——params（提交时落入）→ 任务行 preview → merge 现查源库全部文档
         doc_ids = list(params.get("doc_ids") or (task.get("preview") or {}).get("doc_ids") or [])
         if not doc_ids and op == "merge":
@@ -456,7 +504,7 @@ class KbMigrator:
         source_rec = library_registry.get_library(source)
         collection = source_rec.collection if source_rec else ""
         try:
-            self._gate_libraries(source, target if op == "merge" else None, on=True)
+            self._gate_libraries(source, target if second_lib_gated(params) else None, on=True)
             migrated = set(task["migrated_doc_ids"])
             for doc_id in doc_ids:
                 if self.store.is_cancel_requested(task_id):
@@ -491,7 +539,7 @@ class KbMigrator:
             self.store.update_task(task_id, status="failed", error=str(exc), stage_message=str(exc))
             write_audit(operator=operator, action="switch", params=params, result="failed", error=str(exc))
             try:
-                self._gate_libraries(source, target if op == "merge" else None, on=False)
+                self._gate_libraries(source, target if second_lib_gated(params) else None, on=False)
             except Exception:  # noqa: BLE001
                 pass
             raise
@@ -499,20 +547,23 @@ class KbMigrator:
     def _run_rollback(self, task: Dict[str, Any], operator: str) -> None:
         """回滚分支（评审 P0-3）：全程禁止 register_library——它是 7 列覆盖 upsert，只允许在拆分切换时刻注册新库。
 
-        doc_ids 取法（两条规则，提交时已落进 params）：
-        - 拆分回滚 = 新库当前全部文档（migrated + 增量，业主已确认增量一并带走）
+        doc_ids 取法（三条规则，提交时已落进 params）：
+        - 拆分到新库回滚 = 新库当前全部文档（migrated + 增量，业主已确认增量一并带走）
+        - 拆分入已有库回滚 = 原任务行 migrated_doc_ids（目标库自有文档绝不动）
         - 合并回滚 = 原任务行 migrated_doc_ids（目标库自有文档绝不动）
-        注册表收尾：拆分回滚=新库 retired；合并回滚=源库回 active（A 行从未消失，只是 retired）。
+        注册表收尾：拆到新库回滚=新库 retired；拆入已有库回滚=目标库不退役、双方回 active；
+        合并回滚=源库回 active（A 行从未消失，只是 retired）。
         """
         params = task["params"]
         task_id = task["id"]  # N①修正：原代码未绑定 task_id，下文引用必 NameError
         original_source = params["original_source_library_id"]
-        new_lib = params["library_id"]           # 拆分的新库 / 合并的源库 A
+        new_lib = params["library_id"]           # 拆分的新库/已有库目的地 / 合并的源库 A
         rollback_kind = params["rollback_kind"]  # split | merge
+        destination_is_new = bool(params.get("destination_is_new", True))
         doc_ids = list(params.get("doc_ids") or [])
         collection = params.get("collection", "")
         try:
-            self._gate_libraries(new_lib, original_source if rollback_kind == "merge" else None, on=True)
+            self._gate_libraries(new_lib, original_source if second_lib_gated(params) else None, on=True)
             verify_before = self._verify(
                 {"op": "split", "source_library_id": new_lib, "new_library_id": original_source,
                  "doc_ids": doc_ids}, None, collection)  # 回滚前各面计数落 verify（兑现 spec §5.5「同样预览+对账」）
@@ -535,7 +586,11 @@ class KbMigrator:
                 raise RuntimeError(f"回滚对账不一致: {verify_after['mismatches']}")
             # 注册表收尾（禁止 register_library）
             if rollback_kind == "split":
-                library_registry.set_status(new_lib, library_registry.STATUS_RETIRED)
+                if destination_is_new:
+                    library_registry.set_status(new_lib, library_registry.STATUS_RETIRED)
+                else:
+                    # 并入已有库回滚：目标库是别人的库，绝不退役，放回可用
+                    library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
                 library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
             else:
                 # 合并回滚：源库 A 回 active；当前持有方 B 从 migrating 门禁放回 active
@@ -563,6 +618,9 @@ class KbMigrator:
                     library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
                 else:
                     library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+                    if not destination_is_new:
+                        # 并入已有库回滚失败：原源库也放回 active，别锁死成 migrating
+                        library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
             except Exception:  # noqa: BLE001
                 pass
             write_audit(operator=operator, action="rollback", params=params, result="failed", error=str(exc))
@@ -581,8 +639,8 @@ class KbMigrator:
                 self.store.append_step(task_id, "rollback", f"{doc_id} 补偿失败: {exc}", status="failed")
         params = task["params"]
         try:
-            # N2 修正：合并判定兼容回滚任务（rollback_params 没有 target_library_id），第二库改用入参 target
-            self._gate_libraries(source, target if (params.get("op") or params.get("rollback_kind")) == "merge" else None, on=False)
+            # N2 修正：第二库判定兼容回滚任务（rollback_params 没有 target_library_id），统一走 second_lib_gated
+            self._gate_libraries(source, target if second_lib_gated(params) else None, on=False)
         finally:
             status = "cancel_failed" if failed else "cancelled"
             self.store.update_task(task_id, status=status, stage="rollback",
@@ -602,9 +660,8 @@ class KbMigrator:
         doc_ids 显式传入优先；未传才回退 params（merge 提交体不带 doc_ids，
         靠回退会拿空集做指纹/文件面 → 假对账）。
         """
-        op = params["op"]
         source = params["source_library_id"]
-        target = params.get("new_library_id") if op == "split" else params.get("target_library_id")
+        target = resolve_destination(params)
         doc_ids = list(doc_ids if doc_ids is not None else (params.get("doc_ids") or []))
         mismatches: List[str] = []
         actual_target_docs = self._lib_doc_count(target)
@@ -617,8 +674,14 @@ class KbMigrator:
                 f"SELECT COUNT(*) FROM canonical_documents WHERE library_id=? AND doc_id IN ({ph})",
                 [target, *doc_ids],
             ).fetchone()[0]
-        if relabeled != len(doc_ids):
-            mismatches.append(f"group: 组文件改标 {relabeled}/{len(doc_ids)}")
+        # 预期数取预览指纹里 canonical_documents 的实际行数：未解析/解析失败的文档本来就没有这一行，
+        # 拿 len(doc_ids) 去比会把「迁对了」判成假失败（2026-10-07 生产实踩：默认库拆 2 篇、1 篇无 canonical 行）
+        expected_group = (((preview or {}).get("counts", {}).get("fingerprint", {}) or {})
+                          .get("canonical_documents", {}) or {}).get("count")
+        if expected_group is None:
+            expected_group = len(doc_ids)
+        if relabeled != expected_group:
+            mismatches.append(f"group: 组文件改标 {relabeled}/{expected_group}")
         if self.graph_db.exists():
             with create_connection(self.graph_db) as conn:
                 moved_rel = conn.execute(
@@ -654,7 +717,8 @@ class KbMigrator:
         return {"ok": not mismatches, "mismatches": mismatches, "digest": digest}
 
     def _switch(self, params: Dict[str, Any], task_id: str, operator: str) -> None:
-        """原子切换（设计 §5.5）：拆分=此刻才注册新库 + meta libraries 行；合并=源库 retired。
+        """原子切换（设计 §5.5）：拆到新库=此刻才注册新库 + meta libraries 行；拆入已有库=只放行两端门禁；
+        合并=源库 retired。
 
         reload 失败：标 switch_reload_failed 并 return（评审 P2），不抛进 run_task 通用 except——
         避免「failed 覆写 + 把已 retired 源库拉回 active」的中间态。
@@ -666,15 +730,20 @@ class KbMigrator:
             from docs_core.docs_service import KnowledgeLibrary, get_docs_service
             ks = get_docs_service()
             if op == "split":
-                new_lib = params["new_library_id"]
-                library_registry.register_library(
-                    new_lib, name=params.get("new_name") or new_lib,
-                    group_name=source_rec.group_name, sqlite_file=source_rec.sqlite_file,
-                    collection=source_rec.collection, status=library_registry.STATUS_ACTIVE,
-                )
-                # meta libraries 行（spec 面 5；list_libraries 读穿 meta，缺这行新库对读方不可见）
-                ks.meta_store.upsert_library(KnowledgeLibrary(
-                    id=new_lib, name=params.get("new_name") or new_lib))
+                new_lib = params.get("new_library_id")
+                if new_lib:
+                    library_registry.register_library(
+                        new_lib, name=params.get("new_name") or new_lib,
+                        group_name=source_rec.group_name, sqlite_file=source_rec.sqlite_file,
+                        collection=source_rec.collection, status=library_registry.STATUS_ACTIVE,
+                    )
+                    # meta libraries 行（spec 面 5；list_libraries 读穿 meta，缺这行新库对读方不可见）
+                    ks.meta_store.upsert_library(KnowledgeLibrary(
+                        id=new_lib, name=params.get("new_name") or new_lib))
+                else:
+                    # 并入已有库：目的地已在注册表，无新库登记；切换=放行目标库门禁
+                    library_registry.set_status(params["target_library_id"],
+                                                library_registry.STATUS_ACTIVE)
                 library_registry.set_status(source, library_registry.STATUS_ACTIVE)
             else:
                 target = params["target_library_id"]

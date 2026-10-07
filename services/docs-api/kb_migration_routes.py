@@ -18,7 +18,7 @@ from pydantic import BaseModel
 from admin_auth import resolve_admin_session
 from docs_core.kb_migration_audit import read_audit
 from docs_core.kb_migrator import (KbMigrationRunner, KbMigrator, MigrationBlocked,
-                                   PreviewResult, PreviewStaleError)
+                                   PreviewResult, PreviewStaleError, resolve_destination)
 
 kb_migration_router = APIRouter()
 
@@ -54,8 +54,10 @@ def get_migrator() -> KbMigrator:
 class PreviewRequest(BaseModel):
     op: str
     source_library_id: str
+    # 目的地二选一（拆分）：new_library_id=拆到新库（前端进向导即生成，评审 P2，服务端不兜底）；
+    # target_library_id=拆出去并入已有库。合并只认 target_library_id（整库并入）
     target_library_id: Optional[str] = None
-    new_library_id: Optional[str] = None   # 拆分必填，由前端进向导时生成（评审 P2，服务端不再兜底生成）
+    new_library_id: Optional[str] = None
     new_name: str = ""
     doc_ids: Optional[List[str]] = None
 
@@ -67,7 +69,8 @@ class SubmitRequest(PreviewRequest):
 def _preview_to_dict(p: PreviewResult) -> Dict[str, Any]:
     return {"op": p.op, "source_library_id": p.source_library_id,
             "target_library_id": p.target_library_id, "doc_ids": p.doc_ids,
-            "new_name": p.new_name, "counts": p.counts, "eval_refs": p.eval_refs,
+            "new_name": p.new_name, "new_library_id": p.new_library_id,
+            "counts": p.counts, "eval_refs": p.eval_refs,
             "blockers": p.blockers, "digest": p.digest}
 
 
@@ -93,6 +96,8 @@ def submit_migration(req: SubmitRequest, session: Any = Depends(resolve_admin_se
     task_id = f"mig-{secrets.token_hex(6)}"
     params = req.model_dump(exclude={"preview_digest"})
     params["doc_ids"] = preview.doc_ids  # P0-1：合并=源库全部文档、拆分=勾选集合，全集落任务行
+    # 目的地是已有库（合并/拆入已有库）时目标库同上门禁；拆到新库无第二库
+    params["gate_second"] = bool(req.target_library_id)
     mig.store.create_task(task_id, op=req.op, params=params,
                           total=len(preview.doc_ids), preview=_preview_to_dict(preview))
     try:
@@ -231,8 +236,9 @@ def resume_migration(task_id: str, session: Any = Depends(resolve_admin_session)
 def rollback_migration(task_id: str, session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
     """回滚（评审 P0-3）：建 op=rollback 新任务，doc_ids 此刻解析落 params，审计 action=rollback。
 
-    doc_ids 规则：拆分回滚=新库当前全部文档（含增量）；合并回滚=原任务 migrated_doc_ids。
-    失败/中断态放行（P1-4）：无窗口检查，等价于补偿已迁部分。
+    doc_ids 规则：拆到新库回滚=新库当前全部文档（含增量）；拆入已有库/合并回滚=原任务
+    migrated_doc_ids（目标库自有文档绝不动）。失败/中断态放行（P1-4）：无窗口检查，
+    等价于补偿已迁部分。
     """
     mig = get_migrator()
     task = mig.store.get_task(task_id)
@@ -248,12 +254,13 @@ def rollback_migration(task_id: str, session: Any = Depends(resolve_admin_sessio
     params = task["params"]
     op = params["op"]
     # 方向：library_id=当前持有文档的库，original_source_library_id=回滚目的地
-    # 拆分：持有=新库 N、目的地=源库 S；合并：持有=目标库 B、目的地=源库 A
-    new_lib = params.get("new_library_id") if op == "split" else params["target_library_id"]
+    # 拆到新库：持有=新库 N、目的地=源库 S；拆入已有库/合并：持有=目标库、目的地=源库
+    new_lib = resolve_destination(params)
     original_source = params["source_library_id"]
+    destination_is_new = bool(op == "split" and params.get("new_library_id"))
     from docs_core import library_registry
-    if op == "split":
-        # 拆分回滚 = 新库当前全部文档（migrated + 增量，业主已确认增量一并带走）
+    if destination_is_new:
+        # 拆到新库回滚 = 新库当前全部文档（migrated + 增量，业主已确认增量一并带走）
         from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection
         with create_connection(Path(mig.meta_db)) as conn:
             doc_ids = sorted(r[0] for r in conn.execute(
@@ -262,7 +269,7 @@ def rollback_migration(task_id: str, session: Any = Depends(resolve_admin_sessio
             ))
         source_rec = library_registry.get_library(original_source)
     else:
-        # 合并回滚 = 原任务行 migrated_doc_ids（目标库自有文档绝不动）
+        # 拆入已有库/合并回滚 = 原任务行 migrated_doc_ids（目标库自有文档绝不动）
         doc_ids = list(task["migrated_doc_ids"])
         source_rec = library_registry.get_library(new_lib)
     rollback_id = f"mig-{secrets.token_hex(6)}"
@@ -273,6 +280,9 @@ def rollback_migration(task_id: str, session: Any = Depends(resolve_admin_sessio
         "library_id": new_lib,
         "collection": source_rec.collection if source_rec else "",
         "doc_ids": doc_ids,
+        # 目的地形态 + 第二库门禁：拆入已有库回滚同样锁/放行目标库，且目标库绝不退役
+        "destination_is_new": destination_is_new,
+        "gate_second": op == "merge" or (op == "split" and not destination_is_new),
     }
     mig.store.create_task(rollback_id, op="rollback", params=rollback_params, total=len(doc_ids))
     try:

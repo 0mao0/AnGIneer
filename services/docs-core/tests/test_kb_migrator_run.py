@@ -76,6 +76,78 @@ def test_merge_doc_ids_fallback_to_preview(doc_env):
     assert library_registry.get_library("lib-a").status == "retired"
 
 
+def test_run_task_split_into_existing_library(doc_env):
+    """拆出去并入已有库：无新库注册、目标库计数增长、切换后两端回 active（业主 2026-10-07 新增形态）。"""
+    mig = doc_env
+    _register(("lib-a", "lib-t"))
+    preview = mig.compute_preview(op="split", source_library_id="lib-a",
+                                  target_library_id="lib-t", doc_ids=["d1"])
+    mig.store.create_task("t-6", op="split",
+                          params={"op": "split", "source_library_id": "lib-a",
+                                  "target_library_id": "lib-t", "gate_second": True,
+                                  "doc_ids": ["d1"]},
+                          total=1, preview={"counts": preview.counts, "doc_ids": preview.doc_ids})
+    mig.run_task("t-6", operator="admin")
+    task = mig.store.get_task("t-6")
+    assert task["status"] == "completed" and task["verify"]["ok"] is True
+    # 两端都回 active（目标库是别人的库，只放行门禁，绝不退役）
+    assert library_registry.get_library("lib-t").status == "active"
+    assert library_registry.get_library("lib-a").status == "active"
+    with sqlite3.connect(mig.meta_db) as conn:
+        assert conn.execute("SELECT library_id FROM nodes WHERE id='d1'").fetchone()[0] == "lib-t"
+
+
+def test_rollback_into_existing_library_keeps_target_active(doc_env):
+    """拆入已有库的回滚：doc_ids=原任务 migrated_doc_ids，撤回后目标库不退役、源库回 active。"""
+    mig = doc_env
+    _register(("lib-a", "lib-t"))
+    preview = mig.compute_preview(op="split", source_library_id="lib-a",
+                                  target_library_id="lib-t", doc_ids=["d1"])
+    mig.store.create_task("t-7", op="split",
+                          params={"op": "split", "source_library_id": "lib-a",
+                                  "target_library_id": "lib-t", "gate_second": True,
+                                  "doc_ids": ["d1"]},
+                          total=1, preview={"counts": preview.counts, "doc_ids": preview.doc_ids})
+    mig.run_task("t-7", operator="admin")
+    assert mig.store.get_task("t-7")["status"] == "completed"
+    mig.store.create_task("t-7r", op="rollback",
+                          params={"rollback_kind": "split", "rollback_of": "t-7",
+                                  "original_source_library_id": "lib-a", "library_id": "lib-t",
+                                  "collection": "g1", "doc_ids": ["d1"],
+                                  "destination_is_new": False, "gate_second": True},
+                          total=1)
+    mig.run_task("t-7r", operator="admin")
+    assert mig.store.get_task("t-7r")["status"] == "completed"
+    assert library_registry.get_library("lib-t").status == "active"   # 既有库绝不能被退役
+    assert library_registry.get_library("lib-a").status == "active"
+    with sqlite3.connect(mig.meta_db) as conn:
+        assert conn.execute("SELECT library_id FROM nodes WHERE id='d1'").fetchone()[0] == "lib-a"
+
+
+def test_verify_tolerates_doc_without_canonical_rows(doc_env):
+    """无 canonical 行的文档（未解析/解析失败）不算对账缺口（2026-10-07 假失败实踩）。
+
+    预期数取预览 fingerprint.canonical_documents.count；拿 len(doc_ids) 比会把「迁对了」判成失败。
+    """
+    mig = doc_env
+    _register(("lib-a", "lib-t"))
+    with sqlite3.connect(mig.group_db_for("lib-a")) as conn:
+        conn.execute("DELETE FROM canonical_documents WHERE doc_id='d2'")
+    preview = mig.compute_preview(op="split", source_library_id="lib-a",
+                                  target_library_id="lib-t", doc_ids=["d1", "d2"])
+    assert preview.counts["fingerprint"]["canonical_documents"]["count"] == 1
+    mig.store.create_task("t-8", op="split",
+                          params={"op": "split", "source_library_id": "lib-a",
+                                  "target_library_id": "lib-t", "gate_second": True,
+                                  "doc_ids": ["d1", "d2"]},
+                          total=2, preview={"counts": preview.counts, "doc_ids": preview.doc_ids})
+    mig.run_task("t-8", operator="admin")
+    task = mig.store.get_task("t-8")
+    assert task["status"] == "completed" and task["verify"]["ok"] is True
+    with sqlite3.connect(mig.group_db_for("lib-a")) as conn:
+        assert conn.execute("SELECT library_id FROM canonical_documents WHERE doc_id='d1'").fetchone()[0] == "lib-t"
+
+
 def test_rollback_branch_relabels_back_and_retires_new_lib(doc_env):
     """评审 P0-3：回滚走显式分支，禁止 register_library；拆分回滚后新库 retired。"""
     mig = doc_env

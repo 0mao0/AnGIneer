@@ -37,6 +37,22 @@ class _StubMigrator:
             raise PreviewStaleError("过期")
 
 
+class _StubStore:
+    def __init__(self, task=None):
+        self.task = task
+        self.created = []
+        self.updated = []
+
+    def get_task(self, task_id):
+        return self.task if self.task and self.task["id"] == task_id else None
+
+    def create_task(self, task_id, **kw):
+        self.created.append((task_id, kw))
+
+    def update_task(self, task_id, **kw):
+        self.updated.append((task_id, kw))
+
+
 class _StubRunner:
     def __init__(self, mig):
         self.migrator = mig
@@ -92,6 +108,47 @@ def test_volumes_endpoint_shape(client, monkeypatch):
     body = resp.json()
     assert len(body["volumes"]) == 1 and body["volumes"][0]["library_id"] == "lib-a"
     assert body["thresholds"]["docs"] == 1000
+
+
+def test_submit_marks_second_gate_for_existing_destination(client):
+    """拆入已有库/合并：submit 落 gate_second=True（目标库任务期间同上门禁）；拆到新库为 False。"""
+    c, mig = client
+    mig.store = _StubStore()
+    resp = c.post("/api/knowledge/migrations", json={
+        "op": "split", "source_library_id": "lib-a", "target_library_id": "lib-t",
+        "doc_ids": ["d1"], "preview_digest": "d" * 64})
+    assert resp.status_code == 200
+    (_, kw), = mig.store.created
+    assert kw["params"]["gate_second"] is True
+    mig.store.created.clear()
+    resp = c.post("/api/knowledge/migrations", json={
+        "op": "split", "source_library_id": "lib-a", "new_library_id": "lib-new",
+        "new_name": "分册", "doc_ids": ["d1"], "preview_digest": "d" * 64})
+    assert resp.status_code == 200
+    (_, kw), = mig.store.created
+    assert kw["params"]["gate_second"] is False
+
+
+def test_rollback_split_into_existing_uses_migrated_doc_ids(client, monkeypatch):
+    """拆入已有库回滚：doc_ids=原任务 migrated_doc_ids（不取目标库全部文档），目标库不退役标记落 params。"""
+    c, mig = client
+    import types
+    task = {"id": "mig-1", "op": "split", "status": "completed",
+            "params": {"op": "split", "source_library_id": "lib-a",
+                       "target_library_id": "lib-t", "doc_ids": ["d1"]},
+            "migrated_doc_ids": ["d1"]}
+    mig.store = _StubStore(task)
+    from docs_core import library_registry
+    monkeypatch.setattr(library_registry, "get_library",
+                        lambda lib: types.SimpleNamespace(collection="g1"))
+    resp = c.post("/api/knowledge/migrations/mig-1/rollback")
+    assert resp.status_code == 200
+    (_, kw), = mig.store.created
+    params = kw["params"]
+    assert params["library_id"] == "lib-t"          # 持有方=已有库目标
+    assert params["doc_ids"] == ["d1"]              # 目标库自有文档绝不动
+    assert params["destination_is_new"] is False
+    assert params["gate_second"] is True
 
 
 def test_endpoints_require_admin(client):
