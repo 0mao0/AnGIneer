@@ -29,6 +29,7 @@ from docs_core.step05_sqlite_fts.store.blocks_sql_store import (
 from docs_core.paths import (
     resolve_knowledge_index_db_path,
     resolve_knowledge_meta_db_path,
+    to_data_relative,
 )
 from docs_core import library_registry
 from docs_core.kb_migrator import assert_library_not_migrating
@@ -737,7 +738,7 @@ class DocsService:
             type="document",
             parent_id=parent_id,
             library_id=library_id,
-            file_path=str(source_path),
+            file_path=to_data_relative(source_path),
             visible=True,
             status="pending",
         )

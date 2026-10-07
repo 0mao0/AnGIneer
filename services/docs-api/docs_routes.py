@@ -26,7 +26,7 @@ from docs_core.step04_structure.solo2json_pipeline import (
 )
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 from docs_core.docs_file_io import file_storage
-from docs_core.paths import resolve_repo_root
+from docs_core.paths import resolve_repo_root, to_data_relative
 from models.parse_record import DB_PATH as RECORDS_DB_PATH
 from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record, get_record_by_id, update_record_status
 from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
@@ -1043,7 +1043,8 @@ async def upload_document(
         parent_id=normalized_parent_id,
         visible=True,
         library_id=library_id,
-        file_path=file_path,
+        # 落库相对 data 根（Stage A）；响应体仍回绝对路径，前端契约不动
+        file_path=to_data_relative(file_path),
         status='pending',
         parse_progress=0,
         parse_stage='pending',

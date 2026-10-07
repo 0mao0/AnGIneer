@@ -35,3 +35,20 @@ def test_resolve_node_file_path_relative_and_legacy(tmp_path, monkeypatch):
     assert paths.resolve_node_file_path(legacy_win) == Path(legacy_win)
     assert paths.resolve_node_file_path("") is None
     assert paths.resolve_node_file_path(None) is None
+
+
+def test_register_document_stores_relative(tmp_path, monkeypatch):
+    """写入口定版：data 根之下的 file_path 落库必须是相对路径（跨环境零改写的前提）。"""
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path))
+    monkeypatch.setenv("DOCS_VECTORSTORE_PROVIDER", "sqlite")
+    from docs_core.docs_service import DocsService
+
+    svc = DocsService()
+    lib = "lib-rel-test"
+    svc.create_library(lib, "相对路径测试库", "")
+    src = tmp_path / "knowledge" / "libraries" / lib / "documents" / "d1" / "source" / "a.pdf"
+    src.parent.mkdir(parents=True)
+    src.write_bytes(b"x")
+    svc.register_document(lib, str(src), doc_id="d1")
+    stored = svc.get_node("d1")
+    assert stored.file_path == f"knowledge/libraries/{lib}/documents/d1/source/a.pdf"
