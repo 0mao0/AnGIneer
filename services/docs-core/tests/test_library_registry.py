@@ -169,6 +169,15 @@ class TestCustomGroups:
         with pytest.raises(ValueError):
             reg.create_group("standards", "占位")
 
+    def test_read_survives_legacy_db_without_groups_table(self, reg):
+        # 生产实踩（2026-10-07 发版后总览 500）：旧 registry.sqlite 只有 library_registry 表，
+        # 读路径不得顺手建表（显式初始化契约），也不得把「表不存在」当错误抛出
+        reg.ensure_schema()
+        with registry._connect() as conn:
+            conn.executescript("DROP TABLE library_groups;")
+        assert reg.get_custom_group("bridge") is None
+        assert reg.list_custom_groups() == []
+
     def test_register_in_custom_group_derives_layout(self, reg):
         reg.create_group("bridge", "桥梁")
         record = reg.register_library("lib-b", group_name="bridge")

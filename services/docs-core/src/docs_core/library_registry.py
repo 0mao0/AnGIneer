@@ -358,11 +358,22 @@ def list_libraries(*, include_retired: bool = False) -> List[LibraryRecord]:
     return [_row_to_record(row) for row in rows]
 
 
+def _groups_table_missing(conn: sqlite3.Connection) -> bool:
+    """旧版 registry.sqlite 只有 library_registry 表（library_groups 随建组首写才出现）。
+    读路径视「表不存在」= 无自定义组——不得顺手建表（显式初始化契约），
+    2026-10-07 发版实踩：直查未建表的生产库让总览 500。"""
+    return conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='library_groups'"
+    ).fetchone() is None
+
+
 def get_custom_group(group_name: str) -> Optional[GroupRecord]:
-    """读穿查自定义组；注册表未初始化或无此行返回 None。"""
+    """读穿查自定义组；注册表未初始化、无 groups 表或无此行返回 None。"""
     if not _registry_exists():
         return None
     with _connect() as conn:
+        if _groups_table_missing(conn):
+            return None
         row = conn.execute(
             "SELECT group_name, display_name FROM library_groups WHERE group_name=?",
             (group_name,),
@@ -371,10 +382,12 @@ def get_custom_group(group_name: str) -> Optional[GroupRecord]:
 
 
 def list_custom_groups() -> List[GroupRecord]:
-    """全部自定义组（含尚未挂库的空组）；注册表未初始化返回空表。"""
+    """全部自定义组（含尚未挂库的空组）；注册表未初始化或无 groups 表返回空表。"""
     if not _registry_exists():
         return []
     with _connect() as conn:
+        if _groups_table_missing(conn):
+            return []
         rows = conn.execute(
             "SELECT group_name, display_name FROM library_groups ORDER BY created_at ASC"
         ).fetchall()
