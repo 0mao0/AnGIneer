@@ -26,7 +26,7 @@ from docs_core.step04_structure.solo2json_pipeline import (
 )
 from docs_core.step05_sqlite_fts.sqlite_index import build_sqlite_index_from_graph
 from docs_core.docs_file_io import file_storage
-from docs_core.paths import resolve_repo_root, to_data_relative
+from docs_core.paths import resolve_node_file_path, resolve_repo_root, to_data_relative
 from models.parse_record import DB_PATH as RECORDS_DB_PATH
 from models.parse_record import insert_record, ParseRecord, list_records, hard_delete_record, hard_delete_records_by_doc_id, soft_delete_record, soft_delete_record_by_id, restore_record, get_record_by_id, update_record_status
 from routes.v1.parse_task_cleanup import cancel_parse_task_for_node
@@ -1364,7 +1364,8 @@ async def create_parse_task(request: KnowledgeParseRequest) -> Dict[str, Any]:
     """创建解析任务并交给编排层执行。"""
     if not request.file_path:
         raise HTTPException(status_code=400, detail="缺少文档文件路径")
-    source_path = Path(request.file_path)
+    # 相对/绝对/旧三态统一展开（Stage A）；展开后仍失效才走规范目录兜底
+    source_path = resolve_node_file_path(request.file_path)
     if not source_path.exists():
         # file_path 可能指向另一台机器：历史批量导入写进 nodes.file_path 的是开发机绝对路径
         # （D:\AI\AnGIneer\...），Linux 上必然 exists()=False。解析管线本身不依赖它

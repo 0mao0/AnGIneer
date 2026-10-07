@@ -32,14 +32,15 @@ def _ensure_source_file(
     base_dir: Optional[str] = None,
 ) -> Optional[str]:
     """确保源文件位于规范 source 目录并返回其路径（幂等：已有文件直接返回）。"""
-    from docs_core.paths import get_source_dir
+    from docs_core.paths import get_source_dir, resolve_node_file_path
 
     doc_source_dir = get_source_dir(library_id, doc_id, base_dir)
     doc_source_dir.mkdir(parents=True, exist_ok=True)
     existing = resolve_source_file(library_id, doc_id, base_dir)
     if existing:
         return existing
-    source_candidate = Path(file_path) if file_path else None
+    # 相对 file_path 按 data 根展开；旧绝对/异机路径原样（失效时走规范目录兜底）
+    source_candidate = resolve_node_file_path(file_path)
     if source_candidate and source_candidate.exists() and source_candidate.is_file():
         target_path = doc_source_dir / source_candidate.name
         shutil.copy2(source_candidate, target_path)

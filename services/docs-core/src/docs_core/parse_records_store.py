@@ -168,7 +168,11 @@ def _document_meta(doc_id: str) -> dict:
     if node is None:
         return meta
     meta["library_id"] = node.library_id or "default"
-    path = node.file_path or ""
+    # file_path 可能是相对 data 根路径（Stage A 定版），getsize/拆后缀前统一展开
+    from docs_core.paths import resolve_node_file_path
+
+    resolved = resolve_node_file_path(node.file_path)
+    path = str(resolved) if resolved else ""
     meta["file_name"] = _file_name_of(path) or (node.title or "")
     if path:
         meta["file_format"] = os.path.splitext(path)[1].lstrip(".").lower()

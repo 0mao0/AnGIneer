@@ -52,3 +52,21 @@ def test_register_document_stores_relative(tmp_path, monkeypatch):
     svc.register_document(lib, str(src), doc_id="d1")
     stored = svc.get_node("d1")
     assert stored.file_path == f"knowledge/libraries/{lib}/documents/d1/source/a.pdf"
+
+
+def test_ensure_source_file_accepts_relative(tmp_path, monkeypatch):
+    """读点契约：file_path 为相对 data 根路径时，source_prep 必须能按候选拷入规范目录。
+
+    候选故意放在规范 source 目录之外——若 resolver 缺位，Path(rel).exists() 按当前
+    cwd 解析恒 False，会走不到候选拷贝分支。
+    """
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path))
+    from docs_core.step01_source_prep.source_prep import _ensure_source_file
+
+    rel = "knowledge/staging/a.pdf"
+    src = tmp_path / rel
+    src.parent.mkdir(parents=True)
+    src.write_bytes(b"x")
+    got = _ensure_source_file("lib-x", "d1", file_path=rel, base_dir=str(tmp_path / "knowledge"))
+    assert got and Path(got).name == "a.pdf"
+    assert Path(got).read_bytes() == b"x"

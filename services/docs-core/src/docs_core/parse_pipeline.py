@@ -109,7 +109,10 @@ class StageDef:
 # ---- 阶段输入核查（启动前先核查输入，通过后通知前端「核查通过」再运行） ----
 
 def _verify_source_file(ctx: StageContext) -> str:
-    if not Path(ctx.file_path).is_file():
+    from docs_core.paths import resolve_node_file_path
+
+    resolved = resolve_node_file_path(ctx.file_path)
+    if resolved is None or not resolved.is_file():
         raise RuntimeError(f"源文件不存在: {ctx.file_path}")
     ctx.input_summary = ctx.file_path
     return "核查通过"
