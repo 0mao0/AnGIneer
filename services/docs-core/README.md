@@ -40,7 +40,7 @@ AnGIneer 的文档解析入库引擎（纯 Python 库）：把工程规范 / PDF
 ```bash
 pip install angineer-docs-core
 # 或钉版本
-pip install "angineer-docs-core @ git+https://github.com/0mao0/angineer-docs-core.git@v0.1.0"
+pip install "angineer-docs-core @ git+https://github.com/0mao0/angineer-docs-core.git@v0.1.1"
 ```
 
 Python 要求 `>=3.10`。运行依赖：`angineer-tree-core`（树表底座）、`angineer-ai-inference`（LLM 客户端）、

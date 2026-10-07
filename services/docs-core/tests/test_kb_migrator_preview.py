@@ -30,10 +30,11 @@ def migrator(tmp_path, monkeypatch):
         conn.execute("INSERT INTO eval_dataset VALUES ('ds1', '题集一', 'lib-a')")
         conn.execute("INSERT INTO eval_question VALUES ('q1', 'ds1', 'lib-a', '[\"d1\"]')")
     graph = tmp_path / "graph.sqlite"
-    # AUDIT_PATH 在模块 import 期就绑死（conftest 的 env 隔离拦不住它），不临时挪走会直写
-    # 真 data/ops/kb_migration_audit.jsonl —— 同 80fd815「测试单例串库直写真库」一类坑（施工补）
+    # 审计路径在 2026-10-07 独立发版时改成延迟解析（audit_path()），这里钉到 tmp；
+    # 此前是模块级 AUDIT_PATH，import 期就绑死、conftest 的 env 隔离拦不住，
+    # 不临时挪走会直写真 data/ops/kb_migration_audit.jsonl（同 80fd815 一类坑）
     from docs_core import kb_migration_audit
-    monkeypatch.setattr(kb_migration_audit, "AUDIT_PATH", tmp_path / "audit.jsonl")
+    monkeypatch.setattr(kb_migration_audit, "audit_path", lambda: tmp_path / "audit.jsonl")
     # conftest 已把 ANGINEER_REGISTRY_DB 隔离到 tmp：直接注册，让 _check_blockers 通过（评审 P1-7①）
     from docs_core import library_registry
     library_registry.register_library("lib-a", name="a", group_name="g1",

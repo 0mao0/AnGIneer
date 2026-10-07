@@ -3,7 +3,7 @@ from docs_core import kb_migration_audit
 
 def test_write_read_roundtrip(tmp_path, monkeypatch):
     path = tmp_path / "audit.jsonl"
-    monkeypatch.setattr(kb_migration_audit, "AUDIT_PATH", path)
+    monkeypatch.setattr(kb_migration_audit, "audit_path", lambda: path)
     kb_migration_audit.write_audit(
         operator="admin", action="split",
         params={"source": "a", "docs": ["d1"]},
@@ -19,6 +19,6 @@ def test_write_read_roundtrip(tmp_path, monkeypatch):
 def test_read_skips_corrupt_lines(tmp_path, monkeypatch):
     path = tmp_path / "audit.jsonl"
     path.write_text('{"action":"ok"}\nnot-json\n', encoding="utf-8")
-    monkeypatch.setattr(kb_migration_audit, "AUDIT_PATH", path)
+    monkeypatch.setattr(kb_migration_audit, "audit_path", lambda: path)
     entries, total = kb_migration_audit.read_audit()
     assert total == 1 and entries[0]["action"] == "ok"

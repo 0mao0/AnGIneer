@@ -1,6 +1,6 @@
 """docs_core — 统一知识管理包：文档处理、知识图谱、检索、文本转SQL、定时维护"""
 
-__version__ = "0.1.0"  # 与 pyproject.toml 保持一致（独立发版的 CI 会校验两者相等）
+__version__ = "0.1.1"  # 与 pyproject.toml 保持一致（独立发版的 CI 会校验两者相等）
 
 from .docs_service import DocsService, get_docs_service, docs_service
 
