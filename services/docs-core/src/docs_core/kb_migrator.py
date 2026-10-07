@@ -43,6 +43,14 @@ def second_lib_gated(params: Dict[str, Any]) -> bool:
     return bool(params.get("target_library_id"))
 
 
+def set_status_if_registered(library_id: str, status: str) -> None:
+    """容忍未注册库：拆到新库没走到 _switch 就失败时，新库从未进注册表——
+    既无门禁可上，也无需 retire（未注册=从未对外可见）。set_status 缺行必 KeyError。"""
+    if library_registry.get_library(library_id) is None:
+        return
+    library_registry.set_status(library_id, status)
+
+
 class MigrationBlocked(Exception):
     """预览阻断（同组校验/default 保护/迁移中冲突等），路由层转 400。"""
 
@@ -357,18 +365,25 @@ class KbMigrator:
     # ---- 单 doc 原子单元（设计 §5.3：任一步失败 → 本 doc 内回滚 → 任务报错停）----
     # collection 由 run_task 在任务开始时从源库注册行解析一次传入（评审 P0-2）：
     # 同组同桶恒成立；补偿/回滚方向不再碰注册表，未注册新库也不会回退默认桶。
-    def migrate_doc(self, doc_id: str, source: str, target: str, collection: str = "") -> None:
-        self._move_doc(doc_id, source, target, collection)
+    # group_db 同一纪律：组文件桶也在任务开始时从「已注册的那一头」解析一次钉定传入——
+    # 拆到新库执行全程目的地不在注册表，按 to_lib 现查会落 knowledge_index 回退桶、
+    # 写脏陈年副本（2026-10-07 生产 mig-cd0e1350f7fe「组文件改标 0/5」根因）。
+    # 不传则回退按 to_lib 现查（单测/旧调用方兼容）。
+    def migrate_doc(self, doc_id: str, source: str, target: str, collection: str = "",
+                    group_db: Optional[Path] = None) -> None:
+        self._move_doc(doc_id, source, target, collection, group_db)
 
-    def rollback_doc(self, doc_id: str, source: str, target: str, collection: str = "") -> None:
-        self._move_doc(doc_id, target, source, collection)
+    def rollback_doc(self, doc_id: str, source: str, target: str, collection: str = "",
+                     group_db: Optional[Path] = None) -> None:
+        self._move_doc(doc_id, target, source, collection, group_db)
 
-    def _move_doc(self, doc_id: str, from_lib: str, to_lib: str, collection: str = "") -> None:
+    def _move_doc(self, doc_id: str, from_lib: str, to_lib: str, collection: str = "",
+                  group_db: Optional[Path] = None) -> None:
         done: List[str] = []
         try:
             self._move_doc_files(doc_id, from_lib, to_lib)
             done.append("files")
-            self._relabel_group_tables(doc_id, to_lib)
+            self._relabel_group_tables(doc_id, to_lib, group_db)
             done.append("group")
             self._relabel_meta(doc_id, from_lib, to_lib)
             done.append("meta")
@@ -379,16 +394,17 @@ class KbMigrator:
         except Exception:
             for face in reversed(done):
                 try:
-                    self._undo_face(face, doc_id, from_lib, to_lib, collection)
+                    self._undo_face(face, doc_id, from_lib, to_lib, collection, group_db)
                 except Exception:  # noqa: BLE001 — 补偿尽力而为，原异常优先抛出
                     pass
             raise
 
-    def _undo_face(self, face: str, doc_id: str, from_lib: str, to_lib: str, collection: str) -> None:
+    def _undo_face(self, face: str, doc_id: str, from_lib: str, to_lib: str, collection: str,
+                   group_db: Optional[Path] = None) -> None:
         if face == "files":
             self._move_doc_files(doc_id, to_lib, from_lib)
         elif face == "group":
-            self._relabel_group_tables(doc_id, from_lib)
+            self._relabel_group_tables(doc_id, from_lib, group_db)
         elif face == "meta":
             self._relabel_meta(doc_id, to_lib, from_lib)
         elif face == "vectors":
@@ -407,8 +423,9 @@ class KbMigrator:
             dst.parent.mkdir(parents=True, exist_ok=True)
             os.rename(src, dst)
 
-    def _relabel_group_tables(self, doc_id: str, to_lib: str) -> None:
-        group_db = self.group_db_for(to_lib)
+    def _relabel_group_tables(self, doc_id: str, to_lib: str,
+                              group_db: Optional[Path] = None) -> None:
+        group_db = group_db if group_db is not None else self.group_db_for(to_lib)
         now = datetime.now().isoformat(timespec="seconds")
 
         def _write() -> None:
@@ -503,25 +520,28 @@ class KbMigrator:
         # P0-2：桶在任务开始时解析一次（同组同桶恒成立），全程不再碰注册表
         source_rec = library_registry.get_library(source)
         collection = source_rec.collection if source_rec else ""
+        # 组文件桶同 P0-2 纪律，从已注册的源库行钉定（目的地拆到新库时还没注册）
+        group_db = self.group_db_for(source)
         try:
             self._gate_libraries(source, target if second_lib_gated(params) else None, on=True)
             migrated = set(task["migrated_doc_ids"])
             for doc_id in doc_ids:
                 if self.store.is_cancel_requested(task_id):
-                    self._compensate(task_id, source, target, collection, operator)
+                    self._compensate(task_id, source, target, collection, operator, group_db)
                     return
                 if doc_id in migrated:
                     continue  # 幂等续跑跳过
-                self.migrate_doc(doc_id, source, target, collection)
+                self.migrate_doc(doc_id, source, target, collection, group_db)
                 self.store.mark_doc_migrated(task_id, doc_id)
                 self.store.append_step(task_id, "execute", f"{doc_id} 迁移完成")
             if self.store.is_cancel_requested(task_id):
-                self._compensate(task_id, source, target, collection, operator)
+                self._compensate(task_id, source, target, collection, operator, group_db)
                 return
             self.store.update_task(task_id, stage="verify")
             # 施工修：_verify 原从 params 重推 doc_ids，merge 任务 params 无此键 → 空集假对账；
             # 执行侧已解析的有效 doc_ids 显式传入
-            verify = self._verify(params, task.get("preview"), collection, doc_ids=doc_ids)
+            verify = self._verify(params, task.get("preview"), collection, doc_ids=doc_ids,
+                                  group_db=group_db)
             self.store.update_task(task_id, verify=verify)
             if not verify["ok"]:
                 raise RuntimeError(f"对账不一致: {verify['mismatches']}")
@@ -562,40 +582,43 @@ class KbMigrator:
         destination_is_new = bool(params.get("destination_is_new", True))
         doc_ids = list(params.get("doc_ids") or [])
         collection = params.get("collection", "")
+        # 组文件桶从已注册的原源库钉定（正向任务没走到 _switch 时 new_lib 还不在注册表，
+        # 按 new_lib 现查会落回退桶——2026-10-07 mig-cd0e1350f7fe 回滚侧同款雷）
+        group_db = self.group_db_for(original_source)
         try:
             self._gate_libraries(new_lib, original_source if second_lib_gated(params) else None, on=True)
             verify_before = self._verify(
                 {"op": "split", "source_library_id": new_lib, "new_library_id": original_source,
-                 "doc_ids": doc_ids}, None, collection)  # 回滚前各面计数落 verify（兑现 spec §5.5「同样预览+对账」）
+                 "doc_ids": doc_ids}, None, collection, group_db=group_db)  # 回滚前各面计数落 verify（兑现 spec §5.5「同样预览+对账」）
             migrated = set(task["migrated_doc_ids"])
             for doc_id in doc_ids:
                 if self.store.is_cancel_requested(task_id):
-                    self._compensate(task_id, new_lib, original_source, collection, operator)
+                    self._compensate(task_id, new_lib, original_source, collection, operator, group_db)
                     return
                 if doc_id in migrated:
                     continue
-                self.rollback_doc(doc_id, original_source, new_lib, collection)
+                self.rollback_doc(doc_id, original_source, new_lib, collection, group_db)
                 self.store.mark_doc_migrated(task_id, doc_id)
                 self.store.append_step(task_id, "rollback", f"{doc_id} 已撤回")
             verify_after = self._verify(
                 {"op": "split", "source_library_id": new_lib, "new_library_id": original_source,
-                 "doc_ids": doc_ids}, None, collection)
+                 "doc_ids": doc_ids}, None, collection, group_db=group_db)
             verify_after["before"] = verify_before.get("digest")
             self.store.update_task(task_id, verify=verify_after)
             if not verify_after["ok"]:
                 raise RuntimeError(f"回滚对账不一致: {verify_after['mismatches']}")
-            # 注册表收尾（禁止 register_library）
+            # 注册表收尾（禁止 register_library；未注册新库=无行可收尾，容忍跳过）
             if rollback_kind == "split":
                 if destination_is_new:
-                    library_registry.set_status(new_lib, library_registry.STATUS_RETIRED)
+                    set_status_if_registered(new_lib, library_registry.STATUS_RETIRED)
                 else:
                     # 并入已有库回滚：目标库是别人的库，绝不退役，放回可用
-                    library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
-                library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
+                    set_status_if_registered(new_lib, library_registry.STATUS_ACTIVE)
+                set_status_if_registered(original_source, library_registry.STATUS_ACTIVE)
             else:
                 # 合并回滚：源库 A 回 active；当前持有方 B 从 migrating 门禁放回 active
-                library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
-                library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+                set_status_if_registered(original_source, library_registry.STATUS_ACTIVE)
+                set_status_if_registered(new_lib, library_registry.STATUS_ACTIVE)
             try:
                 from docs_core.docs_service import get_docs_service
                 get_docs_service().reload_scope_cache()
@@ -612,27 +635,29 @@ class KbMigrator:
         except Exception as exc:
             self.store.update_task(task_id, status="failed", error=str(exc), stage_message=str(exc))
             # N2 修正：回滚异常按方向恢复门禁，避免库锁死 migrating
+            # （逐条容忍未注册库：一条 KeyError 会吞掉后面几条，把源库锁死在 migrating）
             try:
                 if rollback_kind == "merge":
-                    library_registry.set_status(original_source, library_registry.STATUS_RETIRED)
-                    library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+                    set_status_if_registered(original_source, library_registry.STATUS_RETIRED)
+                    set_status_if_registered(new_lib, library_registry.STATUS_ACTIVE)
                 else:
-                    library_registry.set_status(new_lib, library_registry.STATUS_ACTIVE)
+                    set_status_if_registered(new_lib, library_registry.STATUS_ACTIVE)
                     if not destination_is_new:
                         # 并入已有库回滚失败：原源库也放回 active，别锁死成 migrating
-                        library_registry.set_status(original_source, library_registry.STATUS_ACTIVE)
+                        set_status_if_registered(original_source, library_registry.STATUS_ACTIVE)
             except Exception:  # noqa: BLE001
                 pass
             write_audit(operator=operator, action="rollback", params=params, result="failed", error=str(exc))
             raise
 
-    def _compensate(self, task_id: str, source: str, target: str, collection: str, operator: str) -> None:
+    def _compensate(self, task_id: str, source: str, target: str, collection: str, operator: str,
+                    group_db: Optional[Path] = None) -> None:
         """取消 = doc 边界停止 + 自动反向补偿已迁 doc（设计 D10）。"""
         task = self.store.get_task(task_id)
         failed = False
         for doc_id in list(task["migrated_doc_ids"]):
             try:
-                self.rollback_doc(doc_id, source, target, collection)
+                self.rollback_doc(doc_id, source, target, collection, group_db)
                 self.store.unmark_doc_migrated(task_id, doc_id)
             except Exception as exc:  # noqa: BLE001
                 failed = True
@@ -649,16 +674,19 @@ class KbMigrator:
 
     def _gate_libraries(self, source: str, target: Optional[str], *, on: bool) -> None:
         for lib in filter(None, (source, target)):
-            library_registry.set_status(
+            # 拆到新库回滚：新库可能从未注册，注册表无行可挂门禁（mig-cd0e1350f7fe 实踩 KeyError）
+            set_status_if_registered(
                 lib, library_registry.STATUS_MIGRATING if on else library_registry.STATUS_ACTIVE,
             )
 
     def _verify(self, params: Dict[str, Any], preview: Optional[Dict[str, Any]],
-                collection: str = "", doc_ids: Optional[List[str]] = None) -> Dict[str, Any]:
+                collection: str = "", doc_ids: Optional[List[str]] = None,
+                group_db: Optional[Path] = None) -> Dict[str, Any]:
         """逐面对比实际 vs 预览（设计 §5.3 Phase V + 评审 P2 补向量/文件两面）。
 
         doc_ids 显式传入优先；未传才回退 params（merge 提交体不带 doc_ids，
         靠回退会拿空集做指纹/文件面 → 假对账）。
+        group_db=任务开始钉定的组文件桶；未传回退按源库现查（回滚任务源库=未注册新库时同样落回退桶）。
         """
         source = params["source_library_id"]
         target = resolve_destination(params)
@@ -669,7 +697,7 @@ class KbMigrator:
         if expected is not None and actual_target_docs != expected:
             mismatches.append(f"docs: 目标库实际 {actual_target_docs} != 预览 {expected}")
         ph = ",".join("?" for _ in doc_ids) or "''"
-        with create_connection(self.group_db_for(source)) as conn:
+        with create_connection(group_db if group_db is not None else self.group_db_for(source)) as conn:
             relabeled = conn.execute(
                 f"SELECT COUNT(*) FROM canonical_documents WHERE library_id=? AND doc_id IN ({ph})",
                 [target, *doc_ids],
