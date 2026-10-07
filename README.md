@@ -50,6 +50,38 @@ flowchart LR
 ```
 hard 阶段失败终止后续、soft 阶段失败仅标记自身；支持单阶段重试、断点恢复、GPU 排队与阶段级可视化。
 
+**分组分库存储**：组是物理隔离单位——每组一套正文 sqlite + 一个 qdrant 集合，按业务域（外服生产 / 内测评测）互不干扰；库是逻辑单位——一个知识库只是组注册表里的一行登记 + 组文件内的 `library_id` 过滤，组内建库零新文件。总览页可直接建自定义组，新组按同一约定派生存储：
+
+```mermaid
+flowchart TB
+    LIB["知识库（逻辑单位）<br/>= 组注册表一行 + library_id 过滤<br/>组内建库不建新文件"]
+    subgraph G1["组 · 外服 规范标准"]
+        direction LR
+        S1[("正文 sqlite<br/>knowledge/groups/standards.sqlite")]
+        V1(["qdrant 集合<br/>standards"])
+    end
+    subgraph G2["组 · 外服 疏浚工程"]
+        direction LR
+        S2[("正文 sqlite<br/>knowledge/groups/dredgeai.sqlite")]
+        V2(["qdrant 集合<br/>dredgeai"])
+    end
+    subgraph G3["组 · 内测 评测语料"]
+        direction LR
+        S3[("正文 sqlite<br/>evals/groups/evals_corpus.sqlite")]
+        V3(["qdrant 集合<br/>evals_corpus"])
+    end
+    NEW["+ 号建组（归入外服/内测）"] -. 按同约定派生一组两存储 .-> G1
+    LIB ==> G1 & G2 & G3
+    subgraph G0["兜底（未注册旧库）"]
+        direction LR
+        S0[("正文 sqlite<br/>knowledge/knowledge_index.sqlite")]
+        V0(["qdrant 集合<br/>docs_core_vectors"])
+    end
+    LEGACY["未注册旧库"] -.-> G0
+```
+
+柱形=正文 sqlite，胶囊=向量集合：每个组恰好一套，互不共文件。
+
 #### (1) 语料成绩——OmniDocBench v1.6 官方口径
 
 公开文档解析基准 1651 页中抽样 1000 页（seed=42），现行基线为 2026-09-26 run `20260926-1305`。
