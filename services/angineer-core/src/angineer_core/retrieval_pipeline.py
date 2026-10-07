@@ -505,6 +505,11 @@ _KNOWN_STD_PREFIXES = frozenset({
 })
 
 
+def _norm_book_title(text: str) -> str:
+    """书名号匹配归一：剥书名号括弧、去全部空白、忽略大小写（跨行折行/大小写变体容错）。"""
+    return re.sub(r"[\s《》]+", "", str(text or "")).casefold()
+
+
 def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
     """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。"""
     answer_text = str(answer or "")
@@ -514,6 +519,15 @@ def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
     answer_std_names = set(re.findall(r"《[^》]+》", answer_text))
     corpus_std_names = set(re.findall(r"《[^》]+》", corpus))
     any_std_name_in_corpus = bool(answer_std_names & corpus_std_names)
+    # 《》书名号闸（2026-10-07）：v16 恢复正文出处后《标题》成为答案常规形态，而下方
+    # 规范编号正则只认编号不认标题。答案引用的标题在证据里全部核不到才判编造出处；
+    # 部分核到即放行——论文真题名/中译名等次级引用是合法形态，逐条硬拦会误杀真答案
+    # （2026-10-07 1040 全集实测：981 条《》引用 0 硬编造，变体 4 条均混有可核到的在库标题）。
+    # 在库标题经装配前缀《doc_title》落在 items[].text（agent_tools 检索后装配），守卫证据面天然含标题。
+    if answer_std_names:
+        title_haystack = _norm_book_title(corpus)
+        if not any(_norm_book_title(t) in title_haystack for t in answer_std_names):
+            return True
     corpus_has_section_nums = bool(re.search(r"(?:第\s*)?\d+\.\d+", corpus))
     patterns = [
         r"[A-Z]{2,}\s*\d+(?:[-/]\d+)*(?:-\d{4})?",

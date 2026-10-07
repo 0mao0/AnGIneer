@@ -22,6 +22,45 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
         self.assertTrue(has_unsupported_reference("依据 JTS 999-2020 计算", "只有一段正文"))
         self.assertFalse(has_unsupported_reference("依据 JTS 999-2020 计算", "JTS 999-2020 规定"))
 
+    def test_book_title_all_absent_flagged(self):
+        # 答案引用的书名号在证据里全部核不到 → 判编造出处
+        self.assertTrue(
+            has_unsupported_reference("根据《不存在的规范》第3.1节，答案是42。", "证据正文只讲别的内容")
+        )
+
+    def test_book_title_grounded_by_doc_title_prefix(self):
+        # 在库标题经装配前缀《doc_title》落在证据面 → 真引用放行
+        self.assertFalse(
+            has_unsupported_reference(
+                "根据《2404.09358v3.pdf》第4节，答案是A。",
+                "《2404.09358v3.pdf》 【相关性0.8】 正文片段",
+            )
+        )
+
+    def test_book_title_case_whitespace_variant_grounded(self):
+        # 大小写/空白变体（2026-10-07 1040 实测形态）归一后核到 → 放行
+        self.assertFalse(
+            has_unsupported_reference(
+                "根据《ON PRO-CDH DESCENT ON DERIVED SCHEMES》的构造，答案是B。",
+                "正文提到 On Pro-CDH  Descent on Derived Schemes 的方法。",
+            )
+        )
+
+    def test_book_title_mixed_partial_grounded_passes(self):
+        # 部分真（在库前缀）+ 部分次级引用（论文真题名/中译名）→ 放行，不逐条硬拦
+        self.assertFalse(
+            has_unsupported_reference(
+                "根据《2404.09358v3.pdf》与《Thyroid disrupting effects of PFAS》得出结论。",
+                "《2404.09358v3.pdf》 正文片段",
+            )
+        )
+
+    def test_book_title_prose_mention_grounds(self):
+        # 证据正文裸提标题（无书名号）也算核到——宽松方向防误杀
+        self.assertFalse(
+            has_unsupported_reference("根据《赫尔辛基宣言》……", "本研究遵循赫尔辛基宣言的伦理要求。")
+        )
+
     def test_rerank_candidates_shared_is_callable(self):
         self.assertTrue(callable(rerank_candidates))
 

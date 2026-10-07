@@ -152,7 +152,8 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
     """P6c 边界：检索过工具后，对最终回答做两层兜底。
 
     - enforce_evidence：工具全部无有效证据时，拒绝给出结论；
-    - 未检索引用校验：答案中出现证据里没有的规范编号/题库背景时，替换为拒答话术。
+    - 未检索引用校验：答案中出现证据里没有的规范编号/书名号标题/题库背景时，替换为拒答话术
+      （书名号为「全部核不到才拦」，部分核到的次级引用放行，见 has_unsupported_reference）。
     - 标记清理：无论是否调过工具，答案中的 [KTE] 标记必须真实存在于工具返回；
       没调工具时所有标记视为编造，一律移除（不因此拒答，避免误伤模型直接回答）。
 
@@ -240,7 +241,10 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                     "边界规则：未检索到有效证据，拒绝给出最终结论（enforce_evidence）",
                     "no_evidence",
                 )
-            if answer and has_unsupported_reference(answer, evidence_text):
+            # 纯拒答（含「供参考」形态）跳过未检索引用校验：拒答的引用不是作答依据而是
+            # 延伸阅读指引（2026-10-04 L2 回退定版保留该形态，见 RefusalKeptMarkerCleanTests）；
+            # 半拒答（拒答头+实质正文）不属 is_refusal_text，仍走本校验，防编造依据借剥头漏网
+            if answer and not is_refusal_text(answer) and has_unsupported_reference(answer, evidence_text):
                 return (
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
