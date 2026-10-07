@@ -1,7 +1,10 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v16 / COMPLEX v5 / followup v3。
-最后变更：2026-10-07（v16：规则 2 放宽——正文恢复散文式出处「根据《…》」：首提关键结论必写、
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v17 / COMPLEX v5 / followup v3。
+最后变更：2026-10-07（v17：新增规则 15 指代回看——追问历史证据原文时优先按压缩摘要行的
+doc_id 调 knowledge_search 回看，不用指代词重搜。动机＝eager 压缩 A/B 实测：指针在模型眼前
+但模型把「刚才那条规范」原样当检索式重搜，召回漂移致拒答；ops 埋点 inspect_evidence 同步上线）。
+2026-10-07（v16：规则 2 放宽——正文恢复散文式出处「根据《…》」：首提关键结论必写、
 标题/条款号逐字来自证据、句末 cite 标记照旧全量标注。动机＝出处标签仅悬停浮层可见、
 内联只有数字圈，复制/打印场景出处丢失；用户拍板跳过 39 题专项验证，生效后观察生产行为）。
 2026-10-04（v15：规则 8 引用标注改为逐字照抄 metadata.cite、不得改写前缀——
@@ -294,6 +297,18 @@ _QA_RULE2_V16 = (
 QA_AGENT_SYSTEM_PROMPT_V16 = QA_AGENT_SYSTEM_PROMPT_V15.replace(_QA_RULE2_V15, _QA_RULE2_V16)
 assert QA_AGENT_SYSTEM_PROMPT_V16 != QA_AGENT_SYSTEM_PROMPT_V15, "v16 规则 2 替换未命中（v15 措辞已漂移）"
 
+# v17（2026-10-07）：新增规则 15 指代回看——eager 压缩（ANGINEER_EAGER_COMPRESS）/预算压缩落地后，
+# 跨 run 证据在对话里是带 doc_id 指针的「[已压缩…]」摘要行；A/B 实测模型对指代追问的习惯动作是
+# 把指代词原样重写进检索式重搜（query="刚才引用的那条规范…"），召回漂移→拒答，指针形同虚设。
+# 本规则教模型 inspect 语义：指代历史证据 → 按指针 doc_ids 回看，而不是重搜。
+_QA_RULE15_V17 = (
+    "15. 指代回看：用户追问历史证据的原文或细节（如「刚才那条」「上文引用的规范」）时，"
+    "若对话中存在「[已压缩…]」摘要行且其中标注了 doc_id，优先调用 knowledge_search 并把这些"
+    " doc_id 放进 doc_ids 参数回看原文；禁止把指代词原样写进检索 query 重搜。\n"
+)
+QA_AGENT_SYSTEM_PROMPT_V17 = QA_AGENT_SYSTEM_PROMPT_V16 + _QA_RULE15_V17
+assert QA_AGENT_SYSTEM_PROMPT_V17.startswith(QA_AGENT_SYSTEM_PROMPT_V16), "v17 追加未命中（v16 内容漂移）"
+
 
 # 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
 QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V11
@@ -342,6 +357,7 @@ register("agent_configs.qa_system_prompt", "v12", QA_AGENT_SYSTEM_PROMPT_V12)
 register("agent_configs.qa_system_prompt", "v13", QA_AGENT_SYSTEM_PROMPT_V13)
 register("agent_configs.qa_system_prompt", "v15", QA_AGENT_SYSTEM_PROMPT_V15)
 register("agent_configs.qa_system_prompt", "v16", QA_AGENT_SYSTEM_PROMPT_V16)
+register("agent_configs.qa_system_prompt", "v17", QA_AGENT_SYSTEM_PROMPT_V17)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
 # meta_system_prompt 已随 meta 档删除（2026-10-02 废 meta_query 路由第二步）：无消费方，历史 run 快照中的版本字符串不受影响。

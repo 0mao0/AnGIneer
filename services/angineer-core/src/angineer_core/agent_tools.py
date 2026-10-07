@@ -934,6 +934,12 @@ class RetrieverAdapter:
         ) -> Dict[str, Any]:
             if not query:
                 return {"error": "缺少 query 参数"}
+            if doc_ids:
+                # inspect 观测点：LLM 主动按压缩指针 doc_id 回看原文（区别于构造绑定 doc_ids）。
+                # 用于衡量「指针→回看」行为链是否真实发生（2026-10-07 A/B 实测模型倾向改写重搜）。
+                from angineer_core.ops_metrics import record_event
+
+                record_event("inspect_evidence", {"doc_ids": [str(d) for d in doc_ids][:8], "query": str(query)[:120]})
             return _run_knowledge_search(
                 query=query,
                 library_id=library_id,

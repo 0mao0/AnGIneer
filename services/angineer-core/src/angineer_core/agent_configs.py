@@ -555,13 +555,14 @@ def _item_pointer_keys(items: List[Any], limit: int = 6) -> str:
             continue
         seen.add(doc_id)
         meta = item.get("metadata") or {}
-        title = str(meta.get("doc_title") or item.get("title") or "")[:24]
+        title = str(meta.get("doc_title") or item.get("title") or "")
+        title = re.sub(r"\.(pdf|docx?|xlsx?|pptx?|md|txt)$", "", title, flags=re.IGNORECASE)[:24]
         cite = str(meta.get("cite") or "")
         tag = f"{cite}·{title}" if cite and title else (cite or title or doc_id)
         keys.append(f"{tag}[doc_id={doc_id}]")
         if len(keys) >= limit:
             break
-    return f"，要点: {'、'.join(keys)}" if keys else ""
+    return f"，证据: {'、'.join(keys)}" if keys else ""
 
 
 def _is_injected_user_prompt(content: Optional[str]) -> bool:
