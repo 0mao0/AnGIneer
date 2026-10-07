@@ -275,7 +275,7 @@ const deleting = ref(false)
  *  standards 组虽含不可删的默认库，但其内容（默认知识库等）就是生产问答的消费对象，业务域仍是外服。 */
 const GROUP_LABELS: Record<string, string> = {
   standards: '外服 · 系统库',
-  dredgeai: '外服 · 疏浚工程',
+  dredgeai: '外服 · DredgeAI',
   evals: '内测 · 评测语料',
 }
 
@@ -480,7 +480,7 @@ function onMigrationSubmitted(taskId: string) {
 async function load() {
   loading.value = true
   try {
-    groups.value = await knowledgeApi.getLibraryGroups()
+    groups.value = sortGroupsForDisplay(await knowledgeApi.getLibraryGroups())
   } catch (err) {
     message.error(`加载库组失败：${(err as Error).message}`)
   } finally {
@@ -594,6 +594,22 @@ function splitGroupLabel(label: string): { domain: string; rest: string } {
   return domain === '外服' || domain === '内测'
     ? { domain, rest: rest.join('·').trim() || label }
     : { domain: '', rest: label }
+}
+
+/** 组展示顺序（2026-10-07 业主定版）：外服在前、内测在后；外服内 系统库→规范库→DredgeAI。
+ *  未列名的自定义组排本域末尾，域前缀由显示名解析（与 tag 同源，改显示名即自动归位）。 */
+const GROUP_DISPLAY_ORDER = ['standards', 'guifan', 'dredgeai', 'evals']
+
+function sortGroupsForDisplay(items: LibraryGroupItem[]): LibraryGroupItem[] {
+  const rank = (name: string) => {
+    const { domain } = splitGroupLabel(groupName(name))
+    return domain === '外服' ? 0 : domain === '内测' ? 1 : 2
+  }
+  const idx = (name: string) => {
+    const i = GROUP_DISPLAY_ORDER.indexOf(name)
+    return i === -1 ? GROUP_DISPLAY_ORDER.length : i
+  }
+  return [...items].sort((a, b) => rank(a.group_name) - rank(b.group_name) || idx(a.group_name) - idx(b.group_name))
 }
 
 const groupMenuOptions = computed(() =>
