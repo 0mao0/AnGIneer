@@ -510,6 +510,28 @@ def _norm_book_title(text: str) -> str:
     return re.sub(r"[\s《》]+", "", str(text or "")).casefold()
 
 
+def _has_verifiable_section_ref(answer: str, corpus: str) -> bool:
+    """答案「第"X"章/节/条」引用在证据中可核：归一化全文命中或数字链（X.Y+）命中即算。
+
+    两种形态：带引号的章节名（第"1. Introduction"章节）与裸数字条款（第3.1节）。
+    """
+    answer_text = str(answer or "")
+    refs = re.findall(r"第\s*[“\"]([^”\"]{1,80})[”\"]\s*[章节条]", answer_text)
+    refs += re.findall(r"第\s*(\d+(?:\.\d+)+)\s*[章节条]", answer_text)
+    corpus_norm = _norm_book_title(corpus)
+    for ref in refs:
+        ref_text = str(ref).strip()
+        if not ref_text:
+            continue
+        ref_norm = _norm_book_title(ref_text)
+        if ref_norm and ref_norm in corpus_norm:
+            return True
+        num = re.match(r"(\d+\.\d+(?:\.\d+)*)", ref_text)
+        if num and num.group(1) in corpus:
+            return True
+    return False
+
+
 def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
     """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。"""
     answer_text = str(answer or "")
@@ -527,7 +549,12 @@ def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
     if answer_std_names:
         title_haystack = _norm_book_title(corpus)
         if not any(_norm_book_title(t) in title_haystack for t in answer_std_names):
-            return True
+            # 方案 B 软化（2026-10-07 夜班 OpenRAG -2.6pp 回归实锤）：标题全核不到不当场判死——
+            # 答案引用的章节/条款号能在证据里核到即放行。误杀形态＝答案引论文真题名而证据
+            # doc_title 是文件名（2404.09358v3.pdf），24 题好答案被替换拒答。
+            # 下方的规范编号检查独立兜底，真编造编号照样拦。
+            if not _has_verifiable_section_ref(answer_text, corpus):
+                return True
     corpus_has_section_nums = bool(re.search(r"(?:第\s*)?\d+\.\d+", corpus))
     patterns = [
         r"[A-Z]{2,}\s*\d+(?:[-/]\d+)*(?:-\d{4})?",

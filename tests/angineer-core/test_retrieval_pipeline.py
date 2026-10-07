@@ -61,6 +61,35 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
             has_unsupported_reference("根据《赫尔辛基宣言》……", "本研究遵循赫尔辛基宣言的伦理要求。")
         )
 
+    def test_book_title_absent_but_section_verifiable_passes(self):
+        # 方案 B（2026-10-07 OpenRAG -2.6pp 回归）：真题名 vs 文件名 doc_title 核不到标题时，
+        # 引号章节名在证据里核到 → 放行（今晚 24 题误杀的标准形态）
+        self.assertFalse(
+            has_unsupported_reference(
+                "根据《Two-Stage Estimators for Spatial Confounding with Point-Referenced Data》"
+                "第“5. Discussion”章节，答案是C。",
+                "《2404.09358v3.pdf》 正文片段\n5. Discussion\nWe conclude the method works.",
+            )
+        )
+
+    def test_book_title_absent_bare_numeric_section_verifiable_passes(self):
+        # 方案 B：裸数字条款号（无引号）核到 → 放行
+        self.assertFalse(
+            has_unsupported_reference(
+                "根据《不存在的规范》第3.1节，答案是42。",
+                "证据正文\n3.1 一般规定 内容如下",
+            )
+        )
+
+    def test_book_title_absent_section_also_absent_flagged(self):
+        # 方案 B 不卸牙：标题核不到、章节号也核不到 → 仍判编造
+        self.assertTrue(
+            has_unsupported_reference(
+                "根据《不存在的规范》第“9.9”节，答案是42。",
+                "证据正文只讲别的内容",
+            )
+        )
+
     def test_rerank_candidates_shared_is_callable(self):
         self.assertTrue(callable(rerank_candidates))
 
