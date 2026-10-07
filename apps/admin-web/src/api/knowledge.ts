@@ -89,6 +89,8 @@ export interface LibraryGroupItem {
 }
 
 // ---- 知识库拆分/合并迁移（kb-split-merge 计划 Task 14）----
+// 拆分目的地二选一：new_library_id=拆到新库；target_library_id=拆出去并入已有库。
+// 合并只认 target_library_id（整库并入，源库退役）。
 export interface MigrationSubmitInput {
   op: 'split' | 'merge'
   source_library_id: string
@@ -103,6 +105,8 @@ export interface MigrationPreview {
   target_library_id: string
   doc_ids: string[]
   new_name: string
+  /** 拆到新库时=新库 ID；并入已有库时为空（目的地形态判据） */
+  new_library_id?: string
   counts: Record<string, any>
   eval_refs: { datasets: { dataset_id: string; title: string }[]; question_count: number; questions_on_moved_docs?: number }
   blockers: string[]

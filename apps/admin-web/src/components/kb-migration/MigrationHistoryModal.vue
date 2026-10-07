@@ -84,14 +84,16 @@ async function load() {
   }
 }
 
-/** 库路径人话：拆分「A → 新库」；合并「A → B」；回滚「回滚：B → A」 */
+/** 库路径人话：拆分「A → 新库/已有库 B」；合并「A → B」；回滚「回滚：B → A」 */
 function libraryPath(t: MigrationTask): string {
   const p = t.params || {}
   if (t.op === 'rollback') {
     const kind = opLabels[p.rollback_kind] || p.rollback_kind || ''
     return `回滚${kind}：${p.library_id || ''} → ${p.original_source_library_id || ''}`
   }
-  const target = t.op === 'split' ? p.new_library_id : p.target_library_id
+  const target = t.op === 'split'
+    ? (p.new_library_id || p.target_library_id)   // 拆到新库 / 拆出去并入已有库
+    : p.target_library_id
   return `${p.source_library_id || ''} → ${target || ''}`
 }
 

@@ -133,43 +133,37 @@
               </template>
             </template>
             <template v-else-if="column.key === 'actions'">
-              <a-button type="link" size="small" @click="enterLibrary(record)">查看</a-button>
-              <a-button
-                type="link"
-                size="small"
-                title="拆分知识库：把选中的文档拆成新库"
-                :disabled="record.id === 'default' || record.status === 'migrating' || !record.doc_count"
-                @click="openSplitFor(record)"
-              >
-                拆分
-              </a-button>
-              <a-button
-                type="link"
-                size="small"
-                title="合并知识库：把本库并入另一个库"
-                :disabled="record.id === 'default' || record.status === 'migrating' || !hasPeerInGroup(record)"
-                @click="openMergeFor(record)"
-              >
-                合并
-              </a-button>
-              <a-button
-                type="link"
-                size="small"
-                title="实体审核：查看该库图谱实体的待审队列"
-                @click="openReviewFor(record)"
-              >
-                审核
-              </a-button>
-              <a-button type="link" size="small" @click="openEdit(record)">编辑</a-button>
-              <a-button
-                type="link"
-                size="small"
-                danger
-                :disabled="record.id === 'default' || record.status === 'migrating'"
-                @click="openDelete(record)"
-              >
-                删除
-              </a-button>
+              <!-- 字号/间距克隆「详情」页 .action-btns（13px 链接按钮、2px 间距），勿改回 antd 默认 -->
+              <span class="action-btns">
+                <a-button type="link" size="small" @click="enterLibrary(record)">查看</a-button>
+                <a-button
+                  type="link"
+                  size="small"
+                  title="拆并知识库：拆分部分文档到新库/已有库，或整库并入另一个库（整库并入后本库停用）"
+                  :disabled="record.status === 'migrating' || !record.doc_count"
+                  @click="openSplitFor(record)"
+                >
+                  拆并
+                </a-button>
+                <a-button
+                  type="link"
+                  size="small"
+                  title="实体审核：查看该库图谱实体的待审队列"
+                  @click="openReviewFor(record)"
+                >
+                  审核
+                </a-button>
+                <a-button type="link" size="small" @click="openEdit(record)">编辑</a-button>
+                <a-button
+                  type="link"
+                  size="small"
+                  danger
+                  :disabled="record.id === 'default' || record.status === 'migrating'"
+                  @click="openDelete(record)"
+                >
+                  删除
+                </a-button>
+              </span>
             </template>
       </template>
     </DataTable>
@@ -244,8 +238,7 @@
     </a-modal>
 
     <!-- 拆分/合并向导 + 迁移记录 + 任务详情（kb-split-merge Task 15-18） -->
-    <SplitWizardModal v-model:open="showSplit" :library="migrationLib" @submitted="onMigrationSubmitted" />
-    <MergeWizardModal v-model:open="showMerge" :library="migrationLib" @submitted="onMigrationSubmitted" />
+    <SplitMergeWizardModal v-model:open="showSplit" :library="migrationLib" @submitted="onMigrationSubmitted" />
     <MigrationHistoryModal v-model:open="showHistory" @open-task="(id: string) => (activeTaskId = id)" />
     <MigrationTaskDrawer :open="!!activeTaskId" :task-id="activeTaskId" @close="activeTaskId = ''" />
 
@@ -266,14 +259,13 @@
  * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups）。
  */
 import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
-import { message } from 'ant-design-vue'
+import { Modal, message } from 'ant-design-vue'
 import { DownOutlined, HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
-import SplitWizardModal from './kb-migration/SplitWizardModal.vue'
-import MergeWizardModal from './kb-migration/MergeWizardModal.vue'
+import SplitMergeWizardModal from './kb-migration/SplitMergeWizardModal.vue'
 import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
 import MigrationTaskDrawer from './kb-migration/MigrationTaskDrawer.vue'
 import EntityReviewDrawer from './EntityReviewDrawer.vue'
@@ -360,8 +352,9 @@ const columns = [
     sorter: (a: FlatLib, b: FlatLib) => (volumesById.value.get(a.id)?.updated_at || '').localeCompare(volumesById.value.get(b.id)?.updated_at || ''),
   },
   { title: '状态', key: 'status', width: 130 },
-  // 横向滚动时钉右侧（antdv 原生 fixed，经 table-ui 透传）
-  { title: '操作', key: 'actions', width: 290, fixed: 'right' as const },
+  // 横向滚动时钉右侧（antdv 原生 fixed，经 table-ui 透传）；
+  // 宽度=五颗 13px 链接按钮实测约 178px + 单元格内边距 16px + 余量 10px（与「详情」168/四颗同口径）
+  { title: '操作', key: 'actions', width: 204, fixed: 'right' as const },
 ]
 
 // ── 体量看板（§5.10：只提示不自动动作；失败整列「—」，缓存由服务端 5 分钟承担）──
@@ -404,7 +397,6 @@ function isOversize(libId: string): boolean {
 
 // ── 迁移入口与任务态（kb-split-merge Task 15）──
 const showSplit = ref(false)
-const showMerge = ref(false)
 const showHistory = ref(false)
 const migrationLib = ref<KnowledgeLibraryItem | null>(null)
 const activeTaskId = ref('')
@@ -426,10 +418,14 @@ async function loadMigrationState() {
         for (const l of libs) byLib.set(l, t.id)
       }
       if (t.status === 'completed') {
-        // 拆分的「已迁移」标给新库；合并给目标库；回滚给收回文档的原目的库
-        if (t.op === 'split' && p.new_library_id) migrated.add(p.new_library_id)
-        else if (t.op === 'merge' && p.target_library_id) migrated.add(p.target_library_id)
-        else if (t.op === 'rollback' && p.original_source_library_id) migrated.add(p.original_source_library_id)
+        // 拆分的「已迁移」标给新库/接收方；合并给目标库；回滚给收回文档的原目的库
+        if (t.op === 'split' && (p.new_library_id || p.target_library_id)) {
+          migrated.add(p.new_library_id || p.target_library_id)
+        } else if (t.op === 'merge' && p.target_library_id) {
+          migrated.add(p.target_library_id)
+        } else if (t.op === 'rollback' && p.original_source_library_id) {
+          migrated.add(p.original_source_library_id)
+        }
       }
     }
     activeTaskIdByLib.value = byLib
@@ -457,24 +453,19 @@ function openSplitFor(record: FlatLib) {
   showSplit.value = true
 }
 
-function openMergeFor(record: FlatLib) {
-  migrationLib.value = asMigrationLib(record)
-  showMerge.value = true
-}
-
-/** 同组还有第二个可并库（非 default、未退役、不在迁移）才允许合并 */
-function hasPeerInGroup(record: FlatLib) {
-  const group = groups.value.find((g) => g.group_name === record.group_name)
-  if (!group) return false
-  return group.libraries.some((l) => {
-    if (l.id === record.id || l.id === 'default') return false
-    return !l.status || l.status === 'active'
-  })
-}
-
+/** 「查看」= 切全局选中库 + 跳到「详情」标签：先弹框讲清去哪、怎么回来（业主 2026-10-07：直接跳太突兀） */
 function enterLibrary(record: FlatLib) {
-  libraryStore.setLibrary(record.id)
-  if (knowledgeView) knowledgeView.value = 'maintenance'
+  const target = record.name || record.id
+  Modal.confirm({
+    title: `进入「${target}」的详情页？`,
+    content: '会把左侧知识库切到该库，页面从「总览」切到「详情」（解析进度、体量、存储明细在那里）。看完点顶部「总览」标签即可回来。',
+    okText: '进入详情',
+    cancelText: '取消',
+    onOk: () => {
+      libraryStore.setLibrary(record.id)
+      if (knowledgeView) knowledgeView.value = 'maintenance'
+    },
+  })
 }
 
 // ── 实体审核（从 LibrarySelect 下拉迁入）──
@@ -749,6 +740,21 @@ onActivated(load)
   font-size: 12px;
   color: var(--text-tertiary, rgba(0, 0, 0, 0.45));
   word-break: break-all;
+}
+/* 操作列按钮组：与「详情」页 .action-btns 逐字同款（13px、2px 间距、padding-inline 4px）——
+   两页操作列视觉必须一致（业主 2026-10-07）；antd 默认为 14px + 7px 内边距，勿省这一层 */
+.action-btns {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 2px;
+  white-space: nowrap;
+}
+.action-btns :deep(.ant-btn) {
+  padding-inline: 4px;
+  margin-inline: 0;
+  height: auto;
+  font-size: 13px;
+  line-height: 1.5;
 }
 .ml-num {
   font-variant-numeric: tabular-nums;

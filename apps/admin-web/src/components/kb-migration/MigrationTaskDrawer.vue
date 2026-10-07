@@ -14,6 +14,7 @@
           <a-descriptions-item label="状态">
             <a-tag :color="statusColor">{{ statusLabel }}</a-tag>
           </a-descriptions-item>
+          <a-descriptions-item label="迁入目标" :span="2">{{ destinationLine }}</a-descriptions-item>
           <a-descriptions-item label="提交时间">{{ task.created_at }}</a-descriptions-item>
           <a-descriptions-item label="回滚窗口">{{ deadlineLine }}</a-descriptions-item>
         </a-descriptions>
@@ -154,6 +155,23 @@ const opLabels: Record<string, string> = {
 }
 const opLabel = computed(() => opLabels[task.value?.op || ''] || task.value?.op || '')
 
+/** 拆分目的地是否为新建库（切换阶段语义与回滚文案据此分叉） */
+const isSplitToNew = computed(() => {
+  const p = task.value?.params || {}
+  return task.value?.op === 'split' && !!p.new_library_id
+})
+
+const destinationLine = computed(() => {
+  const t = task.value
+  if (!t) return '—'
+  const p = t.params || {}
+  if (t.op === 'rollback') return p.original_source_library_id || '—'
+  if (t.op === 'split') {
+    return p.new_library_id ? `新库「${p.new_name || p.new_library_id}」` : (p.target_library_id || '—')
+  }
+  return p.target_library_id || '—'
+})
+
 const statusLabels: Record<string, string> = {
   running: '进行中', cancelling: '取消中', completed: '已完成', failed: '失败',
   cancelled: '已取消', cancel_failed: '取消未完成', interrupted: '已中断',
@@ -180,7 +198,9 @@ const stageFlow = computed(() => {
   const failed = ['failed', 'cancel_failed', 'interrupted', 'switch_reload_failed'].includes(t.status)
   return seq.map((key, i) => ({
     key,
-    label: stageNames[key] || key,
+    // 并入已有库没有「新建库」这一步：切换阶段 = 放行两端门禁
+    label: key === 'switch' && t.op === 'split' && !isSplitToNew.value
+      ? '收尾放行' : (stageNames[key] || key),
     state:
       t.status === 'completed' || i < curIdx ? 'done'
         : i === curIdx ? (failed ? 'failed' : 'active')
@@ -305,9 +325,12 @@ function doFullRollback() {
 }
 
 function askRollback() {
+  const toExisting = task.value?.op === 'split' && !isSplitToNew.value
   Modal.confirm({
     title: '把这次迁移整体撤回？',
-    content: '迁移到新库的文档将全部撤回原库；拆分回滚时，新库期间新增的文档也会一并撤回。',
+    content: toExisting
+      ? '迁出的文档将全部撤回原库（目标库自有文档不动），目标库不会被停用。'
+      : '迁移到新库的文档将全部撤回原库；拆分回滚时，新库期间新增的文档也会一并撤回。',
     okText: '回滚',
     okButtonProps: { danger: true },
     onOk: () => callApi(() => knowledgeApi.rollbackMigration(props.taskId)),
