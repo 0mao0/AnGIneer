@@ -48,7 +48,9 @@ const emit = defineEmits<{
 
 const formatTime = (iso?: string | null): string => {
   if (!iso) return '—'
-  const d = new Date(iso)
+  // 与 EvalRunPanel.formatTime 同口径：历史裸串按 UTC 读（容器 UTC 写入早 8 小时）
+  const hasOffset = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(iso)
+  const d = new Date(hasOffset ? iso : `${iso}Z`)
   if (Number.isNaN(d.getTime())) return '—'
   const mm = String(d.getMonth() + 1).padStart(2, '0')
   const dd = String(d.getDate()).padStart(2, '0')

@@ -17,8 +17,9 @@ logger = logging.getLogger(__name__)
 
 
 def _to_bjt(iso: str) -> str:
-    """evals 库存的 started_at 是 UTC naive，统一转北京 +08 带偏移（与 generated_at 同口径），
-    前端 new Date 可直接解析；空值/解析失败返回空串（前端显示“—”）。"""
+    """evals 库时间戳 → 北京 +08 带偏移（与 generated_at 同口径），前端 new Date 可直接
+    解析；空值/解析失败返回空串（前端显示“—”）。2026-10-07 起新行自带偏移，历史裸串
+    按 UTC 读——tzinfo 判断同时覆盖两种口径。"""
     if not iso:
         return ""
     try:

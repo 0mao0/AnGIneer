@@ -386,7 +386,10 @@ const runScoreText = (run: EvalRun): string => {
 
 const formatTime = (iso?: string | null): string => {
   if (!iso) return '—'
-  const d = new Date(iso)
+  // 后端新口径带偏移（+00:00/Z）；历史裸串按 UTC 读——浏览器默认把无偏移串
+  // 当本地时间，生产（容器=UTC 写入）会整体早 8 小时（2026-10-07 业主实锤）
+  const hasOffset = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(iso)
+  const d = new Date(hasOffset ? iso : `${iso}Z`)
   if (Number.isNaN(d.getTime())) return '—'
   const mm = String(d.getMonth() + 1).padStart(2, '0')
   const dd = String(d.getDate()).padStart(2, '0')

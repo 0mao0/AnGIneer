@@ -13,15 +13,16 @@ scores + answer + citations + 路由结论（实测 ≈2 MiB/run，见 test_rete
   库内行，但留库供 UI 溯源）与 running run 不删。
 
 设计约束：
-- 时间戳按 naive UTC 存储（result_store 现状），日期分层 +8h 折北京日界——UTC 晚间
-  完成的 run 属北京"次日"，不折会把窗口内 run 裁早（test_bjt_boundary 钉住）；
+- 时间戳：2026-10-07 起 result_store 写带偏移的 UTC 串（...+00:00），历史行为裸串
+  按 UTC 读；日期分层 astimezone(+08) 折北京日界——UTC 晚间完成的 run 属北京"次日"，
+  不折会把窗口内 run 裁早（test_bjt_boundary 钉住）；
 - 删除必须显式删明细（CASCADE 从未开启，2026-09-12 实踩 1.1G 孤儿明细）；
 - 不自动 VACUUM：夜间对 1.4G 库做 VACUUM 会阻塞写方，且 sqlite 会复用 freelist 页，
   策略稳定运行后文件自然收敛（一次性手动 VACUUM 见发版说明）。
 """
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, Optional
 
 from . import result_store
@@ -50,11 +51,16 @@ def baseline_run_id() -> str:
 
 
 def _bjt_date(ts: Any) -> Optional[str]:
-    """naive UTC 时间戳 → 北京时间日期串；解析失败返回 None（该行跳过不动）。"""
+    """时间戳 → 北京时间日期串；解析失败返回 None（该行跳过不动）。
+    2026-10-07 起新行带偏移（+00:00），历史裸串按 UTC 读：统一 astimezone(+08)。
+    不再无条件 +8h——对带偏移串再加 8 小时会多跳一天日界。"""
     if not ts:
         return None
     try:
-        return (datetime.fromisoformat(str(ts)) + timedelta(hours=8)).strftime("%Y-%m-%d")
+        dt = datetime.fromisoformat(str(ts))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone(timedelta(hours=8))).strftime("%Y-%m-%d")
     except ValueError:
         return None
 

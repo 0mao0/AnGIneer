@@ -6,7 +6,7 @@ gate.json"渲染成绿色"评测通过"——从此绿色必须有 gate 结论�
 卡片必须带真实结果与基线差异（Δpp+CI、过渡矩阵）——用户视角是"测试集重新跑一遍
 的结果和与基线的区别"，不是一句"通过"。
 """
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import List, Optional, Tuple
 
 from shared.notify import (
@@ -25,11 +25,20 @@ def _pct(value):
     return f"{value * 100:.2f}%" if isinstance(value, (int, float)) else "—"
 
 
+def _bjt(ts) -> datetime:
+    """库内时间戳 → aware 北京时间：带偏移串直接换算，历史裸串按 UTC 读。"""
+    dt = datetime.fromisoformat(str(ts))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone(timedelta(hours=8)))
+
+
 def fmt_span(started_at, completed_at) -> Tuple[str, str]:
-    """run 起止（UTC → 北京时间）与时长。字段缺失一律 '—'，通知不许造时间。"""
+    """run 起止（UTC → 北京时间）与时长。字段缺失一律 '—'，通知不许造时间。
+    新行带偏移、历史裸串按 UTC 读（2026-10-07 口径迁移），统一 astimezone(+08)。"""
     try:
-        start = datetime.fromisoformat(str(started_at)) + timedelta(hours=8)
-        end = datetime.fromisoformat(str(completed_at)) + timedelta(hours=8)
+        start = _bjt(started_at)
+        end = _bjt(completed_at)
         minutes = max(0, int((end - start).total_seconds() // 60))
         span = f"{start:%m-%d %H:%M} – {end:%H:%M}"
         duration = f"{minutes // 60}h{minutes % 60:02d}m"

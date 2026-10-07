@@ -627,10 +627,11 @@ const folderModalTitle = computed(() =>
   folderForm.value.isNew ? '新建文件夹' : (folderForm.value.nodeType === 'dataset' ? '重命名测试集' : '重命名文件夹')
 )
 
-/** 格式化日期 */
+/** 格式化日期（evals 库历史裸串按 UTC 读，与 EvalRunPanel.formatTime 同口径） */
 const formatDate = (iso: string) => {
   if (!iso) return '-'
-  return new Date(iso).toLocaleString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+  const hasOffset = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(iso)
+  return new Date(hasOffset ? iso : `${iso}Z`).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false })
 }
 
 /** 历史整体运行列表（过滤掉单题评测，用于对比弹窗） */

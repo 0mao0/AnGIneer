@@ -5,8 +5,26 @@ import os
 import sqlite3
 import time
 import uuid
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
+
+
+def _now_iso(dt: Optional[datetime] = None) -> str:
+    """时间戳唯一写入口：带偏移的 UTC ISO 串（...+00:00）。
+    旧口径 datetime.now().isoformat() 落库是裸串，前端 new Date 按本地时区解析——
+    生产容器=UTC 时历史时间早 8 小时（2026-10-07 业主实锤）。历史裸行仍按 UTC 读：
+    前端 formatTime 与后端 _as_utc 统一兜底，写库不再产生裸串。"""
+    if dt is None:
+        dt = datetime.now(timezone.utc)
+    elif dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc).isoformat(timespec="seconds")
+
+
+def _as_utc(ts: Any) -> datetime:
+    """把库内时间戳解析成 aware：裸串按 UTC 解释（旧行口径）。"""
+    dt = datetime.fromisoformat(str(ts))
+    return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
 
 from tree_core import tree_store
 
@@ -282,7 +300,7 @@ def _enrich_dataset_with_tree_info(conn: sqlite3.Connection, dataset: Dict[str, 
 
 def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
     """插入一条测试集记录，同时在 tree_node 中创建对应节点。"""
-    now = datetime.now().isoformat()
+    now = _now_iso()
     raw_meta = data.get("meta")
     meta_text = raw_meta if isinstance(raw_meta, str) else json.dumps(raw_meta or {}, ensure_ascii=False)
     conn = _get_conn()
@@ -346,7 +364,7 @@ def insert_dataset(data: Dict[str, Any]) -> Dict[str, Any]:
 
 def update_dataset_question_count(dataset_id: str, count: int) -> None:
     """更新测试集的题目数量。"""
-    now = datetime.now().isoformat()
+    now = _now_iso()
     conn = _get_conn()
     conn.execute(
         "UPDATE eval_dataset SET question_count = ?, updated_at = ? WHERE dataset_id = ?",
@@ -727,7 +745,7 @@ def update_question(dataset_id: str, question_id: str, updates: Dict[str, Any]) 
 def create_run(dataset_id: str, total_questions: int, run_name: str = "", is_full_run: bool = True, config_snapshot: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     """创建一条评测运行记录。"""
     run_id = f"run-{uuid.uuid4().hex[:12]}"
-    now = datetime.now().isoformat()
+    now = _now_iso()
     conn = _get_conn()
     conn.execute(
         """INSERT INTO eval_run (run_id, dataset_id, status, total_questions, completed_questions, started_at, run_name, is_full_run, config_snapshot, owner_pid)
@@ -753,7 +771,7 @@ def update_run_progress(run_id: str, completed_questions: int) -> None:
 
 def complete_run(run_id: str, summary_scores: Dict[str, Any]) -> None:
     """标记运行完成并写入汇总得分。"""
-    now = datetime.now().isoformat()
+    now = _now_iso()
     conn = _get_conn()
     _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'completed', completed_at = ?, summary_scores = ? WHERE run_id = ?",
@@ -774,7 +792,7 @@ def reset_run_for_resume(run_id: str, config_snapshot: Dict[str, Any]) -> None:
 def restart_run_for_retry(run_id: str, config_snapshot: Dict[str, Any]) -> None:
     """「重来」原地重跑：清空该 run 的旧明细与进度、刷新开始时间，复用同一条记录，
     不新增 item（区别于 resume——后者保留已完成题目续跑）。"""
-    now = datetime.now().isoformat()
+    now = _now_iso()
     conn = _get_conn()
     _write_run_state(conn, [
         ("DELETE FROM eval_run_detail WHERE run_id = ?", (run_id,)),
@@ -786,7 +804,7 @@ def restart_run_for_retry(run_id: str, config_snapshot: Dict[str, Any]) -> None:
 
 def fail_run(run_id: str, error: str) -> None:
     """标记运行失败。"""
-    now = datetime.now().isoformat()
+    now = _now_iso()
     conn = _get_conn()
     _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'failed', completed_at = ?, summary_scores = ? WHERE run_id = ?",
@@ -796,7 +814,7 @@ def fail_run(run_id: str, error: str) -> None:
 
 def cancel_run(run_id: str, summary_scores: Dict[str, Any]) -> None:
     """标记运行为已取消状态，保留已完成的题目结果和汇总指标。"""
-    now = datetime.now().isoformat()
+    now = _now_iso()
     conn = _get_conn()
     _write_run_state(conn, [(
         "UPDATE eval_run SET status = 'cancelled', completed_at = ?, summary_scores = ? WHERE run_id = ?",
@@ -937,7 +955,8 @@ def delete_run(run_id: str) -> bool:
 def cleanup_individual_runs(dataset_id: str) -> int:
     """删除 1 小时前完成的单独题目评测运行记录（连带逐题明细）。"""
     from datetime import timedelta
-    cutoff = (datetime.now() - timedelta(hours=1)).isoformat()
+    # cutoff 必须同样带偏移，否则 aware 新行与 naive 裸串比较直接抛 TypeError
+    cutoff = _now_iso(datetime.now(timezone.utc) - timedelta(hours=1))
     conn = _get_conn()
     stale_ids = [
         row["run_id"] for row in conn.execute(

@@ -9,7 +9,7 @@
 import asyncio
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import pytest
 
@@ -28,7 +28,9 @@ def _mk_run(run_id="run-x", status="cancelled", done=400, ago_min=30, stamp=True
         summary["interrupted_by_startup_sweep"] = True
     return {
         "run_id": run_id, "status": status, "completed_questions": done,
-        "completed_at": (datetime.now() - timedelta(minutes=ago_min)).isoformat(timespec="seconds"),
+        # 本地裸串仅供旧窗口逻辑；2026-10-07 起窗口比较按 UTC 口径：北京（本地）比 UTC
+        # 早 8 小时的"本地老时间戳"必须换算成 UTC，否则本地时间语义会泄漏进 UTC 窗口判定
+        "completed_at": (datetime.now(timezone.utc) - timedelta(minutes=ago_min)).isoformat(timespec="seconds"),
         "summary_scores": summary, "config_snapshot": {"caliber_fp": fp},
     }
 

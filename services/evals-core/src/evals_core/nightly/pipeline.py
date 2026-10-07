@@ -327,7 +327,7 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
     复用守卫：同题集、已完成题数 >0、completed_at 在窗口内、config_snapshot.caliber_fp 与当前
     判分口径指纹逐字相等——引擎/扩展维度/judge/steps 清单任一变化即拒绝（续跑复用旧判分结果，
     口径变了这些结果就不可比）。list_runs 按 started_at 倒序，取最近一条合格者。"""
-    from datetime import datetime, timedelta
+    from datetime import datetime, timedelta, timezone
 
     try:
         runs = result_store.list_runs(dataset_id)
@@ -335,7 +335,9 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
     except Exception:  # noqa: BLE001 探测失败退化为全新起跑，绝不影响流水线本身
         logger.exception("断点续跑候选探测失败（按全新起跑处理）")
         return ""
-    cutoff = datetime.now() - timedelta(hours=within_hours)
+    # aware 比较：新行带偏移、历史裸串按 UTC 读（2026-10-07 口径迁移），
+    # naive cutoff 与 aware completed_at 直接比较会抛 TypeError
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=within_hours)
     for r in runs:
         if r.get("status") != "cancelled" or not (r.get("completed_questions") or 0):
             continue
@@ -347,6 +349,8 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
             ended = datetime.fromisoformat(str(r.get("completed_at") or ""))
         except ValueError:
             continue
+        if ended.tzinfo is None:
+            ended = ended.replace(tzinfo=timezone.utc)
         if ended < cutoff:
             continue
         return str(r.get("run_id") or "")
