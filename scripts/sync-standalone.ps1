@@ -197,8 +197,13 @@ try {
         $repoName = if ($RepoNameOverrides.ContainsKey($pkg)) { $RepoNameOverrides[$pkg] } else { "angineer-$pkg" }
         $remoteUrl = "git@github.com:0mao0/$repoName.git"
 
-        $existing = & git -C $wt remote get-url $remoteName 2>$null
-        if ($LASTEXITCODE -ne 0) {
+        # list remotes instead of `remote get-url` + $LASTEXITCODE: with
+        # $ErrorActionPreference='Stop' a missing remote makes git write to
+        # stderr, which PowerShell 5.1 turns into a terminating
+        # NativeCommandError before the exit code can be inspected (breaks the
+        # first sync of a brand new package).
+        $remotes = @(Invoke-Git -Dir $wt -Args @('remote'))
+        if ($remotes -notcontains $remoteName) {
             Invoke-Git -Dir $wt -Args @('remote', 'add', $remoteName, $remoteUrl) | Out-Null
             Write-Host "${pkg}: added remote $remoteName -> $remoteUrl"
         }
