@@ -610,8 +610,9 @@ def delete_knowledge_node(node_id: str):
     if not success:
         raise HTTPException(status_code=404, detail="Node not found")
     soft_delete_record(node_id)
-    _clean_orphaned_records(ks)
-    return {"status": "success"}
+    # 孤儿清理是删除后的顺带兜底：其安全阀拒绝不得把「已删除成功」翻成假失败
+    # （2026-10-07 实锤：批量删 38 个副本每个响应都 409，节点其实全删掉了）
+    return {"status": "success", "orphan_cleanup": _clean_orphaned_records_tolerant(ks)}
 
 
 @docs_router.delete("/nodes/{node_id}/soft-delete")
@@ -654,8 +655,8 @@ def force_delete_knowledge_node(node_id: str):
             raise HTTPException(status_code=500, detail="删除失败")
         # force 语义为彻底清除：级联硬删统计记录，不留软删孤儿
         hard_delete_records_by_doc_id(node_id)
-        _clean_orphaned_records(ks)
-        return {"status": "success", "message": f"已强制删除节点 {node.title}"}
+        cleanup = _clean_orphaned_records_tolerant(ks)
+        return {"status": "success", "message": f"已强制删除节点 {node.title}", "orphan_cleanup": cleanup}
     except Exception as e:
         logger.error(f"强制删除节点 {node_id} 失败: {e}")
         raise HTTPException(status_code=500, detail=f"强制删除失败: {str(e)}")
@@ -731,8 +732,8 @@ def batch_hard_delete_records(request: BatchHardDeleteRequest):
         except Exception as exc:
             logger.error(f"批量硬删记录 {record_id} 失败: {exc}")
             failed.append({"record_id": record_id, "reason": str(exc)})
-    _clean_orphaned_records(ks)
-    return {"status": "success", "deleted": deleted, "failed": failed}
+    cleanup = _clean_orphaned_records_tolerant(ks)
+    return {"status": "success", "deleted": deleted, "failed": failed, "orphan_cleanup": cleanup}
 
 
 @docs_router.get("/records")
@@ -824,6 +825,28 @@ def _clean_orphaned_records(ks, confirm: bool = False) -> int:
     for record in orphans:
         soft_delete_record(record["doc_id"])
     return len(orphans)
+
+
+def _clean_orphaned_records_tolerant(ks) -> Dict[str, Any]:
+    """删除/批删成功后调用的孤儿清理降级版：安全阀拒绝（>阈值）改为响应告警字段。
+
+    主操作（节点删除）此前已提交，安全阀在最后一步拒绝不得把整个响应翻成 409 假失败
+    （2026-10-07 实锤：批量删 38 个副本每个响应都 409，节点其实全删掉了；后台点删除
+    在孤儿积压 >20 时会看到同样的假报错）。其余异常照抛——不以容错名义吞掉真实故障。
+    """
+    try:
+        return {"cleaned": _clean_orphaned_records(ks)}
+    except HTTPException as exc:
+        if exc.status_code != 409:
+            raise
+        detail = exc.detail if isinstance(exc.detail, dict) else {}
+        logger.warning("孤儿清理被安全阀拒绝（主操作已成功，延后清理）: %s", detail)
+        return {
+            "cleaned": 0,
+            "deferred": True,
+            "pending": detail.get("count"),
+            "note": "孤儿记录超过单次清理安全阈值，已延后；可 POST /records/clean-orphaned?confirm=true 复核清理",
+        }
 
 
 @docs_router.post("/records/clean-orphaned")
