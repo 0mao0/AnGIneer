@@ -2,6 +2,11 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.94
+
+- 出处守卫外部文献名引用降为剥标记（395e3b41，业主拍板方案 A）：v0.2.92 书名号闸两晚把 30+ 题好答案整答换拒答（OpenRAG 答案引论文真题名、证据 doc_title=文件名核不到，章节号也核不到）；三态化 find_unsupported_reference——编造规范编号仍 hard 整答替换（不卸牙），标题全核不到+章节不可信降 strip（_strip_absent_citations 摘句首《X》状语、悬空章节号补⚠️出处待核、正文事实保留）；has_unsupported_reference 语义收口为 hard-only 兼容旧调用点；新结果码 external_citation_stripped（final_outcome=model_answer_stripped，path_trace 记痕）
+- nightly 分数据集基线（395e3b41）：观察集专属指针 baseline_run.<dataset_id>.json 优先、回退全局，主集行为逐字不变；pin 新增 --for-dataset（快照 dataset_id 不符即拒钉）；retention 保护名单纳入专属指针 run_id——全局单指针下 FB-150 观察集拿主集基线空交集「无基线可比」，为 10-08 今晨 run-02d5987f0dc9（78/150=52.0%）钉基线铺路
+
 ## v0.2.93
 
 - 出处守卫书名号闸「标题核不到」降级为软信号（4cf8dd5c）：v0.2.92 书名号闸把答案引用的论文真题名对在库 doc_title=文件名的证据面上全灭（OpenRAG 85.67% -2.6pp、24 题误杀实踩），现若「第"X"章/节/条」引号章节名或裸数字条款号在证据中可核（归一化命中/数字链 X.Y+）则放行落入原有编号核对；标题与章节号双双核不到仍判编造出处不卸牙

@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.93** ——出处守卫书名号闸「标题核不到」降级为软信号（OpenRAG -2.6pp 误杀回归修复）；nightly 支持附加门禁/观察集 extra_dataset_ids（refusal-39/intent-router/clause-probe/financebench-150 各跑独立门禁）；知识库拆并组文件桶钉定修复（生产 mig-cd0e1350f7fe 实踩）；admin 组显示定版批次（组序＋DredgeAI 改名＋standards 显示名＋总览删组下拉）；kb_std_plan 归位口径换轨 GB/T 50841 功能分类（2348 册落位 0 跳过）；angineer-docs-core v0.1.1 与 angineer-tree-core v0.1.0 独立首发。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.94** ——出处守卫外部文献名引用降为剥标记、不替换整答（书名号闸两晚 30+ 题误杀修复，编造规范编号仍整答替换）；nightly 分数据集基线（观察集专属指针优先、回退全局，pin --for-dataset）；为 financebench-150 观察集钉定基线 run-02d5987f0dc9（78/150=52.0%）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（九个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
