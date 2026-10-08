@@ -13,6 +13,7 @@ P = os.path.join(ROOT, "services", "evals-core", "src")
 if P not in sys.path:
     sys.path.insert(0, P)
 
+from evals_core.nightly import notify  # noqa: E402
 from evals_core.nightly import pipeline  # noqa: E402
 from evals_core.runner import anomaly  # noqa: E402
 
@@ -263,6 +264,63 @@ class JudgeToleranceTests(_Env):
         entry = json.loads(next((self.tmp / "nightly").glob("*/runs/*/nightly.json")).read_text(encoding="utf-8"))
         self.assertEqual(entry["state"], "green")
         self.assertEqual(entry["judge_missing"], {anomaly.JUDGE_FAIL: ["q1"]})
+
+
+class NotifyDatasetNameTests(_Env):
+    """卡片自报集合名：nightly 是主集 + 观察集各发一张卡片（2026-10-08 起），
+    每条消息必须能认出属于哪个集，否则早上收到多条无从分辨。"""
+
+    def test_result_card_carries_dataset_name(self):
+        cards = []
+        done = {"status": "completed", "summary_scores": _SUMMARY,
+                "started_at": "2026-09-06T01:00:00", "completed_at": "2026-09-06T02:00:00"}
+        self._common_patches(
+            run_sequence=[{"status": "running"}, done, done, done],
+            details_sequence=[_NEW_DETAILS, _NEW_DETAILS])
+        with mock.patch("evals_core.nightly.pipeline.notify.send",
+                        side_effect=lambda url, text: (cards.append(text), '{}')[1]):
+            result = asyncio.run(pipeline.run_nightly(
+                dataset_id="ds", retry_rounds=0, resamples=50, webhook="http://wecom.invalid/hook"))
+        self.assertEqual(result["state"], "green")
+        self.assertEqual(len(cards), 1)
+        self.assertEqual(cards[0].splitlines()[1], "数据集：冒烟集（25 题）")
+
+    def test_error_card_carries_dataset_name(self):
+        cards = []
+        patches = [
+            mock.patch.object(pipeline.suite_runner, "start_eval_run", side_effect=RuntimeError("题库缺失")),
+            mock.patch("evals_core.dataset.manager.get_dataset",
+                       return_value={"dataset_id": "ds", "title": "冒烟集", "question_count": 25}),
+            mock.patch.object(pipeline.result_store, "list_runs", return_value=[]),
+            mock.patch("evals_core.material_parity.run_check",
+                       side_effect=lambda **kw: dict(_FAKE_MATERIAL)),
+            mock.patch("evals_core.nightly.pipeline.notify.send",
+                       side_effect=lambda url, text: (cards.append(text), '{}')[1]),
+        ]
+        for p in patches:
+            p.start()
+            self.addCleanup(p.stop)
+        result = asyncio.run(pipeline.run_nightly(
+            dataset_id="ds", retry_rounds=0, webhook="http://wecom.invalid/hook"))
+        self.assertEqual(result["state"], "error")
+        self.assertEqual(len(cards), 1)
+        self.assertEqual(cards[0].splitlines()[1], "数据集：冒烟集（25 题）")
+
+
+class NotifyCardLayoutTests(unittest.TestCase):
+    """build_message：给了 subject 头部下多一行集合名；空 subject 逐字保持旧版式。"""
+
+    def test_subject_line_rendered_after_head(self):
+        text = notify.build_message(None, None, notify.STATE_ERROR, "boom", subject="拒答校准集（39 题）")
+        lines = text.splitlines()
+        self.assertEqual(lines[0], "**⚠️ AnGIneer nightly 评测执行失败**")
+        self.assertEqual(lines[1], "数据集：拒答校准集（39 题）")
+        self.assertEqual(lines[2], "时间：—")
+
+    def test_empty_subject_keeps_legacy_lines(self):
+        text = notify.build_message(None, None, notify.STATE_ERROR, "boom")
+        self.assertNotIn("数据集：", text)
+        self.assertEqual(text.splitlines()[1], "时间：—")
 
 
 if __name__ == "__main__":

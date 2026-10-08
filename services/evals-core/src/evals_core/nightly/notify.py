@@ -48,8 +48,12 @@ def fmt_span(started_at, completed_at) -> Tuple[str, str]:
 
 
 def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "",
-                  material_line: str = "", judge_line: str = "") -> str:
-    """一行一项：时间 / 时长 / 结果 / 分析（+ 判分缺失 + 素材检查）。
+                  material_line: str = "", judge_line: str = "", subject: str = "") -> str:
+    """一行一项：数据集 / 时间 / 时长 / 结果 / 分析（+ 判分缺失 + 素材检查）。
+
+    subject：测试集展示名（形如"拒答校准集（39 题）"，pipeline._dataset_subject 生成）。
+    nightly 现在是主集 + 若干观察集各发一张卡片，卡片必须自报集合名，否则早上收到
+    多条无从分辨哪条对哪个集；空串不渲染该行（单集/老调用点逐字不变）。
 
     material_line：B 层素材检查摘要（形如
     "素材检查：ok（检查 200 篇，内容未落地 0 块，块→chunk 覆盖 99.90%（3 块容差内未对上，非缺陷））"，
@@ -63,6 +67,8 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
     summary = (raw or {}).get("summary_scores") or {}
     span, duration = fmt_span((raw or {}).get("started_at"), (raw or {}).get("completed_at"))
     lines = [_HEADS.get(state, _HEADS[STATE_ERROR])]
+    if subject:
+        lines.append(f"数据集：{subject}")
     lines.append(f"时间：{span}")
     lines.append(f"时长：{duration}")
     if summary:

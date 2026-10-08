@@ -110,7 +110,7 @@ class PinTests(unittest.TestCase):
             with mock.patch.object(compare_runs, "BASELINE_DIR", Path(tmp) / "baseline"), \
                  mock.patch.object(compare_runs, "BASELINE_POINTER", Path(tmp) / "baseline" / "baseline_run.json"), \
                  mock.patch.object(compare_runs.common, "REPO_ROOT", Path(tmp)):
-                args = mock.Mock(raw=str(raw_path), label="v2基线-2026-09")
+                args = mock.Mock(raw=str(raw_path), label="v2基线-2026-09", for_dataset=None)
                 self.assertEqual(compare_runs.cmd_pin(args), 0)
                 pointer = json.loads((Path(tmp) / "baseline" / "baseline_run.json").read_text(encoding="utf-8"))
                 snap = json.loads((Path(tmp) / pointer["raw"]).read_text(encoding="utf-8"))
@@ -118,6 +118,56 @@ class PinTests(unittest.TestCase):
         pred = snap["details"][0]["prediction"]
         self.assertNotIn("retrieved_items", pred)  # 大字段已裁剪
         self.assertEqual(pred.get("intent"), "L1")   # 归因需要的小字段保留
+
+    def test_pin_default_dataset_attr_none_uses_global_pointer(self):
+        """argparse 未给 --for-dataset 时该属性是 None：没有它 mock 出来的 truthy 值
+        会把普通 pin 误判成「指定了不匹配的集合」（2026-10-08 单测实踩）。"""
+        with tempfile.TemporaryDirectory() as tmp:
+            raw = _run("run-x", [_d("q1", "correct")])
+            raw_path = Path(tmp) / "raw.json"
+            raw_path.write_text(json.dumps(raw), encoding="utf-8")
+            with mock.patch.object(compare_runs, "BASELINE_DIR", Path(tmp) / "baseline"), \
+                 mock.patch.object(compare_runs, "BASELINE_POINTER", Path(tmp) / "baseline" / "baseline_run.json"), \
+                 mock.patch.object(compare_runs.common, "REPO_ROOT", Path(tmp)):
+                args = mock.Mock(raw=str(raw_path), label="lbl", for_dataset=None)
+                self.assertEqual(compare_runs.cmd_pin(args), 0)
+            self.assertTrue((Path(tmp) / "baseline" / "baseline_run.json").exists())
+
+
+class PinForDatasetTests(unittest.TestCase):
+    """--for-dataset：观察集专属指针（baseline_run.<dataset_id>.json），不碰全局指针。
+
+    2026-10-08 起：全局单指针下 FB-150 等观察集拿主集基线做交集为空（「无基线可比」）；
+    专属指针只在快照 dataset_id 与之一致时才允许钉（钉错集合的基线比没基线更坏）。"""
+
+    def _pin(self, tmp, raw_path, **kw):
+        args = mock.Mock(raw=str(raw_path), label=kw.get("label", "lbl"),
+                         for_dataset=kw.get("for_dataset"))
+        with mock.patch.object(compare_runs, "BASELINE_DIR", Path(tmp) / "baseline"), \
+             mock.patch.object(compare_runs, "BASELINE_POINTER", Path(tmp) / "baseline" / "baseline_run.json"), \
+             mock.patch.object(compare_runs.common, "REPO_ROOT", Path(tmp)):
+            return compare_runs.cmd_pin(args)
+
+    def _raw_file(self, tmp, dataset_id):
+        raw = _run("run-obs", [_d("q1", "correct")])
+        raw["dataset_id"] = dataset_id
+        path = Path(tmp) / "raw.json"
+        path.write_text(json.dumps(raw), encoding="utf-8")
+        return path
+
+    def test_owned_pointer_written_global_untouched(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(self._pin(tmp, self._raw_file(tmp, "obs-ds"), for_dataset="obs-ds"), 0)
+            owned = Path(tmp) / "baseline" / "baseline_run.obs-ds.json"
+            self.assertTrue(owned.exists())
+            self.assertEqual(json.loads(owned.read_text(encoding="utf-8"))["dataset_id"], "obs-ds")
+            self.assertFalse((Path(tmp) / "baseline" / "baseline_run.json").exists())
+
+    def test_mismatch_refused_no_pointer_written(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.assertEqual(self._pin(tmp, self._raw_file(tmp, "obs-ds"), for_dataset="other-ds"), 1)
+            self.assertFalse((Path(tmp) / "baseline" / "baseline_run.other-ds.json").exists())
+            self.assertFalse((Path(tmp) / "baseline" / "baseline_run.json").exists())
 
 
 if __name__ == "__main__":

@@ -268,10 +268,11 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     state = "red" if gate_res.get("gate_red") else "green"
     q_texts = archive.question_texts_from_db(dataset_id) or archive.load_question_texts(
         paths.dataset_json_path(dataset_id))  # 题集只存数据库；磁盘副本只剩历史档作回退
+    subject = _dataset_subject(dataset_id)  # 归档条目与企微卡片同源，卡片自报集合名
     entry = archive.build_entry(
         gate_res, loop_run.get("summary_scores") or {}, q_texts,
         dataset_id, paths.today_bjt(), run_id=run_id, state=state,
-        subject=_dataset_subject(dataset_id),
+        subject=subject,
         started_at=str(loop_run.get("started_at") or ""), judge_missing=judge_missing)
     archive.publish_day(entry, report_md, slot=slot)
 
@@ -279,7 +280,8 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     raw_for_card["summary_scores"] = loop_run.get("summary_scores") or {}
     text = notify.append_links(
         notify.build_message(raw_for_card, gate_res, state, material_line=material_line,
-                             judge_line=_judge_missing_line(judge_missing)), site_url)
+                             judge_line=_judge_missing_line(judge_missing),
+                             subject=subject), site_url)
     await _notify_best_effort(webhook, text)
     missing_count = len((judge_missing or {}).get(anomaly.JUDGE_FAIL) or [])
     detail = "；".join(gate_res.get("gate_reasons") or [])
@@ -485,11 +487,12 @@ async def run_nightly(*, dataset_id: str,
             if score is not None:
                 progress_text += f"（答对 {progress['correct']}，部分正确率 {score:.2%}）"
         try:
+            subject = _dataset_subject(dataset_id)
             archive.publish_day(archive.build_error_entry(
-                dataset_id, date, note, subject=_dataset_subject(dataset_id),
+                dataset_id, date, note, subject=subject,
                 started_at=err_started, progress=progress), None, slot=run_slot)
             await _notify_best_effort(webhook, notify.build_message(
-                None, None, notify.STATE_ERROR, note + progress_text))
+                None, None, notify.STATE_ERROR, note + progress_text, subject=subject))
         except Exception:  # noqa: BLE001 兜底路径再失败只留日志
             logger.exception("nightly error 档结论落盘/通知也失败")
         return {"state": "error", "ok": False, "run_id": run_id,
