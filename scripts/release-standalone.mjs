@@ -19,7 +19,7 @@
 //
 // 手写只剩一处：worktree 的 CHANGELOG.md 里 `## x.y.z` 段落（脚本校验存在）。
 // 版本号仍须用户事先确认（本脚本不决定版本号，只执行）。
-import { execSync, spawnSync } from 'node:child_process';
+import { execSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -136,12 +136,16 @@ function checkPreconditions() {
   const pkgJson = JSON.parse(readFileSync(resolve(ROOT, srcPath, 'package.json'), 'utf-8'));
   const scripts = pkgJson.scripts || {};
   const pkgCwd = resolve(ROOT, srcPath);
-  const pnpm = process.platform === 'win32' ? 'pnpm.CMD' : 'pnpm';
+  //    Windows + Node 24 实证：spawnSync('pnpm.CMD', [...]) 不带 shell 直接 EINVAL
+  //    （status=null 会被误判成「未通过」）——一律走 execSync 的 shell 通道（脚本自带 sh）。
   for (const name of ['typecheck', 'test']) {
     if (!scripts[name]) continue;
     console.log(`[release-standalone] 跑 ${name}（${srcPath}，全量）…`);
-    const r = spawnSync(pnpm, ['run', name], { cwd: pkgCwd, stdio: 'inherit' });
-    if (r.status !== 0) fail(`${name} 未通过，修复后重跑`);
+    try {
+      sh(`pnpm run ${name}`, { cwd: pkgCwd, inherit: true });
+    } catch {
+      fail(`${name} 未通过，修复后重跑`);
+    }
   }
 
   return { wtHead };
