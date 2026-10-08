@@ -7,8 +7,9 @@
         <div class="app-main">
           <router-view />
         </div>
-        <!-- 备案位：站点标语沉底；全透明、无边框，与页面融为一体；右侧 GitHub 入口 -->
-        <footer class="site-footer">
+        <!-- 备案位：站点标语沉底；全透明、无边框，与页面融为一体；右侧 GitHub 入口。
+             仅在 hero 空态显示（对话态由 ChatHome 关闭，腾出页脚占位给消息区） -->
+        <footer v-if="siteFooterVisible" class="site-footer">
           <span class="footer-tagline">AnGIneer - Re-engineering the Future of Engineering.</span>
           <a
             class="footer-oss"
@@ -33,6 +34,7 @@ import { onMounted } from 'vue'
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { useTheme } from '@angineer/ui-kit'
 import { useAuthStore } from '@/stores/auth'
+import { siteFooterVisible } from '@/composables/siteFooter'
 
 const { themeConfig, appClass } = useTheme()
 const authStore = useAuthStore()

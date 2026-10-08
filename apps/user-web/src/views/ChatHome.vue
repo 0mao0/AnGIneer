@@ -10,7 +10,7 @@
           ref="aiChatRef"
           class="chat-instance"
           title=""
-          :hero="!hasConversation && !restoringActive"
+          :hero="heroMode"
           :show-context-info="false"
           :session-id="sessionId"
           :library-id="libraryId"
@@ -72,7 +72,7 @@
  * - 知识库：输入框下拉单选（仅权限内库），@ 提及当前库内文档（文档级圈定检索范围）；
  * - 历史：@messagesChange 落盘 localStorage（chatHistory.ts），抽屉恢复。
  */
-import { computed, defineAsyncComponent, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { CloseOutlined } from '@ant-design/icons-vue'
 import { AIChat } from '@angineer/aichat-ui'
 import type { AIChatMessage, AIChatCitation } from '@angineer/aichat-ui'
@@ -82,6 +82,7 @@ import HistoryDrawer from '@/components/HistoryDrawer.vue'
 import AuthGate from '@/components/AuthGate.vue'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { useAuthStore } from '@/stores/auth'
+import { siteFooterVisible } from '@/composables/siteFooter'
 import { knowledgeApi } from '@/api/knowledge'
 import {
   deriveTitle,
@@ -209,6 +210,12 @@ const sessionId = ref(initialSavedSessionId || genSessionId())
 const hasConversation = ref(false)
 // 恢复中（2026-09-27）：本地缓存回填与服务端对账完成前抑制 hero——此前刷新会“先 hero 再跳回对话”（闪烁）
 const restoringActive = ref(Boolean(initialSavedSessionId))
+/** hero 空态（无消息且非恢复中）：同时决定 AIChat 版式与页脚标语显隐 */
+const heroMode = computed(() => !hasConversation.value && !restoringActive.value)
+/** 页脚标语 + 开源项目入口只在 hero 空态保留，进对话态隐藏（2026-10-08 用户要求）；
+    离开聊天页（文档深链）恢复默认显示 */
+watch(heroMode, (hero) => { siteFooterVisible.value = hero }, { immediate: true })
+onBeforeUnmount(() => { siteFooterVisible.value = true })
 const historyOpen = ref(false)
 const sessions = ref<ChatSessionRecord[]>([])
 
@@ -342,7 +349,7 @@ const startNewChat = () => {
 }
 
 /* 输入区下沿更贴底（2026-09-27 用户要求「再往下移动一些」）：减小编辑器下方留白，
-   aichat-ui 默认 12px → 4px；再往下是页脚（标语条 26px，产品元素不动） */
+   aichat-ui 默认 12px → 4px；再往下是页脚（标语条 26px，仅在 hero 空态，对话态隐藏） */
 .chat-col :deep(.chat-input) {
   padding-bottom: 4px;
 }
