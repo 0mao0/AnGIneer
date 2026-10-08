@@ -100,12 +100,16 @@ function checkPreconditions() {
   }
 
   // 4) worktree HEAD 不落后于远端 main（领先可以，发版 commit 会一起推）
+  //    注意 trySh 的契约：命令成功但无输出时返回空串（''），失败才返回 null——
+  //    `!trySh(...)` 会把「祖先检查通过」误判成失败（2026-10-08 实踩：sync 之后再写
+  //    CHANGELOG 必然领先远端，闸门 100% 拦住正常发版）。
   const remoteMain = trySh(`git ls-remote ${remoteUrl} refs/heads/main`);
   const wtHead = sh(`git -C "${worktree}" rev-parse HEAD`);
   if (remoteMain) {
     const remoteSha = remoteMain.split(/\s/)[0];
-    if (remoteSha && !trySh(`git merge-base --is-ancestor ${remoteSha} ${wtHead}`) && remoteSha !== wtHead) {
-      fail(`worktree HEAD 落后于远端 main（远端 ${remoteSha.slice(0, 7)} 不在本地历史里），先同步`);
+    if (remoteSha && remoteSha !== wtHead) {
+      const ancestor = trySh(`git merge-base --is-ancestor ${remoteSha} ${wtHead}`) !== null;
+      if (!ancestor) fail(`worktree HEAD 落后于远端 main（远端 ${remoteSha.slice(0, 7)} 不在本地历史里），先同步`);
     }
   }
 
