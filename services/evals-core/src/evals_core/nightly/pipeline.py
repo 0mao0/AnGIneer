@@ -253,7 +253,7 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     loop_run = await asyncio.to_thread(result_store.get_run, run_id)
     details = await asyncio.to_thread(result_store.list_run_details, run_id)
     manifest = await asyncio.to_thread(_load_json, paths.manifest_path())
-    base_run = await asyncio.to_thread(gate.load_baseline)
+    base_run = await asyncio.to_thread(lambda: gate.load_baseline(dataset_id=dataset_id))
     new_run = {"run_id": run_id, "dataset_id": dataset_id, "details": details}
     # 阈值内放行的 judge_fail 题号交给门禁：否则「放行」是空话，1 题判分崩就能把实测 +2pp 的
     # run 渲染成「🔴 评测回归」（2026-09-26 补发当天结论时实踩）。exec_error 不在豁免之内。

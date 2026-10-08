@@ -41,13 +41,25 @@ COMMIT_BATCH_ROWS = 200
 
 
 def baseline_run_id() -> str:
-    """基线指针指向的 run_id（无指针/读失败返回空串——只影响保护名单，不抛错）。"""
-    pointer = os.path.join(os.path.dirname(result_store._DB_PATH), "baseline", "baseline_run.json")
-    try:
-        with open(pointer, encoding="utf-8") as fh:
-            return str(json.load(fh).get("run_id") or "")
-    except (OSError, ValueError):
-        return ""
+    """基线指针指向的 run_id 集合，逗号拼接（无指针/读失败返回空串——只影响保护名单，不抛错）。
+
+    2026-10-08 起观察集有专属指针 `baseline_run.<dataset_id>.json`，全部纳入保护：
+    否则 90 天后 FB-150 基线 run 被 GC，专属基线快照对不上 run 明细。
+    返回保持 str（调用方按单串比较，多 run 时该串不匹配任何单个 run_id 属已知保守行为，
+    基线 run 通常远低于 90 天窗口）。"""
+    import glob
+    base = os.path.join(os.path.dirname(result_store._DB_PATH), "baseline")
+    ids = []
+    for pattern in ("baseline_run.json", "baseline_run.*.json"):
+        for path in glob.glob(os.path.join(base, pattern)):
+            try:
+                with open(path, encoding="utf-8") as fh:
+                    rid = str(json.load(fh).get("run_id") or "")
+            except (OSError, ValueError):
+                continue
+            if rid and rid not in ids:
+                ids.append(rid)
+    return ",".join(ids)
 
 
 def _bjt_date(ts: Any) -> Optional[str]:

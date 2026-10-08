@@ -152,18 +152,22 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
     """P6c 边界：检索过工具后，对最终回答做两层兜底。
 
     - enforce_evidence：工具全部无有效证据时，拒绝给出结论；
-    - 未检索引用校验：答案中出现证据里没有的规范编号/书名号标题/题库背景时，替换为拒答话术
-      （书名号为「全部核不到才拦」，部分核到的次级引用放行，见 has_unsupported_reference）。
+    - 未检索引用校验（三态，见 find_unsupported_reference）：
+      编造规范编号/题库背景 → 替换为拒答话术；
+      外部文献名引用（答案《》标题全部核不到、章节引用也不可信）→ 只剥出处标记、保留正文
+      （2026-10-08 方案A：v16 句式「根据《论文真题名》第Y节」对不上 doc_title=文件名，
+      整答替换两晚误杀 30+ 题好答案）。
     - 标记清理：无论是否调过工具，答案中的 [KTE] 标记必须真实存在于工具返回；
       没调工具时所有标记视为编造，一律移除（不因此拒答，避免误伤模型直接回答）。
 
     返回 (新答案, 说明文案, 结果码)；无需处理时返回 None。
     结果码为机器可读终态标注（观测用，agent_loop 据此修正 final_outcome）：
-    tool_error_json / no_evidence / unsupported_reference / half_refusal_stripped /
-    refusal_kept / markers_cleaned / answer_envelope_unwrapped；guard 返回 2 元组时按无结果码兼容。
+    tool_error_json / no_evidence / unsupported_reference / external_citation_stripped /
+    half_refusal_stripped / refusal_kept / markers_cleaned / answer_envelope_unwrapped；
+    guard 返回 2 元组时按无结果码兼容。
     """
     from angineer_core.qa_pipeline import REFUSAL_ANSWER_TEXT
-    from angineer_core.retrieval_pipeline import has_unsupported_reference
+    from angineer_core.retrieval_pipeline import find_unsupported_reference, _strip_absent_citations
     from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
 
     def _refusal_text() -> str:
@@ -244,12 +248,26 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
             # 纯拒答（含「供参考」形态）跳过未检索引用校验：拒答的引用不是作答依据而是
             # 延伸阅读指引（2026-10-04 L2 回退定版保留该形态，见 RefusalKeptMarkerCleanTests）；
             # 半拒答（拒答头+实质正文）不属 is_refusal_text，仍走本校验，防编造依据借剥头漏网
-            if answer and not is_refusal_text(answer) and has_unsupported_reference(answer, evidence_text):
+            citation_verdict, citation_titles = (
+                find_unsupported_reference(answer, evidence_text)
+                if answer and not is_refusal_text(answer)
+                else ("clean", [])
+            )
+            if citation_verdict == "hard":
                 return (
                     _refusal_text(),
                     "边界规则：最终回答引用了未检索到的规范/背景，已替换为拒答话术",
                     "unsupported_reference",
                 )
+            if citation_verdict == "strip":
+                # 外部文献名引用只剥出处标记，正文保留（方案A，2026-10-08）。
+                # 顺序在半拒答剥头之前：剥完出处再判半拒答形态，两个处理叠加互不覆盖。
+                body = _strip_absent_citations(answer, citation_titles)
+                body, bad_n = _clean_bad_markers(body)
+                note = f"边界规则：答案引用了未检索到的文献名（{len(citation_titles)} 处），已摘除出处标记、保留正文"
+                if bad_n:
+                    note += f"（另移除 {bad_n} 个无效引用标记）"
+                return (body, note, "external_citation_stripped")
             stripped = strip_half_refusal_lead(answer)
             if stripped != answer:
                 # 半拒答：模型先写了「没有检索到足够证据」又带着引用继续作答 —— 只删开头那句，

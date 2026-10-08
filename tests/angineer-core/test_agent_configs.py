@@ -453,5 +453,67 @@ class RefusalKeptMarkerCleanTests(unittest.TestCase):
         self.assertIn("以下相关信息供参考", new_answer)
 
 
+class ExternalCitationStripGuardTests(unittest.TestCase):
+    """方案 A（2026-10-08，业主拍板）：外部文献名引用降为剥标记、不整答替换。
+
+    生产误杀形态：v16 答案「根据《论文真题名》第Y节…」，证据 doc_title 是文件名
+    （2404.09358v3.pdf）核不到标题、章节号也核不到——两晚 guard_replaced_unsupported_ref
+    30+ 题好答案整答换拒答。现在只摘出处标记，正文照常作答。
+    """
+
+    @staticmethod
+    def _tool_unrelated_evidence():
+        return AgentMessage(
+            role="tool",
+            content='{"items": [{"item_id":"a","text":"该方法在基准测试上准确率为 87%","metadata":{"cite":"K1"}}]}',
+            is_error=False,
+        )
+
+    def test_absent_paper_title_strips_marker_keeps_body(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        new_answer, note, code = guard([
+            self._tool_unrelated_evidence(),
+            AgentMessage(role="assistant", content="根据《不存在的论文真题名》第3.1节，该方法准确率为 87% [K1]。"),
+        ])
+        self.assertEqual(code, "external_citation_stripped")
+        self.assertNotIn("《不存在的论文真题名》", new_answer)
+        self.assertIn("该方法准确率为 87%", new_answer)
+        self.assertIn("[K1]", new_answer)
+        self.assertIn("已摘除出处标记", note)
+
+    def test_grounded_title_untouched(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        added = [
+            AgentMessage(
+                role="tool",
+                content='{"items": [{"item_id":"a","text":"《2404.09358v3.pdf》 正文片段","metadata":{"cite":"K1"}}]}',
+                is_error=False,
+            ),
+            AgentMessage(role="assistant", content="根据《2404.09358v3.pdf》第4节，结论成立。"),
+        ]
+        self.assertIsNone(guard(added))
+
+    def test_fabricated_spec_number_still_replaced(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        new_answer, note, code = guard([
+            self._tool_unrelated_evidence(),
+            AgentMessage(role="assistant", content="依据 JTS 999-2020 第4.2条，答案为 42。"),
+        ])
+        self.assertEqual(code, "unsupported_reference")
+        self.assertIn("没有检索到足够证据", new_answer)
+
+    def test_stripped_answer_reaches_answer_branch_after_title_strip(self):
+        """标题剥除与无效标记清理叠加：正文保留、[K9] 编造标记同场清掉。"""
+        guard = make_final_answer_guard(enforce_evidence=True)
+        new_answer, note, code = guard([
+            self._tool_unrelated_evidence(),
+            AgentMessage(role="assistant", content="根据《不存在的论文真题名》第3.1节，准确率为 87% [K1] [K9]。"),
+        ])
+        self.assertEqual(code, "external_citation_stripped")
+        self.assertNotIn("[K9]", new_answer)
+        self.assertIn("[K1]", new_answer)
+        self.assertIn("无效引用标记", note)
+
+
 if __name__ == "__main__":
     unittest.main()

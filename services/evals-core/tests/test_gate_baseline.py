@@ -63,6 +63,58 @@ class LoadBaselinePathTests(unittest.TestCase):
         self.assertEqual(loaded.get("run_id"), "run-abc123")
 
 
+class PerDatasetBaselinePointerTests(unittest.TestCase):
+    """分数据集基线（2026-10-08）：观察集专属指针优先，主集回退全局指针行为不变。
+
+    旧全局单指针下附加观察集（financebench-open-150-v1 等）拿主集基线做交集 →
+    题集零交集「无基线可比」、门禁永远空转。"""
+
+    FB_SNAPSHOT = {
+        "run_id": "run-fb02d5", "dataset_id": "financebench-open-150-v1",
+        "status": "completed",
+        "details": [{"question_id": "fb-q1", "status": "completed", "quality": "good",
+                     "scores": {"semantic_passed": True}, "all_scores": "{}",
+                     "error": "", "latency_ms": 1}],
+    }
+
+    def _base(self) -> Path:
+        tmp = tempfile.TemporaryDirectory()
+        base = Path(tmp.name)
+        global_raw = "open-ragbench-subset-v2-run-abc123.baseline.json"
+        json.dump({"label": "G", "run_id": "run-abc123", "dataset_id": "open-ragbench-subset-v2",
+                   "raw": global_raw},
+                  open(base / "baseline_run.json", "w", encoding="utf-8"))
+        json.dump(SNAPSHOT, open(base / global_raw, "w", encoding="utf-8"))
+        fb_raw = "financebench-open-150-v1-run-fb02d5.baseline.json"
+        json.dump({"label": "FB", "run_id": "run-fb02d5",
+                   "dataset_id": "financebench-open-150-v1", "raw": fb_raw},
+                  open(base / "baseline_run.financebench-open-150-v1.json", "w", encoding="utf-8"))
+        json.dump(self.FB_SNAPSHOT, open(base / fb_raw, "w", encoding="utf-8"))
+        self._tmp = tmp
+        return base
+
+    def tearDown(self) -> None:
+        if hasattr(self, "_tmp"):
+            self._tmp.cleanup()
+
+    def test_owned_pointer_wins_for_its_dataset(self):
+        base = self._base()
+        loaded = gate.load_baseline(base, dataset_id="financebench-open-150-v1")
+        self.assertEqual(loaded.get("run_id"), "run-fb02d5")
+        self.assertEqual(loaded.get("_baseline_label"), "FB")
+
+    def test_other_dataset_falls_back_to_global(self):
+        base = self._base()
+        loaded = gate.load_baseline(base, dataset_id="open-ragbench-subset-v2")
+        self.assertEqual(loaded.get("run_id"), "run-abc123")
+        self.assertEqual(loaded.get("_baseline_label"), "G")
+
+    def test_no_dataset_id_uses_global(self):
+        base = self._base()
+        loaded = gate.load_baseline(base)
+        self.assertEqual(loaded.get("run_id"), "run-abc123")
+
+
 class MissingBaselineTests(unittest.TestCase):
     """缺失路径的可操作报错（2026-09-13 实踩：指针被 git 跟踪 → 部署 reset 抹掉刚 pin 的基线）。
 

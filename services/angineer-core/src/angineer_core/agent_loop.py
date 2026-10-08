@@ -1518,6 +1518,12 @@ def run_agent_loop(
         elif guard_code == "half_refusal_stripped":
             machine.final_outcome = "model_answer_stripped"
             machine.answer_pre_strip = _pre_guard_answer
+        elif guard_code == "external_citation_stripped":
+            # 外部文献名引用只剥标记、正文照常作答——终态按「正文保留类」处理
+            # （与 half_refusal_stripped 同判 model_answer_stripped，剥痕已在 note 与 path 里）
+            machine.final_outcome = "model_answer_stripped"
+            machine.answer_pre_strip = _pre_guard_answer
+            machine.path_trace.append("external_citation_stripped")
         elif guard_code == "refusal_kept":
             if machine.final_outcome not in ("model_refusal_kept", "finalized_refusal"):
                 machine.final_outcome = "model_refusal_kept"

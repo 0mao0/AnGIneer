@@ -65,8 +65,14 @@ def is_anomalous(d: dict) -> bool:
     return bool(set(types) & {anomaly.JUDGE_FAIL, anomaly.EXEC_ERROR})
 
 
-def load_baseline(baseline_dir: Optional[Path] = None) -> dict:
-    """读钉住的基线快照（baseline_run.json 指针 + 快照文件）。
+def load_baseline(baseline_dir: Optional[Path] = None, dataset_id: Optional[str] = None) -> dict:
+    """读钉住的基线快照（指针 + 快照文件）。
+
+    分数据集基线（2026-10-08）：传 dataset_id 时优先读该集专属指针
+    `baseline_run.<dataset_id>.json`（nightly 附加观察集各自钉基线，
+    financebench-open-150-v1 等观察集与主集共用题集不同，全局单指针会让它们拿
+    主集基线做交集 → 空交集「无基线可比」）；专属指针不存在时回退全局
+    `baseline_run.json`，主集行为逐字不变。
 
     基线是**运行时状态、不进版本控制**（2026-09-13 实踩：指针被 git 跟踪 → 部署 reset 抹掉
     刚 pin 的 R3，nightly 拿旧基线跑出假绿灯）。缺指针时报可操作错误而非裸 FileNotFoundError；
@@ -74,7 +80,14 @@ def load_baseline(baseline_dir: Optional[Path] = None) -> dict:
     """
     from . import paths
     base_dir = Path(baseline_dir) if baseline_dir else paths.baseline_dir()
-    pointer_path = base_dir / "baseline_run.json"
+    if dataset_id:
+        owned = base_dir / f"baseline_run.{dataset_id}.json"
+        if owned.exists():
+            return _load_snapshot_from_pointer(owned, base_dir)
+    return _load_snapshot_from_pointer(base_dir / "baseline_run.json", base_dir)
+
+
+def _load_snapshot_from_pointer(pointer_path: Path, base_dir: Path) -> dict:
     if not pointer_path.exists():
         raise FileNotFoundError(
             f"基线指针不存在: {pointer_path}（该环境还没有钉住基线；"

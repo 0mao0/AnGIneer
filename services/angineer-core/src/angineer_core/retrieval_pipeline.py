@@ -532,17 +532,60 @@ def _has_verifiable_section_ref(answer: str, corpus: str) -> bool:
     return False
 
 
-def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
-    """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。"""
+def _absent_book_titles(answer: str, corpus: str) -> "list[str]":
+    """答案《》标题里逐条核不到证据面的（归一化子串判定，与书名号闸同口径）。"""
+    std_names = re.findall(r"《[^》]+》", str(answer or ""))
+    if not std_names:
+        return []
+    haystack = _norm_book_title(corpus)
+    return [t for t in std_names if _norm_book_title(t) not in haystack]
+
+
+_URGENT_MARK = "⚠️出处待核"
+
+
+def _strip_absent_citations(answer: str, titles: "list[str]") -> str:
+    """把核不到的《标题》引用从答案里摘除，正文句子保留。
+
+    v16 出处句式「根据《X》第Y节」里，《X》只是句首状语：整句删除会连事实一起丢
+    （2026-10-07/08 两晚 30+ 题好答案整答换拒答的根因）。只删标题及其紧邻的引导介词；
+    章节号无标题悬空时补 ⚠️出处待核，保留「出处不实」信号。
+    逐处替换按原始字符串匹配，A|AB 类包含关系不会误伤可核到的标题。
+    """
+    text = str(answer or "")
+    for title in titles:
+        text = re.sub(r"(?:根据|依据|按照|参照)?\s*" + re.escape(title), "", text)
+    # 章/节后紧跟的「（⚠️出处待核）」说明括注去重（标题剥除后括注即悬空标记）
+    text = re.sub(r"([章节条])\s*[（(]\s*" + _URGENT_MARK + r"\s*[)）]", r"\1", text)
+    # 剥除后以「第X节/章」悬空开头的句子补待核标记
+    text = re.sub(
+        r"(?:^|(?<=[。；;！!？?\n]))\s*(第[0-9一二三四五六七八九十]+(?:\.\d+)*[章节条])",
+        r"\1（" + _URGENT_MARK + r"）",
+        text,
+    )
+    text = re.sub(r"[ \t]{2,}", " ", text)
+    return text.strip()
+
+
+def find_unsupported_reference(answer: str, evidence_text: str) -> "tuple[str, list[str]]":
+    """出处守卫三态判定：(verdict, 核不到的标题列表)。
+
+    - "hard"：编造规范编号/题库背景（2026-10-07 守卫标题软化后遗留的可达敞口），
+      维持整答替换拒答；
+    - "strip"：答案《》标题全部核不到、且章节引用也不可信——外部文献名引用形态
+      （OpenRAG 论文真题名对不上 doc_title=文件名），降为剥标记保留正文，不整答替换
+      （2026-10-08 方案A，业主拍板；两晚误杀 30+ 题好答案）；
+    - "clean"：放行。
+    """
     answer_text = str(answer or "")
     corpus = str(evidence_text or "")
     if not answer_text.strip():
-        return False
+        return ("clean", [])
     answer_std_names = set(re.findall(r"《[^》]+》", answer_text))
     corpus_std_names = set(re.findall(r"《[^》]+》", corpus))
     any_std_name_in_corpus = bool(answer_std_names & corpus_std_names)
-    # 《》书名号闸（2026-10-07）：v16 恢复正文出处后《标题》成为答案常规形态，而下方
-    # 规范编号正则只认编号不认标题。答案引用的标题在证据里全部核不到才判编造出处；
+    strip_titles: "list[str]" = []
+    # 《》书名号闸（2026-10-07）：答案引用的标题在证据里全部核不到才进入嫌疑；
     # 部分核到即放行——论文真题名/中译名等次级引用是合法形态，逐条硬拦会误杀真答案
     # （2026-10-07 1040 全集实测：981 条《》引用 0 硬编造，变体 4 条均混有可核到的在库标题）。
     # 在库标题经装配前缀《doc_title》落在 items[].text（agent_tools 检索后装配），守卫证据面天然含标题。
@@ -552,9 +595,10 @@ def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
             # 方案 B 软化（2026-10-07 夜班 OpenRAG -2.6pp 回归实锤）：标题全核不到不当场判死——
             # 答案引用的章节/条款号能在证据里核到即放行。误杀形态＝答案引论文真题名而证据
             # doc_title 是文件名（2404.09358v3.pdf），24 题好答案被替换拒答。
-            # 下方的规范编号检查独立兜底，真编造编号照样拦。
+            # 全核不到且章节也不可信时不再整答替换（2026-10-08 方案A）：转入 strip，
+            # 下方的规范编号检查独立兜底，真编造编号照样拦（hard 优先于 strip）。
             if not _has_verifiable_section_ref(answer_text, corpus):
-                return True
+                strip_titles = _absent_book_titles(answer_text, corpus)
     corpus_has_section_nums = bool(re.search(r"(?:第\s*)?\d+\.\d+", corpus))
     patterns = [
         r"[A-Z]{2,}\s*\d+(?:[-/]\d+)*(?:-\d{4})?",
@@ -578,5 +622,16 @@ def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
                     continue
             if any_std_name_in_corpus:
                 continue
-            return True
-    return False
+            return ("hard", [])
+    if strip_titles:
+        return ("strip", strip_titles)
+    return ("clean", [])
+
+
+def has_unsupported_reference(answer: str, evidence_text: str) -> bool:
+    """检测答案中是否出现未在证据中出现的规范编号或题库背景引用。
+
+    2026-10-08 方案A 起等价于「三态判定为 hard」：外部文献名引用（标题全核不到）
+    不再判 True，由守卫剥标记分支处理（见 find_unsupported_reference / make_final_answer_guard）。
+    """
+    return find_unsupported_reference(answer, evidence_text)[0] == "hard"

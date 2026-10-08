@@ -134,7 +134,11 @@ def cmd_compare(args) -> int:
 
 
 def cmd_pin(args) -> int:
-    """把 raw run 裁剪成对比专用基线快照（去 prediction 大字段）并更新钉住指针。"""
+    """把 raw run 裁剪成对比专用基线快照（去 prediction 大字段）并更新钉住指针。
+
+    --for-dataset：把快照钉成该数据集专属基线（指针 baseline_run.<dataset_id>.json，
+    仅当快照 dataset_id 与之一致），不动全局指针——主集基线不受影响，
+    nightly 附加观察集各自有基线可比（2026-10-08）。"""
     run = _normalize(common.load_json(Path(args.raw)))
     pruned_details = []
     for d in run.get("details") or []:
@@ -151,12 +155,21 @@ def cmd_pin(args) -> int:
     common.save_json(BASELINE_DIR / raw_name, snapshot)
     # raw 存仓库根相对路径且统一正斜杠（as_posix）：Windows 钉的基线会被拷到 Linux 服务器消费，
     # 原生分隔符会让服务端 Path().name 切不出文件名（2026-09-07 nightly 实踩）
-    common.save_json(BASELINE_POINTER, {
+    pointer_payload = {
         "label": args.label or run.get("run_id"), "run_id": run.get("run_id"),
         "dataset_id": run.get("dataset_id"),
         "raw": (BASELINE_DIR / raw_name).relative_to(common.REPO_ROOT).as_posix(),
-    })
-    print("基线已钉住:", BASELINE_POINTER)
+    }
+    for_ds = getattr(args, "for_dataset", "") or ""
+    if for_ds:
+        if str(run.get("dataset_id") or "") != for_ds:
+            print(f"错误：--for-dataset={for_ds} 与快照 dataset_id={run.get('dataset_id')!r} 不一致，拒绝钉住")
+            return 1
+        pointer_path = BASELINE_DIR / f"baseline_run.{for_ds}.json"
+    else:
+        pointer_path = BASELINE_POINTER
+    common.save_json(pointer_path, pointer_payload)
+    print("基线已钉住:", pointer_path)
     return 0
 
 
@@ -174,6 +187,7 @@ def main() -> int:
     pin_parser = sub.add_parser("pin", help="钉住基线快照")
     pin_parser.add_argument("--raw", required=True)
     pin_parser.add_argument("--label", default="")
+    pin_parser.add_argument("--for-dataset", default="", help="钉成指定数据集专属基线（观察集用），不动全局指针")
     pin_parser.set_defaults(func=cmd_pin)
     args = parser.parse_args()
     return args.func(args)

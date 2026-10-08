@@ -10,6 +10,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
 
 from angineer_core.retrieval_pipeline import (  # noqa: E402
+    _strip_absent_citations,
+    find_unsupported_reference,
     has_unsupported_reference,
     llm_rerank_candidates,
     llm_second_rerank,
@@ -22,10 +24,15 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
         self.assertTrue(has_unsupported_reference("依据 JTS 999-2020 计算", "只有一段正文"))
         self.assertFalse(has_unsupported_reference("依据 JTS 999-2020 计算", "JTS 999-2020 规定"))
 
-    def test_book_title_all_absent_flagged(self):
-        # 答案引用的书名号在证据里全部核不到 → 判编造出处
-        self.assertTrue(
+    def test_book_title_all_absent_no_longer_hard(self):
+        # 方案A（2026-10-08）：标题全核不到不再整答替换（has_*=False），
+        # 转入剥标记三态（find_*=strip），由守卫摘除出处标记、保留正文
+        self.assertFalse(
             has_unsupported_reference("根据《不存在的规范》第3.1节，答案是42。", "证据正文只讲别的内容")
+        )
+        self.assertEqual(
+            find_unsupported_reference("根据《不存在的规范》第3.1节，答案是42。", "证据正文只讲别的内容"),
+            ("strip", ["《不存在的规范》"]),
         )
 
     def test_book_title_grounded_by_doc_title_prefix(self):
@@ -81,14 +88,58 @@ class RetrievalPipelineSharedTests(unittest.TestCase):
             )
         )
 
-    def test_book_title_absent_section_also_absent_flagged(self):
-        # 方案 B 不卸牙：标题核不到、章节号也核不到 → 仍判编造
-        self.assertTrue(
+    def test_book_title_absent_section_also_absent_strips(self):
+        # 方案 B「不卸牙」升级为方案 A（2026-10-08）：标题与章节号双双核不到不再整答替换，
+        # 降为剥标记（两晚 30+ 题好答案整答换拒答的代价大于收益，业主拍板）
+        self.assertFalse(
             has_unsupported_reference(
                 "根据《不存在的规范》第“9.9”节，答案是42。",
                 "证据正文只讲别的内容",
             )
         )
+        self.assertEqual(
+            find_unsupported_reference(
+                "根据《不存在的规范》第“9.9”节，答案是42。",
+                "证据正文只讲别的内容",
+            ),
+            ("strip", ["《不存在的规范》"]),
+        )
+
+    def test_absent_title_with_fabricated_spec_number_hard(self):
+        # 方案 A 不卸牙：标题核不到 + 规范编号编造 → hard 整答替换不变
+        verdict, _ = find_unsupported_reference(
+            "根据《不存在的规范》按 JTS 999-2020 计算得 42。",
+            "证据正文只讲别的内容",
+        )
+        self.assertEqual(verdict, "hard")
+
+    def test_grounded_title_with_absent_secondary_stays_clean(self):
+        # 部分核到（在库 doc_title）时次级论文真题名维持放行，不进 strip
+        self.assertEqual(
+            find_unsupported_reference(
+                "根据《2404.09358v3.pdf》与《Thyroid disrupting effects of PFAS》得出结论。",
+                "《2404.09358v3.pdf》 正文片段",
+            ),
+            ("clean", []),
+        )
+
+    def test_strip_absent_citations_keeps_body(self):
+        # 剥标记实例（生产误杀形态）：句首状语删除、正文事实保留
+        body = _strip_absent_citations(
+            "根据《Deep Learning》第2.2节，F-BIAS 指标定义为模型偏见差值。",
+            ["《Deep Learning》"],
+        )
+        self.assertNotIn("《Deep Learning》", body)
+        self.assertIn("F-BIAS 指标定义为模型偏见差值", body)
+
+    def test_strip_absent_citations_marks_dangling_section(self):
+        body = _strip_absent_citations(
+            "结论可靠。根据《不存在的规范》第3.1节，答案是42。",
+            ["《不存在的规范》"],
+        )
+        self.assertNotIn("《不存在的规范》", body)
+        self.assertIn("第3.1节（⚠️出处待核）", body)
+        self.assertIn("答案是42", body)
 
     def test_rerank_candidates_shared_is_callable(self):
         self.assertTrue(callable(rerank_candidates))
