@@ -21,7 +21,7 @@ jobs:
     env:
       AICHAT: http://127.0.0.1:8791
       OUT_DIR: evals-nightly
-      SITE_URL: https://angineer.cn/admin/evals?view=nightly
+      SITE_URL: https://angineer.cn/admin/evals/nightly
       NIGHTLY_DATA: /home/runner/AnGIneer/data/evals/nightly
     steps:
       - uses: actions/checkout@v4

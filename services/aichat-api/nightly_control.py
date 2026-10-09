@@ -430,7 +430,9 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
     _current_run_id = ""
     t0 = time.monotonic()
     webhook = _resolve_webhook()
-    site_url = (os.getenv("NIGHTLY_SITE_URL") or "https://angineer.cn/admin/evals?view=nightly").strip()
+    # 卡片链接用路径段形态（/admin/evals/nightly）；旧 ?view=nightly 形态前端仍认，
+    # 已发出去的历史卡片不会因改路由而落到日测页
+    site_url = (os.getenv("NIGHTLY_SITE_URL") or "https://angineer.cn/admin/evals/nightly").strip()
     logger.info("nightly 流水线开始（source=%s, dataset=%s）", source, cfg["dataset_id"])
     try:
         result = await pipeline.run_nightly(

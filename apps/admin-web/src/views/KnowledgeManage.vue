@@ -52,8 +52,8 @@ const KnowledgeParseWorkspace = defineAsyncComponent(aichatLoader)
 
 const { appClass, isDark } = useTheme()
 
-/** 视图状态由 App.vue 头部统一持有（provide/inject） */
-const activeView = inject<Ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>>('knowledgeView') ?? ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>('maintenance')
+/** 视图状态由 App.vue 头部统一持有（provide/inject）；兜底默认与路由缺省一致＝总览 */
+const activeView = inject<Ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>>('knowledgeView') ?? ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>('multilib')
 
 onMounted(() => {
   // 同 specifier 的 import() 命中同一 chunk 缓存，预热过则切换时秒开

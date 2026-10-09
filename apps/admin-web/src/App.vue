@@ -63,10 +63,11 @@
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import { DeploymentUnitOutlined, LogoutOutlined, TeamOutlined, WechatFilled } from '@ant-design/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
-import { computed, provide, ref, watch } from 'vue'
+import { computed, provide } from 'vue'
 import { AppHeader, useTheme, installThemeTransition, type NavItem } from '@angineer/ui-kit'
 import AuthGate from './components/AuthGate.vue'
 import { useAdminAuthStore } from './stores/auth'
+import { KB_SLUG_TO_KEY, KB_KEY_TO_SLUG, isEvalViewKey, type KnowledgeViewKey, type EvalViewKey } from './router/viewKeys'
 import { WEB_CONSOLE_ORIGIN } from '../../shared/ports'
 
 const router = useRouter()
@@ -77,19 +78,29 @@ const { themeConfig, appClass } = useTheme()
 installThemeTransition()
 
 /** 知识库视图状态（总览|详情|夜巡）：由头部统一控制。
- *  'aichat'（AI对话/原解析）不再是头部 tab，改由单库列表工具条按钮进入（KnowledgeStats）。 */
-const knowledgeView = ref<'multilib' | 'maintenance' | 'nightly' | 'aichat'>('maintenance')
+ *  'aichat'（AI对话/原解析）不再是头部 tab，改由单库列表工具条按钮进入（KnowledgeStats）。
+ *  URL 是唯一真相源：可写 computed 读 route.params.kbView、写 router.push，
+ *  故子组件里 `knowledgeView.value = 'x'` 的既有写法原样可用，且地址栏/刷新/后退都正确。
+ *  key↔段映射与路由共用 router/viewKeys.ts（单一真相源，勿在此另抄一份）。 */
+const knowledgeView = computed<KnowledgeViewKey>({
+  // 缺段（/knowledge 落地那一刻，beforeEnter 补段前的取值）或段值非法 = 总览
+  get: () => KB_SLUG_TO_KEY[String(route.params.kbView ?? '')] ?? 'multilib',
+  set: (v) => { void router.push(`/knowledge/${KB_KEY_TO_SLUG[v]}`) }
+})
 provide('knowledgeView', knowledgeView)
 
-/** 评测集视图状态（日测|夜测|解析回归）：?view=nightly|parse-regression 深链直达
- * （企微卡片入口）。mount 未等 router.isReady()，setup 时 route.query 恒为空，
- * 必须 watch 到导航解析后再同步。 */
-const evalView = ref<'workbench' | 'nightly' | 'parse-regression'>('workbench')
+/** 评测集视图状态（日测|夜测|解析回归）：路径段优先；无段时认旧深链 ?view=nightly
+ *  （企微历史卡片与 eval-nightly.yml 仍点得进来），新链接一律用路径段。 */
+const evalView = computed<EvalViewKey>({
+  get: () => {
+    const slug = String(route.params.evalView ?? '')
+    if (isEvalViewKey(slug)) return slug
+    const q = String(route.query.view ?? '')
+    return isEvalViewKey(q) ? q : 'workbench'
+  },
+  set: (v) => { void router.push(`/evals/${v}`) }
+})
 provide('evalView', evalView)
-watch(() => route.query.view, (v) => {
-  if (v === 'nightly') evalView.value = 'nightly'
-  else if (v === 'parse-regression') evalView.value = 'parse-regression'
-}, { immediate: true })
 
 /** 头部视图切换按模块显示：知识库=总览|详情|夜巡，评测集=日测|夜测|解析回归。
  *  AI对话入口已移出头部（tab 改按钮，见 KnowledgeStats 工具条），'aichat' 不在清单里。 */
@@ -146,8 +157,10 @@ const activeNav = computed(() => {
   return 'knowledge'
 })
 
-/** 导航项点击 */
+/** 导航项点击（点当前所在模块不动作：模块名下有 tab 段时，
+ *  再 push 模块根路径会把 tab 打回默认段——旧行为是原地不动，保持一致） */
 const handleNavClick = (key: string) => {
+  if (key === activeNav.value) return
   const routeMap: Record<string, string> = {
     project: '/project',
     knowledge: '/knowledge',
