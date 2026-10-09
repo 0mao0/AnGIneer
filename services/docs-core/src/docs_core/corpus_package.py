@@ -23,6 +23,7 @@ import os
 import shutil
 import sqlite3
 import threading
+import time
 from contextlib import closing
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
@@ -137,20 +138,33 @@ class ScanResult:
         return self.files_bytes + self.sqlite_bytes + self.snapshot_estimate
 
 
-def _iter_doc_files(lib_root: Path, exclude_dirs: Sequence[str]) -> Iterator[Path]:
-    """库目录下全部文件，跳过 documents/<doc_id>/parsed/<exclude> 整棵。
+def _iter_doc_files(lib_root: Path, exclude_dirs: Sequence[str]) -> Iterator[Tuple[Path, str, int]]:
+    """库目录下全部文件 → (绝对路径, 相对库根 POSIX 路径, 字节数)。
 
-    mineru_raw/popo 只在重解析时被读（parse_pipeline 的 stage 输入），检索链只查
-    sqlite+qdrant，不进包（省 ~2.2GB/库）。
+    跳过 documents/<doc_id>/parsed/<exclude> 整棵：mineru_raw/popo 只在重解析时被读
+    （parse_pipeline 的 stage 输入），检索链只查 sqlite+qdrant，不进包（省 ~2.2GB/库）。
+
+    用 os.scandir 而非 Path.rglob：DirEntry 自带目录项里已读到的 stat（Windows 上无需再逐个
+    stat），25500 文件的库实测把「遍历 + 取大小」从 ~1.5s 压到 ~0.2s——预览要等这一步。
     """
     exclude = set(exclude_dirs)
-    for path in lib_root.rglob("*"):
-        if not path.is_file():
+    root_len = len(str(lib_root)) + 1
+    stack = [str(lib_root)]
+    while stack:
+        current = stack.pop()
+        try:
+            with os.scandir(current) as entries:
+                for entry in entries:
+                    rel = entry.path[root_len:].replace("\\", "/")
+                    parts = rel.split("/")
+                    if len(parts) >= 4 and parts[0] == "documents" and parts[2] == "parsed" and parts[3] in exclude:
+                        continue
+                    if entry.is_dir(follow_symlinks=False):
+                        stack.append(entry.path)
+                    elif entry.is_file(follow_symlinks=False):
+                        yield Path(entry.path), rel, entry.stat(follow_symlinks=False).st_size
+        except OSError:
             continue
-        parts = path.relative_to(lib_root).parts
-        if len(parts) >= 4 and parts[0] == "documents" and parts[2] == "parsed" and parts[3] in exclude:
-            continue
-        yield path
 
 
 def checkpoint_sqlite(path: Path) -> None:
@@ -192,11 +206,19 @@ def plan_entries(data_root: Path, libraries: Sequence[dict], exclude_dirs: Seque
         if not lib_root.is_dir():
             continue
         rel_root = lib_root.relative_to(data_root).as_posix()
-        for path in _iter_doc_files(lib_root, exclude_dirs):
+        for path, rel_in_lib, size in _iter_doc_files(lib_root, exclude_dirs):
             rel = path.relative_to(data_root).as_posix()
-            files.append(FileEntry(arcname=f"files/{rel}", path=path, size=path.stat().st_size, rel_to_data=rel))
+            files.append(FileEntry(arcname=f"files/{rel}", path=path, size=size, rel_to_data=rel))
         staged.append(rel_root)
     return mem, files, sorted(set(staged))
+
+
+def validate_selection(data_root: Path, libs: Sequence[str]) -> List[dict]:
+    """廉价校验：库都在注册表里且同组。**不碰文件系统**——供「换下载凭据」这类高频调用用
+    （全量扫目录的 scan_selection 要遍历两万多个文件，放在保存对话框之前会明显卡顿）。"""
+    libraries, _groups = read_registry(data_root, libs)
+    _validate_single_group(libraries)
+    return libraries
 
 
 def scan_selection(data_root: Path, libs: Sequence[str], *, exclude_dirs: Sequence[str] = DEFAULT_EXCLUDE_DIRS,
@@ -214,8 +236,8 @@ def scan_selection(data_root: Path, libs: Sequence[str], *, exclude_dirs: Sequen
         lib_root = data_root / "knowledge" / "libraries" / row["library_id"]
         if not lib_root.is_dir():
             continue
-        for path in _iter_doc_files(lib_root, exclude_dirs):
-            result.files_bytes += path.stat().st_size
+        for _path, _rel, size in _iter_doc_files(lib_root, exclude_dirs):
+            result.files_bytes += size
             result.file_count += 1
 
     collections = sorted({row["collection"] for row in libraries})
@@ -224,9 +246,9 @@ def scan_selection(data_root: Path, libs: Sequence[str], *, exclude_dirs: Sequen
 
     result.peers = group_peer_libraries(data_root, libs)
     if result.peers:
-        names = "、".join(f"{p['name']}({p['library_id']})" for p in result.peers)
-        # 只说事实，不建议动作：未选中的同组库未必都在可选清单里（空库不进库列表），
-        # 「建议全选」会指向一个点不到的目标——前端按可选择性自行补建议。
+        # 只报名字，不带 library_id（内部标识，业主不看——2026-10-09 定）。
+        # 也不说「建议全选」：空库不进可选清单，那句话会指向点不到的目标，前端按可选择性自己补。
+        names = "、".join(p["name"] or p["library_id"] for p in result.peers)
         result.warnings.append(
             f"同组共用一份 sqlite（FTS/graph 无法按库拆分）：该组另有 {names} 未纳入本次导出，"
             "但包内仍会含它们的索引数据。它们没有源文件随包，检索可能命中、溯源会 404。"
@@ -416,6 +438,7 @@ def iter_package_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_E
 
     sink = _ZipSink(cancelled)
     done = [0]
+    released: set = set()   # 已从 qdrant 删掉的快照（提前定义：finally 里要读，别放在 try 内）
 
     def drain() -> Iterator[bytes]:
         while sink.buf:
@@ -468,6 +491,10 @@ def iter_package_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_E
                     dst.write(chunk)
                     yield from drain()
             file_index[arcname] = h.hexdigest()
+            # 快照已完整打进 zip，qdrant 侧那份立刻删：留到最后再删会让「服务端标记完成」
+            # 白等一次 DELETE（实测 2s），而客户端此时早已收满、界面却还停在「打包中」。
+            delete_snapshot(col, name)
+            released.add((col, name))
             yield from drain()
 
         manifest = {
@@ -487,8 +514,11 @@ def iter_package_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_E
         yield from drain()
         report(total, total)
     finally:
-        # 无论正常结束、取消还是客户端断连，都清掉 qdrant 侧快照（服务端不留残留）
+        # 无论正常结束、取消还是客户端断连，都清掉 qdrant 侧快照（服务端不留残留）。
+        # 正常路径上快照已在打包完那一刻删掉（见上），这里只是兜底。
         for col, name, _size in snapshots:
+            if (col, name) in released:
+                continue
             delete_snapshot(col, name)
 
 
@@ -496,7 +526,16 @@ def iter_package_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_E
 
 
 class ExportTasks:
-    """管理后台导出任务的进程内状态。不落库：导出不需要历史，服务重启即失效。"""
+    """管理后台导出任务的进程内状态。不落库：导出不需要历史，服务重启即失效。
+
+    单飞闸带**僵死回收**（2026-10-09 实踩）：客户端断连后生成器可能停在挂起点永不收尾
+    （Starlette 用线程池迭代同步生成器，请求取消后不会主动关它），任务就永远停在 running，
+    把后续导出全挡成 409（实测日志见 backend.log）。所以 start() 先看上一个任务是否还在推进：
+    超过 STALE_AFTER 秒没有新的字节产出即判僵死、让位。
+    """
+
+    # 多久没有字节推进就判僵死（正常导出每秒都在出字节，60s 足够保守）
+    STALE_AFTER_S = 60
 
     def __init__(self) -> None:
         self._lock = threading.Lock()
@@ -505,14 +544,24 @@ class ExportTasks:
 
     def start(self, task_id: str, *, group: str, libs: List[str], total_estimate: int) -> None:
         with self._lock:
-            if self._running and self._tasks.get(self._running, {}).get("status") == "running":
-                raise RuntimeError("已有导出任务在运行，请等待完成或取消")
+            holder = self._tasks.get(self._running) if self._running else None
+            if holder and holder.get("status") == "running":
+                idle = time.time() - float(holder.get("updated_at") or 0)
+                if idle <= self.STALE_AFTER_S:
+                    raise RuntimeError(
+                        f"已有导出任务在运行（{self._running}，{idle:.0f}s 前仍在推进），请等待完成或取消"
+                    )
+                # 僵死：客户端断连后没人再拉流，任务不会自己收尾——标记失败让位
+                holder["status"] = "failed"
+                holder["stage"] = "failed"
+                holder["error"] = f"任务超过 {self.STALE_AFTER_S}s 无字节推进（客户端可能已断开），已回收"
+                holder["message"] = holder["error"]
             self._running = task_id
             self._tasks[task_id] = {
                 "task_id": task_id, "group": group, "libs": libs,
                 "status": "running", "stage": "scan", "message": "准备中…",
                 "bytes_out": 0, "total_bytes": total_estimate,
-                "error": "", "cancel_requested": False,
+                "error": "", "cancel_requested": False, "updated_at": time.time(),
             }
 
     def finish(self, task_id: str, *, error: str = "", cancelled: bool = False) -> None:
@@ -555,6 +604,7 @@ class ExportTasks:
                 task["bytes_out"] = bytes_out
             if total:
                 task["total_bytes"] = total
+            task["updated_at"] = time.time()   # 僵死判据：最后推进时刻（见 STALE_AFTER_S）
 
     def get(self, task_id: str) -> Optional[Dict[str, Any]]:
         with self._lock:

@@ -66,9 +66,15 @@ class TicketRequest(BaseModel):
 
 @export_router.post("/exports/ticket")
 def issue_export_ticket(req: TicketRequest, session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
-    """换一张一次性下载凭据（见 _issue_ticket 注释）。"""
+    """换一张一次性下载凭据（见 _issue_ticket 注释）。
+
+    这里只做**廉价校验**（registry 读表 + 同组判定）：原先调 scan_selection 全量扫目录，
+    点「开始导出」到保存对话框弹出要等 3-5 秒（业主实感）。真正的体积统计在预览与流请求里做。
+    """
+    from docs_core.corpus_package import validate_selection
+
     try:
-        scan_selection(resolve_data_root(), req.libraries, exclude_dirs=DEFAULT_EXCLUDE_DIRS)
+        validate_selection(resolve_data_root(), req.libraries)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return {"ticket": _issue_ticket(req.task_id, req.libraries), "expires_in": _TICKET_TTL_S}
@@ -194,6 +200,9 @@ def export_status(task_id: str, session: Any = Depends(resolve_admin_session)) -
         return {"task_id": task_id, "status": "unknown", "stage": "", "message": "任务不存在或已随服务重启失效"}
     total = task.get("total_bytes") or 0
     done = task.get("bytes_out") or 0
+    idle = None
+    if task["status"] == "running" and task.get("updated_at"):
+        idle = round(time.time() - float(task["updated_at"]), 1)
     return {
         "task_id": task_id,
         "status": task["status"],
@@ -203,6 +212,8 @@ def export_status(task_id: str, session: Any = Depends(resolve_admin_session)) -
         "total_bytes": total,
         "percent": (round(done * 100 / total) if total else 0),
         "error": task.get("error", ""),
+        # 服务端距上次有字节产出多久（秒）：前端据此区分「还在跑」与「卡住了」
+        "idle_seconds": idle,
     }
 
 
