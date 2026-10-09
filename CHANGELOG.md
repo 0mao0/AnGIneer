@@ -2,6 +2,17 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.95
+
+- 语料包导出进管理后台（54aacdd4/1a0d46f2）：知识库总览头部加「导出语料包」按钮 → 弹框选组与库（换组默认全选、可取消勾选；未全选红字警告——同组共用一份 sqlite，FTS/graph 无法按库拆，包内仍含未勾选库的索引数据，它们没有源文件随包、检索可能命中而溯源 404）→ 流式打包下载。导出逻辑从 scripts/kb_corpus_export.py 抽到 docs_core.corpus_package（CLI 与管理后台共用一套）：流式只走一趟 IO（旧路径 staging 拷贝→sha256 全扫→zip 共四趟），读文件一次同时算 sha256 直接出网、manifest.json 排最后；进度分母在 qdrant 快照建好后即精确（用建快照响应里的真实 size）；无论正常结束/取消/客户端断连，finally 都清 qdrant 侧快照。前端四态弹框（选择/进行/完成或已取消/失败），下载优先 File System Access（逐块写盘、可精确计数、取消时弃写不落半截文件），不支持时回退浏览器原生下载（一次性 ticket 鉴权：120s、单次消费、绑 task_id，避免把会话 token 写进 URL）；流正常收尾 ≠ 成功（chunked 无 Content-Length，取消也会让连接正常闭合），收尾后回查终态、非 completed 一律弃写。两处实修：客户端断连时 Starlette 抛 GeneratorExit（继承 BaseException、原 except Exception 抓不到）致任务永停 running，单飞闸把后续导出全挡死（实测撞 409）；checkpoint(TRUNCATE) 后 -wal/-shm 是瞬态（最后一个连接关闭即被 SQLite 删除），拷进包成竞态——文件进了包、manifest 扫不到，导入侧报「缺文件」整包中止（DredgeAI 实测），改为只拷主库。设计文档 docs/design-kb-export-ui.md
+- 知识库组换名 standards→system / guifan→standards（e8ddfbfe，业主令，存储层同改）：library_registry DEFAULT_GROUP=system、GROUP_DEFAULTS 双内置组（system=默认库、standards=规范库）；scripts/migrate_group_rename.py 幂等可续跑、默认 DRY RUN（注册表行重写→组 sqlite 换名含 -wal/-shm→删自建组 guifan 行→订阅表防御改写→qdrant 快照恢复真改名并逐点校验后删旧集合）；本地已执行并验证注册表/组库/qdrant 三点一致 + 召回实测。⚠ 生产数据仍是旧命名（default 在 standards 组），部署后需在生产跑一次该脚本，否则界面会把系统库显示成「外服 · 规范库」
+- 用户知识库两级授权（e8ddfbfe）：组订阅×组内库（开关 ANGINEER_KB_SUBSCRIPTION_V2 默认关＝旧平铺语义逐位不变，回滚保险有测试钉住）；存储 user_group_subscriptions / user_library_direct 两表 + user_libraries 双写镜像；派生 shared/subscription.py 每请求读穿不缓存、顺序稳定（组订阅全量−排除 ∪ 直选；admin=active−evals）；接口 chat_auth V2 分支——显式选择不再受 5 库硬顶截断，非派生成员 403 可见报错，login/me 增 accessible_libraries（旧 libraries 键保留，回滚层不空窗）；admin 用户管理两级选择（AccessScopeSelect：组行整勾/组内扣库/散库直选）
+- 对话页两级库选择器 + 模型×思考档位双下拉（57a59d95）：/knowledge/libraries/groups 构建「组→库」两级结构（evals 不进用户端）、组默认折叠、整行是展开热区、点复选框小方块只切勾选；@mousedown.prevent 修「自绘弹层里点不可聚焦行体夺走输入框焦点，antd 判点到外面关掉下拉」；模型按底层 model 归并（10 配置→3 模型）、档位标签「关/思考」（悬停提示保留真实配置名），发送值仍是原配置名（后端契约零变化）。同批 UI 定版：「授权知识库」改名 + 表单横向同行布局、组切换默认第一个知识组删「全部组」
+- 知识库/评测集 tab 改走 URL 段（8dacb3c3）+ 页脚标语只在 hero 空态显示（3e2da7aa）：前者的 tab 状态原为内存 ref，地址栏不跟随、刷新回详情、页面分享不出去，/knowledge 现默认落总览；后者把对话态被标语占掉的 26px 还给消息区
+- 迁移收尾自动刷新总览 + 刷新按钮转圈盖住体量列（1a0d46f2，两处「以为没成功」的业主反馈）：拆并完成后总览不刷新的根因是抽屉轮询到终态只是停轮询、从不通知父页面，而总览只在「提交那一刻」刷过一次（那会儿文档还没搬完）——改为抽屉首次观察到终态 emit settled（只对「看着它从进行中跑到结束」的任务发，打开历史已完成任务不打扰）＋ 父页面兜底盯刚提交的任务（抽屉被提前关掉也能刷）＋ 收尾强制重算体量列（服务端 5 分钟缓存，不 force 则看到的还是迁移前的数字），终态清单收口到 api/knowledge.ts 的 isMigrationTerminal 供两处共用；刷新按钮原只 await 库清单、体量列是 fire-and-forget，圈 0.3s 就停而三列还是旧数——改为三路都落了才收圈（实测收圈与体量数据返回差 0ms）＋ 调用序号防并发早收。同批删掉 { standards: 'system' } 显示映射（它写于 standards 还是系统库集合名的时期，真改名后把规范库标成了 system）
+- 评测侧（094f0a81/94275a04/79a8d052）：拒答前提对账上线并修复 6 题过期标注（语料扩充致「该拒答」前提静默失效 18 天）；冒烟集摘除 2 道「出生即错」拒答题 + 修订脚本支持 gold-file/bundles-only/smoke 三档；nightly 企微卡片自报数据集名（主集+观察集多卡片下认不出归属，10-08 业主实收 5 条无从分辨）
+- 发版脚本两处闸门假红修复（814df156/e32a4434）：release-standalone 在 Windows + Node 24 下 spawnSync('pnpm.CMD') 无 shell 直接 EINVAL（status=null 被误判成 typecheck/test 未通过）；闸门 4 祖先检查恒假（trySh 成功返回空串被 ! 判成失败，sync 后再写 CHANGELOG 必被拦，注释明说「领先可以」）
+
 ## v0.2.94
 
 - 出处守卫外部文献名引用降为剥标记（395e3b41，业主拍板方案 A）：v0.2.92 书名号闸两晚把 30+ 题好答案整答换拒答（OpenRAG 答案引论文真题名、证据 doc_title=文件名核不到，章节号也核不到）；三态化 find_unsupported_reference——编造规范编号仍 hard 整答替换（不卸牙），标题全核不到+章节不可信降 strip（_strip_absent_citations 摘句首《X》状语、悬空章节号补⚠️出处待核、正文事实保留）；has_unsupported_reference 语义收口为 hard-only 兼容旧调用点；新结果码 external_citation_stripped（final_outcome=model_answer_stripped，path_trace 记痕）

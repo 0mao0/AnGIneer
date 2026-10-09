@@ -16,7 +16,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 
 ## 当前版本
 
-> **当前版本：0.2.94** ——出处守卫外部文献名引用降为剥标记、不替换整答（书名号闸两晚 30+ 题误杀修复，编造规范编号仍整答替换）；nightly 分数据集基线（观察集专属指针优先、回退全局，pin --for-dataset）；为 financebench-150 观察集钉定基线 run-02d5987f0dc9（78/150=52.0%）。详见 [CHANGELOG.md](CHANGELOG.md)。
+> **当前版本：0.2.95** ——语料包导出进管理后台（知识库总览加按钮，选组/库后流式打包下载、服务端不落盘且可取消，含一次性下载凭据与断连收尾）；知识库组换名 standards→system / guifan→standards（注册表/组库/qdrant 三点同改，附幂等可续跑迁移脚本，生产数据待跑）；用户知识库两级授权（组订阅×组内库，开关默认关）；对话页两级库选择器 + 模型×思考档位双下拉；知识库/评测集 tab 改走 URL 段；迁移收尾自动刷新总览 + 刷新按钮转圈盖住体量列；nightly 企微卡片自报数据集名、拒答前提对账上线（修 6 题过期标注）；发版脚本两处闸门假红修复。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 **仓库版本**（九个独立仓库各自用 git tag 发布，发版时同步更新本表）：
 
@@ -24,7 +24,7 @@ description: Use AnGIneer for rigorous engineering-domain work - standards/spec 
 | :--- | :--- | :--- |
 | [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.94` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
-| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.1` | 对话前端组件库（npm: @angineer/aichat-ui） |
+| [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.2` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.3` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.4` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.3` | Python AI 推理客户端库 |
