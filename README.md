@@ -544,7 +544,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 | `ALLOWED_ORIGINS` | CORS 白名单（逗号分隔） | 本地开发地址 |
 | `DEFAULT_TENANT_ID` | 默认租户 | `default` |
 | `API_KEYS_DB_PATH` | API Key 数据库路径 | `data/platform/api_keys.sqlite` |
-| `LOG_LEVEL` | 日志级别 | `INFO` |
+| `ANGINEER_LOG_LEVEL` | 日志级别 | `INFO` |
 
 ***
 
