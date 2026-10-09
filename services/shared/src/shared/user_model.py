@@ -3,6 +3,7 @@
 单一真相源：本模块（shared.user_model）。docs-api/models/user.py 与 aichat-api/models/user.py
 仅为模块替换别名层。
 """
+import json
 import os
 import secrets
 import hashlib
@@ -14,6 +15,14 @@ from typing import List, Optional
 import logging
 
 from shared.paths import resolve_data_file
+from shared.subscription import (
+    FANOUT_WARN_THRESHOLD,
+    active_libraries_snapshot,
+    derive_libraries_for_user,
+    has_subscription_config,
+    load_subscriptions,
+    subscription_v2_enabled,
+)
 
 DB_PATH = resolve_data_file("USERS_DB_PATH", "platform/users.sqlite")
 
@@ -55,6 +64,10 @@ class User:
     created_at: str = ""
     last_login_at: Optional[str] = None
     library_ids: List[str] = field(default_factory=list)
+    # V2 两级授权（2026-10-09 设计稿）：组订阅 [{"group","excluded_libraries"}] 与散库直选。
+    # 仅 ANGINEER_KB_SUBSCRIPTION_V2=1 时加载；V2 关恒为空，读取语义仍走 library_ids。
+    group_subscriptions: List[dict] = field(default_factory=list)
+    library_direct: List[str] = field(default_factory=list)
 
 
 def _get_conn() -> sqlite3.Connection:
@@ -97,10 +110,32 @@ def init_db() -> None:
             FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
         )
     """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS user_group_subscriptions (
+            user_id INTEGER NOT NULL,
+            group_name TEXT NOT NULL,
+            excluded_libraries TEXT NOT NULL DEFAULT '[]',
+            PRIMARY KEY (user_id, group_name),
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        )
+    """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS user_library_direct (
+            user_id INTEGER NOT NULL,
+            library_id TEXT NOT NULL,
+            PRIMARY KEY (user_id, library_id),
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        )
+    """)
     try:
         conn.execute("ALTER TABLE users ADD COLUMN is_admin INTEGER NOT NULL DEFAULT 0")
     except sqlite3.OperationalError:
         pass  # 已存在该列
+    if subscription_v2_enabled():
+        try:
+            _backfill_subscriptions(conn)
+        except sqlite3.Error as exc:  # noqa: BLE001 — 回填失败不得炸登录主链路
+            logger.warning("订阅启动回填跳过: %s", exc)
     conn.commit()
     conn.close()
 
@@ -113,7 +148,12 @@ def _library_ids_for_user(conn: sqlite3.Connection, user_id: int) -> List[str]:
     return [r["library_id"] for r in rows]
 
 
-def _row_to_user(row: sqlite3.Row, library_ids: List[str]) -> User:
+def _row_to_user(
+    row: sqlite3.Row,
+    library_ids: List[str],
+    subscriptions: Optional[List[dict]] = None,
+    direct: Optional[List[str]] = None,
+) -> User:
     return User(
         id=row["id"],
         username=row["username"],
@@ -124,7 +164,52 @@ def _row_to_user(row: sqlite3.Row, library_ids: List[str]) -> User:
         created_at=row["created_at"],
         last_login_at=row["last_login_at"],
         library_ids=library_ids,
+        group_subscriptions=list(subscriptions or []),
+        library_direct=list(direct or []),
     )
+
+
+def _subscription_for_user(conn: sqlite3.Connection, user_id: int):
+    """V2=1 才读订阅表（V2 关保持旧读取语义逐位不变，也不产生额外 IO）。"""
+    if not subscription_v2_enabled():
+        return [], []
+    return load_subscriptions(conn, user_id)
+
+
+def _backfill_subscriptions(conn: sqlite3.Connection) -> None:
+    """启动回填（设计稿 §3.1，仅 V2=1）：旧平铺绑定整表映射回订阅存储。
+
+    有组归属的库 → 该组订阅（excluded = 组内成员 − 用户已绑集合，派生精确还原原范围，
+    不扩权）；无组归属 → 直选表。新库加入已订阅组后自动进入派生集——「组订阅含将来
+    新增」语义的本意（2026-10-09 业主口径：选 N 组 M 库 = M 库去检索）。
+    """
+    if conn.execute("SELECT 1 FROM user_group_subscriptions LIMIT 1").fetchone() is not None:
+        return
+    bound = conn.execute("SELECT user_id, library_id FROM user_libraries").fetchall()
+    if not bound:
+        return
+    snapshot = active_libraries_snapshot()
+    group_of = {lid: group for lid, group, _status in snapshot}
+    members_by_group: dict = {}
+    for lid, group, _status in snapshot:
+        if group:
+            members_by_group.setdefault(group, set()).add(lid)
+    by_user: dict = {}
+    for row in bound:
+        by_user.setdefault(row["user_id"], []).append(row["library_id"])
+    for user_id, libs in by_user.items():
+        lib_set = set(libs)
+        for group in sorted({group_of[lid] for lid in libs if group_of.get(lid)}):
+            excluded = sorted(members_by_group.get(group, set()) - lib_set)
+            conn.execute(
+                "INSERT OR IGNORE INTO user_group_subscriptions (user_id, group_name, excluded_libraries) VALUES (?, ?, ?)",
+                (user_id, group, json.dumps(excluded)),
+            )
+        for lid in libs:
+            if not group_of.get(lid):
+                conn.execute(
+                    "INSERT OR IGNORE INTO user_library_direct (user_id, library_id) VALUES (?, ?)", (user_id, lid)
+                )
 
 
 def get_user_by_username(username: str) -> Optional[User]:
@@ -135,7 +220,8 @@ def get_user_by_username(username: str) -> Optional[User]:
         conn.close()
         return None
     libs = _library_ids_for_user(conn, row["id"])
-    user = _row_to_user(row, libs)
+    subs, direct = _subscription_for_user(conn, row["id"])
+    user = _row_to_user(row, libs, subs, direct)
     conn.close()
     return user
 
@@ -148,7 +234,8 @@ def get_user_by_id(user_id: int) -> Optional[User]:
         conn.close()
         return None
     libs = _library_ids_for_user(conn, row["id"])
-    user = _row_to_user(row, libs)
+    subs, direct = _subscription_for_user(conn, row["id"])
+    user = _row_to_user(row, libs, subs, direct)
     conn.close()
     return user
 
@@ -157,7 +244,11 @@ def list_users() -> List[User]:
     init_db()
     conn = _get_conn()
     rows = conn.execute("SELECT * FROM users ORDER BY id").fetchall()
-    users = [_row_to_user(r, _library_ids_for_user(conn, r["id"])) for r in rows]
+    users = []
+    for r in rows:
+        libs = _library_ids_for_user(conn, r["id"])
+        subs, direct = _subscription_for_user(conn, r["id"])
+        users.append(_row_to_user(r, libs, subs, direct))
     conn.close()
     return users
 
@@ -213,6 +304,54 @@ def update_user(
                 conn.execute("INSERT INTO user_libraries (user_id, library_id) VALUES (?, ?)", (user_id, str(lid).strip()))
         if is_admin is not None:
             conn.execute("UPDATE users SET is_admin = ? WHERE id = ?", (1 if is_admin else 0, user_id))
+        conn.commit()
+    finally:
+        conn.close()
+    return True
+
+
+def set_user_access(user_id: int, subscriptions: List[dict], direct_libraries: List[str]) -> bool:
+    """V2 订阅保存（admin 编辑端点侧）：两订阅表全删重插 + user_libraries 双写镜像（§8-5）。
+
+    镜像 = 保存时刻的派生结果回写 ``user_libraries``——回滚 V2=0 后回退层直接可用
+    （回滚不丢订阅）；运行时读路径唯一真相仍是「订阅展开 + 请求时派生」，镜像不进
+    读路径，不引入第二真相源。空列表 = 清空订阅（与「用户无任何绑定」同态）。
+    """
+    init_db()
+    conn = _get_conn()
+    try:
+        row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+        if row is None:
+            return False
+        conn.execute("DELETE FROM user_group_subscriptions WHERE user_id = ?", (user_id,))
+        conn.execute("DELETE FROM user_library_direct WHERE user_id = ?", (user_id,))
+        seen_groups = set()
+        for sub in subscriptions or []:
+            group = (sub.get("group") or "").strip()
+            if not group or group in seen_groups:
+                continue
+            seen_groups.add(group)
+            excluded = sorted({str(x).strip() for x in (sub.get("excluded_libraries") or []) if str(x).strip()})
+            conn.execute(
+                "INSERT INTO user_group_subscriptions (user_id, group_name, excluded_libraries) VALUES (?, ?, ?)",
+                (user_id, group, json.dumps(excluded)),
+            )
+        for lid in direct_libraries or []:
+            lid = str(lid).strip()
+            if lid:
+                conn.execute("INSERT INTO user_library_direct (user_id, library_id) VALUES (?, ?)", (user_id, lid))
+        if subscription_v2_enabled():
+            subs, direct = load_subscriptions(conn, user_id)
+            probe = User(
+                id=user_id,
+                username=row["username"],
+                is_admin=bool(row["is_admin"]),
+                group_subscriptions=subs,
+                library_direct=direct,
+            )
+            conn.execute("DELETE FROM user_libraries WHERE user_id = ?", (user_id,))
+            for lid in derive_libraries_for_user(probe):
+                conn.execute("INSERT INTO user_libraries (user_id, library_id) VALUES (?, ?)", (user_id, lid))
         conn.commit()
     finally:
         conn.close()
@@ -315,7 +454,8 @@ def get_session_user(raw_token: str) -> Optional[User]:
         if user_row is None or not bool(user_row["is_active"]):
             return None
         libs = _library_ids_for_user(conn, user_row["id"])
-        return _row_to_user(user_row, libs)
+        subs, direct = _subscription_for_user(conn, user_row["id"])
+        return _row_to_user(user_row, libs, subs, direct)
     finally:
         conn.close()
 

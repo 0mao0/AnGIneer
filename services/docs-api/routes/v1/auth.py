@@ -6,6 +6,7 @@ from docs_core.docs_service import get_docs_service
 from models.user import (
     create_session,
     delete_session,
+    derive_libraries_for_user,
     get_user_by_username,
     update_last_login,
     verify_password,
@@ -29,6 +30,8 @@ async def auth_login(req: LoginRequest):
             "username": user.username,
             "display_name": user.display_name,
             "libraries": user.library_ids,
+            # 设计稿 §3.3：派生结果与平铺清单并行返回（V2 关时二者相等），消费端优先读 accessible_libraries
+            "accessible_libraries": derive_libraries_for_user(user),
             "is_admin": user.is_admin,
         },
     )
@@ -52,6 +55,7 @@ async def auth_me(request: Request):
             username=session_user.username,
             display_name=session_user.display_name,
             libraries=existing,
+            accessible_libraries=derive_libraries_for_user(session_user),
             default_library=existing[0] if existing else "",
             is_admin=session_user.is_admin,
         )

@@ -132,7 +132,7 @@ class TestSeedFromMeta:
         assert {r.library_id for r in seeded} == {"default", "omnidocbench", "lib-officeqa"}
         assert reg.get_library("omnidocbench").group_name == "evals"
         assert reg.get_library("omnidocbench").collection == "evals_corpus"
-        assert reg.get_library("default").group_name == "standards"  # 映射外落默认组
+        assert reg.get_library("default").group_name == "system"  # 映射外落默认组（2026-10-09 由 standards 换名）
 
     def test_seed_is_idempotent(self, reg, tmp_path):
         from pathlib import Path

@@ -2,14 +2,17 @@ import { defineStore } from 'pinia'
 import { docsApiClient } from '../../../shared/apiClient'
 import { clearSessionToken, getSessionToken, setSessionToken } from '../../../shared/session'
 
-/** 多库勾选上限：与 aichat-ui MAX_LIBRARY_SELECTION / 服务端 ANGINEER_MAX_CHAT_LIBRARIES 同值；
- *  跨包导入不值当，宿主侧本地定义（改一处须三处同步） */
-const MAX_SELECTED_LIBRARIES = 5
+// 2026-10-09 多库勾选上限移除（设计稿 design-user-kb-access-scope.md R4/B1 定版）：
+// 原 MAX_SELECTED_LIBRARIES = 5 与服务端 ANGINEER_MAX_CHAT_LIBRARIES 截断同批移除，勾选集合无上限（>20 仅服务端记 warning）。
 
 export interface SessionUserInfo {
   username: string
   display_name: string
+  /** 平铺绑定清单（V2 关时的旧语义真相源；V2 开时与 accessible_libraries 并行返回） */
   libraries: string[]
+  /** 派生集（R6）：V2 开 = 组订阅展开（含组内将来新增，源头排除 evals）；关 = 等于 libraries。
+   *  选择器与成员判定优先读本键，缺失回退 libraries（兼容旧响应/回滚层） */
+  accessible_libraries?: string[]
   default_library?: string
   is_admin?: boolean
 }
@@ -29,7 +32,8 @@ export const useAuthStore = defineStore('auth', {
   getters: {
     isAuthed: (state) => Boolean(state.token),
     libraryId: (state) => state.activeLibraryId || state.user?.default_library || '',
-    libraries: (state) => state.user?.libraries ?? [],
+    /** 派生集 = 检索范围唯一真相源（R6 统一走派生）；消费点（ChatHome 选择器/setActiveLibraries 过滤）都读它 */
+    libraries: (state) => state.user?.accessible_libraries ?? state.user?.libraries ?? [],
     /** 游客恒只能问默认库（服务端 v0.2.66 闸 + D2 双重约束） */
     effectiveLibraryId: (state) => (state.guestMode ? 'default' : state.activeLibraryId || state.user?.default_library || ''),
   },
@@ -51,8 +55,10 @@ export const useAuthStore = defineStore('auth', {
       setSessionToken(resp.token)
       this.token = resp.token
       this.user = resp.user
-      this.activeLibraryId = resp.user.default_library || resp.user.libraries[0] || ''
-      this.activeLibraryIds = this.activeLibraryId ? [this.activeLibraryId] : []
+      // 默认勾选 = 派生集全选（R4「无硬顶，全订阅全选」）：登录即回带服务端集合，与隐式（R3 无 @）等价集，scope_hash 稳定
+      const scope = resp.user.accessible_libraries ?? resp.user.libraries ?? []
+      this.activeLibraryIds = scope.length ? [...scope] : []
+      this.activeLibraryId = this.activeLibraryIds[0] || resp.user.default_library || ''
       // 登录即并入游客档（计划 §4「登录后并入」）：老账号 +1 条会话，失败不阻断登录
       if (this.guestMode) {
         this.guestMode = false
@@ -72,12 +78,15 @@ export const useAuthStore = defineStore('auth', {
       try {
         const me = await docsApiClient.get<SessionUserInfo>('/v1/auth/me')
         this.user = me
-        if (!this.activeLibraryId || !(me.libraries || []).includes(this.activeLibraryId)) {
-          this.activeLibraryId = me.default_library || me.libraries?.[0] || ''
-          this.activeLibraryIds = this.activeLibraryId ? [this.activeLibraryId] : []
-        } else if (!this.activeLibraryIds.length) {
-          // 集合未初始化但单值有效（刷新后恢复）：并入首项
-          this.activeLibraryIds = [this.activeLibraryId]
+        // 派生集复核（R4/R6）：勾选集合出现非派生成员（订阅变更/组内新建库/库退休）→ 重置为派生集全选
+        const allowed = me.accessible_libraries ?? me.libraries ?? []
+        const allowedSet = new Set(allowed)
+        const kept = (this.activeLibraryIds || []).filter((id) => allowedSet.has(id))
+        if (kept.length && kept.length === (this.activeLibraryIds || []).length) {
+          this.activeLibraryId = this.activeLibraryId || kept[0]
+        } else {
+          this.activeLibraryIds = allowed.length ? [...allowed] : []
+          this.activeLibraryId = this.activeLibraryIds[0] || me.default_library || ''
         }
       } catch (e: any) {
         this.user = null
@@ -91,14 +100,14 @@ export const useAuthStore = defineStore('auth', {
     },
     switchLibrary(id: string) {
       // 宿主交互入口已改 setActiveLibraries；保留兼容（行为不变：未授权 id 静默忽略，集合收敛为单元素）
-      if ((this.user?.libraries ?? []).includes(id)) {
+      if (this.libraries.includes(id)) {
         this.setActiveLibraries([id])
       }
     },
-    /** 多库勾选（阶段三）：过滤未授权 + 截断到上限（与前端选择器/服务端兜底一致）；空集合=回退默认库 */
+    /** 多库勾选（2026-10-09 无上限改版）：过滤非派生集成员，不截断；空集合=回退默认库 */
     setActiveLibraries(ids: string[]) {
       const allowed = new Set(this.libraries)
-      const next = (ids || []).filter((id) => allowed.has(id)).slice(0, MAX_SELECTED_LIBRARIES)
+      const next = (ids || []).filter((id) => allowed.has(id))
       // 清空语义（定稿）：空集合 = 回退默认库（与旧 switchLibrary 默认回退一致，
       // 不出现「无库可检索」态）
       this.activeLibraryIds = next.length

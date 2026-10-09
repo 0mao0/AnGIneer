@@ -31,9 +31,9 @@ BUILTIN_GROUP_MAP = {
     "lib-DredgeAI-a5e1": "dredgeai",
     "lib-7582b086": "dredgeai",    # DredgeAI施组
     "lib-261558be": "dredgeai",    # 公司施组
-    # 规范组（生产默认）
-    "default": "standards",
-    "lib-39109792": "standards",   # DredgeAI规范库
+    # 系统组（生产默认；2026-10-09 由 standards 换名为 system）
+    "default": "system",
+    "lib-39109792": "system",      # DredgeAI规范库（库名含"规范"，但归属系统组）
 }
 
 

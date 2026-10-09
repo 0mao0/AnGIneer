@@ -1,10 +1,18 @@
 """aichat 会话解析与库归属校验（供中间件与端点复用）。"""
 import hashlib
+import logging
 import os
 
 from fastapi import Request
 
-from models.user import get_session_user
+from models.user import (
+    FANOUT_WARN_THRESHOLD,
+    derive_libraries_for_user,
+    get_session_user,
+    subscription_v2_enabled,
+)
+
+logger = logging.getLogger("aichat.auth")
 
 # 游客身份 cookie（chat_history.routes 签发，HttpOnly）；步 3 起匿名桶由 ip: 升级为 g:
 GUEST_COOKIE = "ag_guest_id"
@@ -20,8 +28,15 @@ def resolve_session_principal(request: Request) -> bool:
         return False
     request.state.session_user = user
     request.state.session_token_raw = raw_token
-    request.state.bound_library_id = user.library_ids[0] if user.library_ids else ""
-    request.state.bound_library_ids = set(user.library_ids)
+    if subscription_v2_enabled():
+        # V2（2026-10-09 设计稿 §4 R1）：成员集 = 每请求派生（跟随注册表/新建库自动生效）；
+        # 保序列表而非 set——scope_hash/会话池 key 依赖顺序，顺序抖动会拆桶历史并漂移主库标签。
+        derived = derive_libraries_for_user(user)
+        request.state.bound_library_id = derived[0] if derived else ""
+        request.state.bound_library_ids = derived
+    else:
+        request.state.bound_library_id = user.library_ids[0] if user.library_ids else ""
+        request.state.bound_library_ids = set(user.library_ids)
     return True
 
 
@@ -68,16 +83,51 @@ def max_chat_libraries() -> int:
         return 5
 
 
+def _enforce_bound_v2(state, user, requested: "list[str]") -> "list[str]":
+    """V2 订阅派生制成员校验（2026-10-09 设计稿 §4 R2/R3；开关默认关=永不进本函数）。
+
+    - 隐式（空/["default"]）= 派生集全选（无上限、无截断；管理员同闸，派生集=全部 active 库）；
+    - 显式 @ = 任一非成员（未订阅/未登记/retired）→ 403 可见报错，不静默剔除；
+      全成员 → 整集返回（[:cap] 截断移除，「选 M 库 = M 库检索」业主口径）；
+    - 派生集 >FANOUT_WARN_THRESHOLD → 仅 warning 日志（观测口径，不拦截）。
+    成员集未经 principal 注入（旁路/单测 state）时现算派生——成员集单一真相源，不写第二套判定。
+    """
+    from fastapi import HTTPException
+
+    derived = getattr(state, "bound_library_ids", None)
+    if derived is None:
+        derived = derive_libraries_for_user(user)
+    else:
+        derived = list(derived)
+    libs = [str(x).strip() for x in requested if str(x).strip()]
+    if len(derived) > FANOUT_WARN_THRESHOLD:
+        logger.warning("单请求检索集 %d 库（无上限，V2 观测口径）: %s", len(derived), derived)
+    if not libs or libs == ["default"]:
+        if derived:
+            return derived
+        # 零订阅/派生为空（含管理员空快照）：保留旧空/default 回退，不锁死（§8-4 口径）
+        return [getattr(state, "bound_library_id", "") or "default"]
+    for lib in libs:
+        if lib not in derived:
+            raise HTTPException(status_code=403, detail=f"用户无权访问知识库 '{lib}'")
+    return libs
+
+
 def enforce_bound_libraries(state, requested: "list[str]") -> "list[str]":
     """集合版库归属校验：先整集鉴权（任一越权即 403），再按上限截断（spec §P1-5）。
 
     会话用户按 bound_library_ids 集合校验；管理员任意集合；Key 维持单库绑定
     （集合收敛为 [bound]，集合含非绑定库成员同样 403——与旧 enforce_bound_library
     的冲突拒绝逐位一致，不静默剔除）；匿名仅默认库。空集合回退默认库。
+
+    V2=1（ANGINEER_KB_SUBSCRIPTION_V2，2026-10-09 设计稿）：会话用户改走
+    _enforce_bound_v2（派生制，无截断无上限，403 保留）；以下主体 = V2=0 回滚语义。
     """
     from fastapi import HTTPException
 
     user = getattr(state, "session_user", None)
+    if user is not None and subscription_v2_enabled():
+        return _enforce_bound_v2(state, user, requested)
     if user is not None and getattr(user, "is_admin", False) is True:
         # 管理员跨库视野：允许访问任意知识库（与 admin-web 全局库选择一致）
         libs = [str(x).strip() for x in requested if str(x).strip()] or ["default"]

@@ -130,7 +130,10 @@ class LoginRequest(BaseModel):
 class SessionUserInfo(BaseModel):
     username: str
     display_name: str
+    # libraries = 平铺绑定清单（V2 关时的旧语义真相源，保留兼容）；
+    # accessible_libraries = 派生集（V2 开 = 组订阅展开，关 = 等于 library_ids）——消费端优先读此键
     libraries: List[str] = Field(default_factory=list)
+    accessible_libraries: List[str] = Field(default_factory=list)
     is_admin: bool = False
 
 
@@ -142,6 +145,8 @@ class LoginResponse(BaseModel):
 class SessionMeResponse(BaseModel):
     username: str
     display_name: str
+    # 同 SessionUserInfo.libraries；default_library 仍取 existing[0]（语义不动），选择器消费 accessible_libraries
     libraries: List[str] = Field(default_factory=list)
+    accessible_libraries: List[str] = Field(default_factory=list)
     default_library: str = ""
     is_admin: bool = False
