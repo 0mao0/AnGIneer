@@ -49,6 +49,13 @@ STALE_QUESTIONS = [
     "refusal-db28bad3-1c66-4cf3-bed3-d7d7d7c3d85f",
 ]
 STALE_SET = set(STALE_QUESTIONS)
+# 冒烟集（本地）两道「该拒答」出生即错：源论文 08-27 就在库，冒烟集 09-29 才建
+# （refusal 集的选法按当时 import_state 排除已入库论文，而本地 state 与库对不上账）。
+SMOKE_STALE = [
+    "refusal-e82706bf-dddb-41a1-833f-244345f2e22d",
+    "refusal-d98bb261-e4cb-4fa5-8c15-3c9a51443846",
+]
+MAIN_NOTE_FALLBACK = ""
 MAIN_DATASET = "open-ragbench-subset-v4.1"
 REFUSAL_DATASET = "open-ragbench-refusal-v3-39"
 ORIGINAL_GOLD_REV = "167f5820^"  # 哨兵化提交的父提交：refusal-v2 bundle 仍带公开集事实答案
@@ -59,6 +66,8 @@ MAIN_NOTE = ("【2026-10-09 标注修正 6 题】refusal-516ff3fc/65ff3ae6/8b297
              "de25d769/db28bad3 的源论文已入库（09-21/09-23 语料扩充），恢复公开集 gold、"
              "refusal_expected=false（题不删；拒答语义由拒答集承载）。见 "
              "docs/report-refusal-premise-drift-20261009.md。")
+SMOKE_NOTE = ("【2026-10-09】摘除 2 道前提不成立题（refusal-e82706bf/refusal-d98bb261："
+              "源论文 2412.14918v3/2404.18501v3 建集时已在库）→ 25→23。")
 REFUSAL_NOTE = ("【2026-10-09】剔除 6 道前提过期题（refusal-516ff3fc/65ff3ae6/8b29750f/"
                 "c3f45046/de25d769/db28bad3 源论文已入库，已改判为可答题归主集）→ 39→33，"
                 "保纯拒答语义。见 docs/report-refusal-premise-drift-20261009.md。")
@@ -111,7 +120,8 @@ def _flip_item(item: dict, gold: str) -> dict:
     return item
 
 
-def _update_bundles(args, golds: dict, do_main: bool, do_refusal: bool, do_eval1: bool) -> None:
+def _update_bundles(args, golds: dict, do_main: bool, do_refusal: bool, do_eval1: bool,
+                    do_smoke: bool = False) -> None:
     apply = args.apply
     if do_main:
         mf = BUNDLES / f"{args.main_dataset}.json"
@@ -142,6 +152,21 @@ def _update_bundles(args, golds: dict, do_main: bool, do_refusal: bool, do_eval1
             if apply:
                 rf.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
             print(f"  bundle {rf.name}: 摘除 {removed} 题 → {len(items)} 题" + ("" if apply else "（dry-run）"))
+    if do_smoke and args.smoke_dataset:
+        sf = BUNDLES / f"{args.smoke_dataset}.json"
+        if sf.exists():
+            data = json.loads(sf.read_text(encoding="utf-8"))
+            items = [it for it in (data.get("items") or []) if it.get("question_id") not in set(SMOKE_STALE)]
+            removed = len(data.get("items") or []) - len(items)
+            data["items"] = items
+            ds = data.setdefault("dataset", {})
+            if "question_count" in ds:
+                ds["question_count"] = len(items)
+            if SMOKE_NOTE not in str(ds.get("description") or ""):
+                ds["description"] = (str(ds.get("description") or "") + SMOKE_NOTE).strip()
+            if apply and removed:
+                sf.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"  bundle {sf.name}: 摘除 {removed} 题 → {len(items)} 题" + ("" if apply else "（dry-run）"))
     if do_eval1:
         ef = BUNDLES / "eval_1.json"
         if ef.exists():
@@ -169,6 +194,8 @@ def main() -> int:
     ap.add_argument("--gold-file", default="", help="原始 refusal-v2 bundle（容器内无 git 时用）")
     ap.add_argument("--main-dataset", default=MAIN_DATASET)
     ap.add_argument("--refusal-dataset", default=REFUSAL_DATASET)
+    ap.add_argument("--smoke-dataset", default="open-ragbench-smoke-v1",
+                    help="要摘除 2 道前提不成立题的冒烟集 id；空串跳过")
     ap.add_argument("--skip-eval1", action="store_true")
     ap.add_argument("--open-ragbench", choices=("auto", "skip", "force"), default="auto",
                     help="主集/拒答集的库动作：auto=前置校验不过就中止；skip=只跳这两项；force=跳过校验")
@@ -274,6 +301,39 @@ def main() -> int:
                          (f"拒答 {before - hit} 题", desc, before - hit, args.refusal_dataset))
             conn.commit()
 
+    # ---- 动作 3b：冒烟集摘除 2 道前提不成立题（本地集；自带前提自检）----
+    if conn is not None and args.smoke_dataset:
+        rows = conn.execute(
+            f"SELECT question_id, library_id, tags FROM eval_question WHERE dataset_id=? AND "
+            f"question_id IN ({','.join('?' * len(SMOKE_STALE))})",
+            (args.smoke_dataset, *SMOKE_STALE)).fetchall()
+        for r in rows:
+            prem = rp.resolve_premises({}, _parse(r["tags"], []))
+            doc = next((p.get("doc") for p in prem if p.get("kind") == "doc_absent"), "")
+            hit = rp.Sources().doc_present(r["library_id"], doc) if doc else None
+            if not hit:
+                raise SystemExit(f"{r['question_id']} 的源论文（{doc}）不在库——该题前提成立，"
+                                 f"拒绝摘除（防误用）")
+            print(f"  [smoke-remove] {r['question_id'][:22]} 源论文在库（{hit}）→ 摘除")
+        if rows:
+            before = conn.execute("SELECT COUNT(*) FROM eval_question WHERE dataset_id=?",
+                                  (args.smoke_dataset,)).fetchone()[0]
+            print(f"  冒烟集 {args.smoke_dataset}: {before} → {before - len(rows)} 题")
+            if args.apply:
+                conn.execute(
+                    f"DELETE FROM eval_question WHERE dataset_id=? AND question_id IN "
+                    f"({','.join('?' * len(SMOKE_STALE))})",
+                    (args.smoke_dataset, *SMOKE_STALE))
+                ds = conn.execute("SELECT description FROM eval_dataset WHERE dataset_id=?",
+                                  (args.smoke_dataset,)).fetchone()
+                desc = str(ds["description"] or "") if ds else ""
+                if SMOKE_NOTE not in desc:
+                    desc = (desc + SMOKE_NOTE).strip()
+                conn.execute("UPDATE eval_dataset SET description=?, question_count=?, "
+                             "updated_at=datetime('now') WHERE dataset_id=?",
+                             (desc, before - len(rows), args.smoke_dataset))
+                conn.commit()
+
     # ---- 动作 4：eval_1 补 premise ----
     if conn is not None and not args.skip_eval1:
         for qid, prem in EVAL1_PREMISES.items():
@@ -300,10 +360,10 @@ def main() -> int:
     # ---- 动作 3：bundle JSON ----
     if not args.no_bundles:
         if args.bundles_only:
-            _update_bundles(args, golds, True, bool(args.refusal_dataset), not args.skip_eval1)
+            _update_bundles(args, golds, True, bool(args.refusal_dataset), not args.skip_eval1, True)
         elif guard_ok or args.open_ragbench == "skip":
             _update_bundles(args, golds, guard_ok, guard_ok and bool(args.refusal_dataset),
-                            not args.skip_eval1)
+                            not args.skip_eval1, True)
 
     # ---- 复核 ----
     if conn is not None:

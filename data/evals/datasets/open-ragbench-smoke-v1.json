@@ -3,7 +3,7 @@
     "dataset_id": "open-ragbench-smoke-v1",
     "title": "Open RAG Benchmark 冒烟门禁集 v1",
     "category": "knowledge",
-    "description": "小体量回归门禁：正例 + 拒答混合，防 prompt/权重改动回退",
+    "description": "小体量回归门禁：正例 + 拒答混合，防 prompt/权重改动回退【2026-10-09】摘除 2 道前提不成立题（refusal-e82706bf/refusal-d98bb261：源论文 2412.14918v3/2404.18501v3 建集时已在库）→ 25→23。",
     "schema_version": "eval.bundle.v2",
     "version": "1.0",
     "library_id": "lib-b07ed174"
@@ -850,62 +850,6 @@
       "retrieval": null,
       "answer": {
         "gold_answer": "All outgoing transitions from the final state lead to a sink state.",
-        "correctness_checks": [],
-        "semantic_threshold": 0.65,
-        "must_cite_target_ids": [],
-        "must_cite_section_paths": [],
-        "refusal_expected": true
-      }
-    },
-    {
-      "question_id": "refusal-e82706bf-dddb-41a1-833f-244345f2e22d",
-      "question": "Are CXSWAP-like gates considered part of Clifford two-qubit operations?",
-      "task_type": "rag",
-      "intent_level": "L1",
-      "library_id": "lib-b07ed174",
-      "doc_ids": [],
-      "difficulty": "medium",
-      "tags": [
-        "text",
-        "extractive",
-        "2412.14918v3",
-        "refusal"
-      ],
-      "question_family": "unanswerable",
-      "canonical_question_id": "",
-      "variant_type": "canonical",
-      "perturbation_tags": [],
-      "retrieval": null,
-      "answer": {
-        "gold_answer": "Yes, CXSWAP-like gates are considered part of Clifford two-qubit operations along with Identity-like, SWAP-like, and CX-like gates.",
-        "correctness_checks": [],
-        "semantic_threshold": 0.65,
-        "must_cite_target_ids": [],
-        "must_cite_section_paths": [],
-        "refusal_expected": true
-      }
-    },
-    {
-      "question_id": "refusal-d98bb261-e4cb-4fa5-8c15-3c9a51443846",
-      "question": "What is the purpose of the A-SEANet algorithm?",
-      "task_type": "rag",
-      "intent_level": "L1",
-      "library_id": "lib-b07ed174",
-      "doc_ids": [],
-      "difficulty": "medium",
-      "tags": [
-        "text",
-        "abstractive",
-        "2404.18501v3",
-        "refusal"
-      ],
-      "question_family": "unanswerable",
-      "canonical_question_id": "",
-      "variant_type": "canonical",
-      "perturbation_tags": [],
-      "retrieval": null,
-      "answer": {
-        "gold_answer": "The purpose of the A-SEANet algorithm is to explore multi-modal interaction by using a contrastive learning-based approach to involve an additional loss function, aiming to guide the framework in learning multi-modal temporal interaction.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
