@@ -174,6 +174,8 @@ export interface ExportStatus {
   total_bytes: number
   percent: number
   error: string
+  /** 服务端距上次有字节产出多久（秒）；running 时才有值，用于区分「在跑」与「卡住」 */
+  idle_seconds?: number | null
 }
 
 export const knowledgeApi = {

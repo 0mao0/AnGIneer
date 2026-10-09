@@ -38,10 +38,7 @@
         </a-button>
       </div>
       <div class="ml-page-header-right">
-        <a-button @click="showHistory = true">
-          <template #icon><history-outlined /></template>
-          迁移记录
-        </a-button>
+        <a-button type="link" @click="showHistory = true">迁移记录</a-button>
       </div>
     </div>
 
@@ -261,10 +258,11 @@
  */
 import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { Modal, message } from 'ant-design-vue'
-import { DownOutlined, DownloadOutlined, HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
+import { DownOutlined, DownloadOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import { isMigrationTerminal, knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
+import { GROUP_LABELS, groupLabel } from './kb-group-label'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 import SplitMergeWizardModal from './kb-migration/SplitMergeWizardModal.vue'
 import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
@@ -286,18 +284,9 @@ const saving = ref(false)
 const deleting = ref(false)
 
 /** 展示组名与外服/内测 tab 口径一致：注册组中文显示，未知组直出原名。
- *  standards 组虽含不可删的默认库，但其内容（默认知识库等）就是生产问答的消费对象，业务域仍是外服。 */
-const GROUP_LABELS: Record<string, string> = {
-  system: '外服 · 系统库',
-  standards: '外服 · 规范库',
-  dredgeai: '外服 · DredgeAI',
-  evals: '内测 · 评测语料',
-}
-
+ *  映射表已抽到 kb-group-label.ts 共用（导出弹框等别处也要显示组名，避免两处漂移）。 */
 function groupName(name: string) {
-  if (GROUP_LABELS[name]) return GROUP_LABELS[name]
-  // 自定义组：显示名跟后端 display_name
-  return groups.value.find((g) => g.group_name === name)?.display_name || name
+  return groupLabel(name, groups.value)
 }
 
 /** 组下拉 = 内置三组 + 已建自定义组（后端聚合含空组，新建后即时可选） */
@@ -305,7 +294,7 @@ const groupOptions = computed(() => {
   const opts = Object.entries(GROUP_LABELS).map(([value, label]) => ({ value, label }))
   const builtin = new Set(opts.map((o) => o.value))
   for (const g of groups.value) {
-    if (!builtin.has(g.group_name)) opts.push({ value: g.group_name, label: g.display_name || g.group_name })
+    if (!builtin.has(g.group_name)) opts.push({ value: g.group_name, label: groupLabel(g.group_name, groups.value) })
   }
   return opts
 })

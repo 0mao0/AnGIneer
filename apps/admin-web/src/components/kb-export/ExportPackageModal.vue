@@ -78,7 +78,8 @@
         size="default"
       />
       <p class="exp-hint">
-        <template v-if="status?.stage === 'snapshot'">
+        <template v-if="confirming">数据已收完，正在确认服务端完成…</template>
+        <template v-else-if="status?.stage === 'snapshot'">
           正在生成向量快照，此阶段没有字节输出，约 1-3 分钟。
         </template>
         <template v-else-if="status?.stage === 'stream'">
@@ -89,13 +90,26 @@
       <p class="exp-hint exp-hint-dim" v-if="savingMode === 'anchor' && downloadStarted">
         浏览器已开始下载（可在下载栏查看进度）。此处取消会中止服务端导出，浏览器侧留下的是不完整文件，请删除。
       </p>
+      <a-alert
+        v-if="stalled"
+        type="warning"
+        show-icon
+        class="exp-warn"
+        :message="`服务端已 ${status?.idle_seconds}s 没有数据推进，可能已卡住；再等一会若仍不动，请取消后重试。`"
+      />
     </template>
 
     <!-- ③ 完成态 -->
     <template v-else-if="state === 'done'">
       <a-result status="success" title="导出完成" :sub-title="doneSubTitle" />
-      <p class="exp-hint" v-if="savingMode === 'anchor'">文件已保存到浏览器下载目录。</p>
-      <p class="exp-hint" v-else>文件已保存到你选择的位置。</p>
+      <p class="exp-hint">
+        <template v-if="savingMode === 'anchor'">
+          文件已保存到浏览器下载目录：<b>{{ savedFileName }}</b>
+        </template>
+        <template v-else>
+          文件已保存：<b>{{ savedFileName }}</b>
+        </template>
+      </p>
     </template>
 
     <!-- ④ 取消态 -->
@@ -114,6 +128,7 @@
 import { computed, ref, watch } from 'vue'
 import { message } from 'ant-design-vue'
 import { knowledgeApi, type ExportPreview, type ExportStatus, type LibraryGroupItem } from '@/api/knowledge'
+import { groupLabel } from '@/components/kb-group-label'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 
 const props = defineProps<{
@@ -138,14 +153,20 @@ const savedBytes = ref(0)
 /** 保存通道：fsAccess=File System Access API（可精确计数、可弃写）；anchor=浏览器原生下载 */
 const savingMode = ref<'fsAccess' | 'anchor'>('anchor')
 const downloadStarted = ref(false)
+/** 数据已收完、正在等服务端确认完成（这中间服务端可能还要一两秒才落终态） */
+const confirming = ref(false)
+/** 落盘文件名（完成态展示；浏览器不给路径，只能给到名字） */
+const savedFileName = ref('')
 
 let taskId = ''
 let pollTimer: number | null = null
 let pollFailCount = 0
 let unknownCount = 0
+/** 正在请求/已展示的库组合键：同键不重复请求（兼作结果归属判据） */
+let previewKey = ''
 
 const groupOptions = computed(() =>
-  props.groups.map((g) => ({ value: g.group_name, label: g.display_name || g.group_name })),
+  props.groups.map((g) => ({ value: g.group_name, label: groupLabel(g.group_name, props.groups) })),
 )
 
 const libsInGroup = computed<KnowledgeLibraryItem[]>(() => {
@@ -183,6 +204,22 @@ function formatBytes(n: number): string {
 
 const doneSubTitle = computed(() => `已导出 ${formatBytes(savedBytes.value || status.value?.total_bytes || 0)}`)
 
+/** 默认文件名：一眼认得出是哪一组、哪天的包（原来叫 corpus-<库id>.zip，机器名）。
+ *  浏览器不给文件夹路径（File System Access 只暴露文件名），所以名字本身要能自解释。 */
+function suggestFileName(): string {
+  const short = groupLabel(groupName.value, props.groups).split('·').pop()?.trim() || '语料包'
+  const d = new Date()
+  const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`
+  return `语料包-${short}-${ymd}.zip`
+}
+
+/** 服务端「卡住」判据：还在 running 但超过 15 秒没有新的字节产出（快照阶段本就不出字节，故门槛放宽） */
+const stalled = computed(() =>
+  status.value?.status === 'running'
+  && (status.value?.stage === 'stream')
+  && (status.value?.idle_seconds ?? 0) > 15,
+)
+
 function onToggleAll(e: any) {
   selectedLibs.value = e.target.checked ? libsInGroup.value.map((l) => l.id) : []
 }
@@ -195,17 +232,27 @@ function onGroupChange() {
 }
 
 async function loadPreview() {
-  if (!selectedLibs.value.length) {
+  const libs = [...selectedLibs.value]
+  if (!libs.length) {
     preview.value = null
     return
   }
+  // 同参数请求去重：打开弹框时「设置默认全选」与 selectedLibs 的 watch 会各触发一次，
+  // 不去重就发两份一样的请求（服务端要各扫一遍 2 万多个文件）
+  const key = libs.join(',')
+  if (key === previewKey) return
+  previewKey = key
   loadingPreview.value = true
   try {
-    preview.value = await knowledgeApi.previewExport(selectedLibs.value)
+    const result = await knowledgeApi.previewExport(libs)
+    if (key === previewKey) preview.value = result   // 只认最新一次的结果
   } catch (e: any) {
-    message.error('预估失败：' + (e?.response?.data?.detail || e?.message || e))
+    if (key === previewKey) {
+      previewKey = ''
+      message.error('预估失败：' + (e?.response?.data?.detail || e?.message || e))
+    }
   } finally {
-    loadingPreview.value = false
+    if (key === previewKey) loadingPreview.value = false
   }
 }
 
@@ -223,6 +270,7 @@ watch(
     downloadStarted.value = false
     pollFailCount = 0
     unknownCount = 0
+    previewKey = ''            // 每次打开都重新算（关掉期间库可能变了）
     groupName.value = props.defaultGroup || props.groups[0]?.group_name || 'standards'
     selectedLibs.value = libsInGroup.value.map((l) => l.id)
     void loadPreview()
@@ -308,6 +356,7 @@ async function runExport() {
     } else {
       // 原生下载：带不上请求头，靠一次性 ticket 鉴权；进度由轮询给出
       savingMode.value = 'anchor'
+      savedFileName.value = suggestFileName()
       const a = document.createElement('a')
       a.href = url
       a.download = ''
@@ -325,10 +374,11 @@ async function runExport() {
 
 /** Chromium 系：边下边写盘，可精确计数；未跑完就取消时**弃写**，不落半截文件 */
 async function streamToFilePicker(picker: any, url: string) {
-  const suggested = `corpus-${selectedLibs.value.join('-').slice(0, 40)}.zip`
+  const suggested = suggestFileName()
   let writable: any = null
   try {
     const handle = await picker({ suggestedName: suggested, types: [{ description: '语料包', accept: { 'application/zip': ['.zip'] } }] })
+    savedFileName.value = handle?.name || suggested
     writable = await handle.createWritable()
     const resp = await fetch(url)
     if (!resp.ok || !resp.body) throw new Error(`HTTP ${resp.status}`)
@@ -341,12 +391,24 @@ async function streamToFilePicker(picker: any, url: string) {
     }
     // 流正常收尾不等于导出成功：取消/失败也会让连接正常闭合（chunked 无 Content-Length），
     // 必须回查终态，否则半截 zip 会被当成品保存。
+    confirming.value = true
     const final = await waitTerminalStatus()
+    confirming.value = false
     if (final === 'completed') {
       await writable.close()
+      // 不等轮询下一拍：文件已落盘且服务端已确认，直接进完成态（否则会在「打包中 100%」多停 1~2 秒）
+      stopPolling()
+      state.value = 'done'
     } else {
-      await writable.abort()
-      throw new Error(final === 'cancelled' ? '__CANCELLED__' : '导出未完成，未保存文件')
+      await writable.abort()   // 弃写：半截 zip 不留
+      if (final === 'cancelled') throw new Error('__CANCELLED__')
+      if (final === 'unknown') {
+        // 服务端始终没确认完成——多半是它那边的任务没收尾（客户端断连后生成器挂在挂起点）。
+        // 先发取消把服务端任务清掉（否则单飞闸会挡住下一次导出），再如实告诉用户。
+        void knowledgeApi.cancelExport(taskId).catch(() => {})
+        throw new Error('服务端始终未确认导出完成（任务可能已僵死，已请其回收），请重试')
+      }
+      throw new Error('服务端报告导出失败，未保存文件')
     }
   } catch (e: any) {
     if (writable) { try { await writable.abort() } catch { /* 已关闭 */ } }
@@ -358,9 +420,12 @@ async function streamToFilePicker(picker: any, url: string) {
   }
 }
 
-/** 等任务落到终态（流收尾与服务端落状态之间有毫秒级竞态） */
+/** 等任务落到终态。
+ *  流正常收尾与服务端落状态之间有毫秒级竞态，但**服务端可能根本没落**（客户端断连后生成器
+ *  停在挂起点不收尾）——所以要等够久，并把「服务端一直没确认」如实报给用户，
+ *  而不是含糊地说一句「导出未完成」（2026-10-09 业主实报：文件涨到一半又变 0 字节）。 */
 async function waitTerminalStatus(): Promise<string> {
-  for (let i = 0; i < 10; i += 1) {
+  for (let i = 0; i < 24; i += 1) {   // ≈12s
     try {
       const s = await knowledgeApi.getExportStatus(taskId)
       if (['completed', 'failed', 'cancelled'].includes(s.status)) return s.status
@@ -421,10 +486,17 @@ async function onCancel() {
   max-height: 220px;
   overflow-y: auto;
 }
+/* 用 flex 而**不是** display:block：antd 的 .ant-checkbox 是 flex 子项，被 block 容器接住后
+   会撑满整行、把库名挤到第二行（2026-10-09 业主发现）。flex 让勾选框按内容宽度排在同一行。 */
 .exp-lib-item {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-left: 0;
   line-height: 24px;
+}
+/* 库列表缩进到「全选」之下，表示从属关系 */
+.exp-libs :deep(.ant-checkbox-group) {
+  padding-left: 24px;
 }
 .exp-lib-id {
   margin-left: 6px;
