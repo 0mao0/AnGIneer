@@ -33,6 +33,7 @@ from orchestrator import parse_orchestrator
 from startup_recovery import (reconcile_stale_parse_tasks, reconcile_stale_records,
                               reconcile_stale_migration_tasks)
 from kb_migration_routes import kb_migration_router, get_runner as get_migration_runner
+from export_routes import export_router
 from models.user import ensure_admin_user
 
 app = FastAPI(
@@ -122,6 +123,7 @@ app.add_middleware(APIKeyAuthMiddleware, scope="doc")
 
 app.include_router(docs_router, prefix="/api/knowledge", tags=["Knowledge"])
 app.include_router(kb_migration_router, prefix="/api/knowledge", tags=["Knowledge Migration"])
+app.include_router(export_router, prefix="/api/knowledge", tags=["Knowledge Export"])
 app.include_router(retrieve_router, prefix="/api/knowledge", tags=["Knowledge Internal"])
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
