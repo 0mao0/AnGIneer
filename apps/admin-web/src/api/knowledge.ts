@@ -129,6 +129,15 @@ export interface MigrationTask {
   rollback_deadline?: string
   created_at: string
 }
+
+/** 迁移任务终态（不再变化）。抽屉停轮询与总览刷新判断共用这一处，避免两份清单漂移。 */
+export const MIGRATION_TERMINAL_STATUSES = [
+  'completed', 'failed', 'cancelled', 'cancel_failed', 'interrupted', 'switch_reload_failed',
+] as const
+
+export function isMigrationTerminal(status?: string): boolean {
+  return !!status && (MIGRATION_TERMINAL_STATUSES as readonly string[]).includes(status)
+}
 export interface LibraryVolume {
   library_id: string
   name: string

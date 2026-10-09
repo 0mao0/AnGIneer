@@ -88,7 +88,7 @@
                   体量偏大，建议评估拆分
                 </a-tag>
               </div>
-              <div class="ml-lib-id" :title="record.id">{{ record.id }}{{ collectionLabel(record.collection) ? ` · ${collectionLabel(record.collection)}` : '' }}</div>
+              <div class="ml-lib-id" :title="record.id">{{ record.id }}{{ record.collection ? ` · ${record.collection}` : '' }}</div>
             </template>
             <template v-else-if="column.key === 'group'">
               <a-tag :color="record.known_group ? 'geekblue' : 'orange'">{{ groupName(record.group_name) }}</a-tag>
@@ -233,7 +233,12 @@
     <!-- 拆分/合并向导 + 迁移记录 + 任务详情（kb-split-merge Task 15-18） -->
     <SplitMergeWizardModal v-model:open="showSplit" :library="migrationLib" @submitted="onMigrationSubmitted" />
     <MigrationHistoryModal v-model:open="showHistory" @open-task="(id: string) => (activeTaskId = id)" />
-    <MigrationTaskDrawer :open="!!activeTaskId" :task-id="activeTaskId" @close="activeTaskId = ''" />
+    <MigrationTaskDrawer
+      :open="!!activeTaskId"
+      :task-id="activeTaskId"
+      @close="activeTaskId = ''"
+      @settled="onMigrationSettled"
+    />
 
     <!-- 语料包导出（服务端流式打包，不落盘） -->
     <ExportPackageModal v-model:open="showExport" :groups="groups" :default-group="groupFilter || ''" />
@@ -259,7 +264,7 @@ import { Modal, message } from 'ant-design-vue'
 import { DownOutlined, DownloadOutlined, HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
-import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
+import { isMigrationTerminal, knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 import SplitMergeWizardModal from './kb-migration/SplitMergeWizardModal.vue'
 import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
@@ -275,6 +280,8 @@ const knowledgeView = inject<Ref<'multilib' | 'maintenance' | 'nightly' | 'aicha
 
 const groups = ref<LibraryGroupItem[]>([])
 const loading = ref(false)
+/** load() 调用序号：并发时只有最后一次能收掉刷新圈（否则先回来的旧调用会让按钮提前停转） */
+let loadSeq = 0
 const saving = ref(false)
 const deleting = ref(false)
 
@@ -310,10 +317,10 @@ const flatLibraries = computed(() =>
   ),
 )
 
-/** 集合名显示口径（2026-10-09 业主定版）：默认库所在的 standards 集合对外显示 system；
- *  存储标识（库注册表 collection 字段 / qdrant 集合名）不动——真改名需迁移，另开单 */
-const COLLECTION_LABELS: Record<string, string> = { standards: 'system' }
-const collectionLabel = (c?: string) => (c ? COLLECTION_LABELS[c] || c : '')
+// 集合名直接显示底层的真实值（库注册表 collection 字段 / qdrant 集合名），不做任何改名翻译。
+// 曾有一张 { standards: 'system' } 的显示映射（2026-10-09 定版，当时 standards 还是系统库的集合）：
+// 后来底层真改名（guifan→standards、旧 standards→system，注册表/物理文件/qdrant 集合全搬），
+// 该映射就成了张冠李戴——把规范库的 standards 标成 system（2026-10-09 业主发现），故删除。
 
 // 筛选栏（克隆详情 tab 筛选条）：库名模糊；组精确筛选走标题组切换下拉（同一 groupFilter 状态源；
 // 2026-10-09 业主定版无「全部组」——load() 里默认归位第一个知识组）
@@ -431,6 +438,8 @@ async function loadMigrationState() {
     }
     activeTaskIdByLib.value = byLib
     migratedLibIds.value = migrated
+    // 页面刷新/切回时若已有迁移在跑，也要盯到它收尾（否则这次入口没有刷新钩子）
+    if (byLib.size && !migrationWatchTaskId) watchMigration(byLib.values().next().value as string)
   } catch {
     // 迁移态失败不影响库列表主功能
   }
@@ -489,24 +498,80 @@ function onMigrationSubmitted(taskId: string) {
   activeTaskId.value = taskId
   void loadMigrationState()
   void load()
+  watchMigration(taskId)
 }
 
-/** forceVolumes=true（刷新按钮）时体量列强制重算，绕过服务端 5 分钟缓存（2026-10-09 业主定版） */
+/** 迁移收尾自动刷新总览（2026-10-09 业主：拆并完成后不刷新，用户以为没成功）。
+ *  入库点只有任务行知道：总览的库清单与体量表在任务跑完那一刻才变，提交时刷的是旧数据。
+ *  两条触发合流到 settleMigration：① 抽屉看着它跑到终态（秒级）；② 本页盯着这个任务
+ *  （抽屉被提前关掉时兜底，5s 一次）。 */
+let migrationWatchTaskId = ''
+let migrationWatchTimer: number | null = null
+
+function watchMigration(taskId: string) {
+  if (!taskId) return
+  migrationWatchTaskId = taskId
+  if (migrationWatchTimer !== null) return
+  migrationWatchTimer = window.setInterval(() => { void pollMigration() }, 5000)
+}
+
+function stopMigrationWatch() {
+  if (migrationWatchTimer !== null) {
+    window.clearInterval(migrationWatchTimer)
+    migrationWatchTimer = null
+  }
+}
+
+async function pollMigration() {
+  if (!migrationWatchTaskId) {
+    stopMigrationWatch()
+    return
+  }
+  try {
+    const t = await knowledgeApi.getMigration(migrationWatchTaskId)
+    if (isMigrationTerminal(t.status)) settleMigration(t.status)
+  } catch {
+    // 瞬时失败下一轮再试（与抽屉同口径，不在这里判死）
+  }
+}
+
+/** 收尾处理（幂等：抽屉与轮询都可能先到，先到者生效） */
+function settleMigration(status: string) {
+  if (!migrationWatchTaskId) return
+  migrationWatchTaskId = ''
+  stopMigrationWatch()
+  message.success(status === 'completed' ? '迁移已完成，列表已刷新' : '迁移任务已结束，列表已刷新')
+  // 体量列走服务端 5 分钟缓存，这里强制重算，否则看到的还是迁移前的数字
+  void load(true)
+}
+
+function onMigrationSettled(status: string) {
+  settleMigration(status)
+}
+
+/** forceVolumes=true（刷新按钮）时体量列强制重算，绕过服务端 5 分钟缓存（2026-10-09 业主定版）。
+ *
+ *  **按钮转圈要盖住体量列**：块/向量/磁盘三列的数据源是 /migrations/volumes（要遍历各库目录 +
+ *  向 qdrant 逐库计数，强算时更慢）。只等库清单就关 loading，会出现「按钮不转了但三列还是旧数」
+ *  ——用户据此判断刷新没生效（2026-10-09 业主）。三路都落了才收圈。 */
 async function load(forceVolumes = false) {
+  const seq = ++loadSeq          // 并发调用时由最后一次决定何时收圈，避免旧的先回来把圈关掉
   loading.value = true
   try {
-    groups.value = sortGroupsForDisplay(await knowledgeApi.getLibraryGroups())
-    // 默认显示第一个知识组（2026-10-09 业主定版，原「全部组」已删）：无选中或选中组已不存在时归位显示序第一个
-    if (!groups.value.some((g) => g.group_name === groupFilter.value)) {
-      groupFilter.value = groups.value[0]?.group_name || undefined
+    try {
+      groups.value = sortGroupsForDisplay(await knowledgeApi.getLibraryGroups())
+      // 默认显示第一个知识组（2026-10-09 业主定版，原「全部组」已删）：无选中或选中组已不存在时归位显示序第一个
+      if (!groups.value.some((g) => g.group_name === groupFilter.value)) {
+        groupFilter.value = groups.value[0]?.group_name || undefined
+      }
+    } catch (err) {
+      message.error(`加载库组失败：${(err as Error).message}`)
     }
-  } catch (err) {
-    message.error(`加载库组失败：${(err as Error).message}`)
+    // 两者各自吞错不抛，await 只为收圈时机
+    await Promise.all([loadMigrationState(), loadVolumes(forceVolumes)])
   } finally {
-    loading.value = false
+    if (seq === loadSeq) loading.value = false
   }
-  void loadMigrationState()
-  void loadVolumes(forceVolumes)
 }
 
 // ── 新建 ──

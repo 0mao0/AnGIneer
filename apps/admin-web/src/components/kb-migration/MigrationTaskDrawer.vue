@@ -127,7 +127,7 @@
 <script setup lang="ts">
 import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
 import { Modal, message } from 'ant-design-vue'
-import { knowledgeApi, type MigrationTask } from '@/api/knowledge'
+import { isMigrationTerminal, knowledgeApi, type MigrationTask } from '@/api/knowledge'
 
 const props = defineProps<{
   open: boolean
@@ -137,6 +137,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'update:open', v: boolean): void
   (e: 'close'): void
+  /** 任务落到终态（父页面据此刷新总览：库清单/体量只有跑完才变） */
+  (e: 'settled', status: string): void
 }>()
 
 const task = ref<MigrationTask | null>(null)
@@ -148,7 +150,6 @@ const auditRows = ref<any[]>([])
 let pollTimer: number | null = null
 let pollFailCount = 0
 
-const TERMINAL = ['completed', 'failed', 'cancelled', 'cancel_failed', 'interrupted', 'switch_reload_failed']
 
 const opLabels: Record<string, string> = {
   split: '拆分', merge: '合并', rollback: '回滚',
@@ -256,6 +257,7 @@ async function fetchOnce() {
   try {
     task.value = await knowledgeApi.getMigration(props.taskId)
     pollFailCount = 0
+    notifySettled()
   } catch (e: any) {
     pollFailCount += 1
     // 瞬时失败不中断轮询；连续 5 次才停（克隆 useKnowledgeParse 容错口径）
@@ -268,12 +270,30 @@ async function fetchOnce() {
   }
 }
 
+/** 任务落到终态时通知父页面（父页面据此刷新总览列表）。
+ *  收尾只有这里知道：总览的库清单/体量在任务跑完那一刻才变，父页面在「提交」时刷的是旧数据。
+ *  只对「看着它从进行中跑到结束」的任务通知——打开一条历史已完成任务不需要刷总览。 */
+const emitSettled = () => emit('settled', task.value?.status || '')
+let sawRunning = false
+let settledTaskId = ''
+function notifySettled() {
+  const t = task.value
+  if (!t) return
+  if (!isMigrationTerminal(t.status)) {
+    sawRunning = true
+    return
+  }
+  if (!sawRunning || settledTaskId === t.id) return
+  settledTaskId = t.id
+  emitSettled()
+}
+
 function startPolling() {
   stopPolling()
   pollTimer = window.setInterval(() => {
     const s = task.value?.status
     if (!props.open || !props.taskId) return
-    if (s && TERMINAL.includes(s)) {
+    if (isMigrationTerminal(s)) {
       stopPolling()
       return
     }
