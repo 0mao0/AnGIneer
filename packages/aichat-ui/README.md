@@ -41,6 +41,11 @@ function onSelectCitation(citation: AIChatCitation) { /* ... */ }
 
 自定义对话逻辑可用 `useAIChat` Composable（暴露 `messages` / `loading` / `currentStreamContent` / `liveThinkingSteps` / `sendMessage` / `stopGeneration` / `clearMessages` / `startNewChat` 等）。
 
+**模型 × 思考等级**：默认单下拉（`models` 平铺项）。传 `model-groups`（`[{ key, label, levels: [{ label, value }] }]`，`levels[0]`＝该模型默认档、`value`＝发送后端的配置名）则改为「模型 + 思考等级」两个下拉；组内只有一档时档位下拉自动隐藏。`AIChat` 会自动按底层 `model` 归并 `fetchModels()` 结果生成分组，无需宿主准备。
+
+**多库勾选**：`library-multi` 开启多选，`library-values` 传勾选集合（`@update:library-values` 回传）。
+下拉默认平铺选项；再传 `library-sections`（`{ key, label, libraries: [{ id, name }] }[]`，label/name 由宿主解析成人类可读名，组件不做 id→名映射）则渲染「组 → 库」两级勾选（组行可整勾、组内库行可单勾）。
+
 ## 导出
 
 - 组件：`AIChat`、`BaseChat`、`CitationInline`、`CitationMentionPanel`、`CitationPopover`、`CitationRichContent`、`InlineCitationEditor`

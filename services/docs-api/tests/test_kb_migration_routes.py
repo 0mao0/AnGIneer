@@ -159,3 +159,21 @@ def test_endpoints_require_admin(client):
     c = TestClient(app)
     resp = c.get("/api/knowledge/migrations")
     assert resp.status_code == 401
+
+
+def test_volumes_refresh_forces_rescan(client, monkeypatch):
+    """refresh=1（面板刷新按钮）强制重扫绕过 5 分钟缓存；不带参仍读缓存（2026-10-09 业主定版）。"""
+    c, _mig = client
+    import types
+    from docs_core import library_registry
+    monkeypatch.setattr(library_registry, "list_libraries", lambda: [
+        types.SimpleNamespace(library_id="lib-a", name="A", status="active", collection="g1")])
+    # 预热缓存为哨兵（at 极大值=永不过期，不引 time）
+    monkeypatch.setattr(kmr, "_VOLUMES_CACHE", {"at": 1e18, "data": {"volumes": [], "thresholds": {}}})
+    cached = c.get("/api/knowledge/migrations/volumes")
+    assert cached.status_code == 200
+    assert cached.json()["volumes"] == []                 # 命中缓存（哨兵）
+    forced = c.get("/api/knowledge/migrations/volumes?refresh=1")
+    assert forced.status_code == 200
+    assert [v["library_id"] for v in forced.json()["volumes"]] == ["lib-a"]   # 绕过缓存真重扫
+    assert forced.json()["thresholds"]["docs"] == 1000    # 重扫后回写缓存（阈值来自真实常量）

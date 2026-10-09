@@ -26,6 +26,22 @@ export interface QueuedMessage {
   citations: CitationBinding[]
 }
 
+/** 知识库两级分组（组 → 库）：宿主传入后多选下拉按「组行可整勾 + 组内库行可勾」两级渲染；
+ *  不传沿用平铺选项（向后兼容）。label/name 由宿主解析成人类可读名，组件不做 id→名 映射 */
+export interface BaseChatLibrarySection {
+  key: string
+  label: string
+  libraries: Array<{ id: string; name: string }>
+}
+
+/** 模型分组（2026-10-09 业主定版）：模型下拉 × 思考等级下拉。
+ *  levels[0] 视为该模型默认档；level.value 即发送给后端的配置名（组件原样透传，不做语义解析） */
+export interface BaseChatModelGroup {
+  key: string
+  label: string
+  levels: Array<{ label: string; value: string }>
+}
+
 export interface BaseChatCitation {
   target_id: string
   target_type?: string
@@ -239,10 +255,3 @@ export interface AIChatContextConfig {
   compressionThreshold: number
 }
 
-/**
- * 基础聊天组件模型选项
- */
-export interface BaseChatModelOption {
-  value: string
-  label: string
-}

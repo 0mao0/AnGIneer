@@ -140,6 +140,33 @@ export interface LibraryVolume {
   updated_at?: string
 }
 
+// ---- 语料包导出（docs/design-kb-export-ui.md）----
+// 服务端不落盘：边读边打包边出网。进度以后端 status 为准（字节口径），前端只展示。
+export interface ExportPreview {
+  libraries: { library_id: string; name: string; group_name: string; collection: string }[]
+  files_bytes: number
+  file_count: number
+  sqlite_bytes: number
+  snapshot_estimate: number
+  total_estimate: number
+  /** 同组未全选的警告（共用 sqlite，包内仍含未勾选库的索引数据） */
+  warnings: string[]
+  /** 同组未选中的库（含空库）；空库不在可选清单，不能建议「全选」 */
+  peers: { library_id: string; name: string }[]
+  selectable_library_ids: string[]
+  active_task_id: string | null
+}
+export interface ExportStatus {
+  task_id: string
+  status: 'running' | 'completed' | 'failed' | 'cancelled' | 'unknown'
+  stage: string
+  message: string
+  bytes_out: number
+  total_bytes: number
+  percent: number
+  error: string
+}
+
 export const knowledgeApi = {
   getLibraries: () => api.get('/knowledge/libraries'),
   createLibrary: (name: string, description: string = '', groupName: string = '') =>
@@ -435,8 +462,24 @@ export const knowledgeApi = {
     api.post(`/knowledge/migrations/${taskId}/rollback`) as Promise<{ task_id: string; message: string }>,
   getMigrationAudit: (params?: { offset?: number; limit?: number }) =>
     api.get('/knowledge/migrations/audit', { params }) as Promise<{ entries: any[]; total: number }>,
-  getLibraryVolumes: () =>
-    api.get('/knowledge/migrations/volumes') as Promise<{ volumes: LibraryVolume[]; thresholds: { docs: number; vectors: number; disk_bytes: number } }>,
+  /** 体量看板：默认走服务端 5 分钟缓存；refresh=true（面板刷新按钮）强制重扫 */
+  getLibraryVolumes: (refresh = false) =>
+    api.get('/knowledge/migrations/volumes', refresh ? { params: { refresh: 1 } } : undefined) as Promise<{ volumes: LibraryVolume[]; thresholds: { docs: number; vectors: number; disk_bytes: number } }>,
+
+  // ---- 语料包导出（服务端流式，不落盘）----
+  previewExport: (libraries: string[]) =>
+    api.post('/knowledge/exports/preview', { libraries }) as Promise<ExportPreview>,
+  /** 一次性下载凭据：浏览器「另存为」/原生下载带不上 Authorization 头，用票换下载权（120s、单次） */
+  issueExportTicket: (taskId: string, libraries: string[]) =>
+    api.post('/knowledge/exports/ticket', { task_id: taskId, libraries }) as Promise<{ ticket: string; expires_in: number }>,
+  getExportStatus: (taskId: string) =>
+    api.get(`/knowledge/exports/${taskId}/status`) as Promise<ExportStatus>,
+  cancelExport: (taskId: string) =>
+    api.post(`/knowledge/exports/${taskId}/cancel`) as Promise<{ status: string; message: string }>,
+  /** 导出流地址（供 <a download> 或 fetch 直取；ticket 必带，否则需 Bearer） */
+  exportStreamUrl: (taskId: string, libraries: string[], ticket: string) =>
+    `/api/knowledge/exports/stream?task_id=${encodeURIComponent(taskId)}` +
+    `&libraries=${encodeURIComponent(libraries.join(','))}&ticket=${encodeURIComponent(ticket)}`,
 }
 
 export interface ParseRecordItem {

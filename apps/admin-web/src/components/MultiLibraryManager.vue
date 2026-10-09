@@ -5,6 +5,7 @@
     <!-- 第一行：左=组切换下拉（详情标题同款）+刷新+建组加号，右=迁移记录 -->
     <div class="ml-page-header">
       <div class="ml-page-header-left">
+        <!-- 组切换下拉（2026-10-09 业主定版：删「全部组」选项，默认选中第一个知识组） -->
         <a-dropdown :trigger="['click']">
           <div class="ml-group-trigger">
             <a-tag v-if="titleDomain" class="ml-domain-tag" :color="titleDomain === '外服' ? 'blue' : 'purple'">
@@ -14,8 +15,7 @@
             <down-outlined class="ml-group-caret" />
           </div>
           <template #overlay>
-            <a-menu :selected-keys="[groupFilter || '__all__']" @click="onGroupMenuClick">
-              <a-menu-item key="__all__">知识库（全部组）</a-menu-item>
+            <a-menu :selected-keys="groupFilter ? [groupFilter] : []" @click="onGroupMenuClick">
               <a-menu-item v-for="opt in groupMenuOptions" :key="opt.value">
                 <span class="ml-menu-group">
                   <a-tag v-if="opt.domain" :color="opt.domain === '外服' ? 'blue' : 'purple'" style="margin: 0">
@@ -27,11 +27,14 @@
             </a-menu>
           </template>
         </a-dropdown>
-        <a-button :loading="loading" title="刷新" @click="load">
+        <a-button :loading="loading" title="刷新（体量列强制重算）" @click="() => load(true)">
           <template #icon><reload-outlined /></template>
         </a-button>
         <a-button title="新建知识库组" @click="openCreateGroup">
           <template #icon><plus-outlined /></template>
+        </a-button>
+        <a-button title="导出语料包" @click="showExport = true">
+          <template #icon><download-outlined /></template>
         </a-button>
       </div>
       <div class="ml-page-header-right">
@@ -85,7 +88,7 @@
                   体量偏大，建议评估拆分
                 </a-tag>
               </div>
-              <div class="ml-lib-id" :title="record.id">{{ record.id }}{{ record.collection ? ` · ${record.collection}` : '' }}</div>
+              <div class="ml-lib-id" :title="record.id">{{ record.id }}{{ collectionLabel(record.collection) ? ` · ${collectionLabel(record.collection)}` : '' }}</div>
             </template>
             <template v-else-if="column.key === 'group'">
               <a-tag :color="record.known_group ? 'geekblue' : 'orange'">{{ groupName(record.group_name) }}</a-tag>
@@ -232,6 +235,9 @@
     <MigrationHistoryModal v-model:open="showHistory" @open-task="(id: string) => (activeTaskId = id)" />
     <MigrationTaskDrawer :open="!!activeTaskId" :task-id="activeTaskId" @close="activeTaskId = ''" />
 
+    <!-- 语料包导出（服务端流式打包，不落盘） -->
+    <ExportPackageModal v-model:open="showExport" :groups="groups" :default-group="groupFilter || ''" />
+
     <!-- 实体审核（原 LibrarySelect 下拉图标入口整体迁入，spec v2.3） -->
     <EntityReviewDrawer
       v-model:open="reviewOpen"
@@ -250,7 +256,7 @@
  */
 import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { Modal, message } from 'ant-design-vue'
-import { DownOutlined, HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
+import { DownOutlined, DownloadOutlined, HistoryOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
@@ -258,6 +264,7 @@ import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 import SplitMergeWizardModal from './kb-migration/SplitMergeWizardModal.vue'
 import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
 import MigrationTaskDrawer from './kb-migration/MigrationTaskDrawer.vue'
+import ExportPackageModal from './kb-export/ExportPackageModal.vue'
 import EntityReviewDrawer from './EntityReviewDrawer.vue'
 
 const { appClass } = useTheme()
@@ -274,7 +281,8 @@ const deleting = ref(false)
 /** 展示组名与外服/内测 tab 口径一致：注册组中文显示，未知组直出原名。
  *  standards 组虽含不可删的默认库，但其内容（默认知识库等）就是生产问答的消费对象，业务域仍是外服。 */
 const GROUP_LABELS: Record<string, string> = {
-  standards: '外服 · 系统库',
+  system: '外服 · 系统库',
+  standards: '外服 · 规范库',
   dredgeai: '外服 · DredgeAI',
   evals: '内测 · 评测语料',
 }
@@ -302,7 +310,13 @@ const flatLibraries = computed(() =>
   ),
 )
 
-// 筛选栏（克隆详情 tab 筛选条）：库名模糊；组精确筛选走标题组切换下拉（同一 groupFilter 状态源，清空=全部组在其菜单内）
+/** 集合名显示口径（2026-10-09 业主定版）：默认库所在的 standards 集合对外显示 system；
+ *  存储标识（库注册表 collection 字段 / qdrant 集合名）不动——真改名需迁移，另开单 */
+const COLLECTION_LABELS: Record<string, string> = { standards: 'system' }
+const collectionLabel = (c?: string) => (c ? COLLECTION_LABELS[c] || c : '')
+
+// 筛选栏（克隆详情 tab 筛选条）：库名模糊；组精确筛选走标题组切换下拉（同一 groupFilter 状态源；
+// 2026-10-09 业主定版无「全部组」——load() 里默认归位第一个知识组）
 const libFilter = ref('')
 const groupFilter = ref<string | undefined>(undefined)
 
@@ -348,9 +362,9 @@ const columns = [
 const volumesById = ref(new Map<string, { docs: number; chunks: number; vectors: number; disk_bytes: number; updated_at?: string }>())
 const volumeThresholds = ref<{ docs: number; vectors: number; disk_bytes: number } | null>(null)
 
-async function loadVolumes() {
+async function loadVolumes(force = false) {
   try {
-    const resp = await knowledgeApi.getLibraryVolumes()
+    const resp = await knowledgeApi.getLibraryVolumes(force)
     volumesById.value = new Map(resp.volumes.map((v) => [v.library_id, v]))
     volumeThresholds.value = resp.thresholds
   } catch {
@@ -477,17 +491,22 @@ function onMigrationSubmitted(taskId: string) {
   void load()
 }
 
-async function load() {
+/** forceVolumes=true（刷新按钮）时体量列强制重算，绕过服务端 5 分钟缓存（2026-10-09 业主定版） */
+async function load(forceVolumes = false) {
   loading.value = true
   try {
     groups.value = sortGroupsForDisplay(await knowledgeApi.getLibraryGroups())
+    // 默认显示第一个知识组（2026-10-09 业主定版，原「全部组」已删）：无选中或选中组已不存在时归位显示序第一个
+    if (!groups.value.some((g) => g.group_name === groupFilter.value)) {
+      groupFilter.value = groups.value[0]?.group_name || undefined
+    }
   } catch (err) {
     message.error(`加载库组失败：${(err as Error).message}`)
   } finally {
     loading.value = false
   }
   void loadMigrationState()
-  void loadVolumes()
+  void loadVolumes(forceVolumes)
 }
 
 // ── 新建 ──
@@ -554,6 +573,9 @@ async function handleEdit() {
   }
 }
 
+// ── 导出语料包（docs/design-kb-export-ui.md）：头部按钮 → 选组/库 → 服务端流式打包下载 ──
+const showExport = ref(false)
+
 // ── 建组（大数据库）：头部加号弹框，归入外服/内测二选一；显示名 = 域前缀 + 组名，slug 留空自动生成 ──
 const showGroupCreate = ref(false)
 const groupCreating = ref(false)
@@ -598,7 +620,7 @@ function splitGroupLabel(label: string): { domain: string; rest: string } {
 
 /** 组展示顺序（2026-10-07 业主定版）：外服在前、内测在后；外服内 系统库→规范库→DredgeAI。
  *  未列名的自定义组排本域末尾，域前缀由显示名解析（与 tag 同源，改显示名即自动归位）。 */
-const GROUP_DISPLAY_ORDER = ['standards', 'guifan', 'dredgeai', 'evals']
+const GROUP_DISPLAY_ORDER = ['system', 'standards', 'dredgeai', 'evals']
 
 function sortGroupsForDisplay(items: LibraryGroupItem[]): LibraryGroupItem[] {
   const rank = (name: string) => {
@@ -622,7 +644,7 @@ const titleDomain = computed(() =>
   groupFilter.value ? splitGroupLabel(groupName(groupFilter.value)).domain : '',
 )
 function onGroupMenuClick(info: { key: string | number }) {
-  groupFilter.value = String(info.key) === '__all__' ? undefined : String(info.key)
+  groupFilter.value = String(info.key)
 }
 
 // ── 删除 ──

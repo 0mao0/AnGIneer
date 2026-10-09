@@ -1,8 +1,17 @@
 import type { DocumentResponse } from '@angineer/docs-ui'
 import { docsApiClient } from '../../../shared/apiClient'
 
+/** 按组聚合的库清单（/knowledge/libraries/groups 直出；内置组 display_name 为空串，前端补显示名） */
+export interface LibraryGroupItem {
+  group_name: string
+  display_name?: string
+  libraries: { id: string; name: string }[]
+}
+
 export const knowledgeApi = {
   getLibraries: () => docsApiClient.get<{ id: string; name: string; group_name?: string }[]>('/knowledge/libraries'),
+
+  getLibraryGroups: () => docsApiClient.get<LibraryGroupItem[]>('/knowledge/libraries/groups'),
 
   getDocument: (libraryId: string, docId: string, options?: { includeContent?: boolean }) =>
     docsApiClient.get<DocumentResponse>(`/knowledge/document/${libraryId}/${docId}`, {

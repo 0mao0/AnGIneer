@@ -134,8 +134,10 @@ _VOLUMES_THRESHOLDS = {
 
 
 @kb_migration_router.get("/migrations/volumes")
-def library_volumes(session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
-    if _VOLUMES_CACHE["data"] is not None and time.time() - _VOLUMES_CACHE["at"] < _VOLUMES_TTL_S:
+def library_volumes(refresh: bool = False, session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
+    # refresh=1（面板「刷新」按钮）强制重扫、绕过 5 分钟缓存；重扫后照常回写缓存（2026-10-09 业主定版）。
+    # 其余调用方（拆并/迁移弹窗等）走缓存——生产大库全量重扫含 qdrant exact count，不便宜。
+    if not refresh and _VOLUMES_CACHE["data"] is not None and time.time() - _VOLUMES_CACHE["at"] < _VOLUMES_TTL_S:
         return _VOLUMES_CACHE["data"]
     from docs_core import library_registry
     from docs_core.step05_sqlite_fts.store.sqlite_utils import create_connection

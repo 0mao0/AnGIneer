@@ -312,6 +312,46 @@
               <template v-if="libraryMulti" #maxTagPlaceholder="omitted">
                 {{ omitted.length }} 个知识库
               </template>
+              <!-- 两级勾选（2026-10-09）：宿主给了分组则替换默认平铺列表；组行整勾/库行单勾都写回 libraryValues -->
+              <template v-if="libraryMulti && librarySections.length" #dropdownRender>
+                <div class="library-scope-dropdown">
+                  <div v-for="sec in librarySections" :key="sec.key" class="lsd-section">
+                    <!-- @mousedown.prevent：点不可聚焦的行体不夺焦点——否则 select 输入框失焦，antd 判「点到外面」把下拉关掉
+                         （antd 自有选项同款处理；合成事件测不出来，只有真实点击会踩） -->
+                    <div class="lsd-group-row" @mousedown.prevent @click="onGroupRowClick($event, sec.key)">
+                      <!-- 默认按组折叠（2026-10-09 业主定版：全展开太长）；整行是展开热区（2026-10-09 二锤），
+                           点复选框区域只切勾选（事件目标守卫：label 转发点击也挡得住） -->
+                      <span class="lsd-toggle" :title="isSectionExpanded(sec.key) ? '收起' : '展开组内库'">
+                        <DownOutlined v-if="isSectionExpanded(sec.key)" />
+                        <RightOutlined v-else />
+                      </span>
+                      <a-checkbox
+                        :checked="sec.libraries.length > 0 && sec.libraries.every((l) => libraryValues.includes(l.id))"
+                        :indeterminate="
+                          sec.libraries.some((l) => libraryValues.includes(l.id)) &&
+                          !sec.libraries.every((l) => libraryValues.includes(l.id))
+                        "
+                        :aria-label="`选择 ${sec.label}`"
+                        @change="(e: any) => togglePickerSection(sec, e.target.checked)"
+                      />
+                      <span class="lsd-group-name">{{ sec.label }}</span>
+                      <span class="lsd-count">
+                        {{ sec.libraries.filter((l) => libraryValues.includes(l.id)).length }}/{{ sec.libraries.length }}
+                      </span>
+                    </div>
+                    <div v-show="isSectionExpanded(sec.key)" class="lsd-libs">
+                      <div v-for="lib in sec.libraries" :key="lib.id" class="lsd-lib-row" @mousedown.prevent>
+                        <a-checkbox
+                          :checked="libraryValues.includes(lib.id)"
+                          @change="(e: any) => togglePickerLibrary(lib.id, e.target.checked)"
+                        >
+                          {{ lib.name }}
+                        </a-checkbox>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </template>
             </a-select>
             <a-button
               type="text"
@@ -325,25 +365,47 @@
             </a-button>
           </div>
 
-          <div v-if="showModelSelect" class="center-actions">
+          <div v-if="showModelSelect && modelGroups.length" class="center-actions">
+            <!-- 模型 × 思考等级两个下拉（2026-10-09 业主定版）：思考档只有一档（该模型无变体）时不渲染第二个下拉 -->
             <a-select
-                v-model:value="selectedModel"
-                class="model-select"
+              class="model-select"
               size="small"
+              :value="activeGroupKey"
               :loading="loadingModels"
               :disabled="loading"
-              :title="selectedModel"
-              @change="onModelChange"
+              :title="activeGroupLabel"
+              :dropdown-match-select-width="false"
+              @change="onModelGroupChange"
             >
               <a-select-option
-                v-for="model in models"
-                :key="model.value"
-                :value="model.value"
-                :label="model.label"
-                :title="model.label"
+                v-for="g in modelGroups"
+                :key="g.key"
+                :value="g.key"
+                :label="g.label"
+                :title="g.label"
               >
-                <span class="model-option-label">{{ model.label.replace('(付费)', '') }}</span>
-                <a-tag v-if="model.label.includes('(付费)')" class="paid-tag" color="warning" size="small">付费</a-tag>
+                <span class="model-option-label">{{ g.label.replace('(付费)', '') }}</span>
+                <a-tag v-if="g.label.includes('(付费)')" class="paid-tag" color="warning" size="small">付费</a-tag>
+              </a-select-option>
+            </a-select>
+            <a-select
+              v-if="showLevelSelect"
+              class="level-select"
+              size="small"
+              :value="selectedModel"
+              :disabled="loading"
+              title="思考等级"
+              :dropdown-match-select-width="false"
+              @change="onModelLevelChange"
+            >
+              <a-select-option
+                v-for="lv in activeLevels"
+                :key="lv.value"
+                :value="lv.value"
+                :label="lv.label"
+                :title="`${lv.label}（${lv.value}）`"
+              >
+                {{ lv.label }}
               </a-select-option>
             </a-select>
           </div>
@@ -419,8 +481,9 @@ import ThinkingSteps from './ThinkingSteps.vue'
 import type {
   BaseChatCitation,
   BaseChatContextItem,
+  BaseChatLibrarySection,
   BaseChatMessage,
-  BaseChatModelOption,
+  BaseChatModelGroup,
   BaseChatSendPayload,
   CitationBinding,
   InlineCitationCandidate,
@@ -443,13 +506,14 @@ import {
 import { formatTokenCount } from '../utils/token'
 import { message } from 'ant-design-vue'
 import { QUEUE_LIMIT } from '../composables/useAIChat'
-import { MAX_LIBRARY_SELECTION } from '../constants'
 
 interface Props {
   messages: BaseChatMessage[]
   loading: boolean
   currentStreamContent?: string
-  models?: BaseChatModelOption[]
+  /** 模型分组（2026-10-09 业主定版）：渲染「模型 × 思考等级」两个下拉；
+   *  levels[0]=该模型默认档，level.value=发送后端的配置名（空则不渲染模型选择区） */
+  modelGroups?: BaseChatModelGroup[]
   loadingModels?: boolean
   /** 模型选择器显隐（默认 true；游客态宿主传 false，避免未登录用户挑选模型消耗宿主 token） */
   showModelSelect?: boolean
@@ -487,6 +551,9 @@ interface Props {
   libraryValue?: string
   /** 多库勾选集合（阶段三）：libraryMulti 为 true 时生效 */
   libraryValues?: string[]
+  /** 知识库两级分组（可选，2026-10-09）：传了且多选时下拉按「组 → 库」两级勾选渲染（label/name 宿主解析）；
+   *  不传沿用平铺选项（host 未接两级结构时逐位不变） */
+  librarySections?: BaseChatLibrarySection[]
   /** 多选模式开关（默认 false=单选，向后兼容） */
   libraryMulti?: boolean
   /** 生成期间排队的待发送消息 */
@@ -495,7 +562,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   currentStreamContent: '',
-  models: () => [],
+  modelGroups: () => [],
   loadingModels: false,
   showModelSelect: true,
   defaultModel: '',
@@ -518,6 +585,7 @@ const props = withDefaults(defineProps<Props>(), {
   libraryOptions: () => [],
   libraryValue: '',
   libraryValues: () => [],
+  librarySections: () => [],
   libraryMulti: false,
   queuedMessages: () => [],
   interimAnswers: () => [],
@@ -571,16 +639,48 @@ const libraryTitle = computed(() => {
   }
   return conversationStarted.value
     ? `本轮起检索所选知识库集合（${lockedLibraryLabel.value || '未选'}），上下文跨集合续接`
-    : `选择知识库（可多选，≤${MAX_LIBRARY_SELECTION}）`
+    : '选择知识库（可多选）'
 })
 
 const onLibrarySelectChange = (value: string | string[]) => {
   if (props.libraryMulti) {
-    // 上限前端先拦（服务端 ANGINEER_MAX_CHAT_LIBRARIES 兜底截断）；常量与文案共用
-    emit('update:libraryValues', (Array.isArray(value) ? value : [value]).slice(0, MAX_LIBRARY_SELECTION))
+    // 2026-10-09 无上限改版：不再截断（旧 slice(0, MAX_LIBRARY_SELECTION) 与「≤5」文案移除）
+    emit('update:libraryValues', Array.isArray(value) ? value : [value])
   } else {
     emit('update:libraryValue', value as string)
   }
+}
+
+/** 两级下拉写回（2026-10-09）：保序追加/移除，不重排已有选择；不在分组清单内的 id 原样保留 */
+const togglePickerLibrary = (id: string, on: boolean) => {
+  const cur = props.libraryValues
+  emit('update:libraryValues', on ? (cur.includes(id) ? cur : [...cur, id]) : cur.filter((x) => x !== id))
+}
+const togglePickerSection = (sec: BaseChatLibrarySection, on: boolean) => {
+  const cur = props.libraryValues
+  if (on) {
+    const add = sec.libraries.map((l) => l.id).filter((id) => !cur.includes(id))
+    emit('update:libraryValues', [...cur, ...add])
+  } else {
+    const drop = new Set(sec.libraries.map((l) => l.id))
+    emit('update:libraryValues', cur.filter((id) => !drop.has(id)))
+  }
+}
+
+/** 两级下拉分组展开态（2026-10-09 业主定版：默认按组折叠，整行为展开热区） */
+const expandedLibrarySections = ref<string[]>([])
+const isSectionExpanded = (key: string) => expandedLibrarySections.value.includes(key)
+const toggleSectionExpanded = (key: string) => {
+  const i = expandedLibrarySections.value.indexOf(key)
+  if (i >= 0) expandedLibrarySections.value.splice(i, 1)
+  else expandedLibrarySections.value.push(key)
+}
+/** 组头行点击：只豁免复选框小方块本身（名字已移出复选框，是行热区的一部分）；
+ *  点方块=勾选整组，点名字/箭头/空白=展开收起——2026-10-09 二锤（label 曾占满整行致点行变勾选） */
+const onGroupRowClick = (e: MouseEvent, key: string) => {
+  const target = e.target as HTMLElement | null
+  if (target && target.closest('.ant-checkbox')) return
+  toggleSectionExpanded(key)
 }
 const selectedModel = ref(props.defaultModel)
 const expandedCitationKeys = ref<string[]>([])
@@ -1049,17 +1149,18 @@ const handleScrollToBottomClick = () => {
  * 在模型列表变化后同步默认模型，避免空选中状态。
  */
 const syncSelectedModel = () => {
-  if (selectedModel.value) {
+  const inGroups = (v: string) => props.modelGroups.some((g) => g.levels.some((l) => l.value === v))
+  // 现值仍属于某组则不动；不属于（配置清单变更后旧值悬空）才重挑
+  if (selectedModel.value && inGroups(selectedModel.value)) {
     return
   }
-
-  if (props.defaultModel) {
+  if (props.defaultModel && inGroups(props.defaultModel)) {
     selectedModel.value = props.defaultModel
     return
   }
-
-  if (props.models.length > 0) {
-    selectedModel.value = props.models[0].value
+  const first = props.modelGroups[0]?.levels[0]
+  if (first) {
+    selectedModel.value = first.value
   }
 }
 
@@ -1133,6 +1234,27 @@ const onModelChange = (model: string) => {
   emit('modelChange', model)
 }
 
+/** 模型 × 思考等级（2026-10-09 业主定版）：分组态派生——当前组=包含 selectedModel 的组（找不到回退第一组）；
+ *  组内只有一档（该模型无变体）时不渲染档位下拉。level.value 即发送的配置名，组件不做语义解析 */
+const activeGroup = computed(
+  () =>
+    props.modelGroups.find((g) => g.levels.some((l) => l.value === selectedModel.value)) ||
+    props.modelGroups[0] ||
+    null,
+)
+const activeGroupKey = computed(() => activeGroup.value?.key || '')
+const activeGroupLabel = computed(() => activeGroup.value?.label || '')
+const activeLevels = computed(() => activeGroup.value?.levels || [])
+const showLevelSelect = computed(() => activeLevels.value.length > 1)
+/** 换模型 → 落到该模型默认档（levels[0]） */
+const onModelGroupChange = (key: string) => {
+  const first = props.modelGroups.find((g) => g.key === key)?.levels[0]
+  if (first) {
+    onModelChange(first.value)
+  }
+}
+const onModelLevelChange = (value: string) => onModelChange(value)
+
 const handleInsertMentionTrigger = async () => {
   if (props.loading) {
     return
@@ -1175,7 +1297,7 @@ watch(() => props.loading, value => {
 watch(() => props.defaultModel, value => {
   selectedModel.value = value
 })
-watch(() => props.models, syncSelectedModel, { deep: true, immediate: true })
+watch(() => props.modelGroups, syncSelectedModel, { deep: true, immediate: true })
 
 onMounted(() => {
   syncSelectedModel()
@@ -2196,16 +2318,19 @@ html.dark .hero-question,
         }
       }
 
+      /* 宽度自适应内容（2026-10-09 业主定版）：min-width 去掉——「关」一个字不再占 84px；
+         上限仍留（防超长模型名/库名撑破底栏） */
       .library-select {
         width: auto;
         max-width: 160px;
-        min-width: 96px;
+        min-width: 0;
         flex-shrink: 1;
 
         :deep(.ant-select-selector) {
           font-size: 12px;
           border-radius: 6px;
-          background: var(--bg-secondary, #fafafa);
+          /* 2026-10-09 业主定版：去掉填充底色（盒子套盒子两层太丑），只留描边 */
+          background: transparent;
           color: var(--text-primary);
           border-color: var(--border-color);
         }
@@ -2215,6 +2340,11 @@ html.dark .hero-question,
           text-overflow: ellipsis;
           white-space: nowrap;
           color: var(--text-primary);
+          /* antd 多选模式给选中文案自带 chip 底色+边框，与外层选择器边框叠成双层——全部去掉，只留单层描边 */
+          background: transparent;
+          border: none;
+          margin-inline-end: 0;
+          padding-inline: 0;
         }
 
         :deep(.ant-select-arrow) {
@@ -2231,16 +2361,18 @@ html.dark .hero-question,
       justify-content: flex-end;
       gap: 8px;
 
-      .model-select {
+      .model-select,
+      .level-select {
         width: auto;
         max-width: 180px;
-        min-width: 100px;
+        min-width: 0; /* 自适应内容宽度（2026-10-09 业主定版） */
         flex-shrink: 1;
 
         :deep(.ant-select-selector) {
           font-size: 12px;
           border-radius: 6px;
-          background: var(--bg-secondary, #fafafa);
+          /* 2026-10-09 业主定版：去掉填充底色（盒子套盒子两层太丑），只留描边 */
+          background: transparent;
           color: var(--text-primary);
           border-color: var(--border-color);
         }
@@ -2251,6 +2383,9 @@ html.dark .hero-question,
           white-space: nowrap;
           color: var(--text-primary);
           font-size: 12px;
+          /* 同上去掉 chip 底色与内圈边框；单选态保留 antd 的内边距（那是给箭头留的位置，清零会压住箭头） */
+          background: transparent;
+          border: none;
         }
 
         :deep(.ant-select-arrow) {
@@ -2260,6 +2395,11 @@ html.dark .hero-question,
         :deep(.ant-select-item-option-content) {
           font-size: 12px;
         }
+      }
+
+      /* 思考等级下拉：比模型下拉再收一档上限（选项是「关/xhigh」短词） */
+      .level-select {
+        max-width: 120px;
       }
     }
 
@@ -2368,12 +2508,87 @@ html.dark .hero-question,
   .chat-input .input-actions {
     .left-actions .library-select {
       max-width: 120px;
-      min-width: 72px;
+      min-width: 0;
     }
 
     .center-actions .model-select {
       max-width: 128px;
-      min-width: 80px;
+      min-width: 0;
+    }
+
+    .center-actions .level-select {
+      max-width: 96px;
+      min-width: 0;
+    }
+  }
+}
+
+/* 两级知识库下拉（dropdownRender 内容 portal 到 body：选择器不嵌 .left-actions，否则命中不了） */
+.library-scope-dropdown {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 4px 0;
+  min-width: 220px;
+
+  .lsd-group-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 12px 2px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+
+    &:hover {
+      background: var(--bg-tertiary, rgba(0, 0, 0, 0.02));
+    }
+
+    :deep(.ant-checkbox-wrapper) {
+      font-size: 12px;
+    }
+  }
+
+  /* 名字独立占行（不在复选框里）：留给行点击做展开热区 */
+  .lsd-group-name {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .lsd-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 12px;
+    flex-shrink: 0;
+    cursor: pointer;
+    font-size: 10px;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+
+    &:hover {
+      color: var(--text-primary, rgba(0, 0, 0, 0.88));
+    }
+  }
+
+  .lsd-count {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary, rgba(0, 0, 0, 0.45));
+  }
+
+  .lsd-libs {
+    padding-left: 24px;
+  }
+
+  .lsd-lib-row {
+    padding: 2px 12px;
+    color: var(--text-primary, rgba(0, 0, 0, 0.88));
+
+    :deep(.ant-checkbox-wrapper) {
+      font-size: 12px;
     }
   }
 }

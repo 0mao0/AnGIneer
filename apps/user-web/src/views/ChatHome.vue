@@ -18,6 +18,7 @@
           :library-options="authStore.guestMode ? [] : libraryOptions"
           library-multi
           :library-values="authStore.activeLibraryIds"
+          :library-sections="authStore.guestMode ? [] : librarySections"
           :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
           :suggested-questions="suggestedQuestions"
@@ -75,7 +76,7 @@
 import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { CloseOutlined } from '@ant-design/icons-vue'
 import { AIChat } from '@angineer/aichat-ui'
-import type { AIChatMessage, AIChatCitation } from '@angineer/aichat-ui'
+import type { AIChatMessage, AIChatCitation, BaseChatLibrarySection } from '@angineer/aichat-ui'
 import type DocumentViewType from '@/views/DocumentView.vue'
 import ChatTopBar from '@/components/ChatTopBar.vue'
 import HistoryDrawer from '@/components/HistoryDrawer.vue'
@@ -83,7 +84,7 @@ import AuthGate from '@/components/AuthGate.vue'
 import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { useAuthStore } from '@/stores/auth'
 import { siteFooterVisible } from '@/composables/siteFooter'
-import { knowledgeApi } from '@/api/knowledge'
+import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
 import {
   deriveTitle,
   fetchSessionMessages,
@@ -131,21 +132,75 @@ watch(
   }
 )
 
-/** 知识库单选下拉：只列当前用户被授权的生产组库（评测语料不进用户端 @ 选择器），名称解析失败回退显示 id */
+/** 知识库选择器：只列当前用户被授权的生产组库（评测语料不进用户端 @ 选择器），名称解析失败回退显示 id */
 const libraryNames = ref<Record<string, string>>({})
 const evalsLibraryIds = ref<Set<string>>(new Set())
+const libraryGroups = ref<LibraryGroupItem[]>([])
 const libraryOptions = computed(() =>
   authStore.libraries
     .filter((id) => !evalsLibraryIds.value.has(id))
     .map((id) => ({ value: id, label: libraryNames.value[id] || id }))
 )
+
+/** 内置组中文名（选择器口径：不带域前缀，2026-10-09 业主定版「直接显示知识组的名称」；
+ *  与 admin accessScope.ts 同步，改一处须同步另一处）；自建组用后端 display_name 并剥域前缀 */
+const GROUP_LABELS: Record<string, string> = {
+  system: '系统库',
+  standards: '规范库',
+  dredgeai: 'DredgeAI',
+  evals: '评测语料',
+}
+
+/** 自建组显示名可能带「外服 ·/内测 ·」域前缀（库管理页的域编码）——选择器侧剥掉，只显组名 */
+function stripDomainPrefix(label: string): string {
+  return label.replace(/^(外服|内测)\s*·\s*/, '').trim() || label
+}
+
+/** 两级选择器结构（2026-10-09 业主定版）：组名（一级）→ 组内库名（二级，可勾选）；
+ *  只列授权集内的库，evals 组不进用户端；数据源 = /knowledge/libraries/groups（含自定义组 display_name） */
+const librarySections = computed<BaseChatLibrarySection[]>(() => {
+  const allowed = new Set(authStore.libraries)
+  const sections: BaseChatLibrarySection[] = []
+  const grouped = new Set<string>()
+  for (const g of libraryGroups.value) {
+    if (g.group_name === 'evals') continue
+    const libs = g.libraries.filter((l) => allowed.has(l.id))
+    for (const l of libs) grouped.add(l.id)
+    if (!libs.length) continue
+    sections.push({
+      key: g.group_name,
+      label: GROUP_LABELS[g.group_name] || stripDomainPrefix(g.display_name || '') || g.group_name,
+      libraries: libs.map((l) => ({ id: l.id, name: l.name || libraryNames.value[l.id] || l.id })),
+    })
+  }
+  // 授权集里不属于任何组清单的库兜底单列（清单拉取失败时为空，选择器回退平铺选项）
+  const loose = authStore.libraries.filter((id) => !grouped.has(id) && !evalsLibraryIds.value.has(id))
+  if (loose.length) {
+    sections.push({
+      key: '__loose__',
+      label: '其他',
+      libraries: loose.map((id) => ({ id, name: libraryNames.value[id] || id })),
+    })
+  }
+  return sections
+})
+
 const loadLibraryNames = async () => {
-  try {
-    const list = await knowledgeApi.getLibraries() as unknown as { id: string; name: string; group_name?: string }[]
-    libraryNames.value = Object.fromEntries(list.map((l) => [l.id, l.name]))
-    evalsLibraryIds.value = new Set(list.filter((l) => l.group_name === 'evals').map((l) => l.id))
-  } catch {
-    // 名称加载失败时下拉回退显示 id
+  // 两个请求各自独立成败（allSettled）：分组失败不该拖累库名、反之亦然——否则选择器整段退化
+  const [listRes, groupsRes] = await Promise.allSettled([
+    knowledgeApi.getLibraries() as unknown as Promise<{ id: string; name: string; group_name?: string }[]>,
+    knowledgeApi.getLibraryGroups(),
+  ])
+  if (listRes.status === 'fulfilled') {
+    libraryNames.value = Object.fromEntries(listRes.value.map((l) => [l.id, l.name]))
+    evalsLibraryIds.value = new Set(listRes.value.filter((l) => l.group_name === 'evals').map((l) => l.id))
+  } else {
+    console.warn('[ChatHome] 知识库名称加载失败，选择器回退显示 id', listRes.reason)
+  }
+  if (groupsRes.status === 'fulfilled') {
+    libraryGroups.value = groupsRes.value
+  } else {
+    console.warn('[ChatHome] 知识库分组加载失败，选择器回退平铺库名', groupsRes.reason)
   }
 }
 onMounted(() => {

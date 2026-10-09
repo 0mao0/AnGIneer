@@ -4,7 +4,7 @@
     :messages="messages"
     :loading="loading"
     :current-stream-content="currentStreamContent"
-    :models="models"
+    :model-groups="modelGroups"
     :show-model-select="showModelSelect"
     :loading-models="loadingModels"
     :default-model="defaultModel"
@@ -31,6 +31,7 @@
     :library-value="libraryValue"
     :library-multi="libraryMulti"
     :library-values="libraryValues"
+    :library-sections="librarySections"
     :queued-messages="queuedMessages"
     :mention-label="mentionMode === 'document' ? '提及文档 @' : '插入引用 @'"
     @send="handleSend"
@@ -64,6 +65,8 @@ import type {
   AIChatMessage,
   AIChatCitation,
   BaseChatContextItem,
+  BaseChatLibrarySection,
+  BaseChatModelGroup,
   BaseChatSendPayload,
   InlineCitationCandidate,
   InlineCitationSearchPayload
@@ -103,6 +106,8 @@ interface Props {
   libraryValue?: string
   /** 多库勾选集合（阶段三）；配合 library-multi 启用多选选择器 */
   libraryValues?: string[]
+  /** 知识库两级分组（可选）：传了且多选时下拉按「组 → 库」两级勾选渲染；缺省平铺选项 */
+  librarySections?: BaseChatLibrarySection[]
   /** 多选模式开关（默认 false=单选，向后兼容） */
   libraryMulti?: boolean
   /** 模型选择器显隐（默认 true；游客态宿主传 false，不展示可选模型） */
@@ -130,11 +135,10 @@ const props = withDefaults(defineProps<Props>(), {
   libraryOptions: () => [],
   libraryValue: '',
   libraryValues: () => [],
+  librarySections: () => [],
   libraryMulti: false,
   showModelSelect: true
 })
-
-interface ModelOption { value: string; label: string }
 
 const emit = defineEmits<{
   send: [message: string, model?: string]
@@ -189,8 +193,73 @@ const {
 watch(messages, (value) => { emit('messagesChange', [...value]) }, { deep: true })
 
 const loadingModels = ref(false)
-const models = ref<ModelOption[]>([])
+/** 模型 × 思考等级分组（2026-10-09 业主定版）：由 fetchModels 结果派生，见 buildModelGroups */
+const modelGroups = ref<BaseChatModelGroup[]>([])
 const baseChatRef = ref<InstanceType<typeof BaseChat> | null>(null)
+
+/** 档位后缀（配置命名约定 `<端点>-<系列>-<档位>`）；未登记的后缀按原样单列，配置不会从选择器静默消失 */
+const LEVEL_RE = /^(.*)-(off|xhigh|ctk)$/
+/** 档位标签（2026-10-09 业主定版）：无后缀别名/off/ctk 都是思考关闭的不同参数写法 → 统一显示「关」并只出一条；
+ *  同语义取值优先级＝无后缀别名 > -off（reasoning_effort=none）> -ctk（enable_thinking=false 探针配置）。
+ *  xhigh → 显示「思考」（与「关」成对：关＝不思考、思考＝开思考；档位表是我们 .env 定义的，
+ *  xhigh 是底层取值，悬停提示里可见原值） */
+const LEVEL_MERGE: Record<string, string> = { off: '关', ctk: '关', xhigh: '思考' }
+const LEVEL_RANK: Record<string, number> = { '': 0, off: 1, ctk: 2 }
+
+/**
+ * 配置清单 → 模型分组（按底层 model 归并，10 条配置 → 3 个模型 × 语义档位）。
+ * 组标签取首个无后缀别名（配置主人把别名排在前面）；无别名时取首档配置名去后缀。多条无后缀别名只留第一条（行为等价）。
+ */
+const buildModelGroups = (list: Array<{ name: string; model?: string }>): BaseChatModelGroup[] => {
+  const order: string[] = []
+  interface Draft {
+    key: string
+    label: string
+    levels: Map<string, { label: string; value: string; rank: number }>
+    levelOrder: string[]
+  }
+  const byModel = new Map<string, Draft>()
+  for (const c of list) {
+    const key = c.model || c.name
+    if (!byModel.has(key)) {
+      byModel.set(key, { key, label: '', levels: new Map(), levelOrder: [] })
+      order.push(key)
+    }
+    const g = byModel.get(key)!
+    const m = LEVEL_RE.exec(c.name)
+    const suffix = m ? m[2] : ''
+    if (!suffix && !g.label) {
+      g.label = c.name
+    }
+    const semantic = suffix ? LEVEL_MERGE[suffix] || suffix : '关'
+    const rank = LEVEL_RANK[suffix] ?? 99
+    const exist = g.levels.get(semantic)
+    if (!exist) {
+      g.levels.set(semantic, { label: semantic, value: c.name, rank })
+      g.levelOrder.push(semantic)
+    } else if (rank < exist.rank) {
+      g.levels.set(semantic, { label: semantic, value: c.name, rank })
+    }
+  }
+  return order
+    .map((k) => {
+      const g = byModel.get(k)!
+      if (!g.label) {
+        const first = g.levels.get(g.levelOrder[0])
+        g.label = first ? first.value.replace(LEVEL_RE, '$1') : k
+      }
+      return {
+        key: g.key,
+        label: g.label,
+        levels: g.levelOrder.map((s) => {
+          const l = g.levels.get(s)!
+          return { label: l.label, value: l.value }
+        }),
+      }
+    })
+    // 付费模型沉底（沿用旧单下拉的排序约定）
+    .sort((a, b) => Number(a.label.includes('(付费)')) - Number(b.label.includes('(付费)')))
+}
 
 /** 将 AI 回复内容渲染为 HTML */
 const renderAIChatMessage = (content: string) => renderMarkdownToHtml(content, '')
@@ -201,17 +270,14 @@ const fetchModels = async () => {
   try {
     if (!props.transport?.fetchModels) {
       console.warn('[AIChat] 未配置 transport.fetchModels，模型列表为空')
-      models.value = []
+      modelGroups.value = []
       return
     }
     const data = await props.transport.fetchModels()
-    models.value = data
-      .filter((model: any) => model.configured)
-      .map((model: any) => ({ value: model.name, label: model.name }))
-      .sort((a, b) => Number(a.label.includes('(付费)')) - Number(b.label.includes('(付费)')))
+    modelGroups.value = buildModelGroups(data.filter((model: any) => model.configured))
   } catch (error) {
     console.error('获取模型列表失败:', error)
-    models.value = [{ value: 'default', label: '默认模型' }]
+    modelGroups.value = []
   } finally {
     loadingModels.value = false
   }
