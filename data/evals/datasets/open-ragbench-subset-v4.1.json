@@ -3,7 +3,7 @@
     "dataset_id": "open-ragbench-subset-v4.1",
     "title": "Open RAG Benchmark 子集 v4.1（1040 题；v4 压线池专项 7 题金标/题干修订）",
     "category": "knowledge",
-    "description": "v4 全量复制；2026-09-28 压线题池阶段 1 修订 7 题：601ab360 金标纠正（重叠区=Region I，Fig.1 原文）、266638ec/49835c3c/78d18f33/b4fe4430/a5f00e23 金标补实质要点（语料核实）、16fd0b9b 题干消歧。题序与 question_id 不变，v4 基线兼容。",
+    "description": "v4 全量复制；2026-09-28 压线题池阶段 1 修订 7 题：601ab360 金标纠正（重叠区=Region I，Fig.1 原文）、266638ec/49835c3c/78d18f33/b4fe4430/a5f00e23 金标补实质要点（语料核实）、16fd0b9b 题干消歧。题序与 question_id 不变，v4 基线兼容。【2026-10-09 标注修正 6 题】refusal-516ff3fc/65ff3ae6/8b29750f/c3f45046/de25d769/db28bad3 的源论文已入库（09-21/09-23 语料扩充），恢复公开集 gold、refusal_expected=false（题不删；拒答语义由拒答集承载）。见 docs/report-refusal-premise-drift-20261009.md。",
     "schema_version": "eval.bundle.v2",
     "version": "1.2",
     "library_id": "lib-b07ed174"
@@ -71504,21 +71504,20 @@
       "tags": [
         "text",
         "extractive",
-        "2412.18501v3",
-        "refusal"
+        "2412.18501v3"
       ],
-      "question_family": "unanswerable",
+      "question_family": "",
       "canonical_question_id": "",
       "variant_type": "canonical",
       "perturbation_tags": [],
       "retrieval": null,
       "answer": {
-        "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
+        "gold_answer": "The GFT coefficients for a real-valued graph signal will also have complex conjugate coefficients for these pairs; i.e., $\\hat{\\mathbf{x}}\\left[k_{1}\\right]=\\hat{\\mathbf{x}}\\left[k_{2}\\right]^{*}$.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": false
       }
     },
     {
@@ -71868,21 +71867,20 @@
       "tags": [
         "text",
         "extractive",
-        "2404.19707v3",
-        "refusal"
+        "2404.19707v3"
       ],
-      "question_family": "unanswerable",
+      "question_family": "",
       "canonical_question_id": "",
       "variant_type": "canonical",
       "perturbation_tags": [],
       "retrieval": null,
       "answer": {
-        "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
+        "gold_answer": "Yes, the modified three-phase estimation procedure explicitly takes into account multimodality.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": false
       }
     },
     {
@@ -71896,21 +71894,20 @@
       "tags": [
         "text-image",
         "abstractive",
-        "2412.13042v2",
-        "refusal"
+        "2412.13042v2"
       ],
-      "question_family": "unanswerable",
+      "question_family": "",
       "canonical_question_id": "",
       "variant_type": "canonical",
       "perturbation_tags": [],
       "retrieval": null,
       "answer": {
-        "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
+        "gold_answer": "Real-valued chirality ratios simplify the analysis of projected local density of states modulations, allowing clearer identification of regions meeting winding conditions as annuli around impurity sites.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": false
       }
     },
     {
@@ -72148,21 +72145,20 @@
       "tags": [
         "text-table-image",
         "extractive",
-        "2409.16681v2",
-        "refusal"
+        "2409.16681v2"
       ],
-      "question_family": "unanswerable",
+      "question_family": "",
       "canonical_question_id": "",
       "variant_type": "canonical",
       "perturbation_tags": [],
       "retrieval": null,
       "answer": {
-        "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
+        "gold_answer": "The approximate energy value for \"Anxious\" is around 0.05.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": false
       }
     },
     {
@@ -72260,21 +72256,20 @@
       "tags": [
         "text",
         "abstractive",
-        "2412.17354v3",
-        "refusal"
+        "2412.17354v3"
       ],
-      "question_family": "unanswerable",
+      "question_family": "",
       "canonical_question_id": "",
       "variant_type": "canonical",
       "perturbation_tags": [],
       "retrieval": null,
       "answer": {
-        "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
+        "gold_answer": "BPEL improves upon traditional empirical likelihood methods by incorporating a penalized approach that regularizes Lagrange multipliers, reducing problem dimensionality while accommodating various model conditions. This enhances flexibility and efficiency, making it easier to apply these methods across different statistical models.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": false
       }
     },
     {
@@ -72372,21 +72367,20 @@
       "tags": [
         "text",
         "abstractive",
-        "2407.00037v2",
-        "refusal"
+        "2407.00037v2"
       ],
-      "question_family": "unanswerable",
+      "question_family": "",
       "canonical_question_id": "",
       "variant_type": "canonical",
       "perturbation_tags": [],
       "retrieval": null,
       "answer": {
-        "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
+        "gold_answer": "A planner might want this because noisy signals can provide enough additional information to eliminate undesired equilibria and make certain social choice rules fully implementable, ensuring all outcomes are desirable.",
         "correctness_checks": [],
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": false
       }
     },
     {

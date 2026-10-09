@@ -18,7 +18,7 @@ from typing import Callable, Dict, List, Optional, Tuple
 from evals_core.runner import anomaly, suite_runner
 from evals_core.storage import result_store
 
-from . import archive, gate, notify, paths, report
+from . import archive, gate, notify, paths, refusal_premise, report
 
 logger = logging.getLogger("evals_core.nightly.pipeline")
 
@@ -244,7 +244,8 @@ def _material_line(material: Optional[dict]) -> str:
 
 
 async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,
-                               material_line: str = "", judge_missing: Optional[Dict[str, List[str]]] = None,
+                               material_line: str = "", premise_line: str = "",
+                               judge_missing: Optional[Dict[str, List[str]]] = None,
                                slot: str = "") -> dict:
     """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。
 
@@ -281,7 +282,7 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     text = notify.append_links(
         notify.build_message(raw_for_card, gate_res, state, material_line=material_line,
                              judge_line=_judge_missing_line(judge_missing),
-                             subject=subject), site_url)
+                             premise_line=premise_line, subject=subject), site_url)
     await _notify_best_effort(webhook, text)
     missing_count = len((judge_missing or {}).get(anomaly.JUDGE_FAIL) or [])
     detail = "；".join(gate_res.get("gate_reasons") or [])
@@ -359,6 +360,40 @@ def _find_resume_candidate(dataset_id: str, within_hours: float = RESUME_WINDOW_
     return ""
 
 
+async def _refusal_premise_health(date: str, *, enabled: bool, webhook: str,
+                                   slot: str = "") -> Optional[dict]:
+    """拒答前提对账（与素材检查并列的 nightly 断言）：拒答标注的前提（源文档不在库/
+    前提词 0 命中）会被语料扩充破坏，且此前无任何对账（2026-10-09 实踩静默过期 18 天，
+    见 docs/report-refusal-premise-drift-20261009.md）。**只告警、不阻断**——语料扩充是
+    合法操作；产物落本次派发的归档挡目录，异常时额外推一条企微（结论消息本身不变）。"""
+    if not enabled:
+        return None
+    nl = chr(10)
+
+    try:
+        result = await asyncio.to_thread(refusal_premise.run_check)
+    except Exception:  # noqa: BLE001 对账失败不该拖垮 nightly
+        logger.exception("拒答前提对账执行失败")
+        return None
+    try:
+        out_dir = paths.nightly_root() / date
+        if slot:
+            out_dir = out_dir / archive.RUNS_SUBDIR / slot
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "refusal_premise.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        logger.exception("拒答前提对账落盘失败")
+    line = refusal_premise.render_line(result)
+    if result.get("severity") in ("warn", "error"):
+        logger.warning("拒答前提对账异常：%s", line.replace(nl, " | "))
+        if webhook:
+            await _notify_best_effort(webhook, "【拒答前提对账】" + nl + refusal_premise.render_detail(result))
+    else:
+        logger.info("拒答前提对账通过：%s", line)
+    return result
+
+
 async def _material_health(date: str, *, enabled: bool, libraries: Optional[list],
                           max_docs: int, webhook: str, slot: str = "") -> Optional[dict]:
     """B 层素材检查（jsonl → canonical/chunk → 向量）：best-effort，任何异常都不影响结论。
@@ -428,6 +463,9 @@ async def run_nightly(*, dataset_id: str,
                                       libraries=parse_health_libraries,
                                       max_docs=parse_health_max_docs, webhook=webhook,
                                       slot=run_slot)
+    # 拒答前提对账与素材检查同层同挡：语料一动，拒答标注的前提就可能失效（只告警不阻断）
+    premise = await _refusal_premise_health(date, enabled=parse_health_enabled,
+                                            webhook=webhook, slot=run_slot)
     try:
         resume_id = await asyncio.to_thread(_find_resume_candidate, dataset_id, resume_window_hours)
         started = await asyncio.to_thread(
@@ -452,10 +490,14 @@ async def run_nightly(*, dataset_id: str,
         _run, judge_missing = await _auto_retry(run_id, dataset_id, retry_rounds, deadline)
         outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook,
                                              material_line=_material_line(material),
+                                             premise_line=refusal_premise.render_line(premise),
                                              judge_missing=judge_missing, slot=run_slot)
         if material is not None:
             outcome["material_parity"] = {"severity": material.get("severity"),
                                           "docs_with_issues": material.get("docs_with_issues")}
+        if premise is not None:
+            outcome["refusal_premise"] = {"severity": premise.get("severity"),
+                                          "violations": len(premise.get("violations") or [])}
         return outcome
     except Exception as exc:  # noqa: BLE001 任何异常都收口，绝不让历史断档
         # 人为停止：should_stop 置位且 run 未正常完成 → "stopped" 档（不落 error 结论、不发企微，

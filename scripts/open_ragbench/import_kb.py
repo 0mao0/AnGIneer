@@ -158,6 +158,29 @@ def run_import(
     return state, api_key
 
 
+def _warn_refusal_premise() -> None:
+    """上传后自检：拒答标注的前提是否仍成立（辅助通道，best-effort）。
+
+    语料扩充是合法操作，但会让「该拒答」的前提失效（源文档入库 / 前提词有命中）——
+    2026-10-09 实踩：6 道拒答题的源论文被补进库，标注静默过期 18 天
+    （docs/report-refusal-premise-drift-20261009.md）。nightly 每晚有同款断言，
+    这里上传完即时提醒一次；**只 warn、不阻断**（也绝不回滚导入）。
+    """
+    try:
+        from evals_core.nightly import refusal_premise
+        result = refusal_premise.run_check()
+    except Exception as exc:  # noqa: BLE001 依赖缺失/存储不可达都不影响导入结论
+        print(f"[拒答前提对账] 跳过（{type(exc).__name__}: {str(exc)[:120]}）")
+        return
+    line = refusal_premise.render_line(result)
+    if not line:
+        return
+    mark = "⚠ " if result.get("violations") else ""
+    print("[拒答前提对账] " + mark + line.replace("**", ""))
+    for v in (result.get("violations") or [])[:5]:
+        print(f"    - {v.get('dataset_id')}/{v.get('question_id')}: {v.get('detail')}")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="建库并导入 Open RAG Benchmark 子集")
     parser.add_argument("--docs-api", default="http://localhost:8790")
@@ -196,6 +219,9 @@ def main() -> int:
     print("导入进度:", common.load_json(common.IMPORT_STATE))
     if args.create_only:
         print("已创建知识库与 API Key（未上传解析）；keys.json 已保存完整 Key")
+    else:
+        # 上传完成即查拒答前提：新入库的文档可能让某道拒答题的前提失效（只 warn）
+        _warn_refusal_premise()
     return 0
 
 

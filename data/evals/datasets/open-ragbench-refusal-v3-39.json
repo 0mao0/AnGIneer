@@ -3,11 +3,11 @@
   "dataset_id": "open-ragbench-refusal-v3-39",
   "title": "Open RAG Benchmark 子集 v3（含拒答 39 题）",
   "category": "knowledge",
-  "description": "v2 487 题 + 拒答题集 v2 39 题合并；拒答题期望系统拒答（其 gold_answer 为哨兵文本，不参与判分）。",
+  "description": "v2 487 题 + 拒答题集 v2 39 题合并；拒答题期望系统拒答（其 gold_answer 为哨兵文本，不参与判分）。【2026-10-09】剔除 6 道前提过期题（refusal-516ff3fc/65ff3ae6/8b29750f/c3f45046/de25d769/db28bad3 源论文已入库，已改判为可答题归主集）→ 39→33，保纯拒答语义。见 docs/report-refusal-premise-drift-20261009.md。",
   "schema_version": "eval.bundle.v2",
   "version": "3.0",
   "library_id": "lib-b07ed174",
-  "question_count": 526,
+  "question_count": 33,
   "name": "Open RAG Bench v3 拒答专项（39题）"
  },
  "items": [
@@ -107,34 +107,6 @@
     "text-image",
     "abstractive",
     "2412.11336v3",
-    "refusal"
-   ],
-   "question_family": "unanswerable",
-   "canonical_question_id": "",
-   "variant_type": "canonical",
-   "perturbation_tags": [],
-   "retrieval": null,
-   "answer": {
-    "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
-    "correctness_checks": [],
-    "semantic_threshold": 0.65,
-    "must_cite_target_ids": [],
-    "must_cite_section_paths": [],
-    "refusal_expected": true
-   }
-  },
-  {
-   "question_id": "refusal-c3f45046-6e15-46fa-bc30-93e3724692d6",
-   "question": "What happens to the GFT coefficients for a real-valued graph signal with complex conjugate eigenvalue pairs?",
-   "task_type": "rag",
-   "intent_level": "L1",
-   "library_id": "lib-b07ed174",
-   "doc_ids": [],
-   "difficulty": "medium",
-   "tags": [
-    "text",
-    "extractive",
-    "2412.18501v3",
     "refusal"
    ],
    "question_family": "unanswerable",
@@ -488,62 +460,6 @@
    }
   },
   {
-   "question_id": "refusal-db28bad3-1c66-4cf3-bed3-d7d7d7c3d85f",
-   "question": "Does the modified three-phase estimation procedure account for multimodality?",
-   "task_type": "rag",
-   "intent_level": "L1",
-   "library_id": "lib-b07ed174",
-   "doc_ids": [],
-   "difficulty": "medium",
-   "tags": [
-    "text",
-    "extractive",
-    "2404.19707v3",
-    "refusal"
-   ],
-   "question_family": "unanswerable",
-   "canonical_question_id": "",
-   "variant_type": "canonical",
-   "perturbation_tags": [],
-   "retrieval": null,
-   "answer": {
-    "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
-    "correctness_checks": [],
-    "semantic_threshold": 0.65,
-    "must_cite_target_ids": [],
-    "must_cite_section_paths": [],
-    "refusal_expected": true
-   }
-  },
-  {
-   "question_id": "refusal-de25d769-c672-4c8a-95c6-b77f9ec5d2a5",
-   "question": "Why are real-valued chirality ratios important in studying nodal superconductors?",
-   "task_type": "rag",
-   "intent_level": "L1",
-   "library_id": "lib-b07ed174",
-   "doc_ids": [],
-   "difficulty": "medium",
-   "tags": [
-    "text-image",
-    "abstractive",
-    "2412.13042v2",
-    "refusal"
-   ],
-   "question_family": "unanswerable",
-   "canonical_question_id": "",
-   "variant_type": "canonical",
-   "perturbation_tags": [],
-   "retrieval": null,
-   "answer": {
-    "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
-    "correctness_checks": [],
-    "semantic_threshold": 0.65,
-    "must_cite_target_ids": [],
-    "must_cite_section_paths": [],
-    "refusal_expected": true
-   }
-  },
-  {
    "question_id": "refusal-b1e4c767-c973-49fc-94a5-9892925297d1",
    "question": "Is there any model that fully denies all loan requests?",
    "task_type": "rag",
@@ -768,34 +684,6 @@
    }
   },
   {
-   "question_id": "refusal-8b29750f-d1a2-4fcb-be32-d1b88f953c69",
-   "question": "What is the approximate energy value for the emotion \"Anxious\"?",
-   "task_type": "rag",
-   "intent_level": "L1",
-   "library_id": "lib-b07ed174",
-   "doc_ids": [],
-   "difficulty": "medium",
-   "tags": [
-    "text-table-image",
-    "extractive",
-    "2409.16681v2",
-    "refusal"
-   ],
-   "question_family": "unanswerable",
-   "canonical_question_id": "",
-   "variant_type": "canonical",
-   "perturbation_tags": [],
-   "retrieval": null,
-   "answer": {
-    "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
-    "correctness_checks": [],
-    "semantic_threshold": 0.65,
-    "must_cite_target_ids": [],
-    "must_cite_section_paths": [],
-    "refusal_expected": true
-   }
-  },
-  {
    "question_id": "refusal-f7049bbf-f24b-4a88-a42f-72772bddfc1e",
    "question": "What role does taint semantics play in understanding indirect jumps during speculative execution?",
    "task_type": "rag",
@@ -880,34 +768,6 @@
    }
   },
   {
-   "question_id": "refusal-65ff3ae6-47b4-4e31-80c5-7341fc222067",
-   "question": "How does Bayesian Penalized Empirical Likelihood improve upon traditional empirical likelihood methods?",
-   "task_type": "rag",
-   "intent_level": "L1",
-   "library_id": "lib-b07ed174",
-   "doc_ids": [],
-   "difficulty": "medium",
-   "tags": [
-    "text",
-    "abstractive",
-    "2412.17354v3",
-    "refusal"
-   ],
-   "question_family": "unanswerable",
-   "canonical_question_id": "",
-   "variant_type": "canonical",
-   "perturbation_tags": [],
-   "retrieval": null,
-   "answer": {
-    "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
-    "correctness_checks": [],
-    "semantic_threshold": 0.65,
-    "must_cite_target_ids": [],
-    "must_cite_section_paths": [],
-    "refusal_expected": true
-   }
-  },
-  {
    "question_id": "refusal-dfb30130-60b4-42a7-812d-2994ac3ee7c3",
    "question": "Are there plans to extend collision laws to account for more physical details?",
    "task_type": "rag",
@@ -975,34 +835,6 @@
     "text-image",
     "extractive",
     "2410.05459v2",
-    "refusal"
-   ],
-   "question_family": "unanswerable",
-   "canonical_question_id": "",
-   "variant_type": "canonical",
-   "perturbation_tags": [],
-   "retrieval": null,
-   "answer": {
-    "gold_answer": "（库内无此文档，正确行为是拒答——本题仅评拒答行为，无标准答案）",
-    "correctness_checks": [],
-    "semantic_threshold": 0.65,
-    "must_cite_target_ids": [],
-    "must_cite_section_paths": [],
-    "refusal_expected": true
-   }
-  },
-  {
-   "question_id": "refusal-516ff3fc-2870-49f1-a1eb-27210bedca0c",
-   "question": "Why might a planner want agents to receive noisy signals about the types of other agents?",
-   "task_type": "rag",
-   "intent_level": "L1",
-   "library_id": "lib-b07ed174",
-   "doc_ids": [],
-   "difficulty": "medium",
-   "tags": [
-    "text",
-    "abstractive",
-    "2407.00037v2",
     "refusal"
    ],
    "question_family": "unanswerable",

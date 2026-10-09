@@ -93,6 +93,10 @@ class _Env(unittest.TestCase):
             mock.patch("evals_core.dataset.manager.get_dataset",
                        return_value={"dataset_id": "ds", "title": "冒烟集", "question_count": 25}),
             mock.patch("evals_core.nightly.pipeline.notify.send", return_value='{"errcode":0}'),
+            # 拒答前提对账默认实现读真实 evals DB + docs_core 存储：单测里固定「无失效」
+            mock.patch("evals_core.nightly.refusal_premise.run_check",
+                       return_value={"severity": "ok", "checked": 0, "violations": [],
+                                     "unknown": [], "by_kind": {}}),
             mock.patch("evals_core.material_parity.run_check",
                        side_effect=lambda **kw: dict(_FAKE_MATERIAL)),
             mock.patch.object(pipeline, "_sleep", new=lambda _s: asyncio.sleep(0)),
@@ -294,6 +298,9 @@ class NotifyDatasetNameTests(_Env):
             mock.patch.object(pipeline.result_store, "list_runs", return_value=[]),
             mock.patch("evals_core.material_parity.run_check",
                        side_effect=lambda **kw: dict(_FAKE_MATERIAL)),
+            mock.patch("evals_core.nightly.refusal_premise.run_check",
+                       return_value={"severity": "ok", "checked": 0, "violations": [],
+                                     "unknown": [], "by_kind": {}}),
             mock.patch("evals_core.nightly.pipeline.notify.send",
                        side_effect=lambda url, text: (cards.append(text), '{}')[1]),
         ]
@@ -321,6 +328,51 @@ class NotifyCardLayoutTests(unittest.TestCase):
         text = notify.build_message(None, None, notify.STATE_ERROR, "boom")
         self.assertNotIn("数据集：", text)
         self.assertEqual(text.splitlines()[1], "时间：—")
+
+
+class RefusalPremiseLineTests(_Env):
+    """拒答前提失效要在当晚卡片上可见、且不阻断结论（2026-10-09 静默过期实踩的护栏）。"""
+
+    def _run(self, premise_result, cards):
+        done = {"status": "completed", "summary_scores": _SUMMARY,
+                "started_at": "2026-09-06T01:00:00", "completed_at": "2026-09-06T02:00:00"}
+        self._common_patches(
+            run_sequence=[{"status": "running"}, done, done, done],
+            details_sequence=[_NEW_DETAILS, _NEW_DETAILS])
+        with mock.patch("evals_core.nightly.refusal_premise.run_check", return_value=premise_result),              mock.patch("evals_core.nightly.pipeline.notify.send",
+                        side_effect=lambda url, text: (cards.append(text), '{}')[1]):
+            return asyncio.run(pipeline.run_nightly(
+                dataset_id="ds", retry_rounds=0, resamples=50, webhook="http://wecom.invalid/hook"))
+
+    def test_ok_line_in_conclusion_card(self):
+        cards = []
+        ok = {"severity": "ok", "checked": 2, "unknown": [], "by_kind": {"doc_absent": 2}, "violations": []}
+        result = self._run(ok, cards)
+        self.assertEqual(result["state"], "green")
+        self.assertEqual(result["refusal_premise"], {"severity": "ok", "violations": 0})
+        self.assertEqual(len(cards), 1)
+        self.assertIn("拒答前提对账：ok（核 2 题（doc_absent 2），前提仍成立）", cards[0])
+
+    def test_warn_line_and_separate_message(self):
+        cards = []
+        warn = {"severity": "warn", "checked": 1, "unknown": [], "by_kind": {"doc_absent": 1},
+                "violations": [{"question_id": "refusal-x", "dataset_id": "ds",
+                                "detail": "源文档已入库（2412.18501v3.pdf）",
+                                "premise": {"kind": "doc_absent", "doc": "2412.18501"}}]}
+        result = self._run(warn, cards)
+        self.assertEqual(result["state"], "green")  # 只告警不阻断
+        self.assertEqual(result["refusal_premise"]["violations"], 1)
+        self.assertEqual(len(cards), 2)
+        self.assertTrue(any("【拒答前提对账】" in c and "源文档已入库" in c for c in cards))
+        self.assertTrue(any("1 题前提失效" in c for c in cards))
+        slots = [p for p in (self.tmp / "nightly").glob("*/runs/*") if p.is_dir()]
+        self.assertTrue((slots[0] / "refusal_premise.json").exists())
+
+    def test_empty_check_no_line(self):
+        cards = []
+        self._run({"severity": "ok", "checked": 0, "unknown": [], "by_kind": {}, "violations": []}, cards)
+        self.assertEqual(len(cards), 1)
+        self.assertNotIn("拒答前提对账", cards[0])
 
 
 if __name__ == "__main__":
