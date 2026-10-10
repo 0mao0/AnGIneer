@@ -60,6 +60,8 @@ data/
 
 向量后端可用 Chroma（`DOCS_VECTORSTORE_PROVIDER=chroma`）或 SQLite，启动失败自动回退 SQLite。
 
+分组原则（standing rule，原 plan-kb-split-groups.md §1，该计划已完结清理）：**按用途与更新节奏分组，组内靠 library_id 区分**——生产组按业务域各一份（查询只碰本库索引，页缓存局部性最好）；评测组合一（生命周期一致，一起备份/重建/清理，避免按 benchmark 拆太碎，每 collection 固定开销 MB 级，份数多了才亏）。边界规则：评测组总量 >100~150 万条、或单体 benchmark 涨到几十万条时，拆出独立成对。
+
 ## 4. 多租户 / API Key
 
 - `api_keys.sqlite`：key_hash / user_name / scope / **library_id**；
