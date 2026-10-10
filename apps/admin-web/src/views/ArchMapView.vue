@@ -474,7 +474,9 @@ const resetView = () => {
   bottom: 16px;
   z-index: 10;
   padding: 8px 12px;
-  background: transparent;
+  border-radius: 6px;
+  background: var(--bg-secondary, #fff);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
 }
 
 .arch-legend-title {
