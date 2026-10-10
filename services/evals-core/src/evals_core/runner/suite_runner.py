@@ -394,6 +394,9 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     # 拒答专项：refusal_expected=true 的拒答题正确率与不可答幻觉数
     refusal_total = 0
     refusal_correct_count = 0
+    # 二段判定拆分（2026-10-09）：未拒的答案按证据支持度分「有据未拒」与「真幻觉」
+    refusal_miss_grounded = 0
+    refusal_miss_unsupported = 0
     for d in details:
         answer_s = (d.get("all_scores") or {}).get("answer") or {}
         if not answer_s.get("evaluated") or not answer_s.get("refusal_expected"):
@@ -401,6 +404,10 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         refusal_total += 1
         if answer_s.get("refusal_correct"):
             refusal_correct_count += 1
+        elif answer_s.get("evidence_supported") is True:
+            refusal_miss_grounded += 1
+        elif answer_s.get("evidence_supported") is False:
+            refusal_miss_unsupported += 1
     refusal_accuracy = round(refusal_correct_count / refusal_total, 4) if refusal_total else None
     by_level: Dict[str, Dict[str, int]] = {}
     for d in details:
@@ -438,6 +445,9 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         "refusal_correct": refusal_correct_count,
         "refusal_accuracy": refusal_accuracy,
         "hallucination_on_unanswerable": (refusal_total - refusal_correct_count) if refusal_total else 0,
+        # 真幻觉口径：未拒且答案不被证据支持（有据未拒不计入；未判定的既不进分子也不进分母）
+        "refusal_miss_grounded": refusal_miss_grounded,
+        "refusal_miss_unsupported": refusal_miss_unsupported,
         "by_level": by_level,
         "grouped_scores": grouped_scores,
         # 判分引擎留痕（legacy/deepeval；混合时逗号并列）——跨 run 可比性判据

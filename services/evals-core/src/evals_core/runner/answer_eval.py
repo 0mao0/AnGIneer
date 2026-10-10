@@ -8,6 +8,8 @@ from evals_core.runner._query_helper import run_eval_query
 from evals_core.runner.retrieval_eval import normalize_section_path
 from angineer_core.base_utils import is_fatal_exception
 from angineer_core.prompts.answer_eval import (
+    EVIDENCE_SUPPORT_PROMPT,
+    EVIDENCE_SUPPORT_SYSTEM_PROMPT,
     SEMANTIC_EVAL_PROMPT,
     SEMANTIC_EVAL_SYSTEM_PROMPT,
 )
@@ -217,6 +219,68 @@ def _llm_semantic_evaluate(
     }
 
 
+def _llm_evidence_support_check(
+    answer: str,
+    prediction: Dict[str, Any],
+    judge_config_name: Optional[str] = None,
+) -> Dict[str, Any]:
+    """该拒题未拒时的二段判定：答案核心主张是否被检索证据支持。
+
+    目的（report-refusal-3sets-audit-20261009 §4.4）：把「有据未拒」（拒答前提不成立、
+    模型从库里找到答案）与「编造」（真幻觉）拆开——话术判分只看 is_refusal，二者同罪。
+    不改变 score/refusal_correct 口径（nightly 门禁可比性），判定结果只作观测字段，
+    由 suite_runner 聚合出 refusal_miss_grounded / refusal_miss_unsupported。
+    judge 候选链纪律与语义判分一致：只在 _resolve_judge_candidates 链内降级。
+    """
+    import time as _time
+    from ai_inference.llm_client import chat_result_guarded, get_llm_client
+    from ai_inference.llm_response_parser import extract_json_from_text, ParseError
+    from evals_core.runner.judge_deepeval import _extract_contexts
+
+    contexts = _extract_contexts(prediction)
+    if not contexts:
+        return {
+            "support_evaluated": False,
+            "evidence_supported": None,
+            "support_reason": "prediction 无检索证据文本，无法判定支持度",
+        }
+    evidence_block = "\n\n".join(f"[证据 {i + 1}] {text}" for i, text in enumerate(contexts))
+    messages = [
+        {"role": "system", "content": EVIDENCE_SUPPORT_SYSTEM_PROMPT},
+        {"role": "user", "content": EVIDENCE_SUPPORT_PROMPT.format(
+            evidence=evidence_block, system_answer=answer[:2000])},
+    ]
+    _t_start = _time.time()
+    client = get_llm_client()
+    candidates = _resolve_judge_candidates(judge_config_name)
+    last_exc: Optional[Exception] = None
+    for index, config_name in enumerate(candidates):
+        try:
+            result = chat_result_guarded(client, messages, mode="instruct", config_name=config_name, temperature=0.1)
+            raw_response = result.text
+            try:
+                parsed = extract_json_from_text(raw_response, strict=True)
+            except ParseError:
+                parsed = extract_json_from_text(raw_response, strict=False)
+            return {
+                "support_evaluated": True,
+                "evidence_supported": bool(parsed.get("supported")),
+                "support_reason": str(parsed.get("reason", "")).strip(),
+                "support_judge_used": config_name or "<被测默认>",
+                "support_judge_failover": index > 0,
+                "support_eval_duration": round(_time.time() - _t_start, 2),
+            }
+        except Exception as exc:  # noqa: BLE001 —— 单候选失败切下一候选
+            if is_fatal_exception(exc):
+                raise
+            last_exc = exc
+    return {
+        "support_evaluated": False,
+        "evidence_supported": None,
+        "support_reason": f"LLM 支持度判定失败（候选 {len(candidates)} 个端点均失败）: {last_exc}",
+    }
+
+
 def citations_match_section_paths(citations: List[Dict[str, Any]], gold_section_paths: List[str]) -> bool:
     """判断引用中是否覆盖 gold 的章节路径要求。"""
     normalized_gold_paths = [normalize_section_path(item) for item in gold_section_paths if normalize_section_path(item)]
@@ -406,6 +470,12 @@ class AnswerEvaluator(BaseEvaluator):
                     "semantic_evaluated": False,
                 }
             else:
+                # 二段判定（2026-10-09）：未拒不等于错——答案若有检索证据支持，
+                # 是「有据未拒」（拒答前提不成立），不是编造。口径不变：score 仍 0。
+                support = _llm_evidence_support_check(
+                    answer, prediction,
+                    judge_config_name=str(question.get("judge_config_name") or "").strip() or None,
+                )
                 return {
                     "score": 0.0,
                     "evaluated": True,
@@ -416,6 +486,7 @@ class AnswerEvaluator(BaseEvaluator):
                     "refusal_recognized_by": None,
                     "correctness_checked": False,
                     "semantic_evaluated": False,
+                    **support,
                 }
 
         if actual_refusal and (gold_answer or checks):

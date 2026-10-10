@@ -2,6 +2,8 @@
 import sys
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest import mock
 
 
 EVALS_CORE_SRC = Path(__file__).resolve().parents[1] / "src"
@@ -9,6 +11,7 @@ if str(EVALS_CORE_SRC) not in sys.path:
     sys.path.insert(0, str(EVALS_CORE_SRC))
 
 from evals_core.runner.answer_eval import AnswerEvaluator  # noqa: E402
+from evals_core.runner.suite_runner import _compute_summary  # noqa: E402
 
 
 class AnswerRefusalTests(unittest.TestCase):
@@ -50,6 +53,83 @@ class AnswerRefusalTests(unittest.TestCase):
         result = self.evaluator.evaluate({}, gold, prediction)
         self.assertEqual(result["score"], 1.0)
         self.assertTrue(result["refusal_correct"])
+
+
+class RefusalMissSupportCheckTests(unittest.TestCase):
+    """该拒题未拒时的二段判定：答案被检索证据支持与否拆「有据未拒 / 真幻觉」。
+
+    口径不变：score 仍 0、refusal_correct 仍 False；支持度只进观测字段。
+    """
+
+    def setUp(self):
+        self.evaluator = AnswerEvaluator()
+        self.gold = {"refusal_expected": True}
+        self.prediction = {
+            "answer": "世界上最大的湖泊是里海，位于亚洲西部。",
+            "citations": [],
+            "retrieved_items": [{"text": "位于亚洲西部的裏海是世界上最大的湖泊。"}],
+        }
+
+    def _run(self, prediction, judge_text=None, side_effect=None):
+        with mock.patch("ai_inference.llm_client.get_llm_client", return_value=object()), \
+             mock.patch("ai_inference.llm_client.chat_result_guarded",
+                        return_value=SimpleNamespace(text=judge_text),
+                        side_effect=side_effect) as guarded:
+            result = self.evaluator.evaluate({}, self.gold, prediction)
+        return result, guarded
+
+    def test_grounded_miss_marked_supported(self):
+        result, guarded = self._run(
+            self.prediction, judge_text='{"supported": true, "reason": "证据原文含答案"}')
+        self.assertEqual(result["score"], 0.0)
+        self.assertFalse(result["refusal_correct"])
+        self.assertTrue(result["support_evaluated"])
+        self.assertTrue(result["evidence_supported"])
+        self.assertEqual(guarded.call_count, 1)
+
+    def test_unsupported_miss_marked_hallucination(self):
+        result, _ = self._run(
+            self.prediction, judge_text='{"supported": false, "reason": "证据不含该结论"}')
+        self.assertEqual(result["score"], 0.0)
+        self.assertTrue(result["support_evaluated"])
+        self.assertFalse(result["evidence_supported"])
+
+    def test_no_context_skips_llm(self):
+        result, guarded = self._run({"answer": "里海。", "citations": []})
+        self.assertEqual(result["score"], 0.0)
+        self.assertFalse(result["support_evaluated"])
+        self.assertIsNone(result["evidence_supported"])
+        self.assertEqual(guarded.call_count, 0)
+
+    def test_judge_failure_keeps_score_and_marks_unevaluated(self):
+        result, _ = self._run(self.prediction, side_effect=RuntimeError("boom"))
+        self.assertEqual(result["score"], 0.0)
+        self.assertFalse(result["support_evaluated"])
+        self.assertIsNone(result["evidence_supported"])
+
+
+class RefusalMissSummaryTests(unittest.TestCase):
+    """suite_runner 聚合：有据未拒与真幻觉分别计数，不改 refusal_accuracy 口径。"""
+
+    _QID_SEQ = 0
+
+    def _detail(self, answer_scores):
+        RefusalMissSummaryTests._QID_SEQ += 1
+        return {"question_id": f"q{RefusalMissSummaryTests._QID_SEQ}",
+                "all_scores": {"answer": {"evaluated": True, "refusal_expected": True,
+                                          **answer_scores}}}
+
+    def test_summary_splits_grounded_and_unsupported(self):
+        summary = _compute_summary([
+            self._detail({"refusal_correct": True}),
+            self._detail({"refusal_correct": False, "evidence_supported": True}),
+            self._detail({"refusal_correct": False, "evidence_supported": False}),
+            self._detail({"refusal_correct": False, "evidence_supported": None}),
+        ])
+        self.assertEqual(summary["refusal_total"], 4)
+        self.assertEqual(summary["refusal_correct"], 1)
+        self.assertEqual(summary["refusal_miss_grounded"], 1)
+        self.assertEqual(summary["refusal_miss_unsupported"], 1)
 
 
 if __name__ == "__main__":
