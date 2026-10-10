@@ -1,4 +1,4 @@
-"""库组注册表：``library_id → 组 → 存储位置`` 的唯一真相源（docs/plan-kb-split-groups.md §二）。
+"""库组注册表：``library_id → 组 → 存储位置`` 的唯一真相源（docs/plan-kb-split-groups.md §二，该计划已完结清理、git 历史可查）。
 
 设计约束：
 - 落独立单文件 ``data/registry.sqlite``——不放任何组内 sqlite（knowledge_index 拆完自身就在
@@ -243,7 +243,7 @@ def set_group(library_id: str, group_name: str) -> LibraryRecord:
     """改组迁移（多库管理 tab）：换组名 + 组默认 collection + sqlite_file 按新组现状重新推导。
 
     只改注册行，不搬数据——与 register_library 缺省推导同口径：新组组文件已存在则挂组文件，
-    否则挂过渡单文件。数据物理搬迁属阶段二 flip，拆组前置条件见 plan-kb-split-groups。
+    否则挂过渡单文件。数据物理搬迁属阶段二 flip，拆组前置条件见 plan-kb-split-groups（已完结清理、git 历史可查）。
     """
     if group_name not in GROUP_DEFAULTS and get_custom_group(group_name) is None:
         raise ValueError(f"未知库组: {group_name}（合法组 {sorted(GROUP_DEFAULTS)} + 已建自定义组）")

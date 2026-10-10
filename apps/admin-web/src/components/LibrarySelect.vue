@@ -71,7 +71,7 @@ const props = defineProps<{
 
 const store = useLibraryStore()
 
-// 组 segment（plan-kb-split-groups）：评测语料与生产知识分栏展示；
+// 组 segment（plan-kb-split-groups，已完结清理）：评测语料与生产知识分栏展示；
 // 组判定由后端注册表直出 group_name，前端只过滤（evals=评测语料，其余=生产）。
 // 切组 = 恢复该组「上次选中」的库（store.groupLibraries）；无记录则取该组默认库/首库。
 const groupTab = ref<'prod' | 'evals'>(store.currentLibraryGroup)

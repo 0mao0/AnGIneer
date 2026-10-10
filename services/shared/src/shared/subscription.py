@@ -1,4 +1,4 @@
-"""知识库访问范围两级授权（组订阅 → 组内库）——设计稿 docs/design-user-kb-access-scope.md（2026-10-09）。
+"""知识库访问范围两级授权（组订阅 → 组内库）——设计稿 docs/design-user-kb-access-scope.md（2026-10-09；该设计稿已完结清理、git 历史可查）。
 
 V2 开关 = 环境变量 ``ANGINEER_KB_SUBSCRIPTION_V2``（默认关）：
 - 关 = 逐位保留旧 ``user_libraries`` 平铺清单语义（含 5 库截断，回滚保险）；

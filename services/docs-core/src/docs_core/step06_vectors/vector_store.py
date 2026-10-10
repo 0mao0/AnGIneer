@@ -15,7 +15,7 @@ class VectorRecord(BaseModel):
     content_hash: str = ""
     metadata: Dict[str, Any] = Field(default_factory=dict)
     embedding: List[float] = Field(default_factory=list)
-    # 库组拆分的 payload 归属字段（plan-kb-split-groups §二）：写入时透传进引擎 payload，
+    # 库组拆分的 payload 归属字段（plan-kb-split-groups §二，已完结清理）：写入时透传进引擎 payload，
     # 同 collection 内多库过滤与跨组搬运对账都靠它；空串=注册表出现前的存量记录
     library_id: str = ""
 

@@ -1,6 +1,6 @@
 """sqlite 按组拆文件：knowledge_index.sqlite → 各组文件（正文+FTS+doc_blocks+segments）。
 
-承接 docs/plan-kb-split-groups.md 阶段二前半。特性：
+承接 docs/plan-kb-split-groups.md 阶段二前半（该计划已完结清理、git 历史可查）。特性：
 - ATTACH 源库 + 临时 doc 集合表 + INSERT SELECT，不逐行 Python 搬运
 - FTS 直接复制行（text_ngrams 已在源行内，不重算）
 - 幂等：每组先按 doc 集合 DELETE 再 INSERT，中断重跑无重复

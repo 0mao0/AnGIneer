@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { docsApiClient } from '../../../shared/apiClient'
 import { clearSessionToken, getSessionToken, setSessionToken } from '../../../shared/session'
 
-// 2026-10-09 多库勾选上限移除（设计稿 design-user-kb-access-scope.md R4/B1 定版）：
+// 2026-10-09 多库勾选上限移除（设计稿 design-user-kb-access-scope.md R4/B1 定版，已完结清理、git 历史可查）：
 // 原 MAX_SELECTED_LIBRARIES = 5 与服务端 ANGINEER_MAX_CHAT_LIBRARIES 截断同批移除，勾选集合无上限（>20 仅服务端记 warning）。
 
 export interface SessionUserInfo {

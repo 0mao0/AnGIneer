@@ -1,4 +1,4 @@
-"""V2 订阅派生制鉴权测试——设计稿 docs/design-user-kb-access-scope.md §9-4/§9-5。
+"""V2 订阅派生制鉴权测试——设计稿 docs/design-user-kb-access-scope.md §9-4/§9-5（设计稿已完结清理、git 历史可查）。
 
 对照 test_multi_library_auth.py（V2=0 旧语义基线）：本文件钉 V2=1 侧——
 会话用户改走 _enforce_bound_v2 派生制成员校验：

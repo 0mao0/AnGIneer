@@ -1,6 +1,6 @@
 """qdrant 按组拆 collection：scroll 源 collection → 按注册表路由 → upsert 目标 collection。
 
-承接 docs/plan-kb-split-groups.md 阶段一。特性：
+承接 docs/plan-kb-split-groups.md 阶段一（该计划已完结清理、git 历史可查）。特性：
 - 向量原样搬运（scroll+upsert），**不重新嵌入**，省 GPU 数小时
 - 幂等：point id 确定性（uuid5(record_id)），中断重跑不产生重复（scroll 游标不可持久化，
   重跑=从头全量再扫一遍，计数每跑清零重算；progress 文件仅作崩溃遥测）

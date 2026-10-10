@@ -64,7 +64,7 @@ def resolve_repo_root() -> Path:
 def resolve_knowledge_base_dir() -> Path:
     """解析知识库数据根目录（``KNOWLEDGE_BASE_DIR`` > ``ANGINEER_DATA_ROOT``/knowledge > repo/data/knowledge）。
 
-    2026-10 data/ 三域归位（plan-kb-split-groups 阶段二）：目录由 ``knowledge_base``
+    2026-10 data/ 三域归位（plan-kb-split-groups 阶段二，已完结清理）：目录由 ``knowledge_base``
     改名为 ``knowledge``（生产知识域）；``KNOWLEDGE_BASE_DIR`` 变量名保留不动。
     ``ANGINEER_DATA_ROOT`` 与 library_registry 共用同一数据根口径，保证「组文件回退
     默认单文件」解析出的路径与本函数一致（测试隔离依赖这一点，2026-10-03 实踩）。
@@ -132,7 +132,7 @@ def resolve_chroma_persist_dir(base_path: Path | None = None) -> Path:
 
 def library_root(library_id: str, base_dir: Path | str | None = None) -> Path:
     """库目录根：显式 base_dir 优先（测试用）；默认经注册表按组路由
-    （plan-kb-split-groups：生产组 → knowledge/libraries，评测组 → evals/corpora/libraries，
+    （plan-kb-split-groups，已完结清理：生产组 → knowledge/libraries，评测组 → evals/corpora/libraries，
     组目标目录存在即生效，否则回落知识库根 libraries/——跨搬迁窗口安全）。"""
     if base_dir is None:
         from . import library_registry  # 懒加载避免循环导入（registry 顶层 import paths）

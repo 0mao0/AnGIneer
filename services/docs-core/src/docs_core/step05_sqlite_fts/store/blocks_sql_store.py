@@ -1300,7 +1300,7 @@ _index_stores: Dict[str, "KnowledgeIndexStore"] = {}
 def get_index_store(library_id: Optional[str] = None) -> "KnowledgeIndexStore":
     """索引库访问（按 db 路径懒加载缓存）。
 
-    库组拆分（plan-kb-split-groups 阶段二）：传 library_id 时经注册表解析组文件；
+    库组拆分（plan-kb-split-groups 阶段二，已完结清理）：传 library_id 时经注册表解析组文件；
     未传/未注册回退单文件 knowledge_index 默认路径。
     """
     db_path: Optional[Path] = None

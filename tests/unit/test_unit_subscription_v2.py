@@ -1,4 +1,4 @@
-"""V2 两级授权（组订阅→组内库）派生单元测试——设计稿 docs/design-user-kb-access-scope.md §9-2。
+"""V2 两级授权（组订阅→组内库）派生单元测试——设计稿 docs/design-user-kb-access-scope.md §9-2（设计稿已完结清理、git 历史可查）。
 
 钉住开关两侧：V2 开=每请求派生实际检索集（组订阅减组内排除 ∪ 散库直选；管理员=全部
 active 库减 evals；顺序稳定，scope_hash 依赖）；V2 关=旧 user_libraries 平铺语义逐位保留

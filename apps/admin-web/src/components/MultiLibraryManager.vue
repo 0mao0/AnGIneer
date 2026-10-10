@@ -254,7 +254,7 @@
 /**
  * 总览 tab：全库一览（按组分组）+ 新建 / 改名 / 换组 / 删除。
  * 数据源 GET /knowledge/libraries/groups（后端注册表聚合）；换组只改注册行，
- * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups）。
+ * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups；该计划已完结清理）。
  */
 import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
 import { Modal, message } from 'ant-design-vue'

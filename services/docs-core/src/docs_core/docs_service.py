@@ -233,7 +233,7 @@ class KnowledgeLibrary(BaseModel):
     description: Optional[str] = None
     created_at: datetime = datetime.now()
     updated_at: datetime = datetime.now()
-    # 库组注册表字段（plan-kb-split-groups §二）：注册表已初始化时随列表直出；
+    # 库组注册表字段（plan-kb-split-groups §二，已完结清理）：注册表已初始化时随列表直出；
     # 未注册/注册表缺失时为空串，前端按「未分组」展示
     group_name: str = ""
     collection: str = ""
@@ -595,7 +595,7 @@ class DocsService:
         return None
 
     # 更新知识库名称/描述/所属组。改组只动注册行（collection 随组默认换），不搬数据——
-    # 数据物理搬迁属阶段二 flip（plan-kb-split-groups）；未注册库改组时补登记注册行。
+    # 数据物理搬迁属阶段二 flip（plan-kb-split-groups，已完结清理）；未注册库改组时补登记注册行。
     def update_library(
         self,
         library_id: str,
