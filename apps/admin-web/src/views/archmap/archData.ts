@@ -154,7 +154,7 @@ export const ARCH_NODES: ArchNode[] = [
     anchors: [
       'services/aichat-api/evals_routes.py:272',
       'services/evals-core/src/evals_core/contracts.py:67',
-      'services/evals-core/src/evals_core/runner/suite_runner.py:722'
+      'services/evals-core/src/evals_core/runner/suite_runner.py:750'
     ]
   }),
   N('n-afslot', 30, 220, {
@@ -362,7 +362,7 @@ export const ARCH_NODES: ArchNode[] = [
     summary: 'LLM 给出终答后逐条判：无证据/外引/半拒答都会被改写；拒答有两道保险',
     details: [
       '工具错误 JSON 冒充答案 / 证据全空 → 替换拒答话术',
-      '引用证据外规范编号（has_unsupported_reference）→ 替换拒答',
+      '引用证据外编号/文献名（find_unsupported_reference 三态）：编造规范编号=hard → 整答替换拒答；外部文献名核不到=strip → 只剥出处标记、保留正文（v0.2.94，external_citation_stripped）',
       '半拒答只剥开头保正文；模型自己拒答则保留原文',
       '保险一：硬拒答可重试时换路再答一轮（refusal_retry）',
       '保险二：本段要求工具却始终未调且重试耗尽 → 系统代执行 knowledge_search 再答一轮（不判是否拒答；注释与代码口径不一致）',
@@ -372,7 +372,9 @@ export const ARCH_NODES: ArchNode[] = [
       'services/angineer-core/src/angineer_core/agent_configs.py:151',
       'services/angineer-core/src/angineer_core/agent_messages.py:12',
       'services/angineer-core/src/angineer_core/agent_loop.py:1090',
-      'services/angineer-core/src/angineer_core/agent_loop.py:1115'
+      'services/angineer-core/src/angineer_core/agent_loop.py:1115',
+      'services/angineer-core/src/angineer_core/retrieval_pipeline.py:570',
+      'services/angineer-core/src/angineer_core/retrieval_pipeline.py:547'
     ]
   }),
   N('n-end', CX, 1120, {
