@@ -107,7 +107,7 @@ export const ARCH_NODES: ArchNode[] = [
       '游客 30 轮硬闸（ANGINEER_GUEST_ROUNDS），超限 403 login_required',
       'enforce_bound_libraries：按用户绑定库过滤，匿名只进默认库'
     ],
-    anchors: ['services/aichat-api/chat_auth.py:157', 'services/aichat-api/chat_auth.py:71']
+    anchors: ['services/aichat-api/chat_auth.py:207', 'services/aichat-api/chat_auth.py:116']
   }),
   N('n-route', CX, 220, {
     label: '路由层',
@@ -115,14 +115,14 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'ok',
     summary: '意图分类与「赌 L1」预检索并行起跑，命中则检索段移出关键路径',
     details: [
-      'IntentClassifier：规则快路 → 规则分类 → LLM 兜底，失败显式 fallback 不静默',
+      'IntentClassifier：规则快路（命中即返回）→ LLM 主力 → 规则兜底 → 显式降 L1；失败留痕不静默',
       '预检 daemon 线程按主路同参数（top_k=20, rerank=True）先跑 knowledge_search',
       '跳过：短问有上文 / 表题必输局（ANGINEER_SPECULATIVE_SKIP_TABLE）/ 总闸关',
       '结果挂检索 memo（TTL 120s），主路撞在途会按预算等待'
     ],
     anchors: [
       'services/aichat-api/route_pre.py:43',
-      'services/aichat-api/classifier.py:818',
+      'services/angineer-core/src/angineer_core/classifier.py:869',
       'services/angineer-core/src/angineer_core/agent_tools.py:392'
     ]
   }),
@@ -137,7 +137,7 @@ export const ARCH_NODES: ArchNode[] = [
       'L2 结构化查表：段1 table_search → 失败回退 L1 线',
       'L3 标准计算 / L4 动态编排：complex 档（max_turns=8）+ sop_execute 工具'
     ],
-    anchors: ['services/aichat-api/agent_policy.py:121', 'services/aichat-api/classifier.py:60']
+    anchors: ['services/angineer-core/src/angineer_core/agent_policy.py:123', 'services/angineer-core/src/angineer_core/classifier.py:60']
   }),
 
   // ── 评测侧注入链（answer_format 口子，左侧外挂）──────────────
@@ -152,9 +152,9 @@ export const ARCH_NODES: ArchNode[] = [
       'OfficeQA §7.7 注入实验首用：旁证口径 15.0%/24.1% vs 对照 12.8%/14.3%'
     ],
     anchors: [
-      'services/aichat-api/evals_routes.py:271',
+      'services/aichat-api/evals_routes.py:272',
       'services/evals-core/src/evals_core/contracts.py:67',
-      'services/evals-core/src/evals_core/runner/suite_runner.py:712'
+      'services/evals-core/src/evals_core/runner/suite_runner.py:722'
     ]
   }),
   N('n-afslot', 30, 220, {
@@ -169,8 +169,8 @@ export const ARCH_NODES: ArchNode[] = [
       'L0 聊天线永不携带；生产生效随下次发版'
     ],
     anchors: [
-      'services/angineer-core/src/angineer_core/agent_configs.py:488',
-      'services/angineer-core/src/angineer_core/agent_configs.py:790',
+      'services/angineer-core/src/angineer_core/agent_configs.py:507',
+      'services/angineer-core/src/angineer_core/agent_configs.py:809',
       'services/angineer-core/src/angineer_core/agent_policy.py:136'
     ]
   }),
@@ -194,7 +194,7 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'ok',
     summary: '不携带检索工具，LLM 直接生成回答',
     details: ['对话档预算与提示词（chat 档）', '无强制检索、无证据守卫强制项'],
-    anchors: ['services/aichat-api/agent_policy.py:121']
+    anchors: ['services/angineer-core/src/angineer_core/agent_policy.py:145']
   }),
 
   N('n-inject', 330, 450, {
@@ -207,7 +207,7 @@ export const ARCH_NODES: ArchNode[] = [
       'memo 命中则零延迟复用预检结果；未中现场检索；失败不注入',
       '跟进式短问先经 _contextualize_followup_query 改写'
     ],
-    anchors: ['services/angineer-core/src/angineer_core/agent_loop.py:1264']
+    anchors: ['services/angineer-core/src/angineer_core/agent_loop.py:1293']
   }),
   N('n-ks', 330, 560, {
     label: 'knowledge_search',
@@ -262,7 +262,7 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'ok',
     summary: 'TableRetriever + FormulaRetriever 按 table_qa 融合；不上桌判官只过硬帽',
     details: ['prefix=T；L2 意图的首选工具', '段1 失败时回退到 L1 线（AttemptMachine 分段）'],
-    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:969', 'services/docs-core/src/docs_core/step09_query/agent_port.py:165']
+    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:985', 'services/docs-core/src/docs_core/step09_query/agent_port.py:165']
   }),
   N('n-es', 630, 560, {
     label: 'entity_search',
@@ -270,7 +270,7 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'ok',
     summary: '知识图谱实体/关系直查；无命中自动回退正文检索（prefix=E）',
     details: ['GraphStore.search_entities，KG_DB_PATH 可配'],
-    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1060', 'services/docs-core/src/docs_core/step09_query/agent_port.py:237']
+    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1076', 'services/docs-core/src/docs_core/step09_query/agent_port.py:237']
   }),
 
   N('n-sop', 930, 450, {
@@ -279,7 +279,7 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'ok',
     summary: '把「sop_query + 参数」路由到已发布 SOP 并执行',
     details: ['仅 published 状态对路由可见', '结果：final_context（变量黑板）+ sop_trace + citations'],
-    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1241']
+    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1257']
   }),
   N('n-soproute', 930, 560, {
     label: 'SOP 路由',
@@ -290,7 +290,7 @@ export const ARCH_NODES: ArchNode[] = [
       '零命中时 fallback 全量 SOP 再排；置信度低于阈值拒路由',
       '⚠ 未命中路径只返回「未匹配到合适的 SOP」，无生成 fallback'
     ],
-    anchors: ['services/aichat-api/classifier.py:995', 'services/angineer-core/src/angineer_core/agent_tools.py:1287'],
+    anchors: ['services/angineer-core/src/angineer_core/classifier.py:995', 'services/angineer-core/src/angineer_core/agent_tools.py:1287'],
     problems: ['P1']
   }),
   N('n-runner', 930, 670, {
@@ -303,7 +303,7 @@ export const ARCH_NODES: ArchNode[] = [
       '⚠ 注释明写「Simple linear execution for now」：不遍历 next_step_id 图',
       '执行日志写 markdown；record_run 记统计'
     ],
-    anchors: ['services/sop-core/src/sop_core/sop_runner.py:186', 'services/sop-core/src/sop_core/sop_runner.py:46'],
+    anchors: ['services/angineer-core/src/angineer_core/sop_runner.py:186', 'services/angineer-core/src/angineer_core/sop_runner.py:46'],
     problems: ['P5']
   }),
   N('n-gen', 1200, 560, {
@@ -328,7 +328,7 @@ export const ARCH_NODES: ArchNode[] = [
       'draft→review→published 契约已存在；待审核 UI 模块待独立开发',
       '生成物直接进 published = 模型自写自批，闸门必须保留（论文「人审收件箱」模式）'
     ],
-    anchors: ['services/aichat-api/sop_routes.py:553']
+    anchors: ['services/aichat-api/sop_routes.py:575', 'services/aichat-api/sop_routes.py:603']
   }),
 
   // ── 主轴共享收尾：循环 → 守卫 → 落库 ────────────────────────
@@ -338,8 +338,8 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'warn',
     summary: '所有意图线最终都跑进同一个手写循环：预算压缩 → LLM 流式 → 工具批 → 下一轮',
     details: [
-      'max_turns 轮预算；steer 用户插话在轮边界汇入；cancel 可随时中止',
-      '预算压缩：est 超档时最老 tool 消息压成一行（投影式，落库不受影响）；est>120k 优雅停',
+      'max_turns 轮预算；steer 用户插话在轮边界汇入；cancel 在轮边界/等待点检查（工具线程执行中打不断）',
+      '预算压缩：est 超档时最老 tool 消息压成一行（投影式，落库不受影响）；est>120k 优雅停（仅 complex 档接线，QA/L0 无停止线）',
       '压缩摘要保留 doc 指针（K号·文档名·doc_id，2026-10-06），模型可用 doc_ids 回看原文',
       'ANGINEER_EAGER_COMPRESS（默认关）：每轮即压跨 run 证据，不等阈值——指针回看让损失可回收',
       '工具批：jsonschema 校验 → 并行执行（声明 sequential 的转串行），超时 120s/工具',
@@ -347,10 +347,11 @@ export const ARCH_NODES: ArchNode[] = [
       '⚠ 回看是语义重检索（rerank 可能挤掉当轮条目），非 VISTA 式确定性回放——回放通道待建'
     ],
     anchors: [
-      'services/angineer-core/src/angineer_core/agent_loop.py:1195',
-      'services/angineer-core/src/angineer_core/agent_loop.py:591',
-      'services/angineer-core/src/angineer_core/agent_configs.py:555',
-      'services/angineer-core/src/angineer_core/agent_loop.py:46'
+      'services/angineer-core/src/angineer_core/agent_loop.py:1369',
+      'services/angineer-core/src/angineer_core/agent_loop.py:676',
+      'services/angineer-core/src/angineer_core/agent_loop.py:48',
+      'services/angineer-core/src/angineer_core/agent_configs.py:547',
+      'services/angineer-core/src/angineer_core/agent_configs.py:839'
     ],
     problems: ['P4']
   }),
@@ -364,14 +365,14 @@ export const ARCH_NODES: ArchNode[] = [
       '引用证据外规范编号（has_unsupported_reference）→ 替换拒答',
       '半拒答只剥开头保正文；模型自己拒答则保留原文',
       '保险一：硬拒答可重试时换路再答一轮（refusal_retry）',
-      '保险二：终答拒答且全程未调工具 → 系统代执行 knowledge_search 再答一轮',
+      '保险二：本段要求工具却始终未调且重试耗尽 → 系统代执行 knowledge_search 再答一轮（不判是否拒答；注释与代码口径不一致）',
       '拒答话术：「没有检索到足够证据支持最终结论…」可挂追问'
     ],
     anchors: [
       'services/angineer-core/src/angineer_core/agent_configs.py:151',
       'services/angineer-core/src/angineer_core/agent_messages.py:12',
       'services/angineer-core/src/angineer_core/agent_loop.py:1090',
-      'services/angineer-core/src/angineer_core/agent_loop.py:1056'
+      'services/angineer-core/src/angineer_core/agent_loop.py:1115'
     ]
   }),
   N('n-end', CX, 1120, {
@@ -390,11 +391,11 @@ export const ARCH_NODES: ArchNode[] = [
   // ── SSE 总线：纵向贯通条，左侧收后端各环节帧，右侧顶部发给前端 ──
   BUS('n-bus', 1450, 220, {
     label: 'SSE 总线',
-    sub: '首帧 route_debug · 伴随全程',
+    sub: 'stage 首帧 · route_debug 紧随 · 伴随全程',
     status: 'warn',
-    summary: 'POST 响应体本身就是这条流：首帧 route_debug，末帧 run_end，各环节各有对应帧——前后端并行，后端边跑边推、前端边收边渲染',
+    summary: 'POST 响应体本身就是这条流：首帧 stage:classify（分类起算），route_debug 紧随（route_pre 开时），末帧 run_end——前后端并行，后端边跑边推、前端边收边渲染',
     details: [
-      '路由/分类 → route_debug（首帧）/ stage；循环每轮 → turn_start',
+      '路由/分类 → stage:classify（无条件首帧）→ route_debug（route_pre 开时紧随）；循环每轮 → turn_start',
       'LLM 生成 → message_delta；工具调用 → tool_start / tool_end；守卫改写 → answer；收尾 → run_end（末帧）',
       '⚠ route_debug（route_pre.py:177 已发）前端无分支丢弃——「走了哪条线」不可见',
       '⚠ turn_end 帧同样无处理分支'
@@ -414,7 +415,7 @@ export const ARCH_NODES: ArchNode[] = [
       '⚠ steer 端点（main.py:687）前端零调用：插队=abort 当前 run 后重新 POST',
       'cleanStreamText 二次过滤围栏（双保险）'
     ],
-    anchors: ['apps/shared/chatTransport.ts:40', 'apps/shared/chatTransport.ts:101'],
+    anchors: ['apps/shared/chatTransport.ts:40', 'apps/shared/chatTransport.ts:101', 'apps/shared/chatTransport.ts:374'],
     problems: ['P6']
   }),
   N('n-state', 1750, 340, {
@@ -439,7 +440,7 @@ export const ARCH_NODES: ArchNode[] = [
       '⚠ sop_trace 只渲染一行字「SOP x 执行 N 步」，无步骤图'
     ],
     anchors: [
-      'packages/aichat-ui/src/components/BaseChat.vue:607',
+      'packages/aichat-ui/src/components/BaseChat.vue:86',
       'apps/shared/chatTransport.ts:563'
     ],
     problems: ['P2']
@@ -506,7 +507,7 @@ export const ARCH_EDGES: ArchEdge[] = [
   { id: 'e24', source: 'n-guard', target: 'n-end', label: '放行', kind: 'flow' },
 
   // SSE 总线：后端各环节横向推帧入总线（并行，非串行等待），总线顶部发给前端
-  { id: 'e25a', source: 'n-route', target: 'n-bus', label: 'route_debug / stage（首帧）', kind: 'sse', sourceHandle: 's-r', targetHandle: 't-l1' },
+  { id: 'e25a', source: 'n-route', target: 'n-bus', label: 'stage（首帧）· route_debug', kind: 'sse', sourceHandle: 's-r', targetHandle: 't-l1' },
   { id: 'e25b', source: 'n-loop', target: 'n-bus', label: 'turn_start · message_delta · tool_start/end', kind: 'sse', sourceHandle: 's-r', targetHandle: 't-l2' },
   { id: 'e25c', source: 'n-guard', target: 'n-bus', label: 'answer', kind: 'sse', sourceHandle: 's-r', targetHandle: 't-l3' },
   { id: 'e25d', source: 'n-end', target: 'n-bus', label: 'run_end（末帧）', kind: 'sse', sourceHandle: 's-r', targetHandle: 't-l4' },
@@ -529,8 +530,8 @@ export const ARCH_PROBLEMS: ArchProblem[] = [
     id: 'P1',
     title: 'sop_execute 未命中无 fallback',
     severity: 'high',
-    desc: '未命中只返回 error 文案（agent_tools.py:1287）。已定方案：topk 证据+问题 → LLM 生成实时 SOP → 本轮即跑 → 落 draft 进待审核（模块待开发）→ 人审后 published。',
-    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1287', 'services/sop-core/src/sop_core/sop_loader.py:338'],
+    desc: '未命中只返回 error 文案（agent_tools.py:1304）。已定方案：topk 证据+问题 → LLM 生成实时 SOP → 本轮即跑 → 落 draft 进待审核（模块待开发）→ 人审后 published。',
+    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1304', 'services/sop-core/src/sop_core/sop_loader.py:338'],
     nodeIds: ['n-soproute', 'n-gen', 'n-draft']
   },
   {
@@ -545,7 +546,7 @@ export const ARCH_PROBLEMS: ArchProblem[] = [
     id: 'P3',
     title: 'route_debug 帧前端丢弃',
     severity: 'mid',
-    desc: '后端 route_pre.py:177 已发首帧，前端 transport 无分支——「这题走了哪条线」用户不可见；接上即可服务图 B 的路径展示。',
+    desc: '后端 route_pre.py:177 发 route_debug（route_pre 开时紧随 stage:classify），前端 transport 无分支——「这题走了哪条线」用户不可见；接上即可服务图 B 的路径展示。',
     anchors: ['services/aichat-api/route_pre.py:177', 'apps/shared/chatTransport.ts:101'],
     nodeIds: ['n-bus']
   },
@@ -553,8 +554,8 @@ export const ARCH_PROBLEMS: ArchProblem[] = [
     id: 'P4',
     title: '证据压缩丢指针（已缓解，余回放档位差）',
     severity: 'low',
-    desc: '2026-10-06 已落地：压缩摘要保留 doc 指针（K号·文档名·doc_id，_summarize_tool_raw:496）+ knowledge_search 对 LLM 开放 doc_ids 入参回看（agent_tools.py:929）+ ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关）。残余缺口：回看是语义重检索而非确定性回放；对话黑板 conv_graph 已按业主指令回退（c4a3aaf/e2f3f4e），论文路线未必全对，黑板方案保留观察不删。',
-    anchors: ['services/angineer-core/src/angineer_core/agent_configs.py:496', 'services/angineer-core/src/angineer_core/agent_tools.py:929'],
+    desc: '2026-10-06 已落地：压缩摘要保留 doc 指针（K号·文档名·doc_id，agent_configs.py:547）+ knowledge_search 对 LLM 开放 doc_ids 入参回看（agent_tools.py:929）+ ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关）。残余缺口：回看是语义重检索而非确定性回放；对话黑板 conv_graph 已按业主指令回退（c4a3aaf/e2f3f4e），论文路线未必全对，黑板方案保留观察不删。',
+    anchors: ['services/angineer-core/src/angineer_core/agent_configs.py:547', 'services/angineer-core/src/angineer_core/agent_tools.py:929'],
     nodeIds: ['n-loop']
   },
   {
@@ -562,7 +563,7 @@ export const ARCH_PROBLEMS: ArchProblem[] = [
     title: 'runner 线性执行与图编辑不对齐',
     severity: 'mid',
     desc: 'sop_runner.py:186 注释明写不遍历 next_step_id；sop-ui 里画的 fork 分支运行时无效——图 B 若只做展示无碍，要让分支生效需另算。',
-    anchors: ['services/sop-core/src/sop_core/sop_runner.py:186'],
+    anchors: ['services/angineer-core/src/angineer_core/sop_runner.py:186'],
     nodeIds: ['n-runner']
   },
   {
