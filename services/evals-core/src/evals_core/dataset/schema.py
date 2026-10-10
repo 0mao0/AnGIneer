@@ -32,6 +32,9 @@ class AnswerGold(BaseModel):
     must_cite_target_ids: List[str] = Field(default_factory=list)
     must_cite_section_paths: List[str] = Field(default_factory=list)
     refusal_expected: bool = False
+    # 公开 gold（2026-10-10 内容判分常设化）：拒答题未拒时按它判内容三档；
+    # 仅 Open RAG Bench 系拒答集填充，其余题集留空即不判（report-refusal-underrefusal-content-judge-20261010）
+    content_gold: str = ""
 
 
 class SqlGold(BaseModel):

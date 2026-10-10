@@ -132,5 +132,100 @@ class RefusalMissSummaryTests(unittest.TestCase):
         self.assertEqual(summary["refusal_miss_unsupported"], 1)
 
 
+
+
+class RefusalContentJudgeTests(unittest.TestCase):
+    """该拒题未拒时的内容判分（vs 公开 gold）：三档 verdict 只进观测字段，口径不变。"""
+
+    def setUp(self):
+        self.evaluator = AnswerEvaluator()
+        self.gold = {"refusal_expected": True, "content_gold": "Yes."}
+        self.question = {"question": "Does the evaluation process involve multiple-choice questions?"}
+        self.prediction = {
+            "answer": "是的，该评估过程涉及多项选择题。",
+            "citations": [],
+            "retrieved_items": [{"text": "评估使用多项选择题作答。"}],
+        }
+
+    def _run(self, gold=None, prediction=None, texts=None, side_effect=None):
+        gold = self.gold if gold is None else gold
+        prediction = self.prediction if prediction is None else prediction
+        if side_effect is None:
+            side_effect = [SimpleNamespace(text=t) for t in (texts or [])]
+        with mock.patch("ai_inference.llm_client.get_llm_client", return_value=object()),              mock.patch("ai_inference.llm_client.chat_result_guarded",
+                        side_effect=side_effect) as guarded:
+            result = self.evaluator.evaluate(self.question, gold, prediction)
+        return result, guarded
+
+    def test_content_verdict_recorded(self):
+        result, guarded = self._run(texts=[
+            '{"supported": true, "reason": "证据含答案"}',
+            '{"verdict": "correct", "reason": "结论与 gold 一致"}',
+        ])
+        self.assertEqual(result["score"], 0.0)
+        self.assertTrue(result["content_evaluated"])
+        self.assertEqual(result["content_verdict"], "correct")
+        self.assertEqual(guarded.call_count, 2)
+
+    def test_wrong_verdict_recorded(self):
+        result, _ = self._run(texts=[
+            '{"supported": true, "reason": "证据含答案"}',
+            '{"verdict": "wrong", "reason": "与 gold 相反"}',
+        ])
+        self.assertEqual(result["score"], 0.0)
+        self.assertEqual(result["content_verdict"], "wrong")
+
+    def test_missing_content_gold_skips(self):
+        result, guarded = self._run(
+            gold={"refusal_expected": True},
+            texts=['{"supported": true, "reason": "x"}'])
+        self.assertFalse(result["content_evaluated"])
+        self.assertIsNone(result["content_verdict"])
+        self.assertEqual(guarded.call_count, 1)
+
+    def test_judge_failure_not_fatal(self):
+        result, _ = self._run(side_effect=RuntimeError("boom"))
+        self.assertEqual(result["score"], 0.0)
+        self.assertFalse(result["content_evaluated"])
+        self.assertFalse(result["support_evaluated"])
+
+
+class RefusalContentSummaryTests(unittest.TestCase):
+    """suite_runner 聚合：内容三档计数与内容口径失守率；旧 run 无字段保持 None/0。"""
+
+    _QID_SEQ = 0
+
+    def _detail(self, answer_scores):
+        RefusalContentSummaryTests._QID_SEQ += 1
+        return {"question_id": f"cq{RefusalContentSummaryTests._QID_SEQ}",
+                "all_scores": {"answer": {"evaluated": True, "refusal_expected": True,
+                                          **answer_scores}}}
+
+    def test_counts_and_rates(self):
+        summary = _compute_summary([
+            self._detail({"refusal_correct": True}),
+            self._detail({"refusal_correct": False, "content_evaluated": True,
+                          "content_verdict": "correct"}),
+            self._detail({"refusal_correct": False, "content_evaluated": True,
+                          "content_verdict": "wrong"}),
+            self._detail({"refusal_correct": False, "content_evaluated": True,
+                          "content_verdict": "uncertain"}),
+        ])
+        self.assertEqual(summary["refusal_total"], 4)
+        self.assertEqual(summary["refusal_miss_content_correct"], 1)
+        self.assertEqual(summary["refusal_miss_content_wrong"], 1)
+        self.assertEqual(summary["refusal_miss_content_uncertain"], 1)
+        self.assertEqual(summary["refusal_content_miss_rate"], 0.25)
+        self.assertEqual(summary["refusal_content_miss_rate_upper"], 0.5)
+
+    def test_old_run_keeps_none(self):
+        summary = _compute_summary([
+            self._detail({"refusal_correct": False, "evidence_supported": True}),
+        ])
+        self.assertEqual(summary["refusal_miss_content_correct"], 0)
+        self.assertIsNone(summary["refusal_content_miss_rate"])
+        self.assertIsNone(summary["refusal_content_miss_rate_upper"])
+
+
 if __name__ == "__main__":
     unittest.main()

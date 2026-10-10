@@ -10,6 +10,8 @@ from angineer_core.base_utils import is_fatal_exception
 from angineer_core.prompts.answer_eval import (
     EVIDENCE_SUPPORT_PROMPT,
     EVIDENCE_SUPPORT_SYSTEM_PROMPT,
+    REFUSAL_CONTENT_PROMPT,
+    REFUSAL_CONTENT_SYSTEM_PROMPT,
     SEMANTIC_EVAL_PROMPT,
     SEMANTIC_EVAL_SYSTEM_PROMPT,
 )
@@ -281,6 +283,77 @@ def _llm_evidence_support_check(
     }
 
 
+def _llm_refusal_content_judge(
+    *,
+    question: Dict[str, Any],
+    answer: str,
+    content_gold: str,
+    judge_config_name: Optional[str] = None,
+) -> Dict[str, Any]:
+    """该拒题未拒时的内容判分（vs 公开 gold）：三档 correct/wrong/uncertain。
+
+    目的（report-refusal-underrefusal-content-judge-20261010 第一步量准，2026-10-10 常设化）：
+    把「严格出处口径」的欠拒拆成 内容正确 / 内容错 / 边界——判定只作观测字段，
+    不改 score/refusal_correct 口径（nightly 门禁可比性）。
+    预注册：rubric 定死于 prompts.answer_eval.REFUSAL_CONTENT_PROMPT（v1）、温度 0、
+    judge 候选链纪律与语义判分一致；无 content_gold 的题集不判、判官失败记
+    content_evaluated=False（不猜结果，聚合侧不进分子分母）。
+    """
+    if not str(content_gold or "").strip():
+        return {
+            "content_evaluated": False,
+            "content_verdict": None,
+            "content_reason": "无公开 gold（content_gold 缺失），内容判分跳过",
+        }
+    import time as _time
+    from ai_inference.llm_client import chat_result_guarded, get_llm_client
+    from ai_inference.llm_response_parser import extract_json_from_text, ParseError
+
+    prompt = REFUSAL_CONTENT_PROMPT.format(
+        question=str(question.get("question") or "").strip(),
+        gold_answer=str(content_gold).strip(),
+        answer=answer[:2000],
+    )
+    messages = [
+        {"role": "system", "content": REFUSAL_CONTENT_SYSTEM_PROMPT},
+        {"role": "user", "content": prompt},
+    ]
+    _t_start = _time.time()
+    client = get_llm_client()
+    candidates = _resolve_judge_candidates(judge_config_name)
+    last_exc: Optional[Exception] = None
+    for index, config_name in enumerate(candidates):
+        try:
+            # 预注册温度 0（2026-10-10 口径；与语义判分的 0.1 有意不同，rubric 为三档非评分）
+            result = chat_result_guarded(
+                client, messages, mode="instruct", config_name=config_name, temperature=0.0)
+            raw_response = result.text
+            try:
+                parsed = extract_json_from_text(raw_response, strict=True)
+            except ParseError:
+                parsed = extract_json_from_text(raw_response, strict=False)
+            verdict = str(parsed.get("verdict") or "").strip().lower()
+            if verdict not in ("correct", "wrong", "uncertain"):
+                raise ValueError(f"verdict 非法: {verdict!r}")
+            return {
+                "content_evaluated": True,
+                "content_verdict": verdict,
+                "content_reason": str(parsed.get("reason", "")).strip(),
+                "content_judge_used": config_name or "<被测默认>",
+                "content_judge_failover": index > 0,
+                "content_eval_duration": round(_time.time() - _t_start, 2),
+            }
+        except Exception as exc:  # noqa: BLE001 —— 单候选失败切下一候选
+            if is_fatal_exception(exc):
+                raise
+            last_exc = exc
+    return {
+        "content_evaluated": False,
+        "content_verdict": None,
+        "content_reason": f"LLM 内容判分失败（候选 {len(candidates)} 个端点均失败）: {last_exc}",
+    }
+
+
 def citations_match_section_paths(citations: List[Dict[str, Any]], gold_section_paths: List[str]) -> bool:
     """判断引用中是否覆盖 gold 的章节路径要求。"""
     normalized_gold_paths = [normalize_section_path(item) for item in gold_section_paths if normalize_section_path(item)]
@@ -476,6 +549,14 @@ class AnswerEvaluator(BaseEvaluator):
                     answer, prediction,
                     judge_config_name=str(question.get("judge_config_name") or "").strip() or None,
                 )
+                # 内容判分（2026-10-10 常设化）：未拒答案 vs 公开 gold——把「严格出处口径」的
+                # 欠拒拆成 内容正确 / 内容错 / 边界。观测字段，口径不变（score 仍 0）。
+                content = _llm_refusal_content_judge(
+                    question=question,
+                    answer=answer,
+                    content_gold=str(gold.get("content_gold") or ""),
+                    judge_config_name=str(question.get("judge_config_name") or "").strip() or None,
+                )
                 return {
                     "score": 0.0,
                     "evaluated": True,
@@ -487,6 +568,7 @@ class AnswerEvaluator(BaseEvaluator):
                     "correctness_checked": False,
                     "semantic_evaluated": False,
                     **support,
+                    **content,
                 }
 
         if actual_refusal and (gold_answer or checks):

@@ -67,6 +67,8 @@ def summarize_bucket(details):
     answers = [get(d, "answer", "correctness_score") for d in details if get(d, "answer", "correctness_checked")]
     refusal_expected = [d for d in details if get(d, "answer", "refusal_expected")]
     refusal_correct = [d for d in refusal_expected if get(d, "answer", "refusal_correct")]
+    refusal_content = [d for d in refusal_expected if get(d, "answer", "content_evaluated")]
+    refusal_content_verdicts = [get(d, "answer", "content_verdict") for d in refusal_content]
     sem_median, sem_p90 = _median_p90([get(d, "answer", "semantic_score") for d in details])
     lat_median, lat_p90 = _median_p90([d.get("latency_ms") for d in details])
     # DeepEval 引擎扩展维度（legacy 引擎无这些键；median 口径，None 不计入分母）
@@ -104,6 +106,14 @@ def summarize_bucket(details):
         "refusal_correct": len(refusal_correct),
         "refusal_accuracy": round(len(refusal_correct) / len(refusal_expected), 4) if refusal_expected else None,
         "hallucination_on_unanswerable": len(refusal_expected) - len(refusal_correct),
+        # 内容判分口径（2026-10-10）：未拒题 vs 公开 gold 三档与失守率（无判定时为 0/None）
+        "refusal_content_judged": len(refusal_content),
+        "refusal_content_correct": sum(1 for v in refusal_content_verdicts if v == "correct"),
+        "refusal_content_wrong": sum(1 for v in refusal_content_verdicts if v == "wrong"),
+        "refusal_content_uncertain": sum(1 for v in refusal_content_verdicts if v == "uncertain"),
+        "refusal_content_miss_rate": (
+            round(sum(1 for v in refusal_content_verdicts if v == "wrong") / len(refusal_expected), 4)
+            if refusal_expected and refusal_content else None),
     }
 
 
@@ -279,4 +289,12 @@ def render_markdown(summary) -> str:
             f"- 拒答正确: {overall['refusal_correct']}（正确率 {overall['refusal_accuracy']}）",
             f"- 不可答幻觉数: {overall['hallucination_on_unanswerable']}",
         ]
+        if overall.get("refusal_content_judged"):
+            lines += [
+                f"- 未拒题内容判分（vs 公开 gold）: 对 {overall.get('refusal_content_correct', 0)} / "
+                f"错 {overall.get('refusal_content_wrong', 0)} / 边界 {overall.get('refusal_content_uncertain', 0)}"
+                f"（已判 {overall['refusal_content_judged']} 题）",
+                f"- 内容口径失守率: {overall.get('refusal_content_miss_rate')}"
+                f"（明确错 / {overall['refusal_total']}）",
+            ]
     return "\n".join(lines) + "\n"

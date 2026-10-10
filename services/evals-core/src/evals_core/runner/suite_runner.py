@@ -397,6 +397,10 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
     # 二段判定拆分（2026-10-09）：未拒的答案按证据支持度分「有据未拒」与「真幻觉」
     refusal_miss_grounded = 0
     refusal_miss_unsupported = 0
+    # 内容判分（2026-10-10）：未拒答案 vs 公开 gold 三档（无判定/旧 run 不进分子分母）
+    refusal_miss_content_correct = 0
+    refusal_miss_content_wrong = 0
+    refusal_miss_content_uncertain = 0
     for d in details:
         answer_s = (d.get("all_scores") or {}).get("answer") or {}
         if not answer_s.get("evaluated") or not answer_s.get("refusal_expected"):
@@ -408,7 +412,25 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
             refusal_miss_grounded += 1
         elif answer_s.get("evidence_supported") is False:
             refusal_miss_unsupported += 1
+        if not answer_s.get("refusal_correct"):
+            content_verdict = answer_s.get("content_verdict")
+            if answer_s.get("content_evaluated") and content_verdict in ("correct", "wrong", "uncertain"):
+                if content_verdict == "correct":
+                    refusal_miss_content_correct += 1
+                elif content_verdict == "wrong":
+                    refusal_miss_content_wrong += 1
+                else:
+                    refusal_miss_content_uncertain += 1
     refusal_accuracy = round(refusal_correct_count / refusal_total, 4) if refusal_total else None
+    content_judged = (refusal_miss_content_correct + refusal_miss_content_wrong
+                      + refusal_miss_content_uncertain)
+    # 内容口径失守率（下界=明确错/拒答总数；上界=含边界/拒答总数）——无判定（旧 run/无 gold）为 None
+    refusal_content_miss_rate = None
+    refusal_content_miss_rate_upper = None
+    if refusal_total and content_judged:
+        refusal_content_miss_rate = round(refusal_miss_content_wrong / refusal_total, 4)
+        refusal_content_miss_rate_upper = round(
+            (refusal_miss_content_wrong + refusal_miss_content_uncertain) / refusal_total, 4)
     by_level: Dict[str, Dict[str, int]] = {}
     for d in details:
         level = d.get("intent_level", "L1")
@@ -448,6 +470,12 @@ def _compute_summary(details: List[Dict[str, Any]]) -> Dict[str, Any]:
         # 真幻觉口径：未拒且答案不被证据支持（有据未拒不计入；未判定的既不进分子也不进分母）
         "refusal_miss_grounded": refusal_miss_grounded,
         "refusal_miss_unsupported": refusal_miss_unsupported,
+        # 内容口径（2026-10-10）：未拒题内容判分计数与失守率（无 gold/旧 run 保持 None/0）
+        "refusal_miss_content_correct": refusal_miss_content_correct,
+        "refusal_miss_content_wrong": refusal_miss_content_wrong,
+        "refusal_miss_content_uncertain": refusal_miss_content_uncertain,
+        "refusal_content_miss_rate": refusal_content_miss_rate,
+        "refusal_content_miss_rate_upper": refusal_content_miss_rate_upper,
         "by_level": by_level,
         "grouped_scores": grouped_scores,
         # 判分引擎留痕（legacy/deepeval；混合时逗号并列）——跨 run 可比性判据

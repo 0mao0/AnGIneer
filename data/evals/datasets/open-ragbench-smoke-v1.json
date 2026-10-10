@@ -854,7 +854,8 @@
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": true,
+        "content_gold": "All outgoing transitions from the final state lead to a sink state."
       }
     },
     {
@@ -882,7 +883,8 @@
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": true,
+        "content_gold": "Understanding quantization table mismatch is crucial because it causes inconsistencies in decompressed pixel values when a forgery uses a different quantization table than the main pipeline."
       }
     },
     {
@@ -910,7 +912,8 @@
         "semantic_threshold": 0.65,
         "must_cite_target_ids": [],
         "must_cite_section_paths": [],
-        "refusal_expected": true
+        "refusal_expected": true,
+        "content_gold": "Focusing on the sample distribution could be preferable because it avoids imposing unfounded sampling assumptions that restrict or eliminate evidence against monotonicity."
       }
     }
   ]
