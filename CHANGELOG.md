@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.96
+
+- 拒答判分两级观测（1a58f86f/c1d40e55）：该拒未拒的答案不再只按「未拒即失败」一刀切——①证据支持度二段判定：答案核心主张是否被本轮检索证据支撑，拆「有据未拒」（拒答前提不成立）/「真幻觉」，聚合 refusal_miss_grounded/unsupported；②内容口径三档：拿题集公开 gold 判 correct/wrong/uncertain（预注册 rubric 定死于 prompts.answer_eval.REFUSAL_CONTENT_PROMPT、温度 0、judge 候选链纪律同语义判分；题集无 content_gold 不判），聚合 refusal_content_miss_rate（下界）/上界。口径不变原则：观测字段只加不改，score/refusal_correct 永不改动（nightly 门禁与历史基线可比）；判官失败一律不猜结果（evaluated=false 不进分子分母）。预注册一次性判分实测（docs/report-refusal-underrefusal-content-judge-20261010.md）：欠拒 10 题明确对 5/错 3/边界 2（双判官 7/10 一致），内容口径失守 9.1%~15.2% vs 严格出处口径 30.3%
+- 题集挂公开 gold + 双口径汇总渲染（c1d40e55）：AnswerGold 增 content_gold 字段（坑：Pydantic 未知字段直接丢——不加字段导入即丢，本地冒烟两次实锤「content_gold 缺失」）；scripts/open_ragbench/add_refusal_content_gold.py 给拒答集 33 题 + 冒烟集 3 题挂 gold（diff 纯新增字段）；suite_runner 聚合 refusal_miss_content_correct/wrong/uncertain + refusal_content_miss_rate(_upper)；nightly 报告「拒答专项」加渲染行（有判定才出现）；部署后须重导题集生效（旧 schema 导入会丢 content_gold）
+- /arch 链路架构图三修（91940b4f/09cda6e8/389826e6）：①锚点全量校正——3 条不存在路径改真身（aichat-api/classifier·agent_policy、sop-core/sop_runner 均→angineer-core），约 20 处错位行号按代码实况重挂，机制口径同步（分类顺序=规则快路→LLM 主力→规则兜底、保险二不判拒答、120k 优雅停仅 complex 档、cancel 仅轮边界/等待点检查、SSE 首帧 stage:classify）；②锚点随内容判分常设化重挂（suite_runner 722→750）+ 终答守卫补 v0.2.94 三态化 strip 态（外部文献名核不到→只剥出处保正文）；③新增「评测判分链」节点（语义判分+两级判定+双口径汇总）
+- tech-report 扩写并补两级观测（f766ef23/1a543221/f61113c0）：新增 3.2 分组分库存储/3.3 知识图谱/3.4 Dream Cycle/3.5 公开基准成绩（OmniDocBench v1.6 官方口径+每晚素材体检 B 层+OpenRAG v4 nightly 基线+FinanceBench 跨域旁证）与第 9/10 章；§5.3 补「拒答题的两级观测判定」（口径不变原则+部署后重导提示，不带数字——读数待首晚 nightly）
+- README 重排并补图（a99830f4）：结构重排删冗长旧述，产品截图三张（专业问答/航道线设计/报告编写）与 admin 评测页图入库，保留 OmniDocBench/朴素 RAG/FinanceBench 三张对比图
+- 生产环境件同步（0e31d5aa/425ce89f/49a8b6fe/e09efa56，服务器 .env 不在 git）：MINERU_COMPANY_API_TIMEOUT=3600（大册解析合法超 600s，客户端掐活任务→重试双烧，10-03 定案）、POPO_API_TIMEOUT=900 与 POPO_INFERENCE_RETRIES=0（超时即重提=双份解码烧卡，09-27 定案）、MINERU_MAX_CONCURRENCY 1→2（业主令；单册超时走跳过留痕不串行）、EVAL_CONCURRENCY 登记并设 5（评测/夜间测试并行跑题数，默认 3）；.env.example 同步登记与键名修正（LOG_LEVEL→ANGINEER_LOG_LEVEL、WEBHOOK_DEPLOY 注释指向 GitHub secrets）
+- 完结文档清理与悬空引用改挂（b5aa2374/8a63258c）：删 7 份完结 plan/需求/报告（git 历史可查），引用处留注（req-dataset-card/knowledge-data-model）；17 处代码注释里指向被删文档的指针统一加「已完结清理、git 历史可查」注记（CHANGELOG 历史记录不动）
+
 ## v0.2.95
 
 - 语料包导出进管理后台（54aacdd4/1a0d46f2）：知识库总览头部加「导出语料包」按钮 → 弹框选组与库（换组默认全选、可取消勾选；未全选红字警告——同组共用一份 sqlite，FTS/graph 无法按库拆，包内仍含未勾选库的索引数据，它们没有源文件随包、检索可能命中而溯源 404）→ 流式打包下载。导出逻辑从 scripts/kb_corpus_export.py 抽到 docs_core.corpus_package（CLI 与管理后台共用一套）：流式只走一趟 IO（旧路径 staging 拷贝→sha256 全扫→zip 共四趟），读文件一次同时算 sha256 直接出网、manifest.json 排最后；进度分母在 qdrant 快照建好后即精确（用建快照响应里的真实 size）；无论正常结束/取消/客户端断连，finally 都清 qdrant 侧快照。前端四态弹框（选择/进行/完成或已取消/失败），下载优先 File System Access（逐块写盘、可精确计数、取消时弃写不落半截文件），不支持时回退浏览器原生下载（一次性 ticket 鉴权：120s、单次消费、绑 task_id，避免把会话 token 写进 URL）；流正常收尾 ≠ 成功（chunked 无 Content-Length，取消也会让连接正常闭合），收尾后回查终态、非 completed 一律弃写。两处实修：客户端断连时 Starlette 抛 GeneratorExit（继承 BaseException、原 except Exception 抓不到）致任务永停 running，单飞闸把后续导出全挡死（实测撞 409）；checkpoint(TRUNCATE) 后 -wal/-shm 是瞬态（最后一个连接关闭即被 SQLite 删除），拷进包成竞态——文件进了包、manifest 扫不到，导入侧报「缺文件」整包中止（DredgeAI 实测），改为只拷主库。设计文档 docs/design-kb-export-ui.md

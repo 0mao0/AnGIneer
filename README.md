@@ -123,13 +123,13 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.2.95** ——语料包导出进管理后台（知识库总览加按钮，选组/库后流式打包下载、服务端不落盘且可取消，含一次性下载凭据与断连收尾）；导出链路复查修复（扫描提速 2.81s→0.15s、保存框延迟 3-5s→41ms、单飞闸僵死回收——原来一次断连就把导出永久锁死）；导出弹框 UI 定版（每库一行＋缩进、组名走中文、文件名自解释、完成态与卡住提示）；知识库组换名 standards→system / guifan→standards（注册表/组库/qdrant 三点同改，已在生产执行并验证）；用户知识库两级授权（组订阅×组内库，开关默认关）；对话页两级库选择器 + 模型×思考档位双下拉；知识库/评测集 tab 改走 URL 段；迁移收尾自动刷新总览 + 刷新按钮转圈盖住体量列；nightly 企微卡片自报数据集名、拒答前提对账上线（修 6 题过期标注）；发版脚本两处闸门假红修复。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.2.96** ——拒答判分两级观测：该拒未拒不再一刀切，拆「有据未拒／真幻觉」（证据支持度）与「对／错／边界」（vs 公开 gold 三档，预注册 rubric），口径不变（只加观测字段，score／refusal_correct 与门禁基线可比）；题集挂公开 gold + nightly 报告拒答专项双口径行；/arch 链路图锚点全量校正并新增「评测判分链」节点（守卫补三态 strip 态）；tech-report 扩写（分组分库／知识图谱／Dream Cycle／公开基准成绩）并补拒答两级观测节；README 重排并补产品与对比截图；生产环境件同步（MINERU 并发 2／POPO 超时 900 重试 0／COMPANY 超时 3600／评测并发 5）；完结文档清理 + 悬空引用改挂（17 处）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.95` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.96` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.2` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.3` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
@@ -169,7 +169,7 @@ cd docker && docker compose up -d --build   # Docker 部署（前端 8080 · API
 | 版本 | 主题 | 状态 |
 | :--- | :--- | :--- |
 | **v0.1** | 基础框架：解析入库、图谱、SOP 引擎、L0–L4 分级、对话、评测 | ✅ 已完成 |
-| **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | 🔄 迭代中（当前 v0.2.95，预计收版 v0.2.99） |
+| **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | 🔄 迭代中（当前 v0.2.96，预计收版 v0.2.99） |
 | **v0.3** | SOP 自进化：图谱自动生成 → 审核闸门 → 执行轨迹反哺，支撑注册考题 | 🚧 规划中（链路骨架已存在） |
 | **v0.4** | GIS × CAD：真实空间数据接入、断面/土方计算、DWG/DXF 出图算量 | 🚧 规划中（geo-core / engtools 骨架已存在） |
 | **v0.5** | 报告编制：工可/初设等正式设计报告自动编制（Markdown / Word / PDF） | 🚧 规划中 |
