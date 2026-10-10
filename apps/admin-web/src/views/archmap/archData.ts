@@ -186,6 +186,28 @@ export const ARCH_NODES: ArchNode[] = [
     ],
     anchors: ['docs/plan-officeqa-arms.md §7.7']
   }),
+  N('n-judge', 30, 560, {
+    label: '评测判分链',
+    sub: '语义判分 · 证据支持 · 内容口径',
+    status: 'ok',
+    summary: '回答落地后逐题判分：语义等价 → 该拒未拒两级二段判定（有据未拒/真幻觉、内容对/错/边界）→ 汇总双口径',
+    details: [
+      '语义判分：judge 候选链纪律（run 级指定优先→环境链），温度 0.1；EVAL_ENGINE=legacy/deepeval',
+      '该拒未拒①证据支持（2026-10-09）：答案核心主张是否被检索证据支撑 → refusal_miss_grounded / refusal_miss_unsupported（真幻觉口径）',
+      '该拒未拒②内容口径（2026-10-10）：拿公开 gold 判三档 correct/wrong/uncertain（预注册 rubric、温度 0；content_gold 缺失不判）→ refusal_content_miss_rate(_upper)',
+      '题集前置：拒答集 33 + smoke 3 题挂公开 gold（scripts/open_ragbench/add_refusal_content_gold.py）；AnswerGold.content_gold 落库',
+      '口径不变原则：观测维度只加字段，score / refusal_correct 永不动——nightly 门禁与历史基线可比；判官失败不猜结果（evaluated=false 不进分子分母）',
+      '汇总落 run summary + nightly 报告「拒答专项」；本地已端到端验证，生产生效=部署后重导题集（旧 schema 导题会丢 content_gold）'
+    ],
+    anchors: [
+      'services/evals-core/src/evals_core/runner/answer_eval.py:224',
+      'services/evals-core/src/evals_core/runner/answer_eval.py:286',
+      'services/evals-core/src/evals_core/dataset/schema.py:37',
+      'services/evals-core/src/evals_core/runner/suite_runner.py:401',
+      'services/evals-core/src/evals_core/nightly/report.py:292',
+      'services/angineer-core/src/angineer_core/prompts/answer_eval.py:70'
+    ]
+  }),
 
   // ── 四列意图线（y 自上而下）────────────────────────────────
   N('n-l0', 30, 450, {
@@ -524,7 +546,9 @@ export const ARCH_EDGES: ArchEdge[] = [
   // 评测注入链：调用方→槽→汇入意图分级装配；◇ 为待产品化
   { id: 'e31', source: 'n-eval', target: 'n-afslot', label: '穿线', kind: 'flow' },
   { id: 'e32', source: 'n-afslot', target: 'n-level', label: '注入 system prompt', kind: 'flow', sourceHandle: 's-r', targetHandle: 't-l' },
-  { id: 'e33', source: 'n-afslot', target: 'n-afprod', label: '◇ 产品化', kind: 'planned' }
+  { id: 'e33', source: 'n-afslot', target: 'n-afprod', label: '◇ 产品化', kind: 'planned' },
+  // 评测判分链：调用方跑完收集答案 → 逐题判分（语义/证据支持/内容口径）
+  { id: 'e34', source: 'n-eval', target: 'n-judge', label: '跑完判分', kind: 'flow', sourceHandle: 's-l', targetHandle: 't-l' }
 ]
 
 export const ARCH_PROBLEMS: ArchProblem[] = [
