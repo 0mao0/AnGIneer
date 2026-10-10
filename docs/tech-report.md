@@ -218,7 +218,7 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 
 ![Open RAG Bench v4 基线](images/openragbench-baseline.png)
 
-- 拒答正确率是当前主要失分项：17 题属跨文档错配作答，逐题归因见 [report-refusal-attribution-20260927.md](report-refusal-attribution-20260927.md)；
+- 拒答正确率是当前主要失分项（09-27 归因读数：17 题跨文档错配作答）；现已升级两级观测口径——**有据未拒/真幻觉** ＋ **内容对/错/边界**（§5.3，随下一版生效），逐题归因见 [report-refusal-attribution-20260927.md](report-refusal-attribution-20260927.md)；
 - 官方榜单（Vectara 托管于 HuggingFace Space）与本仓口径不同——子集与判分引擎均不一致，**不作直接对比**，只引用本仓可复现基线。
 
 **跨领域旁证——FinanceBench（金融域，同一判分链零改动）**：SEC 申报文件 84 篇 PDF 走自家解析管线入库、官方 150 题作答，语义正确率 **58.0%**（87/150，DeepEval）——超过论文（arXiv 2311.11944）公开的现实 RAG 配置最优档 50%；论文柱为人工复核口径，**判分方式不同、并列呈现非同一把尺**，oracle（金证据页）85% 档只作上限引用不作对比。文档级检索命中 96%，判分失败 0 题；预注册（跑前判据写死）与逐题归因见 [plan-financebench-arms.md](plan-financebench-arms.md)：
@@ -266,6 +266,7 @@ flowchart LR
     MET --> SOPE["SOP 执行评测"]
     MET --> ANS["回答语义评测"]
     ANS --> JUDGE["LLM judge（EVAL_JUDGE_MODEL，与被测解耦）"]
+    ANS --> REFJ["拒答题两级观测（该拒未拒）<br/>证据支持 · 内容口径（§5.3）"]
     RET --> BUCKET["失败分桶<br/>missed_exact_target / wrong_section_bias / ..."]
     BUCKET & SOPE & ANS --> STORE["结果落库 SQLite"]
     STORE --> CMP["两次运行对比看板<br/>分数差异 + 题目级变化"]
@@ -280,6 +281,14 @@ flowchart LR
 - `EVAL_JUDGE_MODEL`：在 `LLM_CONFIGS` 注册独立 judge 模型（如 Qwen3.8-Flash），设此变量后判分统一走它；不设则回退默认模型（向后兼容）
 - **实证（2026-09-03/04）**：LLM 自 FP8 切 NVFP4，open-ragbench v2 自评差 -3.1pt；用固定 judge 重判两 run 全部 57 个争议题后 **NVFP4 反超 +3.6pt**（60.7% vs 57.1%）——确认自评 -3pt 为同源偏差，模型质量实际持平略优
 - 检索评测（hit@1/3/5）为纯指标计算，不经 LLM judge
+
+### 5.3 拒答题的两级观测判定（该拒未拒时）
+
+该拒未拒的答案不再只按「未拒即失败」一刀切：判分器在其上追加两级**观测**判定，把"失败"拆开归因——①**证据支持**：答案核心主张是否被本轮检索证据支撑 → `refusal_miss_grounded`（有据未拒，拒答前提不成立）/ `refusal_miss_unsupported`（真幻觉）；②**内容口径**：与题集公开 gold 的一致性三档 `correct / wrong / uncertain`（预注册 rubric、温度 0；题集无 `content_gold` 不判）→ `refusal_content_miss_rate`（下界）/ 上界（含边界档）。
+
+- **口径不变原则**：两级判定只加观测字段，`score` / `refusal_correct` 永不改动——nightly 门禁与历史基线保持可比；判官失败一律不猜结果（`evaluated=false`，不进分子分母）。
+- 汇总落 run summary 与 nightly 报告「拒答专项」行；题集侧需给拒答集挂公开 gold（`scripts/open_ragbench/add_refusal_content_gold.py`），**部署后重导题集生效**（旧 schema 导入会丢 `content_gold`）。
+- 深入阅读：[report-refusal-underrefusal-content-judge-20261010.md](report-refusal-underrefusal-content-judge-20261010.md)
 
 ---
 
