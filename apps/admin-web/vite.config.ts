@@ -11,6 +11,7 @@ import pdfWasmPlugin from '../../packages/docs-ui/vite-pdf-wasm.mjs'
 const ADMIN_CONSOLE_PORT = portContract.adminConsolePort
 const DOCS_API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.docsApiPort}`
 const AICHAT_API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.aichatApiPort}`
+const SOP_API_PROXY_TARGET = `http://${portContract.localHost}:${portContract.sopApiPort}`
 
 function getAppVersion(): string {
   try {
@@ -109,7 +110,7 @@ export default defineConfig({
       '/api/v1': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
       '/api/api-keys': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
       '/api/chat': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
-      '/api/sops': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api/sops': { target: SOP_API_PROXY_TARGET, changeOrigin: true },
       '/api/evals': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
       '/api/dream-cycle': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
       '/api/llm_configs': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
