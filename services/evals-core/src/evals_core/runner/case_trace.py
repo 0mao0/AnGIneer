@@ -325,7 +325,11 @@ def run_eval_case_trace(
         )
     unloaded_sop_ids = [sop_id for sop_id in all_sop_json_ids if sop_id not in loaded_sop_ids]
 
-    classifier = IntentClassifier(sops)
+    from angineer_core.sop_domain import load_domain_pack_from_env
+
+    classifier = IntentClassifier(
+        sops, param_descriptions=load_domain_pack_from_env().param_descriptions
+    )
     intent_result = classifier.classify_intent(
         question["question"], config_name=config_name, mode=mode
     )

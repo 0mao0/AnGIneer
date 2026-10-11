@@ -65,24 +65,10 @@ DEFAULT_EXECUTION_PLANS: Dict[str, List[str]] = {
     "L4": ["dynamic_orchestration"],
 }
 
-# 简短参数名 → 中文含义映射，帮助 LLM 理解 SOP 参数并正确提取
-PARAM_DESCRIPTIONS: Dict[str, str] = {
-    "H": "波高（m），常以H4%或H1%形式出现在题面",
-    "L": "波长（m）",
-    "d": "水深（m），可由设计水位与底高程推算",
-    "h": "码头上部结构高度（m）",
-    "h0": "波峰面高出上部结构底面的高度（m），波峰低于底面时取0",
-    "b": "船宽/B值（m），常通过吨级+船型查附录表A.0.2获取",
-    "夹角": "水流方向与航道轴线的夹角（°），由流向+航道方位推算",
-    "掩护情况": "码头掩护条件：掩护良好/部分掩护/开敞水域，可从'受顺浪''横浪'等描述推断",
-    "K1": "波浪系数：顺浪取0.3，横浪取0.5",
-    "k2": "波浪富裕深度折减系数（0~1.0）",
-    "折减系数": "波浪富裕深度折减系数（0~1.0）",
-    "流速": "水流流速（m/s）",
-    "横风风力": "横风风力等级（≤7级为横风，≥7级为大风）",
-    "船舶航速": "船舶设计航速（kn）",
-    "船舶类型": "航道类型：单线航道或双线航道",
-}
+# 简短参数名 → 中文含义映射，帮助 LLM 理解 SOP 参数并正确提取。
+# 领域内容已外置到领域知识包（angineer_core/domain_packs/*.json），经
+# ANGINEER_SOP_DOMAIN_PACK 启用后由构造参数注入；引擎默认不带任何领域词条。
+PARAM_DESCRIPTIONS: Dict[str, str] = {}
 GENERIC_TEXT_STOP_MARKERS = [
     "，备淤",
     ",备淤",
@@ -818,16 +804,24 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
 class IntentClassifier:
     """意图分类器，负责分析用户查询并匹配最合适的 SOP。"""
 
-    def __init__(self, sops: List[SOP], llm_client=None):
+    def __init__(
+        self,
+        sops: List[SOP],
+        llm_client=None,
+        param_descriptions: Optional[Dict[str, str]] = None,
+    ):
         """
         初始化意图分类器。
 
         Args:
             sops: 可用的 SOP 列表
             llm_client: 可选的 LLM 客户端实例，默认使用全局实例
+            param_descriptions: 领域参数释义（来自领域知识包），供 route() 精排提示；
+                缺省为空=不注入参数说明，行为保持通用
         """
         self.sops = sops
         self._llm_client = llm_client or get_llm_client()
+        self._param_descriptions = dict(param_descriptions) if param_descriptions else {}
         logger.info(f"[DEBUG-SOP-ROUTE] 意图分类器初始化完成")
         logger.info(f"[DEBUG-SOP-ROUTE] 加载 SOP 总数: {len(sops)}")
         for i, sop in enumerate(sops):
@@ -1040,19 +1034,20 @@ class IntentClassifier:
 
         # Step 2: LLM 精排 + 拒绝 + 参数提取（合并为单次调用）
         logger.info("[DEBUG-SOP-ROUTE] ---------- Stage 2: LLM 精排 + 置信度判断 + 参数提取 ----------")
+        param_desc = self._param_descriptions
         candidates_detail = "\n".join(
             f"- ID: {c['id']}, 名称: {c['name_zh']}, 描述: {c['description']}, "
             f"所需参数: {c['required_params']}"
             + (
-                f", 参数说明: {{{', '.join(f'{p}: {PARAM_DESCRIPTIONS[p]}' for p in c['required_params'] if p in PARAM_DESCRIPTIONS)}}}"
-                if any(p in PARAM_DESCRIPTIONS for p in c['required_params']) else ""
+                f", 参数说明: {{{', '.join(f'{p}: {param_desc[p]}' for p in c['required_params'] if p in param_desc)}}}"
+                if any(p in param_desc for p in c['required_params']) else ""
             )
             + f", 输出: {c['outputs']}"
             for c in candidates
         )
 
         param_hints = "\n".join(
-            f"  \"{k}\": \"{v}\"" for k, v in PARAM_DESCRIPTIONS.items()
+            f"  \"{k}\": \"{v}\"" for k, v in param_desc.items()
         )
 
         system_prompt = ROUTE_SOP_SYSTEM_PROMPT.format(

@@ -1282,6 +1282,7 @@ class SopRunnerAdapter:
 
             if classifier is None:
                 from angineer_core.classifier import IntentClassifier
+                from angineer_core.sop_domain import load_domain_pack_from_env
 
                 available = list(sops or [])
                 if not available and sop_loader is not None:
@@ -1291,9 +1292,15 @@ class SopRunnerAdapter:
                 ]
                 if not published:
                     return {"error": "无可执行的已发布 SOP"}
-                effective_classifier = IntentClassifier(published, llm_client=llm_client)
+                domain_hints = load_domain_pack_from_env()
+                effective_classifier = IntentClassifier(
+                    published,
+                    llm_client=llm_client,
+                    param_descriptions=domain_hints.param_descriptions,
+                )
             else:
                 effective_classifier = classifier
+                domain_hints = None
 
             route_result = effective_classifier.route(
                 query, config_name=config_name, mode=mode
@@ -1308,6 +1315,10 @@ class SopRunnerAdapter:
 
             from angineer_core.sop_runner import SopRunner
 
+            if domain_hints is None:
+                from angineer_core.sop_domain import load_domain_pack_from_env
+
+                domain_hints = load_domain_pack_from_env()
             executor = runner
             if executor is None:
                 executor = SopRunner(
@@ -1317,6 +1328,7 @@ class SopRunnerAdapter:
                     llm_client=llm_client,
                     library_id=library_id,
                     doc_ids=doc_ids,
+                    domain_hints=domain_hints,
                 )
 
             initial_context = {"user_query": query}

@@ -152,7 +152,7 @@ class SopExecuteTests(unittest.TestCase):
         runner = FakeRunner()
 
         class StubClassifier:
-            def __init__(self, sops, llm_client=None):
+            def __init__(self, sops, llm_client=None, param_descriptions=None):
                 self.sops = sops
 
             def route(self, user_query, config_name=None, mode="instruct"):
@@ -180,7 +180,7 @@ class SopExecuteTests(unittest.TestCase):
         built = []
 
         class CapturingClassifier:
-            def __init__(self, sops, llm_client=None):
+            def __init__(self, sops, llm_client=None, param_descriptions=None):
                 built.append(sops)
 
             def route(self, user_query, config_name=None, mode="instruct"):

@@ -1,0 +1,35 @@
+{
+  "name": "harbor",
+  "description": "海港/码头工程（JTS 规范族）参数释义、工具输出别名与 calculator 领域取值规则。原硬编码于 angineer-core（classifier.PARAM_DESCRIPTIONS / sop_runner._select_output_value / dispatcher.CALCULATOR_HINT），2026-10-11 外置。",
+  "param_descriptions": {
+    "H": "波高（m），常以H4%或H1%形式出现在题面",
+    "L": "波长（m）",
+    "d": "水深（m），可由设计水位与底高程推算",
+    "h": "码头上部结构高度（m）",
+    "h0": "波峰面高出上部结构底面的高度（m），波峰低于底面时取0",
+    "b": "船宽/B值（m），常通过吨级+船型查附录表A.0.2获取",
+    "夹角": "水流方向与航道轴线的夹角（°），由流向+航道方位推算",
+    "掩护情况": "码头掩护条件：掩护良好/部分掩护/开敞水域，可从'受顺浪''横浪'等描述推断",
+    "K1": "波浪系数：顺浪取0.3，横浪取0.5",
+    "k2": "波浪富裕深度折减系数（0~1.0）",
+    "折减系数": "波浪富裕深度折减系数（0~1.0）",
+    "流速": "水流流速（m/s）",
+    "横风风力": "横风风力等级（≤7级为横风，≥7级为大风）",
+    "船舶航速": "船舶设计航速（kn）",
+    "船舶类型": "航道类型：单线航道或双线航道"
+  },
+  "output_aliases": {
+    "dwl_basic": ["design_high_water_level", "basic", "design"],
+    "dwl_extreme": ["extreme_high_water_level", "extreme"],
+    "delta_w_basic": ["delta_w_10yr", "10yr", "10_year", "10年", "basic"],
+    "delta_w_extreme": ["delta_w_2yr", "2yr", "2_year", "2年", "extreme"],
+    "e_basic": ["e_basic", "basic", "10yr", "10年"],
+    "e_extreme": ["e_extreme", "extreme", "2yr", "2年"],
+    "t": ["满载吃水t", "吃水t", "design_draft", "draft", "吃水"],
+    "z1": ["z1", "龙骨下最小富裕深度"],
+    "z2": ["z2", "波浪富裕深度"],
+    "z3": ["z3", "船舶装载纵倾富裕深度", "船尾吃水"],
+    "z4": ["z4", "备淤富裕深度"]
+  },
+  "calculator_hint": "- For K1 (wave coefficient): if wave direction vs dock angle < 45° → K1=0.3 (顺浪), else → K1=0.5~0.7 (横浪).\n- For 折减系数 (reduction factor): 良好掩护→1.0, 部分掩护→(0,1)取中间值如0.5, 开敞→0."
+}

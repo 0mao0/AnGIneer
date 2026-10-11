@@ -19,6 +19,7 @@ from angineer_core.prompts.dispatcher import (
     SMART_SELECT_TOOL_PROMPT,
     STEP_SUMMARY_PROMPT,
 )
+from angineer_core.sop_domain import DomainHints, EMPTY_HINTS
 
 logger = get_logger(__name__)
 
@@ -56,6 +57,7 @@ class SopRunner:
         tool_timeout_s: int = _TOOL_EXEC_TIMEOUT_SECONDS,
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
+        domain_hints: Optional[DomainHints] = None,
     ):
         self.memory = memory or Memory()
         self.config_name = config_name
@@ -65,7 +67,9 @@ class SopRunner:
         self.tool_timeout_s = max(1, int(tool_timeout_s or _TOOL_EXEC_TIMEOUT_SECONDS))
         self.library_id = library_id or "default"
         self.doc_ids = list(doc_ids) if doc_ids else None
+        self.domain_hints = domain_hints or EMPTY_HINTS
         self.variable_metadata = {}
+        self._step_callback = None
         self.start_time = None
         self.step_durations = {}
         self.summary_durations = {}
@@ -176,6 +180,7 @@ class SopRunner:
         """
         self.start_time = time.time()
         logger.info(f"[{sop.id}] Starting execution: {sop.description}")
+        self._step_callback = step_callback
 
         # Log pre-execution events if provided
         if pre_logs:
@@ -183,22 +188,16 @@ class SopRunner:
 
         self.memory.update_context(initial_context)
 
-        # Simple linear execution for now
-        # In a real FSM, we would follow next_step_id
-        for step in sop.steps:
-            try:
-                self._execute_step(step)
-            except Exception as e:
-                # 单步异常不应中断整个 SOP：记录错误并继续后续步骤
-                logger.error(f"[{sop.id}] Step {step.id} 执行异常，继续后续步骤: {e}")
-                self._record_step(step, {}, None, error=f"unhandled: {e}")
-
-            if step_callback:
-                step_info = self._build_step_info(step)
-                try:
-                    step_callback(step_info)
-                except Exception as e:
-                    logger.warning(f"step_callback 调用失败: {e}")
+        # 按步骤图遍历执行：next_step_id/on_failure 自 P4 起是契约的一部分
+        # （sop-ui 画布与校验器均按图语义读写），执行序与其保持一致；
+        # 未被链路覆盖的步骤（islands）按列表顺序线性兜底，全部恰好执行一次。
+        steps = list(sop.steps)
+        executed_ids = set()
+        current = steps[0] if steps else None
+        while current is not None:
+            self._run_single_step(current)
+            executed_ids.add(current.id)
+            current = self._pick_next_step(current, sop, executed_ids)
 
         logger.info(f"[{sop.id}] Execution finished.")
         
@@ -222,6 +221,77 @@ class SopRunner:
                 f.write(f"\n> 注: '调度开销' 包含 Python 代码执行、文件 I/O 及其他逻辑处理时间。\n")
         
         return self.memory.blackboard
+
+    def _run_single_step(self, step: Step):
+        """执行单步并触发回调；单步异常不中断整个 SOP，记错误后继续。"""
+        try:
+            self._execute_step(step)
+        except Exception as e:
+            logger.error(f"Step {step.id} 执行异常，继续后续步骤: {e}")
+            self._record_step(step, {}, None, error=f"unhandled: {e}")
+
+        if self._step_callback:
+            step_info = self._build_step_info(step)
+            try:
+                self._step_callback(step_info)
+            except Exception as e:
+                logger.warning(f"step_callback 调用失败: {e}")
+
+    def _pick_next_step(self, step: Step, sop: SOP, executed_ids: set) -> Optional[Step]:
+        """决定下一个执行的步骤（按契约优先级）：
+
+        1. 失败且 on_failure 指向未执行步骤 → 跳转；被跳过的中间步骤记 skipped；
+        2. next_step_id 指向未执行步骤 → 沿主链走；
+        3. 兜底：列表顺序下一个未执行步骤（覆盖未入链的 islands）。
+        """
+        by_id = {s.id: s for s in sop.steps}
+        if self._step_failed(step) and step.on_failure:
+            target = by_id.get(step.on_failure)
+            if target is not None and target.id not in executed_ids:
+                self._mark_jump_skipped(step, target, sop, executed_ids)
+                return target
+
+        nxt = by_id.get(step.next_step_id) if step.next_step_id else None
+        if nxt is not None and nxt.id not in executed_ids:
+            return nxt
+        return self._next_unexecuted_in_list(sop, executed_ids)
+
+    def _step_failed(self, step: Step) -> bool:
+        """取该步骤最近一条执行记录，判断是否失败。"""
+        for record in reversed(self.memory.history):
+            if record.step_id == step.id:
+                return record.status == "failed"
+        return False
+
+    def _mark_jump_skipped(self, from_step: Step, target: Step, sop: SOP, executed_ids: set):
+        """on_failure 跳转会跳过列表序中介于当前步与目标步之间的未执行步骤。"""
+        steps = list(sop.steps)
+        try:
+            from_idx = steps.index(from_step)
+            target_idx = steps.index(target)
+        except ValueError:
+            return
+        if target_idx <= from_idx:
+            return
+        for step in steps[from_idx + 1:target_idx]:
+            if step.id in executed_ids:
+                continue
+            executed_ids.add(step.id)
+            skip_reason = f"on_failure 跳转自 {from_step.id}，本步骤被跳过"
+            logger.info(f"Skipping step {step.id}: {skip_reason}")
+            self._record_step(step, {}, {"skipped": True, "reason": skip_reason})
+            if self._step_callback:
+                try:
+                    self._step_callback(self._build_step_info(step))
+                except Exception as e:
+                    logger.warning(f"step_callback 调用失败: {e}")
+
+    @staticmethod
+    def _next_unexecuted_in_list(sop: SOP, executed_ids: set) -> Optional[Step]:
+        for step in sop.steps:
+            if step.id not in executed_ids:
+                return step
+        return None
 
     def _build_step_info(self, step: Step) -> Dict[str, Any]:
         """构建单个步骤的执行信息，用于回调通知。"""
@@ -966,29 +1036,9 @@ class SopRunner:
             if numeric_values:
                 return max(numeric_values)
 
-        aliases = []
-        if normalized_key == "dwl_basic":
-            aliases = ["design_high_water_level", "basic", "design"]
-        elif normalized_key == "dwl_extreme":
-            aliases = ["extreme_high_water_level", "extreme"]
-        elif normalized_key == "delta_w_basic":
-            aliases = ["delta_w_10yr", "10yr", "10_year", "10年", "basic"]
-        elif normalized_key == "delta_w_extreme":
-            aliases = ["delta_w_2yr", "2yr", "2_year", "2年", "extreme"]
-        elif normalized_key == "e_basic":
-            aliases = ["e_basic", "basic", "10yr", "10年"]
-        elif normalized_key == "e_extreme":
-            aliases = ["e_extreme", "extreme", "2yr", "2年"]
-        elif normalized_key == "t":
-            aliases = ["满载吃水t", "吃水t", "design_draft", "draft", "吃水"]
-        elif normalized_key == "z1":
-            aliases = ["z1", "龙骨下最小富裕深度"]
-        elif normalized_key == "z2":
-            aliases = ["z2", "波浪富裕深度"]
-        elif normalized_key == "z3":
-            aliases = ["z3", "船舶装载纵倾富裕深度", "船尾吃水"]
-        elif normalized_key == "z4":
-            aliases = ["z4", "备淤富裕深度"]
+        # 领域别名由领域知识包提供（output_aliases: 输出键 → 别名列表），
+        # 引擎默认零领域词条；别名按子串匹配候选键（与外置前行为一致）。
+        aliases = self.domain_hints.output_aliases.get(normalized_key) or []
 
         for alias in aliases:
             for candidate_key, candidate_value in candidates.items():
@@ -1130,6 +1180,9 @@ class SopRunner:
             构建好的 system prompt
         """
         tool_hint = SMART_EXECUTION_CALCULATOR_HINT if step.tool == "calculator" else ""
+        if step.tool == "calculator" and self.domain_hints.calculator_hint:
+            # 领域取值规则来自领域知识包（calculator_hint），追加在通用规则之后
+            tool_hint = f"{tool_hint.rstrip()}\n{self.domain_hints.calculator_hint}\n"
         step_tool = step.tool if step.tool != "auto" else "calculator"
         return SMART_EXECUTION_PROMPT.format(
             step_name=step.name,

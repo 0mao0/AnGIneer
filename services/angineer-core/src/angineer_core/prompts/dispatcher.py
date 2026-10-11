@@ -1,8 +1,12 @@
 """SOP 执行链路相关 prompts（P5 迁移自旧 dispatcher.py；文件名为历史沿用，资产注册名不变）。
 
 用途：智能选工具、智能执行与步骤小结（SOP 执行引擎）与 L0 闲聊直答；
-语言：中文为主，智能执行/选工具沿用英文；版本 v2。
-最后变更：2026-08-17。
+语言：中文为主，智能执行/选工具沿用英文；版本 v3。
+最后变更：2026-10-11。
+
+2026-10-11：calculator hint 剔除领域取值规则（K1 波浪系数/折减系数），领域内容
+迁往领域知识包 angineer_core/domain_packs/harbor.json（经 ANGINEER_SOP_DOMAIN_PACK 启用），
+提示词仅保留通用推导规则（smart_execution_calculator_hint 升 v2）。
 
 2026-08-17：清退旧 Dispatcher 遗留注册（SYSTEM_PROMPT_BASE / SYSTEM_PROMPT_RULES_* /
 SYSTEM_PROMPT_CHOICE_RULES / SYSTEM_PROMPT_GAP_ANALYSIS / EXTRACT_* / JUDGE_* /
@@ -41,9 +45,7 @@ Example Output:
 
 SMART_EXECUTION_CALCULATOR_HINT = """
 IMPORTANT for calculator steps:
-- If expression contains unresolved variables like ${K1}, ${折减系数}, derive them from Context Variables and user query.
-- For K1 (wave coefficient): if wave direction vs dock angle < 45° → K1=0.3 (顺浪), else → K1=0.5~0.7 (横浪).
-- For 折减系数 (reduction factor): 良好掩护→1.0, 部分掩护→(0,1)取中间值如0.5, 开敞→0.
+- If expression contains unresolved variables like ${some_coefficient}, derive them from Context Variables and user query.
 - Output the FINAL computed expression with all variables resolved to numbers.
 """
 
@@ -115,7 +117,7 @@ CHAT_SYSTEM_PROMPT = (
 
 
 register("dispatcher.smart_select_tool_prompt", "v1", SMART_SELECT_TOOL_PROMPT)
-register("dispatcher.smart_execution_calculator_hint", "v1", SMART_EXECUTION_CALCULATOR_HINT)
+register("dispatcher.smart_execution_calculator_hint", "v2", SMART_EXECUTION_CALCULATOR_HINT)
 register("dispatcher.smart_execution_prompt", "v1", SMART_EXECUTION_PROMPT)
 register("dispatcher.step_summary_prompt", "v1", STEP_SUMMARY_PROMPT)
 register("dispatcher.chat_system_prompt", "v1", CHAT_SYSTEM_PROMPT)

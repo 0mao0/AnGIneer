@@ -43,6 +43,9 @@ package-dir = {"" = "src"}
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+angineer_core = ["domain_packs/*.json"]
+
 [project.urls]
 Repository = "https://github.com/0mao0/angineer-core"
 Issues = "https://github.com/0mao0/angineer-core/issues"
