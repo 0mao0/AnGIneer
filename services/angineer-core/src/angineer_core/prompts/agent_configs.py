@@ -310,6 +310,22 @@ QA_AGENT_SYSTEM_PROMPT_V17 = QA_AGENT_SYSTEM_PROMPT_V16 + _QA_RULE15_V17
 assert QA_AGENT_SYSTEM_PROMPT_V17.startswith(QA_AGENT_SYSTEM_PROMPT_V16), "v17 追加未命中（v16 内容漂移）"
 
 
+# v18（2026-10-10，业主拍板方案 B）：规则 2 加适用前提——v16 的「必须写明出处」未设前提，
+# 实测把规则 3「未覆盖」路径挤掉：同代码同配置单钮探针（temperature 0）
+# v15=59.2% → v16=45.8% → v17=45.0%（NoMIRACL 拒对），三套集拒答侧全链 −20pp；
+# 翻题形态=第三档（拒答头+供参考）→「根据《X》」直接作答。v18 唯一改动：写明出处只在
+# 通过规则 3 对齐核对（对象一致）后适用；对象核不上时禁止用《X》包装相邻片段。
+_QA_RULE2_V18_CLAUSE = (
+    "前提核对：上面「写明出处」仅适用于已通过规则 3 对齐核对、与问题对象一致的证据；"
+    "若关键结论只能由相邻片段（对象不一致或仅主题相关）支撑，禁止用「根据《X》」把相邻片段包装成确定结论——"
+    "此时按规则 3 判「未覆盖」：第一句「没有检索到足够证据支持最终结论」，再以「以下相关信息供参考」引出相邻片段。"
+)
+QA_AGENT_SYSTEM_PROMPT_V18 = QA_AGENT_SYSTEM_PROMPT_V17.replace(
+    _QA_RULE2_V16, _QA_RULE2_V16 + _QA_RULE2_V18_CLAUSE
+)
+assert QA_AGENT_SYSTEM_PROMPT_V18 != QA_AGENT_SYSTEM_PROMPT_V17, "v18 规则 2 追加未命中"
+
+
 # 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
 QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V11
 
@@ -358,6 +374,7 @@ register("agent_configs.qa_system_prompt", "v13", QA_AGENT_SYSTEM_PROMPT_V13)
 register("agent_configs.qa_system_prompt", "v15", QA_AGENT_SYSTEM_PROMPT_V15)
 register("agent_configs.qa_system_prompt", "v16", QA_AGENT_SYSTEM_PROMPT_V16)
 register("agent_configs.qa_system_prompt", "v17", QA_AGENT_SYSTEM_PROMPT_V17)
+register("agent_configs.qa_system_prompt", "v18", QA_AGENT_SYSTEM_PROMPT_V18)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
 # meta_system_prompt 已随 meta 档删除（2026-10-02 废 meta_query 路由第二步）：无消费方，历史 run 快照中的版本字符串不受影响。

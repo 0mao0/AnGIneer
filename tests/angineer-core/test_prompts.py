@@ -131,12 +131,21 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止把相邻证据当作答案强行作答", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
 
-    def test_qa_prompt_latest_is_v17(self):
+    def test_qa_prompt_latest_is_v18(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V17
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V18
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V17)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v17")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V18)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v18")
+
+    def test_qa_prompt_v18_rule2_precondition(self):
+        """v18（2026-10-10）：规则 2 写出处加「前提核对」——v16 无前提实测挤掉规则 3 未覆盖路径
+        （NoMIRACL 拒对 59.2%→45.8%），v18 仅在对象核对通过后才允许写「根据《X》」。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V18
+
+        self.assertIn("前提核对", QA_AGENT_SYSTEM_PROMPT_V18)
+        self.assertIn("禁止用「根据《X》」把相邻片段包装成确定结论", QA_AGENT_SYSTEM_PROMPT_V18)
+        self.assertIn("以下相关信息供参考", QA_AGENT_SYSTEM_PROMPT_V18)
 
     def test_qa_prompt_v17_inspect_rule(self):
         """v17（2026-10-07）：规则 15 指代回看——压缩摘要行的 doc_id 指针必须被 prompt 教会使用，
