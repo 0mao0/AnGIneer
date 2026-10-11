@@ -50,6 +50,8 @@ class SopApiClient:
         self.base_url = (base_url or _default_base_url()).rstrip("/")
         self.ttl = _default_ttl() if ttl is None else ttl
         self.timeout = timeout
+        self.session = requests.Session()
+        self.session.trust_env = False  # 绕系统代理（localhost 请求被劫走的旧坑，同 eec9438）
         self._cache: List[SOP] = []
         self._cache_built_at: float = 0.0
         self._lock = threading.Lock()
@@ -89,7 +91,7 @@ class SopApiClient:
     def _fetch(self) -> Optional[List[SOP]]:
         url = f"{self.base_url}/api/sops/full"
         try:
-            resp = requests.get(url, params={"status": "published"}, timeout=self.timeout)
+            resp = self.session.get(url, params={"status": "published"}, timeout=self.timeout)
             resp.raise_for_status()
             items = resp.json().get("sops") or []
         except Exception as exc:  # noqa: BLE001
