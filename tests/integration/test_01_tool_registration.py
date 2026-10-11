@@ -85,7 +85,7 @@ class TestResourceLoading(unittest.TestCase):
 
         # 核心工具检查清单（table_lookup/knowledge_search 已下沉为引擎内置 canonical
         # 实现，不再经 engtools registry 注册——见 commit 2b 老文件系工具删除）
-        required_tools = ["calculator", "weather", "web_search", "sop_run", "file_reader"]
+        required_tools = ["calculator", "weather", "web_search", "file_reader"]
         
         check_results = []
         missing_tools = []
@@ -145,12 +145,6 @@ class TestResourceLoading(unittest.TestCase):
                 "request": f"读取文件 {test_file}",
                 "expected_tool": "file_reader",
                 "hint_inputs": {"file_path": test_file}
-            },
-            {
-                "id": "sop_1",
-                "request": "执行子流程 code_review.md，问题: 请审查指定文件",
-                "expected_tool": "sop_run",
-                "hint_inputs": {"filename": "code_review.md", "question": "请审查指定文件"}
             },
             {
                 "id": "table_1",

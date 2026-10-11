@@ -19,7 +19,7 @@ except Exception:
 # engtools 注册表不可用时兜底识别的工具名
 _FALLBACK_KNOWN_TOOLS = {
     "calculator", "knowledge_search", "table_lookup", "user_input", "conditional",
-    "auto", "sop_run", "llm_generate", "echo", "weather", "web_search",
+    "auto", "llm_generate", "echo", "weather", "web_search",
     "email_sender", "file_reader", "code_linter", "report_generator",
     "summarizer", "docs_retrieval",
 }

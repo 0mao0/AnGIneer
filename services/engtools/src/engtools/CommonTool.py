@@ -90,17 +90,6 @@ class FileReader(BaseTool):
 
 
 @register_tool
-class SopRunTool(BaseTool):
-    name = "sop_run"
-    description_en = "Runs a nested SOP. Inputs: filename (str), question (str)"
-    description_zh = "执行嵌套的 SOP。输入参数：filename (str), question (str)"
-    
-    def run(self, filename: str, question: str, **kwargs) -> Any:
-        """返回 SOP 启动结果。"""
-        return f"已启动子流程: {filename}，处理问题: {question}"
-
-
-@register_tool
 class CodeLinter(BaseTool):
     name = "code_linter"
     description_en = "Lints Python code using AST. Inputs: code (str)"
