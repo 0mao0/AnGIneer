@@ -55,7 +55,6 @@ from chat_agent import (
 from sop_core.sop_loader import SopLoader
 from engtools import *
 import geo_core.GisTool
-from sop_routes import sop_router
 from evals_routes import evals_router
 from dream_cycle_routes import dream_cycle_router
 from chat_auth import enforce_bound_libraries, guest_gate_blocked, resolve_pool_owner
@@ -175,7 +174,6 @@ app.add_middleware(
 # 任务 2.4 后中间件带 scope；按决策仅校验 /api/v1/*（aichat-api 当前无 /api/v1 路由，中间件实际不拦截）
 app.add_middleware(APIKeyAuthMiddleware, scope="chat")
 
-app.include_router(sop_router, prefix="/api/sops", tags=["SOPs"])
 app.include_router(evals_router, prefix="/api/evals", tags=["Evals"])
 app.include_router(dream_cycle_router, prefix="/api/dream-cycle", tags=["Dream Cycle"])
 
