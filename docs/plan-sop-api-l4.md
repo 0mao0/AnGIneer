@@ -30,7 +30,7 @@
 | 1 | SOP 数据面（CRUD/导入/审核/审计/图谱生成，859 行）寄生在 aichat-api | `services/aichat-api/sop_routes.py` |
 | 2 | aichat-api 内部直连 docs-core 读 KG sqlite（越权跨服务） | `sop_routes.py:771`（`GraphStore(KG_DB_PATH)`） |
 | 3 | sop-core 库内部 import docs-core（跨模块焊死） | `sop_core/sop_path_generator.py:6-7` |
-| 4 | aichat-api 双 SopLoader 实例靠文件快照对齐 | `main.py:117` 与 `sop_routes.py:29` |
+| 4 | aichat-api 内多份 SopLoader 实例靠文件快照对齐（main / evals_routes:63，迁移前还有 sop_routes:29，共三处） | `main.py:117`、`evals_routes.py:63` |
 | 5 | meta SOP 空壳：raw 来源加载成单步 `sop_run`，而该工具是桩（返回字符串不执行）→ 假成功 | `engtools/CommonTool.py:94`；meta_l3 引用的 `sop_match` 工具不存在 |
 | 6 | SOP 研究员后端 7ba043a8 已拆，前端孤儿残留（sopResearch.ts / SopResearchManage.vue / sop-ui research 组件 / research_meta.sqlite） | grep 零后端实现，调用即 404 |
 | 7 | L3/L4 在装配层同走 complex 档（注释自认「本计划范围外」） | `angineer_core/agent_policy.py:146` |
@@ -71,7 +71,8 @@ graph TB
 | --- | --- | --- |
 | CRUD/导入/审核/审计/统计 | SopRunner 执行器 | agent 循环、会话、历史 |
 | SOP 工厂：md 解析、图谱路径生成、问题→路径合成（L4） | IntentClassifier 路由 | 赌博式预检、评测路由、nightly |
-| synthesize（不落盘）/ crystallize（落 draft）两端点 | 变量黑板、domain pack 注入 | sop_execute 适配器（调 sop-api 取列表） |
+| synthesize（不落盘）/ crystallize（落 draft）两端点 | 变量黑板、domain pack 注入 | SOP 列表拉取与 L4 回调的**装配层** |
+| | sop_execute 适配器（库内不做 sop-api HTTP；SOP 列表与 synth 回调均经装配层注入） | |
 
 ### 关键设计点：执行面怎么拿 SOP 列表（D2）
 
@@ -101,14 +102,15 @@ graph TB
 **Files:**
 - Archive: `docs/archive/meta-sop-md-2026-10/`（md 原文留档）
 - Delete: `data/platform/sops/raw/meta_l1_semantic_retrieval.md`、`meta_l2_clause_lookup.md`、`meta_l3_standard_calc.md`、`meta_l4_dynamic_orchestration.md`
-- Delete（一并处置 raw-only 演示 SOP）: `data/platform/sops/raw/code_review.md`、`data/platform/sops/raw/math_sop.md`
+- Delete（英文演示 SOP 一并处置，标准统一）: `data/platform/sops/raw/code_review.md`、`math_sop.md`、`market_research.md` 及 `json/market_research.json`
+  - 事实备注：market_research **不是 raw-only**（有 json、5 步，评审意见此处不准），但同为与产品语料无关的英文演示 SOP，按同一标准清出发布池
 - Modify: `services/engtools/src/engtools/CommonTool.py:94`（删 `SopRunTool` 注册类）
 - Modify: `services/sop-core/src/sop_core/sop_loader.py:20`（`_FALLBACK_KNOWN_TOOLS` 去掉 `"sop_run"`）
 
-- [ ] 留档：`mkdir -p docs/archive/meta-sop-md-2026-10 && cp data/platform/sops/raw/meta_*.md data/platform/sops/raw/code_review.md data/platform/sops/raw/math_sop.md docs/archive/meta-sop-md-2026-10/`
-- [ ] 先 grep 测试引用：`grep -rn "code_review\|math_sop" tests/ services/*/tests --include="*.py"`；有用例引用则保留该文件并为其补 json 转正（steps→tool auto），无引用则删
-- [ ] 删 6 个 raw md + 删 index.json 对应条目（或调 `refresh_index()` 重建）
-- [ ] 删 `SopRunTool` 类与 `_FALLBACK_KNOWN_TOOLS` 中的 `"sop_run"`——此后 raw 单步壳（tool=sop_run）过不了 `_is_known_tool`，空壳无法再进发布池，假成功通道关闭（json 真相源的 54 条 SOP 不受影响）
+- [ ] 留档：`mkdir -p docs/archive/meta-sop-md-2026-10 && cp data/platform/sops/raw/meta_*.md data/platform/sops/raw/code_review.md data/platform/sops/raw/math_sop.md data/platform/sops/raw/market_research.md docs/archive/meta-sop-md-2026-10/`
+- [ ] 先 grep 测试引用：`grep -rn "code_review\|math_sop\|market_research" tests/ services/*/tests --include="*.py"`；有用例引用则保留该文件并为其补 json 转正（steps→tool auto），无引用则删
+- [ ] 删 raw md×6 + `json/market_research.json` + index.json 对应条目（或调 `refresh_index()` 重建）
+- [ ] 删 `SopRunTool` 类与 `_FALLBACK_KNOWN_TOOLS` 中的 `"sop_run"`——此后 raw 单步壳（tool=sop_run）过不了 `_is_known_tool`，空壳无法再进发布池，假成功通道关闭（json 真相源的其余 SOP 不受影响）
 - [ ] 跑 `pytest tests/unit/test_unit_sop_loader_status.py tests/unit/test_unit_sop_validator.py -q`，预期 PASS（若有用例断言 sop_run 可注册，同步改用例）
 - [ ] Commit: `fix(sop): 移除 meta SOP 空壳与 sop_run 桩，关闭路由假成功通道`
 
@@ -174,8 +176,9 @@ class SopApiClient:
         # 成功 → 重建缓存+写快照；失败 → 返回末次快照并告警
 ```
 
-- [ ] sop-api 侧补只读端点 `GET /api/sops/full?status=published`（返回完整 SOP JSON 数组，含 steps/blackboard；实现=`_scan_json_sops` 的全量版，逐 id 读 json 文件）
+- [ ] sop-api 侧补只读端点 `GET /api/sops/full?status=published`（返回完整 SOP JSON 数组，含 steps/blackboard；实现=`_scan_json_sops` 的全量版，逐 id 读 json 文件）。**路由顺序地雷：必须声明在 `@sop_router.get("/{sop_id}")`（平移后的 sop_routes.py:593）之前，否则 `"full"` 被当作 sop_id 吞掉**——同文件 `/delete-preview` 已示范此顺序约定
 - [ ] aichat-api 的 `sop_loader` 引用点（`main.py:360-361,571` 等）改为 `sop_api_client.load_published()`；`make_policy_config_factory` 的 `sop_loader` 参数传 `None` 并在适配器内走 `sops=` 列表（`SopRunnerAdapter` 已支持）
+- [ ] **evals_routes.py:63 的第三个 loader 实例一并转换**：`_intent_sop_loader` 改用同一 `SopApiClient`（评测路径与生产同源，不再各自直读文件）
 - [ ] 降级演练：停 sop-api 容器，聊天 SOP 执行用快照照常工作，日志出现降级告警
 - [ ] `.env.example` 登记 `SOP_API_URL`（容器内默认 `http://sop-api:8792`，本机 dev `http://127.0.0.1:8792`）
 - [ ] Commit: `feat(aichat): 执行面 SOP 列表改经 sop-api HTTP + 快照兜底`
@@ -298,25 +301,28 @@ query
  └─ 失败任何一步 → 412/422，绝不返回半成品
 ```
 
-### 6.3 运行时接线（aichat-api）
+### 6.3 运行时接线（回调注入，库不做 sop-api HTTP）
 
-- 挂点：`SopRunnerAdapter.sop_execute` handler 内，`route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESHOLD` 分支（现返回 error 处）：
-  1. 开关关闭（`ANGINEER_SOP_L4_SYNTH=0`）→ 现行为不变；
-  2. 开关开 → 调 `POST /api/sops/synthesize`；200 → 用返回 JSON 构造 `SOP` 对象直接 `SopRunner.run_sop`（**不要求 published**，执行器本就不检查）；成功 → 异步 `crystallize`（附 source_query 与 trace 摘要）+ 返回体标 `l4_synth: true`；412/422 → 返回现行为 error（complex 档 agent 兜底，与今天一致）；
-  3. 预算：每问题至多 1 次 synthesize；内部 LLM 调用步数上限（默认 8）；总超时沿用 `timeout_s=300`。
+挂点在 `SopRunnerAdapter.sop_execute`（`angineer_core/agent_tools.py:1253`，**在 angineer-core 库内**）。库层不得直连 sop-api（守自己的铁律），故 L4 能力以回调注入：
+
+- `SopRunnerAdapter.sop_execute(...)` 新增参数 `synth_callback: Optional[Callable[[str, str, list], Dict]] = None`（签名：`(query, library_id, doc_ids) → {"sop": <SOP JSON>} | None`）；
+- handler 内 route 未命中分支：`synth_callback is None` → **早退返回现行为 error dict（与今天逐字节一致，且由构造保证：不注入就没有新代码路径的副作用）**；非 None → 调回调；返回含 `sop` → 构造 `SOP` 对象直接 `run_sop`（**不要求 published**，执行器本就不检查），成功后回调方负责 crystallize，返回体标 `l4_synth: true`；回调返回 None → 现行为 error；
+- **注入发生在 aichat-api 装配层**（`agent_configs.py` 调 `sop_execute(...)` 处）：开关 `ANGINEER_SOP_L4_SYNTH=1` 时才注入回调实现（内部调 `POST /api/sops/synthesize`，复用 `SopApiClient` 的 base_url；成功后异步 `POST /api/sops/crystallize`，附 source_query 与 trace 摘要）。开关关 = 不注入 = 库内零新路径。
+- 预算（装配层回调内实现）：每问题至多 1 次 synthesize；内部 LLM 调用步数上限（默认 8）；总超时沿用 `timeout_s=300`。
 - 观测：trace 与 sop_trace 标 `l4_synth` 来源；执行结果同样过 complex 档既有 `final_answer_guard`（证据闸，enforce_evidence=True）——动手时核对 sop_execute 路径上该闸确实生效。
 - 门禁纪律：L4 读数只报不改门禁；对照实验预注册（判据跑前写死 + 带 complex 档参照臂，20 题海港域起步）。
 
-**阶段 3 验收**：预注册对照不回退；412 回落路径与现状逐字节一致（开关关闭时整条链路零变化）；crystallize 产物进 draft 审核流可人工发布。
+**阶段 3 验收**：预注册对照不回退；**开关关闭时行为一致——单测断言早退路径：`synth_callback=None` 时未命中分支返回的 dict 与现实现逐键相等**；开关开启时 412/None 回落到同一 error dict；crystallize 产物进 draft 审核流可人工发布。
 
 ## 7. 阶段 4：sop-core 独立发包（0.5-1 天）
 
-- [ ] `services/sop-core/pyproject.toml`：依赖行 `angineer-docs-core` → `angineer-core>=0.1.1` + `angineer-ai-inference>=0.2.2`
-- [ ] 删 `services/sop-core/src/sop_core/sop_loader.py:9` 的 `sys.path.append` hack
+- [ ] **前置核查（开工先做）**：angineer-core 独立仓远端已到 v0.1.2、PyPI 最新 0.1.2（2026-10-12 本机核实），而主仓 `services/angineer-core/pyproject.toml` 仍 0.1.1——按 `git diff split/core HEAD:services/angineer-core/src` 判内容漂移，先对齐（或确认仅版本字段漂移）再发包
+- [ ] `services/sop-core/pyproject.toml`：依赖行 `angineer-docs-core` → `angineer-core>=0.1.1`（干净 venv 实装会拉到 0.1.2 现货，满足语义） + `angineer-ai-inference>=0.2.2`
+- [ ] 删 `services/sop-core/src/sop_core/sop_loader.py:9` 的 `sys.path.append` hack（以 grep 行号为准）
 - [ ] 独立仓库 `angineer-sop-core`：`scripts/sync-standalone.ps1` 的 `$SourcePathOverrides` 加 `'sop-core' = 'services/sop-core'`；独立仓库侧照 ai-inference 模式放 `publish.yml`（OIDC trusted publishing + tag 与 pyproject 版本一致性校验）、LICENSE（MIT）、CI
 - [ ] **版本号 0.1.0 首发需用户确认**（AGENTS.md 约定；未发布过，无占用）
 - [ ] PyPI 侧配 trusted publisher（用户操作）
-- [ ] 干净 venv 验收：`pip install angineer-sop-core` → `import sop_core; sop_core.SopLoader(...)` 可用，依赖自动拉 angineer-core
+- [ ] 干净 venv 验收：`pip install angineer-sop-core` → `import sop_core; sop_core.SopLoader(...)` 可用，依赖自动拉 angineer-core（PyPI 现货已核实存在：0.1.0/0.1.1/0.1.2）
 
 ## 8. 风险与回滚
 
