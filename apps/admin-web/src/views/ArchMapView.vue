@@ -228,7 +228,7 @@ const flowNodes = computed<Node[]>(() => {
           ? {
               ...n.data,
               sub: linesExpanded.value
-                ? '横向扇出四条执行线 · 点击收起 ▾'
+                ? '组档 · 扇出四条执行线 · 点击收起 ▾'
                 : 'L0–L4 · 点击展开四条线 ▸'
             }
           : n.data

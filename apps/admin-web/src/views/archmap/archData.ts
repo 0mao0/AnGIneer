@@ -1,9 +1,9 @@
 /**
  * 对话全链路架构图数据：节点 / 边 / 问题清单（纯静态，锚点均为源码 file:line）
- * 布局：纵向两大主线——上=后端逻辑（主轴直下，意图分级横向扇出 L0/L1/L2/L3·L4 四列，
+ * 布局：纵向两大主线——上=后端逻辑（主轴直下，按级装配横向扇出 L0/L1/L2/L3·L4 四列，
  *       底部汇入共享循环与守卫），下=前端展示；SSE 总线是两侧唯一的连接点。
- *       左侧外挂评测注入链（answer_format 口子）：评测调用方→注入槽→汇入意图分级装配；
- *       评测判分链（跑完逐题判分，非在线工具）独立挂 x=-250 一列，勿与四列意图线执行带混读。
+ *       左侧外挂评测注入链（answer_format 口子）：评测调用方→注入槽→汇入按级装配；
+ *       评测判分链（非在线工具）挂调用方左邻同排：守卫放行的答案由调用方回收，调用方交卷判分、收口汇总。
  * 状态语义：ok=现役正常 warn=有隐患 gap=缺失 planned=◇待新建
  */
 
@@ -89,8 +89,9 @@ const CX = 720 // 主轴中线 x（与四列意图线区域的中点对齐）
 export const ARCH_NODES: ArchNode[] = [
   LANE('lane-back', 660, 480, '后端逻辑'),
   LANE('lane-front', 1680, 350, '前端展示'),
+  LANE('lane-eval', -330, 210, '评测侧'),
 
-  // ── 后端主轴：入口 → 闸门 → 路由 → 意图分级 ──────────────────
+  // ── 后端主轴：入口 → 闸门 → 路由（意图分级）→ 装配 ──────────────
   N('n-user', CX, 0, {
     label: '用户提问',
     sub: 'POST /api/chat/agent',
@@ -112,7 +113,7 @@ export const ARCH_NODES: ArchNode[] = [
   }),
   N('n-route', CX, 220, {
     label: '路由层',
-    sub: '分类 ∥ 赌博式预检',
+    sub: '意图分级 ∥ 赌博式预检',
     status: 'ok',
     summary: '意图分类与「赌 L1」预检索并行起跑，命中则检索段移出关键路径',
     details: [
@@ -128,10 +129,10 @@ export const ARCH_NODES: ArchNode[] = [
     ]
   }),
   N('n-level', CX, 330, {
-    label: '意图分级',
-    sub: '横向扇出四条执行线',
+    label: '按级装配',
+    sub: '拿分级结果组档 · 扇出四条线',
     status: 'ok',
-    summary: 'L0–L4 五级意图映射为分段执行计划（AttemptMachine），按级走四条线',
+    summary: '拿分级结果（RouteDecision）按 level 组分段执行计划（AttemptMachine），扇出四条线；answer_format 注入句在此消费（QA/复杂档提示词追加）',
     details: [
       'L0 闲聊：直接对话档，无工具强制',
       'L1 语义检索：QA 档 + force_first_search=knowledge_search',
@@ -158,7 +159,7 @@ export const ARCH_NODES: ArchNode[] = [
       'services/evals-core/src/evals_core/runner/suite_runner.py:750'
     ]
   }),
-  N('n-afslot', 30, 220, {
+  N('n-afslot', 30, 330, {
     label: '答案格式注入槽',
     sub: 'None＝提示词逐字节不变',
     status: 'ok',
@@ -175,7 +176,7 @@ export const ARCH_NODES: ArchNode[] = [
       'services/angineer-core/src/angineer_core/agent_policy.py:136'
     ]
   }),
-  N('n-afprod', 30, 330, {
+  N('n-afprod', -250, 330, {
     label: '◇ 注入口子对外产品化',
     sub: 'HTTP 暴露 / 发包 / 模板约束（未拍板）',
     status: 'planned',
@@ -187,7 +188,7 @@ export const ARCH_NODES: ArchNode[] = [
     ],
     anchors: ['docs/plan-officeqa-arms.md §7.7']
   }),
-  N('n-judge', -250, 560, {
+  N('n-judge', -250, 110, {
     label: '评测判分链',
     sub: '语义判分 · 证据支持 · 内容口径',
     status: 'ok',
@@ -544,12 +545,13 @@ export const ARCH_EDGES: ArchEdge[] = [
   { id: 'e29', source: 'n-render', target: 'n-doc', label: '点引用', kind: 'flow' },
   { id: 'e30', source: 'n-render', target: 'n-graphb', label: '◇ sop 结构帧', kind: 'planned', sourceHandle: 's-r', targetHandle: 't-l' },
 
-  // 评测注入链：调用方→槽→汇入意图分级装配；◇ 为待产品化
+  // 评测注入链：调用方→槽→汇入按级装配；◇ 为待产品化
   { id: 'e31', source: 'n-eval', target: 'n-afslot', label: '穿线', kind: 'flow' },
   { id: 'e32', source: 'n-afslot', target: 'n-level', label: '注入 system prompt', kind: 'flow', sourceHandle: 's-r', targetHandle: 't-l' },
-  { id: 'e33', source: 'n-afslot', target: 'n-afprod', label: '◇ 产品化', kind: 'planned' },
-  // 评测判分链：调用方跑完收集答案 → 逐题判分（语义/证据支持/内容口径）
-  { id: 'e34', source: 'n-eval', target: 'n-judge', label: '跑完判分', kind: 'flow', sourceHandle: 's-l', targetHandle: 't-l' }
+  { id: 'e33', source: 'n-afslot', target: 'n-afprod', label: '◇ 产品化', kind: 'planned', sourceHandle: 's-l', targetHandle: 't-r' },
+  // 评测判分链（先答后判，suite_runner 驱动）：守卫放行的答案回收至调用方，调用方交卷判分、收口汇总
+  { id: 'e34', source: 'n-guard', target: 'n-eval', label: '答案回收（逐题 prediction）', kind: 'flow', sourceHandle: 's-l', targetHandle: 't-l' },
+  { id: 'e35', source: 'n-eval', target: 'n-judge', label: '调度 · 交卷判分 · 汇总', kind: 'flow', sourceHandle: 's-l', targetHandle: 't-r' }
 ]
 
 export const ARCH_PROBLEMS: ArchProblem[] = [
