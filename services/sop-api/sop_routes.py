@@ -450,6 +450,22 @@ def list_sops(status: Optional[str] = None):
 
 
 
+@sop_router.get("/full")
+def get_sops_full(status: Optional[str] = "published"):
+    """全量导出（含 steps/blackboard）：执行面（aichat-api）拉取用。
+
+    路由顺序地雷：必须声明在 /{sop_id} 之前，否则 "full" 被当作 sop_id 吞掉。
+    """
+    items = []
+    for meta in _scan_json_sops():
+        if status and meta.get("status") != status:
+            continue
+        data = _read_sop_json(meta["id"])
+        if data is not None:
+            items.append(data)
+    return {"sops": items}
+
+
 @sop_router.get("/{sop_id}/delete-preview")
 def get_sop_delete_preview(sop_id: str):
     """获取 SOP 删除影响预览。"""

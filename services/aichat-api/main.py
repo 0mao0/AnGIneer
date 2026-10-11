@@ -52,7 +52,6 @@ from chat_agent import (
     make_policy_config_factory,
     map_event_to_agent_frame,
 )
-from sop_core.sop_loader import SopLoader
 from engtools import *
 import geo_core.GisTool
 from evals_routes import evals_router
@@ -112,8 +111,11 @@ async def global_exception_handler(request, exc):
     )
 
 
-SOP_BASE_DIR = os.path.join(str(ROOT_DIR), "data", "platform", "sops")
-sop_loader = SopLoader(SOP_BASE_DIR)
+# SOP 列表改经 sop-api HTTP + 末次快照兜底（plan-sop-api-l4 Task 1.3；
+# sops/ 文件的唯一写者是 sop-api 服务，本进程不再直读）
+from sop_api_client import SopApiClient
+
+sop_api = SopApiClient()
 
 
 def _register_engine_ports() -> None:
@@ -355,7 +357,7 @@ def list_llm_configs():
 
 def _classify_intent_blocking(query: str, config_name: Optional[str], mode: str):
     """同步意图分类（含 SOP 加载与 LLM 调用），必须在 worker 线程执行。"""
-    sops = sop_loader.load_all() if sop_loader is not None else []
+    sops = sop_api.load_published()
     return IntentClassifier(sops).classify_intent(query, config_name=config_name, mode=mode)
 
 
@@ -566,7 +568,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 request.scene or "qa",
                 scope=scope,
                 intent_result=intent_result,
-                sop_loader=sop_loader,
+                sop_loader=sop_api,
                 route_debug=route_debug,
                 marker_allocator=shared_allocator,
             )

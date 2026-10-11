@@ -55,12 +55,10 @@ async def _startup():
 
     try:
         from angineer_core import IntentClassifier
-        from sop_core.sop_loader import SopLoader
+        from sop_api_client import SopApiClient
 
-        _sop_dir = os.environ.get(
-            "SOP_DATA_DIR", os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")), "data", "platform", "sops")
-        )
-        _intent_sop_loader = SopLoader(_sop_dir)
+        # 与生产同源：经 sop-api HTTP + 快照兜底（不再各自直读文件）
+        _intent_sop_loader = SopApiClient()
 
         def _classify_for_eval(query: str):
             """生产分类链（与 main._classify_intent_blocking 逐行同源）。"""
