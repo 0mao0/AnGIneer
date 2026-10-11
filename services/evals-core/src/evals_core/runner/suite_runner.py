@@ -1,4 +1,5 @@
 """评测套件编排 + 异步任务管理。"""
+import json
 import logging
 import os
 import threading
@@ -942,6 +943,8 @@ def start_eval_run(
 
     answer_format=「答案收尾形态」注入文本（OfficeQA 注入实验 §7.7）：非空时铺到每题、
     仅 QA 档与 L3 复杂档系统提示词追加；注入原文与开关态记进 run manifest（缺留痕判实验无效）。
+    不传时回退读数据集 meta 的 answer_format 声明（数据集级协议，OfficeQA 用），
+    两侧留痕一致；都没有则维持官方全文口径。
 
     allow_concurrent=False（默认）时若已有在跑的评测，抛 EvalBusyError（带在跑清单）；
     用户在弹框里选「确定」后由前端带 allow_concurrent=True 重发——并发与否是用户的
@@ -972,6 +975,17 @@ def start_eval_run(
     all_questions = result_store.list_questions(dataset_id)
     if not all_questions:
         raise ValueError(f"测试集 {dataset_id} 没有题目")
+    if not str(answer_format or "").strip():
+        # 数据集 meta 级「答案收尾协议」回退：run 级不传时用数据集自带声明，
+        # 防靠人记的注入必漏（2026-10-07 OfficeQA 全量 e41d 漏注入 → 0/133，
+        # 同日 d456 注入后答案有尾行但判分侧未提取，两侧协议断链）。
+        # 回退取到的文本同样经 _manifest_with_judge 落 manifest 留痕。
+        dataset = result_store.get_dataset(dataset_id) or {}
+        try:
+            meta = json.loads(dataset.get("meta") or "{}")
+        except (TypeError, ValueError):
+            meta = {}
+        answer_format = str(meta.get("answer_format") or "").strip() or None
     if question_id:
         questions = [q for q in all_questions if str(q.get("question_id") or "") == question_id]
         if not questions:

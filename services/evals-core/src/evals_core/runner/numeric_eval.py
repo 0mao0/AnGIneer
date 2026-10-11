@@ -10,7 +10,8 @@
   - answer = 官方 officeqa CSV 的 ground truth 原文（含单位/货币符号/括号列表形态）。
   - tolerance = 相对误差（官方 score_answer 口径：0.0 精确 / 0.01 = 1% / 0.05 = 5%）。
   判分口径三件套（官方 policy，原样继承）：
-  - 答案取 <FINAL_ANSWER> 尾段（我们的 RAG 链不产该标签，等价于全文）；
+  - 答案取 <FINAL_ANSWER> 尾段（gold 侧判分器视角）——预测侧提取与注入协议成对：
+    本题带 answer_format（run 级/数据集 meta 级）即取尾行为候选答案，否则等价于全文；
   - 直答形态闸：多行/超 250 字/数字个数不符 = 判 0（答非所问形态不给过）；
   - "unable to determine" 拒答文本 = 判 0。
 
@@ -36,16 +37,31 @@ class NumericEvaluator(AnswerEvaluator):
     _TAIL_QUESTION_MAX = 60
 
     @classmethod
-    def _tail_line_candidate(cls, answer: str) -> str:
+    def _tail_line_enabled(cls, question: Dict[str, Any]) -> bool:
+        """尾行提取的启用判定（与答案收尾协议成对，见 _tail_line_candidate）。
+
+        两档：
+        - 本题 question 带 answer_format（run 级或数据集 meta 级注入）→ 自动启用：
+          输出侧既然注入了「尾行=答案」指令，判分侧才读尾行——两侧同属一个协议，
+          只开输出侧不提取，答案行永远到不了判分器（2026-10-07 run-d456 全量 0/133 实锤）。
+        - env ANGINEER_NUMERIC_TAIL_LINE=1 → 强制启用（无 answer_format 也能开）。
+        两者皆无 → 官方全文口径（默认，历史可比）。
+        """
+        if str(question.get("answer_format") or "").strip():
+            return True
+        return os.getenv("ANGINEER_NUMERIC_TAIL_LINE", "").strip() in ("1", "true", "True")
+
+    @classmethod
+    def _tail_line_candidate(cls, answer: str, use_tail: bool) -> str:
         """把整段回答收敛成「候选答案行」，再交给官方形态闸。
 
         官方 _is_direct_answer_only 只认单行直答（多行 = SHAPE_FAIL 判 0），
         而本链路模型常把尾数埋在推理过程后、或以「您是否想了解…」反问句收尾
         （2026-10-07 试点 8/8 因此全灭，含数值全对的 UID0004/0025/0065）。
         取尾行会把推理过程里的错数字（如 1500.00%）捞进来顶掉真答，
-        所以默认关闭（ANGINEER_NUMERIC_TAIL_LINE=1 才启用），默认 = 官方全文口径。
+        所以仅在协议成对时启用（_tail_line_enabled），默认 = 官方全文口径。
         """
-        if os.getenv("ANGINEER_NUMERIC_TAIL_LINE", "").strip() not in ("1", "true", "True"):
+        if not use_tail:
             return answer
         lines = [ln.strip() for ln in answer.splitlines() if ln.strip()]
         if not lines:
@@ -88,7 +104,7 @@ class NumericEvaluator(AnswerEvaluator):
             result.update(score=0.0, numeric_status="EMPTY", reason="Predicted answer is empty")
         else:
             try:
-                final = self._tail_line_candidate(answer)
+                final = self._tail_line_candidate(answer, self._tail_line_enabled(question))
                 shape_ok, shape_reason = officeqa_reward._is_direct_answer_only(expected, final)
                 if shape_ok:
                     ok, reason = officeqa_reward.fuzzy_match_answer(expected, final, tolerance)

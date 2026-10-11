@@ -95,6 +95,37 @@ class TestGuards:
         assert r["numeric_status"] == "SCORER_ERROR"
 
 
+class TestTailLinePairing:
+    """尾行提取与「答案收尾协议」成对（2026-10-11 P0-1）：
+    输出侧注入 answer_format 才有资格判分侧取尾行；否则维持官方全文口径。"""
+
+    MULTILINE = "根据检索证据计算如下：\n第一步取数 123.44\n第二步求和\n123.45\n您是否想了解其他年份的数据？"
+
+    def test_answer_format_enables_tail_line(self):
+        # 尾行是反问句 → 剥掉取倒数第二行的纯答案；全文口径下这题必 SHAPE_FAIL
+        q = _q({"answer": "123.45", "tolerance": 0.0})
+        q["answer_format"] = "最后必须另起一行，只写最终答案本身"
+        r = _ev().evaluate(q, q["numeric_gold"], {"answer": self.MULTILINE})
+        assert r["score"] == 1.0 and r["numeric_status"] == "PASS"
+
+    def test_no_answer_format_keeps_full_text(self):
+        # 不带协议 → 官方全文口径（多行判 0），与历史可比性不动
+        r = _eval({"answer": "123.45", "tolerance": 0.0}, self.MULTILINE)
+        assert r["score"] == 0.0 and r["numeric_status"] == "SHAPE_FAIL"
+
+    def test_env_forces_tail_line_without_protocol(self, monkeypatch):
+        monkeypatch.setenv("ANGINEER_NUMERIC_TAIL_LINE", "1")
+        r = _eval({"answer": "123.45", "tolerance": 0.0}, self.MULTILINE)
+        assert r["score"] == 1.0 and r["numeric_status"] == "PASS"
+
+    def test_blank_answer_format_is_not_protocol(self):
+        # 空白文本不算注入（与 start_eval_run 的 strip 口径一致）
+        q = _q({"answer": "123.45", "tolerance": 0.0})
+        q["answer_format"] = "   "
+        r = _ev().evaluate(q, q["numeric_gold"], {"answer": self.MULTILINE})
+        assert r["score"] == 0.0 and r["numeric_status"] == "SHAPE_FAIL"
+
+
 class TestRegistration:
     def test_registered(self):
         assert "numeric" in list_evaluator_names()
