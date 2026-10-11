@@ -115,9 +115,10 @@ COPY scripts/migrate_vectors_to_qdrant.py scripts/verify_qdrant_parity.py script
 RUN mkdir -p /app/data/knowledge /app/data/platform/sops /app/logs \
     && touch /app/package.json
 
-EXPOSE 8790 8791
+EXPOSE 8790 8791 8792
 
 # compose 中通过 command 覆盖入口：
 # docs-api:  uvicorn main:app --host 0.0.0.0 --port 8790（workdir /app/services/docs-api）
 # aichat-api: uvicorn main:app --host 0.0.0.0 --port 8791（workdir /app/services/aichat-api）
+# sop-api:   uvicorn main:app --host 0.0.0.0 --port 8792（workdir /app/services/sop-api）
 CMD ["python", "-c", "print('backend image: start via docker-compose command')"]

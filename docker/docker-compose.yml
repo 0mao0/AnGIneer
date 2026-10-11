@@ -47,6 +47,33 @@ services:
       retries: 3
       start_period: 30s
 
+  sop-api:
+    # SOP 数据面：CRUD/导入/审核/审计/工厂；data/platform/sops 唯一写者
+    # （plan-sop-api-l4 阶段 1；执行面 aichat-api 经 HTTP 拉 published 列表）
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    image: angineer-sop-api:latest
+    container_name: angineer-sop-api
+    ports:
+      - "127.0.0.1:8792:8792"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8792"]
+    working_dir: /app/services/sop-api
+    env_file:
+      - ../.env
+    volumes:
+      - ../data:/app/data
+      - ../logs:/app/logs
+    restart: unless-stopped
+    networks:
+      - angineer-net
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8792/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
   aichat-api:
     build:
       context: ..
