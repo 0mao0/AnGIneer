@@ -10,6 +10,13 @@
 
 **前置已完成**：领域知识外置 domain pack + run_sop 图遍历（b68a569e，未 push）；相关评估结论见当日架构讨论。
 
+**执行状态（2026-10-12）**：
+- 阶段 0 ✅ 1dd1309f（研究员残留）+ 659161b8（meta/演示 SOP+sop_run 桩）
+- 阶段 1 ✅ 4847443b（骨架）+ 963319db（平移）+ 340424fb（/full + SopApiClient + evals 转换）——**服务器部署未做**（nginx 切流/容器重建属上线步骤，待 push 授权后按 Task 1.2 顺序执行）
+- 阶段 2 ✅ c044f2c0（graph_port + bundle 端点 + HttpGraphReader + pyproject 换血 + 边界测试）；实现细化偏离：图谱读取用单端点 /sop-generation-bundle 一次取全（supersede 方案里「/frameworks + 逐端点映射」的设计，enrichment 无列表端点，bundle 保持与生成器逐实体调用语义一致）；干净 venv 装包+导入链已验（--no-deps + 最小依赖）
+- 阶段 3 ⏸ 待细化施工单（synth_callback 注入设计已定稿于 §6.3）
+- 阶段 4 ⏸ 待用户：版本号确认 + 独立仓创建 + PyPI trusted publisher；前置漂移核查未做（angineer-core 本地 0.1.1 vs PyPI 0.1.2）
+
 ---
 
 ## 0. 需要审核人拍板的决策点
