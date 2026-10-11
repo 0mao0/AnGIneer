@@ -782,16 +782,6 @@ def delete_folder(folder_id: str):
 # SOP 自动生成端点（从 knowledge-graph 迁入，彻底解耦）
 # ============================================================
 
-# 获取知识图谱存储实例（只读，不触发 KG 内部方法）
-def _get_kg_store():
-    from docs_core.step07_graph.graph_store import GraphStore
-    db_path = os.environ.get(
-        "KG_DB_PATH",
-        os.path.join(ROOT_DIR, "data", "knowledge_graph.sqlite"),
-    )
-    return GraphStore(db_path)
-
-
 # 从实体路径生成单条 SOP 的请求
 class SopExportRequest(BaseModel):
     path: List[str]
@@ -813,11 +803,17 @@ class SopGenerateFromDocRequest(BaseModel):
 async def generate_sop_from_path(req: SopExportRequest):
     from sop_core.sop_path_generator import SopPathGenerator
 
-    store = _get_kg_store()
-    generator = SopPathGenerator(store=store if req.include_extractions else None)
+    from docs_graph_client import HttpGraphReader
+
+    # 图谱经 docs-api HTTP bundle 取全（sop-api 不直连 docs-core，阶段 2）；
+    # 拉取失败降级为无图谱骨架生成（store=None）
+    reader = None
+    if req.include_extractions and req.library_id and req.doc_id:
+        reader = HttpGraphReader.from_bundle(req.library_id, req.doc_id)
+    generator = SopPathGenerator(store=reader)
     entities_map = {}
     for name in req.path:
-        entity = store.get_entity_by_name(name)
+        entity = reader.get_entity_by_name(name) if reader else None
         entities_map[name] = entity.layer if entity else "concept"
     sop = generator.generate_sop_skeleton(
         sop_id=req.title,
@@ -834,10 +830,21 @@ async def generate_sop_from_path(req: SopExportRequest):
 # 从文档图谱批量生成 SOP（彻底解耦：只读图谱，不触发 KG 内部方法；未就绪返回 412）
 @sop_router.post("/generate-from-doc")
 async def generate_sops_from_doc(req: SopGenerateFromDocRequest):
-    from docs_core.step07_graph.config import EntityLayer
+    from sop_core.graph_port import LAYER_ACTION
     from sop_core.sop_path_generator import SopPathGenerator
 
-    store = _get_kg_store()
+    from docs_graph_client import HttpGraphReader
+
+    store = HttpGraphReader.from_bundle(req.library_id, req.doc_id)
+    if store is None:
+        raise HTTPException(
+            status_code=412,
+            detail={
+                "error": "graph_unavailable",
+                "message": "图谱数据经 docs-api 拉取失败，请确认 docs-api 可用且该文档已提取图谱",
+                "hint": "前往知识图谱模块对该文档执行「提取图谱」",
+            },
+        )
 
     # 检查 1：该文档是否有图谱数据
     doc_entities = store.list_entities_by_doc(req.library_id, req.doc_id)
@@ -853,7 +860,7 @@ async def generate_sops_from_doc(req: SopGenerateFromDocRequest):
 
     # 检查 2：是否有 framework 或 ACTION 层实体（SOP 路径来源）
     frameworks = store.get_frameworks_by_doc(req.library_id, req.doc_id)
-    action_entities = [e for e in doc_entities if e.layer == EntityLayer.ACTION]
+    action_entities = [e for e in doc_entities if e.layer == LAYER_ACTION]
     if not frameworks and not action_entities:
         raise HTTPException(
             status_code=412,

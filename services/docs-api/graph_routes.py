@@ -264,6 +264,66 @@ async def get_entity_relations(entity_id: str, direction: str = "both"):
     ]
 
 
+@graph_router.get("/frameworks")
+async def list_frameworks(library_id: str, doc_id: str):
+    """按文档列 framework 层实体（SOP 路径来源；plan-sop-api-l4 阶段 2）。"""
+    frameworks = _get_store().get_frameworks_by_doc(library_id, doc_id)
+    return [
+        {"framework_id": fw.framework_id, "name": fw.name, "steps_json": fw.steps_json,
+         "source_section": fw.source_section}
+        for fw in frameworks
+    ]
+
+
+@graph_router.get("/sop-generation-bundle")
+async def get_sop_generation_bundle(library_id: str, doc_id: str):
+    """一次取全 SOP 生成所需图谱数据（消费方 sop-api 生成适配器，内存物化 GraphReader）。
+
+    enrichments 按 entity_id 组装（与 get_*_by_entity_ids 逐实体调用语义一致）。
+    """
+    store = _get_store()
+    entities = store.list_entities_by_doc(library_id, doc_id)
+    enrichments = {}
+    for e in entities:
+        enrichments[e.entity_id] = {
+            "principles": [
+                {"principle_id": p.principle_id, "principle_text": p.principle_text,
+                 "category": p.category, "source_clause": p.source_clause}
+                for p in store.get_principles_by_entity_ids([e.entity_id])
+            ],
+            "warnings": [
+                {"warning_id": w.warning_id, "warning_text": w.warning_text,
+                 "severity": w.severity, "source_section": w.source_section}
+                for w in store.get_warnings_by_entity_ids([e.entity_id])
+            ],
+            "examples": [
+                {"example_id": ex.example_id, "title": ex.title,
+                 "computation_text": ex.computation_text, "inputs_json": ex.inputs_json}
+                for ex in store.get_examples_by_entity_ids([e.entity_id])
+            ],
+        }
+    return {
+        "library_id": library_id,
+        "doc_id": doc_id,
+        "entities": [
+            {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "aliases": e.aliases,
+             "description": e.description, "status": e.status.value}
+            for e in entities
+        ],
+        "relations": [
+            {"relation_id": r.relation_id, "source_id": r.source_id, "target_id": r.target_id,
+             "library_id": r.library_id, "doc_id": r.doc_id}
+            for r in store.get_relations_by_doc(library_id, doc_id)
+        ],
+        "frameworks": [
+            {"framework_id": fw.framework_id, "name": fw.name, "steps_json": fw.steps_json,
+             "source_section": fw.source_section}
+            for fw in store.get_frameworks_by_doc(library_id, doc_id)
+        ],
+        "enrichments": enrichments,
+    }
+
+
 @graph_router.get("/snapshot")
 async def get_full_snapshot(library_id: Optional[str] = None, doc_id: Optional[str] = None):
     store = _get_store()

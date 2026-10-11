@@ -5,9 +5,6 @@ import sys
 import time
 from typing import List, Dict, Any, Optional, Tuple
 
-# Ensure src can be imported
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-
 from angineer_core.base_contracts import SOP, Step
 from sop_core.sop_parser import SopParser
 

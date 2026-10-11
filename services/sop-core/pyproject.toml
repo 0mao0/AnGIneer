@@ -5,10 +5,11 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "angineer-sop-core"
 version = "0.1.0"
-description = "AnGIneer SOP engine"
+description = "AnGIneer SOP authoring library: loader/parser/validator/path generator (execution lives in angineer-core)"
 requires-python = ">=3.10"
 dependencies = [
-    "angineer-docs-core",
+    "angineer-ai-inference>=0.2.2",
+    "angineer-core>=0.1.1",
 ]
 
 [tool.setuptools]

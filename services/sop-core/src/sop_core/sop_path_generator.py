@@ -3,8 +3,13 @@ import os
 import uuid
 from typing import Any, Dict, List, Optional
 
-from docs_core.step07_graph.config import EntityLayer, DEFAULT_LLM_CONFIG
-from docs_core.step07_graph.graph_store import GraphStore
+from sop_core.graph_port import (
+    DEFAULT_LLM_CONFIG_NAME,
+    LAYER_ACTION,
+    LAYER_CONDITION,
+    LAYER_CONCEPT,
+    GraphReader,
+)
 
 SOP_GENERATION_SYSTEM_PROMPT = """你是工程标准 SOP 生成器。你的任务是根据知识图谱提取出的框架步骤、设计原则、注意事项和计算案例，生成一份完整的、可直接执行的 SOP。
 
@@ -77,14 +82,14 @@ SOP_GENERATION_USER_TEMPLATE = """请根据以下信息生成一个完整的工�
 
 class SopPathGenerator:
     LAYER_TO_STEP_TYPE = {
-        EntityLayer.CONCEPT: "inspection",
-        EntityLayer.CONDITION: "decision",
-        EntityLayer.ACTION: "calculation",
+        LAYER_CONCEPT: "inspection",
+        LAYER_CONDITION: "decision",
+        LAYER_ACTION: "calculation",
     }
 
-    def __init__(self, store: Optional[GraphStore] = None, config_name: Optional[str] = None):
+    def __init__(self, store: Optional[GraphReader] = None, config_name: Optional[str] = None):
         self.store = store
-        self.config_name = config_name or DEFAULT_LLM_CONFIG
+        self.config_name = config_name or DEFAULT_LLM_CONFIG_NAME
 
     def path_to_sop_template(
         self,
@@ -108,9 +113,9 @@ class SopPathGenerator:
         blackboard_inputs = []
         blackboard_outputs = []
         for node in merged_path:
-            if isinstance(node, dict) and node.get("layer") == EntityLayer.CONCEPT:
+            if isinstance(node, dict) and node.get("layer") == LAYER_CONCEPT:
                 blackboard_inputs.append(node["name"])
-            elif isinstance(node, dict) and node.get("layer") == EntityLayer.ACTION:
+            elif isinstance(node, dict) and node.get("layer") == LAYER_ACTION:
                 blackboard_outputs.append(f"{node['name']}结果")
 
         if self.store:
@@ -214,7 +219,7 @@ class SopPathGenerator:
         sop_id: str,
         title: str,
         path_entities: List[str],
-        entities: Dict[str, EntityLayer],
+        entities: Dict[str, str],
         source_clause: str = "",
         library_id: str = "",
         doc_id: str = "",
@@ -223,14 +228,14 @@ class SopPathGenerator:
         for i, entity_name in enumerate(path_entities):
             path.append({
                 "name": entity_name,
-                "layer": entities.get(entity_name, EntityLayer.CONCEPT),
+                "layer": entities.get(entity_name, LAYER_CONCEPT),
             })
             if i < len(path_entities) - 1:
                 next_entity = path_entities[i + 1]
-                next_layer = entities.get(next_entity, EntityLayer.CONCEPT)
-                if next_layer == EntityLayer.ACTION:
+                next_layer = entities.get(next_entity, LAYER_CONCEPT)
+                if next_layer == LAYER_ACTION:
                     rel = "computes_from"
-                elif next_layer == EntityLayer.CONDITION:
+                elif next_layer == LAYER_CONDITION:
                     rel = "conditions_on"
                 else:
                     rel = "constrains"
@@ -455,7 +460,7 @@ class SopPathGenerator:
                 pass
         return None
 
-    def generate_sops_from_doc(self, library_id: str, doc_id: str, store: GraphStore) -> Dict[str, Any]:
+    def generate_sops_from_doc(self, library_id: str, doc_id: str, store: GraphReader) -> Dict[str, Any]:
         self.store = store
         existing_names = self._existing_sop_names()
         frameworks = store.get_frameworks_by_doc(library_id, doc_id)
@@ -463,7 +468,7 @@ class SopPathGenerator:
 
         if not frameworks:
             all_entities = store.list_entities_by_doc(library_id, doc_id)
-            action_entities = [e for e in all_entities if e.layer == EntityLayer.ACTION]
+            action_entities = [e for e in all_entities if e.layer == LAYER_ACTION]
             seen = set()
             for ae in action_entities:
                 incoming = store.get_relations_by_entity(ae.entity_id, direction="incoming")
@@ -491,7 +496,7 @@ class SopPathGenerator:
                 entities_map = {}
                 for step_name in path:
                     entity = store.get_entity_by_name(step_name)
-                    entities_map[step_name] = entity.layer if entity else EntityLayer.CONCEPT
+                    entities_map[step_name] = entity.layer if entity else LAYER_CONCEPT
                 sop = self.generate_sop_skeleton(
                     sop_id=uuid.uuid4().hex[:8],
                     title=path[-1],
@@ -530,7 +535,7 @@ class SopPathGenerator:
                     entities_map = {}
                     for step_name in fw_steps:
                         entity = store.get_entity_by_name(step_name)
-                        entities_map[step_name] = entity.layer if entity else EntityLayer.CONCEPT
+                        entities_map[step_name] = entity.layer if entity else LAYER_CONCEPT
                     sop_id = fw.framework_id or uuid.uuid4().hex[:8]
                     sop = self.generate_sop_skeleton(
                         sop_id=sop_id,
@@ -585,7 +590,7 @@ class SopPathGenerator:
         return written, rejected
 
     def _node_to_step(self, node: Dict[str, Any], index: int, clause: str) -> Dict[str, Any]:
-        step_type = self.LAYER_TO_STEP_TYPE.get(node.get("layer", EntityLayer.CONCEPT), "inspection")
+        step_type = self.LAYER_TO_STEP_TYPE.get(node.get("layer", LAYER_CONCEPT), "inspection")
         return {
             "id": uuid.uuid4().hex[:8],
             "step": index,
@@ -604,7 +609,7 @@ class SopPathGenerator:
             if isinstance(node, dict) and "relation" in node:
                 pending_concepts.append(node)
             elif isinstance(node, dict) and "name" in node:
-                if node.get("layer") == EntityLayer.ACTION:
+                if node.get("layer") == LAYER_ACTION:
                     if pending_concepts:
                         result.extend(pending_concepts)
                         pending_concepts = []
