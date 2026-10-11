@@ -21,8 +21,10 @@ $adminUrl = "http://${hostName}:${adminPort}"
 $frontendUrl = "http://${hostName}:${frontendPort}"
 $docsPort = $portContract.docsApiPort
 $aichatPort = $portContract.aichatApiPort
+$sopPort = $portContract.sopApiPort
 $docsUrl = "http://${hostName}:${docsPort}"
 $aichatUrl = "http://${hostName}:${aichatPort}"
+$sopUrl = "http://${hostName}:${sopPort}"
 
 # Recursively kill a process and all its child processes.
 function Stop-ProcessTree {
@@ -98,7 +100,7 @@ function Stop-PortProcess {
 function Stop-BackendProcesses {
     $procs = Get-CimInstance Win32_Process | Where-Object { $_.Name -eq "python.exe" }
     $parents = @($procs | Where-Object {
-        $_.CommandLine -match 'services[\\/](docs-api|aichat-api)[\\/]main\.py'
+        $_.CommandLine -match 'services[\\/](docs-api|aichat-api|sop-api)[\\/]main\.py'
     } | Select-Object -ExpandProperty ProcessId)
 
     $kill = @($parents)
@@ -246,6 +248,7 @@ if ($TailLogs) {
 Write-Host "[3/4] Cleaning up stale processes..." -ForegroundColor Yellow
 Stop-PortProcess -Label "DocsApi" -Port $docsPort
 Stop-PortProcess -Label "AichatApi" -Port $aichatPort
+Stop-PortProcess -Label "SopApi" -Port $sopPort
 Stop-PortProcess -Label "Admin" -Port $adminPort
 Stop-PortProcess -Label "Frontend" -Port $frontendPort
 Stop-BackendProcesses
@@ -254,6 +257,7 @@ Stop-BackendProcesses
 Write-Host "[4/4] Starting services..." -ForegroundColor Yellow
 Write-Host "      DocsApi:  $docsUrl" -ForegroundColor Green
 Write-Host "      AichatApi: $aichatUrl" -ForegroundColor Green
+Write-Host "      SopApi:   $sopUrl" -ForegroundColor Green
 Write-Host "      Admin:    $adminUrl" -ForegroundColor Green
 Write-Host "      Frontend: $frontendUrl" -ForegroundColor Green
 
@@ -270,8 +274,9 @@ Write-Host ""
 Write-Host "Waiting for backends to start..." -ForegroundColor Yellow
 $docsHealthy = Test-BackendHealth -Url $docsUrl -TimeoutSeconds 30
 $aichatHealthy = Test-BackendHealth -Url $aichatUrl -TimeoutSeconds 30
+$sopHealthy = Test-BackendHealth -Url $sopUrl -TimeoutSeconds 30
 
-if (-not $docsHealthy -or -not $aichatHealthy) {
+if (-not $docsHealthy -or -not $aichatHealthy -or -not $sopHealthy) {
     Write-Host ""
     Write-Host "WARNING: Backend did not respond within 30 seconds!" -ForegroundColor Red
     Write-Host "  Check the log for errors: $backendLogPath" -ForegroundColor Red

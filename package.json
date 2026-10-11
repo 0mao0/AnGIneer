@@ -9,6 +9,7 @@
     "dev:admin": "pnpm --filter @angineer/admin-web dev",
     "dev:docs-api": "python services/docs-api/main.py",
     "dev:aichat-api": "python services/aichat-api/main.py",
+    "dev:sop-api": "python services/sop-api/main.py",
     "dev:backend": "pnpm run --parallel --include-workspace-root /dev:.*-api$/",
     "build": "pnpm -r build",
     "build:frontend": "pnpm --filter @angineer/user-web build",
