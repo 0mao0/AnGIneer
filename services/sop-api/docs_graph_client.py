@@ -18,8 +18,13 @@ logger = logging.getLogger(__name__)
 
 
 def _default_docs_api_url() -> str:
-    # 容器内走 compose 服务名；本机 dev 经 .env 覆盖为 http://127.0.0.1:8790
-    return (os.getenv("DOCS_API_URL") or "").strip() or "http://docs-api:8790"
+    # 优先读仓库既定变量 ANGINEER_DOCS_API_URL（检索链/dream-cycle 同源，服务器 .env
+    # 大概率已配，部署零新增）；DOCS_API_URL 仅作本模块覆盖；容器内缺省走服务名
+    for var in ("ANGINEER_DOCS_API_URL", "DOCS_API_URL"):
+        raw = (os.getenv(var) or "").strip()
+        if raw:
+            return raw
+    return "http://docs-api:8790"
 
 
 def _rec(**kwargs: Any) -> SimpleNamespace:
