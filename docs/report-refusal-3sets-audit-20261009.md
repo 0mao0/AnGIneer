@@ -71,3 +71,25 @@
 - 构造：`data/scratch/refusal-bench/build_corpus.py`（三集语料怎么来的，含 NoMIRACL 只用官方 non_relevant qrels 负例并集）与 `build_bundles.py`（bundle 生成）。
 - 硬证复现：`nomiracl_zh_qrels_dev.non_relevant.tsv` 查 `7006458-0` 行含 `471#30`；语料 jsonl 查 `471#30` 文本。
 - 抽样量化脚本：答案与检索证据最长公共子串（difflib）→ 83%（NoMIRACL）/ 100%（SQuAD2 该拒）为 ≥12 字原文引用。
+
+## 修复执行与 v2 复测（2026-10-11）
+
+**修复口径（按 §4 建议执行）**：
+- NoMIRACL：每题语料收窄为「该题官方检索回的全部段落」（doc_ids 按题作用域，杜绝跨题渗漏）+ 双判官（Qwen3.8-Flash-Next / Qwen3.6-35B-A3B，温度 0）逐题复核材料是否含答案。
+- SQuAD2：每题语料收窄为「本题所在段落」（每段一份文档），恢复 per-paragraph 前提。
+- DuReader：双判官审计剔除时效题与主观题。
+- v1 三集与旧库全部保留（历史 run 可读）；v2 为新数据集（nomiracl-zh-refusal-v2 / squad2-en-mixed-v2 / dureader-robust-zh-v2，端到端评测目录）与新库。
+
+**审计剔除结果**：
+- NoMIRACL 120 题：present 20 + split 20 → **剔除 40、保留 80**——官方「该拒」在「自家 10 段」口径下亦有约 1/3 不成立。
+- DuReader 120 题：time_sensitive 32 + subjective 20 + split 24 → **剔除 76、保留 44**。
+
+**v2 基线（同机同模型，latest=v18、二排关；新库/新数据集）**：
+
+| 集 | v2 读数 | v1 同口径对照 |
+|---|---|---|
+| NoMIRACL v2（80 题全该拒） | 拒对 66/80 = **82.5%**（有据 10 / 幻觉 4） | 54.2%（v18 二排关） |
+| SQuAD2 v2（60 答 + 60 拒） | 拒侧 45/60 = **75.0%**、答侧 82.0%、总 77.5%（有据 11 / 幻觉 4） | 拒 21.7% / 答 81.8% |
+| DuReader v2（44 题全该答） | 答侧 **90.9%** | 85.8%（120 题未过滤） |
+
+run id：run-9318c01f5bef / run-8ecdfc1d0189 / run-0ea7dd4af9c2。判定：口径修复后三集从「混着假失败」变为可读指标；NoMIRACL 残余 14 错（10 有据不拒 + 4 真幻觉）＝「弱材料上过度作答」成为新的主要错型。施工产物与链脚本在 `data/scratch/refusal-bench-v2/`。
