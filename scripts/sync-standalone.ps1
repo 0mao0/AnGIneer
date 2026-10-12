@@ -47,6 +47,13 @@
     'tree-core' maps to services/tree-core (repo angineer-tree-core);
     'docs-core' maps to services/docs-core (repo angineer-docs-core).
 
+.PARAMETER AllowVersionDrift
+    Proceed even when a python package's HEAD pyproject.toml version is BEHIND
+    the newest published version on PyPI (the stale-field case that misleads
+    package consumers: repo says 0.1.1 while PyPI serves 0.1.2). Without this
+    switch such a sync aborts. Equal version with pending source changes only
+    warns ("changed but not released yet").
+
 .EXAMPLE
     powershell -ExecutionPolicy Bypass -File scripts/sync-standalone.ps1 -Message "fix: update preview"
 
@@ -57,6 +64,7 @@
 param(
     [string]$Message = '',
     [switch]$DryRun,
+    [switch]$AllowVersionDrift,
     [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference', 'core', 'tree-core', 'docs-core')
 )
 
@@ -88,6 +96,23 @@ function Invoke-Git {
     if ($exitCode -ne 0) {
         throw "git $($Args -join ' ') failed (exit $exitCode): $output"
     }
+    return $output
+}
+
+# Non-throwing variant: returns stdout lines, or $null when the git command
+# exits non-zero (used by the optional version-parity probe, where a missing
+# pyproject.toml in the HEAD tree is normal - JS packages).
+function Invoke-GitSilent {
+    param(
+        [Parameter(Mandatory = $true)][string]$Dir,
+        [Parameter(Mandatory = $true)][string[]]$Args
+    )
+    $previousEap = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    $output = & git -C $Dir @Args 2>$null
+    $exitCode = $LASTEXITCODE
+    $ErrorActionPreference = $previousEap
+    if ($exitCode -ne 0) { return $null }
     return $output
 }
 
@@ -149,6 +174,55 @@ try {
         if ($syncFiles.Count -eq 0) {
             Write-Host "${pkg}: nothing to sync"
             continue
+        }
+
+        # Version parity guard (python packages only - HEAD tree has no
+        # pyproject.toml for JS packages, probe returns $null). Runs only when
+        # this sync actually carries source changes, i.e. a release is being
+        # prepared. Repo pyproject.version BEHIND the newest published PyPI
+        # version is the stale-field trap that misleads package consumers
+        # (observed: repo field 0.1.1 while PyPI served 0.1.2) -> abort unless
+        # -AllowVersionDrift. Equal version with pending changes warns: the
+        # changes will not reach package consumers until bump + tag release.
+        $pyLines = Invoke-GitSilent -Dir $RepoRoot -Args @('show', "${Head}:$srcPath/pyproject.toml")
+        if ($pyLines) {
+            $pyText = ($pyLines -join "`n")
+            $mName = [regex]::Match($pyText, '(?m)^name\s*=\s*"([^"]+)"')
+            $mVer = [regex]::Match($pyText, '(?m)^version\s*=\s*"([^"]+)"')
+            if ($mName.Success -and $mVer.Success) {
+                $distName = $mName.Groups[1].Value
+                $repoVer = $mVer.Groups[1].Value
+                $pypiVer = $null
+                try {
+                    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+                    $meta = Invoke-RestMethod -Uri "https://pypi.org/pypi/$distName/json" -TimeoutSec 20
+                    $pypiVer = $meta.info.version
+                } catch {
+                    Write-Warning "${pkg}: cannot reach pypi.org for $distName - version parity check skipped."
+                }
+                if ($pypiVer) {
+                    $repoV = $null; $pypiV = $null
+                    try {
+                        $repoV = [Version]$repoVer
+                        $pypiV = [Version]$pypiVer
+                    } catch {
+                        Write-Warning "${pkg}: version strings '$repoVer' / '$pypiVer' not comparable as [Version] - parity check skipped."
+                    }
+                    if ($repoV -and $pypiV) {
+                        if ($repoV -lt $pypiV) {
+                            if ($AllowVersionDrift) {
+                                Write-Warning "${pkg}: pyproject version $repoVer is BEHIND published $pypiVer (stale field). -AllowVersionDrift given, continuing."
+                            } else {
+                                throw "${pkg}: pyproject.toml version $repoVer is behind the newest published version $pypiVer of '$distName' on PyPI. The repo version field misleads package consumers. Bump the version in the monorepo (commit to main, then re-run sync), or pass -AllowVersionDrift to proceed anyway."
+                            }
+                        } elseif ($repoV -eq $pypiV) {
+                            Write-Warning "${pkg}: source changes are being synced while pyproject version $repoVer already equals the newest published $pypiVer - these changes will not reach package consumers until a version bump + tag release."
+                        } else {
+                            Write-Host "${pkg}: version parity OK (repo $repoVer ahead of published $pypiVer)."
+                        }
+                    }
+                }
+            }
         }
 
         $patchFile = Join-Path $env:TEMP ("angineer-$pkg-" + [guid]::NewGuid().ToString('N') + '.patch')
