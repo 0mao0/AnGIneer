@@ -209,3 +209,21 @@ class SopExecuteAgentToolContractTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class ToolDescriptionCatalogTests(unittest.TestCase):
+    """工具描述附 published SOP 目录（2026-10-12：模型无从自判命中）。"""
+
+    def test_catalog_lists_only_published(self):
+        tool = SopRunnerAdapter.sop_execute(
+            sops=[make_sop(status="published"), make_sop(sop_id="sop-draft", status="draft")],
+            llm_client=Mock(),
+        )
+        self.assertIn("码头前沿水深计算", tool.description)
+        self.assertIn("当前可用 SOP（1 条）", tool.description)
+        self.assertIn("应先调用本工具试跑", tool.description)
+
+    def test_no_published_no_catalog(self):
+        tool = SopRunnerAdapter.sop_execute(
+            sops=[make_sop(status="draft")], llm_client=Mock(),
+        )
+        self.assertNotIn("当前可用 SOP", tool.description)

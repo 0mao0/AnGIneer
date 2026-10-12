@@ -35,7 +35,7 @@ def effective_qa_prompt_version() -> str:
 
 
 def effective_complex_prompt_version() -> str:
-    """复杂档 prompt 生效版本（env 指定或 latest）；回退 = ANGINEER_COMPLEX_PROMPT_VERSION=v5。"""
+    """复杂档 prompt 生效版本（env 指定或 latest）；当前注册仅 v5，机制预留供后续版本回退。"""
     return os.getenv("ANGINEER_COMPLEX_PROMPT_VERSION", "latest").strip() or "latest"
 
 
