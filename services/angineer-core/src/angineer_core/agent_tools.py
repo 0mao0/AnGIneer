@@ -1297,6 +1297,7 @@ class SopRunnerAdapter:
                     published,
                     llm_client=llm_client,
                     param_descriptions=domain_hints.param_descriptions,
+                    domain_args=domain_hints,
                 )
             else:
                 effective_classifier = classifier

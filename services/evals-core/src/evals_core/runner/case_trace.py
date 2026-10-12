@@ -327,8 +327,11 @@ def run_eval_case_trace(
 
     from angineer_core.sop_domain import load_domain_pack_from_env
 
+    _domain_hints = load_domain_pack_from_env()
     classifier = IntentClassifier(
-        sops, param_descriptions=load_domain_pack_from_env().param_descriptions
+        sops,
+        param_descriptions=_domain_hints.param_descriptions,
+        domain_args=_domain_hints,
     )
     intent_result = classifier.classify_intent(
         question["question"], config_name=config_name, mode=mode

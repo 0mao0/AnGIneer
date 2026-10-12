@@ -69,39 +69,6 @@ DEFAULT_EXECUTION_PLANS: Dict[str, List[str]] = {
 # 领域内容已外置到领域知识包（angineer_core/domain_packs/*.json），经
 # ANGINEER_SOP_DOMAIN_PACK 启用后由构造参数注入；引擎默认不带任何领域词条。
 PARAM_DESCRIPTIONS: Dict[str, str] = {}
-GENERIC_TEXT_STOP_MARKERS = [
-    "，备淤",
-    ",备淤",
-    "备淤富裕深度",
-    "，计算",
-    ",计算",
-    "，求",
-    ",求",
-    "，采用",
-    ",采用",
-    "，码头结构",
-    ",码头结构",
-    "，波浪",
-    ",波浪",
-    "，允许",
-    ",允许",
-    "，平均周期",
-    ",平均周期",
-    "，取小数点后",
-    ",取小数点后",
-    "（",
-    "(",
-]
-SHIP_TYPE_INFERENCE_RULES: List[Tuple[List[str], str, str]] = [
-    (["矿石", "煤", "散粮", "散货", "干散货"], "散货船", "干散货船"),
-    (["原油", "成品油", "油品", "液货", "液体散货"], "油船", "液体散货船"),
-    (["集装箱"], "集装箱船", "集装箱船"),
-    (["滚装", "ro-ro", "roro"], "滚装船", "滚装船"),
-    (["化学品"], "化学品船", "化学品船"),
-    (["水泥"], "散装水泥船", "散装水泥船"),
-]
-
-
 # 统计/元数据查询规则已随废 meta_query 路由删除（2026-10-02 第二步）：原 META_QUERY_VERBS/
 # META_QUERY_TARGETS/_is_meta_query 统计题改由 L1 semantic_retrieval + 工具自选承接
 # （knowledge_stats 已下沉 L1 工具箱）；计数问法并入 L1_KEYWORDS 维持 L0 兜底判据。
@@ -154,324 +121,30 @@ def _looks_like_clause_then_calculation(
     return has_clause_signal and has_rich_numeric_context and is_multiple_choice
 
 
-def _extract_value_by_patterns(query: str, patterns: List[str]) -> Optional[str]:
-    """按候选正则顺序提取参数值。"""
-    for pattern in patterns:
-        match = re.search(pattern, query, re.IGNORECASE)
-        if match:
-            value = next((group for group in match.groups() if group), "")
-            value = str(value or "").strip(" ，。；;:：")
-            if value:
-                return value
-    return None
+def _derive_extra_args_from_query(query: str, domain: Any = None) -> Dict[str, Any]:
+    """从题面派生 SOP 补充参数（领域包规则版；domain=None 时无领域规则=通用空派生）。"""
+    from angineer_core.domain_arg_rules import derive_extra
+
+    return derive_extra(query, domain)
 
 
-def _extract_value_after_markers(query: str, markers: List[str]) -> Optional[str]:
-    """按“字段名 + 为/取/=”的自然语言表达提取后续片段。"""
-    text = str(query or "")
-    separators = ("为", "取", ":", "：", "=")
-    stop_chars = "，。；;,\n"
-    for marker in markers:
-        idx = text.find(marker)
-        if idx < 0:
-            continue
-        tail = text[idx + len(marker):].lstrip()
-        if not tail:
-            continue
-        if tail[0] in separators:
-            tail = tail[1:].lstrip()
-        collected = []
-        for char in tail:
-            if char in stop_chars:
-                break
-            collected.append(char)
-        value = "".join(collected).strip(" ，。；;:：")
-        if value:
-            return value
-    return None
+def _clean_extracted_arg(param_name: str, value: Any, query: str, domain: Any = None) -> Any:
+    """清洗抽取结果（通用尾裁 + 领域包 clean_rules；domain=None 时仅通用清洗）。"""
+    from angineer_core.domain_arg_rules import clean_arg
 
-
-def _trim_generic_tail(value: str) -> str:
-    """裁剪抽取片段尾部的通用描述噪声，保留核心参数短语。"""
-    cleaned = str(value or "").strip(" ，。；;:：")
-    for marker in GENERIC_TEXT_STOP_MARKERS:
-        idx = cleaned.find(marker)
-        if idx > 0:
-            cleaned = cleaned[:idx].strip(" ，。；;:：")
-    return cleaned
-
-
-def _infer_ship_types_from_query(query: str) -> Dict[str, str]:
-    """根据题面中的船型/货种语义推断可复用的船型字段。"""
-    text = str(query or "")
-    for keywords, ship_type, design_ship_type in SHIP_TYPE_INFERENCE_RULES:
-        if any(keyword.lower() in text.lower() for keyword in keywords):
-            return {
-                "船型": ship_type,
-                "设计船型": design_ship_type,
-            }
-    return {}
-
-
-def _derive_extra_args_from_query(query: str) -> Dict[str, Any]:
-    """从题面直接派生 SOP 可复用的补充参数，减少后续步骤盲算。"""
-    args: Dict[str, Any] = {}
-    silt_depth = _extract_value_by_patterns(
-        query,
-        [
-            r"备淤(?:富裕)?深度(?:取|为|按)?\s*([\d.]+(?:m)?)",
-            r"Z4(?:取|为|=|＝)?\s*([\d.]+(?:m)?)",
-        ],
-    )
-    if silt_depth:
-        args["Z4"] = silt_depth
-        try:
-            numeric = float(re.search(r"[-+]?\d+(?:\.\d+)?", silt_depth).group(0))
-            args["回淤条件"] = "有回淤" if numeric > 0 else "不淤"
-        except Exception:
-            pass
-
-    # 波浪系数 K1: 顺浪0.3, 横浪0.5
-    if "顺浪" in query:
-        args["K1"] = "0.3"
-    elif "横浪" in query:
-        args["K1"] = "0.5"
-
-    # 掩护情况: 从波浪方向+掩护描述推断
-    if "开敞" in query:
-        args["掩护情况"] = "开敞水域"
-    elif re.search(r"受[顺横]浪", query):
-        args["掩护情况"] = "部分掩护"
-
-    # 船舶类型: 从航道描述推断
-    if "单线航道" in query:
-        args["船舶类型"] = "单线航道"
-    elif "双线航道" in query:
-        args["船舶类型"] = "双线航道"
-
-    # 夹角: 从流向+航道方位推算
-    flow_match = re.search(r"流向\s*([NSEW])\s*(\d+)\s*[°°]", query)
-    channel_match = re.search(r"航道(?:轴线)?方位(?:为|是)?\s*(\d+)\s*[°°]\s*[~～]\s*(\d+)\s*[°°]", query)
-    if flow_match and channel_match:
-        try:
-            flow_dir = flow_match.group(1)
-            flow_deg = float(flow_match.group(2))
-            ch_start = float(channel_match.group(1))
-            ch_end = float(channel_match.group(2))
-            ch_mid = (ch_start + ch_end) / 2.0
-            # 夹角 = |航道中线方位 - 流向角度|, 流向角度根据N/S/E/W换算
-            if flow_dir == "N":
-                flow_bearing = flow_deg
-            elif flow_dir == "S":
-                flow_bearing = 180.0 + flow_deg
-            elif flow_dir == "E":
-                flow_bearing = 90.0
-            elif flow_dir == "W":
-                flow_bearing = 270.0
-            else:
-                flow_bearing = flow_deg
-            angle = abs(ch_mid - flow_bearing)
-            if angle > 180:
-                angle = 360 - angle
-            if angle > 90:
-                angle = 180 - angle
-            args["夹角"] = str(round(angle, 1))
-        except Exception:
-            pass
-
-    # h0: 上水标准下波峰低于上部结构底面时取0
-    if "h0" not in args:
-        args["h0"] = "0"
-
-    # d (水深): 可由设计水位和底高程推算
-    water_level = _extract_value_by_patterns(
-        query,
-        [r"设计(?:高|低)水位(?:为|取)?\s*([\-\d.]+(?:m)?)"],
-    )
-    bottom_elev = _extract_value_by_patterns(
-        query,
-        [r"(?:码头前沿)?(?:水域)?底高程(?:为|取)?\s*([\-\d.]+(?:m)?)"],
-    )
-    if water_level and bottom_elev:
-        try:
-            wl = float(re.search(r"[-+]?\d+(?:\.\d+)?", water_level).group(0))
-            be = float(re.search(r"[-+]?\d+(?:\.\d+)?", bottom_elev).group(0))
-            args["d"] = str(round(wl - be, 2))
-        except Exception:
-            pass
-
-    # 设计高/低水位单独入参数（SOP 受力控制路径直接引用 ${设计高水位}；2026-10-12）
-    for _name, _pat in (
-        ("设计高水位", r"设计高水位(?:为|取)?\s*([\-\d.]+(?:m)?)"),
-        ("设计低水位", r"设计低水位(?:为|取)?\s*([\-\d.]+(?:m)?)"),
-    ):
-        _v = _extract_value_by_patterns(query, [_pat])
-        if _v:
-            args[_name] = _v
-    return args
-
-
-def _clean_extracted_arg(param_name: str, value: Any, query: str) -> Any:
-    """清洗抽取结果，统一为更适合进入 SOP blackboard 的参数形态。"""
-    if value in (None, ""):
-        return value
-    cleaned = _trim_generic_tail(str(value))
-    if param_name == "吨级":
-        match = re.search(r"\d+(?:\.\d+)?", cleaned)
-        return match.group(0) if match else cleaned
-    if param_name == "底质条件":
-        cleaned = cleaned.replace("海底", "").replace("底质条件", "").replace("底质", "").strip(" 为取")
-        return _trim_generic_tail(cleaned)
-    if param_name in {"船型", "设计船型"}:
-        if "码头" in cleaned and "船" not in cleaned:
-            cleaned = cleaned.split("码头", 1)[0]
-        cleaned = re.sub(r"^\d+(?:\.\d+)?\s*吨级", "", cleaned).strip()
-        cleaned = cleaned.strip(" 的")
-        inferred_ship_types = _infer_ship_types_from_query(query)
-        if not cleaned or cleaned in {"码头", "泊位"}:
-            return inferred_ship_types.get(param_name, cleaned)
-        if "船" not in cleaned and inferred_ship_types.get(param_name):
-            return inferred_ship_types[param_name]
-        return cleaned
-    # Generic: if value starts with a number, extract just the leading numeric
-    # portion, discarding any trailing unit suffix (e.g. "1.5m" → "1.5").
-    num_match = re.match(r'^([-+]?\d+(?:\.\d+)?)', cleaned)
-    if num_match:
-        return num_match.group(1)
-    return cleaned
+    return clean_arg(param_name, value, query, domain)
 
 
 def _supplement_sop_args_from_query(
     query: str,
     required_params: List[str],
     base_args: Dict[str, Any],
+    domain: Any = None,
 ) -> Dict[str, Any]:
-    """根据题面中的显式参数，为 SOP 路由结果补充可直接识别的字段。"""
-    args = dict(base_args or {})
-    normalized_required = {str(item) for item in (required_params or [])}
-    extractors: Dict[str, List[str]] = {
-        "H4%": [
-            r"H4%\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-            r"波高\s*H4%\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-        ],
-        "H": [
-            r"(?:波高|H1%|H4%|H5%|H13%)\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-            r"(?:重现期|一遇)波高\s*(?:H1%|H4%)?\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-        ],
-        "L": [
-            r"波长\s*(?:L)?\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-        ],
-        "d": [
-            r"水深\s*(?:d)?\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-        ],
-        "h": [
-            r"(?:上部结构高度|结构高度)\s*(?:h)?\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-        ],
-        "h0": [
-            r"波峰面高出上部结构底面的高度\s*(?:h0)?\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-            r"h0\s*[=＝为:]?\s*([\d.]+(?:m)?)",
-        ],
-        "掩护情况": [
-            r"掩护(?:水域|情况|条件)?[为取]?([^，。；;]{1,10})",
-            r"(部分掩护|掩护良好|开敞水域|开敞式|无掩护)",
-        ],
-        "b": [
-            r"(?:船宽|B\s*[=＝为:])\s*([\d.]+(?:m)?)",
-        ],
-        "夹角": [
-            r"(?:夹角|交角)\s*[=＝为:]?\s*([\d.]+(?:°|度)?)",
-        ],
-        "吨级": [
-            r"(\d+(?:\.\d+)?)\s*吨级",
-            r"(\d+(?:\.\d+)?)\s*(?:GT|gt|DWT|dwt)",
-        ],
-        "起算水位": [
-            r"起算水位(?:为|取)?\s*([\-\d.]+(?:m)?)",
-            r"设计低水位(?:为|取)?\s*([\-\d.]+(?:m)?)",
-        ],
-        "底质条件": [
-            r"(?:海底)?底质(?:条件)?(?:为|取)?([^，。；;]+)",
-        ],
-        "回淤条件": [
-            r"回淤条件(?:为|取)?([^，。；;]+)",
-            r"(有回淤|不淤港口|不淤)",
-        ],
-        "设计船型": [
-            r"设计船型(?:为|取)?\s*([^，。；;]{1,15}船)",
-            r"拟建\s*(\d+(?:\.\d+)?吨级[^，。；;]{1,15}船)",
-        ],
-        "船型": [
-            r"船型(?:为|取)?\s*([^，。；;]{1,15}船)",
-            r"通航船舶为\s*(\S+船)",
-            r"船舶为\s*(\S+船)",
-        ],
-        "流速": [
-            r"(?:水流)?流速\s*[=＝为:]?\s*([\d.]+(?:\s*(?:m/s)?)?)",
-        ],
-        "横风风力": [
-            r"(?:横风|风力)\s*(?:≤|≤|小于等于|小于|为)?\s*(\d+)\s*(?:级)?",
-        ],
-        "船舶航速": [
-            r"航速\s*[=＝为:]?\s*([\d.]+(?:\s*(?:kn|节)?)?)",
-        ],
-        "船舶类型": [
-            r"(单线航道|双线航道|单向航道|双向航道)",
-        ],
-        "K1": [
-            r"K1\s*[=＝为:]?\s*([\d.]+)",
-        ],
-        "k2": [
-            r"k2\s*[=＝为:]?\s*([\d.]+)",
-        ],
-        "折减系数": [
-            r"折减系数\s*[=＝为取:]?\s*([\d.]+)",
-            r"(?:波浪富裕深度)?折减系数\s*[=＝为取:]?\s*([\d.]+)",
-        ],
-    }
-    marker_extractors: Dict[str, List[str]] = {
-        "起算水位": ["起算水位", "设计低水位"],
-        "底质条件": ["海底底质为", "海底底质", "底质条件为", "底质为"],
-        "回淤条件": ["回淤条件为", "回淤条件"],
-        "设计船型": ["设计船型为", "设计船型"],
-        "船型": ["船型为", "船型"],
-        "掩护情况": ["掩护条件为", "掩护情况为", "掩护条件", "掩护情况"],
-        "夹角": ["夹角为", "夹角", "交角为", "交角"],
-        "流速": ["流速为", "流速", "水流流速为", "水流流速"],
-        "横风风力": ["横风为", "横风", "风力为", "风力"],
-        "船舶航速": ["航速为", "航速", "船速为", "船速"],
-        "船舶类型": ["航道为", "航道类型为"],
-        "K1": ["K1=", "K1为", "K1=", "K1:"],
-        "k2": ["k2=", "k2为", "k2=", "k2:"],
-        "折减系数": ["折减系数为", "折减系数取", "折减系数"],
-        "H": ["波高为", "波高", "H4%=", "H1%=", "H4%为", "H1%为"],
-        "L": ["波长为", "波长", "L=", "L为"],
-        "d": ["水深为", "水深"],
-        "b": ["船宽为", "船宽", "B="],
-    }
-    for param_name in normalized_required:
-        if args.get(param_name) not in (None, ""):
-            continue
-        patterns = extractors.get(param_name)
-        if not patterns:
-            extracted = None
-        else:
-            extracted = _extract_value_by_patterns(query, patterns)
-        if not extracted and param_name in marker_extractors:
-            extracted = _extract_value_after_markers(query, marker_extractors[param_name])
-        if extracted:
-            args[param_name] = _clean_extracted_arg(param_name, extracted, query)
-    for key, value in list(args.items()):
-        args[key] = _clean_extracted_arg(key, value, query)
-    inferred_ship_types = _infer_ship_types_from_query(query)
-    for key, value in inferred_ship_types.items():
-        if key in normalized_required and not args.get(key):
-            args[key] = value
-    if "设计船型" in normalized_required and not args.get("船型") and args.get("设计船型"):
-        args["船型"] = args["设计船型"]
-    if "船型" in normalized_required and not args.get("设计船型") and args.get("船型"):
-        args["设计船型"] = args["船型"]
-    args.update({k: v for k, v in _derive_extra_args_from_query(query).items() if v not in (None, "") and not args.get(k)})
-    return args
+    """按 SOP required 提参并补派生参数（领域包规则版；domain=None 时仅做通用清洗）。"""
+    from angineer_core.domain_arg_rules import supplement_args
+
+    return supplement_args(query, required_params, base_args, domain)
 
 
 # 字符级 bigram 分词，避免外部分词依赖
@@ -817,6 +490,7 @@ class IntentClassifier:
         sops: List[SOP],
         llm_client=None,
         param_descriptions: Optional[Dict[str, str]] = None,
+        domain_args: Optional[Any] = None,
     ):
         """
         初始化意图分类器。
@@ -830,6 +504,7 @@ class IntentClassifier:
         self.sops = sops
         self._llm_client = llm_client or get_llm_client()
         self._param_descriptions = dict(param_descriptions) if param_descriptions else {}
+        self._domain_args = domain_args  # 领域参数规则包（DomainHints）；None=通用行为
         logger.info(f"[DEBUG-SOP-ROUTE] 意图分类器初始化完成")
         logger.info(f"[DEBUG-SOP-ROUTE] 加载 SOP 总数: {len(sops)}")
         for i, sop in enumerate(sops):
@@ -1130,7 +805,7 @@ class IntentClassifier:
                 return RouteResult(sop=None, args={}, reason=f"未知SOP ID: {sop_id_str}", confidence=confidence, candidates=candidates)
 
             required_params = list((selected_sop.blackboard or {}).get("required") or [])
-            args = _supplement_sop_args_from_query(user_query, required_params, args)
+            args = _supplement_sop_args_from_query(user_query, required_params, args, domain=self._domain_args)
 
             logger.info(f"✓ SOP 匹配成功: {selected_sop.id} (confidence={confidence:.4f}, args={args})")
             logger.info(f"[DEBUG-SOP-ROUTE] ==================== SOP ROUTE 结束 (匹配成功) ====================\n")

@@ -21,7 +21,7 @@ JSON 契约（字段均可缺省）::
 import json
 import os
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 from angineer_core.base_logger import get_logger
 
@@ -34,14 +34,25 @@ _BUILTIN_PACKS_DIR = "domain_packs"
 
 @dataclass
 class DomainHints:
-    """领域提示集合；三个字段互相独立，宿主按需提供。"""
+    """领域提示与参数规则集合；各字段互相独立，宿主按需提供。"""
 
     param_descriptions: Dict[str, str] = field(default_factory=dict)
     output_aliases: Dict[str, List[str]] = field(default_factory=dict)
     calculator_hint: str = ""
+    # 参数规则段（domain_arg_rules 消费；2026-10-12 classifier 深层逻辑外置）
+    arg_rules: Dict[str, Any] = field(default_factory=dict)
+    arg_computes: List[Dict[str, Any]] = field(default_factory=list)
+    arg_defaults: Dict[str, str] = field(default_factory=dict)
+    ship_type_rules: List[Dict[str, Any]] = field(default_factory=list)
+    stop_markers: List[str] = field(default_factory=list)
+    clean_rules: Dict[str, Dict[str, Any]] = field(default_factory=dict)
 
     def __bool__(self) -> bool:
-        return bool(self.param_descriptions or self.output_aliases or self.calculator_hint)
+        return bool(
+            self.param_descriptions or self.output_aliases or self.calculator_hint
+            or self.arg_rules or self.arg_computes or self.arg_defaults
+            or self.ship_type_rules or self.stop_markers or self.clean_rules
+        )
 
 
 EMPTY_HINTS = DomainHints()
@@ -63,6 +74,12 @@ def _parse_pack(text: str) -> DomainHints:
     params = data.get("param_descriptions")
     aliases = data.get("output_aliases")
     hint = data.get("calculator_hint")
+    def _dict_of_dicts(raw: Any) -> Dict[str, Dict[str, Any]]:
+        return {str(k): (v if isinstance(v, dict) else {}) for k, v in raw.items()} if isinstance(raw, dict) else {}
+
+    def _list_of_dicts(raw: Any) -> List[Dict[str, Any]]:
+        return [v for v in raw if isinstance(v, dict)] if isinstance(raw, list) else []
+
     return DomainHints(
         param_descriptions={str(k): str(v) for k, v in params.items()} if isinstance(params, dict) else {},
         output_aliases={
@@ -70,6 +87,12 @@ def _parse_pack(text: str) -> DomainHints:
             for k, v in aliases.items()
         } if isinstance(aliases, dict) else {},
         calculator_hint=str(hint) if hint else "",
+        arg_rules=_dict_of_dicts(data.get("arg_rules")),
+        arg_computes=_list_of_dicts(data.get("arg_computes")),
+        arg_defaults={str(k): str(v) for k, v in (data.get("arg_defaults") or {}).items()} if isinstance(data.get("arg_defaults"), dict) else {},
+        ship_type_rules=_list_of_dicts(data.get("ship_type_rules")),
+        stop_markers=[str(m) for m in (data.get("stop_markers") or []) if m is not None] if isinstance(data.get("stop_markers"), list) else [],
+        clean_rules=_dict_of_dicts(data.get("clean_rules")),
     )
 
 
