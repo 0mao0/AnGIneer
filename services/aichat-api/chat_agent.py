@@ -84,6 +84,7 @@ def make_policy_config_factory(
     scene: str,
     scope: ScopeContext,
     intent_result: Any,
+    query: Optional[str] = None,
     sop_loader: Any = None,
     route_debug: Any = None,
     marker_allocator: Any = None,
@@ -121,6 +122,7 @@ def make_policy_config_factory(
             config_name=None,
             mode="instruct",
             sop_loader=sop_loader,
+            query=query,
             marker_allocator=allocator,
         )
         return AgentLoopConfig(

@@ -568,6 +568,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 request.scene or "qa",
                 scope=scope,
                 intent_result=intent_result,
+                query=request.query,
                 sop_loader=sop_api,
                 route_debug=route_debug,
                 marker_allocator=shared_allocator,

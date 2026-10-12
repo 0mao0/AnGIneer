@@ -155,6 +155,7 @@ def run_policy_query(
         allocator = MarkerAllocator()
         attempts = build_attempts(
             intent_result=intent_result,
+            query=query,
             scene="docs",
             library_id=library_id,
             doc_ids=doc_ids,

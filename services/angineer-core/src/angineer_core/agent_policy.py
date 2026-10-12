@@ -2,6 +2,7 @@
 
 只做“用什么配置、按什么顺序、何时回退”，不碰引擎内部。
 """
+import os
 from typing import Any, Callable, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, AttemptConfig
@@ -120,9 +121,42 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
     )
 
 
+_SOP_HINT_MIN_SCORE = 0.10
+
+
+def _build_sop_hint(query: Optional[str], sops: Optional[List[Any]]) -> Optional[str]:
+    """L3 轻量引导（选 B）：TF-IDF 粗筛 top-1 命中（零 LLM 成本）→ 复杂档提示词注入。
+
+    开关 ANGINEER_SOP_L3_HINT（默认开，=0 关）。预注册判据：开关关 / query 为空 /
+    无命中 / 分数低于阈值 → 返回 None（复杂档提示词逐字节不变）。
+    """
+    if os.getenv("ANGINEER_SOP_L3_HINT", "1") == "0":
+        return None
+    if not query or not sops:
+        return None
+    try:
+        from angineer_core.classifier import _build_sop_corpus, _keyword_recall
+
+        doc_ids, documents = _build_sop_corpus(sops)
+        hits = _keyword_recall(str(query), doc_ids, documents, top_k=1)
+    except Exception:  # noqa: BLE001
+        return None
+    if not hits or hits[0][1] < _SOP_HINT_MIN_SCORE:
+        return None
+    top_id = hits[0][0]
+    name = next((getattr(s, "name_zh", None) or getattr(s, "name_en", None) or s.id
+                 for s in sops if s.id == top_id), top_id)
+    return (
+        f"本题经粗筛疑似适用标准 SOP「{name}」({top_id})。"
+        "若题干参数与该流程匹配，请优先调用 sop_execute 执行标准流程，并以其实算结果为准；"
+        "若判定不适用，忽略本条继续常规检索作答。"
+    )
+
+
 def build_attempts(
     *,
     intent_result: Any,
+    query: Optional[str] = None,
     scene: str,
     library_id: str,
     doc_ids: List[str],
@@ -148,6 +182,7 @@ def build_attempts(
         from angineer_core.agent_configs import build_complex_config, make_final_answer_guard
 
         sops = list(sop_loader.load_all() or []) if sop_loader is not None else None
+        sop_hint = _build_sop_hint(query, sops)
 
         def complex_factory() -> AgentLoopConfig:
             return build_complex_config(
@@ -162,6 +197,7 @@ def build_attempts(
                 sops=sops,
                 sop_loader=sop_loader,
                 marker_allocator=marker_allocator,
+                sop_hint=sop_hint,
                 answer_format=answer_format,
                 # 与 L1/L2 同口径：复杂档答案必须过证据闸（2026-10-04 补装，防无证据出结论）
                 final_answer_guard=make_final_answer_guard(enforce_evidence=True),
