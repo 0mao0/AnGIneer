@@ -393,7 +393,7 @@ class SopRunner:
                  missing_params.append(f"{param_name} (unresolved: {resolved_value})")
 
         # 1.5. 检查所有输入是否有效（非空），避免将空值传递给工具
-        non_auto_tools = {"calculator", "table_lookup", "knowledge_search", "user_input"}
+        non_auto_tools = {"calculator", "table_lookup", "table_read", "knowledge_search", "user_input"}
         if step.tool in non_auto_tools:
             all_inputs_empty = all(
                 v in (None, "", {}, [])
@@ -512,6 +512,20 @@ class SopRunner:
             return self._run_canonical_knowledge_search(str(inputs.get("query") or ""))
         if tool_name == "table_lookup":
             return self._run_canonical_table_lookup(inputs)
+        if tool_name == "table_read":
+            # 读表判读通道（方案 B）：矩阵/双层表头表专用；选表确定性、取值一次 LLM 抽取
+            from angineer_core.canonical_table_lookup import canonical_table_read
+
+            return canonical_table_read(
+                table_name=str(inputs.get("table_name") or ""),
+                query_conditions=inputs.get("query_conditions"),
+                target_column=inputs.get("target_column"),
+                library_id=self.library_id,
+                doc_ids=self.doc_ids,
+                file_name=inputs.get("file_name"),
+                config_name=self.config_name,
+                mode=self.mode,
+            )
         if tool_name == "llm_generate":
             messages = []
             query = inputs.get("query", "")
@@ -545,7 +559,7 @@ class SopRunner:
     def _execute_tool_safe(self, tool_name: str, inputs: Dict[str, Any], step: Step):
         """Helper to execute tool and record history"""
         # knowledge_search/table_lookup 走 canonical 实现（scope 感知），不再落 engtool registry 的文件系老工具
-        meta_sop_tools = {"llm_generate", "knowledge_search", "table_lookup"}
+        meta_sop_tools = {"llm_generate", "knowledge_search", "table_lookup", "table_read"}
         if tool_name in meta_sop_tools:
             try:
                 tool_start = time.time()

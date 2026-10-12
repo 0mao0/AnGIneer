@@ -178,3 +178,110 @@ def canonical_table_lookup(
     )
     result["_source"] = "canonical"
     return result
+
+
+def _render_table_text(headers: List[Any], rows: List[Any]) -> str:
+    """把 header_rows/body_rows 渲染为逐行文本（行首标注行标签，供判读引用）。"""
+    lines: List[str] = []
+    if headers:
+        lines.append("表头: " + " | ".join(str(h) for h in headers))
+    for row in rows:
+        if not isinstance(row, (list, tuple)) or not row:
+            continue
+        label = str(row[0])
+        cells = " | ".join(str(c) for c in row)
+        lines.append(f"[{label}] {cells}")
+    return "\n".join(lines)
+
+
+def canonical_table_read(
+    *,
+    table_name: str,
+    query_conditions: Any = None,
+    target_column: Optional[str] = None,
+    library_id: str = "default",
+    doc_ids: Optional[List[str]] = None,
+    file_name: Optional[str] = None,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> Dict[str, Any]:
+    """矩阵/双层表头表的「读表判读」通道（方案 B，plan-sop-l4 后续项）。
+
+    与 canonical_table_lookup 的分工：**选表仍走确定性匹配**（编号打分，同引擎），
+    但**取值**不做条件行/列定位（引擎对「指标行 × 区间列」矩阵与双层表头不支持），
+    改为把整表文本 + 取值要求交给一次 LLM 抽取，返回 value + 单元格引用（可审计）。
+    """
+    if file_name and str(file_name).strip():
+        resolved = _resolve_doc_ids_by_file_name(library_id, str(file_name).strip())
+        if resolved is None:
+            return {"error": f"未找到知识库文件: {file_name}（在当前库内无法解析为文档）"}
+        doc_ids = resolved
+
+    provider = ports.get_table_blocks_provider()
+    if provider is None:
+        return {"error": "表格数据端口未注册（table_blocks_provider）"}
+    try:
+        candidates = provider(library_id, doc_ids) or []
+    except Exception as exc:  # noqa: BLE001
+        return {"error": f"表格候选获取失败: {exc}"}
+    if not candidates:
+        return {"error": "scope 内无表格候选"}
+
+    from angineer_core.table_query_engine import _score_table_reference_match, flatten_header_rows
+
+    scored = sorted(
+        candidates,
+        key=lambda c: _score_table_reference_match(table_name, c.get("context") or ""),
+        reverse=True,
+    )
+    best = scored[0]
+    score = _score_table_reference_match(table_name, best.get("context") or "")
+    if score <= 0:
+        return {"error": f"scope 内 {len(candidates)} 个表格块均无编号『{table_name}』"}
+
+    headers = best.get("headers") or flatten_header_rows(best.get("header_rows") or [])
+    table_text = _render_table_text(headers, best.get("rows") or [])
+
+    import json as _json
+
+    from ai_inference.llm_client import chat_result_guarded, get_llm_client
+
+    cond_desc = _json.dumps(query_conditions, ensure_ascii=False, default=str) if query_conditions else "（未给出，按表名与目标字段判断）"
+    target_desc = target_column or "按表名语义确定的目标值"
+    prompt = (
+        "你在做规范表格的精确读值。下表为全文（行首 [标签] 为行名）：\n"
+        f"表：{best.get('context')}\n{table_text}\n\n"
+        f"请在表中依据条件 {cond_desc} 读出「{target_desc}」的值。\n"
+        "输出严格 JSON，且只输出 JSON：\n"
+        '{"value": <值；若目标含多个名称（以「；」或逗号分隔），为 {"名称": 值, ...} 对象；读不到则 null>, '
+        '"cell": "<行标签×列标签的定位描述>", "quote": "<所依据单元格/文字的原文片段，≤60字>"}'
+    )
+    try:
+        result = chat_result_guarded(
+            get_llm_client(),
+            [{"role": "system", "content": prompt}],
+            mode=mode,
+            config_name=config_name,
+            max_tokens=512,
+        )
+        raw = (result.text or "").strip()
+        start, end = raw.find("{"), raw.rfind("}")
+        parsed = _json.loads(raw[start:end + 1]) if start >= 0 and end > start else {}
+    except Exception as exc:  # noqa: BLE001
+        return {"error": f"读表判读失败: {exc}"}
+
+    value = parsed.get("value")
+    if value is None:
+        return {"error": f"读表判读未能得到「{target_desc}」的值（表：{table_name}）",
+                "_table_context": best.get("context"), "_read_raw": parsed}
+
+    return {
+        "result": value,
+        "_table_name": table_name,
+        "_table_context": best.get("context"),
+        "_read_cell": parsed.get("cell"),
+        "_read_quote": parsed.get("quote"),
+        "_method": "llm_read",
+        "_source": "canonical_table_read",
+        "_trace": [f"选表 score={score}（确定性匹配）", "取值=LLM 判读"],
+    }

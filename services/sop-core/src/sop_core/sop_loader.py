@@ -15,7 +15,7 @@ except Exception:
 
 # engtools 注册表不可用时兜底识别的工具名
 _FALLBACK_KNOWN_TOOLS = {
-    "calculator", "knowledge_search", "table_lookup", "user_input", "conditional",
+    "calculator", "knowledge_search", "table_lookup", "table_read", "user_input", "conditional",
     "auto", "llm_generate", "echo", "weather", "web_search",
     "email_sender", "file_reader", "code_linter", "report_generator",
     "summarizer", "docs_retrieval",
@@ -24,8 +24,17 @@ _FALLBACK_KNOWN_TOOLS = {
 ALL_SOP_STATUSES: Tuple[str, ...] = ("draft", "reviewed", "published", "disabled")
 
 
+_ENGINE_BUILTIN_TOOLS = {"knowledge_search", "table_lookup", "table_read", "llm_generate"}
+
+
 def _is_known_tool(tool_name: str) -> bool:
-    """判断工具名在运行时是否可执行（注册表可用时以注册表为准）。"""
+    """判断工具名在运行时是否可执行（注册表可用时以注册表为准）。
+
+    引擎内置工具（sop_runner 直拦，见 _execute_tool_safe）不进驻 engtools 注册表，
+    需在此显式放行，否则会被 _normalize_step_dict 静默降级为 auto（table_read 实踩）。
+    """
+    if str(tool_name or "").strip().lower() in _ENGINE_BUILTIN_TOOLS:
+        return True
     if _ToolRegistry is not None:
         try:
             return _ToolRegistry.get_tool(tool_name) is not None
