@@ -300,6 +300,14 @@ def _derive_extra_args_from_query(query: str) -> Dict[str, Any]:
         except Exception:
             pass
 
+    # 设计高/低水位单独入参数（SOP 受力控制路径直接引用 ${设计高水位}；2026-10-12）
+    for _name, _pat in (
+        ("设计高水位", r"设计高水位(?:为|取)?\s*([\-\d.]+(?:m)?)"),
+        ("设计低水位", r"设计低水位(?:为|取)?\s*([\-\d.]+(?:m)?)"),
+    ):
+        _v = _extract_value_by_patterns(query, [_pat])
+        if _v:
+            args[_name] = _v
     return args
 
 

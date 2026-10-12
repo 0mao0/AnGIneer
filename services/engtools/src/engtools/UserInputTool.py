@@ -1,3 +1,4 @@
+import os
 import re
 from typing import Any, Dict, Optional
 from .BaseTool import BaseTool, register_tool
@@ -26,7 +27,15 @@ class UserInputTool(BaseTool):
             if key in (question or ""):
                 return val
 
-        result_val = default if default is not None else f"Mock Input for {variable or question}"
+        if default is not None:
+            result_val = default
+        elif os.getenv("ANGINEER_USER_INPUT_MOCK", "0") == "1":
+            # 仿真模式（显式开启）才允许占位串；生产路径默认禁——占位串会悄然污染黑板
+            # （2026-10-12 实踩：Q1 的 user_input 步骤回填「Mock Input for None」毁掉整条受力路径）
+            result_val = f"Mock Input for {variable or question}"
+        else:
+            name = variable or question or "输入"
+            return {"error": f"需要用户提供「{name}」：当前会话不支持中途追问，请在题面补充该参数"}
         return {
             "result": result_val,
             "input": result_val,
