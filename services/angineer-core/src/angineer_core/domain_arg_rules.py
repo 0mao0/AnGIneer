@@ -32,6 +32,12 @@ def _extract_by_patterns(query: str, patterns: List[str]) -> Optional[str]:
     return None
 
 
+# 数字再解析前的减号归一：PDF/题面常用 U+2212 − 与全角 －，
+# float()/[-+]? 都不识别，不归一即把负数当正数（2026-10-13 实踩：d=4.5−(−10)=14.5 算成 −5.5）
+def _normalize_minus(text: str) -> str:
+    return str(text).replace("−", "-").replace("－", "-")
+
+
 def _extract_after_markers(query: str, markers: List[str]) -> Optional[str]:
     """按「字段名 + 为/取/=」的自然语言表达提取后续片段。"""
     text = str(query or "")
@@ -114,6 +120,11 @@ def clean_arg(param_name: str, value: Any, query: str, hints: Any) -> Any:
         if "船" not in cleaned and inferred.get(param_name):
             return inferred[param_name]
         return cleaned
+    # 形如「H=2.5 m」「T=13.0m」的字段名前缀（markers 兜底抽取会带上名与等号）：
+    # 剥掉「名 = 」再取数（2026-10-13 实踩：「波高 H=2.5 m」抽成 "H=2.5 m" 整串进黑板）
+    prefix_match = re.match(r"^[A-Za-zΑ-Ωα-ω_][A-Za-z0-9_%]*\s*[=＝:：]\s*(.+)$", cleaned)
+    if prefix_match:
+        cleaned = prefix_match.group(1).strip(" ，。；;:：")
     # 通用：取前导数（"1.5m"→"1.5"）
     num_match = re.match(r'^([-+]?\d+(?:\.\d+)?)', cleaned)
     if num_match:
@@ -189,14 +200,14 @@ def _apply_computes(
                 raw = args.get(source)
                 if raw is None:
                     continue
-                numeric = float(re.search(r"[-+]?\d+(?:\.\d+)?", str(raw)).group(0))
+                numeric = float(re.search(r"[-+]?\d+(?:\.\d+)?", _normalize_minus(str(raw))).group(0))
                 args[param] = spec.get("true", "有") if numeric > float(spec.get("gt", 0)) else spec.get("false", "无")
             elif op == "subtract":
                 minuend = _extract_by_patterns(query, spec.get("minuend_regexes") or [])
                 subtrahend = _extract_by_patterns(query, spec.get("subtrahend_regexes") or [])
                 if minuend and subtrahend:
-                    a = float(re.search(r"[-+]?\d+(?:\.\d+)?", minuend).group(0))
-                    b = float(re.search(r"[-+]?\d+(?:\.\d+)?", subtrahend).group(0))
+                    a = float(re.search(r"[-+]?\d+(?:\.\d+)?", _normalize_minus(minuend)).group(0))
+                    b = float(re.search(r"[-+]?\d+(?:\.\d+)?", _normalize_minus(subtrahend)).group(0))
                     args[param] = str(round(a - b, int(spec.get("round", 2))))
             elif op == "compass_angle":
                 flow = re.search(spec.get("flow_regex", r"流向\s*([NSEW])\s*(\d+)\s*[°°]"), query)
@@ -251,8 +262,13 @@ def derive_extra(query: str, hints: Any, existing: Optional[Dict[str, Any]] = No
     args.update(_always_phase_rules(query, hints, existing))
     _apply_computes(query, args, hints, existing, protected_keys=set(args.keys()))
     for param, value in (getattr(hints, "arg_defaults", None) or {}).items():
-        if args.get(param) is None:
-            args[param] = value
+        if args.get(param) is not None:
+            continue
+        # 默认值同样不得覆盖已提取值（2026-10-13 实踩：h0 默认「0」无条件覆盖题面
+        # h0=0.5——defaults 相位原先只看 always 输出，required 相位抽到的值被清掉）
+        if existing and existing.get(param) not in (None, ""):
+            continue
+        args[param] = value
     return args
 
 
