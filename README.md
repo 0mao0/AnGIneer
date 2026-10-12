@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.2.96** ——拒答判分两级观测：该拒未拒不再一刀切，拆「有据未拒／真幻觉」（证据支持度）与「对／错／边界」（vs 公开 gold 三档，预注册 rubric），口径不变（只加观测字段，score／refusal_correct 与门禁基线可比）；题集挂公开 gold + nightly 报告拒答专项双口径行；/arch 链路图锚点全量校正并新增「评测判分链」节点（守卫补三态 strip 态）；tech-report 扩写（分组分库／知识图谱／Dream Cycle／公开基准成绩）并补拒答两级观测节；README 重排并补产品与对比截图；生产环境件同步（MINERU 并发 2／POPO 超时 900 重试 0／COMPANY 超时 3600／评测并发 5）；完结文档清理 + 悬空引用改挂（17 处）。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.2.97** ——SOP 独立成服务 sop-api（数据面迁出对话服务、执行面改经 HTTP 拉取＋末次快照兜底、端口 8792）；SOP 领域知识外置领域包（harbor.json，开关显式启用、引擎默认零领域内容）＋执行器按步骤图真执行（next_step_id 主链／on_failure 跳转）；L3 引导三件：TF-IDF 点名提示（ANGINEER_SOP_L3_HINT 默认开）＋sop_execute 工具附 SOP 清单＋证据闸纳入 SOP 成功步骤产出（修整答误杀拒答）；查表链路修复：选表错配双闸＋file_name 分册匹配收紧、user_input 禁模拟占位污染（ANGINEER_USER_INPUT_MOCK 默认关）、新增矩阵表读表判读通道 table_read；语料与库工程：语料目录批量导入工具 import_corpus_library、sop-core 剪断 docs_core 直连（graph_port Protocol，可独立发包）；提示词与评测修复：QA 提示词 v18 前提核对、评测答案协议 meta 兼容 dict 形态、meta SOP 空壳与 sop_run 桩移除（关闭假成功通道）；文档与架构同步：plan-sop-api-l4 方案与 L4 车道细化施工单入库、/arch 与 tech-report 随解耦校正。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 

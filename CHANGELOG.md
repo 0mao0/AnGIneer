@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.97
+
+- SOP 独立成服务 sop-api（4847443b/963319db/340424fb/9b1e9b37/4e5546df/c044f2c0）：SOP 数据面（CRUD/导入/审核/审计/图谱生成）从 aichat-api 迁出为独立服务（127.0.0.1:8792，compose 复用后端镜像，数据面独占 data/platform/sops）；执行面改经 HTTP 拉取 published 列表＋末次快照兜底（SopApiClient，TTL 复用 ANGINEER_SOP_CACHE_TTL），aichat 三处 loader 实例统一；本地启动链接入（ports.json sopApiPort、dev:sop-api、start.ps1 清理/健康/横幅）与前端 dev 代理 /api/sops 切流；sop-core 剪断 docs_core 直连（graph_port Protocol＋docs-api /frameworks 与 /sop-generation-bundle 两个只读端点＋HttpGraphReader bundle 内存物化，边界守卫测试锁死），依赖换血去 angineer-docs-core。**服务器部署需同批执行 nginx /api/sops 切流（ai-proxy-locations.conf 指向 8792）**
+- 领域知识外置＋步骤图执行（b68a569e/4463547b/63e09acc）：港口参数释义/输出别名/计算器领域规则三处硬编码迁入 angineer_core/domain_packs/harbor.json（ANGINEER_SOP_DOMAIN_PACK 内置名或路径显式启用，引擎默认零领域内容，加载失败降级空包不挡执行）；run_sop 由列表循环改为按契约遍历（on_failure 命中跳转且中间步骤记 skipped／next_step_id 主链／剩余按列表序兜底，全部步骤恰好执行一次）；angineer-core 版本字段 0.1.1→0.1.3 预对齐、sync-standalone 加 PyPI 版本对账护栏（落后拒跑）
+- L3 引导（2d0dcdcc/de603b46/e25331ca）：TF-IDF 粗筛命中时向复杂档注入「疑似适用 SOP」点名提示（ANGINEER_SOP_L3_HINT 默认开，=0 逐字节回现状）；sop_execute 工具描述附 published SOP 清单（模型无从自判命中的根因）；证据闸把 SOP 成功步骤产出纳入证据面（修「仅调 SOP 未调检索」被 no_evidence 整答误杀拒答，全失败仍拒答、引用片段仅在存在成功证据时计入；E2E 实证 Q1 从「0 步＋拒答」到「11 步＋真实计算答案」）；complex 提示词 v6 通用规则版与定向提示二选一定版后撤回（只留定向提示）
+- 查表与工具修复（7ef1a719/1c7cd123/72488e34）：选表错配双闸（表号形态 explicit 全 miss 时显式报「scope 内均无此编号」，禁拆词兜底把找不到表伪装成行不匹配；file_name 规范编号纳分册号＋主名 2-gram 重叠闸，JTS 165 ≠ 165-5）；UserInputTool 模拟回填改开关制（ANGINEER_USER_INPUT_MOCK 默认关，非模拟返回显式 error——实踩：占位串「Mock Input for None」污染黑板毁整条受力计算路径）；新增 canonical_table_read 读表判读通道（矩阵/双层表头表：选表仍走编号确定性匹配，取值单次 LLM 抽取并回填单元格引用与原文摘录，可审计）
+- 语料与库工程（8520f219）：scripts/import_corpus_library.py 批量导入工具（语料子目录→库内文件夹、逐文件上传＋触发解析、manifest 续传可重跑，白名单登记）；本地水运工程库（std-water，238 册五层）建库导入首用。另记：本地环境发现与清理「索引有/meta 无」幽灵文档（库改造遗留，服务端与注册表恢复 1:1，备份留档）
+- 提示词与评测修复（571f90a0/f956480b/1dd1309f/659161b8）：QA 提示词 v18（规则 2 补前提核对：写明出处仅在对象核对通过后适用）；suite_runner 答案协议 meta 兼容 dict 形态（原只按字符串解析致回退静默失效，四态用例锁死）；meta SOP 空壳与 sop_run 桩移除＋code_review/math_sop 补 json 转正（关闭路由假成功通道）、SOP 研究员前端残留清理（孤儿组件/API/类型导出清零）
+- 文档与架构同步（37bdcf1a/049d9b6a/f0304324/63a3623e/3de32d9b/a0bd4d07/592c806a）：plan-sop-api-l4 解耦方案＋评审修订＋执行状态、L4 车道细化施工单（plan-sop-l4-synth，含 synth_callback 注入设计）；README/tech-report/architecture-map 随解耦校正（sop_execute 正名、sop-api 独立服务、端口 8792、边界表）；/arch 评测判分链与 SOP 解耦锚点重挂
+
 ## v0.2.96
 
 - 拒答判分两级观测（1a58f86f/c1d40e55）：该拒未拒的答案不再只按「未拒即失败」一刀切——①证据支持度二段判定：答案核心主张是否被本轮检索证据支撑，拆「有据未拒」（拒答前提不成立）/「真幻觉」，聚合 refusal_miss_grounded/unsupported；②内容口径三档：拿题集公开 gold 判 correct/wrong/uncertain（预注册 rubric 定死于 prompts.answer_eval.REFUSAL_CONTENT_PROMPT、温度 0、judge 候选链纪律同语义判分；题集无 content_gold 不判），聚合 refusal_content_miss_rate（下界）/上界。口径不变原则：观测字段只加不改，score/refusal_correct 永不改动（nightly 门禁与历史基线可比）；判官失败一律不猜结果（evaluated=false 不进分子分母）。预注册一次性判分实测（docs/report-refusal-underrefusal-content-judge-20261010.md）：欠拒 10 题明确对 5/错 3/边界 2（双判官 7/10 一致），内容口径失守 9.1%~15.2% vs 严格出处口径 30.3%
