@@ -85,7 +85,7 @@ flowchart LR
 
 ### 3️⃣ sops-core：经验提取与执行
 
-从文档图谱自动提取 SOP（规则骨架/LLM 生成 → 变量黑板依赖提取 → 校验 → 审核闸门 → 可执行库），运行时 `sop_run` 按步骤图执行（计算器/查表/条件分支工具）。自建专业测试集做 benchmark 回归（注册考试题集）。
+从文档图谱自动提取 SOP（规则骨架/LLM 生成 → 变量黑板依赖提取 → 校验 → 审核闸门 → 可执行库），运行时 `sop_execute` 按步骤图执行（计算器/查表/条件分支工具，支持 on_failure 跳转）。SOP 数据面已独立为 sop-api 服务（管理/审核/生成，执行面经 HTTP 拉取已发布列表），领域知识经 domain pack 外置（默认通用内核）。自建专业测试集做 benchmark 回归（注册考试题集）。
 
 ```mermaid
 flowchart LR
@@ -93,7 +93,7 @@ flowchart LR
     CAND --> GEN["规则骨架 / LLM 生成"]
     GEN --> VAL["校验 + 审核闸门"]
     VAL --> LIB["可执行库"]
-    LIB --> RUN["sop_run 执行"]
+    LIB --> RUN["sop_execute 执行"]
 ```
 
 ### 4️⃣ evals：专业评测引擎
@@ -135,7 +135,7 @@ flowchart LR
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.3` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
 | [angineer-table-ui](https://github.com/0mao0/angineer-table-ui) | `v0.1.4` | 通用表格组件库 DataTable（npm: @angineer/table-ui） |
 | [angineer-ai-inference](https://github.com/0mao0/angineer-ai-inference) | `v0.2.3` | Python AI 推理客户端库 |
-| [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.2` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫） |
+| [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.3` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫） |
 | [angineer-tree-core](https://github.com/0mao0/angineer-tree-core) | `v0.1.0` | Python 树节点存储层（sqlite：CRUD / 移动重排 / 作用域隔离） |
 | [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.2` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；PoPo 随包） |
 
@@ -157,7 +157,7 @@ cp .env.example .env   # 至少配置 LLM_CONFIGS / MINERU_CONFIGS / EMBEDDING_C
 ```
 
 ```bash
-cd docker && docker compose up -d --build   # Docker 部署（前端 8080 · API 8790/8791 · Qdrant 6333）
+cd docker && docker compose up -d --build   # Docker 部署（前端 8080 · API 8790/8791/8792 · Qdrant 6333）
 ```
 
 > 完整配置项、外部 API 调用示例、评测命令见 [docs/tech-report.md §10](docs/tech-report.md)。
@@ -170,7 +170,7 @@ cd docker && docker compose up -d --build   # Docker 部署（前端 8080 · API
 | :--- | :--- | :--- |
 | **v0.1** | 基础框架：解析入库、图谱、SOP 引擎、L0–L4 分级、对话、评测 | ✅ 已完成 |
 | **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | 🔄 迭代中（当前 v0.2.96，预计收版 v0.2.99） |
-| **v0.3** | SOP 自进化：图谱自动生成 → 审核闸门 → 执行轨迹反哺，支撑注册考题 | 🚧 规划中（链路骨架已存在） |
+| **v0.3** | SOP 自进化：图谱自动生成 → 审核闸门 → 执行轨迹反哺，支撑注册考题 | 🚧 规划中（生成链路已落地独立 sop-api 服务，L4 合成车道施工中） |
 | **v0.4** | GIS × CAD：真实空间数据接入、断面/土方计算、DWG/DXF 出图算量 | 🚧 规划中（geo-core / engtools 骨架已存在） |
 | **v0.5** | 报告编制：工可/初设等正式设计报告自动编制（Markdown / Word / PDF） | 🚧 规划中 |
 | **v1.0** | 正式版：多专业覆盖、精度与稳定性、SaaS 化多租户 | 🚧 目标 |

@@ -1,6 +1,6 @@
 # AnGIneer 技术报告
 
-> 版本基线：**v0.2.96** · 更新日期：2026-10-10
+> 版本基线：**v0.2.96**（含 2026-10-11/12 未发版改动）· 更新日期：2026-10-12
 >
 > 本文是系统级技术报告：先用一张模块关系图交代整体架构，再按模块讲清各自的核心链路。各模块的深度技术细节请跳转文内链接（详见各章末尾"深入阅读"）。
 
@@ -18,7 +18,8 @@ flowchart TB
     end
     subgraph GW["服务网关层"]
         DA["docs-api 8790<br/>知识库 / 解析 / 图谱 / v1 外部 API"]
-        AA["aichat-api 8791<br/>Agent 对话 / SOP / Evals / Dream Cycle"]
+        AA["aichat-api 8791<br/>Agent 对话 / Evals / Dream Cycle"]
+        SA["sop-api 8792<br/>SOP 数据面 / 生成 / 审核"]
     end
     subgraph BIZ["业务模块层"]
         CORE["angineer-core<br/>主调度"]
@@ -32,10 +33,13 @@ flowchart TB
         AI["ai-inference<br/>大模型统一路由"]
     end
 
-    UW --> DA & AA
-    AW --> DA & AA
+    UW --> DA & AA & SA
+    AW --> DA & AA & SA
     DA --> DOCS & CORE
     AA --> CORE & SOP & EVAL & TOOL & GEO
+    AA -.->|"执行面拉 published SOP"| SA
+    SA --> SOP
+    SA -.->|"图谱 bundle"| DA
     CORE --> AI
     DOCS --> AI
 ```
@@ -48,10 +52,11 @@ flowchart TB
 | :--- | :--- | :--- |
 | **docs-api** | `/api/v1/*`（文档解析/产物/内容） | `X-API-Key`（管理后台签发，绑定库隔离） |
 | **docs-api** | `/api/knowledge`、`/api/graph`（知识库/图谱） | 内部代理（前端经 vite/nginx 转发） |
-| **aichat-api** | `/api/chat/agent`、`/api/sops`、`/api/evals`、`/api/dream-cycle` | 内部代理（不对外直连） |
+| **sop-api** | `/api/sops`（CRUD/导入/审核/生成/审计） | 内部代理（前端经 vite/nginx 转发） |
+| **aichat-api** | `/api/chat/agent`、`/api/evals`、`/api/dream-cycle` | 内部代理（不对外直连） |
 | **user-web / admin-web** | 浏览器访问的 Web 界面 | 生产环境：管理端账号密码登录（is_admin 会话鉴权） |
 
-两个 FastAPI 网关默认只绑定本机回环（`127.0.0.1`），公网只暴露 nginx 80 端口。
+三个 FastAPI 服务默认只绑定本机回环（`127.0.0.1`），公网流量统一经 nginx 入口（80 跳转 443 HTTPS）转发。
 
 ---
 
@@ -233,23 +238,46 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 
 ```mermaid
 flowchart LR
-    GRAPH["知识图谱<br/>framework / ACTION 实体链"] --> CAND["候选 SOP 识别"]
+    GRAPH["知识图谱（docs-api HTTP bundle）<br/>framework / ACTION 实体链"] --> CAND["候选 SOP 识别"]
     CAND --> GEN["规则骨架生成 / LLM 生成<br/>含原则/案例/反例/术语标注"]
     GEN --> BB["变量黑板依赖提取<br/>required / outputs"]
     BB --> VAL["SOP 校验<br/>步骤图 / 工具契约"]
     VAL --> REV2["审核闸门<br/>POST /{sop_id}/review"]
     REV2 --> LIB["可执行库<br/>data/sops"]
-    LIB --> RUN["运行时执行<br/>sop_run + calculator / table_lookup / conditional"]
+    LIB --> RUN["运行时执行<br/>sop_execute + calculator / table_lookup / conditional"]
 ```
 
 ### 4.2 主要能力
 
 | 能力 | 说明 |
 | :--- | :--- |
-| 自动生成 | 从文档图谱识别 framework 路径或 ACTION 实体链生成 SOP JSON |
+| 自动生成 | 从文档图谱识别 framework 路径或 ACTION 实体链生成 SOP JSON（图谱经 HTTP bundle 读取，见 §4.3） |
 | 解析引擎 | Markdown SOP → 结构化执行计划（6 种工具类型） |
 | 条件分支 | 精确匹配 → 排除法 → LLM 语义匹配三级降级 |
+| 步骤图执行 | `SopRunner.run_sop` 按契约遍历：`on_failure` 命中跳转目标、`next_step_id` 沿主链、其余按列表序线性兜底（每步恰好执行一次；2026-10-11 起执行侧真正生效，44/54 存量 SOP 带 `next_step_id`） |
+| 领域知识 domain pack | 参数释义/输出别名/calculator 领域规则外置为数据包（`ANGINEER_SOP_DOMAIN_PACK`，内置 harbor 或 JSON 路径），构造参数注入分类器与执行器；不设 = 通用内核零领域内容 |
 | 审核与审计 | LLM 生成的 SOP 需审核后才进入可执行库，全程留痕 |
+
+### 4.3 服务边界：sop-api 独立数据面（2026-10-11 解耦）
+
+```mermaid
+flowchart TB
+    subgraph SA["sop-api 8792 · SOP 数据面"]
+        CRUD["/api/sops<br/>CRUD · 导入 · 审核 · 审计"]
+        GEN["/generate · /generate-from-doc<br/>从文档生成"]
+    end
+    AA["aichat-api 8791 · SOP 执行面"] -->|"SopApiClient 拉 published<br/>TTL 缓存 + 末次快照兜底"| SA
+    GEN -->|"graph_port Protocol<br/>HttpGraphReader"| DA["docs-api 8790<br/>GET /api/graphs/sop-generation-bundle"]
+    CRUD --> LIB[("data/platform/sops<br/>唯一写者")]
+    AA --> EXEC["angineer-core SopRunner<br/>sop_execute 按步骤图执行"]
+```
+
+- **sop-api（8792）**：SOP 数据面唯一入口——CRUD / 导入 / 步骤解析 / 审核 / 审计 / 从文档生成；`data/platform/sops` 的唯一写者；SOP 执行不在本服务。
+- **生成链跨模块解耦**：sop-core 定义 `graph_port` Protocol（8 方法面 + layer 常量）面向图谱访问，sop-api 经 HttpGraphReader 从 docs-api `GET /api/graphs/sop-generation-bundle` 一次取全、内存物化——sop-core 不再 import docs_core（地址优先 `ANGINEER_DOCS_API_URL`，`DOCS_API_URL` 为覆盖项）。
+- **执行面经 HTTP**：aichat-api / evals 侧 loader 统一换 SopApiClient（`load_published` duck-type 兼容 SopLoader，TTL `ANGINEER_SOP_CACHE_TTL`，末次快照兜底）；`sop_execute` 执行仍在 angineer-core。
+- 前端 `/api/sops` 由 nginx（生产切流）/ vite dev 代理（本地）转指 sop-api。
+
+> 规划中：L4 合成车道（synthesize / crystallize 端点、装配层开关与每问题预算、预注册 20 题对照）与 sop-core PyPI 首发——施工单与阶段状态见 [plan-sop-api-l4.md](plan-sop-api-l4.md)（阶段 0–2 已落地，阶段 3/4 待施工）、[plan-sop-l4-synth.md](plan-sop-l4-synth.md)。
 
 ---
 
@@ -259,7 +287,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    DS["题集<br/>open-ragbench + FinanceBench + 注册考试<br/>（LawBench 已于 2026-10-02 下架）"] --> RUN["评测运行<br/>异步启动 / 轮询进度"]
+    DS["题集<br/>open-ragbench + FinanceBench + OfficeQA + 注册考试<br/>（LawBench 已于 2026-10-02 下架；OfficeQA 为本地回归集不进生产）"] --> RUN["评测运行<br/>异步启动 / 轮询进度"]
     RUN --> PIPE["被测链路<br/>同构调用 policy_query（不走 HTTP）"]
     PIPE --> MET["多维度评测"]
     MET --> RET["检索评测<br/>Hit@1/3/5 · MRR · citation_hit"]
@@ -281,6 +309,7 @@ flowchart LR
 - `EVAL_JUDGE_MODEL`：在 `LLM_CONFIGS` 注册独立 judge 模型（如 Qwen3.8-Flash），设此变量后判分统一走它；不设则回退默认模型（向后兼容）
 - **实证（2026-09-03/04）**：LLM 自 FP8 切 NVFP4，open-ragbench v2 自评差 -3.1pt；用固定 judge 重判两 run 全部 57 个争议题后 **NVFP4 反超 +3.6pt**（60.7% vs 57.1%）——确认自评 -3pt 为同源偏差，模型质量实际持平略优
 - 检索评测（hit@1/3/5）为纯指标计算，不经 LLM judge
+- **答案收尾协议（answer_format）**：题集 meta 可挂协议文本，生成侧注入尾行指令、判分侧按同协议提取尾行金标——**两侧必须成对生效**，任一侧缺失即断链（OfficeQA 133 题历史 0 分即「输出侧已注入、判分侧未提取」，2026-10-11 成对接通后存量答案离线重放 0/133 → 20/133）
 
 ### 5.3 拒答题的两级观测判定（该拒未拒时）
 
@@ -317,7 +346,7 @@ ai-inference（AI 推理唯一真相源，零外部依赖）
     ↑
 angineer-core / docs-core / evals-core / sop-core / engtools / geo-core
     ↑
-docs-api / aichat-api（服务网关）
+docs-api / aichat-api / sop-api（服务网关）
     ↑
 user-web / admin-web（用户界面层）
 ```
@@ -338,14 +367,15 @@ services/
   tree-core/          通用树节点 CRUD/移动/排序归一化（唯一底座 · 独立仓库 angineer-tree-core · PyPI）
   angineer-core/      意图分类、L0-L4 调度、Agent 循环、SOP 执行引擎、Prompt 资产（独立仓库 angineer-core · PyPI）
   docs-core/          一体化解析管线（九阶段）、五路检索、图谱、维护、导出（PoPo 随包 · 独立仓库 angineer-docs-core · PyPI）
-  sop-core/           SOP 解析/校验/加载/自动生成
+  sop-core/           SOP 解析/校验/自动生成（graph_port Protocol 面向图谱，不直连 docs-core）
   evals-core/         题集管理、评测运行、结果对比、nightly 流水线（算法真相源）
   geo-core/           GIS 工程计算工具
   engtools/           计算器/查表/条件/知识检索/文档检索工具注册表
   chat-history/       聊天历史存储（sqlite）与路由（v0.2.67 起）
   shared/             服务间共享代码
   docs-api/           文档解析/知识库/图谱/v1/Key 管理（8790）
-  aichat-api/         对话/模型配置/SOP/Evals/DreamCycle/nightly 调度（8791）
+  aichat-api/         对话/模型配置/Evals/DreamCycle/nightly 调度（8791；SOP 执行面经 HTTP 读 sop-api）
+  sop-api/            SOP 数据面：CRUD/导入/审核/生成/审计（8792；data/platform/sops 唯一写者）
 data/
   registry.sqlite     库组注册表（组→collection/sqlite 路由）
   knowledge/          生产知识域：knowledge_meta/index（回退单文件）、groups/<组>.sqlite、libraries/<库>/ 解析产物、graph.sqlite、parse_records.sqlite
@@ -362,8 +392,8 @@ tests/  docs/  scripts/  docker/
 | 版本 | 主题 | 核心能力 | 状态 |
 | :--- | :--- | :--- | :--- |
 | **v0.1** | 基础框架 | 文档解析入库、知识图谱、SOP 引擎、L0–L4 意图分级、AI 对话、评测框架 | ✅ 已完成（git tag `v0.1-frontend-*`） |
-| **v0.2** | Docs 模块完成 | 高质量文档结构化 pipeline（OmniDocBench 三方同尺背书）、高质量知识库问答（Open RAG Bench 1040 题 nightly 门禁）、nightly 健康夜检、对外公开网站 angineer.cn | 🔄 迭代中：当前 v0.2.95，预计收版 v0.2.99 |
-| **v0.3** | SOP 自进化 | SOP 自进化机制支撑各专业注册考题（图谱自动生成 → 审核闸门 → 执行轨迹反哺），网站开辟注册考题分支 | 🚧 规划中（自动生成链路骨架已存在，见 §4.1） |
+| **v0.2** | Docs 模块完成 | 高质量文档结构化 pipeline（OmniDocBench 三方同尺背书）、高质量知识库问答（Open RAG Bench 1040 题 nightly 门禁）、nightly 健康夜检、对外公开网站 angineer.cn | 🔄 迭代中：当前 v0.2.96，预计收版 v0.2.99 |
+| **v0.3** | SOP 自进化 | SOP 自进化机制支撑各专业注册考题（图谱自动生成 → 审核闸门 → 执行轨迹反哺），网站开辟注册考题分支 | 🚧 规划中（生成链路已落地独立 sop-api 服务与步骤图执行，L4 合成车道施工中，见 §4.3） |
 | **v0.4** | GIS × CAD | 与 GIS、CAD 结合可做计算：真实空间数据接入（影像/地形/水文气象）、断面/土方等工程计算、DWG/DXF 读写与自动出图算量 | 🚧 规划中（geo-core 骨架已存在） |
 | **v0.5** | 报告编制 | 基于规范检索、SOP 执行轨迹与 GIS/CAD 计算结果，自动编制工可、初设等正式设计报告（Markdown / Word / PDF 导出，支持人工复核） | 🚧 规划中 |
 | **v1.0** | 正式版迭代 | 在 v0.5 基础上大量迭代：多专业覆盖、精度与稳定性、工程化与 SaaS 化（多租户） | 🚧 目标 |
@@ -402,12 +432,12 @@ cp .env.example .env   # Windows PowerShell: Copy-Item .env.example .env
 .\start.ps1 -TailLogs    # 跟踪 logs/backend.log 与 logs/admin.log
 ```
 
-端口契约集中在 `apps/shared/ports.json`：docs-api `8790` · aichat-api `8791` · 用户台 `3005` · 管理台 `3002`。
+端口契约集中在 `apps/shared/ports.json`：docs-api `8790` · aichat-api `8791` · sop-api `8792` · 用户台 `3005` · 管理台 `3002`。
 
 ### 10.3 手动启动（跨平台）
 
 ```bash
-pnpm dev:backend    # docs-api: http://localhost:8790 · aichat-api: http://localhost:8791
+pnpm dev:backend    # docs-api: http://localhost:8790 · aichat-api: http://localhost:8791 · sop-api: http://localhost:8792（/dev:.*-api$/ 正则自动并行拉起）
 pnpm dev:frontend   # 用户: http://localhost:3005
 pnpm dev:admin      # 管理: http://localhost:3002
 ```
@@ -485,7 +515,7 @@ docker compose up -d --build
 ```
 
 - 前端（nginx）: `http://127.0.0.1:8080`（用户台 `/`，管理后台 `/admin/`；只绑回环）
-- API: docs-api `http://127.0.0.1:8790`、aichat-api `http://127.0.0.1:8791`（均只绑定本机回环）
+- API: docs-api `http://127.0.0.1:8790`、aichat-api `http://127.0.0.1:8791`、sop-api `http://127.0.0.1:8792`（均只绑定本机回环）
 - Qdrant 向量库: `127.0.0.1:6333`（容器 `angineer-qdrant`，数据卷 `data/qdrant`）；ONLYOFFICE 文档预览: `8089`
 - 数据卷：`../data`、`../logs`；API 密钥等配置来自 `../.env`
 
@@ -522,6 +552,7 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 
 - `ai-inference` 是 AI 推理的唯一真相源，零外部依赖；上层服务直接 `from ai_inference import ...`，不经过 angineer-core 中转。
 - `tree-core` 是树操作唯一真相源，零外部依赖；各服务在自己的 SQLite 中创建 `tree_node` 表并调用 tree_core 操作。
+- `sop-core` 与 `docs-core` 禁止 import 直连：图谱访问面向 `graph_port` Protocol，由 sop-api 经 docs-api HTTP bundle 物化（2026-10-11 起，边界守卫测试强制）。
 
 ### 11.6 环境变量参考
 
@@ -542,6 +573,10 @@ ALLOWED_ORIGINS=https://docs.your-domain.com,https://admin.your-domain.com,https
 | `POPO_API_TIMEOUT` / `POPO_MAX_TOKENS` | PoPo 超时与最大 token | `300` / `4096` |
 | `POPO_MAX_CONCURRENCY` | PoPo 4B 推理并发上限（打远端 vLLM） | `1` |
 | `POPO_INFERENCE_RETRIES` | PoPo 推理瞬时失败重试次数 | `1` |
+| `SOP_API_URL` | sop-api 地址（aichat 执行面拉 published 列表） | `http://sop-api:8792` |
+| `ANGINEER_SOP_CACHE_TTL` | SOP 进程内缓存秒数（0=停用，回每请求全量重读） | `300` |
+| `ANGINEER_SOP_DOMAIN_PACK` | SOP 领域知识包（内置名 harbor 或 JSON 路径；不设=通用内核零领域内容） | 空 |
+| `ANGINEER_DOCS_API_URL` / `DOCS_API_URL` | sop-api 图谱 bundle 的 docs-api 地址（前者优先、后者覆盖） | compose 服务名回退 |
 | `ANGINEER_GAP_ANALYSIS_ENABLED` | 回答知识盲区分析开关 | `true` |
 | `ANGINEER_FOLLOWUP_QUESTION` | L1/L2 回答末尾追加追问（仅知识问答档生效） | `true` |
 | `DREAM_CYCLE_ENABLED` / `DREAM_CYCLE_SCHEDULE` | 巡检开关与 cron | `true` / `0 2 * * *` |
