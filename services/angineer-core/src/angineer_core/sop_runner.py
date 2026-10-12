@@ -409,15 +409,26 @@ class SopRunner:
 
         # 1.6. Try to derive missing variables from context (K1, 折减系数, etc.)
         if missing_params and step.tool == "calculator":
-            logger.debug(f"Missing calculator params, will rely on LLM: {missing_params}")
+            logger.debug(f"Calculator step missing params（将按缺参口径处理）: {missing_params}")
 
         # 2. Decision Logic
         needs_llm = False
         reason = ""
-        
+
+        # 显式确定性工具 + 缺参：直接执行让工具如实报错，不交给 LLM 代算。
+        # 反例（2026-10-13 实踩）：题面缺「航速」时，缺参触发智能执行，LLM 在
+        # execute_tool 的 calculator 表达式里自补 c=0 算得 W=261.73——编造的中间值
+        # 经 outputs 映射进黑板，最终以「SOP 计算结果」呈现（比失败更糟）。
+        # 口径：calculator/table_read/table_lookup 的缺参 = 显式失败（缺什么报什么）。
+        _deterministic_tools = {"calculator", "table_read", "table_lookup"}
         if missing_params:
-            needs_llm = True
-            reason = f"Missing parameters: {missing_params}"
+            if step.tool in _deterministic_tools:
+                logger.info(
+                    f"[Step {step.id}] 缺参 {missing_params}，显式工具 {step.tool} 直接执行（如实报错，禁 LLM 代算）"
+                )
+            else:
+                needs_llm = True
+                reason = f"Missing parameters: {missing_params}"
         elif step.tool == "auto":
             needs_llm = True
             reason = "Tool is 'auto'"
