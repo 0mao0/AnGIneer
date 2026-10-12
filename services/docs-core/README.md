@@ -14,7 +14,8 @@ AnGIneer 的文档解析入库引擎（纯 Python 库）：把工程规范 / PDF
 | 🧮 可算 | 公式语义、表格插值、条款计算（供上层工具消费） | 结构化的 canonical 产物 |
 | 📎 可引用 | 条文 / 表格 / 图片的块级溯源 | `citation_targets` + 块 id |
 
-> 定位：只做**数据面**（解析 / 建索引 / 图谱 / 检索），**不含 HTTP 服务与前端**。
+> 定位：只做**数据面**（解析 / 建索引 / 图谱 / 检索），**不含 HTTP 服务与前端**；
+> 独立部署需要只读检索面时，可选装 `[server]` extra——内置薄壳 retrieval-api（见下），默认安装不含。
 > 大算力全部在外部服务：版面解析、视觉结构强化、图描述、embedding、rerank 都走 HTTP 端点（配置见下）。
 
 ## 管线（9 个阶段 + 导出）
@@ -45,7 +46,7 @@ pip install "angineer-docs-core @ git+https://github.com/0mao0/angineer-docs-cor
 
 Python 要求 `>=3.10`。运行依赖：`angineer-tree-core`（树表底座）、`angineer-ai-inference`（LLM 客户端）、
 `pydantic>=2`、`PyMuPDF`、`numpy`、`python-dateutil`、`qdrant-client`、`requests`、`python-dotenv`。
-可选 extras：`[chroma]`（旧向量后端）、`[text2sql]`（领域关键词 YAML）。
+可选 extras：`[chroma]`（旧向量后端）、`[text2sql]`（领域关键词 YAML）、`[server]`（独立宿主薄壳 retrieval-api，见下）。
 
 ## 另有外部依赖（不随包提供）
 
@@ -85,6 +86,31 @@ orch.retry_parse_task(doc_id)            # 失败重跑
 - 阶段级重跑与校验：`STAGE_REGISTRY` / `resolve_stage_order` / `validate_stage_retry` / `compute_resume_stages`；
 - 检索侧入口：`docs_core.step09_query`（五路召回 + 重排 + text2sql）；
 - 知识库与节点管理：`docs_core.get_docs_service()` / `DocsService`。
+
+## 独立宿主壳（retrieval-api · `[server]` extra）
+
+只读检索服务的最小形态——薄壳只保留对外验收面，数据面全参数化、无仓库树依赖：
+
+```bash
+pip install "angineer-docs-core[server]"       # 只为此加装 fastapi/uvicorn
+export ANGINEER_DATA_ROOT=/srv/angineer-data    # 数据根（或 KNOWLEDGE_BASE_DIR）
+export DOCS_VECTORSTORE_PROVIDER=qdrant
+export QDRANT_URL=http://localhost:6333
+export ANGINEER_API_TOKEN='...'                 # 可选：开启后除 /health 外要求 X-API-Key / Bearer
+uvicorn docs_core.server:app --host 127.0.0.1 --port 8310
+```
+
+| 端点 | 说明 |
+| :--- | :--- |
+| `POST /api/knowledge/internal/retrieve` | 五路召回融合检索（snake_case 线契约，与主仓库内部服务逐位一致） |
+| `POST /api/knowledge/internal/entity-search` | 图谱实体检索 |
+| `GET /api/knowledge/internal/doc-nodes` | 文档节点清单（对话侧 `load_nodes` 数据源） |
+| `GET /api/knowledge/libraries` | 库清单 |
+| `GET /api/knowledge/stats` | 统计聚合（`knowledge_stats` 工具数据源；与主仓库 docs-api 同一实现） |
+| `GET /api/knowledge/documents/{doc_id}/download` | 原文回源（`?kind=source\|pdf`、`?disposition=inline` 内联呈示） |
+| `GET /health` | 探活：数据根 / 注册表挂载状态 + 向量库配置形态 |
+
+上传 / 解析 / 迁移 / 导出仍是库调用（`ParseOrchestrator` 等），不在薄壳内。
 
 ## 配置（常用）
 
@@ -137,7 +163,7 @@ services/docs-core/
 
 ## 不在本库范围
 
-- HTTP / API 服务（由主仓库的 docs-api 实现）、前端与管理台；
+- HTTP / API 服务（由主仓库的 docs-api 实现）、前端与管理台（`[server]` extra 仅提供只读检索薄壳）；
 - MinerU / PoPo / VLM / embedding / rerank 的推理服务本身；
 - 知识库数据的业务展示与权限。
 
@@ -150,7 +176,7 @@ python -m pytest tests -q
 
 独立环境（无仓库树、无 `.env`）也能跑：`tests/conftest.py` 会先按 dotenv 规则加载 `.env`（若有），
 再补缺省 —— 向量后端用 `sqlite`、数据根指向临时目录；跨服务用例（需要 docs-api）自动跳过。
-当前基线：**507 passed, 17 skipped**（无外部服务、无网络）。
+当前基线：**516 passed, 16 skipped**（无外部服务、无网络）。
 
 ## 许可
 

@@ -12,7 +12,7 @@ from angineer_core.base_contracts import IntentResult  # noqa: E402
 
 import importlib  # noqa: E402
 
-import route_pre  # noqa: E402
+from angineer_core import route_pre  # noqa: E402（2026-10-12 迁入 angineer-core 包）
 
 _AICHAT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/aichat-api"))
 

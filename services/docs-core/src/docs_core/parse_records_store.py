@@ -34,10 +34,13 @@ def db_path() -> str:
     override = os.environ.get("PARSE_RECORDS_DB_PATH")
     if override:
         return override
-    from docs_core.paths import resolve_repo_root
+    # 数据根解析走 library_registry.resolve_data_root（ANGINEER_DATA_ROOT > 仓库 data/），
+    # 与知识库 meta/索引同口径；不再直接 resolve_repo_root（wheel 安装无仓库树时必抛，
+    # 2026-10-12 独立壳交付修复——此前该缺失会把 retrieval-api 壳的 stats 打挂）。
+    from docs_core.library_registry import resolve_data_root
 
     # 2026-10 data/ 三域归位：parse_records＝上传台账，收编进知识域 knowledge/
-    return str(resolve_repo_root() / "data" / "knowledge" / DB_NAME)
+    return str(resolve_data_root() / "knowledge" / DB_NAME)
 
 
 def connect() -> sqlite3.Connection:

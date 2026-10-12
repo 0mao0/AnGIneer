@@ -175,6 +175,27 @@ class ScopeContext(BaseModel):
         return self
 
 
+def normalize_library_ids(
+    library_ids: Optional[List[str]] = None,
+    library_id: str = "",
+) -> List[str]:
+    """归一化知识库集合：去重（保持顺序）、去空白项；空集回退 [library_id or "default"]。
+
+    引擎侧镜像：与 docs-core ``step09_query/protocols/contracts.normalize_library_ids``
+    同一规则（多库问答唯一归一化口径，顺序=主库语义、首项即兼容单值）。独立壳
+    （chat-api）不依赖 docs-core、无法复用其实现在此保留等价副本（2026-10-12 独立壳
+    交付）；两处必须同改，收敛时以 docs-core 侧为准。
+    """
+    seen: List[str] = []
+    for raw in library_ids or []:
+        lib = str(raw or "").strip()
+        if lib and lib not in seen:
+            seen.append(lib)
+    if not seen:
+        seen = [str(library_id or "").strip() or "default"]
+    return seen
+
+
 class RouteDebug(BaseModel):
     """路由决策的可观测投影（SSE 首帧与 evals 落盘共用词汇）。"""
     level: Optional[IntentLevel] = None

@@ -2,6 +2,11 @@
 
 硬规则：意图可以错，scope 不能漏；分类失败不再 intent_result=None 静默，
 而是 RouteDecision.fallback=True + route_debug.fallback=true，由 SSE 首帧透出。
+
+2026-10-12：自 aichat-api 迁入本包（原 services/aichat-api/route_pre.py），供
+[server] 壳与内部服务共用同一份实现（此前 DredgeAI 宿主需手工移植——「仓库有、
+包没有」）。对 docs_core 的 `looks_like_table_query` 依赖改为可选：独立壳部署
+未装 docs-core 时跳过表题判别、照常预检（多付一次对表题无效的预检，记为 debug）。
 """
 import logging
 import os
@@ -60,6 +65,9 @@ def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids
 
     跳过条件：短问（≤ANGINEER_INJECT_FOLLOWUP_CHARS）**且**有上文——§8.6 只在此组合下
     改写检索词，memo 键必不命中；首问短句（无上文）不改写，预检照常受益。
+
+    表题判别依赖 docs_core.step09_query.agent_port.looks_like_table_query；独立壳部署
+    未装 docs-core 时该依赖不可用，跳过判别照常预检（付一次对表题的无效预检）。
     """
     from angineer_core.agent_tools import route_parallel_enabled as _memo_enabled, RetrieverAdapter
 
@@ -81,9 +89,11 @@ def fire_speculative_first_search(query: str, library_id: Optional[str], doc_ids
     # ANGINEER_SPECULATIVE_SKIP_TABLE=0 回退旧行为（照发预检）。
     _skip_table = (os.getenv("ANGINEER_SPECULATIVE_SKIP_TABLE", "1") or "").strip().lower()
     if _skip_table not in ("0", "false", "off", "no"):
-        from docs_core.step09_query.agent_port import looks_like_table_query
-
-        if looks_like_table_query(q):
+        try:
+            from docs_core.step09_query.agent_port import looks_like_table_query
+        except Exception:  # docs-core 未安装（独立壳部署）：跳过表题判别，照常预检
+            looks_like_table_query = None
+        if looks_like_table_query is not None and looks_like_table_query(q):
             logger.info("赌博式预检跳过（表题必输局不下注）: %r", q[:40])
             return None
 

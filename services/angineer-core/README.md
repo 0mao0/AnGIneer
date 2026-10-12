@@ -92,6 +92,29 @@ print(result["llm_errors"])    # 空列表＝没有静默降级的 LLM 失败
 返回值是字典：`answer` / `citations` / `retrieved_items` / `evidences` / `intent` /
 `trace_notes` / `stage_timings` / `prompt_versions` / `llm_errors` / `runtime_flags` 等。
 
+## 独立宿主壳（chat-api · `[server]` extra）
+
+内置一个**薄宿主**，把「agent 编排 SSE」直接以服务形态暴露——自部署场景不必再自写宿主层
+（壳与 AnGIneer 内部服务同源同行为，代码只在一处维护）：
+
+```bash
+pip install "angineer-core[server]"            # 只为此加装 fastapi/uvicorn，纯库用法不变重
+export LLM_CONFIGS='[{"name":"...","model":"...","api_key":"...","base_url":"...","enabled":true}]'
+export ANGINEER_DOCS_API_URL=http://127.0.0.1:8310
+export ANGINEER_DISABLE_LOCAL_FALLBACK=1       # 推荐：检索强制走 HTTP，避免静默空结果
+uvicorn angineer_core.server:app --host 127.0.0.1 --port 8311
+```
+
+| 端点 | 说明 |
+| :--- | :--- |
+| `POST /api/chat/agent` | Agent SSE：`AgentEvent` 帧（每帧含 `frame_version: 1`），首帧 `route_debug`（意图级别 / `classify_ms` / scope），流末 `data: [DONE]` |
+| `GET /health` | 探活（检索配置形态 / 鉴权开关状态） |
+
+- 请求体与内部服务同构：`{query, scene?, session_id?, library_id?, library_ids?, doc_ids?, config?, mode?}`；
+- 多轮连续性靠进程内会话池（`scene:session_id`，TTL 2h）——不含聊天历史落库（可选面）；
+- 可选鉴权：设 `ANGINEER_API_TOKEN`（或 `API_TOKEN`）后，除 `/health` 外要求 `X-API-Key` 头或 `Bearer`；
+- 不依赖 SOP 发布面 / chat-history / admin 鉴权，缺之照常启动。
+
 ## 两条检索接入路径
 
 引擎只认协议，不认识任何具体检索实现；下表的两种接法效果等价，任选其一。
@@ -197,9 +220,9 @@ angineer-ai-inference README，这里只列引擎自身常用的：
 
 ## 不在本库范围
 
-- HTTP / SSE 服务端点（由消费方，如 AnGIneer 的 aichat-api 实现）；
+- HTTP / SSE 服务端点（由消费方实现；可选装 `[server]` extra 得到一条薄壳 chat-api，见上）；
 - 知识库存储、向量检索、rerank、解析入库（由消费方或 docs-api 提供）；
-- 会话池与聊天历史持久化（本库给 `AgentSession` 结构，落库由消费方决定）；
+- 会话池与聊天历史持久化（本库给 `AgentSession` 结构，落库由消费方决定；`[server]` 壳用进程内池）；
 - LLM 客户端本身（走 angineer-ai-inference）。
 
 ## 开发与测试
@@ -210,8 +233,8 @@ python -m pytest tests -q
 ```
 
 测试覆盖：意图分类降级、策略展开、工具箱组成、答案形态注入、上下文截断、
-证据指针与跨轮压缩、多库作用域与检索 memo、检索端口双轨。依赖 docs-core 的集成用例
-在未安装 docs-core 的环境自动跳过（当前 70 passed / 6 skipped）。
+证据指针与跨轮压缩、多库作用域与检索 memo、检索端口双轨、独立宿主壳管道（health / 鉴权门 / SSE 帧协议）。
+依赖 docs-core 的集成用例在未安装 docs-core 的环境自动跳过。
 
 架构说明（Agent Harness 详解、工具协议、关键踩坑）见主仓库
 [docs/angineer-core/agent-harness.md](https://github.com/0mao0/AnGIneer/blob/main/docs/angineer-core/agent-harness.md)。

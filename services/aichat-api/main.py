@@ -66,7 +66,7 @@ def _resolve_principal(request) -> tuple:
     user = getattr(request.state, "session_user", None)
     return resolve_pool_owner(request), (getattr(user, "id", None) if user is not None else None)
 from middleware.api_key_auth import APIKeyAuthMiddleware
-from route_pre import (
+from angineer_core.route_pre import (
     decision_intent_result,
     fallback_note_event,
     fire_speculative_first_search,

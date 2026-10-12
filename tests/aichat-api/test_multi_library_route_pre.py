@@ -21,8 +21,8 @@ sys.path.append(os.path.join(_SERVICES, "aichat-api"))
 for _pkg in ("angineer-core", "ai-inference", "docs-core"):
     sys.path.insert(0, os.path.join(_SERVICES, _pkg, "src"))
 
-import route_pre  # noqa: E402
 from angineer_core import agent_policy, agent_tools  # noqa: E402
+from angineer_core import route_pre  # noqa: E402（2026-10-12 迁入 angineer-core 包）
 from angineer_core.agent_tools import _run_knowledge_search, _search_memo_key  # noqa: E402
 
 
