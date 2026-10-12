@@ -104,6 +104,19 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertEqual(QA, QA_SRC)
         self.assertEqual(COMPLEX, COMPLEX_SRC)
 
+    def test_complex_prompt_v6_try_first_rule(self):
+        from angineer_core.prompts.agent_configs import (
+            COMPLEX_AGENT_SYSTEM_PROMPT as LATEST,
+            COMPLEX_AGENT_SYSTEM_PROMPT_V5 as V5,
+            COMPLEX_AGENT_SYSTEM_PROMPT_V6 as V6,
+        )
+        self.assertNotEqual(V5, V6)
+        self.assertEqual(LATEST, V6)
+        self.assertIn("必须先用 sop_execute 试跑", V6)
+        self.assertNotIn("必须先用 sop_execute 试跑", V5)
+        from angineer_core.prompts import load
+        self.assertEqual(load("agent_configs.complex_system_prompt", "v5"), V5)
+
     def test_qa_prompt_refusal_requires_tool_round_and_prefers_table_search(self):
         from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT as QA
 

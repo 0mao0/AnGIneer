@@ -330,7 +330,7 @@ assert QA_AGENT_SYSTEM_PROMPT_V18 != QA_AGENT_SYSTEM_PROMPT_V17, "v18 规则 2 �
 QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V11
 
 
-COMPLEX_AGENT_SYSTEM_PROMPT = (
+COMPLEX_AGENT_SYSTEM_PROMPT_V5 = (
     "你是一个工程规范领域的复杂问题求解助手，负责多步骤综合大题"
     "（含 SOP 执行、计算、查表与条件分支）。\n\n"
     "规则：\n"
@@ -350,6 +350,27 @@ COMPLEX_AGENT_SYSTEM_PROMPT = (
     "多个来源并列写两个标记；只能使用工具返回里真实存在的标记，禁止编造；"
     "计算、常识或纯推导句不需要标注。同一轮对话内标记全局唯一，直接按标记引用。\n"
 )
+
+
+# v6（2026-10-12）：规则 1 由「自判命中才调」改为「标准计算类先试跑」——
+# 实测两道海港计算题在聊天中全程未调 sop_execute（模型看不到 SOP 目录、无从自判命中；
+# 2026-10-12 本地确定性驱动已证工具链本身全通）。回退 = ANGINEER_COMPLEX_PROMPT_VERSION=v5。
+_COMPLEX_RULE1_V6 = (
+    "1. 标准计算类问题（按规范公式/查表分步求解）必须先用 sop_execute 试跑："
+    "sop_query 传问题原文（含已知参数），工具内置 SOP 匹配器，未命中会明确返回"
+    "「未匹配到合适的 SOP」，此时再用检索/计算工具自行求解；"
+    "其余问题若与工具描述中「可用 SOP 清单」的流程吻合，同样优先调用 sop_execute 并复用其 final_context；"
+    "调用前不要自行臆断是否命中。\n"
+)
+COMPLEX_AGENT_SYSTEM_PROMPT_V6 = COMPLEX_AGENT_SYSTEM_PROMPT_V5.replace(
+    "1. 先判断是否存在可执行的 SOP：若问题命中标准作业程序，调用 sop_execute"
+    "（提供 sop_query 与必要 args），优先复用 SOP 的 final_context。\n",
+    _COMPLEX_RULE1_V6,
+)
+assert COMPLEX_AGENT_SYSTEM_PROMPT_V6 != COMPLEX_AGENT_SYSTEM_PROMPT_V5, "v6 规则 1 改写未命中"
+
+# 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
+COMPLEX_AGENT_SYSTEM_PROMPT = COMPLEX_AGENT_SYSTEM_PROMPT_V6
 
 
 FOLLOWUP_QUESTION_RULE = (
@@ -375,6 +396,7 @@ register("agent_configs.qa_system_prompt", "v15", QA_AGENT_SYSTEM_PROMPT_V15)
 register("agent_configs.qa_system_prompt", "v16", QA_AGENT_SYSTEM_PROMPT_V16)
 register("agent_configs.qa_system_prompt", "v17", QA_AGENT_SYSTEM_PROMPT_V17)
 register("agent_configs.qa_system_prompt", "v18", QA_AGENT_SYSTEM_PROMPT_V18)
-register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
+register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT_V5)
+register("agent_configs.complex_system_prompt", "v6", COMPLEX_AGENT_SYSTEM_PROMPT_V6)
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
 # meta_system_prompt 已随 meta 档删除（2026-10-02 废 meta_query 路由第二步）：无消费方，历史 run 快照中的版本字符串不受影响。

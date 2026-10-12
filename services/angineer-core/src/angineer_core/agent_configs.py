@@ -34,6 +34,17 @@ def effective_qa_prompt_version() -> str:
     return os.getenv("ANGINEER_QA_PROMPT_VERSION", "latest").strip() or "latest"
 
 
+def effective_complex_prompt_version() -> str:
+    """复杂档 prompt 生效版本（env 指定或 latest）；回退 = ANGINEER_COMPLEX_PROMPT_VERSION=v5。"""
+    return os.getenv("ANGINEER_COMPLEX_PROMPT_VERSION", "latest").strip() or "latest"
+
+
+def _load_complex_system_prompt() -> str:
+    """按 ANGINEER_COMPLEX_PROMPT_VERSION 加载复杂档系统提示（默认最新注册版本）。"""
+    from angineer_core.prompts import load
+    return load("agent_configs.complex_system_prompt", effective_complex_prompt_version())
+
+
 def _load_qa_system_prompt() -> str:
     """按 ANGINEER_QA_PROMPT_VERSION 加载 QA 档系统提示（默认最新注册版本）。"""
     from angineer_core.prompts import load
@@ -226,6 +237,28 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                         text = str(item.get("text") or "")
                         if text.strip():
                             evidence_parts.append(text.strip())
+                elif isinstance(raw, dict) and isinstance(raw.get("sop_trace"), list):
+                    # SOP 执行结果纳入证据面（2026-10-12，B 项实测）：sop 步骤经 canonical
+                    # 检索/查表，成功步骤的 outputs 与 citations 即证据；缺此分支时「仅调
+                    # SOP 未调检索」会被 no_evidence 误杀（SOP 命中执行后整答替换拒答）。
+                    # 只收 success 步骤（含 error 的输出不收）——保住「全失败=无证据仍拒答」的严格性。
+                    sop_parts: List[str] = []
+                    for _step in raw["sop_trace"]:
+                        if not isinstance(_step, dict) or _step.get("status") != "success":
+                            continue
+                        _out = _step.get("outputs")
+                        if isinstance(_out, dict):
+                            _txt = str(_out.get("result") or "").strip()
+                            if _txt:
+                                sop_parts.append(_txt[:2000])
+                    if sop_parts:
+                        # 引用片段只在存在成功步骤时计入（步骤全失败时其 snippet 是错误摘要，
+                        # 不构成证据；保住「全失败=无证据仍拒答」）。
+                        for _cite in raw.get("citations") or []:
+                            _sn = str((_cite or {}).get("snippet") or "").strip()
+                            if _sn:
+                                sop_parts.append(_sn[:2000])
+                        evidence_parts.append("[sop_execute] " + chr(10).join(sop_parts))
                 elif isinstance(raw, dict) and any(k in raw for k in ("documents", "pages", "storage", "uploads")):
                     # P-1（废 meta 路由第二步）：knowledge_stats 返回无 items[]，把统计摘要纳入证据面——
                     # no_evidence 与 unsupported_reference 两道闸一并兼容（evidence_parts 定版方案，
@@ -707,6 +740,7 @@ def build_complex_config(
     marker_allocator: Optional[Any] = None,
     final_answer_guard: Optional[Any] = None,
     answer_format: Optional[str] = None,
+    sop_hint: Optional[str] = None,
 ) -> AgentLoopConfig:
     """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。
 
@@ -795,7 +829,7 @@ def build_complex_config(
     else:
         effective_tools = tools
 
-    system_prompt = COMPLEX_AGENT_SYSTEM_PROMPT
+    system_prompt = _load_complex_system_prompt()
     explicit = _build_inline_citation_context(inline_citations or [])
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
@@ -805,6 +839,8 @@ def build_complex_config(
         system_prompt += FOLLOWUP_QUESTION_RULE
 
     # §7.7 注入实验：与 QA 档各追加同一条规则（同一注入文本经穿线同时到达两档）
+    if sop_hint:
+        system_prompt += "\n\n" + str(sop_hint).strip()
     if answer_format:
         system_prompt += "\n\n" + str(answer_format).strip()
 

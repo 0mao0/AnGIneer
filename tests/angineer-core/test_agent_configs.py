@@ -1,4 +1,5 @@
 """P3.1 build_qa_config 装配单测。"""
+import json
 import os
 import sys
 import unittest
@@ -517,3 +518,37 @@ class ExternalCitationStripGuardTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class SopEvidenceGuardTests(unittest.TestCase):
+    """sop_execute 结果纳入证据面（2026-10-12，B 项）——仅调 SOP 未调检索不再误杀。"""
+
+    @staticmethod
+    def _sop_tool(steps):
+        return AgentMessage(
+            role="tool",
+            content=json.dumps({"sop_id": "sop-x", "sop_trace": steps,
+                                "citations": [{"snippet": "表5.4.8 取值 3.2"}]}, ensure_ascii=False),
+            is_error=False,
+        )
+
+    def test_success_step_output_counts_as_evidence(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        tool = self._sop_tool([{"step_id": "s1", "status": "success",
+                               "outputs": {"result": "设计水深 12.5 m"}}])
+        answer = AgentMessage(role="assistant", content="根据 SOP 计算，设计水深为 12.5 m。")
+        self.assertIsNone(guard([tool, answer]))
+
+    def test_all_failed_steps_still_refused(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        tool = self._sop_tool([{"step_id": "s1", "status": "failed",
+                               "outputs": {"error": "boom"}}])
+        answer = AgentMessage(role="assistant", content="根据 SOP 计算，设计水深为 12.5 m。")
+        _, _, code = guard([tool, answer])
+        self.assertEqual(code, "no_evidence")
+
+    def test_sop_tool_without_trace_falls_through(self):
+        guard = make_final_answer_guard(enforce_evidence=True)
+        tool = AgentMessage(role="tool", content=json.dumps({"sop_id": "x"}), is_error=False)
+        answer = AgentMessage(role="assistant", content="结论如下。")
+        _, _, code = guard([tool, answer])
+        self.assertEqual(code, "no_evidence")

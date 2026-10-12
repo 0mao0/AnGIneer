@@ -1366,9 +1366,30 @@ class SopRunnerAdapter:
                 "route_reason": route_result.reason or "",
             }
 
+        # 目录可见性（2026-10-12）：模型无从判断「是否命中」——把 published SOP 清单
+        # 附进工具描述，配合 complex 提示词 v6 的「标准计算类先试跑」规则（实测两道海港题
+        # 全程未调本工具，疑因清单不可见）。
+        _published_names = [
+            (getattr(s, "name_zh", None) or getattr(s, "id", "") or "").strip()
+            for s in (sops or [])
+            if getattr(s, "status", "published") == "published"
+        ]
+        _published_names = [n for n in _published_names if n]
+        _catalog = ""
+        if _published_names:
+            _catalog = (
+                f"\n当前可用 SOP（{len(_published_names)} 条）："
+                + "、".join(_published_names)
+                + f"。问题与清单中某条吻合时应调用本工具试跑（未匹配会明确返回，不消耗额外轮次）。"
+            )
+
         return AgentTool(
             name="sop_execute",
-            description="执行一条标准作业程序（SOP），返回计算/查表结果与步骤轨迹。",
+            description=(
+                "执行一条标准作业程序（SOP），返回计算/查表结果与步骤轨迹。"
+                "标准计算类问题（按规范公式/查表分步求解）应先调用本工具试跑。"
+                + _catalog
+            ),
             parameters_schema={
                 "type": "object",
                 "properties": {
