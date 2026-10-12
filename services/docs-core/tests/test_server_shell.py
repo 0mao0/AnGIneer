@@ -136,3 +136,138 @@ def test_token_gate_optional():
         assert client.get("/health").status_code == 200
         ok = client.get("/api/knowledge/libraries", headers={"X-API-Key": "tok-1"})
         assert ok.status_code == 200
+
+
+# ---- engine 端口 HTTP 面（2026-10-12 独立壳修复：chat 壳 http_ports 适配器消费）----
+
+
+def _phrase_items():
+    """两候选：i2 phrase 命中（query「罐址选择的要求」→ n-gram「罐址选择」），i1 无关。"""
+    return [
+        {"item_id": "i1", "entity_type": "block", "doc_id": "d1", "title": "无关条目",
+         "text": "完全无关的文本内容", "score": 0.30,
+         "metadata": {"doc_title": "别的书", "cite": "K1"}},
+        {"item_id": "i2", "entity_type": "block", "doc_id": "d2", "title": "罐址选择",
+         "text": "罐址选择应避开软土地基与活动断层", "score": 0.20,
+         "citation_target_id": "ct-2",
+         "metadata": {"doc_title": "液化天然气码头设计规范", "cite": "K2", "page_idx": 3}},
+    ]
+
+
+def test_engine_ports_normalize_query():
+    client, _ = _client_and_module()
+    resp = client.post("/api/knowledge/internal/normalize-query", json={"query": "第六十条"})
+    assert resp.status_code == 200
+    assert "60" in resp.json()["query"]  # 中文数字条款号 → 阿拉伯数字（真实实现）
+
+
+def test_engine_ports_rerank():
+    client, _ = _client_and_module()
+    resp = client.post(
+        "/api/knowledge/internal/rerank",
+        json={"query": "罐址选择的要求", "task_type": "content_qa", "candidates": _phrase_items()},
+    )
+    assert resp.status_code == 200
+    cands = resp.json()["candidates"]
+    assert len(cands) == 2
+    # phrase 命中 +0.15：0.20→0.35 越过 i1 的 0.30，排第一；rerank_score 回写
+    assert cands[0]["item_id"] == "i2"
+    assert cands[0]["rerank_score"] > cands[1]["rerank_score"]
+
+
+def test_engine_ports_relevant_citations():
+    client, _ = _client_and_module()
+    resp = client.post(
+        "/api/knowledge/internal/relevant-citations",
+        json={"query": "罐址选择的要求", "items": _phrase_items(), "limit": 5},
+    )
+    assert resp.status_code == 200
+    cits = resp.json()["citations"]
+    # phrase 命中优先且只取命中项；字段透传（target_id/marker/page_idx/snippet）
+    assert len(cits) == 1
+    assert cits[0]["doc_id"] == "d2"
+    assert cits[0]["target_id"] == "ct-2"
+    assert cits[0]["marker"] == "K2"
+    assert cits[0]["page_idx"] == 3
+    assert cits[0]["snippet"].startswith("罐址选择")
+
+
+def test_engine_ports_table_blocks_passthrough():
+    client, _ = _client_and_module()
+    from docs_core.step09_query import agent_port
+
+    with patch.object(
+        agent_port, "table_blocks_provider", return_value=[{"doc_id": "d1"}]
+    ) as m:
+        resp = client.post(
+            "/api/knowledge/internal/table-blocks",
+            json={"library_id": "lib-a", "doc_ids": []},
+        )
+    assert resp.status_code == 200
+    assert resp.json()["blocks"] == [{"doc_id": "d1"}]
+    m.assert_called_once_with("lib-a", None)  # 空 doc_ids 传 None（全库找文件语义）
+
+
+class _StubRegistry:
+    def __init__(self, tool):
+        self._tool = tool
+
+    def get_tool(self, name):
+        return self._tool
+
+
+def test_engine_ports_engtool_run_all_paths():
+    client, _ = _client_and_module()
+    from docs_core.step09_query import agent_port
+
+    calls = {}
+
+    class _Tool:
+        def run(self, **kwargs):
+            calls.update(kwargs)
+            return {"result": 6.0}
+
+    with patch.object(agent_port, "engtool_registry", return_value=_StubRegistry(_Tool())):
+        resp = client.post(
+            "/api/knowledge/internal/engtool-run",
+            json={"name": "calculator", "kwargs": {"expression": "3+3"}},
+        )
+    assert resp.status_code == 200
+    assert resp.json()["result"] == {"result": 6.0}
+    assert calls == {"expression": "3+3"}
+
+    # 工具不存在 → 404（对齐进程内 LookupError("Tool not found")）
+    with patch.object(agent_port, "engtool_registry", return_value=_StubRegistry(None)):
+        assert client.post(
+            "/api/knowledge/internal/engtool-run", json={"name": "nope", "kwargs": {}}
+        ).status_code == 404
+
+    # 注册表不可用（engtools 缺失）→ 503
+    with patch.object(agent_port, "engtool_registry", side_effect=ImportError("no engtools")):
+        assert client.post(
+            "/api/knowledge/internal/engtool-run", json={"name": "x", "kwargs": {}}
+        ).status_code == 503
+
+    # 执行异常 → 500
+    class _Boom:
+        def run(self, **kwargs):
+            raise RuntimeError("boom")
+
+    with patch.object(agent_port, "engtool_registry", return_value=_StubRegistry(_Boom())):
+        assert client.post(
+            "/api/knowledge/internal/engtool-run", json={"name": "x", "kwargs": {}}
+        ).status_code == 500
+
+
+def test_token_gate_covers_engine_ports():
+    client, _ = _client_and_module()
+    with patch.dict(os.environ, {"ANGINEER_API_TOKEN": "tok-2"}):
+        assert client.post(
+            "/api/knowledge/internal/normalize-query", json={"query": "第六十条"}
+        ).status_code == 401
+        ok = client.post(
+            "/api/knowledge/internal/normalize-query",
+            json={"query": "第六十条"},
+            headers={"X-API-Key": "tok-2"},
+        )
+        assert ok.status_code == 200

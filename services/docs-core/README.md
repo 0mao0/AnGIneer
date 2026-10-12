@@ -105,6 +105,7 @@ uvicorn docs_core.server:app --host 127.0.0.1 --port 8310
 | `POST /api/knowledge/internal/retrieve` | 五路召回融合检索（snake_case 线契约，与主仓库内部服务逐位一致） |
 | `POST /api/knowledge/internal/entity-search` | 图谱实体检索 |
 | `GET /api/knowledge/internal/doc-nodes` | 文档节点清单（对话侧 `load_nodes` 数据源） |
+| `POST /api/knowledge/internal/normalize-query` · `/internal/rerank` · `/internal/relevant-citations` · `/internal/table-blocks` · `/internal/engtool-run` | engine 端口 HTTP 面（条款号归一化 / phrase rerank / 引用挑选 / 表格块 / 外部工具执行）——chat 壳 `http_ports` 适配器消费；与主仓库 docs-api 同挂 |
 | `GET /api/knowledge/libraries` | 库清单 |
 | `GET /api/knowledge/stats` | 统计聚合（`knowledge_stats` 工具数据源；与主仓库 docs-api 同一实现） |
 | `GET /api/knowledge/documents/{doc_id}/download` | 原文回源（`?kind=source\|pdf`、`?disposition=inline` 内联呈示） |

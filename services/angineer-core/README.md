@@ -115,6 +115,23 @@ uvicorn angineer_core.server:app --host 127.0.0.1 --port 8311
 - 可选鉴权：设 `ANGINEER_API_TOKEN`（或 `API_TOKEN`）后，除 `/health` 外要求 `X-API-Key` 头或 `Bearer`；
 - 不依赖 SOP 发布面 / chat-history / admin 鉴权，缺之照常启动。
 
+**端口等价物（HTTP 模式 vs 进程内装配）**：壳启动时自动注册 HTTP 端口适配器
+（`angineer_core.server.http_ports`；配 `ANGINEER_DOCS_API_URL` 即生效，`ANGINEER_HTTP_PORTS=0` 关闭），
+把进程内端口的等价物指向检索服务，行为与进程内装配对齐：
+
+| 端口 | 指向（检索服务端点） | 说明 |
+| :--- | :--- | :--- |
+| `normalize_query` | `/internal/normalize-query` | 条款号归一化（"第六十条"→"第60条"） |
+| `relevant_citations` | `/internal/relevant-citations` | 引用挑选（工具结果 `citations` 键） |
+| `local_rerank` | `/internal/rerank` | phrase rerank（排序与相关性档位与内部一致） |
+| `local_nodes_loader` | `/internal/doc-nodes` | 节点清单（canonical 查表按文件名找册） |
+| `table_blocks` | `/internal/table-blocks` | canonical 表格块读取 |
+| `engtool_registry` | `/internal/engtool-run` | 外部工具执行（calculator / conditional；执行体 `angineer-engtools` 需在检索侧安装） |
+| knowledge / table / entity / stats 四个 local | 无需适配 | 引擎自身 HTTP 双路已覆盖（retrieve 三模式 / entity-search / stats） |
+
+失败降级原则：适配器网络失败一律降级为原行为（原样返回 / 空列表），绝不把降级路径
+变成工具级异常；`table_blocks` 例外（消费方自带 try/except，显式失败上浮为「表格块读取失败」）。
+
 ## 两条检索接入路径
 
 引擎只认协议，不认识任何具体检索实现；下表的两种接法效果等价，任选其一。

@@ -25,6 +25,7 @@ ensure_env()
 from docs_routes import docs_router, preview_router
 from graph_routes import graph_router
 from retrieve_routes import retrieve_router
+from docs_core.server.engine_ports import build_engine_ports_router
 from api_key_routes import router as api_key_router
 from users_routes import router as users_router
 from routes.v1 import router as v1_router
@@ -125,6 +126,9 @@ app.include_router(docs_router, prefix="/api/knowledge", tags=["Knowledge"])
 app.include_router(kb_migration_router, prefix="/api/knowledge", tags=["Knowledge Migration"])
 app.include_router(export_router, prefix="/api/knowledge", tags=["Knowledge Export"])
 app.include_router(retrieve_router, prefix="/api/knowledge", tags=["Knowledge Internal"])
+# engine 端口 HTTP 面（normalize-query / rerank / relevant-citations / table-blocks /
+# engtool-run）：与 retrieval 壳同批挂载保持镜像（2026-10-12 独立壳修复）。
+app.include_router(build_engine_ports_router(), prefix="/api/knowledge", tags=["Knowledge Internal"])
 app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
 app.include_router(api_key_router)

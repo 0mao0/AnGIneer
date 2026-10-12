@@ -4,6 +4,9 @@
 - ``POST /api/knowledge/internal/retrieve``        五路召回融合检索（snake_case 线契约）
 - ``POST /api/knowledge/internal/entity-search``   图谱实体检索
 - ``GET  /api/knowledge/internal/doc-nodes``       文档节点清单（供对话壳 load_nodes）
+- ``POST /api/knowledge/internal/normalize-query`` / ``/internal/rerank`` /
+  ``/internal/relevant-citations`` / ``/internal/table-blocks`` / ``/internal/engtool-run``
+  engine 端口 HTTP 面（见 ``engine_ports.py``；chat 壳 http_ports 适配器消费）
 - ``GET  /api/knowledge/libraries``                库清单
 - ``GET  /api/knowledge/stats``                    统计聚合（knowledge_stats 工具数据源）
 - ``GET  /api/knowledge/documents/{doc_id}/download``  原文回源（``?kind=source|pdf``、
@@ -41,7 +44,17 @@ from docs_core import __version__ as _PKG_VERSION
 from docs_core.docs_file_io import file_storage
 from docs_core.docs_service import get_docs_service
 from docs_core.knowledge_stats import compute_knowledge_stats
+from docs_core.server.engine_ports import build_engine_ports_router
 from docs_core.step09_query.retrieve_service import retrieve_knowledge
+
+# root 日志兜底（同 docs-api/aichat-api）：库代码普遍用 logging.getLogger(__name__)
+# 且不设 handler，不配 root 会让日志落 lastResort（stderr 裸格式）甚至静默丢失——
+# 2026-10-12 DredgeAI 试用即因壳没配 logging 误判「警告没落日志」。basicConfig 幂等。
+logging.basicConfig(
+    level=os.getenv("ANGINEER_LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 
 logger = logging.getLogger("docs_core.server")
 
@@ -124,6 +137,15 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
         allow_credentials=False,
+    )
+
+    # engine 端口 HTTP 面（normalize-query / rerank / relevant-citations / table-blocks /
+    # engtool-run）：供 chat 壳的 http_ports 适配器消费；与主仓库 docs-api 同批挂载保持镜像。
+    app.include_router(
+        build_engine_ports_router(),
+        prefix="/api/knowledge",
+        tags=["Engine Ports"],
+        dependencies=[Depends(_token_guard)],
     )
 
     @app.post("/api/knowledge/internal/retrieve", dependencies=[Depends(_token_guard)])

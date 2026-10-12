@@ -46,11 +46,21 @@ from angineer_core.route_pre import (
     route_pre_enabled,
     route_request,
 )
+from angineer_core.server.http_ports import register_http_ports
 from angineer_core.server.session import (
     _classify_intent_blocking,
     get_agent_session,
     load_nodes_for,
     make_config_factory,
+)
+
+# root 日志兜底（同 aichat-api）：库代码普遍用 logging.getLogger(__name__) 且不设
+# handler，不配 root 会让日志落 lastResort（stderr 裸格式）甚至静默丢失——2026-10-12
+# DredgeAI 试用即因壳没配 logging 误判「警告没落日志」。basicConfig 幂等。
+logging.basicConfig(
+    level=os.getenv("ANGINEER_LOG_LEVEL", "INFO").upper(),
+    format="%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
 )
 
 logger = logging.getLogger("angineer_core.server")
@@ -132,6 +142,14 @@ def create_app() -> FastAPI:
         description="独立宿主壳：agent 编排 SSE（angineer-core [server] extra）。",
         version=_PKG_VERSION,
     )
+
+    @app.on_event("startup")
+    def _register_http_ports_on_startup() -> None:
+        """HTTP 端口适配器（六端口，见 http_ports.py）：启动时把进程内端口的 HTTP
+        等价物注册进端口注册表——未配 ANGINEER_DOCS_API_URL 或 ANGINEER_HTTP_PORTS=0
+        时自动跳过（保持原「端口未注册」降级语义）。幂等。放启动事件而非导入期：
+        「导入壳模块」这种无请求场景不应产生全局副作用。"""
+        register_http_ports()
 
     _allowed_origins = [
         o.strip()
