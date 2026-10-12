@@ -137,6 +137,24 @@ def _manifest_with_judge(
     return manifest
 
 
+def _answer_format_from_dataset_meta(raw_meta: Any) -> str:
+    """从数据集 meta 取「答案收尾协议」文本，空串归一为 ''。
+
+    meta 的形态分叉（2026-10-11 实踩）：result_store.get_dataset 返回的 meta 已是
+    dict，而 dataset/manager 导出与 bundle 落盘侧是 JSON 字符串——只按字符串解析
+    会对 dict 抛 TypeError，被 except 吞掉后回退静默失效（首次探针 run-98bd9094be50
+    的 enabled=false 即此因）。两态都收，坏 JSON 按无协议处理。"""
+    meta = raw_meta
+    if isinstance(meta, str):
+        try:
+            meta = json.loads(meta)
+        except (TypeError, ValueError):
+            meta = {}
+    if not isinstance(meta, dict):
+        return ""
+    return str(meta.get("answer_format") or "").strip()
+
+
 def _generate_run_name(config_name: Optional[str] = None) -> str:
     """生成运行名称，格式: {模型名}_{MMDD-HHmm}。"""
     model_name = config_name or os.getenv("ANGINEER_DEFAULT_MODEL", "eval")
@@ -981,11 +999,7 @@ def start_eval_run(
         # 同日 d456 注入后答案有尾行但判分侧未提取，两侧协议断链）。
         # 回退取到的文本同样经 _manifest_with_judge 落 manifest 留痕。
         dataset = result_store.get_dataset(dataset_id) or {}
-        try:
-            meta = json.loads(dataset.get("meta") or "{}")
-        except (TypeError, ValueError):
-            meta = {}
-        answer_format = str(meta.get("answer_format") or "").strip() or None
+        answer_format = _answer_format_from_dataset_meta(dataset.get("meta")) or None
     if question_id:
         questions = [q for q in all_questions if str(q.get("question_id") or "") == question_id]
         if not questions:

@@ -126,6 +126,28 @@ class TestTailLinePairing:
         assert r["score"] == 0.0 and r["numeric_status"] == "SHAPE_FAIL"
 
 
+class TestDatasetMetaFallback:
+    """start_eval_run 的数据集 meta 回退（_answer_format_from_dataset_meta 纯函数）。
+
+    meta 形态两态并存：result_store.get_dataset 返回 dict，bundle/导出侧是 JSON
+    字符串——首版只按字符串解析，dict 抛 TypeError 被 except 吞掉、回退静默失效
+    （探针 run-98bd9094be50 的 enabled=false 实锤），四态用例锁死。"""
+
+    def test_dict_meta(self):
+        from evals_core.runner.suite_runner import _answer_format_from_dataset_meta
+        assert _answer_format_from_dataset_meta({"answer_format": "尾行只写答案"}) == "尾行只写答案"
+
+    def test_str_meta(self):
+        from evals_core.runner.suite_runner import _answer_format_from_dataset_meta
+        assert _answer_format_from_dataset_meta('{"answer_format": "尾行只写答案"}') == "尾行只写答案"
+
+    def test_bad_json_and_none_are_empty(self):
+        from evals_core.runner.suite_runner import _answer_format_from_dataset_meta
+        assert _answer_format_from_dataset_meta("{bad json") == ""
+        assert _answer_format_from_dataset_meta(None) == ""
+        assert _answer_format_from_dataset_meta({"answer_format": "  "}) == ""
+
+
 class TestRegistration:
     def test_registered(self):
         assert "numeric" in list_evaluator_names()
