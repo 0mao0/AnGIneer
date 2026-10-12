@@ -452,13 +452,17 @@ def table_blocks_provider(
     """
     from ..docs_service import docs_service
 
+    # 按库解析组存储（多库修复 2026-10-13：原用全局单例 canonical_store，永远指向本服务
+    # 默认库——非 default 库（如 std-water→standards 组）的表格在库范围内永远取不到）。
+    canonical = docs_service._canonical_store_for(library_id)
+
     if not doc_ids:
         nodes = docs_service.list_nodes(library_id)
         doc_ids = [n.id for n in nodes if getattr(n, "type", "") == "document"]
     out: List[Dict[str, Any]] = []
     for doc_id in doc_ids:
         try:
-            tables = docs_service.canonical_store.list_tables(doc_id, limit=500)
+            tables = canonical.list_tables(doc_id, limit=500)
         except Exception as exc:  # noqa: BLE001
             logger.warning("读取文档表格失败 doc_id=%s: %s", doc_id, exc)
             continue
