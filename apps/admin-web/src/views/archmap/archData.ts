@@ -118,14 +118,17 @@ export const ARCH_NODES: ArchNode[] = [
     summary: '意图分类与「赌 L1」预检索并行起跑，命中则检索段移出关键路径',
     details: [
       'IntentClassifier：规则快路（命中即返回）→ LLM 主力 → 规则兜底 → 显式降 L1；失败留痕不静默',
+      'SOP 池每请求取数（所有档位，非只 L3/L4）：sop_api.load_published()（分类前；装配时 build_attempts 再取一次，同一客户端）——sop-api HTTP → TTL 缓存 → 磁盘快照 → 空池',
       '预检 daemon 线程按主路同参数（top_k=20, rerank=True）先跑 knowledge_search',
       '跳过：短问有上文 / 表题必输局（ANGINEER_SPECULATIVE_SKIP_TABLE）/ 总闸关',
       '结果挂检索 memo（TTL 120s），主路撞在途会按预算等待'
     ],
     anchors: [
       'services/aichat-api/route_pre.py:43',
-      'services/angineer-core/src/angineer_core/classifier.py:869',
-      'services/angineer-core/src/angineer_core/agent_tools.py:392'
+      'services/angineer-core/src/angineer_core/classifier.py:835',
+      'services/angineer-core/src/angineer_core/agent_tools.py:393',
+      'services/aichat-api/main.py:360',
+      'services/aichat-api/sop_api_client.py:68'
     ]
   }),
   N('n-level', CX, 330, {
@@ -150,13 +153,13 @@ export const ARCH_NODES: ArchNode[] = [
     summary: '评测请求体可带一条「答案收尾形态」注入句；聊天线无此参数',
     details: [
       'StartEvalRunRequest.answer_format 可选，evals_routes 透传进 runner',
-      'suite_runner 铺到每题；manifest 留痕 {enabled, text}，缺留痕判实验无效',
+      'suite_runner 铺到每题（run 级为空时回退读题集 meta 的协议声明）；manifest 留痕 {enabled, text}，缺留痕判实验无效',
       'OfficeQA §7.7 注入实验首用：旁证口径 15.0%/24.1% vs 对照 12.8%/14.3%'
     ],
     anchors: [
       'services/aichat-api/evals_routes.py:272',
       'services/evals-core/src/evals_core/contracts.py:67',
-      'services/evals-core/src/evals_core/runner/suite_runner.py:750'
+      'services/evals-core/src/evals_core/runner/suite_runner.py:136'
     ]
   }),
   N('n-afslot', 30, 330, {
@@ -168,7 +171,7 @@ export const ARCH_NODES: ArchNode[] = [
       '穿线：run_eval_query → run_policy_query → build_attempts → build_qa/complex_config',
       '终端消费：system_prompt += 换行 + 注入句（QA 档与 L3 复杂档各一处）',
       '默认 None 时提示词逐字节不变（8 条回归测锁形态）；每题 prediction 留痕',
-      'L0 聊天线永不携带；生产生效随下次发版'
+      'L0 聊天线永不携带；已随 v0.2.96 上线'
     ],
     anchors: [
       'services/angineer-core/src/angineer_core/agent_configs.py:507',
@@ -205,7 +208,7 @@ export const ARCH_NODES: ArchNode[] = [
       'services/evals-core/src/evals_core/runner/answer_eval.py:224',
       'services/evals-core/src/evals_core/runner/answer_eval.py:286',
       'services/evals-core/src/evals_core/dataset/schema.py:37',
-      'services/evals-core/src/evals_core/runner/suite_runner.py:401',
+      'services/evals-core/src/evals_core/runner/suite_runner.py:413',
       'services/evals-core/src/evals_core/nightly/report.py:292',
       'services/angineer-core/src/angineer_core/prompts/answer_eval.py:70'
     ]
@@ -243,7 +246,7 @@ export const ARCH_NODES: ArchNode[] = [
       '先走 ANGINEER_DOCS_API_URL，失败回退本地 ports.get_knowledge_local_search()',
       'doc_ids 入参对 LLM 开放（2026-10-06）：压缩摘要行里的 doc 指针可据此回看原文（显式 inspect）'
     ],
-    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:907', 'services/angineer-core/src/angineer_core/agent_tools.py:719']
+    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:907', 'services/angineer-core/src/angineer_core/agent_tools.py:762']
   }),
   N('n-pipe', 330, 670, {
     label: '检索管线',
@@ -311,24 +314,24 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'gap',
     summary: '字符 bigram TF-IDF 粗筛 top5，LLM 精排+拒绝+抽参；未命中只回 error',
     details: [
+      '路由池=装配传入的 sops；空池时经 sop_loader 兜底再取（同一 TTL 客户端，取数与降级见路由层）',
       '零命中时 fallback 全量 SOP 再排；置信度低于阈值拒路由',
       '⚠ 未命中路径只返回「未匹配到合适的 SOP」，无生成 fallback'
     ],
-    anchors: ['services/angineer-core/src/angineer_core/classifier.py:995', 'services/angineer-core/src/angineer_core/agent_tools.py:1287'],
+    anchors: ['services/angineer-core/src/angineer_core/classifier.py:989', 'services/angineer-core/src/angineer_core/agent_tools.py:1305'],
     problems: ['P1']
   }),
   N('n-runner', 930, 670, {
     label: 'SopRunner',
-    sub: '线性执行 + 变量黑板',
-    status: 'warn',
+    sub: '按步骤图执行 + 变量黑板',
+    status: 'ok',
     summary: '逐步执行 SOP，步骤变量落 Memory.blackboard（单次 run 生命周期）',
     details: [
       '支持 smart 步骤（LLM 选工具）、conditional 分支工具、ask_user',
-      '⚠ 注释明写「Simple linear execution for now」：不遍历 next_step_id 图',
-      '执行日志写 markdown；record_run 记统计'
+      '按步骤图遍历（2026-10-11 起）：失败且 on_failure 命中→跳转（中间步骤记 skipped）；next_step_id 沿主链；其余列表序线性兜底，每步恰好执行一次',
+      '执行日志写 markdown；步骤记录落 memory.history（_record_step）'
     ],
-    anchors: ['services/angineer-core/src/angineer_core/sop_runner.py:186', 'services/angineer-core/src/angineer_core/sop_runner.py:46'],
-    problems: ['P5']
+    anchors: ['services/angineer-core/src/angineer_core/sop_runner.py:172', 'services/angineer-core/src/angineer_core/sop_runner.py:243']
   }),
   N('n-gen', 1200, 560, {
     label: '◇ 生成实时 SOP',
@@ -336,11 +339,12 @@ export const ARCH_NODES: ArchNode[] = [
     status: 'planned',
     summary: '待新建：SOP 未命中时用本轮检索证据 + 问题生成实时 SOP，本轮立即跑通',
     details: [
-      '复用 generate-from-doc 的 LLM 生成套路（sop_path_generator.py:384）',
+      '复用 generate-from-doc 的 LLM 生成套路（sop_path_generator.py:463）',
       'save_generated_sop() 校验+落盘+刷索引，现成挂载点（当前零调用方）',
-      '只对 L3/L4 生效；生成与回答可并行（复用赌博式预检模式）'
+      '只对 L3/L4 生效；生成与回答可并行（复用赌博式预检模式）',
+      '施工单已定稿：docs/plan-sop-l4-synth.md（synthesize/crystallize 端点 + 装配层开关 + 预注册 20 题对照）'
     ],
-    anchors: ['services/aichat-api/sop_routes.py:820', 'services/sop-core/src/sop_core/sop_loader.py:338'],
+    anchors: ['services/sop-api/sop_routes.py:831', 'services/sop-core/src/sop_core/sop_loader.py:335'],
     problems: ['P1']
   }),
   N('n-draft', 1200, 670, {
@@ -352,7 +356,7 @@ export const ARCH_NODES: ArchNode[] = [
       'draft→review→published 契约已存在；待审核 UI 模块待独立开发',
       '生成物直接进 published = 模型自写自批，闸门必须保留（论文「人审收件箱」模式）'
     ],
-    anchors: ['services/aichat-api/sop_routes.py:575', 'services/aichat-api/sop_routes.py:603']
+    anchors: ['services/sop-api/sop_routes.py:591', 'services/sop-api/sop_routes.py:619']
   }),
 
   // ── 主轴共享收尾：循环 → 守卫 → 落库 ────────────────────────
@@ -411,7 +415,7 @@ export const ARCH_NODES: ArchNode[] = [
       '客户端断开按 cancelled 兜底补写；初始化失败降级纯内存池',
       '游客 30 轮闸 / 90 天保留期 GC（scripts/chat_db_gc.py）'
     ],
-    anchors: ['services/aichat-api/main.py:604', 'services/chat-history/src/chat_history/store/sqlite_store.py:229']
+    anchors: ['services/aichat-api/main.py:604', 'services/chat-history/src/chat_history/store/sqlite_store.py:254']
   }),
 
   // ── SSE 总线：纵向贯通条，左侧收后端各环节帧，右侧顶部发给前端 ──
@@ -559,8 +563,8 @@ export const ARCH_PROBLEMS: ArchProblem[] = [
     id: 'P1',
     title: 'sop_execute 未命中无 fallback',
     severity: 'high',
-    desc: '未命中只返回 error 文案（agent_tools.py:1304）。已定方案：topk 证据+问题 → LLM 生成实时 SOP → 本轮即跑 → 落 draft 进待审核（模块待开发）→ 人审后 published。',
-    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1304', 'services/sop-core/src/sop_core/sop_loader.py:338'],
+    desc: '未命中只返回 error 文案（agent_tools.py:1311）。已定方案：topk 证据+问题 → LLM 生成实时 SOP → 本轮即跑 → 落 draft 进待审核（施工单 docs/plan-sop-l4-synth.md 已定稿待施工）→ 人审后 published。',
+    anchors: ['services/angineer-core/src/angineer_core/agent_tools.py:1311', 'services/sop-core/src/sop_core/sop_loader.py:335'],
     nodeIds: ['n-soproute', 'n-gen', 'n-draft']
   },
   {
@@ -586,14 +590,6 @@ export const ARCH_PROBLEMS: ArchProblem[] = [
     desc: '2026-10-06 已落地：压缩摘要保留 doc 指针（K号·文档名·doc_id，agent_configs.py:547）+ knowledge_search 对 LLM 开放 doc_ids 入参回看（agent_tools.py:929）+ ANGINEER_EAGER_COMPRESS 激进压缩开关（默认关）。残余缺口：回看是语义重检索而非确定性回放；对话黑板 conv_graph 已按业主指令回退（c4a3aaf/e2f3f4e），论文路线未必全对，黑板方案保留观察不删。',
     anchors: ['services/angineer-core/src/angineer_core/agent_configs.py:547', 'services/angineer-core/src/angineer_core/agent_tools.py:929'],
     nodeIds: ['n-loop']
-  },
-  {
-    id: 'P5',
-    title: 'runner 线性执行与图编辑不对齐',
-    severity: 'mid',
-    desc: 'sop_runner.py:186 注释明写不遍历 next_step_id；sop-ui 里画的 fork 分支运行时无效——图 B 若只做展示无碍，要让分支生效需另算。',
-    anchors: ['services/angineer-core/src/angineer_core/sop_runner.py:186'],
-    nodeIds: ['n-runner']
   },
   {
     id: 'P6',
