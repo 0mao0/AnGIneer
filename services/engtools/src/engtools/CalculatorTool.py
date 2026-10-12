@@ -14,8 +14,8 @@ class Calculator(BaseTool):
     工程计算器工具，支持基础运算、科学计算、变量替换和常用工程公式。
     """
     name = "calculator"
-    description_en = "Engineering calculator with variables support. Inputs: expression (str), variables (dict, optional), solve_for (str, optional). Supports: +, -, *, /, **, sqrt, sin, cos, tan, log, ln, pi, e, abs, round, min, max, equation solving (requires sympy)"
-    description_zh = "工程计算器，支持变量替换。输入参数：expression (str), variables (dict, optional), solve_for (str, optional)。支持运算符：+, -, *, /, **, sqrt, sin, cos, tan, log, ln, pi, e, abs, round, min, max，方程求解（需安装sympy）"
+    description_en = "Engineering calculator with variables support. Inputs: expression (str), variables (dict, optional), solve_for (str, optional). Supports: +, -, *, /, **, sqrt, sin, cos, tan (trigonometric functions take DEGREES), log, ln, pi, e, abs, round, min, max, equation solving (requires sympy)"
+    description_zh = "工程计算器，支持变量替换。输入参数：expression (str), variables (dict, optional), solve_for (str, optional)。支持运算符：+, -, *, /, **, sqrt, sin, cos, tan（三角函数按度，如 sin(30)=0.5）, log, ln, pi, e, abs, round, min, max，方程求解（需安装sympy）"
 
     # 定义允许的数学函数和常量
     ALLOWED_NAMES = {
@@ -28,14 +28,15 @@ class Calculator(BaseTool):
         "min": min,
         "max": max,
         "pow": pow,
-        # 数学函数
+        # 数学函数（三角函数按「度」约定：规范公式 sin(γ) 中 γ 为度数，
+        # 且 _clean_expression 会剥掉 ° 符号——2026-10-13 修复弧度口径错配）
         "sqrt": math.sqrt,
-        "sin": math.sin,
-        "cos": math.cos,
-        "tan": math.tan,
-        "asin": math.asin,
-        "acos": math.acos,
-        "atan": math.atan,
+        "sin": lambda x: math.sin(math.radians(x)),
+        "cos": lambda x: math.cos(math.radians(x)),
+        "tan": lambda x: math.tan(math.radians(x)),
+        "asin": lambda x: math.degrees(math.asin(x)),
+        "acos": lambda x: math.degrees(math.acos(x)),
+        "atan": lambda x: math.degrees(math.atan(x)),
         "sinh": math.sinh,
         "cosh": math.cosh,
         "tanh": math.tanh,
@@ -237,7 +238,12 @@ class Calculator(BaseTool):
 
         expr_lower = expression.lower()
         for keyword in dangerous_keywords:
-            if keyword in expr_lower:
+            if keyword == "__":
+                if keyword in expression:
+                    return False
+                continue
+            # 词边界匹配：'os' 不得命中 'cos(...)' 的子串（2026-10-13 实踩：cos 全量被误杀）
+            if re.search(rf"(?<![A-Za-z0-9_]){keyword}(?![A-Za-z0-9_])", expr_lower):
                 return False
 
         # 白名单：允许的数学函数和常量
@@ -351,12 +357,14 @@ class Calculator(BaseTool):
             "max": sp.Max,
             "pow": sp.Pow,
             "sqrt": sp.sqrt,
-            "sin": sp.sin,
-            "cos": sp.cos,
-            "tan": sp.tan,
-            "asin": sp.asin,
-            "acos": sp.acos,
-            "atan": sp.atan,
+            # 三角函数度口径：规范表达式 sin(15) 的 15 是度数（_clean_expression 已剥夺 °），
+            # 按弧度算会静默错值（2026-10-13 实踩：sin(15°) 算成 sin(15rad)=0.65）
+            "sin": lambda x: sp.sin(x * sp.pi / 180),
+            "cos": lambda x: sp.cos(x * sp.pi / 180),
+            "tan": lambda x: sp.tan(x * sp.pi / 180),
+            "asin": lambda x: sp.asin(x) * 180 / sp.pi,
+            "acos": lambda x: sp.acos(x) * 180 / sp.pi,
+            "atan": lambda x: sp.atan(x) * 180 / sp.pi,
             "sinh": sp.sinh,
             "cosh": sp.cosh,
             "tanh": sp.tanh,

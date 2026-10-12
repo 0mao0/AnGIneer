@@ -5,7 +5,7 @@ plan：classifier 深层港口逻辑外置（2026-10-12，plan-sop-l4-synth 排�
 引擎只提供匹配原语与计算算子，具体规则（K1/掩护/船型/Hnav…）全部住领域包 JSON：
 - 规则段：``arg_rules``（required 相位=按 SOP required 提参；always 相位=无条件派生），
   ``arg_computes``（算子：subtract / numeric_flag / compass_angle / pick_ts_water /
-  fallback_regexes），``arg_defaults``，``ship_type_rules``，``stop_markers``，``clean_rules``。
+  fallback_regexes / wan_to_tons），``arg_defaults``，``ship_type_rules``，``stop_markers``，``clean_rules``。
 - 不启用领域包 → 全部规则为空 → 行为=通用（不注入任何领域参数，仅做通用清洗）。
 
 提取语义（与原 classifier 逐字节对齐，对拍测试锁死）：
@@ -131,11 +131,18 @@ def _required_phase_extract(query: str, param_name: str, hints: Any) -> Optional
     return extracted
 
 
-def _always_phase_rules(query: str, hints: Any) -> Dict[str, Any]:
-    """always 相位：按参数声明顺序做 keywords_value → regex_value → regexes。"""
+def _always_phase_rules(query: str, hints: Any, existing: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """always 相位：按参数声明顺序做 keywords_value → regex_value → regexes。
+
+    existing 非空时：已填键默认保留（LLM 提参优先），除非规则声明 override=true
+    （规范口径类派生如 Hnav 取值链需覆盖 LLM 的自由选择；2026-10-13 实踩：
+    LLM 精排把 Hnav 抢填成 95% 档，规则链被 let-through 跳过）。
+    """
     out: Dict[str, Any] = {}
     for param, rule in (getattr(hints, "arg_rules", None) or {}).items():
         phase = rule.get("always") or {}
+        if existing and existing.get(param) not in (None, "") and not phase.get("override"):
+            continue
         value = None
         for keyword, fixed in phase.get("keywords_value") or []:
             if str(keyword) in query:
@@ -153,11 +160,27 @@ def _always_phase_rules(query: str, hints: Any) -> Dict[str, Any]:
     return out
 
 
-def _apply_computes(query: str, args: Dict[str, Any], hints: Any) -> None:
-    """计算算子（按声明顺序执行，只补未设置键）。"""
+def _apply_computes(
+    query: str,
+    args: Dict[str, Any],
+    hints: Any,
+    existing: Optional[Dict[str, Any]] = None,
+    protected_keys: Optional[set] = None,
+) -> None:
+    """计算算子（按声明顺序执行）。
+
+    覆盖优先级：本趟 always 相位产出的键（protected_keys，如题面直给「航道设计通航水位 1.2」）
+    > override 算子（可覆盖 LLM 抢填值）> 普通算子（只补空位）。
+    """
     for spec in getattr(hints, "arg_computes", None) or []:
         param = str(spec.get("param") or "")
-        if not param or args.get(param) not in (None, ""):
+        if not param:
+            continue
+        if protected_keys and param in protected_keys:
+            continue
+        if existing and existing.get(param) not in (None, "") and not spec.get("override"):
+            continue
+        if args.get(param) not in (None, "") and not spec.get("override"):
             continue
         op = str(spec.get("op") or "")
         try:
@@ -211,15 +234,22 @@ def _apply_computes(query: str, args: Dict[str, Any], hints: Any) -> None:
                 value = _extract_by_patterns(query, spec.get("regexes") or [])
                 if value:
                     args[param] = value
+            elif op == "wan_to_tons":
+                # 「5万吨级」→ "50000"：万吨表述归一为 DWT 数字。
+                # 表查询行标签是纯数字（50000(45001~65000)），「5」或「5万」直接查不到行；
+                # 规则用 override=true 声明（覆盖 required 相位抓到的裸数字）。
+                match = re.search(r"([\d.]+)\s*万\s*吨", query)
+                if match:
+                    args[param] = str(int(round(float(match.group(1)) * 10000)))
         except Exception:  # noqa: BLE001
             continue
 
 
-def derive_extra(query: str, hints: Any) -> Dict[str, Any]:
-    """无条件派生（原 _derive_extra_args_from_query 的领域包版）。"""
+def derive_extra(query: str, hints: Any, existing: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """领域包派生；existing 非空时仅产出「未填 + override 标记」的键。"""
     args: Dict[str, Any] = {}
-    args.update(_always_phase_rules(query, hints))
-    _apply_computes(query, args, hints)
+    args.update(_always_phase_rules(query, hints, existing))
+    _apply_computes(query, args, hints, existing, protected_keys=set(args.keys()))
     for param, value in (getattr(hints, "arg_defaults", None) or {}).items():
         if args.get(param) is None:
             args[param] = value
@@ -255,8 +285,12 @@ def supplement_args(
     if "船型" in normalized_required and not args.get("设计船型") and args.get("船型"):
         args["设计船型"] = args["船型"]
 
-    args.update({
-        k: v for k, v in derive_extra(query, hints).items()
-        if v not in (None, "") and not args.get(k)
-    })
+    # 派生（existing 语义：非 override 键只补空位；override 键可覆盖 LLM 抢填值）
+    for k, v in derive_extra(query, hints, existing=dict(args)).items():
+        if v in (None, ""):
+            continue
+        if args.get(k) in (None, "") or not args.get(k):
+            args[k] = v
+        else:
+            args[k] = v  # derive 已按 override 语义筛选（非 override 已填键不会出现在结果里）
     return args
