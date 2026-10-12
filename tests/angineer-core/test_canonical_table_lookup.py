@@ -141,5 +141,92 @@ class CanonicalTableLookupTests(unittest.TestCase):
         self.assertEqual(row["上水标准#2"], "波浪值")
 
 
+class TitleMatchesTests(unittest.TestCase):
+    """file_name → 文档标题匹配（2026-10-12 收紧：分册号参与比较 + 主名重叠闸）。"""
+
+    def test_cross_volume_code_not_matched(self):
+        # 实踩锚：海港总体设计规范_JTS_165-2025 曾错配到 JTS 165-5-2016 液化天然气码头设计规范
+        from angineer_core.canonical_table_lookup import _title_matches
+        self.assertFalse(_title_matches(
+            "海港总体设计规范 jts 165-2025",
+            "jts 165-5-2016 液化天然气码头设计规范(附条文说明)",
+        ))
+
+    def test_same_spec_year_variant_matched(self):
+        from angineer_core.canonical_table_lookup import _title_matches
+        self.assertTrue(_title_matches(
+            "海港总体设计规范 jts 165-2025",
+            "海港总体设计规范 jts 165-2013",
+        ))
+
+    def test_code_match_requires_name_overlap(self):
+        # 编号（含分册/年份）一致但主名不同 → 不匹配
+        from angineer_core.canonical_table_lookup import _title_matches
+        self.assertFalse(_title_matches(
+            "液化天然气码头设计规范 jts 165-5",
+            "海港总体设计规范 jts 165-5",
+        ))
+
+    def test_suffix_variants_matched(self):
+        from angineer_core.canonical_table_lookup import _title_matches
+        self.assertTrue(_title_matches(
+            "海港总体设计规范",
+            "海港总体设计规范(附条文说明)",
+        ))
+
+    def test_spec_code_extraction(self):
+        from angineer_core.canonical_table_lookup import _extract_spec_code
+        self.assertEqual(_extract_spec_code("jts 165-2013"), ("jts", "165", None))
+        self.assertEqual(_extract_spec_code("jts 165-5-2016"), ("jts", "165", "5"))
+        self.assertIsNone(_extract_spec_code("没有编号的文档"))
+
+
+class NumberRefSelectionTests(unittest.TestCase):
+    """表号形态（表5.4.8）：编号对不上时必须显式报错，禁止拆词兜底抓错表（修复 A）。"""
+
+    LNG_BLOCKS = [
+        {"doc_id": "doc-x", "header_rows": [["类别", "大型", "中型"]],
+         "rows": [["A", "1", "2"]], "context": "表 1.0.3 液化天然气码头分类表"},
+        {"doc_id": "doc-x", "header_rows": [["条件", "值"]],
+         "rows": [["x", "1"]], "context": "表 4.0.2 液化天然气船舶作业条件标准"},
+    ]
+
+    def test_number_ref_miss_returns_explicit_error(self):
+        with _TableBlocksPortPatch(list(self.LNG_BLOCKS)):
+            result = canonical_table_lookup(
+                table_name="表5.4.8", query_conditions={"掩护情况": "部分掩护"},
+                library_id="default", doc_ids=["doc-x"],
+            )
+        self.assertIn("均无编号", result["error"])
+        self.assertNotIn("result", result)
+
+    def test_number_ref_hit_still_selects(self):
+        blocks = list(self.LNG_BLOCKS) + [
+            {"doc_id": "doc-x", "header_rows": [["掩护情况", "Δw1"]],
+             "rows": [["部分掩护", "0.5"]], "context": "表 5.4.8 码头前沿顶高程"},
+        ]
+        with _TableBlocksPortPatch(blocks):
+            result = canonical_table_lookup(
+                table_name="表5.4.8", query_conditions={},
+                library_id="default", doc_ids=["doc-x"],
+            )
+        # 选中走空条件分支（错误信息里带回所选表的 context 可佐证选表正确）
+        self.assertIn("表 5.4.8", str(result.get("_table_context") or ""))
+
+    def test_normal_table_name_unaffected(self):
+        with _TableBlocksPortPatch(list(self.LNG_BLOCKS)):
+            result = canonical_table_lookup(
+                table_name="液化天然气码头分类表", query_conditions={},
+                library_id="default", doc_ids=["doc-x"],
+            )
+        self.assertEqual(result.get("_table_context"), "表 1.0.3 液化天然气码头分类表")
+
+    def test_is_table_number_ref_predicate(self):
+        from angineer_core.table_query_engine import _is_table_number_ref
+        for name in ("表5.4.8", "表 5.4.8", "表A.0.1", "表5.4.8-1"):
+            self.assertTrue(_is_table_number_ref(name), name)
+        for name in ("液化天然气码头分类表", "杂货船设计船型尺度", "表A"):
+            self.assertFalse(_is_table_number_ref(name), name)
+
 if __name__ == "__main__":
     unittest.main()

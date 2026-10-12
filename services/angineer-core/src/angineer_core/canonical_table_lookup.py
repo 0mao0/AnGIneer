@@ -32,6 +32,46 @@ def _normalize_doc_title(raw: str) -> str:
     return t
 
 
+_SPEC_SUFFIX_WORDS = (
+    "设计规范", "施工规范", "技术规范", "规范", "标准", "规程", "导则", "规定",
+    "技术细则", "细则", "指南", "技术要求",
+)
+
+
+def _extract_spec_code(title: str):
+    """提取规范编号（前缀, 主号, 分册号）；负号后 4 位视为年份、不参与分册比较。
+
+    返回 None 表示无编号。JTS 165-2013 → ("jts","165",None)；JTS 165-5-2016 → ("jts","165","5")。
+    """
+    m = re.search(r"(jts|jtj|gb|jgj)\s*[/\-]?\s*(\d+)(?:\s*-\s*(\d+))?", title)
+    if not m:
+        return None
+    prefix, main, sub = m.group(1), m.group(2), m.group(3)
+    if sub and re.fullmatch(r"(19|20)\d{2}", sub):
+        sub = None
+    return (prefix, main, sub)
+
+
+def _core_name(title: str) -> str:
+    """标题主名：去规范编号、去常见后缀词与标点后的字符序列（用于重叠校验）。"""
+    t = re.sub(r"(jts|jtj|gb|jgj)\s*[/\-]?\s*\d+(?:\s*-\s*\d+)*", " ", title)
+    for w in _SPEC_SUFFIX_WORDS:
+        t = t.replace(w, " ")
+    return re.sub(r"[^0-9a-zA-Z一-鿿]", "", t)
+
+
+def _name_overlap(q: str, nt: str) -> bool:
+    """主名字符 2-gram 有交集即相关（覆盖版本/附条文说明等后缀差异）。"""
+    cq, cn = _core_name(q), _core_name(nt)
+    if not cq or not cn:
+        return False
+
+    def bigrams(s: str) -> set:
+        return {s[i:i + 2] for i in range(len(s) - 1)} if len(s) >= 2 else {s}
+
+    return bool(bigrams(cq) & bigrams(cn))
+
+
 def _title_matches(query_title: str, node_title: str) -> bool:
     """宽松匹配文档标题，忽略年份/版本号后缀差异。"""
     q = query_title.lower()
@@ -45,10 +85,11 @@ def _title_matches(query_title: str, node_title: str) -> bool:
     q_prefix = q[:15] if len(q) > 15 else q
     if q_prefix and nt.startswith(q_prefix):
         return True
-    # 提取规范编号模式如 JTS 165 进行匹配
-    q_code = re.search(r"(jts|jtj|gb|jgj)\s*\d+", q)
-    nt_code = re.search(r"(jts|jtj|gb|jgj)\s*\d+", nt)
-    if q_code and nt_code and q_code.group(0) == nt_code.group(0):
+    # 规范编号匹配：分册号必须一致（JTS 165 ≠ JTS 165-5），编号一致后还要标题主名
+    # 有实质重叠（防「同编号前缀挂不同名称」错配，2026-10-12 LNG 实踩）
+    q_code = _extract_spec_code(q)
+    nt_code = _extract_spec_code(nt)
+    if q_code and nt_code and q_code == nt_code and _name_overlap(q, nt):
         return True
     return False
 

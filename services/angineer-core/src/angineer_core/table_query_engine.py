@@ -275,6 +275,18 @@ def flatten_header_rows(header_rows: List[List[str]]) -> List[str]:
     return flat
 
 
+_TABLE_NUMBER_REF_PATTERN = re.compile(r"^表\s*[A-Za-z]?(?:[.\-]?\d+)+$")
+
+
+def _is_table_number_ref(table_name: str) -> bool:
+    """表号形态（表5.4.8 / 表 A.0.1 / 表5.4.8-1）：选择必须靠编号精确对应，禁用宽松兜底。
+
+    2026-10-12 实踩：错文档无此表号时，拆词兜底（["表","5","4","8"] 中「表」字命中一切
+    表格 context）会静默抓回无关表，把「找不到表」伪装成「行条件不匹配」。
+    """
+    return bool(_TABLE_NUMBER_REF_PATTERN.match(str(table_name or "").strip()))
+
+
 def query_tables(
     candidates: List[Dict[str, Any]],
     *,
@@ -348,6 +360,21 @@ def query_tables(
                 target_table = cand
                 trace.append("表格选择策略: 上下文全匹配")
                 break
+    if not target_table and _is_table_number_ref(table_name):
+        return {
+            "error": f"scope 内 {len(normalized_candidates)} 个表格块均无编号『{table_name}』",
+            "_table_name": table_name,
+            "_diagnostic_info": {
+                "total_candidates": len(normalized_candidates),
+                "candidate_contexts": [
+                    str(cand.get("context") or "")[:60] for cand in normalized_candidates[:8]
+                ],
+                "suggestions": [
+                    "确认目标文档与表号属于同一版本（分册号/年份），以及 file_name/scope 指向正确文档",
+                    "确认该文档已解析入库且表格标题被正确捕获",
+                ],
+            },
+        }
     if not target_table:
         name_words = re.findall(r"[一-鿿]+|[A-Za-z0-9]+", table_name)
         for cand in normalized_candidates:
