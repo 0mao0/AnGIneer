@@ -14,8 +14,8 @@ class Calculator(BaseTool):
     工程计算器工具，支持基础运算、科学计算、变量替换和常用工程公式。
     """
     name = "calculator"
-    description_en = "Engineering calculator with variables support. Inputs: expression (str), variables (dict, optional), solve_for (str, optional). Supports: +, -, *, /, **, sqrt, sin, cos, tan (trigonometric functions take DEGREES), log, ln, pi, e, abs, round, min, max, equation solving (requires sympy)"
-    description_zh = "工程计算器，支持变量替换。输入参数：expression (str), variables (dict, optional), solve_for (str, optional)。支持运算符：+, -, *, /, **, sqrt, sin, cos, tan（三角函数按度，如 sin(30)=0.5）, log, ln, pi, e, abs, round, min, max，方程求解（需安装sympy）"
+    description_en = "Engineering calculator with variables support. Inputs: expression (str), variables (dict, optional), solve_for (str, optional). Supports: +, -, *, /, **, sqrt, sin, cos, tan (trigonometric functions take DEGREES; hyperbolic cth/coth in radians as usual), ^ (power), log, ln, pi, e, abs, round, min, max, equation solving (requires sympy)"
+    description_zh = "工程计算器，支持变量替换。输入参数：expression (str), variables (dict, optional), solve_for (str, optional)。支持运算符：+, -, *, /, **, sqrt, sin, cos, tan（三角函数按度，如 sin(30)=0.5）、cth/coth（双曲余切）、^（乘方）、log, ln, pi, e, abs, round, min, max，方程求解（需安装sympy）"
 
     # 定义允许的数学函数和常量
     ALLOWED_NAMES = {
@@ -40,6 +40,8 @@ class Calculator(BaseTool):
         "sinh": math.sinh,
         "cosh": math.cosh,
         "tanh": math.tanh,
+        "cth": lambda x: math.cosh(x) / math.sinh(x),   # 规范写法 cth=双曲余切
+        "coth": lambda x: math.cosh(x) / math.sinh(x),
         "log": math.log10,  # log 默认以10为底
         "ln": math.log,     # ln 自然对数
         "log2": math.log2,
@@ -184,6 +186,9 @@ class Calculator(BaseTool):
         # 处理工程表示法中的上标（如 m² → m2, m³ → m3）
         expr = expr.replace("²", "**2").replace("³", "**3")
 
+        # 幂记号：规范表达式用 ^（sympy 会按异或解析，不转必错值）
+        expr = expr.replace("^", "**")
+
         # 处理中文括号
         expr = expr.replace("（", "(").replace("）", ")")
 
@@ -199,9 +204,15 @@ class Calculator(BaseTool):
         expr = expr.replace("平方根", "sqrt").replace("开方", "sqrt")
         expr = expr.replace("平方", "**2").replace("立方", "**3")
 
+        # 圆周率字符处理：sympy 中裸 π 解析成符号而非圆周率常量（误报未知量）；
+        # 数字紧贴写法 2π → 2*pi（防被下方单位清理误删成 2 的静默错值）
+        expr = re.sub(r"(?<=[\d.])π", "*pi", expr)
+        expr = expr.replace("π", "pi")
+
         # 清理工程单位（如 12.3m → 12.3，保留数值）
-        # 注意：只清理附着在数字后的单位，独立变量名保留
-        expr = re.sub(r'(?<=[\d.])\s*[a-zA-Zα-ωΑ-Ω_]+(?![a-zA-Zα-ωΑ-Ω_0-9])', '', expr)
+        # 注意：只清理附着在数字后的 ASCII 单位，独立变量名保留；
+        # 希腊字母不参与清理（历史上 2π 类写法被静默删成 2）
+        expr = re.sub(r'(?<=[\d.])\s*[a-zA-Z_]+(?![a-zA-Z_0-9])', '', expr)
 
         # 清理度数符号（如 30° → 30）
         expr = expr.replace("°", "")
@@ -250,7 +261,7 @@ class Calculator(BaseTool):
         allowed_funcs = [
             'sqrt', 'sin', 'cos', 'tan', 'log', 'ln', 'exp', 'abs',
             'round', 'min', 'max', 'pow', 'asin', 'acos', 'atan',
-            'sinh', 'cosh', 'tanh', 'log2', 'ceil', 'floor',
+            'sinh', 'cosh', 'tanh', 'cth', 'coth', 'log2', 'ceil', 'floor',
             'degrees', 'radians', 'pi', 'e'
         ]
 
@@ -368,6 +379,8 @@ class Calculator(BaseTool):
             "sinh": sp.sinh,
             "cosh": sp.cosh,
             "tanh": sp.tanh,
+            "cth": sp.coth,   # 规范写法 cth=双曲余切（sympy 原生 coth 也在，双写防别名歧义）
+            "coth": sp.coth,
             "log": sp.log,
             "ln": sp.log,
             "log2": lambda x: sp.log(x, 2),

@@ -46,6 +46,21 @@ class TestCalculatorDegrees(unittest.TestCase):
             with self.subTest(expr=expr):
                 self.assertIsNotNone(self._run(expr).get("error"))
 
+    def test_power_operator(self):
+        # 规范表达式用 ^ 表幂（sympy 原生按异或解析，_clean_expression 必须转 **）
+        self.assertEqual(self._run("2^3")["result"], 8)
+
+    def test_pi_char_and_compact_form(self):
+        # 裸 π 字符 → pi；紧凑 2π → 2*pi（防被单位清理误删成 2）
+        self.assertAlmostEqual(self._run("π * 2")["result"], math.pi * 2, places=6)
+        self.assertAlmostEqual(self._run("2π * 3")["result"], 6 * math.pi, places=4)
+
+    def test_hyperbolic_cth(self):
+        # 规范壅高式：η = πH²/L · cth(2πd/L)（step_8 同款）
+        r = self._run("pi * H^2 / L * cth(2 * pi * d / L)", H=2.5, L=45, d=14.5)
+        expected = math.pi * 2.5 ** 2 / 45 * (math.cosh(2 * math.pi * 14.5 / 45) / math.sinh(2 * math.pi * 14.5 / 45))
+        self.assertAlmostEqual(r["result"], expected, places=5)
+
 
 if __name__ == "__main__":
     unittest.main()
