@@ -35,9 +35,9 @@ if selected_sop is None or route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESH
 
 ## §1 前置核查（动手前跑一遍）
 
-- [ ] `pytest tests/unit/test_unit_sop_boundary.py -q` 绿（边界不回退）
-- [ ] `git log --oneline -1` 确认在 4e5546df 之后
-- [ ] docs-api 可启动且 `/api/graph/entities/search?q=码头` 返回 200（本地或容器任一）
+- [x] `pytest tests/unit/test_unit_sop_boundary.py -q` 绿（边界不回退）
+- [x] `git log --oneline -1` 确认在 4e5546df 之后
+- [x] docs-api 可启动且 `/api/graph/entities/search?q=码头` 返回 200（本地或容器任一）
 
 ## Task 1: docs-api 实体搜索补 library_id 过滤 + 关系端点补 library_id/doc_id（防串库）
 
@@ -45,7 +45,7 @@ if selected_sop is None or route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESH
 - Modify: `services/docs-api/graph_routes.py:161`（`search_entities` 端点）与 :248（`get_entity_relations` 端点）
 - Modify: `services/sop-api/README.md:9`、`docs/plan-sop-api-l4.md`（`/api/graphs` → `/api/graph` 漂移修正）
 
-- [ ] **Step 1 改端点**（library_id 可选，向后兼容；store `GraphStore.search_entities` 已支持 `library_id` 形参——graph_store.py:538，store 层零改动，注意关键字传参勿按位置撞 `limit`）：
+- [x] **Step 1 改端点**（library_id 可选，向后兼容；store `GraphStore.search_entities` 已支持 `library_id` 形参——graph_store.py:538，store 层零改动，注意关键字传参勿按位置撞 `limit`）：
 
 ```python
 @graph_router.get("/entities/search")
@@ -69,8 +69,8 @@ async def search_entities(q: str, library_id: Optional[str] = None):
             "doc_id": r.doc_id,
 ```
 
-- [ ] **Step 2 验证**：`curl "127.0.0.1:8790/api/graph/entities/search?q=码头"` 与 `...&library_id=<某库>` 都 200（后者结果 ⊆ 前者）；`curl "127.0.0.1:8790/api/graph/relations/<某实体id>"` 返回含 library_id/doc_id
-- [ ] **Step 3 修文档漂移**：sop-api README 与主方案 curl 示例的 `/api/graphs` 改 `/api/graph`
+- [x] **Step 2 验证**：`curl "127.0.0.1:8790/api/graph/entities/search?q=码头"` 与 `...&library_id=<某库>` 都 200（后者结果 ⊆ 前者）；`curl "127.0.0.1:8790/api/graph/relations/<某实体id>"` 返回含 library_id/doc_id
+- [x] **Step 3 修文档漂移**：sop-api README 与主方案 curl 示例的 `/api/graphs` 改 `/api/graph`
 - [ ] **Step 4 Commit**: `feat(docs-api): 实体搜索补 library_id 过滤 + 关系端点补 library_id/doc_id（L4 合成防串库）`
 
 ## Task 2: sop-core 生成器公共包装（供 sop-api 调 LLM 生成，不再碰私有方法）

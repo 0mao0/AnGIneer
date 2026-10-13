@@ -112,13 +112,13 @@ class WarningItem:
     created_at: str = field(default_factory=_now)
 
     @classmethod
-    def from_row(cls, row: sqlite3.Row) -> "PrincipleData":
+    def from_row(cls, row: sqlite3.Row) -> "WarningItem":
         return cls(
-            principle_id=row["principle_id"],
-            principle_text=row["principle_text"],
+            warning_id=row["warning_id"],
+            warning_text=row["warning_text"],
             category=row["category"],
-            source_clause=row["source_clause"],
-            evidence_quote=row["evidence_quote"],
+            severity=row["severity"],
+            source_section=row["source_section"],
             library_id=row["library_id"],
             doc_id=row["doc_id"],
             created_at=row["created_at"],

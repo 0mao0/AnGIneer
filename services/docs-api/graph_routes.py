@@ -159,9 +159,12 @@ async def create_entity(req: EntityCreateRequest):
 
 
 @graph_router.get("/entities/search")
-async def search_entities(q: str):
+async def search_entities(q: str, library_id: Optional[str] = None):
     store = _get_store()
-    results = store.search_entities(q, status=EntityStatus.APPROVED)
+    results = store.search_entities(
+        q, status=EntityStatus.APPROVED,
+        library_id=library_id or None,
+    )
     return [
         {"entity_id": e.entity_id, "name": e.name, "layer": e.layer.value, "status": e.status.value}
         for e in results
@@ -259,6 +262,8 @@ async def get_entity_relations(entity_id: str, direction: str = "both"):
             "evidence": r.evidence_text,
             "clause": r.source_clause,
             "conflict_note": r.conflict_note,
+            "library_id": r.library_id,
+            "doc_id": r.doc_id,
         }
         for r in relations
     ]

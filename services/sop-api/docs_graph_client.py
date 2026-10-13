@@ -2,7 +2,7 @@
 
 plan-sop-api-l4 阶段 2（Task 2.4）。sop-core 的 SopPathGenerator 只认
 sop_core.graph_port.GraphReader；本适配器用 docs-api 的
-`GET /api/graphs/sop-generation-bundle` 快照在内存实现该协议，
+`GET /api/graph/sop-generation-bundle` 快照在内存实现该协议，
 sop-api 进程内不再出现 docs_core import。
 
 快照语义：生成期间图谱以拉取时刻为准（生成是短事务，可接受）。
@@ -57,7 +57,7 @@ class HttpGraphReader:
         timeout: float = 20.0,
     ) -> Optional["HttpGraphReader"]:
         """拉取 bundle 构建适配器；失败返回 None（调用方降级为无图谱骨架生成）。"""
-        url = f"{(base_url or _default_docs_api_url()).rstrip('/')}/api/graphs/sop-generation-bundle"
+        url = f"{(base_url or _default_docs_api_url()).rstrip('/')}/api/graph/sop-generation-bundle"
         session = requests.Session()
         session.trust_env = False
         try:

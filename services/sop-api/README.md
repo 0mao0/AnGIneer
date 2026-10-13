@@ -6,7 +6,7 @@ SOP 模块的管理面与工厂：结构化 SOP 的 CRUD、Markdown 导入解析
 
 - 本服务**独占写** `data/platform/sops/`（json/ 为真相源，raw/ 为导入留档，index.json 自动生成）
 - SOP **执行**不在本服务：SopRunner 在 angineer-core，由 aichat-api 对话面运行时承载
-- 图谱读取走 docs-api HTTP（`/api/graphs/*`），不直连 docs-core
+- 图谱读取走 docs-api HTTP（`/api/graph/*`），不直连 docs-core
 
 ## 端口与运行
 

@@ -267,13 +267,13 @@ flowchart TB
         GEN["/generate · /generate-from-doc<br/>从文档生成"]
     end
     AA["aichat-api 8791 · SOP 执行面"] -->|"SopApiClient 拉 published<br/>TTL 缓存 + 末次快照兜底"| SA
-    GEN -->|"graph_port Protocol<br/>HttpGraphReader"| DA["docs-api 8790<br/>GET /api/graphs/sop-generation-bundle"]
+    GEN -->|"graph_port Protocol<br/>HttpGraphReader"| DA["docs-api 8790<br/>GET /api/graph/sop-generation-bundle"]
     CRUD --> LIB[("data/platform/sops<br/>唯一写者")]
     AA --> EXEC["angineer-core SopRunner<br/>sop_execute 按步骤图执行"]
 ```
 
 - **sop-api（8792）**：SOP 数据面唯一入口——CRUD / 导入 / 步骤解析 / 审核 / 审计 / 从文档生成；`data/platform/sops` 的唯一写者；SOP 执行不在本服务。
-- **生成链跨模块解耦**：sop-core 定义 `graph_port` Protocol（8 方法面 + layer 常量）面向图谱访问，sop-api 经 HttpGraphReader 从 docs-api `GET /api/graphs/sop-generation-bundle` 一次取全、内存物化——sop-core 不再 import docs_core（地址优先 `ANGINEER_DOCS_API_URL`，`DOCS_API_URL` 为覆盖项）。
+- **生成链跨模块解耦**：sop-core 定义 `graph_port` Protocol（8 方法面 + layer 常量）面向图谱访问，sop-api 经 HttpGraphReader 从 docs-api `GET /api/graph/sop-generation-bundle` 一次取全、内存物化——sop-core 不再 import docs_core（地址优先 `ANGINEER_DOCS_API_URL`，`DOCS_API_URL` 为覆盖项）。
 - **执行面经 HTTP**：aichat-api / evals 侧 loader 统一换 SopApiClient（`load_published` duck-type 兼容 SopLoader，TTL `ANGINEER_SOP_CACHE_TTL`，末次快照兜底）；`sop_execute` 执行仍在 angineer-core。
 - 前端 `/api/sops` 由 nginx（生产切流）/ vite dev 代理（本地）转指 sop-api。
 

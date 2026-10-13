@@ -241,7 +241,7 @@ async def list_frameworks(library_id: str, doc_id: str):
 （序列化形态照抄同文件 `/entities` 端点的内联字典写法。）
 
 - [ ] 返回形态与现有 `/entities` 端点的序列化方式对齐（读该文件既有 `_doc_name_map` 用法后照抄）
-- [ ] `curl "127.0.0.1:8790/api/graphs/frameworks?library_id=...&doc_id=..."` 返回 200
+- [ ] `curl "127.0.0.1:8790/api/graph/frameworks?library_id=...&doc_id=..."` 返回 200
 
 ### Task 2.4 sop-api 图谱改走 HTTP
 
@@ -249,8 +249,8 @@ async def list_frameworks(library_id: str, doc_id: str):
 - Create: `services/sop-api/docs_graph_client.py`（httpx，`trust_env=False`，同 eec9438 教训）
 - Modify: `services/sop-api/sop_routes.py`（删 `_get_kg_store` 与 `docs_core.step07_graph` 两处 import）
 
-- [ ] `/generate`：实体层信息经 `GET /api/graphs/entities/search` 或按名查询端点获取；`SopPathGenerator(store=http_graph_reader)` 注入适配 `GraphReader` 的 httpx 实现
-- [ ] `/generate-from-doc`：412 预检逻辑（有无图谱/ACTION 实体）改经 `GET /api/graphs/entities/all` 与 `/api/graphs/frameworks`
+- [ ] `/generate`：实体层信息经 `GET /api/graph/entities/search` 或按名查询端点获取；`SopPathGenerator(store=http_graph_reader)` 注入适配 `GraphReader` 的 httpx 实现
+- [ ] `/generate-from-doc`：412 预检逻辑（有无图谱/ACTION 实体）改经 `GET /api/graph/entities/all` 与 `/api/graph/frameworks`
 - [ ] grep 验证：`grep -rn "docs_core" services/sop-core/src services/sop-api/` 零命中
 - [ ] Commit: `refactor(sop): sop-core/sop-api 剪断 docs_core 直连，图谱改经 docs-api HTTP`
 
@@ -300,7 +300,7 @@ POST /api/sops/crystallize
 
 ```
 query
- ├─ 实体链接：GET docs-api /api/graphs/entities/search?q=...（取 TOP-N）
+ ├─ 实体链接：GET docs-api /api/graph/entities/search?q=...（取 TOP-N）
  ├─ 路径选择：ACTION/framework 层骨架路径打分（TF-IDF 粗筛 + LLM 精排，复用 route() 两段式模式）
  ├─ 骨架生成：SopPathGenerator.generate_sop_skeleton（既有）
  ├─ 逐步细化：对每步调既有 /steps/parse 同款 LLM 解析（tool/inputs/outputs）
