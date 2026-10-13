@@ -331,6 +331,7 @@ class ConditionalTool(BaseTool):
 
         library_id = context.get("library_id")
         doc_ids = context.get("doc_ids")
+        library_ids = context.get("library_ids")
         if not library_id:
             # scope 必须由 SopRunner 注入；缺省落 "default" 会静默查错库（海港默认值同款事故形态）
             return {
@@ -348,6 +349,7 @@ class ConditionalTool(BaseTool):
             library_id=library_id,
             doc_ids=doc_ids,
             file_name=file_name,
+            library_ids=library_ids,
         )
 
         return {

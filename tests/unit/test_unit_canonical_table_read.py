@@ -63,6 +63,56 @@ class TestCanonicalTableRead(unittest.TestCase):
         self.assertIn("读表缺参", out["error"])
         self.assertEqual(out["missing_params"], ["船舶航速"])
 
+    def test_multi_library_file_name_resolves_second_lib(self):
+        # 复刻实踩（多库同选、海港规范不在首库）：file_name 逐库解析应命中第二个库
+        calls = []
+        provider = MagicMock(side_effect=lambda lib, docs: (calls.append((lib, docs)), [_MATRIX_TABLE])[1])
+
+        def fake_resolve(lib, name):
+            return ["doc-harbor"] if lib == "std-water" else None
+
+        with patch("angineer_core.canonical_table_lookup._resolve_doc_ids_by_file_name", side_effect=fake_resolve), \
+             patch("angineer_core.ports.get_table_blocks_provider", return_value=provider), \
+             patch("ai_inference.llm_client.get_llm_client", return_value=MagicMock()), \
+             patch("ai_inference.llm_client.chat_result_guarded",
+                   return_value=_llm_result('{"value": 1.69, "cell": "x", "quote": "y"}')):
+            out = canonical_table_read(
+                table_name="表6.4.2-1",
+                query_conditions={"风力": "横风≤7级"},
+                target_column="n",
+                library_id="lib-DredgeAI-a5e1",
+                library_ids=["lib-DredgeAI-a5e1", "std-water"],
+                file_name="海港总体设计规范_JTS_165-2025",
+            )
+        self.assertEqual(out["result"], 1.69)
+        self.assertEqual(out["_library_id"], "std-water")
+        self.assertEqual(calls[0][0], "std-water")  # provider 只在命中库调用（收敛精确 scope）
+
+    def test_multi_library_merge_without_file_name(self):
+        # 无 file_name：多库扇出合并候选，按编号打分择优（无关库候选分数低自然落选）
+        libs_seen = []
+
+        def provider(lib, docs):
+            libs_seen.append(lib)
+            if lib == "std-water":
+                return [_MATRIX_TABLE]
+            return [dict(_MATRIX_TABLE, context="无关表 A.0.9")]
+
+        with patch("angineer_core.ports.get_table_blocks_provider", return_value=provider), \
+             patch("ai_inference.llm_client.get_llm_client", return_value=MagicMock()), \
+             patch("ai_inference.llm_client.chat_result_guarded",
+                   return_value=_llm_result('{"value": 7, "cell": "x", "quote": "z"}')):
+            out = canonical_table_read(
+                table_name="表6.4.2-1",
+                query_conditions={"风力": "横风≤7级"},
+                target_column="n",
+                library_id="default",
+                library_ids=["default", "std-water"],
+            )
+        self.assertIn("default", libs_seen)
+        self.assertIn("std-water", libs_seen)
+        self.assertEqual(out["result"], 7)
+
     def test_no_candidate_with_number(self):
         no_num = dict(_MATRIX_TABLE, context="无关表格 A.0.9")
         out = self._run('{"value": 1}', candidates=[no_num])

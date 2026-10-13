@@ -792,6 +792,7 @@ def build_complex_config(
                 step_callback=step_callback,
                 library_id=library_id,
                 doc_ids=doc_ids,
+                library_ids=library_ids,
             ),
             EngtoolAdapter.from_registry(
                 "calculator",

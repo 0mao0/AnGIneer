@@ -1268,6 +1268,7 @@ class SopRunnerAdapter:
         step_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
+        library_ids: Optional[List[str]] = None,
     ) -> AgentTool:
         def handler(
             sop_query: Optional[str] = None,
@@ -1342,6 +1343,7 @@ class SopRunnerAdapter:
                     library_id=library_id,
                     doc_ids=doc_ids,
                     domain_hints=domain_hints,
+                    library_ids=library_ids,
                 )
 
             initial_context = {"user_query": extract_text}

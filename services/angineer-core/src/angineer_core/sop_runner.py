@@ -88,6 +88,7 @@ class SopRunner:
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
         domain_hints: Optional[DomainHints] = None,
+        library_ids: Optional[List[str]] = None,
     ):
         self.memory = memory or Memory()
         self.config_name = config_name
@@ -97,6 +98,9 @@ class SopRunner:
         self.tool_timeout_s = max(1, int(tool_timeout_s or _TOOL_EXEC_TIMEOUT_SECONDS))
         self.library_id = library_id or "default"
         self.doc_ids = list(doc_ids) if doc_ids else None
+        # 多库并联 scope（表格面，2026-10-13）：SOP 查表/读表跨库扇出；
+        # 旧构造调用不传=单库行为逐位一致
+        self.library_ids = list(library_ids) if library_ids else None
         self.domain_hints = domain_hints or EMPTY_HINTS
         self.variable_metadata = {}
         self._step_callback = None
@@ -716,6 +720,7 @@ class SopRunner:
             library_id=self.library_id,
             doc_ids=self.doc_ids,
             file_name=inputs.get("file_name"),
+            library_ids=self.library_ids,
         )
 
     # 执行元 SOP 内置工具（llm_generate / knowledge_search-canonical / table_lookup-canonical）
@@ -737,6 +742,7 @@ class SopRunner:
                 file_name=inputs.get("file_name"),
                 config_name=self.config_name,
                 mode=self.mode,
+                library_ids=self.library_ids,
             )
         if tool_name == "llm_generate":
             messages = []
@@ -812,6 +818,8 @@ class SopRunner:
                 # conditional 的 table_lookup 分支走 canonical 精确查表，scope 经 context 注入
                 run_kwargs.setdefault("library_id", self.library_id)
                 run_kwargs.setdefault("doc_ids", self.doc_ids)
+                if self.library_ids:
+                    run_kwargs.setdefault("library_ids", self.library_ids)
             if self.config_name:
                 run_kwargs["config_name"] = self.config_name
             if self.mode:

@@ -410,7 +410,15 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     # （鉴权必须先于截断：截断在前则 cap 外的越权成员可随截断蒙混放行）；
     # 旧 body 只带 library_id 时归一为单元素集合，行为与现状逐位一致（兼容铁律 1）。
     library_ids = normalize_library_ids(request.library_ids or None, request.library_id or "")
+    _requested_library_ids = list(library_ids)
     library_ids = enforce_bound_libraries(raw_request.state, library_ids)
+    # 截断可见化（2026-10-13 业主定）：勾选被上限/权限收敛时不得静默——
+    # 实踩：UI 勾 6 个库、后端按上限 5 静默截断丢掉「水运工程」，用户无从察觉，
+    # 下游 SOP 查表整链失败还被误读为检索故障。被丢的库在首帧 note 里知会。
+    _dropped_library_ids = [x for x in _requested_library_ids if x not in library_ids]
+    if _dropped_library_ids:
+        logger.info("多库截断：requested=%s effective=%s dropped=%s（已发 note 帧知会）",
+                    _requested_library_ids, library_ids, _dropped_library_ids)
     request.library_id = library_ids[0]  # 首库回填（D8）：单值消费点（entity_search/审计/落库）不变
     # 会话池按主体隔离：session_id 客户端可控，不隔离则同库不同用户会共用 history
     owner = resolve_pool_owner(raw_request)
@@ -452,6 +460,31 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                     yield f"data: {json.dumps({'type': 'warning', 'message': vw}, ensure_ascii=False)}\n\n"
             except Exception:
                 pass
+
+            # 库选择被收敛的知会（首帧 note；截断可见化 2026-10-13）：查名失败回退 id
+            if _dropped_library_ids:
+                try:
+                    from docs_core.docs_service import get_docs_service
+
+                    _drop_name_map = {
+                        lib.id: (lib.name or "") for lib in get_docs_service().list_libraries()
+                    }
+                except Exception:
+                    _drop_name_map = {}
+                _dropped_label = "、".join(
+                    f"「{_drop_name_map.get(x) or x}」" for x in _dropped_library_ids
+                )
+                _drop_detail = (
+                    f"知识库选择超出单次上限，已按 {len(library_ids)} 个生效；"
+                    f"本次未包含：{_dropped_label}。如需使用这些库，请减少同时勾选数量或分批提问。"
+                )
+                yield "data: " + json.dumps(
+                    {
+                        "type": "note", "run_id": "", "turn": 0, "ts": time.time(),
+                        "payload": {"detail": _drop_detail}, "frame_version": 1,
+                    },
+                    ensure_ascii=False,
+                ) + "\n\n"
 
             # 文档范围为空时显式提示：否则检索恒为 0 条，模型会把「检索拿不到东西」
             # 说成「知识库里没有证据」（2026-09-11 排查：payload 干净、库里有 26 篇文档）
