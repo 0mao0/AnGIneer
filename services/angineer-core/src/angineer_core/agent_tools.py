@@ -1269,6 +1269,8 @@ class SopRunnerAdapter:
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
         library_ids: Optional[List[str]] = None,
+        synth_callback: Optional[Callable[[str], Any]] = None,
+        crystallize_callback: Optional[Callable[[Dict[str, Any], str, str], None]] = None,
     ) -> AgentTool:
         def handler(
             sop_query: Optional[str] = None,
@@ -1320,12 +1322,25 @@ class SopRunnerAdapter:
                 extract_text, config_name=config_name, mode=mode
             )
             selected_sop = route_result.sop
+            l4_synth = False
             if selected_sop is None or route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESHOLD:
-                return {
+                legacy_error = {
                     "error": "未匹配到合适的 SOP",
                     "reason": route_result.reason or "SOP 路由未命中",
                     "confidence": route_result.confidence,
                 }
+                if synth_callback is None:  # 开关关：早退，与现状逐键一致
+                    return legacy_error
+                synth = synth_callback(query)  # → {"sop": <契约形态 dict>} | None
+                if not isinstance(synth, dict) or not synth.get("sop"):
+                    return {**legacy_error, "l4_synth_attempted": True}
+                from angineer_core.base_contracts import SOP as SopContract
+                try:
+                    selected_sop = SopContract(**synth["sop"])
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("L4 合成 SOP 构造失败: %s", exc)
+                    return {**legacy_error, "l4_synth_attempted": True, "l4_synth_error": str(exc)[:200]}
+                l4_synth = True
 
             from angineer_core.sop_runner import SopRunner
 
@@ -1375,6 +1390,11 @@ class SopRunnerAdapter:
                     "；缺参：" + "、".join(segs)
                     + "——请补充后重问（系统不臆造数值，推荐值仅供参考）"
                 )
+            if l4_synth and crystallize_callback is not None and failed_steps == 0 and success_steps > 0:
+                try:
+                    crystallize_callback(synth["sop"], query, summary)
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("L4 crystallize 回调失败（不阻断返回）: %s", exc)
             return {
                 "sop_id": selected_sop.id,
                 "sop_name": selected_sop.name_zh or selected_sop.name_en or selected_sop.id,
@@ -1394,6 +1414,7 @@ class SopRunnerAdapter:
                 "sop_trace": sop_trace,
                 "citations": citations,
                 "route_reason": route_result.reason or "",
+                "l4_synth": l4_synth,
             }
 
         # 目录可见性（2026-10-12）：模型无从判断「是否命中」——把 published SOP 清单

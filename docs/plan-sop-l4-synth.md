@@ -538,7 +538,7 @@ def crystallize_sop_endpoint(req: SopCrystallizeRequest):
 - Modify: `services/angineer-core/src/angineer_core/agent_tools.py`（`SopRunnerAdapter.sop_execute`）
 - Test: `tests/angineer-core/test_sop_runner_adapter.py`（追加用例）
 
-- [ ] **Step 1 写失败测试**（追加到既有文件，沿用其 `make_sop`/`RouteResult` 造具）：
+- [x] **Step 1 写失败测试**（追加到既有文件，沿用其 `make_sop`/`RouteResult` 造具）：
 
 ```python
 class L4SynthTests(unittest.TestCase):
@@ -584,8 +584,8 @@ class L4SynthTests(unittest.TestCase):
 ```
 
   （造具沿用文件既有 `FakeClassifier`/`FakeRunner`/`RouteResult`/`make_sop`。**不要** `patch("angineer_core.agent_tools.SopRunner")`——SopRunner 是 handler 内 lazy import（agent_tools.py:1316），模块命名空间无此属性，patch 启动即 AttributeError。该文件头未 import json，需补。）
-- [ ] **Step 2 跑测试确认失败**：`pytest tests/angineer-core/test_sop_runner_adapter.py -q` → 新用例 FAIL（unexpected keyword）
-- [ ] **Step 3 实现**——`sop_execute` 签名加 `synth_callback: Optional[Callable[[str], Any]] = None, crystallize_callback: Optional[Callable[[Dict[str, Any], str, str], None]] = None`；handler 的 route-miss 分支替换为：
+- [x] **Step 2 跑测试确认失败**：`pytest tests/angineer-core/test_sop_runner_adapter.py -q` → 新用例 FAIL（unexpected keyword）
+- [x] **Step 3 实现**——`sop_execute` 签名加 `synth_callback: Optional[Callable[[str], Any]] = None, crystallize_callback: Optional[Callable[[Dict[str, Any], str, str], None]] = None`；handler 的 route-miss 分支替换为：
 
 ```python
             selected_sop = route_result.sop
@@ -645,8 +645,8 @@ class L4SynthTests(unittest.TestCase):
 ```
 
   （`synth["sop"]` 在 l4_synth=False 时未定义——结晶钩子被 `l4_synth and` 短路，安全。）
-- [ ] **Step 4 跑测试确认通过**：`pytest tests/angineer-core/test_sop_runner_adapter.py tests/angineer-core -q` → 全 PASS
-- [ ] **Step 5 Commit**: `feat(sop): sop_execute 适配器加 synth_callback/crystallize_callback 回调位（None=现状逐键一致）`
+- [x] **Step 4 跑测试确认通过**：`pytest tests/angineer-core/test_sop_runner_adapter.py tests/angineer-core -q` → 全 PASS
+- [x] **Step 5 Commit**: `feat(sop): sop_execute 适配器加 synth_callback/crystallize_callback 回调位（None=现状逐键一致）`
 
 ## Task 6: aichat 装配层接线（开关 + 每问题预算 + HTTP 回调实现）
 

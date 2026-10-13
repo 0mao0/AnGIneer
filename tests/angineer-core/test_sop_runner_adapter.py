@@ -1,4 +1,5 @@
 """P4.2 SopRunnerAdapter.sop_execute 单元测试。"""
+import json
 import os
 import sys
 import unittest
@@ -230,3 +231,45 @@ class ToolDescriptionCatalogTests(unittest.TestCase):
             sops=[make_sop(status="draft")], llm_client=Mock(),
         )
         self.assertNotIn("当前可用 SOP", tool.description)
+
+
+class L4SynthTests(unittest.TestCase):
+    """L4 回调注入：None=与现状逐键一致；注入=合成执行+结晶。"""
+
+    def _miss_tool(self, **kw):
+        miss = RouteResult(sop=None, args={}, reason="不属于任何已知 SOP",
+                           confidence=0.2, candidates=[])
+        return SopRunnerAdapter.sop_execute(
+            sops=[make_sop(status="published")],
+            classifier=FakeClassifier(miss),  # 确定性 route-miss，勿靠真 IntentClassifier 碰运气
+            runner=FakeRunner(),              # 真 _build_sop_trace 是鸭子型 staticmethod，吃其 memory.history
+            **kw,
+        )
+
+    def test_no_callback_returns_legacy_error(self):
+        result = self._miss_tool().handler(sop_query="不相关的问题")
+        self.assertEqual(result["error"], "未匹配到合适的 SOP")
+        self.assertNotIn("l4_synth", result)
+
+    def test_synth_success_runs_and_marks_l4(self):
+        synth_sop = make_sop(sop_id="l4-synth-test", status="draft")
+        calls = []
+
+        def synth(query):
+            return {"sop": json.loads(synth_sop.model_dump_json())}
+
+        def crystallize(sop, source_query, summary):
+            calls.append((sop, source_query, summary))
+
+        result = self._miss_tool(synth_callback=synth, crystallize_callback=crystallize).handler(
+            sop_query="不相关的问题"
+        )
+        self.assertTrue(result["l4_synth"])
+        self.assertEqual(result["sop_id"], "l4-synth-test")
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0][1], "不相关的问题")
+
+    def test_synth_none_returns_legacy_error(self):
+        result = self._miss_tool(synth_callback=lambda q: None).handler(sop_query="不相关的问题")
+        self.assertEqual(result["error"], "未匹配到合适的 SOP")
+        self.assertTrue(result["l4_synth_attempted"])
