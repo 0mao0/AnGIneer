@@ -2,6 +2,8 @@
 
 > **For agentic workers:** 本单是主方案 `docs/plan-sop-api-l4.md` §6.3 的 Task 级展开。前置：阶段 0-2 已落地（见主方案执行状态节）。步骤用 checkbox（`- [ ]`）跟踪，按任务顺序执行，每任务独立 commit。
 
+> **评审修订（2026-10-12）**：相对初稿已修——①Task 3 出管线前先 `_normalize_step_dict` 再校验（裸 skeleton/execution 嵌套形态缺顶层 `tool`，撞 Step 契约必填，直接校验必挂）；②`extract_keywords` 滑窗 break 条件改「本档有产出」（原写法把 ASCII 词算进 tokens，混合查询丢短 CJK 段）；③Task 5 `summary` 先提升为变量（现状是 return 内联 f-string，直接用会 NameError）；④Task 5 测试改用既有 FakeClassifier/FakeRunner 造具（原 patch 目标 `agent_tools.SopRunner` 是 handler 内 lazy import，模块命名空间无此属性）；⑤docs-api 前缀是单数 `/api/graph`，关系端点补 library_id/doc_id 序列化（否则真实链路静默空转且单测全 mock 发现不了）；⑥crystallize 补 ValueError→422；⑦各测试补缺失 import。
+
 **目标**：route 未命中时，聊天运行时经 sop-api 现场合成一条临时 SOP 并用 SopRunner 执行；成功且全步骤无失败时异步结晶为 draft 进人工审核流。开关默认关，关=与现状逐键一致。
 
 **架构**：回调注入——angineer-core 的 `sop_execute` 适配器只增加 `synth_callback`/`crystallize_callback` 两个参数位（库不做 sop-api HTTP）；HTTP 实现住在 aichat-api 装配层（`sop_api_client.py`），开关 `ANGINEER_SOP_L4_SYNTH=1` 时才注入。合成管线（搜实体→建路径→排序→骨架/LLM 细化→校验）在 sop-api `path_selector.py`。
@@ -27,19 +29,23 @@ if selected_sop is None or route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESH
 - 调用链（chat 流）：`aichat-api/main.py` `make_policy_config_factory(...)`（chat_agent.py:83，每问题一次）→ `agent_policy.build_attempts(...)`（:123，**run_policy_query/evals/nightly 也走这里，本单不传 l4 参数即不接 L4**）→ `agent_configs.build_complex_config`（:686，:751 构造 sop_execute）。
 - UI 结论：现网聊天 UI 只显示 `matched_sop` 名称（`packages/aichat-ui/src/types/chat.ts:211`），无 sop 步骤卡片——L4 来源标记落服务端字段（`l4_synth`），**前端零改动**。
 - docs-api `/entities/search` 现返回 `{entity_id, name, layer, status}`，**未暴露 library_id 过滤**（Task 1 补，防串库）。
+- docs-api 图谱路由前缀是 **`/api/graph`（单数）**（docs-api main.py:129）——本单全部 URL 按单数写；`/api/graphs` 是文档漂移（sop-api README:9、主方案 §6.3 curl 同款，Task 1 顺手修）。
+- docs-api `/relations/{entity_id}` 现返回 8 字段、**不含 library_id/doc_id**（底层 GraphRelation 有这两列，只是没序列化；Task 1 补——不补则 Task 3 的 library_id 过滤把关系全滤光、入向链恒为单节点，且单测 mock 带了这两字段恰好掩盖）。
+- 关系端点返回键名是 `type`/`evidence`/`clause`（端点改名），不是 dataclass 的 `relation_type`/`evidence_text`/`source_clause`。
 
 ## §1 前置核查（动手前跑一遍）
 
 - [ ] `pytest tests/unit/test_unit_sop_boundary.py -q` 绿（边界不回退）
 - [ ] `git log --oneline -1` 确认在 4e5546df 之后
-- [ ] docs-api 可启动且 `/api/graphs/entities/search?q=码头` 返回 200（本地或容器任一）
+- [ ] docs-api 可启动且 `/api/graph/entities/search?q=码头` 返回 200（本地或容器任一）
 
-## Task 1: docs-api 实体搜索补 library_id 过滤（防串库）
+## Task 1: docs-api 实体搜索补 library_id 过滤 + 关系端点补 library_id/doc_id（防串库）
 
 **Files:**
-- Modify: `services/docs-api/graph_routes.py:161`（`search_entities` 端点）
+- Modify: `services/docs-api/graph_routes.py:161`（`search_entities` 端点）与 :248（`get_entity_relations` 端点）
+- Modify: `services/sop-api/README.md:9`、`docs/plan-sop-api-l4.md`（`/api/graphs` → `/api/graph` 漂移修正）
 
-- [ ] **Step 1 改端点**（library_id 可选，向后兼容）：
+- [ ] **Step 1 改端点**（library_id 可选，向后兼容；store `GraphStore.search_entities` 已支持 `library_id` 形参——graph_store.py:538，store 层零改动，注意关键字传参勿按位置撞 `limit`）：
 
 ```python
 @graph_router.get("/entities/search")
@@ -55,8 +61,17 @@ async def search_entities(q: str, library_id: Optional[str] = None):
     ]
 ```
 
-- [ ] **Step 2 验证**：`curl "127.0.0.1:8790/api/graphs/entities/search?q=码头"` 与 `...&library_id=<某库>` 都 200（后者结果 ⊆ 前者）
-- [ ] **Step 3 Commit**: `feat(docs-api): 实体搜索端点补 library_id 过滤（L4 合成防串库）`
+  同一文件 `get_entity_relations` 的返回 dict 追加两字段（底层 dataclass 有列，只是没序列化；`/sop-generation-bundle` 的 relations 序列化已带这两字段，可对照）：
+
+```python
+            "conflict_note": r.conflict_note,
+            "library_id": r.library_id,
+            "doc_id": r.doc_id,
+```
+
+- [ ] **Step 2 验证**：`curl "127.0.0.1:8790/api/graph/entities/search?q=码头"` 与 `...&library_id=<某库>` 都 200（后者结果 ⊆ 前者）；`curl "127.0.0.1:8790/api/graph/relations/<某实体id>"` 返回含 library_id/doc_id
+- [ ] **Step 3 修文档漂移**：sop-api README 与主方案 curl 示例的 `/api/graphs` 改 `/api/graph`
+- [ ] **Step 4 Commit**: `feat(docs-api): 实体搜索补 library_id 过滤 + 关系端点补 library_id/doc_id（L4 合成防串库）`
 
 ## Task 2: sop-core 生成器公共包装（供 sop-api 调 LLM 生成，不再碰私有方法）
 
@@ -68,7 +83,7 @@ async def search_entities(q: str, library_id: Optional[str] = None):
 
 ```python
 """SopPathGenerator.generate_sop_from_steps 公共包装测试。"""
-import sys, os
+import sys, os, unittest
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../angineer-core/src")))
 
@@ -86,7 +101,8 @@ class TestGenerateSopFromSteps(unittest.TestCase):
                        "next_step_id": None}],
             "blackboard": {"required": ["a"], "outputs": ["r"]},
         }
-        with patch("ai_inference.llm_client.chat_result_guarded") as mock_chat,              patch("ai_inference.llm_client.LLMClient", return_value=MagicMock()):
+        with patch("ai_inference.llm_client.chat_result_guarded") as mock_chat, \
+             patch("ai_inference.llm_client.LLMClient", return_value=MagicMock()):
             mock_chat.return_value = MagicMock(text=__import__("json").dumps(llm_json))
             sop = gen.generate_sop_from_steps("测试框架", ["s"], "第3.2条", "lib", "doc")
         self.assertEqual(sop["name_zh"], "测试 SOP")
@@ -154,7 +170,7 @@ class TestGenerateSopFromSteps(unittest.TestCase):
 
 ```python
 """path_selector 合成管线单元测试（docs-api HTTP 全 mock，LLM 断网走骨架兜底）。"""
-import os, sys
+import os, sys, unittest
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-api")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
@@ -170,7 +186,7 @@ def _resp(payload):
 class TestExtractKeywords(unittest.TestCase):
     def test_cjk_and_ascii_tokens(self):
         kw = extract_keywords("杂货船DWT40000的设计船型满载吃水怎么算？")
-        self.assertIn("杂货船", "".join(kw)) or self.assertTrue(kw)
+        self.assertIn("杂货船", "".join(kw))
         self.assertTrue(len(kw) <= 6)
 
     def test_empty_query_raises_later(self):
@@ -199,11 +215,11 @@ class TestSynthesizeSop(unittest.TestCase):
 
     def test_success_returns_sop_dict(self):
         session = MagicMock()
+        # 实际只 2 次 GET：关键词搜索 + 锚点 e1 的关系；e2 不在实体集内，入向链止于锚点
         session.get.side_effect = [
             _resp([{"entity_id": "e1", "name": "设计吃水", "layer": "action", "status": "approved"}]),
             _resp([{"relation_id": "r1", "source_id": "e2", "target_id": "e1",
                     "library_id": "lib", "doc_id": "doc"}]),
-            _resp([{"entity_id": "e2", "name": "吨级", "layer": "concept", "status": "approved"}]),
         ]
         with patch("path_selector.extract_keywords", return_value=["吃水"]), \
              patch("path_selector._llm_generate", return_value=None):  # 断网→骨架兜底
@@ -229,6 +245,7 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
+from sop_core.sop_loader import _normalize_step_dict
 from sop_core.sop_path_generator import SopPathGenerator
 from sop_core.sop_validator import validate_sop_data
 
@@ -251,9 +268,11 @@ def extract_keywords(query: str) -> List[str]:
         tokens.append(ascii_word.lower())
     for cjk in re.findall(r"[\u4e00-\u9fff]{2,8}", text):
         for width in (4, 3, 2):
+            added = False
             for i in range(0, max(len(cjk) - width + 1, 0)):
                 tokens.append(cjk[i:i + width])
-            if tokens:
+                added = True
+            if added:  # 本宽度档有产出才停；勿判 tokens 全量（ASCII 词已先入列）
                 break
     seen, out = set(), []
     for t in tokens:
@@ -280,7 +299,7 @@ def search_entities(session: requests.Session, base_url: str, keywords: List[str
             params: Dict[str, Any] = {"q": kw}
             if library_id:
                 params["library_id"] = library_id
-            for e in _http(session, base_url, "/api/graphs/entities/search", params):
+            for e in _http(session, base_url, "/api/graph/entities/search", params):
                 merged.setdefault(e["entity_id"], e)
         except Exception as exc:  # noqa: BLE001
             logger.warning("实体搜索失败（q=%s）: %s", kw, exc)
@@ -291,7 +310,7 @@ def search_entities(session: requests.Session, base_url: str, keywords: List[str
 
 def fetch_relations(session: requests.Session, base_url: str, entity_id: str) -> List[Dict[str, Any]]:
     try:
-        return _http(session, base_url, f"/api/graphs/relations/{entity_id}", {})
+        return _http(session, base_url, f"/api/graph/relations/{entity_id}", {})
     except Exception as exc:  # noqa: BLE001
         logger.warning("关系拉取失败（%s）: %s", entity_id, exc)
         return []
@@ -342,7 +361,7 @@ def _llm_generate(generator: SopPathGenerator, title: str, steps: List[str],
 def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
                    session: Optional[requests.Session] = None, base_url: str = "",
                    llm_enabled: bool = True, config_name: Optional[str] = None) -> Dict[str, Any]:
-    """问题 → 临时 SOP。返回 {"sop": <SOP dict（原始形态，端点层负责归一化）>}。"""
+    """问题 → 临时 SOP。返回 {"sop": <已归一化的 Step 契约形态 dict>, "path": [...]}。"""
     session = session or requests.Session()
     session.trust_env = False  # 绕系统代理（localhost 旧坑，同 eec9438）
     keywords = extract_keywords(query)
@@ -369,6 +388,9 @@ def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
             doc_id=doc_ids[0] if doc_ids else "",
         )
     sop.setdefault("id", uuid.uuid4().hex[:8])
+    # 先归一化再校验：裸 skeleton / execution 嵌套形态缺顶层 tool（Step.tool 契约必填），
+    # 直接 validate 必挂；校验不过按缺料处理（端点转 412 → 运行时回落 complex 兜底）。
+    sop["steps"] = [_normalize_step_dict(s) for s in (sop.get("steps") or [])]
     problems = validate_sop_data(sop)
     if problems:
         raise SynthUnavailable("合成 SOP 校验未过: " + "; ".join(problems))
@@ -381,14 +403,14 @@ def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
 ## Task 4: sop-api synthesize / crystallize 端点
 
 **Files:**
-- Modify: `services/sop-api/sop_routes.py`（两个端点 + 请求模型；**必须声明在 `/{sop_id}` 之前**——同 `/full` 的顺序地雷）
+- Modify: `services/sop-api/sop_routes.py`（两个端点 + 请求模型；仍写在 `/{sop_id}` 之前保持 `/full` 同款书写纪律——实际无 POST `/{sop_id}` 路由，POST 与 GET 不竞争，此处是防御性排序）
 - Test: `tests/unit/test_unit_sop_synth_endpoints.py`
 
 - [ ] **Step 1 写失败测试**（TestClient + mock path_selector 与 loader）：
 
 ```python
 """synthesize/crystallize 端点测试。"""
-import os, sys, json
+import os, sys, json, unittest
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-api")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
@@ -396,6 +418,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 from unittest.mock import patch
 from fastapi.testclient import TestClient
 import main
+from path_selector import SynthUnavailable
 
 client = TestClient(main.app)
 
@@ -472,7 +495,7 @@ def synthesize_sop_endpoint(req: SopSynthesizeRequest):
     except SynthUnavailable as exc:
         raise HTTPException(status_code=412, detail={"error": "no_path", "reason": str(exc)})
     sop = result["sop"]
-    # 归一化为 Step 契约形态（执行端直接 Step(**s) 构造，不经 loader）
+    # 归一化为 Step 契约形态（Task 3 出管线前已归一化，此处幂等兜底；执行端直接 Step(**s) 构造，不经 loader）
     from sop_core.sop_loader import _normalize_step_dict
     sop["steps"] = [_normalize_step_dict(s) for s in (sop.get("steps") or [])]
     problems = validate_sop_data(sop)
@@ -500,6 +523,8 @@ def crystallize_sop_endpoint(req: SopCrystallizeRequest):
             return {"status": "success", "id": sop_id, "sop_status": "draft"}
         except FileExistsError:
             sop["id"] = _uuid.uuid4().hex[:8]
+        except ValueError as exc:  # save_generated_sop 落盘前还有第二道校验闸（sop_loader.py:362），勿冒成 500
+            raise HTTPException(status_code=422, detail={"error": "invalid_sop", "problems": [str(exc)]})
     raise HTTPException(status_code=500, detail="crystallize 落盘重试耗尽")
 ```
 
@@ -519,37 +544,46 @@ def crystallize_sop_endpoint(req: SopCrystallizeRequest):
 class L4SynthTests(unittest.TestCase):
     """L4 回调注入：None=与现状逐键一致；注入=合成执行+结晶。"""
 
-    def _tool(self, **kw):
-        return SopRunnerAdapter.sop_execute(sops=[make_sop(status="published")], llm_client=Mock(), **kw)
+    def _miss_tool(self, **kw):
+        miss = RouteResult(sop=None, args={}, reason="不属于任何已知 SOP",
+                           confidence=0.2, candidates=[])
+        return SopRunnerAdapter.sop_execute(
+            sops=[make_sop(status="published")],
+            classifier=FakeClassifier(miss),  # 确定性 route-miss，勿靠真 IntentClassifier 碰运气
+            runner=FakeRunner(),              # 真 _build_sop_trace 是鸭子型 staticmethod，吃其 memory.history
+            **kw,
+        )
 
     def test_no_callback_returns_legacy_error(self):
-        result = self._tool().handler(sop_query="不相关的问题")
+        result = self._miss_tool().handler(sop_query="不相关的问题")
         self.assertEqual(result["error"], "未匹配到合适的 SOP")
         self.assertNotIn("l4_synth", result)
 
     def test_synth_success_runs_and_marks_l4(self):
-        synth_sop = make_sop(status="draft")
-        ran = []
+        synth_sop = make_sop(sop_id="l4-synth-test", status="draft")
+        calls = []
+
         def synth(query):
             return {"sop": json.loads(synth_sop.model_dump_json())}
+
         def crystallize(sop, source_query, summary):
-            crystallize.calls = crystallize.calls + 1 if hasattr(crystallize, "calls") else 1
-        tool = self._tool(synth_callback=synth, crystallize_callback=crystallize)
-        with patch("angineer_core.agent_tools.SopRunner") as MockRunner:
-            MockRunner.return_value.run_sop.return_value = {"result": 1}
-            MockRunner._build_sop_trace = lambda self, sop: [{"step_id": "s1", "status": "success"}]
-            MockRunner._build_citations_from_sop_trace = staticmethod(lambda runner: [])
-            result = tool.handler(sop_query="不相关的问题")
+            calls.append((sop, source_query, summary))
+
+        result = self._miss_tool(synth_callback=synth, crystallize_callback=crystallize).handler(
+            sop_query="不相关的问题"
+        )
         self.assertTrue(result["l4_synth"])
-        self.assertEqual(result["sop_id"], synth_sop.id)
-        self.assertEqual(getattr(crystallize, "calls", 0), 1)
+        self.assertEqual(result["sop_id"], "l4-synth-test")
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(calls[0][1], "不相关的问题")
 
     def test_synth_none_returns_legacy_error(self):
-        result = self._tool(synth_callback=lambda q: None).handler(sop_query="不相关的问题")
+        result = self._miss_tool(synth_callback=lambda q: None).handler(sop_query="不相关的问题")
         self.assertEqual(result["error"], "未匹配到合适的 SOP")
+        self.assertTrue(result["l4_synth_attempted"])
 ```
 
-  （造具对齐文件既有 `make_sop`；`json` 已在该文件 import 则不重复。）
+  （造具沿用文件既有 `FakeClassifier`/`FakeRunner`/`RouteResult`/`make_sop`。**不要** `patch("angineer_core.agent_tools.SopRunner")`——SopRunner 是 handler 内 lazy import（agent_tools.py:1316），模块命名空间无此属性，patch 启动即 AttributeError。该文件头未 import json，需补。）
 - [ ] **Step 2 跑测试确认失败**：`pytest tests/angineer-core/test_sop_runner_adapter.py -q` → 新用例 FAIL（unexpected keyword）
 - [ ] **Step 3 实现**——`sop_execute` 签名加 `synth_callback: Optional[Callable[[str], Any]] = None, crystallize_callback: Optional[Callable[[Dict[str, Any], str, str], None]] = None`；handler 的 route-miss 分支替换为：
 
@@ -576,15 +610,19 @@ class L4SynthTests(unittest.TestCase):
                 l4_synth = True
 ```
 
-  执行与返回段：`success_steps/failed_steps` 计算之后、`return` 之前加结晶钩子：
+  执行与返回段：`success_steps/failed_steps` 计算之后、原 `return` 之前——**先把现状 return 内联的 summary f-string（agent_tools.py:1350-1353）提升为变量**（不提升则结晶钩子与返回体引用 `summary` 均 NameError），再加结晶钩子，return dict 改引用该变量并追加 `l4_synth`：
 
 ```python
+            summary = (
+                f"命中 SOP {selected_sop.id}，执行 {len(sop_trace)} 步，"
+                f"成功 {success_steps} 步，失败 {failed_steps} 步"
+            )
             if l4_synth and crystallize_callback is not None and failed_steps == 0 and success_steps > 0:
                 try:
                     crystallize_callback(synth["sop"], query, summary)
                 except Exception as exc:  # noqa: BLE001
                     logger.warning("L4 crystallize 回调失败（不阻断返回）: %s", exc)
-            result_body = {  # 原有九个字段逐键保留，仅追加 l4_synth
+            return {  # 原有九个字段逐键保留（summary 改引用上面变量），仅追加 l4_synth
                 "sop_id": selected_sop.id,
                 "sop_name": selected_sop.name_zh or selected_sop.name_en or selected_sop.id,
                 "confidence": route_result.confidence,
@@ -676,8 +714,10 @@ def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
             l4_synth = (lambda q: synth(q, scope.library_id, list(scope.doc_ids)), crystallize)
 ```
 
-  并在 `build_attempts(...)` 调用追加 `l4_synth=l4_synth,`。文件头确认 `import os` 已有。
-- [ ] **Step 5** `.env.example` 登记（`SOP_API_URL` 行后）：
+  并在 `build_attempts(...)` 调用追加 `l4_synth=l4_synth,`。**文件头补 `import os`（chat_agent.py:7-15 现状未引，勿当成已有）**。
+
+  口径注记：主方案 §6.3 写的 synth 回调签名是 `(query, library_id, doc_ids)` 三参，本单定稿为**一元回调 + 装配层闭包绑定 scope**（语义等价）；施工 commit 后回主方案 §6.3 同步一句口径，防两文档漂移。
+- [ ] **Step 5** `.env.example` 登记（`SOP_API_URL` 行（:158）后；顺手把 :158 行尾粘连的 `ANGINEER_SOP_DOMAIN_PACK` 注释拆回 :157 裸行——既有格式瑕疵）：
 
 ```
 # ANGINEER_SOP_L4_SYNTH=0              # L4 车道：route 未命中时现场合成临时 SOP 并执行（默认关；=1 开；结晶 draft 进人工审核流）
