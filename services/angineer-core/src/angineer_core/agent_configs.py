@@ -247,8 +247,10 @@ def make_final_answer_guard(enforce_evidence: bool = True, followup_question: bo
                         if not isinstance(_step, dict) or _step.get("status") != "success":
                             continue
                         _out = _step.get("outputs")
-                        if isinstance(_out, dict):
-                            _txt = str(_out.get("result") or "").strip()
+                        if isinstance(_out, dict) and _out.get("result") is not None:
+                            # result=0/False 是合法成功产出（原 `or ""` 将其当空串丢失，
+                            # 只有此类成功步时证据面为空 → 误杀；2026-10-13 Q1 实踩）
+                            _txt = str(_out.get("result")).strip()
                             if _txt:
                                 sop_parts.append(_txt[:2000])
                     if sop_parts:

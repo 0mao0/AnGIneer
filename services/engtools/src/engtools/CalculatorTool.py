@@ -75,6 +75,10 @@ class Calculator(BaseTool):
         # 兼容 LLM 把 expression 放到 kwargs 的情况
         if expression is None:
             expression = kwargs.pop("expression", None)
+        # 黑板值容忍（2026-10-13 实踩）：模型传参可能是 JSON number（如 4.5 而非 "4.5"），
+        # 单变量表达式（"${设计高水位}"）解析后即 number——不转字符串会误报「表达式不能为空」
+        if expression is not None and not isinstance(expression, str):
+            expression = str(expression)
         if expressions is None:
             expressions = kwargs.pop("expressions", None)
         if labels is None:
@@ -137,6 +141,8 @@ class Calculator(BaseTool):
         errors: List[Dict[str, Any]] = []
 
         for index, expr in enumerate(expressions):
+            if expr is not None and not isinstance(expr, str):
+                expr = str(expr)
             label = normalized_labels[index] if index < len(normalized_labels) else f"expr_{index + 1}"
             item_result = self.run(
                 expression=expr,

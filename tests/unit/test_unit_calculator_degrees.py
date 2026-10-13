@@ -41,6 +41,13 @@ class TestCalculatorDegrees(unittest.TestCase):
         r = self._run("n * (L * sin(g) + b)", n=1.69, L=293, g=7, b=32.2)
         self.assertAlmostEqual(r["result"], 1.69 * (293 * math.sin(math.radians(7)) + 32.2), places=4)
 
+    def test_numeric_expression_tolerated(self):
+        # 模型传参/黑板值可能是 JSON number（2026-10-13 实踩：表达式 4.5 报「表达式不能为空」）
+        self.assertEqual(self._run(4.5)["result"], 4.5)
+        self.assertEqual(self._run(0)["result"], 0)
+        r = self.calc.run(expressions=[1.5, "1+1"])
+        self.assertEqual(r["labeled_results"]["expr_1"], 1.5)
+
     def test_dangerous_keywords_still_blocked(self):
         for expr in ("import os", "__import__('os')", "eval('1+1')"):
             with self.subTest(expr=expr):
