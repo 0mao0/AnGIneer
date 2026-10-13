@@ -76,9 +76,9 @@ def enforce_bound_library(state, requested: str) -> str:
 
 
 def max_chat_libraries() -> int:
-    """多库勾选上限（阶段三 D1）：默认 5，环境变量可调（夹 1..10）。"""
+    """多库勾选上限（阶段三 D1）：默认 5，环境变量可调（夹 1..100；2026-10-13 业主放开，原夹 1..10）。"""
     try:
-        return min(10, max(1, int(os.getenv("ANGINEER_MAX_CHAT_LIBRARIES", "5") or 5)))
+        return min(100, max(1, int(os.getenv("ANGINEER_MAX_CHAT_LIBRARIES", "5") or 5)))
     except ValueError:
         return 5
 

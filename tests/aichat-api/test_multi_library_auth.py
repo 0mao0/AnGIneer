@@ -143,8 +143,11 @@ class TestEnforceBoundLibraries(unittest.TestCase):
             self.chat_auth.enforce_bound_libraries(state, ["lib-alice", "lib-eve"])
 
     def test_max_chat_libraries_env_clamp(self):
+        # 2026-10-13 业主放开：夹 1..100（原 1..10）
         with patch.dict(os.environ, {"ANGINEER_MAX_CHAT_LIBRARIES": "100"}):
-            self.assertEqual(self.chat_auth.max_chat_libraries(), 10)
+            self.assertEqual(self.chat_auth.max_chat_libraries(), 100)
+        with patch.dict(os.environ, {"ANGINEER_MAX_CHAT_LIBRARIES": "1000"}):
+            self.assertEqual(self.chat_auth.max_chat_libraries(), 100)
         with patch.dict(os.environ, {"ANGINEER_MAX_CHAT_LIBRARIES": "0"}):
             self.assertEqual(self.chat_auth.max_chat_libraries(), 1)
         with patch.dict(os.environ, {"ANGINEER_MAX_CHAT_LIBRARIES": "abc"}):
