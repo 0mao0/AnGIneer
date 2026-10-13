@@ -60,6 +60,15 @@ class ConditionalTool(BaseTool):
         if condition_var is None:
             return {"error": "条件变量不能为空", "condition_var": condition_var}
 
+        # 未解析模板（${X} 原样到达 = 黑板缺 X）：直接报缺，禁语义匹配糊弄
+        # （否则 LLM 语义匹配可能把占位符硬塞进某个分支——编造判定；2026-10-13 业主纪律）
+        if isinstance(condition_var, str) and condition_var.strip().startswith("${"):
+            return {
+                "error": f"条件变量缺失：{condition_var} 未解析（请在题面补充对应参数）",
+                "condition_var": condition_var,
+                "missing_params": [condition_var.strip().replace("${", "").replace("}", "")],
+            }
+
         context = context or {}
         context.update(kwargs)
 

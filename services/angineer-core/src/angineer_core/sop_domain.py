@@ -46,12 +46,16 @@ class DomainHints:
     ship_type_rules: List[Dict[str, Any]] = field(default_factory=list)
     stop_markers: List[str] = field(default_factory=list)
     clean_rules: Dict[str, Dict[str, Any]] = field(default_factory=dict)
+    # 缺参引导（2026-10-13 业主定纪律）：参数名 → {recommend, unit, rationale, source}。
+    # 缺参时只报缺 + 给推荐值供用户确认，系统绝不代填（如实报缺是产品红线）。
+    param_recommendations: Dict[str, Dict[str, Any]] = field(default_factory=dict)
 
     def __bool__(self) -> bool:
         return bool(
             self.param_descriptions or self.output_aliases or self.calculator_hint
             or self.arg_rules or self.arg_computes or self.arg_defaults
             or self.ship_type_rules or self.stop_markers or self.clean_rules
+            or self.param_recommendations
         )
 
 
@@ -93,6 +97,7 @@ def _parse_pack(text: str) -> DomainHints:
         ship_type_rules=_list_of_dicts(data.get("ship_type_rules")),
         stop_markers=[str(m) for m in (data.get("stop_markers") or []) if m is not None] if isinstance(data.get("stop_markers"), list) else [],
         clean_rules=_dict_of_dicts(data.get("clean_rules")),
+        param_recommendations=_dict_of_dicts(data.get("param_recommendations")),
     )
 
 

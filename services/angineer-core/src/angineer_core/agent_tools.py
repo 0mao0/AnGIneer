@@ -1344,14 +1344,29 @@ class SopRunnerAdapter:
             citations = SopRunner._build_citations_from_sop_trace(executor)
             success_steps = sum(1 for s in sop_trace if s.get("status") == "success")
             failed_steps = sum(1 for s in sop_trace if s.get("status") not in ("success", "pending"))
+            # 缺参汇总（业主纪律 2026-10-13）：如实报缺 + 引导补充 + 推荐值；系统不臆造数值
+            missing_report = list(getattr(executor, "missing_report", None) or [])
+            summary = (
+                f"命中 SOP {selected_sop.id}，执行 {len(sop_trace)} 步，"
+                f"成功 {success_steps} 步，失败 {failed_steps} 步"
+            )
+            if missing_report:
+                segs = []
+                for item in missing_report[:6]:
+                    seg = str(item.get("param") or "")
+                    if item.get("recommend") not in (None, ""):
+                        seg += f"（建议 {item.get('recommend')}{item.get('unit') or ''}）"
+                    segs.append(seg)
+                summary += (
+                    "；缺参：" + "、".join(segs)
+                    + "——请补充后重问（系统不臆造数值，推荐值仅供参考）"
+                )
             return {
                 "sop_id": selected_sop.id,
                 "sop_name": selected_sop.name_zh or selected_sop.name_en or selected_sop.id,
                 "confidence": route_result.confidence,
-                "summary": (
-                    f"命中 SOP {selected_sop.id}，执行 {len(sop_trace)} 步，"
-                    f"成功 {success_steps} 步，失败 {failed_steps} 步"
-                ),
+                "summary": summary,
+                "missing_report": missing_report,
                 "steps": [
                     {
                         "step_id": s.get("step_id"),

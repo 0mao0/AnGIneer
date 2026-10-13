@@ -116,6 +116,31 @@ def _resolve_doc_ids_by_file_name(library_id: str, file_name: str) -> Optional[L
     return None
 
 
+def _unresolved_condition_names(query_conditions: Any) -> List[str]:
+    """收集条件值里未解析的 ${name} 模板变量（嵌套一层 dict/list 也扫）。
+
+    命中即「题面缺参」：必须在读表/查表前拦截——否则读表判读的 LLM 会自行
+    挑选行/列（2026-10-13 实踩：航速未给时读表自行按 >6kn 取 0.75B 出 W=310.03，
+    编造选定档位；业主纪律=如实报缺，不臆造）。
+    """
+    names: List[str] = []
+    if query_conditions is None:
+        return names
+    items = query_conditions.values() if isinstance(query_conditions, dict) else [query_conditions]
+    for value in items:
+        candidates = value if isinstance(value, (list, tuple)) else [value]
+        for candidate in candidates:
+            if isinstance(candidate, str):
+                for name in re.findall(r"\$\{([^}]+)\}", candidate):
+                    if name not in names:
+                        names.append(name)
+            elif isinstance(candidate, dict):
+                for name in re.findall(r"\$\{([^}]+)\}", str(candidate)):
+                    if name not in names:
+                        names.append(name)
+    return names
+
+
 def canonical_table_lookup(
     *,
     table_name: str,
@@ -132,6 +157,13 @@ def canonical_table_lookup(
     """
     if not str(table_name or "").strip():
         return {"error": "缺少 table_name（表名）"}
+    missing_cond = _unresolved_condition_names(query_conditions)
+    if missing_cond:
+        return {
+            "error": f"查表缺参：{'、'.join(missing_cond)} 未提供，条件无法确定（系统不臆造取值）",
+            "missing_params": missing_cond,
+            "_table_name": table_name,
+        }
     if file_name and str(file_name).strip():
         resolved = _resolve_doc_ids_by_file_name(library_id, str(file_name).strip())
         if not resolved:
@@ -211,6 +243,13 @@ def canonical_table_read(
     但**取值**不做条件行/列定位（引擎对「指标行 × 区间列」矩阵与双层表头不支持），
     改为把整表文本 + 取值要求交给一次 LLM 抽取，返回 value + 单元格引用（可审计）。
     """
+    missing_cond = _unresolved_condition_names(query_conditions)
+    if missing_cond:
+        return {
+            "error": f"读表缺参：{'、'.join(missing_cond)} 未提供，无法按条件定位取值（系统不臆造取值）",
+            "missing_params": missing_cond,
+            "_table_name": table_name,
+        }
     if file_name and str(file_name).strip():
         resolved = _resolve_doc_ids_by_file_name(library_id, str(file_name).strip())
         if resolved is None:

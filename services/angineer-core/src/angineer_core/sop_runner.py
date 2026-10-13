@@ -44,6 +44,35 @@ def _get_tool_registry():
 from ai_inference.llm_client import chat_result_guarded, get_llm_client
 
 
+def build_missing_guidance(names: List[str], hints: Any) -> List[Dict[str, Any]]:
+    """缺参 → 引导条目（报缺 + 推荐值 + 理由）。
+
+    业主定纪律（2026-10-13）：缺参数一律「如实报缺 + 引导用户补充 + 给推荐值供确认」，
+    系统绝不代填/臆造。推荐值来自领域包 ``param_recommendations``（参数名 → 条目），
+    无条目的参数只报缺不给数。
+    """
+    out: List[Dict[str, Any]] = []
+    seen = set()
+    rec_map = getattr(hints, "param_recommendations", None) or {}
+    for name in names or []:
+        name = str(name or "").strip()
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        entry = rec_map.get(name) or {}
+        item: Dict[str, Any] = {"param": name}
+        if entry.get("recommend") not in (None, ""):
+            item["recommend"] = entry["recommend"]
+            if entry.get("unit"):
+                item["unit"] = entry["unit"]
+            item["rationale"] = entry.get("rationale") or ""
+            item["source"] = entry.get("source") or "领域包 param_recommendations"
+        else:
+            item["rationale"] = entry.get("rationale") or "请在题面补充该参数（系统不臆造数值）"
+        out.append(item)
+    return out
+
+
 class SopRunner:
     """SOP 步骤执行引擎：blackboard 更新、工具调用、trace 记录与回调。"""
 
@@ -74,6 +103,12 @@ class SopRunner:
         self.step_durations = {}
         self.summary_durations = {}
         self.tool_durations = {}
+        # 缺参引导汇总（失败步收集；run_sop 收尾去重挂黑板 _missing_report）
+        self.missing_report: List[Dict[str, Any]] = []
+        self._step_missing: Dict[str, List[str]] = {}
+        # 「题面可提供参数」白名单（run_sop 起按 SOP required ∪ 领域包推荐表计算；
+        # 未计算时（None）不过滤——独立调用 _attach 的单测场景）
+        self._reported_param_filter: Optional[set] = None
 
         if self.result_md_path:
             with open(self.result_md_path, "w", encoding="utf-8") as f:
@@ -182,6 +217,16 @@ class SopRunner:
         logger.info(f"[{sop.id}] Starting execution: {sop.description}")
         self._step_callback = step_callback
 
+        # 缺参引导白名单：题面可提供参数 = SOP required ∪ 领域包推荐表
+        try:
+            _bb = getattr(sop, "blackboard", None) or {}
+            _required = {str(x) for x in (_bb.get("required") or [])}
+        except Exception:  # noqa: BLE001
+            _required = set()
+        _recs = set((getattr(self.domain_hints, "param_recommendations", None) or {}).keys())
+        if _required or _recs:
+            self._reported_param_filter = _required | _recs
+
         # Log pre-execution events if provided
         if pre_logs:
             self.log_pre_execution(pre_logs)
@@ -220,6 +265,14 @@ class SopRunner:
                 f.write(f"| 调度开销 | {total_step_overhead:.2f}s | {(total_step_overhead/total_duration)*100:.1f}% |\n")
                 f.write(f"\n> 注: '调度开销' 包含 Python 代码执行、文件 I/O 及其他逻辑处理时间。\n")
         
+        # 缺参引导收尾：去重后挂黑板（消费方：sop_execute 汇总 + 回答拼装）
+        if self.missing_report:
+            dedup: Dict[str, Dict[str, Any]] = {}
+            for item in self.missing_report:
+                dedup.setdefault(str(item.get("param") or ""), item)
+            self.missing_report = [v for k, v in dedup.items() if k]
+            self.memory.update_context({"_missing_report": self.missing_report})
+
         return self.memory.blackboard
 
     def _run_single_step(self, step: Step):
@@ -230,12 +283,64 @@ class SopRunner:
             logger.error(f"Step {step.id} 执行异常，继续后续步骤: {e}")
             self._record_step(step, {}, None, error=f"unhandled: {e}")
 
+        # 失败步：挂「报缺 + 推荐值」引导（业主纪律：缺参不臆造，给引导）
+        if self._step_failed(step):
+            self._attach_missing_guidance(step)
+
         if self._step_callback:
             step_info = self._build_step_info(step)
             try:
                 self._step_callback(step_info)
             except Exception as e:
                 logger.warning(f"step_callback 调用失败: {e}")
+
+    @staticmethod
+    def _collect_unresolved_names(value: Any, acc: Optional[List[str]] = None) -> List[str]:
+        """递归收集未解析的 ${name} 模板变量名（dict/list 嵌套同样扫描）。"""
+        if acc is None:
+            acc = []
+        if isinstance(value, str):
+            for name in re.findall(r"\$\{([^}]+)\}", value):
+                if name not in acc:
+                    acc.append(name)
+        elif isinstance(value, dict):
+            for item in value.values():
+                SopRunner._collect_unresolved_names(item, acc)
+        elif isinstance(value, (list, tuple)):
+            for item in value:
+                SopRunner._collect_unresolved_names(item, acc)
+        return acc
+
+    def _attach_missing_guidance(self, step: Step):
+        """失败步收集缺参（未解析模板 + 计算器 unknowns）→ 生成引导并汇总。
+
+        只对「题面可提供的参数」（SOP blackboard.required ∪ 领域包推荐表）出引导；
+        中间变量（c_ratio/η/E0 等上游计算产物）仅保留 missing_params 审计字段，不进报告。
+        """
+        names = list(self._step_missing.get(step.id) or [])
+        record = None
+        for r in reversed(self.memory.history):
+            if r.step_id == step.id:
+                record = r
+                break
+        if record is not None and isinstance(record.outputs, dict):
+            for key in ("unknowns", "missing_params"):
+                for unknown in record.outputs.get(key) or []:
+                    if unknown and str(unknown) not in names:
+                        names.append(str(unknown))
+        if not names:
+            return
+        reportable = names
+        if getattr(self, "_reported_param_filter", None):
+            reportable = [n for n in names if n in self._reported_param_filter]
+        if record is not None:
+            payload = record.outputs if isinstance(record.outputs, dict) else {}
+            payload["missing_params"] = names
+            if reportable:
+                payload["missing_guidance"] = build_missing_guidance(reportable, self.domain_hints)
+            record.outputs = payload
+        if reportable:
+            self.missing_report.extend(build_missing_guidance(reportable, self.domain_hints))
 
     def _pick_next_step(self, step: Step, sop: SOP, executed_ids: set) -> Optional[Step]:
         """决定下一个执行的步骤（按契约优先级）：
@@ -378,19 +483,22 @@ class SopRunner:
             
         missing_params = []
         ready_inputs = {}
-        
+
         # 1. Resolve Inputs
         for param_name, value_expr in step.inputs.items():
             resolved_value = self.memory.resolve_value(value_expr)
             ready_inputs[param_name] = resolved_value
-            
+
             # Simple check: if resolved value looks like an unresolved template or None
             if resolved_value is None:
                  missing_params.append(f"{param_name} (value is None)")
-            elif isinstance(resolved_value, str) and "${" in resolved_value:
-                 # Check if it's an unresolved reference
-                 # This is a heuristic, but often useful
-                 missing_params.append(f"{param_name} (unresolved: {resolved_value})")
+
+        # 1.2 递归扫未解析模板（嵌套 dict/list 也要扫——曾漏查 query_conditions 里的
+        # ${船舶航速}，缺参既没进报告也没走「禁 LLM 代算」分支；2026-10-13）
+        unresolved_names = self._collect_unresolved_names(ready_inputs)
+        self._step_missing[step.id] = list(unresolved_names)
+        for name in unresolved_names:
+            missing_params.append(f"unresolved: {name}")
 
         # 1.5. 检查所有输入是否有效（非空），避免将空值传递给工具
         non_auto_tools = {"calculator", "table_lookup", "table_read", "knowledge_search", "user_input"}
@@ -419,8 +527,8 @@ class SopRunner:
         # 反例（2026-10-13 实踩）：题面缺「航速」时，缺参触发智能执行，LLM 在
         # execute_tool 的 calculator 表达式里自补 c=0 算得 W=261.73——编造的中间值
         # 经 outputs 映射进黑板，最终以「SOP 计算结果」呈现（比失败更糟）。
-        # 口径：calculator/table_read/table_lookup 的缺参 = 显式失败（缺什么报什么）。
-        _deterministic_tools = {"calculator", "table_read", "table_lookup"}
+        # 口径：calculator/table_read/table_lookup/conditional 的缺参 = 显式失败（缺什么报什么）。
+        _deterministic_tools = {"calculator", "table_read", "table_lookup", "conditional"}
         if missing_params:
             if step.tool in _deterministic_tools:
                 logger.info(

@@ -50,6 +50,19 @@ class TestCanonicalTableRead(unittest.TestCase):
         out = self._run('{"value": null}')
         self.assertIn("未能得到", out["error"])
 
+    def test_unresolved_condition_blocks_read(self):
+        # 条件含未解析 ${船舶航速}：必须拦截，不许 LLM 自行挑档（2026-10-13 编造通道实踩）
+        with patch("angineer_core.canonical_table_lookup._resolve_doc_ids_by_file_name", return_value=["doc-x"]), \
+             patch("angineer_core.ports.get_table_blocks_provider", side_effect=AssertionError("不应触达 provider")):
+            out = canonical_table_read(
+                table_name="表6.4.2-2",
+                query_conditions={"船型": "集装箱船", "航速(kn)": "${船舶航速}"},
+                target_column="c的系数",
+                library_id="default",
+            )
+        self.assertIn("读表缺参", out["error"])
+        self.assertEqual(out["missing_params"], ["船舶航速"])
+
     def test_no_candidate_with_number(self):
         no_num = dict(_MATRIX_TABLE, context="无关表格 A.0.9")
         out = self._run('{"value": 1}', candidates=[no_num])
