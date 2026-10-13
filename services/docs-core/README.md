@@ -100,6 +100,11 @@ export ANGINEER_API_TOKEN='...'                 # 可选：开启后除 /health 
 uvicorn docs_core.server:app --host 127.0.0.1 --port 8310
 ```
 
+> 注（2026-10-13 外部消费方实踩补）：**env 必须由启动器注入子进程**——壳不读进程 cwd 的 `.env`
+> （包内 `load_dotenv()` 探测起点是包的安装目录，wheel 装在 site-packages 时碰不到你项目根的 `.env`，
+> 能否碰到随 venv 摆放而变、不可依赖）。漏注入可能表现为数据根 / 向量库解析失败（500）或能力静默
+> 降级；启动后先核 `/health` 的 data_root / registry 两行。
+
 | 端点 | 说明 |
 | :--- | :--- |
 | `POST /api/knowledge/internal/retrieve` | 五路召回融合检索（snake_case 线契约，与主仓库内部服务逐位一致） |

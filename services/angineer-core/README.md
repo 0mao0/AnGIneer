@@ -105,6 +105,11 @@ export ANGINEER_DISABLE_LOCAL_FALLBACK=1       # 推荐：检索强制走 HTTP�
 uvicorn angineer_core.server:app --host 127.0.0.1 --port 8311
 ```
 
+> 注（2026-10-13 外部消费方实踩补）：**env 必须由启动器注入子进程**——壳不读进程 cwd 的 `.env`
+> （包内 `load_dotenv()` 的探测起点是包的安装目录，wheel 装在 site-packages 时碰不到你项目根的
+> `.env`，能否碰到随 venv 摆放而变、不可依赖）。漏注入是安静坑：启动日志写「HTTP 端口适配器未注册」，
+> 随后引用 / 重排 / 条款号归一化全部降级、**全程不报错**；启动后先查一次日志，没有这一行即注入就位。
+
 | 端点 | 说明 |
 | :--- | :--- |
 | `POST /api/chat/agent` | Agent SSE：`AgentEvent` 帧（每帧含 `frame_version: 1`），首帧 `route_debug`（意图级别 / `classify_ms` / scope），流末 `data: [DONE]` |
@@ -218,8 +223,9 @@ note（过程说明） / answer（守卫替换后的最终回答） / error
 angineer-ai-inference README，这里只列引擎自身常用的：
 
 > 注：本库与其依赖 `angineer-ai-inference` 在 **import 时**各按 python-dotenv 规则
-> 加载一次 `.env`（`override=False`，已存在的环境变量不被覆盖）。宿主若希望环境完全自控，
-> 在 import 前设好变量即可。
+> 加载一次 `.env`（`override=False`，已存在的环境变量不被覆盖）。探测起点是**包的安装目录**、
+> 不是进程 cwd——`pip` 装进 site-packages 后你项目根的 `.env` 通常读不到，独立部署请显式注入 env。
+> 宿主若希望环境完全自控，在 import 前设好变量即可。
 
 | 变量 | 默认 | 说明 |
 | :--- | :--- | :--- |
