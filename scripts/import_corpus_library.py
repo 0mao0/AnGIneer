@@ -3,6 +3,7 @@
 plan：先建库（POST /libraries），再跑本脚本。可重跑续传（manifest 记录已上传项）。
 解析由 docs-api 编排器异步执行（管理端全阶段：source_prep→…→fts→vectors→graph），
 脚本只负责上传与建解析任务；任务排队/并发由编排器管。
+**入队顺序 = 文件大小升序**（小册先做：前半程快速出量、厚册沉底；2026-10-13 业主定规）。
 
 用法：
     python scripts/import_corpus_library.py --library std-water --root "资料/正式规范/水运工程"
@@ -94,6 +95,14 @@ def main() -> int:
         for f in sorted(tier.rglob("*")):
             if f.is_file() and f.suffix.lower() in DOC_EXTS:
                 files.append((f, tier.name))
+    # 按文件大小升序排队（小册先做掉）：解析队列按入队序执行，排序即决定解析顺序。
+    # 动机（2026-10-13 业主定规）：大批量导入若按文件名序，后半程常剩厚册单篇 1~3 小时，
+    # 完成数长时间走平、观感像卡死；小文件先行则前半程快速出量、厚册沉底、总量不变。
+    files.sort(key=lambda x: x[0].stat().st_size)
+    if files:
+        sizes_mb = sorted(f.stat().st_size / 1e6 for f, _ in files)
+        mid = sizes_mb[len(sizes_mb) // 2]
+        _log(f"排队次序：按文件大小升序（最小 {sizes_mb[0]:.1f}MB / 中位 {mid:.1f}MB / 最大 {sizes_mb[-1]:.1f}MB）")
     _log(f"语料清点：{len(tiers)} 个层级目录，{len(files)} 个文档「{'、'.join(t.name for t in tiers)}」")
     if args.dry_run:
         return 0
