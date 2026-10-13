@@ -406,7 +406,7 @@ def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
 - Modify: `services/sop-api/sop_routes.py`（两个端点 + 请求模型；仍写在 `/{sop_id}` 之前保持 `/full` 同款书写纪律——实际无 POST `/{sop_id}` 路由，POST 与 GET 不竞争，此处是防御性排序）
 - Test: `tests/unit/test_unit_sop_synth_endpoints.py`
 
-- [ ] **Step 1 写失败测试**（TestClient + mock path_selector 与 loader）：
+- [x] **Step 1 写失败测试**（TestClient + mock path_selector 与 loader）：
 
 ```python
 """synthesize/crystallize 端点测试。"""
@@ -457,8 +457,8 @@ class TestCrystallizeEndpoint(unittest.TestCase):
         self.assertEqual(payload["review"]["note"], "自动结晶")
 ```
 
-- [ ] **Step 2 跑测试确认失败**
-- [ ] **Step 3 实现**——`sop_routes.py` 顶部请求模型区加：
+- [x] **Step 2 跑测试确认失败**
+- [x] **Step 3 实现**——`sop_routes.py` 顶部请求模型区加：
 
 ```python
 class SopSynthesizeRequest(BaseModel):
@@ -529,8 +529,8 @@ def crystallize_sop_endpoint(req: SopCrystallizeRequest):
 ```
 
   注意：`sop_routes.py` 顶部需 `import requests`（现未引则补）；`synthesize_sop` 与 `SynthUnavailable` 在端点函数内 import（同文件既有 lazy 风格）。
-- [ ] **Step 4 跑测试确认通过**：`pytest tests/unit/test_unit_sop_synth_endpoints.py -q` → PASS
-- [ ] **Step 5 Commit**: `feat(sop-api): L4 synthesize/crystallize 端点（412 缺料语义 + draft 结晶进审核流）`
+- [x] **Step 4 跑测试确认通过**：`pytest tests/unit/test_unit_sop_synth_endpoints.py -q` → PASS
+- [x] **Step 5 Commit**: `feat(sop-api): L4 synthesize/crystallize 端点（412 缺料语义 + draft 结晶进审核流）`
 
 ## Task 5: angineer-core 适配器回调位（synth_callback / crystallize_callback）
 

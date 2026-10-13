@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import re
+import requests
 import uuid
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Set
@@ -78,6 +79,21 @@ class SopReviewRequest(BaseModel):
     action: str = Field(..., pattern="^(approve|reject|disable)$")
     note: str = ""
     reviewer: str = ""
+
+
+class SopSynthesizeRequest(BaseModel):
+    """L4 现场合成请求。"""
+    query: str = Field(..., min_length=1)
+    library_id: str = ""
+    doc_ids: List[str] = Field(default_factory=list)
+    llm_enabled: bool = True
+
+
+class SopCrystallizeRequest(BaseModel):
+    """合成 SOP 结晶为 draft。"""
+    sop: Dict[str, Any]
+    source_query: str = ""
+    review_note: str = ""
 
 
 def _write_audit(sop_id: str, action: str, note: str, reviewer: str) -> None:
@@ -464,6 +480,55 @@ def get_sops_full(status: Optional[str] = "published"):
         if data is not None:
             items.append(data)
     return {"sops": items}
+
+
+@sop_router.post("/synthesize")
+def synthesize_sop_endpoint(req: SopSynthesizeRequest):
+    """L4：问题 → 临时 SOP（不落盘）。412=图谱缺料回落运行时兜底。"""
+    from path_selector import SynthUnavailable, synthesize_sop
+    from docs_graph_client import _default_docs_api_url
+    session = requests.Session()
+    session.trust_env = False
+    try:
+        result = synthesize_sop(
+            req.query, req.library_id, req.doc_ids,
+            session=session, base_url=_default_docs_api_url(),
+            llm_enabled=req.llm_enabled,
+        )
+    except SynthUnavailable as exc:
+        raise HTTPException(status_code=412, detail={"error": "no_path", "reason": str(exc)})
+    sop = result["sop"]
+    # 归一化为 Step 契约形态（Task 3 出管线前已归一化，此处幂等兜底；执行端直接 Step(**s) 构造，不经 loader）
+    from sop_core.sop_loader import _normalize_step_dict
+    sop["steps"] = [_normalize_step_dict(s) for s in (sop.get("steps") or [])]
+    problems = validate_sop_data(sop)
+    if problems:
+        raise HTTPException(status_code=422, detail={"error": "invalid_sop", "problems": problems})
+    return {"sop": sop, "path": result.get("path", [])}
+
+
+@sop_router.post("/crystallize")
+def crystallize_sop_endpoint(req: SopCrystallizeRequest):
+    """L4：合成 SOP 落盘为 draft（进人工审核流）。id 冲突自动换新 id。"""
+    import uuid as _uuid
+    sop = dict(req.sop)
+    problems = validate_sop_data(sop)
+    if problems:
+        raise HTTPException(status_code=422, detail={"error": "invalid_sop", "problems": problems})
+    sop["status"] = "draft"
+    sop["source"] = {"kind": "l4_synth", "source_query": req.source_query[:200]}
+    sop["review"] = {"note": req.review_note or "L4 自动结晶，待人工审核",
+                     "at": datetime.now().astimezone().isoformat(timespec="seconds")}
+    for attempt in range(3):
+        sop_id = sop.get("id") or _uuid.uuid4().hex[:8]
+        try:
+            _sop_loader.save_generated_sop(sop_id, sop, overwrite=False)
+            return {"status": "success", "id": sop_id, "sop_status": "draft"}
+        except FileExistsError:
+            sop["id"] = _uuid.uuid4().hex[:8]
+        except ValueError as exc:  # save_generated_sop 落盘前还有第二道校验闸，勿冒成 500
+            raise HTTPException(status_code=422, detail={"error": "invalid_sop", "problems": [str(exc)]})
+    raise HTTPException(status_code=500, detail="crystallize 落盘重试耗尽")
 
 
 @sop_router.get("/{sop_id}/delete-preview")
