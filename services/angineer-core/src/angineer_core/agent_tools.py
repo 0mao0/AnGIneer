@@ -1280,6 +1280,18 @@ class SopRunnerAdapter:
             if not query:
                 return {"error": "缺少 sop_query 参数"}
 
+            # 兼容模型两种调用形态（2026-10-13 实踩）：① sop_query=题面原文；
+            # ② sop_query=SOP 名 + args=参数键值（模型自提参）。形态②下题面参数提取整批
+            # 落空（流速/夹角/船宽全缺、Q1 连 H/L/d 都缺，全链失败被证据闸拒答）——
+            # 把 args 展开为「键: 值」行并入提取文本，领域规则正则按「名: 值」可命中。
+            extract_text = query
+            if isinstance(args, dict) and args:
+                extra_lines = "\n".join(
+                    f"{k}: {v}" for k, v in args.items() if v not in (None, "")
+                )
+                if extra_lines and extra_lines not in query:
+                    extract_text = f"{query}\n{extra_lines}"
+
             if classifier is None:
                 from angineer_core.classifier import IntentClassifier
                 from angineer_core.sop_domain import load_domain_pack_from_env
@@ -1304,7 +1316,7 @@ class SopRunnerAdapter:
                 domain_hints = None
 
             route_result = effective_classifier.route(
-                query, config_name=config_name, mode=mode
+                extract_text, config_name=config_name, mode=mode
             )
             selected_sop = route_result.sop
             if selected_sop is None or route_result.confidence < SOP_ROUTE_CONFIDENCE_THRESHOLD:
@@ -1332,7 +1344,7 @@ class SopRunnerAdapter:
                     domain_hints=domain_hints,
                 )
 
-            initial_context = {"user_query": query}
+            initial_context = {"user_query": extract_text}
             initial_context.update(route_result.args or {})
             if isinstance(args, dict):
                 initial_context.update(args)
@@ -1409,8 +1421,8 @@ class SopRunnerAdapter:
             parameters_schema={
                 "type": "object",
                 "properties": {
-                    "sop_query": {"type": "string", "description": "要交给 SOP 路由的问题"},
-                    "args": {"type": "object", "description": "SOP 所需参数"},
+                    "sop_query": {"type": "string", "description": "用户问题的完整原始文字（逐字传入，勿改写、勿只传 SOP 名称）"},
+                    "args": {"type": "object", "description": "可选补充参数（键用题面里的词，如 船宽/航速）；主要参数请留在 sop_query 原文里"},
                 },
                 "required": ["sop_query"],
             },
