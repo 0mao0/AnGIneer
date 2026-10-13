@@ -312,7 +312,7 @@ query
 
 挂点在 `SopRunnerAdapter.sop_execute`（`angineer_core/agent_tools.py:1253`，**在 angineer-core 库内**）。库层不得直连 sop-api（守自己的铁律），故 L4 能力以回调注入：
 
-- `SopRunnerAdapter.sop_execute(...)` 新增参数 `synth_callback: Optional[Callable[[str, str, list], Dict]] = None`（签名：`(query, library_id, doc_ids) → {"sop": <SOP JSON>} | None`）；
+- `SopRunnerAdapter.sop_execute(...)` 新增参数 `synth_callback: Optional[Callable[[str], Any]]` / `crystallize_callback: Optional[Callable[[Dict, str, str], None]]`（**施工定稿 2026-10-13：一元 synth 回调，library_id/doc_ids 由装配层闭包绑定 scope**；原三参 `(query, library_id, doc_ids)` 口径作废——见 plan-sop-l4-synth Task 5/6）；
 - handler 内 route 未命中分支：`synth_callback is None` → **早退返回现行为 error dict（与今天逐字节一致，且由构造保证：不注入就没有新代码路径的副作用）**；非 None → 调回调；返回含 `sop` → 构造 `SOP` 对象直接 `run_sop`（**不要求 published**，执行器本就不检查），成功后回调方负责 crystallize，返回体标 `l4_synth: true`；回调返回 None → 现行为 error；
 - **注入发生在 aichat-api 装配层**（`agent_configs.py` 调 `sop_execute(...)` 处）：开关 `ANGINEER_SOP_L4_SYNTH=1` 时才注入回调实现（内部调 `POST /api/sops/synthesize`，复用 `SopApiClient` 的 base_url；成功后异步 `POST /api/sops/crystallize`，附 source_query 与 trace 摘要）。开关关 = 不注入 = 库内零新路径。
 - 预算（装配层回调内实现）：每问题至多 1 次 synthesize；内部 LLM 调用步数上限（默认 8）；总超时沿用 `timeout_s=300`。

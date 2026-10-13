@@ -5,6 +5,7 @@ config_factory 新鲜注入，会话可跨集合续接；owner 为身份隔离�
 ``/api/chat/agent`` 直接输出完整 AgentEvent 帧。
 """
 import logging
+import os
 import threading
 import time
 from typing import Any, Callable, Dict, List, Optional
@@ -107,6 +108,13 @@ def make_policy_config_factory(
         # 阶段三：集合仅在真正多库时上浮（谓词 is_multi_scope）——单库保持 None，
         # 旧单库调用的检索结果 shape 逐位不变（agent_tools D8 口径，兼容铁律 1）
         multi = is_multi_scope(scope.library_ids)
+        # L4 车道（plan-sop-l4-synth Task 6）：开关开才注入回调；预算按问题粒度
+        l4_synth = None
+        if os.getenv("ANGINEER_SOP_L4_SYNTH", "0") == "1" and sop_loader is not None:
+            from sop_api_client import build_l4_hooks
+            l4_budget = {"used": 0}
+            synth, crystallize = build_l4_hooks(sop_loader, l4_budget)
+            l4_synth = (lambda q: synth(q, scope.library_id, list(scope.doc_ids)), crystallize)
         attempts = build_attempts(
             intent_result=intent_result,
             scene=scene,
@@ -122,6 +130,7 @@ def make_policy_config_factory(
             config_name=None,
             mode="instruct",
             sop_loader=sop_loader,
+            l4_synth=l4_synth,
             query=query,
             marker_allocator=allocator,
         )

@@ -171,6 +171,7 @@ def build_attempts(
     marker_allocator: Any = None,
     library_ids: Optional[List[str]] = None,
     answer_format: Optional[str] = None,
+    l4_synth: Optional[Any] = None,
 ) -> List[AttemptConfig]:
     level = str(getattr(intent_result, "intent_level", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
@@ -201,6 +202,7 @@ def build_attempts(
                 sop_loader=sop_loader,
                 marker_allocator=marker_allocator,
                 sop_hint=sop_hint,
+                l4_synth=l4_synth,
                 answer_format=answer_format,
                 # 与 L1/L2 同口径：复杂档答案必须过证据闸（2026-10-04 补装，防无证据出结论）
                 final_answer_guard=make_final_answer_guard(enforce_evidence=True),

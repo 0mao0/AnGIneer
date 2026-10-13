@@ -12,7 +12,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from sop_api_client import SopApiClient
+from sop_api_client import SopApiClient, build_l4_hooks
 
 
 def _fake_response(items):
@@ -95,6 +95,46 @@ class TestSopApiClient(unittest.TestCase):
         """load_all() 与 SopLoader 签名兼容（agent_policy/chat_agent 调用点零改动）。"""
         self._mock_session(response=_fake_response([_one_sop()]))
         self.assertEqual(len(self.client.load_all()), 1)
+
+
+class TestBuildL4Hooks(unittest.TestCase):
+    """L4 回调对：每问题 1 次合成预算；缺料/异常一律 None（不阻断）。"""
+
+    def _client_with_post(self, resp):
+        client = SopApiClient(base_url="http://test", ttl=300.0)
+        session = MagicMock()
+        session.post.return_value = resp
+        client.session = session
+        return client, session
+
+    def test_budget_allows_single_synth(self):
+        resp = MagicMock()
+        resp.status_code = 200
+        resp.json.return_value = {"sop": {"id": "x"}}
+        client, session = self._client_with_post(resp)
+        synth, _ = build_l4_hooks(client, {"used": 0})
+        self.assertEqual(synth("q1", "lib", ["d"]), {"sop": {"id": "x"}})
+        self.assertIsNone(synth("q2", "lib", []))  # 预算已用尽
+        self.assertEqual(session.post.call_count, 1)
+        self.assertTrue(session.post.call_args.args[0].endswith("/api/sops/synthesize"))
+
+    def test_non_200_returns_none(self):
+        resp = MagicMock()
+        resp.status_code = 412
+        resp.text = "no_path"
+        client, _ = self._client_with_post(resp)
+        synth, _ = build_l4_hooks(client, {"used": 0})
+        self.assertIsNone(synth("q", "lib", []))
+
+    def test_crystallize_posts_and_swallows_errors(self):
+        resp = MagicMock()
+        resp.status_code = 200
+        client, session = self._client_with_post(resp)
+        _, crystallize = build_l4_hooks(client, {"used": 0})
+        crystallize({"id": "x"}, "q", "summary")
+        self.assertTrue(session.post.call_args.args[0].endswith("/api/sops/crystallize"))
+        session.post.side_effect = RuntimeError("down")
+        crystallize({"id": "x"}, "q", "summary")  # 异常不抛出
 
 
 if __name__ == "__main__":

@@ -753,6 +753,7 @@ def build_complex_config(
     final_answer_guard: Optional[Any] = None,
     answer_format: Optional[str] = None,
     sop_hint: Optional[str] = None,
+    l4_synth: Optional[Any] = None,
 ) -> AgentLoopConfig:
     """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。
 
@@ -805,6 +806,8 @@ def build_complex_config(
                 library_id=library_id,
                 doc_ids=doc_ids,
                 library_ids=library_ids,
+                synth_callback=l4_synth[0] if l4_synth else None,
+                crystallize_callback=l4_synth[1] if l4_synth else None,
             ),
             EngtoolAdapter.from_registry(
                 "calculator",

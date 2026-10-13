@@ -11,7 +11,7 @@ import os
 import threading
 import time
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 import requests
 
@@ -146,3 +146,38 @@ class SopApiClient:
             return None
         sops = self._build_sops(payload)
         return sops or None
+
+
+def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
+    """L4 回调对（synth, crystallize）；budget 由装配层按问题创建（每问题至多 1 次合成）。"""
+
+    def synth(query: str, library_id: str = "", doc_ids: Optional[List[str]] = None):
+        if budget.get("used", 0) >= 1:
+            return None
+        budget["used"] = budget.get("used", 0) + 1
+        try:
+            resp = client.session.post(
+                f"{client.base_url}/api/sops/synthesize",
+                json={"query": query, "library_id": library_id or "",
+                      "doc_ids": list(doc_ids or []), "llm_enabled": True},
+                timeout=120.0,
+            )
+            if resp.status_code != 200:
+                logger.info("L4 synthesize 未命中（%s）: %s", resp.status_code, resp.text[:200])
+                return None
+            return resp.json()
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("L4 synthesize 调用失败: %s", exc)
+            return None
+
+    def crystallize(sop: Dict[str, Any], source_query: str, summary: str):
+        try:
+            client.session.post(
+                f"{client.base_url}/api/sops/crystallize",
+                json={"sop": sop, "source_query": source_query, "review_note": summary[:200]},
+                timeout=15.0,
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("L4 crystallize 调用失败（不阻断）: %s", exc)
+
+    return synth, crystallize

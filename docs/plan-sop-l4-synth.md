@@ -657,7 +657,7 @@ class L4SynthTests(unittest.TestCase):
 - Modify: `services/aichat-api/chat_agent.py:83`（`make_policy_config_factory` 构造 hooks）
 - Modify: `.env.example`（登记开关）
 
-- [ ] **Step 1** `sop_api_client.py` 末尾加：
+- [x] **Step 1** `sop_api_client.py` 末尾加：
 
 ```python
 def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
@@ -694,15 +694,15 @@ def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
     return synth, crystallize
 ```
 
-- [ ] **Step 2** `agent_policy.build_attempts` 签名加 `l4_synth: Optional[Any] = None`，complex 分支 `build_complex_config(..., l4_synth=l4_synth)`（其余分支不传，L1/L2/L0 天然不接 L4）
-- [ ] **Step 3** `agent_configs.build_complex_config` 签名加 `l4_synth: Optional[Any] = None`；:751 `sop_execute(...)` 调用追加：
+- [x] **Step 2** `agent_policy.build_attempts` 签名加 `l4_synth: Optional[Any] = None`，complex 分支 `build_complex_config(..., l4_synth=l4_synth)`（其余分支不传，L1/L2/L0 天然不接 L4）
+- [x] **Step 3** `agent_configs.build_complex_config` 签名加 `l4_synth: Optional[Any] = None`；:751 `sop_execute(...)` 调用追加：
 
 ```python
                 synth_callback=l4_synth[0] if l4_synth else None,
                 crystallize_callback=l4_synth[1] if l4_synth else None,
 ```
 
-- [ ] **Step 4** `chat_agent.make_policy_config_factory` 的 `factory()` 内、`build_attempts(...)` 调用前加：
+- [x] **Step 4** `chat_agent.make_policy_config_factory` 的 `factory()` 内、`build_attempts(...)` 调用前加：
 
 ```python
         # L4 车道（plan-sop-l4-synth Task 6）：开关开才注入回调；预算按问题粒度
@@ -717,14 +717,14 @@ def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
   并在 `build_attempts(...)` 调用追加 `l4_synth=l4_synth,`。**文件头补 `import os`（chat_agent.py:7-15 现状未引，勿当成已有）**。
 
   口径注记：主方案 §6.3 写的 synth 回调签名是 `(query, library_id, doc_ids)` 三参，本单定稿为**一元回调 + 装配层闭包绑定 scope**（语义等价）；施工 commit 后回主方案 §6.3 同步一句口径，防两文档漂移。
-- [ ] **Step 5** `.env.example` 登记（`SOP_API_URL` 行（:158）后；顺手把 :158 行尾粘连的 `ANGINEER_SOP_DOMAIN_PACK` 注释拆回 :157 裸行——既有格式瑕疵）：
+- [x] **Step 5** `.env.example` 登记（`SOP_API_URL` 行（:158）后；顺手把 :158 行尾粘连的 `ANGINEER_SOP_DOMAIN_PACK` 注释拆回 :157 裸行——既有格式瑕疵）：
 
 ```
 # ANGINEER_SOP_L4_SYNTH=0              # L4 车道：route 未命中时现场合成临时 SOP 并执行（默认关；=1 开；结晶 draft 进人工审核流）
 ```
 
-- [ ] **Step 6 回归**：`pytest tests/angineer-core tests/unit/test_unit_sop_api_client.py -q` 全 PASS（既有用例不传 l4 → 行为不变）
-- [ ] **Step 7 Commit**: `feat(sop): L4 车道装配接线——开关 ANGINEER_SOP_L4_SYNTH（默认关）+ 每问题 1 次合成预算 + HTTP 回调实现`
+- [x] **Step 6 回归**：`pytest tests/angineer-core tests/unit/test_unit_sop_api_client.py -q` 全 PASS（既有用例不传 l4 → 行为不变）
+- [x] **Step 7 Commit**: `feat(sop): L4 车道装配接线——开关 ANGINEER_SOP_L4_SYNTH（默认关）+ 每问题 1 次合成预算 + HTTP 回调实现`
 
 ## Task 7: 验收（预注册）
 
