@@ -436,6 +436,42 @@ class SopPathGenerator:
 
         return None
 
+    def generate_sop_from_steps(
+        self,
+        framework_name: str,
+        fw_steps: List[str],
+        source_section: str = "",
+        library_id: str = "",
+        doc_id: str = "",
+    ) -> Dict[str, Any]:
+        """公共入口：按框架步骤序生成完整 SOP（LLM 优先，失败回退骨架）。
+
+        L4 合成车道（plan-sop-l4-synth Task 2）与 generate_sops_from_doc 共用；
+        返回 steps 为 execution 嵌套形态，交由调用方（sop-api）归一化为 Step 契约。
+        """
+        llm_sop = self._generate_sop_via_llm(
+            framework_name=framework_name,
+            fw_steps=fw_steps,
+            source_section=source_section,
+            library_id=library_id,
+            doc_id=doc_id,
+        )
+        if llm_sop and llm_sop.get("steps"):
+            llm_sop["id"] = llm_sop.get("id") or framework_name
+            llm_sop.setdefault("library_id", library_id)
+            llm_sop.setdefault("doc_id", doc_id)
+            return llm_sop
+        entities_map = {name: LAYER_CONCEPT for name in fw_steps}
+        return self.generate_sop_skeleton(
+            sop_id=framework_name,
+            title=framework_name,
+            path_entities=fw_steps,
+            entities=entities_map,
+            source_clause=source_section,
+            library_id=library_id,
+            doc_id=doc_id,
+        )
+
     def _parse_sop_response(self, response: str) -> Optional[Dict[str, Any]]:
         """Parse LLM response into SOP dict."""
         if not response:

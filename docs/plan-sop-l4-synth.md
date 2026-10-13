@@ -79,7 +79,7 @@ async def search_entities(q: str, library_id: Optional[str] = None):
 - Modify: `services/sop-core/src/sop_core/sop_path_generator.py`（`SopPathGenerator` 加公共方法）
 - Test: `services/sop-core/tests/test_path_generator_llm.py`（新建）
 
-- [ ] **Step 1 写失败测试**：
+- [x] **Step 1 写失败测试**：
 
 ```python
 """SopPathGenerator.generate_sop_from_steps 公共包装测试。"""
@@ -116,8 +116,8 @@ class TestGenerateSopFromSteps(unittest.TestCase):
         self.assertTrue(len(sop["steps"]) >= 2)
 ```
 
-- [ ] **Step 2 跑测试确认失败**：`pytest services/sop-core/tests/test_path_generator_llm.py -q` → FAIL（无 generate_sop_from_steps 属性）
-- [ ] **Step 3 实现**——在 `SopPathGenerator` 类内、`_generate_sop_via_llm` 之后加：
+- [x] **Step 2 跑测试确认失败**：`pytest services/sop-core/tests/test_path_generator_llm.py -q` → FAIL（无 generate_sop_from_steps 属性）
+- [x] **Step 3 实现**——在 `SopPathGenerator` 类内、`_generate_sop_via_llm` 之后加：
 
 ```python
     def generate_sop_from_steps(
@@ -157,8 +157,8 @@ class TestGenerateSopFromSteps(unittest.TestCase):
         )
 ```
 
-- [ ] **Step 4 跑测试确认通过**：`pytest services/sop-core/tests/test_path_generator_llm.py tests/knowledge_graph/test_sop_path_generator.py -q` → 全 PASS
-- [ ] **Step 5 Commit**: `feat(sop-core): 生成器公共入口 generate_sop_from_steps（LLM 优先骨架兜底）`
+- [x] **Step 4 跑测试确认通过**：`pytest services/sop-core/tests/test_path_generator_llm.py tests/knowledge_graph/test_sop_path_generator.py -q` → 全 PASS
+- [x] **Step 5 Commit**: `feat(sop-core): 生成器公共入口 generate_sop_from_steps（LLM 优先骨架兜底）`
 
 ## Task 3: sop-api path_selector（搜实体→建路径→排序→合成）
 
