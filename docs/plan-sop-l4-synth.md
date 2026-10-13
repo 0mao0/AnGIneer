@@ -166,7 +166,7 @@ class TestGenerateSopFromSteps(unittest.TestCase):
 - Create: `services/sop-api/path_selector.py`
 - Test: `tests/unit/test_unit_sop_path_selector.py`
 
-- [ ] **Step 1 写失败测试**（mock docs-api HTTP，LLM 走 Task 2 的兜底路径即不需要 mock LLM——用 RuntimeError 触发骨架兜底，保证测试确定性）：
+- [x] **Step 1 写失败测试**（mock docs-api HTTP，LLM 走 Task 2 的兜底路径即不需要 mock LLM——用 RuntimeError 触发骨架兜底，保证测试确定性）：
 
 ```python
 """path_selector 合成管线单元测试（docs-api HTTP 全 mock，LLM 断网走骨架兜底）。"""
@@ -228,8 +228,8 @@ class TestSynthesizeSop(unittest.TestCase):
         self.assertTrue(result["sop"]["steps"])
 ```
 
-- [ ] **Step 2 跑测试确认失败**（模块不存在）
-- [ ] **Step 3 实现** `services/sop-api/path_selector.py`：
+- [x] **Step 2 跑测试确认失败**（模块不存在）
+- [x] **Step 3 实现** `services/sop-api/path_selector.py`：
 
 ```python
 """L4 合成管线：问题 → 实体链接 → 候选路径 → 确定性排序 → 生成器出 SOP。
@@ -397,8 +397,8 @@ def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
     return {"sop": sop, "path": path}
 ```
 
-- [ ] **Step 4 跑测试确认通过**：`pytest tests/unit/test_unit_sop_path_selector.py -q` → PASS
-- [ ] **Step 5 Commit**: `feat(sop-api): L4 合成管线 path_selector（搜实体→ACTION锚定路径→骨架/LLM 兜底→校验）`
+- [x] **Step 4 跑测试确认通过**：`pytest tests/unit/test_unit_sop_path_selector.py -q` → PASS
+- [x] **Step 5 Commit**: `feat(sop-api): L4 合成管线 path_selector（搜实体→ACTION锚定路径→骨架/LLM 兜底→校验）`
 
 ## Task 4: sop-api synthesize / crystallize 端点
 
