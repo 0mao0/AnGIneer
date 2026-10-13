@@ -116,7 +116,10 @@ class SopExecuteTests(unittest.TestCase):
         tool.handler(sop_query="计算码头水深", args={"Z0": 0.5})
 
         _sop, initial_context = runner.run_sop_calls[0]
-        self.assertEqual(initial_context["user_query"], "计算码头水深")
+        # 2026-10-13：args 展开「键: 值」并入提取文本（兼容「SOP名+args」调用形态），
+        # user_query 即合并文本（route 亦以合并文本调用；FakeClassifier 不校验内容）
+        self.assertTrue(str(initial_context["user_query"]).startswith("计算码头水深"))
+        self.assertIn("Z0: 0.5", initial_context["user_query"])
         self.assertEqual(initial_context["T"], 12.8)
         self.assertEqual(initial_context["Z0"], 0.5)
 
