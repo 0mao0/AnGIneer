@@ -6,6 +6,7 @@ runner 失败步挂引导（含嵌套模板扫描与计算器 unknowns 收集）
 import os
 import sys
 import unittest
+from unittest.mock import MagicMock, patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/ai-inference/src")))
@@ -83,6 +84,55 @@ class TestRunnerAttachesGuidance(unittest.TestCase):
         self.assertIn("k", rec.outputs.get("missing_params") or [])
         guide = {i["param"]: i for i in rec.outputs.get("missing_guidance") or []}
         self.assertEqual(guide["k"]["recommend"], "1.2")
+
+
+class TestAiRecommendationFallback(unittest.TestCase):
+    """静态表未覆盖的参数：AI 现场推荐（标注来源；失败/关闭时降级仅报缺，不得臆造）。"""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.pack = load_domain_pack("harbor")
+
+    def _runner_with_missing(self, name):
+        runner = SopRunner(domain_hints=self.pack, llm_client=object())
+        step = Step(id="s3", name_zh="x", tool="calculator", inputs={}, outputs={})
+        runner._step_missing["s3"] = [name]
+        runner._record_step(step, {}, {"error": "表达式包含未知量"}, error="未知量")
+        return runner, step
+
+    def test_ai_fills_unmapped_param(self):
+        runner, step = self._runner_with_missing("冷门参数X")
+        payload = '{"冷门参数X": {"recommend": 3.5, "unit": "m", "rationale": "工程常规取值", "confidence": "medium"}}'
+        with patch("angineer_core.sop_runner.chat_result_guarded", return_value=MagicMock(text=payload)):
+            runner._attach_missing_guidance(step)
+        item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["冷门参数X"]
+        self.assertEqual(item["recommend"], 3.5)
+        self.assertIn("ai", item["source"])
+        self.assertEqual(item["confidence"], "medium")
+
+    def test_ai_failure_degrades_to_report_only(self):
+        runner, step = self._runner_with_missing("冷门参数Y")
+        with patch("angineer_core.sop_runner.chat_result_guarded", side_effect=RuntimeError("boom")):
+            runner._attach_missing_guidance(step)
+        item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["冷门参数Y"]
+        self.assertNotIn("recommend", item)
+        self.assertIn("不臆造", item["rationale"])
+
+    def test_ai_disabled_by_env(self):
+        runner, step = self._runner_with_missing("冷门参数Z")
+        with patch.dict(os.environ, {"ANGINEER_SOP_AI_RECOMMEND": "0"}), \
+             patch("angineer_core.sop_runner.chat_result_guarded", side_effect=AssertionError("不应调用 LLM")):
+            runner._attach_missing_guidance(step)
+        item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["冷门参数Z"]
+        self.assertNotIn("recommend", item)
+
+    def test_static_beats_ai(self):
+        # 静态表命中的参数不触发 AI（航速有静态推荐 8kn）
+        runner, step = self._runner_with_missing("船舶航速")
+        with patch("angineer_core.sop_runner.chat_result_guarded", side_effect=AssertionError("不应调用 LLM")):
+            runner._attach_missing_guidance(step)
+        item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["船舶航速"]
+        self.assertEqual(item["recommend"], "8")
 
 
 if __name__ == "__main__":

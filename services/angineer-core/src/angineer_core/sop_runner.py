@@ -5,6 +5,7 @@
 """
 import json
 import math
+import os
 import re
 import time
 from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
@@ -109,6 +110,8 @@ class SopRunner:
         # 「题面可提供参数」白名单（run_sop 起按 SOP required ∪ 领域包推荐表计算；
         # 未计算时（None）不过滤——独立调用 _attach 的单测场景）
         self._reported_param_filter: Optional[set] = None
+        # AI 推荐值缓存（同 run 内同名参数只调一次 LLM；值只作建议不进计算）
+        self._ai_rec_cache: Dict[str, Dict[str, Any]] = {}
 
         if self.result_md_path:
             with open(self.result_md_path, "w", encoding="utf-8") as f:
@@ -311,11 +314,90 @@ class SopRunner:
                 SopRunner._collect_unresolved_names(item, acc)
         return acc
 
+    def _llm_recommend(self, names: List[str], step: Step) -> Dict[str, Dict[str, Any]]:
+        """静态推荐表未覆盖的参数：AI 现场生成推荐值（受约束）。
+
+        - 来源标注 ``ai``，与领域包静态值区分（业主可审、可随时挪进静态表）；
+        - 提示词硬约束：无可靠依据必须 recommend=null 只讲获取途径；
+        - 推荐值只作建议、绝不自动进计算；LLM 失败静默降级为「仅报缺」。
+        开关：``ANGINEER_SOP_AI_RECOMMEND=0`` 关闭。
+        """
+        if os.getenv("ANGINEER_SOP_AI_RECOMMEND", "1").strip() in ("0", "false", "False", "off"):
+            return {}
+        client = self._llm_client
+        if client is None or not names:
+            return {}
+        known = {
+            k: v for k, v in (self.memory.blackboard or {}).items()
+            if not str(k).startswith("_") and v not in (None, "")
+        }
+        query = str(known.get("user_query") or "")
+        known_desc = json.dumps(known, ensure_ascii=False, default=str)[:800]
+        param_defs = dict(getattr(self.domain_hints, "param_descriptions", None) or {})
+        step_desc = ""
+        try:
+            d = step.description
+            step_desc = (d.get("content") if isinstance(d, dict) else str(d)) or ""
+        except Exception:  # noqa: BLE001
+            pass
+        names_lines = []
+        for name in names:
+            line = f"- {name}"
+            if param_defs.get(name):
+                line += f"：{param_defs[name]}"
+            names_lines.append(line)
+        prompt = (
+            "你是水运/海港工程规范助手。某计算流程缺少以下参数，请逐一给出【推荐取值】供用户确认。\n"
+            f"当前步骤：{step.name or step.id}——{step_desc[:200]}\n"
+            "严格要求：\n"
+            "1. 先确认参数在本步骤中的物理含义（见下方参数释义与步骤描述），含义无法确定的 recommend 必须为 null；\n"
+            "2. 只推荐你能给出可靠依据的值；**禁止编造规范条文号**——引用具体条文必须确有把握，"
+            "否则 rationale 写明「工程常规（未核规范）」；\n"
+            "3. 推荐值只是建议，不会自动参与计算，用户确认后才生效；\n"
+            "4. 只输出严格 JSON（不要任何其它文字）：\n"
+            '{"参数名": {"recommend": <数值或短字符串或null>, "unit": "<单位或空串>", '
+            '"rationale": "<一句话：先写该参数的物理含义，再写取值依据>", "confidence": "high|medium|low"}}\n\n'
+            f"题面：{query[:600]}\n"
+            f"已知参数：{known_desc}\n"
+            "缺失参数（含释义）：\n" + "\n".join(names_lines) + "\n"
+        )
+        try:
+            result = chat_result_guarded(
+                client,
+                [{"role": "user", "content": prompt}],
+                mode=self.mode,
+                config_name=self.config_name,
+                max_tokens=600,
+            )
+            raw = (result.text or "").strip()
+            start, end = raw.find("{"), raw.rfind("}")
+            data = json.loads(raw[start:end + 1]) if 0 <= start < end else {}
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("AI 推荐值生成失败（降级为仅报缺，不臆造）: %s", exc)
+            return {}
+        out: Dict[str, Dict[str, Any]] = {}
+        for name in names:
+            entry = data.get(name)
+            if not isinstance(entry, dict):
+                continue
+            item: Dict[str, Any] = {"param": name}
+            if entry.get("recommend") not in (None, ""):
+                item["recommend"] = entry["recommend"]
+                if entry.get("unit"):
+                    item["unit"] = str(entry["unit"])
+            item["rationale"] = str(entry.get("rationale") or "")
+            item["source"] = "ai（模型推荐，仅供参考）"
+            if entry.get("confidence"):
+                item["confidence"] = str(entry["confidence"])
+            out[name] = item
+        return out
+
     def _attach_missing_guidance(self, step: Step):
         """失败步收集缺参（未解析模板 + 计算器 unknowns）→ 生成引导并汇总。
 
-        只对「题面可提供的参数」（SOP blackboard.required ∪ 领域包推荐表）出引导；
+        只对「题面可提供参数」（SOP blackboard.required ∪ 领域包推荐表）出引导；
         中间变量（c_ratio/η/E0 等上游计算产物）仅保留 missing_params 审计字段，不进报告。
+        静态表命中的参数用领域包推荐值；未命中的交 AI 现场生成（标注来源，可关）。
         """
         names = list(self._step_missing.get(step.id) or [])
         record = None
@@ -336,11 +418,22 @@ class SopRunner:
         if record is not None:
             payload = record.outputs if isinstance(record.outputs, dict) else {}
             payload["missing_params"] = names
-            if reportable:
-                payload["missing_guidance"] = build_missing_guidance(reportable, self.domain_hints)
             record.outputs = payload
-        if reportable:
-            self.missing_report.extend(build_missing_guidance(reportable, self.domain_hints))
+        if not reportable:
+            return
+        static_map = getattr(self.domain_hints, "param_recommendations", None) or {}
+        guidance = build_missing_guidance(reportable, self.domain_hints)
+        unmapped = [n for n in reportable if n not in static_map]
+        fresh = [n for n in unmapped if n not in self._ai_rec_cache]
+        if fresh:
+            self._ai_rec_cache.update(self._llm_recommend(fresh, step))
+        guidance = [
+            self._ai_rec_cache.get(item["param"], item) if item["param"] in unmapped else item
+            for item in guidance
+        ]
+        if record is not None and isinstance(record.outputs, dict):
+            record.outputs["missing_guidance"] = guidance
+        self.missing_report.extend(guidance)
 
     def _pick_next_step(self, step: Step, sop: SOP, executed_ids: set) -> Optional[Step]:
         """决定下一个执行的步骤（按契约优先级）：
