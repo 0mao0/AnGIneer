@@ -4,8 +4,9 @@
  * 树的挂载与排序直接用 @angineer/smartree 的 buildTreeFromFlat（与知识库树同一套工具），
  * 不再自行递归拼树。
  */
-import { computed, type Ref } from 'vue'
-import { buildTreeFromFlat, type SmartTreeNode } from '@angineer/smartree'
+import { computed, unref, type Ref } from 'vue'
+import { buildTreeFromFlat, cleanTitleDisplay, extractTitleNumber } from '@angineer/smartree/utils/tree'
+import type { SmartTreeNode } from '@angineer/smartree'
 import type { EvalDataset, EvalDatasetCategory, EvalFolder } from '../types/eval'
 
 export interface EvalTreeNode extends SmartTreeNode {
@@ -13,7 +14,7 @@ export interface EvalTreeNode extends SmartTreeNode {
   category?: EvalDatasetCategory
 }
 
-/** 判断是否为分类文件夹（知识库评测/SOP评测） */
+/** 判断是否为分类文件夹（知识库评测/SOP评测，种子目录固定 key） */
 export const isCategoryFolder = (node: SmartTreeNode): boolean => {
   const key = String(node.key || '')
   return key === 'folder-knowledge' || key === 'folder-sop'
@@ -33,11 +34,30 @@ export const getCategoryFromNode = (node: SmartTreeNode): EvalDatasetCategory =>
   return 'knowledge'
 }
 
+/** 从标题提取「编号+【】前缀」里的编号（「1【金融】…」→ 1，「12·GDP…」→ 12；「【法律】…」→ null） */
+export { extractTitleNumber, cleanTitleDisplay }
+
+export interface EvalTreeOptions {
+  /** 标题编号前缀参与排序（默认 true）：「1【金融】…」按编号置前，「【法律】…」这类无编号前缀的排末尾 */
+  numberedFirst?: Ref<boolean> | boolean
+  /** 标题展示净化（默认 false）：「1【金融】FinanceBench…」→「FinanceBench 150题」，只改渲染显示，不改存储标题 */
+  stripTitleNumberPrefix?: Ref<boolean> | boolean
+}
+
 export function useEvalDatasetTree(
   datasets: Ref<EvalDataset[]>,
   folders?: Ref<EvalFolder[]>,
+  options: EvalTreeOptions = {},
 ) {
-  /** 将 datasets 和 folders 转换为树结构（基于真实父子关系；同层文件夹在前、按 sort_order 排序） */
+  const numberedFirst = computed(() => unref(options.numberedFirst ?? true))
+  const stripTitleNumberPrefix = computed(() => unref(options.stripTitleNumberPrefix ?? false))
+
+  /** 树显示标题：默认原样；开关开启后净化「编号+【】前缀」（仅影响显示与排序键） */
+  const displayTitle = (title: string): string =>
+    stripTitleNumberPrefix.value ? cleanTitleDisplay(title) : title
+
+  /** 将 datasets 和 folders 转换为树结构（基于真实父子关系）：
+   *  numberedFirst 开启时编号前缀参与排序（含拖拽落位回写后仍按编号插回原位），关闭时维持 sort_order 优先 */
   const treeData = computed<EvalTreeNode[]>(() => {
     const folderNodes: EvalTreeNode[] = (folders?.value || []).map(f => ({
       key: f.folder_id,
@@ -51,6 +71,7 @@ export function useEvalDatasetTree(
     const datasetNodes: EvalTreeNode[] = datasets.value.map(item => ({
       key: item.dataset_id,
       title: item.title,
+      displayTitle: displayTitle(item.title),
       isLeaf: true,
       isFolder: false,
       questionCount: item.question_count,
@@ -58,12 +79,18 @@ export function useEvalDatasetTree(
       parentId: item.folder_id || undefined,
       sort_order: item.sort_order,
     }))
-    return buildTreeFromFlat({ folders: folderNodes, items: datasetNodes })
+    return buildTreeFromFlat({
+      folders: folderNodes,
+      items: datasetNodes,
+      numberedFirst: numberedFirst.value,
+      // 净化开启时按净化后的显示名排序；关闭时按原标题拼音兜底
+      compareTitle: (node: EvalTreeNode) => node.displayTitle || node.title,
+    })
   })
 
-  /** 默认展开所有节点 */
+  /** 默认展开所有文件夹层级（只收集文件夹节点 key，叶子节点不参与展开语义） */
   const defaultExpandedKeys = computed(() =>
-    treeData.value.map(n => n.key)
+    treeData.value.filter(n => n.isFolder).map(n => n.key)
   )
 
   return {

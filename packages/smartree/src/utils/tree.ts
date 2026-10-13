@@ -127,19 +127,59 @@ export interface SortableTreeNode {
   [key: string]: any
 }
 
-/** 节点排序：先按 sort_order/sortOrder，再按标题中文排序；foldersFirst 时文件夹在前 */
+/** 标题编号前缀（如「3【学术】…」）→ 序号；「【法律】…」这类带【】但无编号的前缀不提取（返回 null，保持拼音兜底）。
+ *  单独一个数字（≥2 位，或 1 位且后跟【/·/-/./_）必须紧跟编号内容，防止「911 事件」这类内容被误判成编号。
+ *  函数内先做全角→半角归一（「５【全域】」同样识别）。 */
+export function extractTitleNumber(title: string): number | null {
+  const raw = String(title || '').trim()
+  if (!raw) return null
+  const normalized = raw.replace(/[！-～]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0))
+  let match = normalized.match(/^(\d{2,})(?=[^\d\s])/)
+  if (match) return Number(match[1])
+  match = normalized.match(/^(\d)(?=[【·\-_.＿，][^\d])/)
+  return match ? Number(match[1]) : null
+}
+
+/**
+ * 标题展示名净化（L4 编号/前缀清理，可选能力，默认不启用）：
+ * - 仅当标题带「编号前缀 +（可选【…】/·/分隔）」（「1【金融】…」「12·GDP…」）时，去编号与前缀、压空白；
+ * - 无编号的「【法律】…」前缀与无【】的文档标题（知识树等场景）→ 原样返回，避免误删正文语义。
+ */
+export function cleanTitleDisplay(title: string): string {
+  const raw = String(title || '').trim()
+  if (!raw) return raw
+  const normalized = raw.replace(/[！-～]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0))
+  const match = normalized.match(/^(\d{2,}(?=[^\d\s])|\d(?=[【·\-_.＿，][^\d]))\s*[】】·.．、\-_：:]*(?:【[^】]*】)?\s*/)
+  if (!match) return raw
+  const rest = normalized.slice(match[0].length).trim()
+  return rest || raw
+}
+
+/** 节点排序：先按 sort_order/sortOrder，再按标题中文排序；foldersFirst 时文件夹在前。
+ *  numberedFirst（默认关，知识库树不受影响）：带编号前缀的标题按编号数值升序整体置前，
+ *  无编号标题排其后，同编号再按标题 zh 拼音兜底。 */
 export function sortTreeNodes<T extends SortableTreeNode>(
   nodes: T[],
-  options: { foldersFirst?: boolean } = {},
+  options: { foldersFirst?: boolean; numberedFirst?: boolean; compareTitle?: (node: SortableTreeNode) => string } = {},
 ): T[] {
   const order = (n: SortableTreeNode): number => {
     const raw = n.sort_order ?? n.sortOrder
     return typeof raw === 'number' ? raw : Number.MAX_SAFE_INTEGER
   }
+  const titleOf = (n: SortableTreeNode): string => options.compareTitle ? options.compareTitle(n) : String(n.title || '')
+  const numberKey = (n: SortableTreeNode): number => {
+    const num = extractTitleNumber(titleOf(n))
+    return num === null ? Number.MAX_SAFE_INTEGER : num
+  }
   const compare = (a: SortableTreeNode, b: SortableTreeNode): number => {
+    if (options.numberedFirst) {
+      const na = numberKey(a)
+      const nb = numberKey(b)
+      if (na !== nb) return na - nb
+    }
     const orderDiff = order(a) - order(b)
     if (orderDiff !== 0) return orderDiff
-    return String(a.title || '').localeCompare(String(b.title || ''), 'zh-CN')
+    return titleOf(a).localeCompare(titleOf(b), 'zh-CN')
   }
   const folders = nodes.filter((n) => n.isFolder).sort(compare)
   const files = nodes.filter((n) => !n.isFolder).sort(compare)
@@ -152,15 +192,17 @@ export function buildTreeFromFlat<T extends SortableTreeNode>(options: {
   items: T[]
   getParentKey?: (node: T) => string | null
   foldersFirst?: boolean
+  numberedFirst?: boolean
+  compareTitle?: (node: T) => string
 }): T[] {
-  const { folders, items, getParentKey = (n) => n.parentId ?? null, foldersFirst = true } = options
+  const { folders, items, getParentKey = (n) => n.parentId ?? null, foldersFirst = true, numberedFirst = false, compareTitle } = options
   const knownFolderKeys = new Set(folders.map((f) => f.key))
   const childNodes = (parentKey: string | null): T[] => {
     const children = [
       ...folders.filter((f) => getParentKey(f) === parentKey),
       ...items.filter((i) => getParentKey(i) === parentKey),
     ]
-    return sortTreeNodes(children, { foldersFirst })
+    return sortTreeNodes(children, { foldersFirst, numberedFirst, compareTitle: compareTitle as any })
   }
   for (const folder of folders) {
     folder.children = childNodes(folder.key)
