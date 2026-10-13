@@ -729,7 +729,7 @@ def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
 ## Task 7: 验收（预注册）
 
 - [ ] **单测集全绿**：`pytest tests/unit tests/angineer-core services/sop-core/tests tests/knowledge_graph/test_sop_path_generator.py -q`（分开跑，两目录同名模块不可合跑）
-- [ ] **开关关一致性**：Task 5 的 `test_no_callback_returns_legacy_error` 即构造性断言
+- [x] **开关关一致性**：Task 5 的 `test_no_callback_returns_legacy_error` 即构造性断言
 - [ ] **手测开关开**：本地 `.env` 临时 `ANGINEER_SOP_L4_SYNTH=1` + 重启 aichat → 问一道**故意海港题集覆盖不到**的复合计算题 → 观察 sop-api 日志 synthesize 调用、回答带 l4_synth 结果、`data/platform/sops/json/` 出现 draft、管理页审核流可发布
 - [ ] **预注册对照（跑前写死）**：20 题海港计算题集（从既有评测题集抽），A 臂=开关关、B 臂=开；判据：①B 正确题数 ≥ A 正确题数 − 5（噪声地板内）；②B 的合成调用成功率与 412 率如实记录（能力画像，非门禁）；③无判分闸回退。结果只报不改 nightly 门禁（业主口径）
 - [ ] **证据闸核查**（主方案 §6.3 遗留验证项）：确认 complex 档 `final_answer_guard(enforce_evidence=True)` 对 L4 合成执行的回答同样生效——手测开关开时给一道无证据支撑的合成题，确认答案被闸拦截而非放行

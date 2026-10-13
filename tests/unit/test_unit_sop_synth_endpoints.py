@@ -1,15 +1,31 @@
 """synthesize/crystallize 端点测试。"""
+import importlib.util
 import os, sys, json, unittest
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-api")))
+from pathlib import Path
+from unittest.mock import patch
+from fastapi.testclient import TestClient
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/sop-core/src")))
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
-from unittest.mock import patch
-from fastapi.testclient import TestClient
-import main
-from path_selector import SynthUnavailable
+# 坑：不要裸 `import main`，也不要把 services/sop-api 常驻 sys.path——全量套跑 collection
+# 阶段即导入本模块，该目录会遮蔽 docs-api 侧按裸名 import main 的用例（health_identity
+# 曾套内必红、单跑必绿）。做法：临时入 path 完成加载（path_selector / docs_graph_client
+# 进 sys.modules 供端点 lazy import），随后移除；main.py 按唯一模块名加载，互不遮蔽。
+_SOP_API_DIR = str(Path(__file__).resolve().parents[2] / "services" / "sop-api")
+sys.path.insert(0, _SOP_API_DIR)
+try:
+    import docs_graph_client  # noqa: F401
+    from path_selector import SynthUnavailable
+    _spec = importlib.util.spec_from_file_location(
+        "sop_api_main_under_test", os.path.join(_SOP_API_DIR, "main.py"))
+    assert _spec and _spec.loader
+    _sop_main = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_sop_main)
+finally:
+    sys.path.remove(_SOP_API_DIR)
 
-client = TestClient(main.app)
+client = TestClient(_sop_main.app)
 
 _SOP = {
     "id": "synthtest1", "name_zh": "合成测试", "description": "d",
