@@ -17,6 +17,7 @@ from angineer_core.agent_tools import (
 from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化后 re-export，保持旧导入兼容
     COMPLEX_AGENT_SYSTEM_PROMPT,
     FOLLOWUP_QUESTION_RULE,
+    NO_FOLLOWUP_QUESTION_RULE,
     QA_AGENT_SYSTEM_PROMPT,
 )
 from angineer_core.tool_codec import TextToolCallCodec
@@ -382,6 +383,15 @@ def build_chat_config(
 def _followup_question_enabled() -> bool:
     """ANGINEER_FOLLOWUP_QUESTION 开关解析：true/1/yes/on 视为开，其余视为关（默认开）。"""
     return os.getenv("ANGINEER_FOLLOWUP_QUESTION", "true").strip().lower() in ("true", "1", "yes", "on")
+
+
+def _complex_followup_question_enabled() -> bool:
+    """L3/L4（复杂档）末尾追问开关：ANGINEER_COMPLEX_FOLLOWUP_QUESTION，默认关。
+
+    2026-10-13 业主定：L3/L4 答案不要「您是否想了解…」类邀请式问句（观感像客服话术）；
+    缺参场景保留陈述句引导（由结尾规则承载）。全局 ANGINEER_FOLLOWUP_QUESTION=false 仍可整体关。
+    """
+    return os.getenv("ANGINEER_COMPLEX_FOLLOWUP_QUESTION", "false").strip().lower() in ("true", "1", "yes", "on")
 
 
 def _eager_compress_enabled() -> bool:
@@ -837,9 +847,12 @@ def build_complex_config(
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
 
-    complex_followup = _followup_question_enabled()
+    complex_followup = _followup_question_enabled() and _complex_followup_question_enabled()
     if complex_followup:
         system_prompt += FOLLOWUP_QUESTION_RULE
+    else:
+        # L3/L4 默认不加邀请式问句（2026-10-13 业主定）；缺参仍按陈述句引导
+        system_prompt += NO_FOLLOWUP_QUESTION_RULE
 
     # §7.7 注入实验：与 QA 档各追加同一条规则（同一注入文本经穿线同时到达两档）
     if sop_hint:

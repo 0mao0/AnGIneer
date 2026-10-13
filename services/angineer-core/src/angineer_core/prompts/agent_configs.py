@@ -376,5 +376,14 @@ register("agent_configs.qa_system_prompt", "v16", QA_AGENT_SYSTEM_PROMPT_V16)
 register("agent_configs.qa_system_prompt", "v17", QA_AGENT_SYSTEM_PROMPT_V17)
 register("agent_configs.qa_system_prompt", "v18", QA_AGENT_SYSTEM_PROMPT_V18)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
+NO_FOLLOWUP_QUESTION_RULE = (
+    "\n\n## 结尾规则\n"
+    "回答直接以结论、计算过程或缺口说明收尾；不要附加「您是否想…」「需要我展开讲讲…吗？」"
+    "这类邀请式问句（L3/L4 复杂档默认不加追问）。需要用户补充参数时用陈述句引导，"
+    "例如「请补充『船舶航速』（建议 8kn）后重问，即可给出最终结果」。"
+)
+
+
 register("agent_configs.followup_question_rule", "v3", FOLLOWUP_QUESTION_RULE)
+register("agent_configs.no_followup_question_rule", "v1", NO_FOLLOWUP_QUESTION_RULE)
 # meta_system_prompt 已随 meta 档删除（2026-10-02 废 meta_query 路由第二步）：无消费方，历史 run 快照中的版本字符串不受影响。

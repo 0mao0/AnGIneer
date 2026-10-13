@@ -10,6 +10,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 from angineer_core.agent_configs import (  # noqa: E402
     QA_AGENT_SYSTEM_PROMPT,
     build_chat_config,
+    build_complex_config,
     build_qa_config,
     make_final_answer_guard,
 )
@@ -74,6 +75,25 @@ class QaConfigTests(unittest.TestCase):
         self.assertTrue(config_default.followup_question)
         self.assertFalse(config_off.followup_question)
         self.assertEqual(config_off.system_prompt, load("agent_configs.qa_system_prompt"))
+
+    def test_complex_followup_default_off(self):
+        """L3/L4 默认不加邀请式问句（2026-10-13 业主定）：注入结尾规则而非末尾追问规则。"""
+        with patch.dict(os.environ, {}, clear=False):
+            os.environ.pop("ANGINEER_FOLLOWUP_QUESTION", None)
+            os.environ.pop("ANGINEER_COMPLEX_FOLLOWUP_QUESTION", None)
+            config = build_complex_config(llm=Mock())
+        self.assertNotIn("末尾追问规则", config.system_prompt)
+        self.assertIn("结尾规则", config.system_prompt)
+        self.assertIs(config.followup_question, False)
+
+    def test_complex_followup_can_be_enabled(self):
+        with patch.dict(os.environ, {
+            "ANGINEER_FOLLOWUP_QUESTION": "true",
+            "ANGINEER_COMPLEX_FOLLOWUP_QUESTION": "true",
+        }, clear=False):
+            config = build_complex_config(llm=Mock())
+        self.assertIn("末尾追问规则", config.system_prompt)
+        self.assertIs(config.followup_question, True)
 
     def test_guard_appends_followup_question_on_refusal_when_enabled(self):
         from angineer_core.agent_messages import REFUSAL_FOLLOWUP_QUESTION
