@@ -184,41 +184,76 @@ def _llm_semantic_evaluate(
     # 温度 0 会让判分器整体偏严（漏一个数值就从 0.8 打到 0.4），回到默认 0.1，宽容度靠提示词规则保证。
     candidates = _resolve_judge_candidates(judge_config_name)
     last_exc: Optional[Exception] = None
-    for index, config_name in enumerate(candidates):
-        try:
-            result = chat_result_guarded(client, messages, mode="instruct", config_name=config_name, temperature=0.1)
-            raw_response = result.text
+
+    def _judge_once() -> Optional[Dict[str, Any]]:
+        """单票判分（候选链内逐端点尝试）；全失败返回 None（不抛，交由收口层决定）。"""
+        nonlocal last_exc
+        for index, config_name in enumerate(candidates):
             try:
-                parsed = extract_json_from_text(raw_response, strict=True)
-            except ParseError:
-                # strict 解析失败（常见原因是 reason 里的 LaTeX 非法转义），
-                # 用宽松模式修复非法转义/尾逗号后重试，让语义判分真实生效
-                parsed = extract_json_from_text(raw_response, strict=False)
-            score = float(parsed.get("score", 0.0))
-            score = max(0.0, min(1.0, score))
-            reason = str(parsed.get("reason", "")).strip()
-            passed = score >= semantic_threshold
-            return {
-                "semantic_score": round(score, 4),
-                "semantic_reason": reason,
-                "semantic_evaluated": True,
-                "semantic_fallback": False,
-                "semantic_passed": passed,
-                "judge_used": config_name or "<被测默认>",
-                "judge_failover": index > 0,
-                "eval_duration": round(_time.time() - _t_start, 2),
-            }
-        except Exception as exc:  # noqa: BLE001 —— 单候选失败切下一候选
-            if is_fatal_exception(exc):
-                raise
-            last_exc = exc
-    return {
-        "semantic_score": None,
-        "semantic_reason": f"LLM 语义评判失败（候选 {len(candidates)} 个端点均失败）: {last_exc}",
-        "semantic_evaluated": False,
-        "semantic_fallback": True,
-        "semantic_passed": None,
-    }
+                result = chat_result_guarded(client, messages, mode="instruct", config_name=config_name, temperature=0.1)
+                raw_response = result.text
+                try:
+                    parsed = extract_json_from_text(raw_response, strict=True)
+                except ParseError:
+                    # strict 解析失败（常见原因是 reason 里的 LaTeX 非法转义），
+                    # 用宽松模式修复非法转义/尾逗号后重试，让语义判分真实生效
+                    parsed = extract_json_from_text(raw_response, strict=False)
+                score = float(parsed.get("score", 0.0))
+                score = max(0.0, min(1.0, score))
+                reason = str(parsed.get("reason", "")).strip()
+                passed = score >= semantic_threshold
+                return {
+                    "semantic_score": round(score, 4),
+                    "semantic_reason": reason,
+                    "semantic_evaluated": True,
+                    "semantic_fallback": False,
+                    "semantic_passed": passed,
+                    "judge_used": config_name or "<被测默认>",
+                    "judge_failover": index > 0,
+                    "eval_duration": round(_time.time() - _t_start, 2),
+                }
+            except Exception as exc:  # noqa: BLE001 —— 单候选失败切下一候选
+                if is_fatal_exception(exc):
+                    raise
+                last_exc = exc
+        return None
+
+    first = _judge_once()
+    if first is None:
+        return {
+            "semantic_score": None,
+            "semantic_reason": f"LLM 语义评判失败（候选 {len(candidates)} 个端点均失败）: {last_exc}",
+            "semantic_evaluated": False,
+            "semantic_fallback": True,
+            "semantic_passed": None,
+        }
+    # 双判一致制（ANGINEER_JUDGE_REJUDGE=1；默认关=逐字保持单判行为）：
+    # 两票一致收口；不一致加第三票取多数；票数失败时按已有票稳妥收口并留痕。
+    from evals_core.runner import judge_audit
+    if not judge_audit.rejudge_enabled():
+        return first
+    scores: List[float] = [first["semantic_score"]]
+    votes: List[bool] = [first["semantic_passed"]]
+    second = _judge_once()
+    if second is None:
+        merged = dict(first)
+        merged["semantic_rejudge"] = judge_audit.build_audit(scores, votes, "second_failed")
+        return merged
+    scores.append(second["semantic_score"])
+    votes.append(second["semantic_passed"])
+    if votes[0] != votes[1]:
+        third = _judge_once()
+        if third is not None:
+            scores.append(third["semantic_score"])
+            votes.append(third["semantic_passed"])
+    outcome = judge_audit.combine_votes(votes, scores, semantic_threshold)
+    merged = dict(first)
+    merged["semantic_score"] = judge_audit.median_score(scores)
+    merged["semantic_passed"] = outcome["passed"]
+    merged["semantic_reason"] = second.get("semantic_reason") or first.get("semantic_reason")
+    merged["eval_duration"] = round(_time.time() - _t_start, 2)
+    merged["semantic_rejudge"] = judge_audit.build_audit(scores, votes, outcome["mode"])
+    return merged
 
 
 def _llm_evidence_support_check(

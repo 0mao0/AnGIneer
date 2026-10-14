@@ -285,8 +285,9 @@ def evaluate_via_deepeval(
     }
 
     # 1) correctness：GEval 移植现有 rubric（口径不变只换实现）
-    try:
-        geval = GEval(
+    def _geval_once() -> tuple:
+        """单票 GEval 判分；构造度量→measure→(score, reason)。"""
+        m = GEval(
             name="answer_correctness",
             criteria=_GEVAL_CRITERIA,
             # 固化 rubric 清单：跳过"每题现编 steps"的生成调用（省近半判分费 + 消除 steps 漂移噪声）
@@ -297,11 +298,18 @@ def evaluate_via_deepeval(
             threshold=SEMANTIC_THRESHOLD,
             async_mode=False,
         )
-        geval.measure(test_case)
-        score = max(0.0, min(1.0, float(geval.score or 0.0)))
+        m.measure(test_case)
+        return max(0.0, min(1.0, float(m.score or 0.0))), str(m.reason or "")
+
+    try:
+        score, reason = _geval_once()
+    except Exception as exc:  # noqa: BLE001
+        result["semantic_reason"] = f"DeepEval GEval 判分失败: {exc}"
+        logger.warning("GEval 判分失败: %s", exc)
+    else:
         result.update(
             semantic_score=round(score, 4),
-            semantic_reason=str(geval.reason or ""),
+            semantic_reason=reason,
             semantic_evaluated=True,
             semantic_fallback=False,
             semantic_passed=score >= SEMANTIC_THRESHOLD,
@@ -310,9 +318,32 @@ def evaluate_via_deepeval(
             judge_raw_score=judge.last_raw_score,
             judge_scale_fixed=judge.last_score_scale_fixed,
         )
-    except Exception as exc:  # noqa: BLE001
-        result["semantic_reason"] = f"DeepEval GEval 判分失败: {exc}"
-        logger.warning("GEval 判分失败: %s", exc)
+        # 双判一致制（ANGINEER_JUDGE_REJUDGE=1；默认关=单判行为逐字不变；与 legacy 同规则）：
+        # 两票一致收口；不一致加第三票取多数；票失败按已有票留痕收口。
+        from evals_core.runner import judge_audit
+        if judge_audit.rejudge_enabled():
+            scores: List[float] = [score]
+            votes: List[bool] = [score >= SEMANTIC_THRESHOLD]
+            rejudge_mode = "second_failed"
+            try:
+                score2, reason2 = _geval_once()
+                scores.append(score2)
+                votes.append(score2 >= SEMANTIC_THRESHOLD)
+                if votes[0] != votes[1]:
+                    try:
+                        score3, _ = _geval_once()
+                        scores.append(score3)
+                        votes.append(score3 >= SEMANTIC_THRESHOLD)
+                    except Exception as exc3:  # noqa: BLE001
+                        logger.warning("GEval 第三票失败（按已有票收口）: %s", exc3)
+                outcome = judge_audit.combine_votes(votes, scores, SEMANTIC_THRESHOLD)
+                result["semantic_score"] = judge_audit.median_score(scores)
+                result["semantic_passed"] = outcome["passed"]
+                result["semantic_reason"] = reason2 or reason
+                rejudge_mode = outcome["mode"]
+            except Exception as exc2:  # noqa: BLE001 第二票失败：单判结果照常有效
+                logger.warning("GEval 第二票失败（按单判收口）: %s", exc2)
+            result["semantic_rejudge"] = judge_audit.build_audit(scores, votes, rejudge_mode)
 
     # 2) 新增维度：独立失败独立记 None，不污染 correctness 口径
     # EVAL_DEEPVAL_EXTRA=0/false 可关闭扩展维度（每题省 3~6 次 judge 调用，nightly 提速）
