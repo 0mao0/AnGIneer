@@ -41,6 +41,27 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(attempts[0].name, "L1 语义检索")
         self.assertTrue(attempts[0].requires_tools)
 
+    def test_mcq_protocol_injected_for_choice_question(self):
+        """选择题壳（≥2 个 A-D 选项标记）→ L2 段系统提示词追加作答协议（2026-10-15）。"""
+        mcq = ("下列关于海港通信方式的叙述，符合规范规定的是："
+               "（A）规模较小的港区电话网宜按端站、汇接站组网（B）油气化工码头宜设置报警广播（C）略（D）略")
+        attempts = build_attempts(
+            intent_result=self._intent("L2", "structured_lookup"),
+            scene="docs", library_id="default", doc_ids=[],
+            load_nodes=lambda: [], llm_factory=lambda: Mock(), query=mcq,
+        )
+        cfg = attempts[0].config_factory()
+        self.assertIn("选择题作答协议", cfg.system_prompt)
+
+    def test_mcq_protocol_absent_for_normal_question(self):
+        attempts = build_attempts(
+            intent_result=self._intent("L2", "structured_lookup"),
+            scene="docs", library_id="default", doc_ids=[],
+            load_nodes=lambda: [], llm_factory=lambda: Mock(), query="锚地按功能可划分为哪些类型？",
+        )
+        cfg = attempts[0].config_factory()
+        self.assertNotIn("选择题作答协议", cfg.system_prompt or "")
+
     def test_answer_usable_rejects_paraphrased_refusal(self):
         """模型自拟拒答（非标准话术）也必须被成功检查识别，不能当作成功答案放行。"""
         from angineer_core.agent_messages import AgentMessage

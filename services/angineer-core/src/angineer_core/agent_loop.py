@@ -318,6 +318,22 @@ def _tool_evidence_present(messages: List[AgentMessage]) -> bool:
     return False
 
 
+def _sop_missing_finalization(messages: List[AgentMessage]) -> bool:
+    """段内是否出现过「SOP 缺参收尾」形态的 sop_execute 工具结果（内容含「缺参」）。
+
+    2026-10-15 reviewed-exam 解剖：标准计算链因缺参/步骤失败收场时，模型按纪律只报缺
+    （无引用），结局被证据闸整答替换为「无证据拒答」。本判定供正文回退保险用（另两条
+    条件：零证据、最后一段）。"""
+    for message in messages:
+        if message.role != "tool":
+            continue
+        if str(getattr(message, "name", "") or "") != "sop_execute":
+            continue
+        if "缺参" in (message.content or ""):
+            return True
+    return False
+
+
 def _last_answer_is_hard_refusal(messages: List[AgentMessage]) -> bool:
     """拒答且非第三档（「供参考」相邻片段）——第三档是 prompt 规则 16 的合法收尾，
     触发定向重试会逼模型把相邻证据改写成答案，正是 2026-09-20 nightly 拒答题
@@ -1094,6 +1110,43 @@ class _AttemptMachine:
         attempt = self.attempts[self.active_attempt_idx]
         check = attempt.success_check
         used_tools = any(m.role == "tool" for m in self.messages[self.attempt_start_idx:])
+        # SOP 缺参收尾的正文回退保险（2026-10-15）：SOP 执行因缺参/失败收场且段内零证据时，
+        # 结局会被证据闸整答替换为「无证据拒答」（规定类问题白丢分）。给它一次正文检索
+        # 兜底（一次性）：规定/方法部分可基于证据作答，数值结果仍不臆造（缺参纪律红线不动）。
+        # 放在 ok-判定之前：缺参报告本身大概率能过 success_check，先进 ok 出口就轮不到本保险。
+        if (
+            used_tools
+            and self.active_attempt_idx + 1 >= len(self.attempts)
+            and not self._forced_retrieve_used
+            and self.force_retrieve is not None
+            and not _tool_evidence_present(self.messages[self.attempt_start_idx:])
+            and _sop_missing_finalization(self.messages[self.attempt_start_idx:])
+        ):
+            forced = self.force_retrieve()
+            if forced:
+                result_content, result_raw = forced
+                self._forced_retrieve_used = True
+                self.attempt_turn = max(0, self.attempt_turn - 1)
+                self.messages.append(
+                    AgentMessage(
+                        role="tool",
+                        content=result_content,
+                        tool_call_id="forced_knowledge_search",
+                        name="knowledge_search",
+                        meta=result_raw,
+                    )
+                )
+                self.messages.append(
+                    AgentMessage(
+                        role="user",
+                        content="SOP 因缺参/步骤失败未给出数值结果。已代为执行知识检索：请基于检索到的证据，"
+                        "把规范中的规定/方法/查表要求部分回答出来（这不属于代算）；仍缺的参数照实列出，"
+                        "数值结果不得自行假设。",
+                    )
+                )
+                self.add_note("SOP 缺参收尾且段内零证据，已代为执行 knowledge_search 并要求基于正文证据作答")
+                self.path_trace.append("sop_missing_forced_retrieve")
+                return "retry"
         ok = check is None or bool(_run_callback(check, True, added))
         if ok:
             if not (attempt.requires_tools and not used_tools):

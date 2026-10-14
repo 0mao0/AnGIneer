@@ -3,10 +3,28 @@
 只做“用什么配置、按什么顺序、何时回退”，不碰引擎内部。
 """
 import os
-from typing import Any, Callable, List, Optional
+import re
+from typing import Any, Callable, Dict, List, Optional
 
 from angineer_core.agent_loop import AgentLoopConfig, AttemptConfig
 from angineer_core.agent_messages import AgentMessage, is_refusal_text
+
+# 选择题作答协议（2026-10-15 reviewed-exam 解剖）：题面是「下列关于…符合规范规定的是（A）…（D）」
+# 型选择题时，模型常因题面措辞与规范原文不完全一致而整体自拒（8/50 错题即此形态）。本协议在
+# 检出选择题壳（≥2 个选项标记）时注入 L1/L2 段的系统提示词（按 query 形状条件注入，非常驻）。
+_MCQ_OPTION_RE = re.compile(r"[（(][A-D][)）]")
+
+
+def _looks_like_mcq(query: Optional[str]) -> bool:
+    """选择题识别：题面含 ≥2 个选项标记（A）～（D）即视为选择题（题型壳判定，不看语义）。"""
+    return len(_MCQ_OPTION_RE.findall(str(query or ""))) >= 2
+
+
+_MCQ_PROTOCOL = (
+    "\n\n【选择题作答协议】本题为规范选择题：检索到相关条文后逐项比对，给出明确所选项及依据；"
+    "题面措辞与规范原文不完全一致（同义改写、简写、选项语序差异）不构成「无证据」，"
+    "不得因措辞差异整体拒答；仅在检索结果确实不覆盖该主题时才说明缺失。"
+)
 
 
 def _last_answer(messages: List[AgentMessage]) -> Optional[str]:
@@ -56,11 +74,11 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
-def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None, answer_format=None) -> AttemptConfig:
+def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None, answer_format=None, query=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
-        return build_qa_config(
+        cfg = build_qa_config(
             llm=llm_factory(),
             doc_nodes=load_nodes(),
             library_id=library_id,
@@ -74,6 +92,9 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             marker_allocator=marker_allocator,
             answer_format=answer_format,
         )
+        if _looks_like_mcq(query):
+            cfg.system_prompt = (cfg.system_prompt or "") + _MCQ_PROTOCOL
+        return cfg
 
     return AttemptConfig(
         name="L1 语义检索",
@@ -85,11 +106,11 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
     )
 
 
-def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=None, answer_format=None) -> AttemptConfig:
+def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=None, answer_format=None, query=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
-        return build_qa_config(
+        cfg = build_qa_config(
             llm=llm_factory(),
             doc_nodes=load_nodes(),
             library_id=library_id,
@@ -104,6 +125,9 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             marker_allocator=marker_allocator,
             answer_format=answer_format,
         )
+        if _looks_like_mcq(query):
+            cfg.system_prompt = (cfg.system_prompt or "") + _MCQ_PROTOCOL
+        return cfg
 
     def success(added: List[AgentMessage]) -> bool:
         return _has_evidence(added) and _answer_usable(added)
@@ -172,6 +196,7 @@ def build_attempts(
     library_ids: Optional[List[str]] = None,
     answer_format: Optional[str] = None,
     l4_synth: Optional[Any] = None,
+    step_event: Optional[Callable[[Dict[str, Any]], None]] = None,
 ) -> List[AttemptConfig]:
     level = str(getattr(intent_result, "intent_level", "") or "")
     service_mode = str(getattr(intent_result, "service_mode", "") or "")
@@ -204,6 +229,9 @@ def build_attempts(
                 sop_hint=sop_hint,
                 l4_synth=l4_synth,
                 answer_format=answer_format,
+                # SOP 流程图事件通道（2026-10-14）：仅 chat SSE 链路传入，
+                # 评测/REST 等调用方缺省 None，行为逐位不变
+                step_event=step_event,
                 # 与 L1/L2 同口径：复杂档答案必须过证据闸（2026-10-04 补装，防无证据出结论）
                 final_answer_guard=make_final_answer_guard(enforce_evidence=True),
             )
@@ -216,10 +244,10 @@ def build_attempts(
         )]
     if level == "L2" or service_mode in ("structured_lookup", "sql_first"):
         return [
-            _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=library_ids, answer_format=answer_format),
-            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator, library_ids=library_ids, answer_format=answer_format),
+            _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=library_ids, answer_format=answer_format, query=query),
+            _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=False, marker_allocator=marker_allocator, library_ids=library_ids, answer_format=answer_format, query=query),
         ]
-    return [_l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=True, marker_allocator=marker_allocator, library_ids=library_ids, answer_format=answer_format)]
+    return [_l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence=True, marker_allocator=marker_allocator, library_ids=library_ids, answer_format=answer_format, query=query)]
 
 
 def format_route_note(intent_result: Any) -> Optional[str]:

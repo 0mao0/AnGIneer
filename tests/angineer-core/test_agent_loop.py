@@ -1807,5 +1807,83 @@ class ToolTimeoutRetryTests(unittest.TestCase):
         self.assertEqual(_latest_user_query([msgs[1]]), "")
 
 
+class SopMissingFallbackTests(unittest.TestCase):
+    """SOP 缺参收尾的正文回退保险（2026-10-15 reviewed-exam 解剖）：
+    零证据 + sop_execute 缺参收尾 → 系统代检索一次并要求按正文证据作答（数值仍不臆造）。
+    注意：保险位于 _AttemptMachine.advance()，仅 attempts 形态配置会走到（生产恒有 attempts）。"""
+
+    def _sop_tool(self, summary):
+        def handler(**kwargs):
+            return {"summary": summary, "steps": [{"step_id": "s1", "status": "failed"}]}
+        return make_tool("sop_execute", handler)
+
+    def _ks_tool(self, calls):
+        def handler(query=None, **kw):
+            calls.append(query)
+            return {"items": [{"item_id": "c1", "text": "规范正文：应按表取值……"}], "citations": [{"marker": "K1"}]}
+        return make_tool("knowledge_search", handler,
+                         {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]},
+                         read_only=True)
+
+    @staticmethod
+    def _cfg_with_attempt(llm, tools, success_check=None):
+        def factory():
+            return AgentLoopConfig(llm=llm, tools=tools, system_prompt="p", max_turns=6)
+        return AgentLoopConfig(
+            llm=llm, tools=[], system_prompt="outer", max_turns=6,
+            attempts=[AttemptConfig(name="L3/L4 复杂任务", config_factory=factory,
+                                    success_check=success_check, requires_tools=True)],
+        )
+
+    def test_missing_sop_triggers_forced_body_search(self):
+        ks_calls: list = []
+        tools = [
+            self._sop_tool("命中 SOP X，执行 3 步，成功 0 步，失败 3 步；缺参：k2（建议 1.15）——请补充后重问（系统不臆造数值，推荐值仅供参考）"),
+            self._ks_tool(ks_calls),
+        ]
+        calls = []
+
+        def gen(messages, kwargs):
+            calls.append(1)
+            if len(calls) == 1:
+                yield from text_events(tool_block([{"name": "sop_execute", "arguments": {}}]))
+            elif len(calls) == 2:
+                yield from text_events("SOP 报缺参：k2；请补充后重问（系统不臆造数值）")
+            else:
+                yield from text_events("根据规范正文的规定：应按表取值……")
+
+        llm = MockLLM(gen)
+        events: list = []
+        messages: list = [AgentMessage(role="user", content="某海港码头前沿水深计算题")]
+        # success_check 恒真：缺参报告本身能过成功检查——保险必须先于 ok 出口生效
+        run_agent_loop(messages, self._cfg_with_attempt(llm, tools, success_check=lambda added: True),
+                       emit=events.append)
+
+        self.assertEqual(len(ks_calls), 1)  # 系统代检索恰好一次
+        forced = [m for m in messages if getattr(m, "tool_call_id", "") == "forced_knowledge_search"]
+        self.assertEqual(len(forced), 1)
+        self.assertTrue(forced[0].meta and forced[0].meta.get("items"))
+        self.assertEqual(messages[-1].content, "根据规范正文的规定：应按表取值……")
+        notes = [e.payload.get("detail", "") for e in events if e.type == "note"]
+        self.assertTrue(any("SOP 缺参收尾" in n for n in notes), notes)
+        self.assertIn("sop_missing_forced_retrieve", events[-1].payload["path_trace"])
+
+    def test_successful_sop_does_not_force_search(self):
+        ks_calls: list = []
+        tools = [self._sop_tool("命中 SOP X，执行 3 步，成功 3 步，失败 0 步"), self._ks_tool(ks_calls)]
+        calls = []
+
+        def gen(messages, kwargs):
+            calls.append(1)
+            if len(calls) == 1:
+                yield from text_events(tool_block([{"name": "sop_execute", "arguments": {}}]))
+            else:
+                yield from text_events("SOP 结果：设计水深 12.5m")
+
+        run_agent_loop([AgentMessage(role="user", content="水深题")],
+                       self._cfg_with_attempt(MockLLM(gen), tools), emit=[].append)
+        self.assertEqual(ks_calls, [])  # 无缺参：不触发代检索
+
+
 if __name__ == "__main__":
     unittest.main()
