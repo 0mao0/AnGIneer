@@ -499,8 +499,8 @@ def synthesize_sop_endpoint(req: SopSynthesizeRequest):
         raise HTTPException(status_code=412, detail={"error": "no_path", "reason": str(exc)})
     sop = result["sop"]
     # 归一化为 Step 契约形态（Task 3 出管线前已归一化，此处幂等兜底；执行端直接 Step(**s) 构造，不经 loader）
-    from sop_core.sop_loader import _normalize_step_dict
-    sop["steps"] = [_normalize_step_dict(s) for s in (sop.get("steps") or [])]
+    from sop_core.sop_loader import normalize_step_dict
+    sop["steps"] = [normalize_step_dict(s) for s in (sop.get("steps") or [])]
     problems = validate_sop_data(sop)
     if problems:
         raise HTTPException(status_code=422, detail={"error": "invalid_sop", "problems": problems})

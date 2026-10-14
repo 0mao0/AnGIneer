@@ -11,7 +11,7 @@ from typing import Any, Dict, List, Optional
 
 import requests
 
-from sop_core.sop_loader import _normalize_step_dict
+from sop_core.sop_loader import normalize_step_dict
 from sop_core.sop_path_generator import SopPathGenerator
 from sop_core.sop_validator import validate_sop_data
 
@@ -158,7 +158,7 @@ def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
     sop.setdefault("id", uuid.uuid4().hex[:8])
     # 先归一化再校验：裸 skeleton / execution 嵌套形态缺顶层 tool（Step.tool 契约必填），
     # 直接 validate 必挂；校验不过按缺料处理（端点转 412 → 运行时回落 complex 兜底）。
-    sop["steps"] = [_normalize_step_dict(s) for s in (sop.get("steps") or [])]
+    sop["steps"] = [normalize_step_dict(s) for s in (sop.get("steps") or [])]
     problems = validate_sop_data(sop)
     if problems:
         raise SynthUnavailable("合成 SOP 校验未过: " + "; ".join(problems))

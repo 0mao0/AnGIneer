@@ -16,7 +16,7 @@ from typing import Any, Dict, List, Optional
 import requests
 
 from angineer_core.base_contracts import SOP, Step
-from sop_core.sop_loader import _normalize_step_dict
+from sop_core.sop_loader import normalize_step_dict
 
 logger = logging.getLogger(__name__)
 
@@ -108,7 +108,7 @@ class SopApiClient:
             if not isinstance(data, dict):
                 continue
             try:
-                steps = [Step(**_normalize_step_dict(s)) for s in (data.get("steps") or [])]
+                steps = [Step(**normalize_step_dict(s)) for s in (data.get("steps") or [])]
                 sops.append(SOP(
                     id=data.get("id") or "",
                     name_zh=data.get("name_zh") or "",

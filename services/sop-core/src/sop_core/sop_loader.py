@@ -31,7 +31,7 @@ def _is_known_tool(tool_name: str) -> bool:
     """判断工具名在运行时是否可执行（注册表可用时以注册表为准）。
 
     引擎内置工具（sop_runner 直拦，见 _execute_tool_safe）不进驻 engtools 注册表，
-    需在此显式放行，否则会被 _normalize_step_dict 静默降级为 auto（table_read 实踩）。
+    需在此显式放行，否则会被 normalize_step_dict 静默降级为 auto（table_read 实踩）。
     """
     if str(tool_name or "").strip().lower() in _ENGINE_BUILTIN_TOOLS:
         return True
@@ -57,7 +57,7 @@ def _normalize_inline_description(value: Any) -> Dict[str, Any]:
     return {"content": str(value), "citations": []}
 
 
-def _normalize_step_dict(step_dict: Dict[str, Any]) -> Dict[str, Any]:
+def normalize_step_dict(step_dict: Dict[str, Any]) -> Dict[str, Any]:
     """对 Step 字典做最小归一化，确保能通过 Step 契约校验并可被执行。
 
     - description 归一化为 {content, citations[]}；
@@ -78,6 +78,10 @@ def _normalize_step_dict(step_dict: Dict[str, Any]) -> Dict[str, Any]:
     if not normalized.get("tool") or not _is_known_tool(str(normalized["tool"])):
         normalized["tool"] = "auto"
     return normalized
+
+
+# 兼容别名：旧内部/历史引用仍可用（下划线名不再作为跨包导入点；sop-core 首发时再评估删除）
+_normalize_step_dict = normalize_step_dict
 
 
 class SopLoader:
@@ -320,7 +324,7 @@ class SopLoader:
             loaded_steps = []
             if steps_data:
                 for s_dict in steps_data:
-                    loaded_steps.append(Step(**_normalize_step_dict(s_dict)))
+                    loaded_steps.append(Step(**normalize_step_dict(s_dict)))
 
             sop = SOP(
                 id=sop_data.get("id", sop_id),
@@ -413,7 +417,7 @@ class SopLoader:
                 with open(json_path, "r", encoding="utf-8") as jf:
                     cached = json.load(jf)
                 if cached.get("steps"):
-                    loaded_steps = [Step(**_normalize_step_dict(s)) for s in cached.get("steps")]
+                    loaded_steps = [Step(**normalize_step_dict(s)) for s in cached.get("steps")]
                     sop.steps = loaded_steps
                     sop.blackboard = cached.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
                 elif cached.get("blackboard"):
@@ -458,7 +462,7 @@ class SopLoader:
                     cached_data = json.load(f)
                 steps_data = cached_data.get("steps", [])
                 if steps_data:
-                    loaded_steps = [Step(**_normalize_step_dict(s)) for s in steps_data]
+                    loaded_steps = [Step(**normalize_step_dict(s)) for s in steps_data]
                     sop.steps = loaded_steps
                     sop.blackboard = cached_data.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
                     return sop
@@ -489,7 +493,7 @@ class SopLoader:
                         cached_data = json.load(jf)
                     steps_data = cached_data.get("steps", [])
                     if steps_data:
-                        loaded_steps = [Step(**_normalize_step_dict(s)) for s in steps_data]
+                        loaded_steps = [Step(**normalize_step_dict(s)) for s in steps_data]
                         sop.steps = loaded_steps
                         sop.blackboard = cached_data.get("blackboard") or self.parser.build_blackboard_from_steps(loaded_steps)
                         return sop
