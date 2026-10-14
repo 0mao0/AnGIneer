@@ -336,7 +336,8 @@ _INJECTED_USER_PROMPTS = (
     "请先调用检索工具获取证据后再回答",
     "已代为执行知识检索，请基于检索到的证据给出最终答案",
     "已检索到有效证据",
-    "上一段未命中，进入下一段：",
+    "上一段未命中，请重新检索并基于证据作答",   # 现文案（2026-10-14 起）
+    "上一段未命中，进入下一段：",                 # 旧文案：历史会话里可能仍存在，继续跳过
     "轮次预算已用完，请基于已有证据直接给出最终答案",
 )
 
@@ -590,6 +591,13 @@ def _timeout_result(call, tool: AgentTool, timeout: int) -> ToolResult:
     )
 
 
+# 只读检索工具超时自动重试（2026-10-14 评测实踩：网关拥塞期 knowledge_search/table_search
+# 整批 120s 超时被吞成零证据 → 守卫按「无证据」替换拒答，eval_1 两题因此判挂）。
+# 给一次更短时限的重试：短暂抖动可自愈，长故障仍如实超时（不改变"超时即如实记录"的口径）。
+_SEARCH_TIMEOUT_RETRY_TOOLS = {"knowledge_search", "table_search"}
+_SEARCH_TIMEOUT_RETRY_SECONDS = 60
+
+
 def _execute_tools_batch(
     calls: List,
     tools_by_name: Dict[str, AgentTool],
@@ -687,6 +695,24 @@ def _execute_tools_batch(
 
         return executor.submit(contextvars.copy_context().run, _run_tool_inner, call, tool, cancel)
 
+    _retried_calls: set = set()
+
+    def _timeout_with_retry(call, tool, first_result):
+        """超时兜底：只读检索工具自动重试一次（更短时限）；其余工具或已重试过则原样返回。"""
+        if tool.name not in _SEARCH_TIMEOUT_RETRY_TOOLS or call.id in _retried_calls:
+            return first_result
+        _retried_calls.add(call.id)
+        retry_timeout = min(timeout, _SEARCH_TIMEOUT_RETRY_SECONDS)
+        _safe_emit(
+            emit,
+            AgentEvent(type="note", run_id=run_id, turn=turn,
+                       payload={"detail": f"工具 {tool.name} 超时（{timeout}s），已自动重试一次（{retry_timeout}s）"}),
+        )
+        try:
+            return _submit_with_context(call, tool).result(timeout=retry_timeout)
+        except FuturesTimeoutError:
+            return _timeout_result(call, tool, retry_timeout)
+
     try:
         for call, tool in pending:
             _safe_emit(
@@ -703,7 +729,7 @@ def _execute_tools_batch(
                 try:
                     result = future.result(timeout=timeout)
                 except FuturesTimeoutError:
-                    result = _timeout_result(call, tool, timeout)
+                    result = _timeout_with_retry(call, tool, _timeout_result(call, tool, timeout))
                 results.append(result)
                 _dur_ms = int((time.monotonic() - started) * 1000)
                 _safe_emit(
@@ -718,7 +744,7 @@ def _execute_tools_batch(
                 try:
                     result = future.result(timeout=timeout)
                 except FuturesTimeoutError:
-                    result = _timeout_result(call, tool, timeout)
+                    result = _timeout_with_retry(call, tool, _timeout_result(call, tool, timeout))
                     # 超时后立即放弃等待；剩余 future 由 shutdown(cancel_futures=True) 取消/泄漏
                 results.append(result)
                 _dur_ms = int((time.monotonic() - started) * 1000)
@@ -1145,7 +1171,10 @@ class _AttemptMachine:
         if self.active_attempt_idx + 1 < len(self.attempts):
             nxt = self.attempts[self.active_attempt_idx + 1]
             self.add_note(attempt.fallback_note or f"本段未命中，进入下一段：{nxt.name}")
-            self.messages.append(AgentMessage(role="user", content=f"上一段未命中，进入下一段：{nxt.name}"))
+            # 注入给模型的消息不带段名：段名（如 "L1 语义检索"）是内部标签，2026-10-14 实踩——
+            # 模型把「上一段未命中，进入下一段：L1 语义检索」当问题主题去检索并作答
+            # （eval_1 q_018 tool args 实锤 query="L1 语义检索"）。UI 侧过程说明由 add_note 承载。
+            self.messages.append(AgentMessage(role="user", content="上一段未命中，请重新检索并基于证据作答。"))
             self.apply(self.active_attempt_idx + 1)
             self.attempt_turn = 0
             self.path_trace.append("fallback_next")

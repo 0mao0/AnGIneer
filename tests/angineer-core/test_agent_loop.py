@@ -515,6 +515,11 @@ class AgentLoopTests(unittest.TestCase):
         run_end = events[-1]
         self.assertEqual(run_end.payload["reason"], "completed")
         self.assertTrue(any("回退" in n["detail"] for n in run_end.payload["notes"]))
+        # 2026-10-14：注入给模型的回退提示不得带段名（实踩：模型把「进入下一段：L1 语义检索」
+        # 当问题主题去检索并作答，eval_1 q_018 答非所问）；UI 过程说明由 note 承载，不占模型上下文。
+        injected = [m for m in messages if m.role == "user" and "上一段未命中" in (m.content or "")]
+        self.assertEqual(len(injected), 1)
+        self.assertNotIn("语义检索", injected[0].content)
 
     def test_no_premature_fallback_after_tool_turn(self):
         """段内先调工具、后给答案：工具轮结束不得触发回退。"""
@@ -1730,6 +1735,76 @@ class ObservationAnnotationTests(unittest.TestCase):
         payload = events[-1].payload
         self.assertIn("markers_cleaned", payload["path_trace"])
         self.assertEqual(payload["final_outcome"], "model_answer")
+
+
+class ToolTimeoutRetryTests(unittest.TestCase):
+    """检索工具超时自动重试一次（2026-10-14 评测实踩：拥塞期整批 120s 超时被吞成零证据→守卫拒答）。"""
+
+    def _run_with_tool(self, tool_name, handler):
+        calls = []
+        def gen(messages, kwargs):
+            calls.append(1)
+            if len(calls) == 1:
+                yield from text_events(tool_block([{"name": tool_name, "arguments": {"q": "锚地"}}]))
+            else:
+                yield from text_events("基于重试后结果的答案")
+        llm = MockLLM(gen)
+        events: list = []
+        messages: list = []
+        run_agent_loop(
+            messages,
+            make_config(
+                llm,
+                [make_tool(tool_name, handler, {"type": "object", "properties": {"q": {"type": "string"}}, "required": ["q"]})],
+                tool_timeout_s=1,
+            ),
+            emit=events.append,
+        )
+        return messages, events
+
+    def test_search_tool_timeout_retries_once_and_succeeds(self):
+        calls = {"n": 0}
+
+        def handler(q):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                time.sleep(1.4)   # 首次超过 1s 工具时限
+            return {"results": [q]}
+
+        messages, events = self._run_with_tool("knowledge_search", handler)
+        self.assertEqual(calls["n"], 2)   # 超时后自动重试一次
+        tool_msgs = [m for m in messages if m.role == "tool"]
+        self.assertEqual(len(tool_msgs), 1)
+        self.assertFalse(tool_msgs[0].is_error)   # 重试成功，结果为真而非超时文案
+        self.assertIn("锚地", tool_msgs[0].content)
+        notes = [e.payload.get("detail", "") for e in events if e.type == "note"]
+        self.assertTrue(any("自动重试" in n for n in notes), notes)
+        self.assertEqual(messages[-1].content, "基于重试后结果的答案")
+
+    def test_non_search_tool_timeout_not_retried(self):
+        calls = {"n": 0}
+
+        def handler(q):
+            calls["n"] += 1
+            time.sleep(1.4)
+            return {"results": [q]}
+
+        messages, _events = self._run_with_tool("calculator", handler)
+        self.assertEqual(calls["n"], 1)   # 非检索工具只执行一次
+        tool_msgs = [m for m in messages if m.role == "tool"]
+        self.assertTrue(tool_msgs[0].is_error)
+        self.assertIn("执行超时", tool_msgs[0].content)
+
+    def test_injected_fallback_prompt_skipped_by_latest_user_query(self):
+        """循环注入的回退提示不得被当成用户真实提问（否则会被拿去检索）。"""
+        from angineer_core.agent_loop import _latest_user_query
+
+        msgs = [
+            AgentMessage(role="user", content="原始问题"),
+            AgentMessage(role="user", content="上一段未命中，请重新检索并基于证据作答。"),
+        ]
+        self.assertEqual(_latest_user_query(msgs), "原始问题")
+        self.assertEqual(_latest_user_query([msgs[1]]), "")
 
 
 if __name__ == "__main__":
