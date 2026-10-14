@@ -159,6 +159,13 @@ class MinerUParser:
         self.endpoint_down_ttl = max(30, int(os.getenv('MINERU_ENDPOINT_DOWN_TTL', '600')))
         self._endpoint_down_until: Dict[str, float] = {}
         self._abort_event = threading.Event()
+        # 端点偏好（2026-10-14 端点分流）：由编排层按权重分配后写入；非空时该端点排到
+        # 尝试顺序最前，其余端点仍作失败回退（不改变"逐个试"语义）。
+        self.preferred_endpoint: Optional[str] = None
+        # 端点槽位钩子（编排层注入）：slot_acquire(name) 阻塞取该端点额度（可取消），
+        # slot_release(name) 释放；None = 不限并发（脚本/测试裸用解析器时）。
+        self.slot_acquire: Optional[Callable[[str], None]] = None
+        self.slot_release: Optional[Callable[[str], None]] = None
 
     def _load_endpoints(self) -> List[Dict[str, Any]]:
         """从 MINERU_CONFIGS (JSON list) 加载端点，全部走 file_parse ZIP 协议。
@@ -612,7 +619,14 @@ class MinerUParser:
         if not self.endpoints:
             return self._build_parse_result(False, error="MinerU: 未配置解析端点 (MINERU_CONFIGS)")
         attempts: List[Dict[str, Any]] = []
-        for ep in self.endpoints:
+        # 端点偏好优先，其余保持 MINERU_CONFIGS 顺序作回退
+        endpoints = self.endpoints
+        pref = (self.preferred_endpoint or "").strip()
+        if pref:
+            preferred = [ep for ep in self.endpoints if str(ep.get("name") or "") == pref]
+            if preferred:
+                endpoints = preferred + [ep for ep in self.endpoints if str(ep.get("name") or "") != pref]
+        for ep in endpoints:
             if self._abort_event.is_set():
                 raise RuntimeError("MinerU 请求已取消")
             name = str(ep.get("name") or ep.get("url") or "endpoint")
@@ -625,6 +639,12 @@ class MinerUParser:
                 })
                 logger.info("MinerU 端点 %s 熔断期内跳过（%ss 后重探）", name, int(down_until - time.time()))
                 continue
+            # 端点槽位：按**实际使用的端点**取得（编排层注入）。回退时先释放前一个端点的槽位，
+            # 避免"占着失败端点的额度、实际压另一个端点"（2026-10-14 端点分流配套）。
+            acquired = False
+            if self.slot_acquire is not None:
+                self.slot_acquire(name)
+                acquired = True
             try:
                 result = self._parse_zip_api_file(
                     input_path, output_dir,
@@ -643,6 +663,9 @@ class MinerUParser:
                 logger.warning("MinerU 端点 %s 异常: %s", name, exc)
                 attempts.append({"name": name, "error": str(exc)})
                 self._mark_endpoint_down_if_connect_error(name, str(exc))
+            finally:
+                if acquired and self.slot_release is not None:
+                    self.slot_release(name)
         detail = "；".join(f"{a['name']}: {a['error']}" for a in attempts)
         return self._build_parse_result(False, error=detail)
 
