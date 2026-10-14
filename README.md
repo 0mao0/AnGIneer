@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.2.97** ——SOP 独立成服务 sop-api（数据面迁出对话服务、执行面改经 HTTP 拉取＋末次快照兜底、端口 8792）；SOP 领域知识外置领域包（harbor.json，开关显式启用、引擎默认零领域内容）＋执行器按步骤图真执行（next_step_id 主链／on_failure 跳转）；L3 引导三件：TF-IDF 点名提示（ANGINEER_SOP_L3_HINT 默认开）＋sop_execute 工具附 SOP 清单＋证据闸纳入 SOP 成功步骤产出（修整答误杀拒答）；查表链路修复：选表错配双闸＋file_name 分册匹配收紧、user_input 禁模拟占位污染（ANGINEER_USER_INPUT_MOCK 默认关）、新增矩阵表读表判读通道 table_read；语料与库工程：语料目录批量导入工具 import_corpus_library、sop-core 剪断 docs_core 直连（graph_port Protocol，可独立发包）；提示词与评测修复：QA 提示词 v18 前提核对、评测答案协议 meta 兼容 dict 形态、meta SOP 空壳与 sop_run 桩移除（关闭假成功通道）；文档与架构同步：plan-sop-api-l4 方案与 L4 车道细化施工单入库、/arch 与 tech-report 随解耦校正。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.2.98** ——L4 合成车道施工落地（默认关：生成器入口＋path_selector 合成管线＋synthesize/crystallize 端点 412 缺料语义＋每问题 1 次合成预算，公网两端点封锁，实体搜索补 library_id 防串库）；SOP 计算与缺参链路定案（计算器度口径／万吨归一／η 式三项规范化、Q2 通航宽度对真表、缺参纪律＋推荐值双层架构、港口逻辑外置领域包）；多库链路修复（表格面多库并联＋截断可见化、勾选上限放开至 100、table_blocks_provider 按库组存储修复）；解析侧三修（GPU 闸门改「到达本闸门」序消除跨阶段头阻塞、MinerU 超时拆分＋端点熔断、批量导入按大小升序入队）；上传/导入白名单扩展（txt/xls/xlsx/ppt/pptx 四处同批）；独立包与宿主壳（[server] extra 随包发布、六端口 HTTP 适配器、README env 注入说明）；部署与杂项（/api/sops 切流＋compose 补 sop-api 随本次部署生效、测试集树编号排序、退役 sens4 题集）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 

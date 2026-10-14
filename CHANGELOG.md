@@ -2,6 +2,16 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.98
+
+- L4 合成车道施工落地（默认关，5460e72a/13330bc5/188e773c/9a3891bb/4fe8638a/31aab1f8/b1c0b240/41344b83/0f630a4f/b9117a80/ad155f4c/3644e83a）：生成器公共入口 generate_sop_from_steps（LLM 优先、骨架兜底）；合成管线 path_selector（搜实体→ACTION 锚定路径→骨架/LLM 兜底→校验）；sop-api 增 synthesize/crystallize 端点（缺料 412 语义、draft 结晶进审核流）；sop_execute 适配器加 synth/crystallize 回调位（None=现状逐键一致）、车道装配接线开关 ANGINEER_SOP_L4_SYNTH 默认关＋每问题 1 次合成预算＋HTTP 回调实现；校验闭包两处补齐（提示词教 ${} 引用＋装配层确定性补引用——手测实踩「L4 合成全量 412」）；nginx 公网封锁两端点；私有符号收口 _normalize_step_dict；evals-core 增 SOP 链路冒烟 B 层断言（真客户端打 aichat→sop-api→docs-api）；docs-api 实体搜索补 library_id 过滤＋关系端点补 library_id/doc_id（防串库）
+- SOP 计算与缺参链路定案（88e3c1b2/598fd800/df437bca/face48ec/4fdb9b21/907d21fa/0f9e6035/1f5d9d92/8612ff4d/62115356/b787bce3/9bab1443）：计算器三角函数改「度」口径＋万吨级归一＋领域规则补 Z1 查表键（Q2 通航宽度整链对真表，L=293 判读正确）；幂记号/圆周率字符/双曲余切三项规范化（Q1 壅高式 η=πH²/L·cth(2πd/L) 从「未知量」到可算）；参数提取三处错值源修复（默认值覆盖题面值/H= 写法/负号减算）；缺参纪律落地（如实报缺＋引导补充＋推荐值——系统不臆造数值）＋推荐值双层架构（静态核心＋AI 长尾兜底，受约束）；显式确定性工具缺参不再交 LLM 代算；classifier 深层港口逻辑外置领域包（arg_rules 30 条/arg_computes 7 算子/船型 6 表，对拍 23/23 旧键全等）＋完整版 Hnav 取值链（JTS 165 §4.5.2.4 口径）；计算器容忍数字表达式＋证据面 result=0 不再当空（Q1 证据闸误拒根因）；回答层禁止在 SOP 缺参/失败时自行补算出数；sop_execute 兼容「SOP名+args」调用形态（此前参数整批落空）；L3/L4 末尾追问默认关（缺参改陈述句引导）
+- 多库链路修复（494216f4/25672e6b/79bf5eee）：截断可见化＋表格面多库并联（业主 10-13 双定项）；多库勾选上限夹子 1..10→1..100（业主放开）；table_blocks_provider 改按库解析组存储——原用全局单例永远指向默认库，非 default 库表格取 0 候选（多库实踩：Q2 全链三处齐挂），修复后 doc 级 129 张/库级 2654 张、Q2 复跑 5→8/9 步成功
+- 解析侧三修（b261ac17/d3dfaa0f/c2967cbf）：GPU 闸门排队改「到达本闸门」序——消除跨阶段头阻塞（旧全局提交序号 FIFO 下前序任务还在 MinerU 就占住 PoPo 队首，实测空槽硬等 88–100 分钟/篇；三闸各自独立排队、跨阶段互不绑序，本地端到端对照 OLD-BLOCKED→NEW-OK 验证）；MinerU 连接超时与读取超时拆分＋端点级熔断（死端点不再逐篇空挂 1 小时）；大批量导入改按文件大小升序入队（小册先做、厚册沉底）
+- 上传/导入白名单扩展（8b3232e9）：前端批次上传 accept 与解析工作区 allowedFileTypes、scripts/import_corpus_library DOC_EXTS、docs-api /upload allowed_extensions 四处同批统一支持 txt/xls/xlsx/ppt/pptx（Office 文档经管线 convert 阶段转 PDF 后解析）
+- 独立包与宿主壳（acc84048/39ad96d1/64416662/f1e23cc1）：angineer-core/docs-core 独立宿主壳（[server] extra，chat-api/retrieval-api 随包发布）；chat 壳补六端口 HTTP 适配器＋retrieval 壳/docs-api 增 5 个 engine 端口端点（citations 修单）；两包 README 补 env 注入说明（壳不读进程 cwd 的 .env，漏注入时六端口静默降级、全程不报错）；README 版本表登记 angineer-core v0.1.5/docs-core v0.1.4
+- 部署与杂项（284dec7d/2efb63db/2402362a/7b4462c8/220a9f5f）：/api/sops 独立路由到 sop-api:8792（v0.2.97 解耦的服务器侧切流）＋compose up 列表补 sop-api（随本次部署生效）；测试集树排序改编号优先（端到端评测组 1→9 归位）；退役 financebench-sens4-v1 题集（移 data/scratch/retired-evals-1012）；QA 主提示词 v20 瘦身合并方案（评审稿）入库
+
 ## v0.2.97
 
 - SOP 独立成服务 sop-api（4847443b/963319db/340424fb/9b1e9b37/4e5546df/c044f2c0）：SOP 数据面（CRUD/导入/审核/审计/图谱生成）从 aichat-api 迁出为独立服务（127.0.0.1:8792，compose 复用后端镜像，数据面独占 data/platform/sops）；执行面改经 HTTP 拉取 published 列表＋末次快照兜底（SopApiClient，TTL 复用 ANGINEER_SOP_CACHE_TTL），aichat 三处 loader 实例统一；本地启动链接入（ports.json sopApiPort、dev:sop-api、start.ps1 清理/健康/横幅）与前端 dev 代理 /api/sops 切流；sop-core 剪断 docs_core 直连（graph_port Protocol＋docs-api /frameworks 与 /sop-generation-bundle 两个只读端点＋HttpGraphReader bundle 内存物化，边界守卫测试锁死），依赖换血去 angineer-docs-core。**服务器部署需同批执行 nginx /api/sops 切流（ai-proxy-locations.conf 指向 8792）**
