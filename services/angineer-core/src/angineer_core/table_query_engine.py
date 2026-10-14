@@ -254,6 +254,80 @@ def _score_numeric_fit_for_candidate(cand: Dict[str, Any], conditions: Dict[str,
     return 5
 
 
+def _probe_range_candidates(
+    candidates: List[Dict[str, Any]], table_name: str, conditions: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+    """范围表名（X~Y）：按序探测哪张候选表能真正匹配到行，返回可行表（保序）。
+
+    背景（2026-10-14 评测实踩）：范围表名会把多张子表评分并列（ref 280），旧逻辑只取
+    分最高一张——选中渡船表后文本条件全灭（无「散货船」行）→「未找到符合文本条件的行」
+    → 参数取不到 → SOP 整链缺参拒答。这里用与主流程同语义的文本/数值可行性预探测重排。
+    """
+    text_conditions: Dict[str, Any] = {}
+    numeric_conditions: Dict[str, Any] = {}
+    for k, v in (conditions or {}).items():
+        if _extract_first_number(str(v)) is not None:
+            numeric_conditions[k] = v
+        else:
+            text_conditions[k] = str(v)
+    feasible: List[Dict[str, Any]] = []
+    for cand in candidates:
+        if _range_candidate_has_rows(
+            cand.get("headers") or [],
+            cand.get("rows") or [],
+            cand.get("context") or "",
+            table_name,
+            text_conditions,
+            numeric_conditions,
+        ):
+            feasible.append(cand)
+    return feasible
+
+
+def _range_candidate_has_rows(
+    headers: List[str],
+    rows: List[List[Any]],
+    context: str,
+    table_name: str,
+    text_conditions: Dict[str, Any],
+    numeric_conditions: Dict[str, Any],
+) -> bool:
+    """可行性探测：与主流程同语义的文本过滤 + 数值列可解析性检查（只看有没有，不算距离）。"""
+    filtered = rows
+    if text_conditions:
+        filtered = []
+        for row in rows:
+            ok = True
+            for k, v in text_conditions.items():
+                col_indices = _find_column_indices(headers, k, [k])
+                if col_indices:
+                    if not any(idx < len(row) and _text_condition_matches(row[idx], v) for idx in col_indices):
+                        ok = False
+                        break
+                else:
+                    if _detect_table_range(table_name):
+                        continue
+                    if _text_condition_matches(context, v):
+                        continue
+                    if not _text_condition_matches(" ".join(str(c) for c in row), v):
+                        ok = False
+                        break
+            if ok:
+                filtered.append(row)
+    if not filtered:
+        return False
+    for k in numeric_conditions:
+        idx = _find_column_index(headers, k, [k])
+        if idx is None:
+            continue
+        if not any(
+            idx < len(row) and (_extract_first_number(row[idx]) is not None or _parse_range(row[idx]))
+            for row in filtered
+        ):
+            return False
+    return True
+
+
 def flatten_header_rows(header_rows: List[List[str]]) -> List[str]:
     """把 canonical 多行表头压平为单行：逐列拼接各层非空文本（去重保序）。
 
@@ -346,6 +420,13 @@ def query_tables(
     if explicit_candidates:
         explicit_candidates.sort(key=score_candidate, reverse=True)
         target_table = explicit_candidates[0]
+        # 范围表名（X~Y）并列 280 分时不能只取分最高一张：按「能否真正匹配到行」探测重排
+        # （2026-10-14 实踩：表A.0.2-1~14 选中渡船表 → 文本条件全灭 → SOP 整链缺参拒答）。
+        if len(explicit_candidates) > 1 and _detect_table_range(table_name):
+            feasible = _probe_range_candidates(explicit_candidates, table_name, conditions)
+            if feasible and feasible[0] is not target_table:
+                target_table = feasible[0]
+                trace.append("表格选择策略: 范围表名按行匹配可行性重选")
         explicit_score = _score_table_reference_match(table_name, target_table.get("context", ""))
         if explicit_score >= 300:
             trace.append("表格选择策略: 标题精确匹配")

@@ -96,6 +96,36 @@ class CanonicalTableLookupTests(unittest.TestCase):
         self.assertEqual(result["result"], 0.3)
         self.assertEqual(result["_table_context"], "表A.0.2-2 波浪系数")
 
+    def test_range_name_skips_table_whose_rows_miss_conditions(self):
+        """范围表名并列评分时按「能否真正匹配到行」选表（2026-10-14 实踩复现：
+        表A.0.2-1~14 并列 280 分、旧逻辑取分最高一张=渡船表 → 文本条件全灭 →
+        「未找到符合文本条件的行」→ SOP 整链缺参拒答）。"""
+        decoy = {
+            "doc_id": "doc-hg",
+            "header_rows": [["船型", "吨级(t)", "总长L(m)"]],
+            "rows": [["渡船", "100000", "30.0"]],
+            # 与现场一致：错表的 context 里也提了「散货」（评分反超真表）
+            "context": "表A.0.2-1 渡船设计船型尺度表 A.0.2 散货/集装船分册索引",
+            "page_idx": 60,
+        }
+        real = {
+            "doc_id": "doc-hg",
+            "header_rows": [["船型", "吨级(t)", "型宽B(m)", "满载吃水T(m)"]],
+            "rows": [["散货船", "100000", "32.0", "14.5"]],
+            "context": "表A.0.2-2 设计船型尺度（第二分册）",
+            "page_idx": 61,
+        }
+        with _TableBlocksPortPatch([decoy, real]):
+            result = canonical_table_lookup(
+                table_name="表A.0.2-1~表A.0.2-14",
+                query_conditions={"船型": "散货船", "吨级": "100000"},
+            )
+        # 断言本修复的契约：选中能匹配到行的真表（而非评分更高但行全灭的错表），并留痕。
+        # （取值形态由后续 target-col 启发式决定，不在本测试范围。）
+        self.assertEqual(result["_table_context"], "表A.0.2-2 设计船型尺度（第二分册）")
+        self.assertNotIn("error", result)
+        self.assertIn("表格选择策略: 范围表名按行匹配可行性重选", result["_trace"])
+
     def test_table_not_found_returns_error(self):
         with _TableBlocksPortPatch([SHIP_TABLE]):
             result = canonical_table_lookup(
