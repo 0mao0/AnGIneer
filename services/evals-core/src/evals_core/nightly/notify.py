@@ -49,7 +49,7 @@ def fmt_span(started_at, completed_at) -> Tuple[str, str]:
 
 def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_note: str = "",
                   material_line: str = "", judge_line: str = "", subject: str = "",
-                  premise_line: str = "") -> str:
+                  premise_line: str = "", smoke_line: str = "") -> str:
     """一行一项：数据集 / 时间 / 时长 / 结果 / 分析（+ 判分缺失 + 素材检查）。
 
     subject：测试集展示名（形如"拒答校准集（39 题）"，pipeline._dataset_subject 生成）。
@@ -68,6 +68,10 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
     premise_line：拒答前提对账摘要（由 pipeline._refusal_premise_health / 
     evals_core.nightly.refusal_premise.render_line 生成）。拒答标注的前提会随语料扩充
     静默失效（2026-10-09 实踩 18 天无人发现），这一行让失效在当晚卡片上可见。
+
+    smoke_line：SOP 链路冒烟摘要（由 evals_core.chain_smoke.render_line 生成，形如
+    "SOP 链路冒烟：ok（6/6 跳通过）"）。"契约在、链断、静默"类问题（复数 URL 404、
+    字段错位 500）单测测不出，这一行让链路断在当晚卡片上可见。
     """
     summary = (raw or {}).get("summary_scores") or {}
     span, duration = fmt_span((raw or {}).get("started_at"), (raw or {}).get("completed_at"))
@@ -106,6 +110,8 @@ def build_message(raw: Optional[dict], gate: Optional[dict], state: str, error_n
         lines.append(material_line)
     if premise_line:
         lines.append(premise_line)
+    if smoke_line:
+        lines.append(smoke_line)
     return "\n".join(lines)
 
 

@@ -99,6 +99,11 @@ class _Env(unittest.TestCase):
                                      "unknown": [], "by_kind": {}}),
             mock.patch("evals_core.material_parity.run_check",
                        side_effect=lambda **kw: dict(_FAKE_MATERIAL)),
+            # SOP 链路冒烟默认实现真发 HTTP 打 sop-api/docs-api：单测里固定「全通」
+            # （severity=ok 不触发额外企微，卡片计数不被扰动）
+            mock.patch("evals_core.chain_smoke.run_smoke",
+                       return_value={"severity": "ok",
+                                     "hops": [{"name": "H1", "status": "ok", "detail": ""}]}),
             mock.patch.object(pipeline, "_sleep", new=lambda _s: asyncio.sleep(0)),
         ]
         for p in patches:
@@ -301,6 +306,9 @@ class NotifyDatasetNameTests(_Env):
             mock.patch("evals_core.nightly.refusal_premise.run_check",
                        return_value={"severity": "ok", "checked": 0, "violations": [],
                                      "unknown": [], "by_kind": {}}),
+            mock.patch("evals_core.chain_smoke.run_smoke",
+                       return_value={"severity": "ok",
+                                     "hops": [{"name": "H1", "status": "ok", "detail": ""}]}),
             mock.patch("evals_core.nightly.pipeline.notify.send",
                        side_effect=lambda url, text: (cards.append(text), '{}')[1]),
         ]
@@ -373,6 +381,58 @@ class RefusalPremiseLineTests(_Env):
         self._run({"severity": "ok", "checked": 0, "unknown": [], "by_kind": {}, "violations": []}, cards)
         self.assertEqual(len(cards), 1)
         self.assertNotIn("拒答前提对账", cards[0])
+
+
+class SmokeLineTests(_Env):
+    """SOP 链路断要在当晚卡片上可见、且不阻断结论（"契约在、链断、静默"护栏，
+    观测口径对齐 RefusalPremiseLineTests）。"""
+
+    def _run(self, smoke_result=None, cards=None, side_effect=None):
+        done = {"status": "completed", "summary_scores": _SUMMARY,
+                "started_at": "2026-09-06T01:00:00", "completed_at": "2026-09-06T02:00:00"}
+        self._common_patches(
+            run_sequence=[{"status": "running"}, done, done, done],
+            details_sequence=[_NEW_DETAILS, _NEW_DETAILS])
+        kwargs = {"side_effect": side_effect} if side_effect else {"return_value": smoke_result}
+        # _common_patches 里已固定「全通」；这里按用例覆盖成异常/抛错形态
+        with mock.patch("evals_core.chain_smoke.run_smoke", **kwargs), \
+                mock.patch("evals_core.nightly.pipeline.notify.send",
+                           side_effect=lambda url, text: (cards.append(text), '{}')[1]):
+            return asyncio.run(pipeline.run_nightly(
+                dataset_id="ds", retry_rounds=0, resamples=50, webhook="http://wecom.invalid/hook"))
+
+    def test_ok_line_in_conclusion_card(self):
+        cards = []
+        ok = {"severity": "ok",
+              "hops": [{"name": "H1", "status": "ok", "detail": ""},
+                       {"name": "H2", "status": "skip", "detail": "未配"}]}
+        result = self._run(ok, cards)
+        self.assertEqual(result["state"], "green")
+        self.assertEqual(result["sop_chain_smoke"], {"severity": "ok", "fails": []})
+        self.assertEqual(len(cards), 1)
+        self.assertIn("SOP 链路冒烟：ok（1/2 跳通过；1 跳跳过）", cards[0])
+
+    def test_fail_line_and_separate_message(self):
+        cards = []
+        bad = {"severity": "fail",
+               "hops": [{"name": "sop-api /api/sops/full", "status": "fail", "detail": "HTTP 503"},
+                        {"name": "docs 搜索", "status": "ok", "detail": ""}]}
+        result = self._run(bad, cards)
+        self.assertEqual(result["state"], "green")  # 只告警不阻断
+        self.assertEqual(result["sop_chain_smoke"]["fails"], ["sop-api /api/sops/full"])
+        self.assertEqual(len(cards), 2)             # 结论卡 + 独立告警条
+        self.assertTrue(any("【SOP 链路冒烟】" in c and "HTTP 503" in c for c in cards))
+        self.assertTrue(any("SOP 链路冒烟：fail" in c for c in cards))
+        slots = [p for p in (self.tmp / "nightly").glob("*/runs/*") if p.is_dir()]
+        self.assertTrue((slots[0] / "sop_chain_smoke.json").exists())
+
+    def test_executor_error_no_line(self):
+        """冒烟执行本身抛错（环境级异常）：静默降级为「无这一行」，不拖垮 nightly。"""
+        cards = []
+        result = self._run(None, cards, side_effect=RuntimeError("boom"))
+        self.assertEqual(len(cards), 1)
+        self.assertNotIn("SOP 链路冒烟", cards[0])
+        self.assertNotIn("sop_chain_smoke", result)
 
 
 if __name__ == "__main__":

@@ -245,6 +245,7 @@ def _material_line(material: Optional[dict]) -> str:
 
 async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, site_url: str, webhook: str,
                                material_line: str = "", premise_line: str = "",
+                               smoke_line: str = "",
                                judge_missing: Optional[Dict[str, List[str]]] = None,
                                slot: str = "") -> dict:
     """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。
@@ -282,7 +283,8 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     text = notify.append_links(
         notify.build_message(raw_for_card, gate_res, state, material_line=material_line,
                              judge_line=_judge_missing_line(judge_missing),
-                             premise_line=premise_line, subject=subject), site_url)
+                             premise_line=premise_line, smoke_line=smoke_line,
+                             subject=subject), site_url)
     await _notify_best_effort(webhook, text)
     missing_count = len((judge_missing or {}).get(anomaly.JUDGE_FAIL) or [])
     detail = "；".join(gate_res.get("gate_reasons") or [])
@@ -435,6 +437,54 @@ async def _material_health(date: str, *, enabled: bool, libraries: Optional[list
     return result
 
 
+async def _chain_smoke_health(date: str, *, enabled: bool, webhook: str,
+                              slot: str = "") -> Optional[dict]:
+    """SOP 链路冒烟（aichat→sop-api→docs-api 真实调用）：best-effort，只告警不阻断。
+
+    与素材检查/拒答前提对账同层同挡：模块边界守卫只断言 import 文本，"契约在、链断、
+    静默"只能被真实调用发现（复数 URL 404、bundle 字段错位 500 两例都静默多日，见
+    chain_smoke 模块 docstring）。产物落本次派发的归档挡目录，异常时额外推一条企微
+    （结论消息本身不变）。
+    """
+    if not enabled:
+        return None
+    from evals_core import chain_smoke
+
+    nl = chr(10)   # 显式换行（同素材检查，避免传输把转义序列折行）
+
+    try:
+        result = await asyncio.to_thread(chain_smoke.run_smoke)
+    except Exception:  # noqa: BLE001 冒烟失败不该拖垮 nightly
+        logger.exception("SOP 链路冒烟执行失败")
+        return None
+    line = chain_smoke.render_line(result)
+    try:
+        out_dir = paths.nightly_root() / date
+        if slot:
+            out_dir = out_dir / archive.RUNS_SUBDIR / slot
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "sop_chain_smoke.json").write_text(
+            json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
+    except Exception:  # noqa: BLE001
+        logger.exception("SOP 链路冒烟落盘失败")
+    if result.get("severity") in ("warn", "fail"):
+        logger.warning("SOP 链路冒烟异常：%s", line)
+        if webhook:
+            await _notify_best_effort(webhook,
+                                      "【SOP 链路冒烟】" + nl + chain_smoke.render_detail(result))
+    else:
+        logger.info("SOP 链路冒烟通过：%s", line)
+    return result
+
+
+def _chain_smoke_line(smoke: Optional[dict]) -> str:
+    """把冒烟结果压成结论卡片里的一行；无结果返回空串不占版面。"""
+    if not smoke:
+        return ""
+    from evals_core import chain_smoke
+    return chain_smoke.render_line(smoke)
+
+
 async def run_nightly(*, dataset_id: str,
                       timeout_hours: float = DEFAULT_TIMEOUT_HOURS,
                       retry_rounds: int = DEFAULT_RETRY_ROUNDS,
@@ -466,6 +516,9 @@ async def run_nightly(*, dataset_id: str,
     # 拒答前提对账与素材检查同层同挡：语料一动，拒答标注的前提就可能失效（只告警不阻断）
     premise = await _refusal_premise_health(date, enabled=parse_health_enabled,
                                             webhook=webhook, slot=run_slot)
+    # SOP 链路冒烟同层同挡：真实调用打穿 aichat→sop-api→docs-api（只告警不阻断）
+    smoke = await _chain_smoke_health(date, enabled=parse_health_enabled,
+                                      webhook=webhook, slot=run_slot)
     try:
         resume_id = await asyncio.to_thread(_find_resume_candidate, dataset_id, resume_window_hours)
         started = await asyncio.to_thread(
@@ -491,6 +544,7 @@ async def run_nightly(*, dataset_id: str,
         outcome = await _compute_and_publish(run_id, dataset_id, resamples, site_url, webhook,
                                              material_line=_material_line(material),
                                              premise_line=refusal_premise.render_line(premise),
+                                             smoke_line=_chain_smoke_line(smoke),
                                              judge_missing=judge_missing, slot=run_slot)
         if material is not None:
             outcome["material_parity"] = {"severity": material.get("severity"),
@@ -498,6 +552,11 @@ async def run_nightly(*, dataset_id: str,
         if premise is not None:
             outcome["refusal_premise"] = {"severity": premise.get("severity"),
                                           "violations": len(premise.get("violations") or [])}
+        if smoke is not None:
+            outcome["sop_chain_smoke"] = {
+                "severity": smoke.get("severity"),
+                "fails": [h.get("name") for h in (smoke.get("hops") or [])
+                          if h.get("status") == "fail"]}
         return outcome
     except Exception as exc:  # noqa: BLE001 任何异常都收口，绝不让历史断档
         # 人为停止：should_stop 置位且 run 未正常完成 → "stopped" 档（不落 error 结论、不发企微，
