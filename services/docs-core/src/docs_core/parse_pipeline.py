@@ -512,21 +512,30 @@ def _run_fts(ctx: StageContext) -> str:
     return f"SQLite 建库完成，FTS 重建完成（{result.get('canonical_blocks_count', 0)} blocks）"
 
 
-# ---- MinerU/GPU 并发闸门：同一时刻最多一个 MinerU 任务占用 GPU ----
+# ---- MinerU/GPU 并发闸门：同一时刻最多 MINERU_MAX_CONCURRENCY 个任务占用 GPU ----
 class _FifoGpuGate:
-    """进程级 FIFO GPU 闸门：按提交序号（arrival_seq）严格先来先服务。
+    """进程级 GPU 闸门：按「到达本闸门」的先后排队（本闸门独立 FCFS）。
 
-    即使 GPU 空闲，序号靠后的任务也必须等序号靠前的任务先获得（或排队期间
-    被取消并让位），确保“谁先提交谁先用资源”，不受前序阶段（source_prep /
-    convert）完成速度影响。排队期间被取消的序号会被跳过，避免后续任务永久等待。
+    2026-10-14 语义修订（消除跨阶段头阻塞）：
+    - 旧语义：按任务提交序号严格先来先服务——序号靠前的任务即使还在更早的阶段
+      （例：PoPo 闸门面对还在 MinerU 里的前序任务），也会占住本闸门队首；即使有空槽，
+      后序任务也不能进入（实测 PoPo 空槽硬等 88–100 分钟、MinerU 最长等 574 分钟）。
+    - 新语义：只对「已经到达本闸门」的任务排队——到达即领本闸门排队号，先到本阶段者
+      先获得槽位；仍在更早阶段的任务不占本闸门排位（尚未到达 = 与本闸门无关）。
+      三个闸门各自独立排队、跨阶段互不绑序；阶段内仍是 FCFS（可解释、无饿死）。
+
+    arrival_seq 在本类中只作任务身份键：同一任务重复请求（PoPo 瞬时失败重试）
+    沿用同一排队号；排队号已消耗的重复请求按「有空槽即直通」处理。
     """
 
     def __init__(self, max_concurrency: int = 1) -> None:
         self._max_concurrency = max(1, int(max_concurrency))
         self._cond = threading.Condition()
         self._tokens = self._max_concurrency
-        self._next_seq = 1
-        self._cancelled_seqs: set[int] = set()
+        self._next_ticket = 1                       # 下一个待发放的排队号
+        self._serving = 1                           # 当前应被服务的排队号（队首）
+        self._tickets: dict[int, int] = {}          # 任务键 -> 排队号
+        self._cancelled_tickets: set[int] = set()   # 未获槽即取消/退出的排队号
 
     @property
     def available(self) -> int:
@@ -535,49 +544,64 @@ class _FifoGpuGate:
             return self._tokens
 
     def _skip_cancelled_locked(self) -> None:
-        """跳过排队期间被取消的序号，避免后续任务永久等待。"""
-        while self._next_seq in self._cancelled_seqs:
-            self._cancelled_seqs.discard(self._next_seq)
-            self._next_seq += 1
+        """跳过未获槽即取消/退出的排队号，避免后续任务永久等待。"""
+        while self._serving in self._cancelled_tickets:
+            self._cancelled_tickets.discard(self._serving)
+            self._serving += 1
 
-    def should_wait(self, seq: int) -> bool:
-        """该序号是否还需要排队（用于 queued 状态提示）。"""
-        with self._cond:
-            return seq != self._next_seq or self._tokens <= 0
+    def should_wait(self, arrival_seq: int) -> bool:
+        """该任务此刻到闸是否要排队（用于 queued 状态提示；不分配排队号）。
 
-    def skip(self, seq: int) -> None:
-        """跳过在到达闸门前就失败/退出的序号，避免后续任务永久等待。
-
-        已经获得槽位的任务（seq < next_seq）调用此方法为无操作，
-        避免重复推进队列。
+        预测口径与 acquire 一致：队首还有更早到达的任务、或无空闲槽 -> 会排队。
         """
         with self._cond:
-            if seq >= self._next_seq:
-                self._cancelled_seqs.add(seq)
+            ticket = self._tickets.get(arrival_seq)
+            if ticket is None:
+                ticket = self._next_ticket  # 预测：新到者将拿到队尾排队号
+            if ticket < self._serving:
+                # 排队号已消耗的重复请求（如 PoPo 重试）：有空槽即直通
+                return self._tokens <= 0
+            return ticket != self._serving or self._tokens <= 0
+
+    def skip(self, arrival_seq: int) -> None:
+        """任务在获槽前退出时作废其排队号。
+
+        未到过本闸门的任务（无排队号）为无操作——新语义下它们不占本闸门排位；
+        已获槽的任务（排队号已消耗）同为无操作。闸门内等待被取消的路径由
+        acquire 自行登记，本方法只作任务退出的兜底。
+        """
+        with self._cond:
+            ticket = self._tickets.get(arrival_seq)
+            if ticket is not None and ticket >= self._serving:
+                self._cancelled_tickets.add(ticket)
                 self._skip_cancelled_locked()
                 self._cond.notify_all()
 
     def acquire(
         self,
-        seq: int,
+        arrival_seq: int,
         cancel_check: Optional[Callable[[], None]] = None,
         poll_interval: float = 0.5,
     ) -> None:
-        """按提交序号阻塞等待令牌；等待期间按 poll_interval 轮询取消标志。"""
+        """按本闸门排队号阻塞等待令牌；等待期间按 poll_interval 轮询取消标志。"""
         with self._cond:
+            ticket = self._tickets.get(arrival_seq)
+            if ticket is None:
+                ticket = self._next_ticket
+                self._next_ticket += 1
+                self._tickets[arrival_seq] = ticket
             while True:
-                if seq == self._next_seq and self._tokens > 0:
+                if ticket == self._serving and self._tokens > 0:
                     self._tokens -= 1
-                    self._next_seq += 1
+                    self._serving += 1
                     self._skip_cancelled_locked()
                     self._cond.notify_all()
                     return
-                if seq < self._next_seq and self._tokens > 0:
-                    # 晚到/重复序号兜底：不取消任务，等待到空闲令牌后直接放行。
-                    # 正常情况下不应发生；发生时不阻塞队列推进，也不误伤任务。
+                if ticket < self._serving and self._tokens > 0:
+                    # 重复请求兜底（如 PoPo 瞬时失败重试）：排队号已消耗，有空槽直通
                     logger.warning(
-                        "GPU 闸门兜底放行（晚到序号）: seq=%s next_seq=%s tokens=%s pid=%s",
-                        seq, self._next_seq, self._tokens, os.getpid(),
+                        "GPU 闸门直通（重复请求）: key=%s ticket=%s serving=%s tokens=%s pid=%s",
+                        arrival_seq, ticket, self._serving, self._tokens, os.getpid(),
                     )
                     self._tokens -= 1
                     return
@@ -585,9 +609,9 @@ class _FifoGpuGate:
                     try:
                         cancel_check()  # 取消时抛 ParseTaskCancelledError，不消费令牌
                     except BaseException:
-                        # 排队期间被取消：登记序号并让位给后续任务
-                        self._cancelled_seqs.add(seq)
-                        if seq >= self._next_seq:
+                        # 排队期间被取消：作废排队号并让位给后续任务
+                        if ticket >= self._serving:
+                            self._cancelled_tickets.add(ticket)
                             self._skip_cancelled_locked()
                         self._cond.notify_all()
                         raise
@@ -615,7 +639,7 @@ def mineru_gpu_slot(
     cancel_check: Optional[Callable[[], None]] = None,
     arrival_seq: int = 1,
 ):
-    """MinerU 任务占用的 GPU 槽位：按提交序号先来先服务，进入 raw_parse 前获取。"""
+    """MinerU 任务占用的 GPU 槽位：按到达本闸门的先后排队（本闸门独立 FCFS），进入 raw_parse 前获取。"""
     _MINERU_GPU_GATE.acquire(arrival_seq, cancel_check)
     try:
         yield
@@ -643,7 +667,7 @@ def popo_inference_slot(
     cancel_check: Optional[Callable[[], None]] = None,
     arrival_seq: int = 1,
 ):
-    """PoPo 4B 推理（远端 vLLM）槽位：按提交序号先来先服务，防止并发打满远端。"""
+    """PoPo 4B 推理（远端 vLLM）槽位：按到达本闸门的先后排队（本闸门独立 FCFS），防止并发打满远端。"""
     _POPO_GATE.acquire(arrival_seq, cancel_check)
     try:
         yield
@@ -662,7 +686,7 @@ def figure_describe_slot(
     cancel_check: Optional[Callable[[], None]] = None,
     arrival_seq: int = 1,
 ):
-    """图描述 VLM（远端 chat 端点）槽位：按提交序号先来先服务。"""
+    """图描述 VLM（远端 chat 端点）槽位：按到达本闸门的先后排队（本闸门独立 FCFS）。"""
     _FIGURE_DESCRIBE_GATE.acquire(arrival_seq, cancel_check)
     try:
         yield
@@ -1375,9 +1399,10 @@ class ParseOrchestrator:
             except Exception as update_exc:
                 logger.error(f"更新任务状态失败: {update_exc}")
         finally:
-            # 任务在到达 MinerU/PoPo/图描述闸门前就失败/退出时，跳过其序号，防止后续任务永久排队。
-            # 三个闸门必须补齐：任一闸门漏 skip，其 _next_seq 会永久停在死序号上，
-            # 此后所有任务都会卡在该闸门的排队状态（图描述闸门曾因漏 skip 而假死）。
+            # 任务在获槽前退出时作废其排队号（退出兜底）。新语义（按到达排队）下
+            # 未到达闸门的任务不占排位，此调用对它们是空操作；但三个闸门仍须补齐：
+            # 到达过闸门又未获槽的残余场景漏一个 skip，就会把该闸门队首永久卡住
+            # （图描述闸门曾因漏 skip 而假死）。
             _MINERU_GPU_GATE.skip(arrival_seq)
             _POPO_GATE.skip(arrival_seq)
             _FIGURE_DESCRIBE_GATE.skip(arrival_seq)

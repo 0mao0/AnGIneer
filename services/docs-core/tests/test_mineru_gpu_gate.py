@@ -189,3 +189,129 @@ def test_raw_parse_skips_queued_when_gate_free(monkeypatch) -> None:
     assert "queued" not in statuses
     assert statuses[-1] == "running"
     assert not ks.task_updates or ks.task_updates[-1]["stage"] == "raw_parse"
+
+
+# ---- 2026-10-14 语义修订：按「到达本闸门」排队（消除跨阶段头阻塞，取代全局提交序号 FIFO）----
+
+def _wait_until(predicate, timeout: float = 1.0) -> bool:
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        if predicate():
+            return True
+        time.sleep(0.005)
+    return predicate()
+
+
+def _bounded_cancel_after(polls: int):
+    """测试用取消预算：闸门未按预期放行时让 worker 干净退出，不留阻塞线程。
+
+    仅在「等待超过预算」时触发；新语义下的正常路径不会轮询到它。
+    """
+    state = {"n": 0}
+
+    def cancel_check() -> None:
+        state["n"] += 1
+        if state["n"] > polls:
+            raise RuntimeError("测试超时：闸门未按预期放行")
+
+    return cancel_check
+
+
+def test_gate_does_not_wait_for_absent_earlier_seq() -> None:
+    """序号靠前但尚未到达闸门的任务不再挡路：后到者（seq=9）空槽即进。
+
+    旧语义「谁先提交谁先用」下，seq=9 会等一个从未到达的 seq=1 —— 这正是 PoPo
+    闸门实测空槽硬等 88–100 分钟的跨阶段头阻塞。
+    """
+    gate = _FifoGpuGate(max_concurrency=1)
+    acquired = threading.Event()
+
+    def worker() -> None:
+        # 序号 1..8 从未到达本闸门；预算 2 秒（100 次 × 0.02s）
+        gate.acquire(9, _bounded_cancel_after(100), poll_interval=0.02)
+        acquired.set()
+        gate.release()
+
+    t = threading.Thread(target=worker, daemon=True)
+    t.start()
+    assert acquired.wait(timeout=1.0), "空槽位下后序任务被未到达的前序序号挡住（跨阶段头阻塞复发）"
+    t.join(timeout=3)
+
+
+def test_gate_within_gate_fairness_follows_arrival_order() -> None:
+    """同一闸门内先到者先得：到达顺序与提交序号相反时，以到达顺序为准。"""
+    gate = _FifoGpuGate(max_concurrency=1)
+    gate.acquire(1)  # 占住唯一令牌
+    order: list[str] = []
+
+    def worker(name: str, seq: int) -> None:
+        gate.acquire(seq, _bounded_cancel_after(200), poll_interval=0.01)
+        order.append(name)
+        gate.release()
+
+    first = threading.Thread(target=worker, args=("first", 10), daemon=True)
+    first.start()
+    assert _wait_until(lambda: 10 in gate._tickets), "先到者应先领到排队号"
+    second = threading.Thread(target=worker, args=("second", 2), daemon=True)
+    second.start()
+    assert _wait_until(lambda: 2 in gate._tickets), "后到者应领到排队号"
+    gate.release()  # 放行队首（先到者）
+    first.join(timeout=3)
+    second.join(timeout=3)
+    assert order == ["first", "second"]
+
+
+def test_gate_duplicate_request_passes_with_free_token() -> None:
+    """同一任务重复请求（PoPo 瞬时失败重试路径）：排队号已消耗，有空槽即直通。"""
+    gate = _FifoGpuGate(max_concurrency=1)
+    gate.acquire(7)
+    gate.release()
+    acquired = threading.Event()
+
+    def worker() -> None:
+        gate.acquire(7, _bounded_cancel_after(100), poll_interval=0.02)  # 同一任务重试
+        acquired.set()
+        gate.release()
+
+    t = threading.Thread(target=worker, daemon=True)
+    t.start()
+    assert acquired.wait(timeout=1.0), "重复请求应直通，不得再排到队尾"
+    t.join(timeout=3)
+
+
+def test_gate_cancelled_head_releases_next_arrival() -> None:
+    """队首在等待中取消：作废其排队号并让位，后到者获得令牌。"""
+    gate = _FifoGpuGate(max_concurrency=1)
+    gate.acquire(1)  # 占住唯一令牌
+    cancelled = threading.Event()
+    tail_got = threading.Event()
+
+    def head() -> None:
+        polls = {"n": 0}
+
+        def cancel_check() -> None:
+            polls["n"] += 1
+            if polls["n"] >= 2:
+                raise RuntimeError("cancel requested")
+
+        try:
+            gate.acquire(2, cancel_check, poll_interval=0.01)
+        except RuntimeError:
+            cancelled.set()
+
+    def tail() -> None:
+        gate.acquire(3, _bounded_cancel_after(200), poll_interval=0.01)
+        tail_got.set()
+        gate.release()
+
+    h = threading.Thread(target=head, daemon=True)
+    h.start()
+    assert _wait_until(lambda: 2 in gate._tickets)
+    tl = threading.Thread(target=tail, daemon=True)
+    tl.start()
+    assert _wait_until(lambda: 3 in gate._tickets)
+    h.join(timeout=3)
+    assert cancelled.is_set()
+    gate.release()  # 释放令牌
+    assert tail_got.wait(timeout=1.0), "队首取消后，后到者应能获得令牌"
+    tl.join(timeout=3)
