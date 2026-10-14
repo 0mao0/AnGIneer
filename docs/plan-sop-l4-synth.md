@@ -729,11 +729,12 @@ def build_l4_hooks(client: "SopApiClient", budget: Dict[str, int]):
 ## Task 7: 验收（预注册）
 
 - [ ] **单测集全绿**：`pytest tests/unit tests/angineer-core services/sop-core/tests tests/knowledge_graph/test_sop_path_generator.py -q`（分开跑，两目录同名模块不可合跑）
+  ——2026-10-14 实测：tests/unit 930 过/3 挂（2=docs-core GPU 闸 b261ac17 未同步单测、1=kb_corpus_export 既有）、angineer-core 399 过/2 挂（QaConfig 既有，非本线）、sop-core 3 过、knowledge_graph 3 过。挂项均不在本线代码
 - [x] **开关关一致性**：Task 5 的 `test_no_callback_returns_legacy_error` 即构造性断言
-- [ ] **手测开关开**：本地 `.env` 临时 `ANGINEER_SOP_L4_SYNTH=1` + 重启 aichat → 问一道**故意海港题集覆盖不到**的复合计算题 → 观察 sop-api 日志 synthesize 调用、回答带 l4_synth 结果、`data/platform/sops/json/` 出现 draft、管理页审核流可发布
-- [ ] **预注册对照（跑前写死）**：20 题海港计算题集（从既有评测题集抽），A 臂=开关关、B 臂=开；判据：①B 正确题数 ≥ A 正确题数 − 5（噪声地板内）；②B 的合成调用成功率与 412 率如实记录（能力画像，非门禁）；③无判分闸回退。结果只报不改 nightly 门禁（业主口径）
-- [ ] **证据闸核查**（主方案 §6.3 遗留验证项）：确认 complex 档 `final_answer_guard(enforce_evidence=True)` 对 L4 合成执行的回答同样生效——手测开关开时给一道无证据支撑的合成题，确认答案被闸拦截而非放行
-- [ ] **恢复默认关**：手测后本地 `.env` 去掉开关；生产开与不开由业主拍板
+- [x] **手测开关开**（2026-10-14 实测通过，开关经进程级注入不碰共享 .env）：四观测全达——sop-api 日志 synthesize 调用 ✓；工具结果带 `l4_synth: true`（真聊天另现 `l4_synth_attempted: true`）✓；`data/platform/sops/json/防冻检查.json`（status=draft、source=l4_synth）✓；review approve→published→reject→draft 往返 200 ✓。手测发现并修复两处合成阻断（**31aab1f8**：校验器 required 闭包 vs LLM 生成约定不匹配，同题 412→200）。**残余**：LLM 生成的计算型 SOP 步骤缺可执行绑定（expression/table_name），零失败结晶暂只在过程型/骨架兜底题可达（能力画像，随 v2 精排排期）
+- [x] **预注册对照（跑前写死）**（2026-10-14，预注册文件 data/scratch/t7-ab-preregistration.md；题集=reviewed-exam-2020-2019 按 question_id 升序前 20，聊天链两臂同判分器）：①A 正确 4 / B 正确 2，B ≥ A−5 **通过**（两处差异题均无 L4 参与=采样方差）；②B 合成调用 11 次（路由命中 10 / miss 回调 1 / synth 成功 0；miss 那记 412=关键词窗口未命中）；③判分闸回退 0 题。**只报不改门禁**
+- [x] **证据闸核查**（主方案 §6.3 遗留验证项）（2026-10-14 实测通过）：守卫同在 L4 托管档（complex_factory 中 `final_answer_guard(enforce_evidence=True)` 与 `l4_synth` 并列）；证据收集有 `sop_trace` 专用分支、全失败步骤不算证据。两极直验：合成执行全失败→拒答替换（no_evidence）；有成功步骤→放行不误杀。真跑另观测守卫拦截三例
+- [x] **恢复默认关**（2026-10-14）：本地 `.env` 无开关（仅 .env.example 注释行）；临时实例已全收摊（端口 8792/8793/8794/8798 验 000）；测试产物与预注册/判分明细落 data/scratch/；生产开与不开由业主拍板
 
 ## 明确不做（本单范围外）
 
