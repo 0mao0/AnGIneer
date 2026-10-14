@@ -15,7 +15,7 @@
       multiple
       :before-upload="beforeUpload"
       :show-upload-list="false"
-      accept=".pdf,.doc,.docx,.md,.txt"
+      accept=".pdf,.doc,.docx,.md,.txt,.xls,.xlsx,.ppt,.pptx"
       :disabled="parsingCount > 0"
     >
       <p class="ant-upload-drag-icon">

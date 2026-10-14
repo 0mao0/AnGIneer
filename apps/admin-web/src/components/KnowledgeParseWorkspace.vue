@@ -601,7 +601,7 @@ const {
   handleKnowledgeCitationSelect
 } = useKnowledgeCitation()
 
-const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md']
+const allowedFileTypes = ['.pdf', '.doc', '.docx', '.md', '.txt', '.xls', '.xlsx', '.ppt', '.pptx']
 const PANEL_LAYOUT_STORAGE_KEY = 'angineer-admin-knowledge-layout-v1'
 const workspaceRef = ref<HTMLElement | null>(null)
 const splitPanesRef = ref<InstanceType<typeof SplitPanes> | null>(null)

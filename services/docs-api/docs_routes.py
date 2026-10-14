@@ -897,7 +897,7 @@ async def upload_document(
 ):
     """上传文档到知识库。"""
     ks = get_docs_service()
-    allowed_extensions = {'.pdf', '.doc', '.docx', '.md'}
+    allowed_extensions = {'.pdf', '.doc', '.docx', '.md', '.txt', '.xls', '.xlsx', '.ppt', '.pptx'}
     ext = os.path.splitext(file.filename or '')[1].lower()
     if ext not in allowed_extensions:
         raise HTTPException(status_code=400, detail=f"Unsupported file type: {ext or 'unknown'}")

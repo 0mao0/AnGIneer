@@ -21,7 +21,7 @@ from pathlib import Path
 import requests
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DOC_EXTS = {".pdf", ".doc", ".docx"}
+DOC_EXTS = {".pdf", ".doc", ".docx", ".txt", ".xls", ".xlsx", ".ppt", ".pptx"}
 DEFAULT_MANIFEST = REPO_ROOT / "data" / "scratch" / "corpus_import_manifest.jsonl"
 
 
