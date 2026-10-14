@@ -14,6 +14,7 @@ import type {
   SessionSnapshot,
   AIChatContextConfig,
   ThinkingTraceStep,
+  SopFlowState,
 } from '../types/chat'
 import { generateMessageId, estimateTokens } from '../utils/tree'
 
@@ -103,6 +104,7 @@ function mapQueryResponseToChatResponse(qr: QueryResponse) {
     gap_analysis: qr.gap_analysis,
     confidence_breakdown: qr.confidence_breakdown,
     thinking_trace: qr.thinking_trace,
+    sop_flows: qr.sop_flows,
     debug: {
       intent: qr.intent,
       fallback_used: qr.fallback_used,
@@ -173,6 +175,8 @@ export function useAIChat(options?: {
       onInterimAnswer?: (snapshot: string) => void
       /** 等待期阶段：classify（意图理解）→ search（检索）→ generate（生成） */
       onStage?: (stage: 'classify' | 'search' | 'generate') => void
+      /** SOP 流程快照（L3/L4 执行期 live 事件 + run_end 重建终态） */
+      onSopFlow?: (flows: SopFlowState[]) => void
     }
   ) => Promise<QueryResponse>
   /** 发送/流式过程中的错误回调（含 403 login_required 等业务态）；宿主据此弹登录浮层等 */
@@ -182,6 +186,7 @@ export function useAIChat(options?: {
   loading: Ref<boolean>
   currentStreamContent: Ref<string>
   liveThinkingSteps: Ref<ThinkingTraceStep[]>
+  liveSopFlows: Ref<SopFlowState[]>
   systemWarning: Ref<string>
   currentSessionKey: Ref<SessionKey>
   contextTokens: ComputedRef<number>
@@ -222,6 +227,8 @@ export function useAIChat(options?: {
   const loading = ref(false)
   const currentStreamContent = ref('')
   const liveThinkingSteps = ref<ThinkingTraceStep[]>([])
+  /** 流式期 SOP 流程快照（run 开始清空、run 结束收进消息后清空） */
+  const liveSopFlows = ref<SopFlowState[]>([])
   const systemWarning = ref('')
   const abortController = ref<AbortController | null>(null)
   const queuedMessages = ref<QueuedMessage[]>([])
@@ -383,6 +390,7 @@ export function useAIChat(options?: {
     loading.value = true
     currentStreamContent.value = ''
     liveThinkingSteps.value = []
+    liveSopFlows.value = []
     interimAnswers.value = []
     progressStage.value = ''
     elapsedSeconds.value = 0
@@ -443,6 +451,9 @@ export function useAIChat(options?: {
         },
         onThinking: (steps) => {
           liveThinkingSteps.value = steps
+        },
+        onSopFlow: (flows) => {
+          liveSopFlows.value = flows
         },
         onAnswerReplace: (full) => {
           // 边界规则替换最终答案时整体覆盖，避免旧答案残留在界面上；
@@ -522,6 +533,7 @@ export function useAIChat(options?: {
         gap_analysis: payload.gap_analysis,
         confidence_breakdown: payload.confidence_breakdown,
         thinking_trace: payload.thinking_trace || [],
+        sop_flows: payload.sop_flows?.length ? payload.sop_flows : (liveSopFlows.value.length ? [...liveSopFlows.value] : undefined),
         interim_answers: interimAnswers.value.length ? [...interimAnswers.value] : undefined,
         debug: payload.debug
       })
@@ -674,6 +686,7 @@ export function useAIChat(options?: {
     loading,
     currentStreamContent,
     liveThinkingSteps,
+    liveSopFlows,
     systemWarning,
     currentSessionKey,
     contextTokens,

@@ -4,6 +4,7 @@ import type {
   InlineCitationSearchPayload,
   QueryRequest,
   QueryResponse,
+  SopFlowState,
   ThinkingTraceItem,
   ThinkingTraceStep,
 } from '@angineer/aichat-ui'
@@ -30,6 +31,8 @@ export const defaultAIChatTransport = {
       onInterimAnswer?: (snapshot: string) => void
       /** 等待期阶段推进：run_start→classify，tool_start→search，首个正文 delta→generate */
       onStage?: (stage: 'classify' | 'search' | 'generate') => void
+      /** SOP 流程快照（L3/L4 执行期 live 事件 + run_end 重建终态）：宿主收进流程图卡片 */
+      onSopFlow?: (flows: SopFlowState[]) => void
     }
   ): Promise<QueryResponse> => {
     // P7 链路：走 /api/chat/agent（AgentSession 多轮 + SSE 事件流）
@@ -81,6 +84,12 @@ export const defaultAIChatTransport = {
     let toolMessages: Array<{ name?: string; content: string }> = []
     let traceMessages: Array<Record<string, any>> = []
     let liveThinkingSteps: ThinkingTraceStep[] = []
+    /** SOP 流程快照累积（按 sop_id 去重，live 事件逐帧替换 + run_end 用工具消息终态覆盖） */
+    const liveSopFlows = new Map<string, SopFlowState>()
+    const upsertSopFlow = (flow: SopFlowState) => {
+      liveSopFlows.set(flow.sop_id, flow)
+      options?.onSopFlow?.(Array.from(liveSopFlows.values()))
+    }
     let stage = ''
     /** 请求起点墙钟（分类阶段帧的 ts）：思考过程折叠头「总耗时」的锚点（2026-09-30） */
     let wallAnchorMs: number | undefined
@@ -141,6 +150,10 @@ export const defaultAIChatTransport = {
         } else if (event.type === 'note') {
           liveThinkingSteps = applyAgentEventToThinking(event, liveThinkingSteps)
           options?.onThinking?.([...liveThinkingSteps])
+        } else if (event.type === 'sop_flow') {
+          // SOP 流程快照（plan/step/done）：payload 自足，整条替换式 upsert
+          const flow = normalizeSopFlow(event.payload)
+          if (flow) upsertSopFlow(flow)
         } else if (event.type === 'answer') {
           const finalContent = String(event.payload?.content || '')
           if (finalContent) {
@@ -180,6 +193,11 @@ export const defaultAIChatTransport = {
           const runNotes = Array.isArray(event.payload?.notes)
             ? event.payload.notes
             : []
+          // SOP 流程终态：run_end 工具消息里的完整 sop_trace 覆盖 live 快照
+          //（live 期步骤状态已逐帧回填，这里兜底中途断流/缺 done 快照的情况）
+          for (const flow of extractSopFlowsFromToolMessages(traceMessages)) {
+            upsertSopFlow(flow)
+          }
           const finalTrace = mergeThinkingTrace(
             buildThinkingTrace(traceMessages, runNotes),
             liveThinkingSteps
@@ -255,6 +273,7 @@ export const defaultAIChatTransport = {
       answer,
       citations,
       thinking_trace: liveThinkingSteps,
+      sop_flows: Array.from(liveSopFlows.values()),
       fallback_used: false,
     }
   },
@@ -615,6 +634,76 @@ export function extractToolResultItems(content: string): ThinkingTraceItem[] | u
     return items.length ? items : undefined
   }
   return undefined
+}
+
+/** sop_flow 事件 payload → SopFlowState（shape 不认识的返回 undefined，静默丢弃） */
+export function normalizeSopFlow(payload: any): SopFlowState | undefined {
+  const raw = payload ?? {}
+  if (typeof raw.sop_id !== 'string' || !raw.sop_id || !Array.isArray(raw.steps)) return undefined
+  const steps = raw.steps.filter((s: any) => s && typeof s.step_id === 'string').map((s: any) => ({
+    step_id: String(s.step_id),
+    step_name: String(s.step_name || s.step_id),
+    tool: String(s.tool || 'auto'),
+    status: s.status === 'success' ? 'success' : (s.status === 'pending' ? 'pending' : 'failed'),
+    ...(Number(s.duration_ms) > 0 ? { duration_ms: Number(s.duration_ms) } : {}),
+    ...(s.error ? { error: String(s.error).slice(0, 200) } : {}),
+  }) as SopFlowState['steps'][number])
+  return {
+    sop_id: raw.sop_id,
+    sop_name: String(raw.sop_name || raw.sop_id),
+    total: Number(raw.total) || steps.length,
+    done: Number(raw.done) || steps.filter((s: SopFlowState['steps'][number]) => s.status !== 'pending').length,
+    running: Boolean(raw.running),
+    steps,
+  }
+}
+
+/**
+ * 从 run_end 工具消息重建 SOP 流程终态（回放/断流兜底）。
+ * 判据=content JSON 含 sop_trace 数组；步状态与耗时以 trace 记录为准。
+ */
+export function extractSopFlowsFromToolMessages(
+  messages: Array<{ role?: string; content?: string }>
+): SopFlowState[] {
+  const flows: SopFlowState[] = []
+  for (const message of messages) {
+    let raw: any
+    try {
+      raw = JSON.parse(message.content || '{}')
+    } catch {
+      continue
+    }
+    if (!raw || typeof raw !== 'object' || !Array.isArray(raw.sop_trace) || !Array.isArray(raw.steps)) continue
+    if (typeof raw.sop_id !== 'string' || !raw.sop_id) continue
+    const steps = raw.steps.map((entry: any) => {
+      const detail = (Array.isArray(raw.sop_trace) ? raw.sop_trace : []).find(
+        (t: any) => t && t.step_id === entry?.step_id
+      )
+      const status = String(entry?.status ?? detail?.status ?? 'pending')
+      const durationSec = Number(detail?.duration ?? 0)
+      const error = detail?.error ? String(detail.error).slice(0, 200) : undefined
+      return {
+        step_id: String(entry?.step_id || detail?.step_id || ''),
+        step_name: String(entry?.step_name || detail?.step_name || entry?.step_id || ''),
+        tool: String(detail?.tool || 'auto'),
+        status: status === 'success' ? 'success' : (status === 'pending' ? 'pending' : 'failed'),
+        ...(durationSec > 0 ? { duration_ms: Math.round(durationSec * 1000) } : {}),
+        ...(error ? { error } : {}),
+      } as SopFlowState['steps'][number]
+    })
+    flows.push({
+      sop_id: raw.sop_id,
+      sop_name: String(raw.sop_name || raw.sop_id),
+      total: steps.length,
+      done: steps.filter((s: SopFlowState['steps'][number]) => s.status !== 'pending').length,
+      running: false,
+      steps,
+      ...(Array.isArray(raw.missing_report) && raw.missing_report.length
+        ? { missing_report: raw.missing_report }
+        : {}),
+    })
+  }
+  return flows
 }
 
 /** 提取工具返回中需要单独说明的信息（如 entity_search 自动回退正文）。 */

@@ -62,6 +62,33 @@ export interface BaseChatCitation {
 }
 
 /**
+ * SOP 流程快照的单步（status 只有三态：plan 快照=pending、done 回填=success/failed）
+ */
+export interface SopFlowStepState {
+  step_id: string
+  step_name: string
+  tool?: string
+  status: 'pending' | 'success' | 'failed'
+  duration_ms?: number
+  error?: string
+}
+
+/**
+ * 一条 SOP 执行的流程快照。live 期由 sop_flow 事件逐帧替换，
+ * 回放/历史从 sop_execute 工具消息重建，shape 逐键一致（前端替换式渲染不区分来源）。
+ */
+export interface SopFlowState {
+  sop_id: string
+  sop_name: string
+  total: number
+  done: number
+  running: boolean
+  steps: SopFlowStepState[]
+  /** 缺参引导（run_end 重建时从 result.missing_report 透传；live 快照不含） */
+  missing_report?: Array<{ param?: string; recommend?: string | number; unit?: string }>
+}
+
+/**
  * 基础聊天组件消息对象
  */
 export interface BaseChatMessage {
@@ -76,6 +103,8 @@ export interface BaseChatMessage {
   thinking_trace?: ThinkingTraceStep[]
   /** 本回答顶替掉的中间输出快照（拒答重答/边界规则改写），折叠展示可回看 */
   interim_answers?: string[]
+  /** 本轮执行的 SOP 流程快照（折叠流程图卡片消费） */
+  sop_flows?: SopFlowState[]
 }
 
 /**
@@ -141,6 +170,8 @@ export interface AIChatMessage {
   thinking_trace?: ThinkingTraceStep[]
   /** 本回答顶替掉的中间输出快照（拒答重答/边界规则改写），折叠展示可回看 */
   interim_answers?: string[]
+  /** 本轮执行的 SOP 流程快照（折叠流程图卡片消费） */
+  sop_flows?: SopFlowState[]
 }
 
 export interface ThinkingTraceStep {
@@ -241,6 +272,8 @@ export interface QueryResponse {
     low?: string[]
   }
   thinking_trace?: ThinkingTraceStep[]
+  /** 本轮执行的 SOP 流程快照（live 事件累积 + run_end 从工具消息重建后的终态） */
+  sop_flows?: SopFlowState[]
 }
 
 export type SessionKey = `${string}:${string}`

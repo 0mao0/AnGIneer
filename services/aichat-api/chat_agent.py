@@ -89,6 +89,7 @@ def make_policy_config_factory(
     sop_loader: Any = None,
     route_debug: Any = None,
     marker_allocator: Any = None,
+    step_event: Optional[Any] = None,
 ):
     """按意图分级返回策略化 AgentLoopConfig 工厂（attempts 由 agent_policy 展开）。
 
@@ -133,6 +134,7 @@ def make_policy_config_factory(
             l4_synth=l4_synth,
             query=query,
             marker_allocator=allocator,
+            step_event=step_event,
         )
         return AgentLoopConfig(
             llm=get_llm_client(),

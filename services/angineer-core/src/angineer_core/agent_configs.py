@@ -3,7 +3,7 @@ import json
 import os
 import re
 from dataclasses import replace
-from typing import Any, Dict, List, Optional
+from typing import Any, Callable, Dict, List, Optional
 
 from angineer_core.agent_loop import _INJECTED_USER_PROMPTS, AgentLoopConfig, TurnContext
 from angineer_core.agent_messages import AgentMessage, is_refusal_text, strip_half_refusal_lead
@@ -745,6 +745,7 @@ def build_complex_config(
     sop_loader: Any = None,
     memory: Any = None,
     step_callback: Optional[Any] = None,
+    step_event: Optional[Callable[[Dict[str, Any]], None]] = None,
     max_turns: int = 8,
     max_tokens_est: Optional[int] = None,
     budget_threshold: Optional[int] = None,
@@ -803,6 +804,7 @@ def build_complex_config(
                 mode=mode,
                 memory=memory,
                 step_callback=step_callback,
+                sop_event=step_event,
                 library_id=library_id,
                 doc_ids=doc_ids,
                 library_ids=library_ids,

@@ -147,6 +147,13 @@
                 </div>
               </div>
 
+              <!-- SOP 流程图（历史消息）：默认折叠，点击 header 展开 -->
+              <SopFlowPanel
+                v-if="(msg.sop_flows || []).length"
+                :flows="msg.sop_flows || []"
+                :default-expanded="false"
+              />
+
               <div class="answer-text" v-html="renderAssistantContent(msg)" />
               <details v-for="(interim, iIdx) in (msg.interim_answers || [])" :key="iIdx" class="interim-answer">
                 <summary>中间输出（已被最终回答顶替，点击展开）</summary>
@@ -183,6 +190,12 @@
                 </div>
               </div>
             </div>
+            <!-- SOP 流程图：执行期实时展开（流式态即进度），run 结束收进消息后按历史消息折叠 -->
+            <SopFlowPanel
+              v-if="streamingSopFlows?.length"
+              :flows="streamingSopFlows"
+              :default-expanded="true"
+            />
             <details v-for="(interim, idx) in interimAnswers" :key="idx" class="interim-answer">
               <summary>中间输出（已被最终回答顶替，点击展开）</summary>
               <div class="interim-answer-body">{{ interim }}</div>
@@ -478,6 +491,7 @@ import {
 import CitationInline from './CitationInline.vue'
 import InlineCitationEditor from './InlineCitationEditor.vue'
 import ThinkingSteps from './ThinkingSteps.vue'
+import SopFlowPanel from './SopFlowPanel.vue'
 import type {
   BaseChatCitation,
   BaseChatContextItem,
@@ -488,6 +502,7 @@ import type {
   CitationBinding,
   InlineCitationCandidate,
   ThinkingTraceStep,
+  SopFlowState,
   QueuedMessage
 } from '../types'
 import {
@@ -527,6 +542,8 @@ interface Props {
   contextTokens?: number
   contextRounds?: number
   streamingThinkingSteps?: ThinkingTraceStep[]
+  /** 流式期 SOP 流程快照（宿主从 useAIChat.liveSopFlows 传入，run 结束收进消息后清空） */
+  streamingSopFlows?: SopFlowState[]
   /** 中间轮被顶替的正文快照（拒答重答/截断重试），流式期间置灰折叠展示 */
   interimAnswers?: string[]
   /** 等待期阶段（classify/search/generate），驱动分段进度文案；空串退回「思考中...」 */
@@ -575,6 +592,7 @@ const props = withDefaults(defineProps<Props>(), {
   contextTokens: 0,
   contextRounds: 0,
   streamingThinkingSteps: () => [],
+  streamingSopFlows: () => [],
   renderMessage: undefined,
   searchCitations: undefined,
   hero: false,

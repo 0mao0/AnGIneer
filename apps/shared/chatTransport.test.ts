@@ -6,9 +6,11 @@ import {
   buildThinkingTrace,
   cleanStreamText,
   defaultAIChatTransport,
+  extractSopFlowsFromToolMessages,
   extractToolResultItems,
   filterCitationsByMarkers,
   mergeThinkingTrace,
+  normalizeSopFlow,
   stripToolCallArtifacts,
   summarizeToolResult,
 } from './chatTransport.ts'
@@ -669,4 +671,122 @@ test('summarizeToolResult 如实显示工具错误，不吞成占位符', () => 
   // 合法 JSON 照旧走摘要
   assert.equal(summarizeToolResult('{"items": [1, 2], "total": 2}'), '检索到 2 条结果')
   assert.equal(summarizeToolResult('{"entities": [], "total": 0}'), '图谱检索到 0 个实体')
+})
+
+test('normalizeSopFlow 归一实时快照：三态状态、耗时换算、done 兜底计数', () => {
+  const plan = normalizeSopFlow({
+    sop_id: 'sop_tide',
+    sop_name: '潮位查表计算',
+    total: 2,
+    done: 0,
+    running: true,
+    steps: [
+      { step_id: 's1', step_name: '查表', tool: 'table_lookup', status: 'pending' },
+      { step_id: 's2', step_name: '计算', tool: 'python_compute', status: 'pending' },
+    ],
+  })
+  assert.equal(plan?.running, true)
+  assert.equal(plan?.done, 0)
+  assert.equal(plan?.steps[0].step_name, '查表')
+
+  const step = normalizeSopFlow({
+    sop_id: 'sop_tide',
+    total: 2,
+    running: true,
+    steps: [
+      { step_id: 's1', step_name: '查表', tool: 'table_lookup', status: 'success', duration_ms: 1500 },
+      { step_id: 's2', step_name: '计算', tool: 'python_compute', status: 'failed', error: '缺参 W' },
+    ],
+  })
+  assert.equal(step?.steps[0].status, 'success')
+  assert.equal(step?.steps[0].duration_ms, 1500)
+  assert.equal(step?.steps[1].status, 'failed')
+  assert.equal(step?.steps[1].error, '缺参 W')
+  // done 缺省时按非 pending 步数兜底
+  assert.equal(step?.done, 2)
+
+  // 形状不认识静默丢弃
+  assert.equal(normalizeSopFlow({}), undefined)
+  assert.equal(normalizeSopFlow({ sop_id: 'x', steps: 'no' }), undefined)
+})
+
+test('extractSopFlowsFromToolMessages 从 sop_trace 重建终态：失败与缺参保留', () => {
+  const toolMessage = {
+    role: 'tool',
+    content: JSON.stringify({
+      sop_id: 'sop_tide',
+      sop_name: '潮位查表计算',
+      steps: [
+        { step_id: 's1', step_name: '查表', status: 'success' },
+        { step_id: 's2', step_name: '计算', status: 'error' },
+      ],
+      sop_trace: [
+        { step_id: 's1', status: 'success', duration: 1.5, tool: 'table_lookup' },
+        { step_id: 's2', status: 'error', error: '缺少参数 W，推荐值 310.03', tool: 'python_compute' },
+      ],
+      missing_report: ['W'],
+    }),
+  }
+  const flows = extractSopFlowsFromToolMessages([toolMessage])
+  assert.equal(flows.length, 1)
+  const flow = flows[0]
+  assert.equal(flow.running, false)
+  // done 口径与后端一致：非 pending 即计入（失败也算走完）
+  assert.equal(flow.done, 2)
+  assert.equal(flow.steps[0].duration_ms, 1500)
+  assert.equal(flow.steps[1].status, 'failed')
+  assert.equal(flow.steps[1].error, '缺少参数 W，推荐值 310.03')
+  assert.deepEqual(flow.missing_report, ['W'])
+
+  // 无 sop_trace 的工具消息不产流
+  assert.equal(extractSopFlowsFromToolMessages([{ role: 'tool', content: '{"items":[]}' }]).length, 0)
+  assert.equal(extractSopFlowsFromToolMessages([{ role: 'tool', content: 'not json' }]).length, 0)
+})
+
+test('SSE sop_flow 事件驱动 onSopFlow 回调，run_end 工具消息终态覆盖 live 快照', async () => {
+  const sopToolContent = JSON.stringify({
+    sop_id: 'sop_tide',
+    sop_name: '潮位查表计算',
+    steps: [{ step_id: 's1', step_name: '查表', status: 'success' }],
+    sop_trace: [{ step_id: 's1', status: 'success', duration: 1.5, tool: 'table_lookup' }],
+  })
+  const events = [
+    { type: 'run_start', run_id: 'r1', turn: 0, payload: {} },
+    {
+      type: 'sop_flow', run_id: 'r1', turn: 0,
+      payload: { sop_id: 'sop_tide', sop_name: '潮位查表计算', total: 1, done: 0, running: true,
+        steps: [{ step_id: 's1', step_name: '查表', tool: 'table_lookup', status: 'pending' }] },
+    },
+    {
+      type: 'run_end', run_id: 'r1', turn: 1,
+      payload: {
+        reason: 'completed', turns: 1, notes: [],
+        messages: [
+          { role: 'user', content: 'x' },
+          { role: 'tool', name: 'sop_execute', content: sopToolContent },
+          { role: 'assistant', content: '潮位结论如下。' },
+        ],
+      },
+    },
+  ]
+  const originalFetch = globalThis.fetch
+  globalThis.fetch = (async () => sseResponse(events)) as typeof fetch
+  const snapshots: Array<{ running: boolean; done: number }> = []
+  try {
+    const result = await defaultAIChatTransport.query(
+      { query: 'x', scene: 'qa', session_id: 's1', library_id: 'default', doc_ids: [] },
+      { onSopFlow: flows => snapshots.push(...flows.map(f => ({ running: f.running, done: f.done }))) }
+    )
+    assert.equal(result.answer, '潮位结论如下。')
+    assert.equal(snapshots.length, 2)
+    assert.equal(snapshots[0].running, true)
+    assert.equal(snapshots[0].done, 0)
+    // run_end 终态覆盖：running 收敛为 false
+    assert.equal(snapshots[snapshots.length - 1].running, false)
+    assert.equal(result.sop_flows?.length, 1)
+    assert.equal(result.sop_flows?.[0].running, false)
+    assert.equal(result.sop_flows?.[0].steps[0].status, 'success')
+  } finally {
+    globalThis.fetch = originalFetch
+  }
 })

@@ -22,6 +22,8 @@ export type {
   AIChatMessage,
   ThinkingTraceItem,
   ThinkingTraceStep,
+  SopFlowState,
+  SopFlowStepState,
   QueryRequest,
   QueryResponse,
   SessionKey,

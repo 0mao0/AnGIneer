@@ -1266,6 +1266,7 @@ class SopRunnerAdapter:
         runner: Any = None,
         memory: Any = None,
         step_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+        sop_event: Optional[Callable[[Dict[str, Any]], None]] = None,
         library_id: str = "default",
         doc_ids: Optional[List[str]] = None,
         library_ids: Optional[List[str]] = None,
@@ -1366,9 +1367,71 @@ class SopRunnerAdapter:
             if isinstance(args, dict):
                 initial_context.update(args)
 
-            final_context = executor.run_sop(
-                selected_sop, initial_context, step_callback=step_callback
-            )
+            # SOP 流程图快照通道（2026-10-14 业主需求：聊天里可见 SOP 步骤流）：
+            # plan/step/done 三种快照事件直发前端 SSE，前端只做替换式渲染；
+            # 未接该通道的调用方（评测/REST/池化默认工厂）step_event=None，行为逐位不变。
+            steps_state: List[Dict[str, Any]] = [
+                {
+                    "step_id": st.id,
+                    "step_name": st.name or st.name_zh or st.id,
+                    "tool": st.tool or "auto",
+                    "status": "pending",
+                }
+                for st in (selected_sop.steps or [])
+            ]
+
+            def _emit_flow(running: bool) -> None:
+                if sop_event is None:
+                    return
+                try:
+                    sop_event({
+                        "sop_id": selected_sop.id,
+                        "sop_name": selected_sop.name_zh or selected_sop.name_en or selected_sop.id,
+                        "total": len(steps_state),
+                        "done": sum(1 for s in steps_state if s["status"] != "pending"),
+                        "running": running,
+                        "steps": [dict(s) for s in steps_state],
+                    })
+                except Exception as exc:  # noqa: BLE001
+                    logger.debug("sop_flow 快照发送失败（忽略）: %s", exc)
+
+            run_callback: Optional[Callable[[Dict[str, Any]], None]] = step_callback
+            if sop_event is not None:
+                def _flow_notify(info: Dict[str, Any]) -> None:
+                    if step_callback is not None:
+                        step_callback(info)
+                    sid = str(info.get("step_id") or "")
+                    entry = next((s for s in steps_state if s["step_id"] == sid), None)
+                    if entry is None:
+                        entry = {
+                            "step_id": sid,
+                            "step_name": info.get("step_name") or sid,
+                            "tool": info.get("tool") or "auto",
+                            "status": "pending",
+                        }
+                        steps_state.append(entry)
+                    status = str(info.get("status") or "pending")
+                    entry["status"] = (
+                        "success" if status == "success"
+                        else ("pending" if status == "pending" else "failed")
+                    )
+                    if info.get("duration") is not None:
+                        try:
+                            entry["duration_ms"] = int(float(info["duration"]) * 1000)
+                        except (TypeError, ValueError):
+                            pass
+                    if info.get("error"):
+                        entry["error"] = str(info["error"])[:200]
+                    _emit_flow(True)
+
+                _emit_flow(True)  # plan 快照：前端先渲 pending 骨架
+                run_callback = _flow_notify
+            try:
+                final_context = executor.run_sop(
+                    selected_sop, initial_context, step_callback=run_callback
+                )
+            finally:
+                _emit_flow(False)  # done 快照：running=False，步状态已随 steps 逐次回填
             sop_trace = SopRunner._build_sop_trace(executor, selected_sop)
             citations = SopRunner._build_citations_from_sop_trace(executor)
             success_steps = sum(1 for s in sop_trace if s.get("status") == "success")

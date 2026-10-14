@@ -225,6 +225,7 @@ export async function saveSession(storage: StorageLike, libraryId: string, recor
       if (Array.isArray(m.citations) && m.citations.length) metaPatch.citations = m.citations
       if (Array.isArray(m.thinking_trace) && m.thinking_trace.length) metaPatch.thinking_trace = m.thinking_trace
       if (m.strategy) metaPatch.strategy = m.strategy
+      if (Array.isArray(m.sop_flows) && m.sop_flows.length) metaPatch.sop_flows = m.sop_flows
       return Object.keys(metaPatch).length ? { msg_seq: m.msgSeq, meta_patch: metaPatch } : null
     })
     .filter((p): p is { msg_seq: number; meta_patch: Record<string, unknown> } => p !== null)

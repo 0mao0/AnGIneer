@@ -17,6 +17,7 @@
     :context-tokens="contextTokens"
     :context-rounds="contextRounds"
     :streaming-thinking-steps="liveThinkingSteps"
+    :streaming-sop-flows="liveSopFlows"
     :interim-answers="interimAnswers"
     :progress-stage="progressStage"
     :elapsed-seconds="elapsedSeconds"
@@ -163,6 +164,7 @@ const {
   loading,
   currentStreamContent,
   liveThinkingSteps,
+  liveSopFlows,
   systemWarning,
   contextTokens,
   contextRounds,

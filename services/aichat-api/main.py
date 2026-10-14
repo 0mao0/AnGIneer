@@ -45,6 +45,7 @@ ensure_env()
 from ai_inference.llm_client import LLMClient
 from angineer_core import IntentClassifier
 from angineer_core.base_contracts import ScopeContext
+from angineer_core.agent_events import AgentEvent
 from chat_agent import (
     find_session_by_run_id,
     get_agent_session,
@@ -526,6 +527,12 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
             def emit(event):
                 queue.put_nowait(event)
 
+            # SOP 流程图快照通道（2026-10-14 业主需求：聊天里可见 SOP 步骤流）：
+            # L3/L4 执行期 sop_execute 的 plan/step/done 快照经此直发 SSE，
+            # 未接该通道的调用方行为逐位不变
+            def step_event(payload: dict) -> None:
+                emit(AgentEvent(type="sop_flow", run_id="", payload=payload))
+
             loop = asyncio.get_running_loop()
 
             # 上一次 run 可能仍在收尾：客户端 abort 只断开连接，服务端要等 LLM 调用退出
@@ -605,6 +612,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
                 sop_loader=sop_api,
                 route_debug=route_debug,
                 marker_allocator=shared_allocator,
+                step_event=step_event,
             )
             # run 结束即落库（D8：role/content 服务端权威）；seq 服务端分配后
             # 经 run_end 帧下发 msg_seqs（D10）。消息取 session.history 增量切片——
