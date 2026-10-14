@@ -77,13 +77,13 @@ flowchart LR
 
 ### 2️⃣ angineer-core：工程可靠 Harness
 
-手写 Agent 循环（零框架）：意图分级 L0–L4 路由、赌博式预检、四路召回 + RRF 融合重排、终答守卫（无证据/外引/半拒答 → 拒答）。**跨域旁证 FinanceBench**（金融域 150 题、同一判分链零改动）：语义正确率 **58.0%**，超过论文公开的现实 RAG 配置最优档 50%。
+手写 Agent 循环（零框架）：意图分级 L0–L4 路由、赌博式预检、五路召回 + RRF 融合重排、终答守卫（无证据/外引/半拒答 → 拒答）。**跨域旁证 FinanceBench**（金融域 150 题、同一判分链零改动）：语义正确率 **58.0%**，超过论文公开的现实 RAG 配置最优档 50%。
 
 ![FinanceBench 跨域旁证](docs/images/financebench-compare.png)
 
 > 深入阅读：[docs/angineer-core/agent-harness.md](docs/angineer-core/agent-harness.md)
 
-### 3️⃣ sops-core：经验提取与执行
+### 3️⃣ sop-core：经验提取与执行
 
 从文档图谱自动提取 SOP（规则骨架/LLM 生成 → 变量黑板依赖提取 → 校验 → 审核闸门 → 可执行库），运行时 `sop_execute` 按步骤图执行（计算器/查表/条件分支工具，支持 on_failure 跳转）。SOP 数据面已独立为 sop-api 服务（管理/审核/生成，执行面经 HTTP 拉取已发布列表），领域知识经 domain pack 外置（默认通用内核）。自建专业测试集做 benchmark 回归（注册考试题集）。
 
@@ -129,7 +129,7 @@ flowchart LR
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.96` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.98` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.2` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.3` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
@@ -169,7 +169,7 @@ cd docker && docker compose up -d --build   # Docker 部署（前端 8080 · API
 | 版本 | 主题 | 状态 |
 | :--- | :--- | :--- |
 | **v0.1** | 基础框架：解析入库、图谱、SOP 引擎、L0–L4 分级、对话、评测 | ✅ 已完成 |
-| **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | 🔄 迭代中（当前 v0.2.96，预计收版 v0.2.99） |
+| **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | 🔄 迭代中（当前 v0.2.98，预计收版 v0.2.99） |
 | **v0.3** | SOP 自进化：图谱自动生成 → 审核闸门 → 执行轨迹反哺，支撑注册考题 | 🚧 规划中（生成链路已落地独立 sop-api 服务，L4 合成车道施工中） |
 | **v0.4** | GIS × CAD：真实空间数据接入、断面/土方计算、DWG/DXF 出图算量 | 🚧 规划中（geo-core / engtools 骨架已存在） |
 | **v0.5** | 报告编制：工可/初设等正式设计报告自动编制（Markdown / Word / PDF） | 🚧 规划中 |
