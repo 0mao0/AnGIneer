@@ -55,6 +55,11 @@ SOP_GENERATION_SYSTEM_PROMPT = """你是工程标准 SOP 生成器。你的任�
 }
 ```
 
+【输入引用约定（校验器强制）】blackboard.required 里的每个输入变量，必须在至少一个步骤的
+execution.inputs 的说明文字中以 ${变量名} 形式被引用，例如 "排水量": "船舶满载排水量，取自${排水量}"。
+未被任何步骤引用的 required 键会导致校验失败（2026-10-14 实踩：L4 合成全量 412）。
+若某输入实际不参与任何步骤，请勿放入 required。
+
 请只输出 JSON，不要输出其他内容。"""
 
 SOP_GENERATION_USER_TEMPLATE = """请根据以下信息生成一个完整的工程 SOP。

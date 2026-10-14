@@ -159,7 +159,56 @@ def synthesize_sop(query: str, library_id: str, doc_ids: List[str], *,
     # 先归一化再校验：裸 skeleton / execution 嵌套形态缺顶层 tool（Step.tool 契约必填），
     # 直接 validate 必挂；校验不过按缺料处理（端点转 412 → 运行时回落 complex 兜底）。
     sop["steps"] = [normalize_step_dict(s) for s in (sop.get("steps") or [])]
+    satisfy_required_closure(sop)
     problems = validate_sop_data(sop)
     if problems:
         raise SynthUnavailable("合成 SOP 校验未过: " + "; ".join(problems))
     return {"sop": sop, "path": path}
+
+
+def satisfy_required_closure(sop: Dict[str, Any]) -> None:
+    """补齐 required 的引用闭包（校验器规则 4 要求每个 required 键被某步骤引用）。
+
+    背景（2026-10-14 手测实踩）：LLM 生成的 SOP 会把「题面可提供参数」（如 设计船型/排水量）
+    放入 blackboard.required，但按提示词约定写 inputs 说明文字时不一定带 ${键} 引用——
+    校验器即拒（规则 4），L4 合成全量 412。而 required 的运行时语义是「题面可提供参数」
+    白名单（sop_runner.py:114 缺参引导用），**不能删键**；这里做确定性补引用：
+    某步骤 inputs 已有该键的，值串补「，取自${键}」；完全未出现的，注入首个步骤 inputs。
+    幂等：已带引用的键不动。
+    """
+    import re
+
+    bb = sop.get("blackboard") or {}
+    required = bb.get("required") or []
+    steps = sop.get("steps") or []
+    if not required or not steps:
+        return
+    referenced: set = set()
+    produced: set = set()
+    for st in steps:
+        inp = st.get("inputs")
+        if isinstance(inp, dict):
+            for v in inp.values():
+                if isinstance(v, str):
+                    referenced.update(re.findall(r"\$\{([^}]+)\}", v))
+        out = st.get("outputs")
+        if isinstance(out, dict):
+            produced.update(str(k) for k in out.keys())
+    for key in required:
+        key = str(key or "")
+        if not key or key == "user_query" or key in referenced or key in produced:
+            continue
+        placed = False
+        for st in steps:
+            inp = st.get("inputs")
+            if isinstance(inp, dict) and key in inp and isinstance(inp[key], str):
+                if "${" not in inp[key]:
+                    inp[key] = f"{inp[key]}，取自${{{key}}}"
+                placed = True
+                break
+        if not placed:
+            inp = steps[0].get("inputs")
+            if not isinstance(inp, dict):
+                inp = {}
+                steps[0]["inputs"] = inp
+            inp[key] = f"题面提供，取自${{{key}}}"

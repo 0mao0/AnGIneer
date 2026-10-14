@@ -5,7 +5,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
 from unittest.mock import MagicMock, patch
-from path_selector import SynthUnavailable, extract_keywords, build_candidate_paths, synthesize_sop
+from path_selector import (SynthUnavailable, extract_keywords, build_candidate_paths,
+                           satisfy_required_closure, synthesize_sop)
 
 
 def _resp(payload):
@@ -55,6 +56,39 @@ class TestSynthesizeSop(unittest.TestCase):
             result = synthesize_sop("杂货船设计吃水", "lib", [], session=session, base_url="http://x", llm_enabled=True)
         self.assertIn("sop", result)
         self.assertTrue(result["sop"]["steps"])
+
+
+class TestSatisfyRequiredClosure(unittest.TestCase):
+    """required 引用闭包补齐（2026-10-14 手测实踩：LLM 产出声明 required 但步骤未引用 → 校验全 412）。"""
+
+    def _sop(self, required, steps):
+        return {"blackboard": {"required": required, "outputs": []}, "steps": steps}
+
+    def test_existing_key_gets_ref_appended(self):
+        sop = self._sop(["排水量"], [{"id": "s1", "inputs": {"排水量": "满载排水量"}, "outputs": {"x": "y"}}])
+        satisfy_required_closure(sop)
+        self.assertIn("${排水量}", sop["steps"][0]["inputs"]["排水量"])
+
+    def test_absent_key_injected_into_first_step(self):
+        sop = self._sop(["船宽"], [{"id": "s1", "inputs": {}, "outputs": {}},
+                                   {"id": "s2", "inputs": {"其他": "说明"}, "outputs": {}}])
+        satisfy_required_closure(sop)
+        self.assertIn("${船宽}", sop["steps"][0]["inputs"]["船宽"])
+        self.assertEqual(sop["steps"][1]["inputs"], {"其他": "说明"})  # 不越位乱插
+
+    def test_already_referenced_and_produced_untouched(self):
+        sop = self._sop(["A", "B", "user_query"], [
+            {"id": "s1", "inputs": {"x": "取自${A}"}, "outputs": {"B": "产出B"}}])
+        before = repr(sop)
+        satisfy_required_closure(sop)
+        self.assertEqual(repr(sop), before)  # 幂等：已满足的键不动
+
+    def test_no_steps_or_required_is_noop(self):
+        for sop in (self._sop([], [{"id": "s1", "inputs": {}, "outputs": {}}]),
+                    self._sop(["X"], [])):
+            before = repr(sop)
+            satisfy_required_closure(sop)
+            self.assertEqual(repr(sop), before)
 
 
 if __name__ == "__main__":
