@@ -487,7 +487,7 @@ defineExpose({ reload })
 }
 .graph-loading {
   display: flex; align-items: center; justify-content: center; gap: 8px;
-  height: 200px; color: #6b7280;
+  height: 200px; color: var(--text-secondary, #6b7280);
 }
 .graph-empty {
   display: flex;
@@ -501,17 +501,17 @@ defineExpose({ reload })
 .graph-empty-text {
   font-size: 15px;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-primary, #374151);
 }
 .graph-empty-desc {
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-tertiary, #9ca3af);
 }
 .network-container {
   width: 100%;
   height: 100%;
   min-height: 400px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 6px;
 }
 .graph-overlay {
@@ -519,13 +519,16 @@ defineExpose({ reload })
   top: 40px; bottom: 8px; left: 8px; right: 8px;
   pointer-events: none;
 }
+// 浮层配色走宿主主题变量（含浅色兜底）：此前硬编码白底且无文字色 ⇒ 深色主题下
+// 继承白色文字落在白底上，统计条/图例全糊（业主 2026-10-16 实拍）
 .graph-stats-bar {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 4px 10px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid #e5e7eb;
+  background: var(--bg-secondary, rgba(255,255,255,0.92));
+  border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 6px;
   font-size: 12px;
+  color: var(--text-primary, #1f2937);
   pointer-events: auto;
 }
 .stat-item { display: inline-flex; align-items: center; gap: 3px; }
@@ -533,15 +536,16 @@ defineExpose({ reload })
 .stat-dot.concept { background: #2563eb; }
 .stat-dot.condition { background: #d97706; }
 .stat-dot.action { background: #059669; }
-.stat-divider { width: 1px; height: 14px; background: #d1d5db; margin: 0 2px; }
+.stat-divider { width: 1px; height: 14px; background: var(--border-color, #d1d5db); margin: 0 2px; }
 .graph-legend {
   position: absolute;
   bottom: 8px; left: 8px;
   padding: 6px 10px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid #e5e7eb;
+  background: var(--bg-secondary, rgba(255,255,255,0.92));
+  border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 6px;
   font-size: 11px;
+  color: var(--text-primary, #1f2937);
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -567,11 +571,11 @@ defineExpose({ reload })
 .graph-hint {
   margin-top: 4px;
   padding: 2px 8px;
-  background: rgba(255,255,255,0.85);
-  border: 1px solid #e5e7eb;
+  background: var(--bg-secondary, rgba(255,255,255,0.85));
+  border: 1px solid var(--border-color, #e5e7eb);
   border-radius: 4px;
   font-size: 11px;
-  color: #9ca3af;
+  color: var(--text-tertiary, #9ca3af);
   display: inline-block;
   pointer-events: auto;
 }
