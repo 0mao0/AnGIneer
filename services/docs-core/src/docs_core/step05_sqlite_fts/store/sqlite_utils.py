@@ -11,11 +11,15 @@ _BUSY_MARKERS = ("database is locked", "database is busy")
 
 
 # 构造 SQLite 连接并启用 WAL 模式与 Row 映射。
+# synchronous=NORMAL（2026-10-15 FTS 提速方案 A）：WAL 下 FULL 每提交全 fsync，
+# 大批量逐篇 fts 建索引时每篇 30s+ 卡在 fsync；NORMAL 在 WAL 下仅 checkpoint 时同步、
+# 断电最多丢最后几个已提交事务（重解析可补），换来单篇提交 3–5×。owner: 2026-10-15 13:1x 业主「先做A」
 def create_connection(db_path: Path) -> sqlite3.Connection:
     db_path.parent.mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(str(db_path), timeout=10)
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
+    conn.execute("PRAGMA synchronous=NORMAL")
     return conn
 
 
