@@ -35,7 +35,7 @@
 /** 公开两页左树薄封装（设计 §7.2）：SmartTree + 虚拟滚动 + 投稿徽标 slot。
  *  只读树：增删/拖拽/文件操作全部关闭。 */
 import { computed } from 'vue'
-import { SmartTree } from '@angineer/smartree'
+import { SmartTree, type SmartTreeNode } from '@angineer/smartree'
 import type { CommunityTreeNode } from '@/composables/useCommunityTree'
 
 const props = defineProps<{
@@ -48,11 +48,15 @@ const emit = defineEmits<{
   (e: 'select', row: CommunityTreeNode | null): void
 }>()
 
-const rootKeys = computed(() => props.treeData.map((r) => r.key))
+// 默认展开全部目录（含二层子类）：分类是这两页的主信息，折叠起来只剩一排骨架
+const allFolderKeys = (rows: CommunityTreeNode[]): string[] =>
+  rows.flatMap((r) => (r.isFolder ? [r.key, ...allFolderKeys(r.children || [])] : []))
+const rootKeys = computed(() => allFolderKeys(props.treeData))
 const treeHeight = computed(() => Math.max(320, window.innerHeight - 160))
 
-function onSelect(_keys: string[], nodes: CommunityTreeNode[]) {
-  emit('select', nodes[0] || null)
+// SmartTree 的 select 事件按基类型 SmartTreeNode[] 回传（传进去的就是本页的行对象，取回即本型）
+function onSelect(_keys: string[], nodes: SmartTreeNode[]) {
+  emit('select', (nodes[0] as CommunityTreeNode) || null)
 }
 </script>
 
