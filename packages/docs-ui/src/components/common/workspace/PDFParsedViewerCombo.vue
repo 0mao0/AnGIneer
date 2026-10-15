@@ -317,7 +317,10 @@ const readonly = computed(() =>
   && !props.onBatchStructuredOperation
   && !props.onUndoLastOperation
 )
-const canShowKnowledgeGraph = computed(() => Boolean(props.onLoadGraphSnapshot && props.onBuildGraph))
+// 图谱页签显示条件=能读快照（loadSnapshot）；buildGraph 是可选的写动作（提取/AI 深度提取按钮）——
+// 只读位（知识库页「查看」抽屉）只传前者：页签可见、写按钮隐藏（业主 2026-10-16 选①「只读化」）。
+// 旧口径要求两者齐备，等于把「只看图」也锁死（抽屉里页签整枚消失，8-10 的 readonly 门控副作用）。
+const canShowKnowledgeGraph = computed(() => Boolean(props.onLoadGraphSnapshot))
 const editModalVisible = ref(false)
 const savingNodeEdit = ref(false)
 const editingNodeId = ref<string | null>(null)

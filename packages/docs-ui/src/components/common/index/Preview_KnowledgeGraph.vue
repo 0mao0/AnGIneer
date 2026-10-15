@@ -23,7 +23,8 @@
     </div>
     <div v-else-if="!entities.length && viewMode === 'doc' && !extractLoading && !deepExtractLoading" class="graph-empty">
       <div class="graph-empty-text">本文档尚未提取图谱</div>
-      <div class="graph-empty-desc">点击下方按钮快速扫描文档中的工程术语，建立基础实体关系</div>
+      <div v-if="canBuildGraph" class="graph-empty-desc">点击下方按钮快速扫描文档中的工程术语，建立基础实体关系</div>
+      <div v-else class="graph-empty-desc">可去「解析」工作台提取图谱后再回来查看</div>
     </div>
     <div v-else-if="!entities.length && viewMode === 'global'" class="graph-empty">
       <div class="graph-empty-text">暂无全局图谱数据</div>
@@ -175,8 +176,10 @@ const viewMode = ref<'doc' | 'global'>('doc')
 const hasExtracted = ref(false)
 const hasDeepExtracted = ref(false)
 
-const showExtractButton = computed(() => props.libraryId && props.docId && !hasExtracted.value)
-const showDeepExtractButton = computed(() => props.libraryId && props.docId && hasExtracted.value && !hasDeepExtracted.value)
+// 只读位（查看抽屉等）只传 loadSnapshot 不传 buildGraph：两个提取按钮随之隐藏（图谱=只看不建）
+const canBuildGraph = computed(() => Boolean(props.buildGraph))
+const showExtractButton = computed(() => canBuildGraph.value && props.libraryId && props.docId && !hasExtracted.value)
+const showDeepExtractButton = computed(() => canBuildGraph.value && props.libraryId && props.docId && hasExtracted.value && !hasDeepExtracted.value)
 
 const layerColors: Record<string, { border: string; bg: string; text: string }> = {
   concept: { border: '#2563eb', bg: '#bfdbfe', text: '#1e40af' },

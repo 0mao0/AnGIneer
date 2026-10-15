@@ -220,6 +220,7 @@
         :graph-data="viewerGraphData"
         :render-pdf-path="viewerRenderPdfPath"
         :dark="isDark"
+        :library-id="libraryStore.libraryId"
       />
     </a-drawer>
 
