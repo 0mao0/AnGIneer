@@ -54,25 +54,38 @@ def test_unbound_dataset_invisible(tmp_path):
     }
 
 
-def test_questions_have_no_gold_and_no_answer_key(tmp_path):
-    """A4：题目响应只有白名单键——gold 列连 None 都不该出现。"""
-    eval_src = FakeEvalSource([{
+def _gold_probe_source():
+    return FakeEvalSource([{
         "dataset_id": "ds-1", "title": "航道题集", "question_count": 1,
         "questions": [{
             "question_id": "q-1", "question": "设计水深怎么取？", "intent_level": "L3",
             "tags": ["水运"],
-            "answer_gold": {"reference_answer": "泄密答案"}, "sql_gold": {"sql": "SELECT 1"},
+            "answer_gold": {"reference_answer": "参考答案文本"}, "sql_gold": {"sql": "SELECT 1"},
         }],
     }])
+
+
+def test_questions_default_shows_reference_answer_only(tmp_path):
+    """A4（10-15 业主改判后）：默认放参考答案（answer 键），其余 gold 列任何开关下都不出。"""
+    eval_src = _gold_probe_source()
     store, client = make_client(tmp_path, eval_src=eval_src)
     store.bind(scope_id="eval", kind="dataset", ref_id="ds-1", node_id="eval:sp-waterway-channel")
-    body = client.get("/api/community/datasets/ds-1/questions").json()
-    q = body["items"][0]
-    assert "answer" not in q
+    q = client.get("/api/community/datasets/ds-1/questions").json()["items"][0]
+    assert q["answer"] == "参考答案文本"
     for gold in ("answer_gold", "sql_gold", "retrieval_gold", "sop_gold"):
         assert gold not in q
-    assert "参考" not in body["items"][0]["question"]
-    assert eval_src.question_calls and eval_src.question_calls[0]["show_gold"] is False
+    assert eval_src.question_calls and eval_src.question_calls[0]["show_gold"] is True
+
+
+def test_questions_blind_mode_omits_answer_key(tmp_path, monkeypatch):
+    """盲测档（COMMUNITY_SHOW_GOLD=0）：answer 键整个不进响应。"""
+    monkeypatch.setenv("COMMUNITY_SHOW_GOLD", "0")
+    eval_src = _gold_probe_source()
+    store, client = make_client(tmp_path, eval_src=eval_src)
+    store.bind(scope_id="eval", kind="dataset", ref_id="ds-1", node_id="eval:sp-waterway-channel")
+    q = client.get("/api/community/datasets/ds-1/questions").json()["items"][0]
+    assert "answer" not in q
+    assert eval_src.question_calls[-1]["show_gold"] is False
 
 
 def test_sop_draft_invisible_even_if_upstream_leaks(tmp_path):

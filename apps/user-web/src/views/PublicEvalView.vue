@@ -49,15 +49,27 @@
 
               <a-spin :spinning="questionsLoading">
                 <div v-if="questions.length" class="question-list">
-                  <div v-for="(q, idx) in questions" :key="q.question_id" class="question-row">
-                    <EvalLevelBadge :level="(q.intent_level as any) || 'L1'" />
-                    <span class="question-index">{{ offset + idx + 1 }}.</span>
-                    <div class="question-body">
-                      <!-- 用户文本一律纯插值（R5 硬约束：禁 v-html / renderRichText） -->
-                      <div class="question-text">{{ q.question }}</div>
-                      <div v-if="q.answer" class="question-answer">参考答案：{{ q.answer }}</div>
+                  <div v-for="(q, idx) in questions" :key="q.question_id" class="question-item">
+                    <div
+                      class="question-row"
+                      :class="{ expanded: expandedKey === q.question_id }"
+                      @click="toggleQuestion(q.question_id)"
+                    >
+                      <EvalLevelBadge :level="(q.intent_level as any) || 'L1'" />
+                      <span class="question-index">{{ offset + idx + 1 }}.</span>
+                      <div class="question-body">
+                        <!-- 用户文本一律纯插值（R5 硬约束：禁 v-html / renderRichText） -->
+                        <div class="question-text">{{ q.question }}</div>
+                      </div>
+                      <span class="question-chevron">{{ expandedKey === q.question_id ? '▾' : '▸' }}</span>
+                    </div>
+                    <div v-if="expandedKey === q.question_id" class="question-detail">
+                      <div class="detail-label">参考答案</div>
+                      <div v-if="q.answer" class="question-answer">{{ q.answer }}</div>
+                      <div v-else class="question-answer detail-muted">本集参考答案未公开（盲测档）</div>
+                      <div v-if="q.tags && q.tags.length" class="question-detail-meta">标签：{{ q.tags.join(' · ') }}</div>
                       <div v-if="q.origin === 'user'" class="question-author">
-                        {{ q.author_label || '游客' }} 投稿
+                        {{ q.author_label || '游客' }} 投稿{{ q.created_at ? ' · ' + q.created_at : '' }}
                       </div>
                     </div>
                   </div>
@@ -122,6 +134,12 @@ const questionModalOpen = ref(false)
 
 const currentItem = ref<TreeItem | null>(null)
 const card = ref<DatasetCard | null>(null)
+// 题目行手风琴详情（业主 10-15：点开=问题+参考答案+标签/归属）
+const expandedKey = ref<string | null>(null)
+
+function toggleQuestion(key: string) {
+  expandedKey.value = expandedKey.value === key ? null : key
+}
 const questions = ref<PublicQuestion[]>([])
 const questionsTotal = ref(0)
 const offset = ref(0)
@@ -163,6 +181,7 @@ async function openItem(item: TreeItem) {
   questions.value = []
   questionsTotal.value = 0
   offset.value = 0
+  expandedKey.value = null
   if (item.kind !== 'dataset') return
   try {
     card.value = await communityApi.getDataset(item.ref_id, item.origin)
@@ -296,6 +315,11 @@ onMounted(async () => {
     gap: 10px;
   }
 
+  .question-item {
+    display: flex;
+    flex-direction: column;
+  }
+
   .question-row {
     display: flex;
     align-items: flex-start;
@@ -303,6 +327,16 @@ onMounted(async () => {
     padding: 10px 12px;
     border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
     border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.15s;
+
+    &:hover {
+      background: var(--bg-hover, rgba(0, 0, 0, 0.03));
+    }
+
+    &.expanded {
+      border-color: var(--primary-color);
+    }
 
     .question-index {
       color: var(--text-tertiary);
@@ -320,19 +354,47 @@ onMounted(async () => {
         white-space: pre-wrap;
         word-break: break-word;
       }
+    }
 
-      .question-answer {
-        margin-top: 6px;
-        font-size: 12px;
-        color: var(--text-secondary);
-        white-space: pre-wrap;
-      }
+    .question-chevron {
+      flex-shrink: 0;
+      color: var(--text-tertiary);
+      font-size: 12px;
+      padding-top: 2px;
+    }
+  }
 
-      .question-author {
-        margin-top: 4px;
-        font-size: 11px;
+  .question-detail {
+    margin: -1px 12px 0 12px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    background: var(--bg-secondary, rgba(0, 0, 0, 0.02));
+
+    .detail-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
+    }
+
+    .question-answer {
+      font-size: 13px;
+      color: var(--text-primary);
+      white-space: pre-wrap;
+      word-break: break-word;
+
+      &.detail-muted {
         color: var(--text-tertiary);
       }
+    }
+
+    .question-detail-meta,
+    .question-author {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-tertiary);
     }
   }
 

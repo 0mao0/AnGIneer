@@ -12,8 +12,9 @@ from community.store import CommunityStore
 
 
 def _show_gold_default() -> bool:
-    """gold 是否公开（§14-1 未决项的开关）：默认关，仅本地对照验证时置 1。"""
-    return (os.getenv("COMMUNITY_SHOW_GOLD") or "").strip() in ("1", "true", "True")
+    """参考答案是否公开：**默认开**（业主裁定 2026-10-15：详情视图须「既有问题又有答案」）。
+    =0/False 回盲测档——`answer` 键整个不进响应；其余七张 gold 任何开关下都不出。"""
+    return (os.getenv("COMMUNITY_SHOW_GOLD") or "1").strip() not in ("0", "false", "False")
 
 
 def _visibility() -> str:
