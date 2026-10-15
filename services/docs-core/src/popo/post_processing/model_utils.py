@@ -1,6 +1,8 @@
 import requests
 import json
 import os
+import itertools
+import threading
 from tqdm import tqdm
 
 import fitz  # PyMuPDF
@@ -12,6 +14,21 @@ import base64
 
 _TRANSFORMERS_MODEL = None
 _TRANSFORMERS_PROCESSOR = None
+
+# 多端点轮询游标（进程内单调计数；本模块每次推理在独立子进程加载，
+# 子进程内各计数器的起点仍保证「先 dgx 后 company」交替近似均匀）。
+_POPO_RR_LOCK = threading.Lock()
+_POPO_RR_CURSOR = itertools.count()
+
+
+def _rotated_endpoints(endpoints):
+    """按全局请求计数把端点列表轮转：第 N 次请求优先 endpoints[N % len]，
+    失败顺延其余端点（顺序=轮转后的余序）。单端点时恒返回原列表，行为不变。"""
+    if len(endpoints) <= 1:
+        return list(endpoints)
+    with _POPO_RR_LOCK:
+        start = next(_POPO_RR_CURSOR) % len(endpoints)
+    return list(endpoints[start:]) + list(endpoints[:start])
 
 
 def _popo_endpoints():
@@ -134,8 +151,12 @@ def popo_generate(prompt, base64_image):
             }
         ]
 
+    # 多端点=按请求计数轮询分流（每端点承 1/N 流量，各端点并发闸=总闸/N）；
+    # 失败时顺延尝试其余端点（每端点一次），全失败才 return ""（2026-10-15 双端点改造；
+    # 原语义「顺序优先级回退」在 DGX 健康时会让 company 端点零流量，无法并行提速）。
+    order = _rotated_endpoints(endpoints)
     last_error = None
-    for url, key, base_model in endpoints:
+    for url, key, base_model in order:
         try:
             client = OpenAI(
                 base_url=url or None,
