@@ -13,14 +13,14 @@
 </template>
 
 <script setup lang="ts">
-/** 全站页签导航（问答 | 公开测试集 | 公开SOP）：ChatTopBar 与 PublicTopBar 共用。
+/** 全站页签导航（问答 | 测试集 | 公开SOP）：ChatTopBar 与 PublicTopBar 共用。
  *  catch-all 仍回聊天：这里只加显式入口，不改路由兜底。 */
 import { useRoute } from 'vue-router'
 import { RouterLink } from 'vue-router'
 
 const entries = [
   { path: '/', label: '问答', exact: true },
-  { path: '/evals', label: '公开测试集', exact: false },
+  { path: '/evals', label: '测试集', exact: false },
   { path: '/sops', label: '公开SOP', exact: false },
 ]
 
