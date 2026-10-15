@@ -472,11 +472,14 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
 | A11 | 待部署 | 依赖宿主 nginx 配置（16.3-1） |
 | A12 | 另案 | 不占本设计（§6 已归档现状证据） |
 
-### 16.5 「通用」目录（业主 10-15 追加）
+### 16.5 「通用」目录（业主 10-15 追加，置顶版）
 
-- 起步树第五个一级目录 `dom-general`「通用」：**纯引用、零磁盘成本**——条目仍是 `community_binding` 一行绑定，题面/gold 仍由 evals-core 原库出，公开页只代理只读，不复制任何题集文件。
+- 起步树一级目录 `dom-general`「通用」**置顶**（sort_order=0，公路/水运/市政/水利顺延 1–4）：**纯引用、零磁盘成本**——条目仍是 `community_binding` 一行绑定，题面/gold 仍由 evals-core 原库出，公开页只代理只读，不复制任何题集文件。
 - 直接挂本节点、不设二级子目录；**不进 AUTOBIND_KEYWORDS**（通用成员是人工决定，走 `community_bind.py bind eval dataset <ref> general`）。
-- 首批绑定（本地）：`open-ragbench-smoke-v1`（冒烟门禁集）+ `open-ragbench-subset-v4.1`（nightly 全量 1040 题）——即 user-web 问答链路的端到端测试。**生产侧成员名单上线前由业主过目后再绑。**
+- 成员名单（业主点名 = 端到端题集编号 1/3/5/6/7/8/9，本地已绑）：
+  `financebench-open-150-v1`／`open-ragbench-subset-v4.1`／`gdp-pdf-v1`／`nomiracl-zh-refusal-v2`／`squad2-en-mixed-v2`／`dureader-robust-zh-v2`／`officeqa-pro-133-v1`。
+  （2 水运/4 港航两套专业卷按编号语义不属通用，留在各自专业节点。）
+- 存量库根序不会自动改（ensure_node 只补不覆盖）：本地已跑一次性 UPDATE 改 sort_order；全新库（含生产首发）种子新序天然正确、无需补丁。
 - 顺带修：`seed_tree` 新建计数漏记一级节点（只影响日志数字）。
 
 ### 16.6 已知不改动项

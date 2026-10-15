@@ -17,6 +17,9 @@ logger = logging.getLogger(__name__)
 # 落库时统一加 `"<scope>:"` 前缀（如 `eval:dom-waterway`）：tree_node.node_id 是全局主键，
 # 不带前缀则 eval 与 sop 两棵树互相顶名（第二轮施工实证）。
 SEED_TAXONOMY: List[Tuple[str, str, List[Tuple[str, str]]]] = [
+    # 通用置顶（业主 10-15 定）：跨专业条目（端到端评测集等）直接挂本节点，不设二级子目录。
+    # 不进 AUTOBIND_KEYWORDS——通用成员名单属人工决定，一律走 community_bind.py 手工绑。
+    ("dom-general", "通用", []),
     ("dom-highway", "公路", [
         ("sp-highway-subgrade", "路基路面"),
         ("sp-highway-bridge", "桥梁"),
@@ -40,9 +43,6 @@ SEED_TAXONOMY: List[Tuple[str, str, List[Tuple[str, str]]]] = [
         ("sp-hydraulics-structure", "水工建筑物"),
         ("sp-hydraulics-regulation", "河道整治"),
     ]),
-    # 通用：跨专业条目（如 user-web 端到端评测集）直接挂本节点下，不设二级子目录。
-    # 不进 AUTOBIND_KEYWORDS——通用成员名单属人工决定，一律走 community_bind.py 手工绑。
-    ("dom-general", "通用", []),
 ]
 
 # 首次自动绑定关键词表（§9.3，顺序即优先级：命中第一个匹配节点即绑，未命中不绑）。
