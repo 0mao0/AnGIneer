@@ -1,6 +1,7 @@
 <template>
   <header class="chat-top-bar">
     <AppBrand />
+    <SiteNav />
     <div class="top-actions">
       <!-- 新对话入口已移至对话态输入框上方（BaseChat showNewChat 浮层按钮）；顶栏不再重复 -->
       <!-- 游客不显示历史入口（产品决策 2026-09-18）：历史仅登录账号可见，游客档只服务端留存 -->
@@ -39,6 +40,7 @@ import { computed } from 'vue'
 import { HistoryOutlined, LogoutOutlined } from '@ant-design/icons-vue'
 import { AppBrand } from '@angineer/ui-kit'
 import { useAuthStore } from '@/stores/auth'
+import SiteNav from './SiteNav.vue'
 
 const emit = defineEmits<{
   (e: 'openHistory'): void

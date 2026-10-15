@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "angineer-community"
+version = "0.1.0"
+description = "AnGIneer community：公开内容分类树 + 公开绑定 + 用户投稿池（user-web 公开测试集 / 公开 SOP 两页后端）"
+requires-python = ">=3.10"
+dependencies = [
+    "angineer-shared",
+    "angineer-tree-core",
+    "fastapi>=0.100.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

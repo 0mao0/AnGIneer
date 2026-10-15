@@ -16,6 +16,18 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/views/DocumentRouteView.vue')
   },
   {
+    // 公开测试集页（设计 docs/design-public-eval-sop-pages.md）：左分类树 + 题集只读 + 投稿
+    path: '/evals',
+    name: 'PublicEvalView',
+    component: () => import('@/views/PublicEvalView.vue')
+  },
+  {
+    // 公开 SOP 页：只读流程画布 + 元信息（无审核块）+ 意见投稿
+    path: '/sops',
+    name: 'PublicSopView',
+    component: () => import('@/views/PublicSopView.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/'
   }

@@ -33,7 +33,7 @@ SERVICES_DIR = ROOT_DIR / "services"
 
 for pkg in (
     "shared", "ai-inference", "angineer-core", "sop-core", "docs-core",
-    "geo-core", "engtools", "evals-core", "tree-core", "chat-history",
+    "geo-core", "engtools", "evals-core", "tree-core", "chat-history", "community",
 ):
     sys.path.insert(0, str(SERVICES_DIR / pkg / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -402,6 +402,56 @@ try:
     )
 except Exception as exc:  # noqa: BLE001
     logger.warning("聊天历史路由挂载失败（历史端点不可用）: %s", exc)
+
+
+_community_service = None
+_community_failed = False
+
+
+def _resolve_community_principal(request: Request):
+    """community 路由要的三元组：owner_key + user_id + 显示名（登录取 display_name，游客走 GUEST_LABEL）。"""
+    owner_key, user_id = _resolve_principal(request)
+    user = getattr(request.state, "session_user", None)
+    label = ""
+    if user is not None:
+        label = (getattr(user, "display_name", "") or getattr(user, "username", "") or "").strip()
+    return owner_key, user_id, label
+
+
+def _get_community_service():
+    """community 服务单例；初始化失败置 _community_failed（公开两页端点不可用，不炸整服务）。
+
+    启动在此处跑一次种子：分类树幂等只补 + 首次自动绑定（marker 防重跑，设计 §9.1）。
+    """
+    global _community_service, _community_failed
+    if _community_service is not None or _community_failed:
+        return _community_service
+    try:
+        from community.service import CommunityService
+        from community.taxonomy_seed import seed_all
+
+        svc = CommunityService()
+        seed_all(svc.store, svc.eval_src, svc.sop_src)
+        _community_service = svc
+        logger.info("community 服务就绪: %s", svc.store.db_path)
+    except Exception as exc:  # noqa: BLE001
+        _community_failed = True
+        logger.warning("community 服务初始化失败（公开两页不可用）: %s", exc)
+    return _community_service
+
+
+try:
+    from community.routes import build_community_router
+
+    _community_svc = _get_community_service()
+    if _community_svc is not None:
+        app.include_router(
+            build_community_router(_community_svc, _resolve_community_principal),
+            prefix="/api/community",
+            tags=["Community"],
+        )
+except Exception as exc:  # noqa: BLE001
+    logger.warning("community 路由挂载失败（公开两页端点不可用）: %s", exc)
 
 
 @app.post("/api/chat/agent")

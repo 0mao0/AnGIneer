@@ -91,7 +91,7 @@
         <div v-else class="stat-empty">暂无引用知识文档</div>
       </section>
 
-      <section class="section-block review-block">
+      <section v-if="showReview !== false" class="section-block review-block">
         <div class="section-header">
           <span class="section-title">审核操作</span>
         </div>
@@ -154,6 +154,9 @@ const props = defineProps<{
   sopData: SopData
   allSopNames: string[]
   readOnly?: boolean
+  /** false = 整块「审核操作」（含审计时间线）不渲染、且不拉审计接口。
+   *  公开页用（设计 F12）；缺省 true=admin 现行为零变更。 */
+  showReview?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -270,6 +273,11 @@ const formatAuditTime = (iso: string) => {
 }
 
 const loadAudit = async () => {
+  if (props.showReview === false) {
+    // 公开页不拉审计：审核人/审计史不出公开面（设计 F12 + §7.3）
+    auditItems.value = []
+    return
+  }
   try {
     const result = await sopApi.getSopAudit(props.sopData.id)
     auditItems.value = result.audit || []

@@ -102,6 +102,7 @@ export default defineConfig({
       '/api/v1': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
       '/api/api-keys': { target: DOCS_API_PROXY_TARGET, changeOrigin: true },
       '/api/chat': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
+      '/api/community': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
       '/api/sops': { target: SOP_API_PROXY_TARGET, changeOrigin: true },
       '/api/evals': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },
       '/api/dream-cycle': { target: AICHAT_API_PROXY_TARGET, changeOrigin: true },

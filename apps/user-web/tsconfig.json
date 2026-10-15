@@ -22,7 +22,10 @@
       "@angineer/aichat-ui": ["../../packages/aichat-ui/src"],
       "@angineer/docs-ui": ["../../packages/docs-ui/src"],
       "@angineer/sop-ui": ["../../packages/sop-ui/src"],
-      "@angineer/geo-ui": ["../../packages/geo-ui/src"]
+      "@angineer/geo-ui": ["../../packages/geo-ui/src"],
+      "@angineer/evals-ui": ["../../packages/evals-ui/src"],
+      "@angineer/evals-ui/*": ["../../packages/evals-ui/src/*"],
+      "@angineer/smartree": ["../../packages/smartree/src"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "../shared/**/*.ts", "../shared/**/*.json"],

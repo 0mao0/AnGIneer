@@ -1,0 +1,318 @@
+<template>
+  <div class="public-eval-view">
+    <PublicTopBar @login="loginOpen = true" />
+    <AuthGate v-if="loginOpen && !authStore.isAuthed" />
+    <div class="workspace">
+      <SplitPanes class="panes" :initial-left-ratio="0.2" :right-collapsible="false" :show-right-pane="false">
+        <template #left>
+          <div class="left-pane">
+            <PublicTreePanel
+              :tree-data="tree.treeData.value"
+              :loading="tree.loading.value"
+              :load-error="tree.loadError.value"
+              @select="onTreeSelect"
+            />
+          </div>
+        </template>
+        <template #center>
+          <div class="center-pane">
+            <div class="pane-toolbar">
+              <a-space>
+                <a-button type="primary" size="small" @click="datasetModalOpen = true">
+                  新建测试集
+                </a-button>
+                <a-button size="small" :disabled="!currentDataset" @click="questionModalOpen = true">
+                  添加题目
+                </a-button>
+              </a-space>
+            </div>
+
+            <div v-if="!currentItem" class="empty-hint">从左侧分类选择一个测试集</div>
+            <template v-else>
+              <div class="dataset-card">
+                <div class="dataset-title">
+                  {{ card?.title || currentItem.title }}
+                  <a-tag v-if="currentItem.origin === 'user'" color="purple">网友投稿</a-tag>
+                  <a-tag v-else color="blue">官方</a-tag>
+                </div>
+                <div class="dataset-meta">
+                  <span>{{ card?.question_count ?? currentItem.question_count ?? 0 }} 题</span>
+                  <span v-if="card?.category">· {{ card.category }}</span>
+                  <span v-if="card?.version">· {{ card.version }}</span>
+                  <span v-if="currentItem.origin === 'user'">
+                    · {{ currentItem.author_label || '游客' }} 投稿
+                  </span>
+                </div>
+                <div v-if="card?.description" class="dataset-desc">{{ card.description }}</div>
+                <div v-if="card?.meta && Object.keys(card.meta).length" class="dataset-pubmeta">
+                  <span v-for="(v, k) in card.meta" :key="k" class="pubmeta-item">{{ k }}: {{ v }}</span>
+                </div>
+              </div>
+
+              <a-spin :spinning="questionsLoading">
+                <div v-if="questions.length" class="question-list">
+                  <div v-for="(q, idx) in questions" :key="q.question_id" class="question-row">
+                    <EvalLevelBadge :level="(q.intent_level as any) || 'L1'" />
+                    <span class="question-index">{{ offset + idx + 1 }}.</span>
+                    <div class="question-body">
+                      <!-- 用户文本一律纯插值（R5 硬约束：禁 v-html / renderRichText） -->
+                      <div class="question-text">{{ q.question }}</div>
+                      <div v-if="q.answer" class="question-answer">参考答案：{{ q.answer }}</div>
+                      <div v-if="q.origin === 'user'" class="question-author">
+                        {{ q.author_label || '游客' }} 投稿
+                      </div>
+                    </div>
+                  </div>
+                  <div v-if="questionsTotal > offset + questions.length" class="load-more">
+                    <a-button size="small" :loading="questionsLoading" @click="loadMoreQuestions">
+                      加载更多（还剩 {{ questionsTotal - offset - questions.length }} 题）
+                    </a-button>
+                  </div>
+                </div>
+                <div v-else-if="!questionsLoading" class="empty-hint">该测试集暂无题目</div>
+              </a-spin>
+            </template>
+          </div>
+        </template>
+      </SplitPanes>
+    </div>
+
+    <SubmitDatasetModal
+      v-model:open="datasetModalOpen"
+      :tree-nodes="tree.nodes.value"
+      @submitted="onSubmitted"
+      @login="loginOpen = true"
+    />
+    <SubmitQuestionModal
+      v-model:open="questionModalOpen"
+      :datasets="datasetOptions"
+      :default-dataset="currentItem?.origin ? { ref_id: currentItem.ref_id, origin: currentItem.origin, title: currentItem.title } : undefined"
+      @submitted="onSubmitted"
+      @login="loginOpen = true"
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+/** 公开测试集页（设计 §11 左栏线框）：左分类树 + 右题集卡/题目列表 + 投稿入口。
+ *  题目行自建渲染（纯插值）——不复用 EvalQuestionCard：其展开区走 renderRichText(v-html)，
+ *  与 R5「用户文本禁 HTML 渲染」硬约束冲突（施工记录偏差①）。 */
+import { computed, onMounted, ref, watch } from 'vue'
+import { SplitPanes } from '@angineer/ui-kit'
+// 直连单文件、不走 evals-ui barrel：barrel 会把 EvalRunPanel 等整包送进 vite 编译，
+// 其 scoped less 引用 @evals-* 变量（admin 侧 additionalData 注入，user-web 未注）即构建失败。
+import EvalLevelBadge from '@angineer/evals-ui/components/EvalLevelBadge.vue'
+import PublicTopBar from '@/components/PublicTopBar.vue'
+import AuthGate from '@/components/AuthGate.vue'
+import PublicTreePanel from '@/components/public/PublicTreePanel.vue'
+import SubmitDatasetModal from '@/components/public/SubmitDatasetModal.vue'
+import SubmitQuestionModal from '@/components/public/SubmitQuestionModal.vue'
+import { useCommunityTree, type CommunityTreeNode } from '@/composables/useCommunityTree'
+import { communityApi, type DatasetCard, type PublicQuestion, type TreeItem } from '@/api/community'
+import { useAuthStore } from '@/stores/auth'
+
+const authStore = useAuthStore()
+const tree = useCommunityTree('eval')
+const loginOpen = ref(false)
+const datasetModalOpen = ref(false)
+const questionModalOpen = ref(false)
+
+const currentItem = ref<TreeItem | null>(null)
+const card = ref<DatasetCard | null>(null)
+const questions = ref<PublicQuestion[]>([])
+const questionsTotal = ref(0)
+const offset = ref(0)
+const questionsLoading = ref(false)
+
+const currentDataset = computed(() => currentItem.value?.kind === 'dataset' ? currentItem.value : null)
+
+const datasetOptions = computed(() =>
+  tree.items.value.map((item) => ({ ref_id: item.ref_id, origin: item.origin, title: item.title })),
+)
+
+async function openItem(item: TreeItem) {
+  currentItem.value = item
+  card.value = null
+  questions.value = []
+  questionsTotal.value = 0
+  offset.value = 0
+  if (item.kind !== 'dataset') return
+  try {
+    card.value = await communityApi.getDataset(item.ref_id, item.origin)
+  } catch {
+    card.value = null
+  }
+  await fetchQuestions(false)
+}
+
+async function fetchQuestions(append: boolean) {
+  const item = currentItem.value
+  if (!item || item.kind !== 'dataset') return
+  questionsLoading.value = true
+  try {
+    const resp = await communityApi.getQuestions(item.ref_id, item.origin, offset.value, 50)
+    questions.value = append ? [...questions.value, ...resp.items] : resp.items
+    questionsTotal.value = resp.total
+  } catch {
+    if (!append) questions.value = []
+  } finally {
+    questionsLoading.value = false
+  }
+}
+
+function loadMoreQuestions() {
+  offset.value += 50
+  void fetchQuestions(true)
+}
+
+function onTreeSelect(row: CommunityTreeNode | null) {
+  tree.select(row)
+  const item = row?.communityItem || null
+  if (item) void openItem(item)
+  else currentItem.value = null
+}
+
+async function onSubmitted() {
+  await tree.reload(true)
+  // 新投稿条目大概率在树尾；不自动跳转，用户点选即可（避免打断当前浏览）
+}
+
+watch(() => tree.selectedItem.value, (item) => {
+  if (!item && currentItem.value) currentItem.value = null
+})
+
+onMounted(async () => {
+  if (!authStore.isAuthed) void authStore.enterGuestMode()  // 页面挂载即签游客 cookie（R3 兜签发竞态）
+  await tree.reload()
+  if (tree.selectedItem.value) void openItem(tree.selectedItem.value)
+})
+</script>
+
+<style lang="less" scoped>
+.public-eval-view {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+
+  .workspace {
+    flex: 1;
+    min-height: 0;
+
+    .panes {
+      height: 100%;
+    }
+  }
+
+  .left-pane {
+    height: 100%;
+    padding: 8px 4px;
+  }
+
+  .center-pane {
+    height: 100%;
+    overflow-y: auto;
+    padding: 16px 24px;
+    color: var(--text-primary);
+  }
+
+  .pane-toolbar {
+    margin-bottom: 12px;
+  }
+
+  .empty-hint {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-tertiary);
+    font-size: 13px;
+  }
+
+  .dataset-card {
+    margin-bottom: 16px;
+
+    .dataset-title {
+      font-size: 17px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dataset-meta {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      display: flex;
+      gap: 6px;
+    }
+
+    .dataset-desc {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+    }
+
+    .dataset-pubmeta {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+
+      .pubmeta-item {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  .question-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .question-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
+    border-radius: 8px;
+
+    .question-index {
+      color: var(--text-tertiary);
+      font-size: 13px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    .question-body {
+      min-width: 0;
+      flex: 1;
+
+      .question-text {
+        font-size: 14px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .question-answer {
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--text-secondary);
+        white-space: pre-wrap;
+      }
+
+      .question-author {
+        margin-top: 4px;
+        font-size: 11px;
+        color: var(--text-tertiary);
+      }
+    }
+  }
+
+  .load-more {
+    padding: 12px 0;
+    text-align: center;
+  }
+}
+</style>
