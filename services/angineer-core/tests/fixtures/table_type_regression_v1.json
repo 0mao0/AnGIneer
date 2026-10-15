@@ -1,0 +1,785 @@
+{
+  "meta": {
+    "name": "table_type_regression",
+    "version": "v1",
+    "created": "2026-10-16",
+    "corpus": "std-water 库（groups/standards.sqlite）；主体 doc-11922bab = JTS 165-2013 海港总体设计规范",
+    "why": "P2 表格簇（P2-1 复式表头 / P2-2 成对列与别名 / P2-3 target 失配 / P2-7 区间列）的预注册回归集：把三条改动的行为锁在真表快照上，先写死期望值与修复前基线，再动手改引擎。",
+    "how": "生成器 services/angineer-core/tests/fixtures/build_table_type_regression.py（需本地语料）。tables=真表快照（离线、无语料依赖）；cases.expected=人工按快照核对出的真值；cases.baseline=2026-10-16 修复前实测（确定性通道实跑；读表通道取实况读数）。status=fixed 锁正确行为、xfail 记已知缺陷（修好后须改 fixed）。table_read 用例离线只断选表，取值断言需 P2_FIXTURE_LIVE=1（真 LLM，2026-10-16 首测：7 条 6 达标）。",
+    "drift": "语料重解析后快照可能过期：python services/angineer-core/tests/fixtures/check_table_type_regression_drift.py 逐表对账。"
+  },
+  "tables": [
+    {
+      "table_id": "table-doc-11922bab:131:3",
+      "doc_id": "doc-11922bab",
+      "page": 131,
+      "table_type": "numeric_dense",
+      "title": "散货/集装箱船船舶主要尺度实录表 A.0.2-1",
+      "signatures": [
+        "复式表头"
+      ],
+      "why_picked": "散货/集装箱船船舶主要尺度实录表 A.0.2-1（子表头行在 body[0]，列名 总长L/型宽B/型深H/满载吃水T 不在 header）",
+      "header_rows": [
+        [
+          "序号",
+          "船名",
+          "载重吨DWT(t)",
+          "船舶主要尺度(m)",
+          "船舶主要尺度(m)",
+          "船舶主要尺度(m)",
+          "船舶主要尺度(m)"
+        ]
+      ],
+      "body_rows": [
+        [
+          "序号",
+          "船名",
+          "载重吨DWT(t)",
+          "总长L",
+          "型宽B",
+          "型深H",
+          "满载吃水T"
+        ],
+        [
+          "1",
+          "Me Linh",
+          "11235",
+          "135.0",
+          "21.1",
+          "10.3",
+          "7.7"
+        ],
+        [
+          "2",
+          "Yemelyan Pugachev",
+          "19885",
+          "162.0",
+          "22.9",
+          "13.5",
+          "9.9"
+        ],
+        [
+          "3",
+          "George Lyras",
+          "35730",
+          "192.0",
+          "27.2",
+          "15.1",
+          "10.8"
+        ],
+        [
+          "4",
+          "CCNI Potrerillos",
+          "45071",
+          "184.0",
+          "32.2",
+          "17.0",
+          "12.1"
+        ],
+        [
+          "5",
+          "Silver Yang",
+          "63800",
+          "218.0",
+          "32.2",
+          "18.0",
+          "13.1"
+        ],
+        [
+          "6",
+          "Augusta",
+          "70637",
+          "236.0",
+          "32.2",
+          "20.1",
+          "13.5"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:52:12",
+      "doc_id": "doc-11922bab",
+      "page": 52,
+      "table_type": "hybrid",
+      "title": "船舶与航道底边线间的富裕宽度 c表6.4.2-2",
+      "signatures": [
+        "复式表头",
+        "成对列",
+        "区间列"
+      ],
+      "why_picked": "船舶与航道底边线间的富裕宽度 c 表6.4.2-2（成对船型列 × 航速区间子表头）",
+      "header_rows": [
+        [
+          "项目",
+          "杂货船或集装箱船",
+          "杂货船或集装箱船",
+          "散货船",
+          "散货船",
+          "油船或其他危险品船",
+          "油船或其他危险品船"
+        ]
+      ],
+      "body_rows": [
+        [
+          "航速(kn)",
+          "$\\leqslant 6$",
+          "$>6$",
+          "$\\leqslant 6$",
+          "$>6$",
+          "$\\leqslant 6$",
+          "$>6$"
+        ],
+        [
+          "$c(m)$",
+          "0.50B",
+          "0.75B",
+          "0.75B",
+          "B",
+          "B",
+          "1.50B"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:27:5",
+      "doc_id": "doc-11922bab",
+      "page": 27,
+      "table_type": "hybrid",
+      "title": "滚装船配载不均而增加的船尾吃水值Z_{3}表5.4.12-2",
+      "signatures": [
+        "复式表头",
+        "成对列"
+      ],
+      "why_picked": "滚装船 Z3 表5.4.12-2（子表头行在 body[0]；成对吨级列 DWT/GT）",
+      "header_rows": [
+        [
+          "船舶吨级",
+          "船舶吨级",
+          "$Z_{3}$ (m)"
+        ]
+      ],
+      "body_rows": [
+        [
+          "DWT (t)",
+          "GT (t)",
+          "$Z_{3}$ (m)"
+        ],
+        [
+          "$\\leqslant 1000$",
+          "$\\leqslant 3000$",
+          "0.30"
+        ],
+        [
+          ">1000",
+          ">3000",
+          "0.20"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:24:7",
+      "doc_id": "doc-11922bab",
+      "page": 24,
+      "table_type": "hybrid",
+      "title": "潮位与波浪的组合标准及富裕高度表5.4.8",
+      "signatures": [
+        "复式表头",
+        "成对列"
+      ],
+      "why_picked": "潮位与波浪组合及富裕高度 表5.4.8（两层表头 + 上水/受力成对块）",
+      "header_rows": [
+        [
+          "组合情况",
+          "上水标准",
+          "上水标准",
+          "受力标准",
+          "受力标准",
+          "受力标准"
+        ]
+      ],
+      "body_rows": [
+        [
+          "组合情况",
+          "设计水位",
+          "富裕高度 $\\Delta_{W}$",
+          "设计水位",
+          "波浪重现期",
+          "富裕高度 $\\Delta_{F}$"
+        ],
+        [
+          "基本标准",
+          "设计高水位",
+          "一般情况可取10~15年重现期波浪的波峰面高度,并不小于1.0m;掩护良好码头可取1.0~2.0m",
+          "设计高水位",
+          "50年",
+          "0~1.0m"
+        ],
+        [
+          "复核标准",
+          "极端高水位",
+          "一般情况可取2~5年重现期波浪的波峰面高度;掩护良好码头可取0~0.5m",
+          "—",
+          "—",
+          "—"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:26:17",
+      "doc_id": "doc-11922bab",
+      "page": 26,
+      "table_type": "hybrid",
+      "title": "龙骨下最小富裕深度Z_{1}表5.4.12-1",
+      "signatures": [
+        "成对列"
+      ],
+      "why_picked": "龙骨下最小富裕深度 Z1 表5.4.12-1（两组「海底底质+Z1」成对列）",
+      "header_rows": [
+        [
+          "海底底质",
+          "$Z_{1}$ (m)",
+          "海底底质",
+          "$Z_{1}$ (m)"
+        ]
+      ],
+      "body_rows": [
+        [
+          "淤泥土",
+          "0.20",
+          "含砂或含粘土的块状土",
+          "0.40"
+        ],
+        [
+          "含淤泥的砂、含粘土的砂和松砂土",
+          "0.30",
+          "岩石土",
+          "0.60"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:52:11",
+      "doc_id": "doc-11922bab",
+      "page": 52,
+      "table_type": "hybrid",
+      "title": "船舶漂移倍数 n 和风、流压偏角\\gamma值表6.4.2-1",
+      "signatures": [
+        "成对列",
+        "区间列"
+      ],
+      "why_picked": "船舶漂移倍数 n 与风、流压偏角 γ 表6.4.2-1（横流 V 区间列 + n/γ 指标行）",
+      "header_rows": [
+        [
+          "风力",
+          "横风≤7级",
+          "横风≤7级",
+          "横风≤7级",
+          "横风≤7级",
+          "横风≤7级"
+        ]
+      ],
+      "body_rows": [
+        [
+          "横流V(m/s)",
+          "V≤0.10",
+          "0.10 < V≤0.25",
+          "0.25 < V≤0.50",
+          "0.50 < V≤0.75",
+          "0.75 < V≤1.00"
+        ],
+        [
+          "n",
+          "1.81",
+          "1.75",
+          "1.69",
+          "1.59",
+          "1.45"
+        ],
+        [
+          "γ(°)",
+          "3",
+          "5",
+          "7",
+          "10",
+          "14"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:54:1",
+      "doc_id": "doc-11922bab",
+      "page": 54,
+      "table_type": "numeric_dense",
+      "title": "航行时龙骨下最小富裕深度Z_{1}(m)表6.4.6-1",
+      "signatures": [
+        "区间列"
+      ],
+      "why_picked": "航行时龙骨下最小富裕深度 Z1 表6.4.6-1（土质行 × 吨级区间列）",
+      "header_rows": [
+        [
+          "土质特性\\船舶吨级(t)",
+          "DWT<5000",
+          "5000≤DWT<10000",
+          "10000≤DWT<50000",
+          "50000≤DWT<100000",
+          "100000≤DWT<300000"
+        ]
+      ],
+      "body_rows": [
+        [
+          "淤泥土、软塑、可塑性土、松散沙土",
+          "0.20",
+          "0.20",
+          "0.30",
+          "0.40",
+          "0.50"
+        ],
+        [
+          "硬塑粘性土、中密砂土",
+          "0.30",
+          "0.30",
+          "0.40",
+          "0.50",
+          "0.60"
+        ],
+        [
+          "坚硬粘性土、密实砂土、强风化岩",
+          "0.40",
+          "0.40",
+          "0.50",
+          "0.60",
+          "0.70"
+        ],
+        [
+          "风化岩、岩石",
+          "0.50",
+          "0.60",
+          "0.60",
+          "0.80",
+          "0.80"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:54:2",
+      "doc_id": "doc-11922bab",
+      "page": 54,
+      "table_type": "numeric_dense",
+      "title": "船、浪夹角\\Psi与Z_{2}/H_{4\\%}的变化系数值",
+      "signatures": [
+        "区间列"
+      ],
+      "why_picked": "船浪夹角 Ψ 与 Z2/H4% 系数表（caption 丢表号；T̄ 两行 × Ψ 列）",
+      "header_rows": [
+        [
+          "$\\Psi$ (°)",
+          "0(180)",
+          "10(170)",
+          "20(160)",
+          "30(150)",
+          "40(140)",
+          "50(150)",
+          "60(120)",
+          "70(110)",
+          "8(100)",
+          "90(90)"
+        ]
+      ],
+      "body_rows": [
+        [
+          "$Z_{2}/H_{4\\%} (\\overline{T} \\leqslant 8s)$",
+          "0.24",
+          "0.32",
+          "0.38",
+          "0.42",
+          "0.44",
+          "0.46",
+          "0.48",
+          "0.49",
+          "0.5",
+          "0.52"
+        ],
+        [
+          "$Z_{2}/H_{4\\%} (\\overline{T}=10s)$",
+          "0.55",
+          "0.65",
+          "0.75",
+          "0.83",
+          "0.90",
+          "0.97",
+          "1.02",
+          "1.08",
+          "1.10",
+          "1.15"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-11922bab:128:3",
+      "doc_id": "doc-11922bab",
+      "page": 128,
+      "table_type": "hybrid",
+      "title": "集装箱船设计船型尺度表 A.0.1-4",
+      "signatures": [
+        "复式表头",
+        "区间列"
+      ],
+      "why_picked": "集装箱船设计船型尺度表 A.0.1-4（吨级区间行 + 尺度子表头；3 个 SOP 步在用）",
+      "header_rows": [
+        [
+          "船舶吨级DWT(t)",
+          "设计船型尺度(m)",
+          "设计船型尺度(m)",
+          "设计船型尺度(m)",
+          "设计船型尺度(m)",
+          "载箱量(TEU)"
+        ]
+      ],
+      "body_rows": [
+        [
+          "船舶吨级DWT(t)",
+          "总长L",
+          "型宽B",
+          "型深H",
+          "满载吃水T",
+          "载箱量(TEU)"
+        ],
+        [
+          "1000(1000~2500)",
+          "90",
+          "15.4",
+          "6.8",
+          "4.8",
+          "≤200"
+        ],
+        [
+          "3000(2501~4500)",
+          "106",
+          "17.6",
+          "8.7",
+          "5.8",
+          "201~350"
+        ],
+        [
+          "5000(4501~7500)",
+          "121",
+          "19.2",
+          "9.2",
+          "6.9",
+          "351~700"
+        ],
+        [
+          "10000(7501~12500)",
+          "141",
+          "22.6",
+          "11.3",
+          "8.3",
+          "701~1050"
+        ],
+        [
+          "20000(12501~27500)",
+          "183",
+          "27.6",
+          "14.4",
+          "10.5",
+          "1051~1900"
+        ],
+        [
+          "30000(27501~45000)",
+          "241",
+          "32.3",
+          "19.0",
+          "12.0",
+          "1901~3500"
+        ],
+        [
+          "50000(45001~65000)",
+          "293",
+          "32.3",
+          "21.8",
+          "13.0",
+          "3501~5650"
+        ],
+        [
+          "70000(65001~85000)",
+          "300",
+          "40.3",
+          "24.3",
+          "14.0",
+          "5651~6630"
+        ],
+        [
+          "100000(85001~115000)",
+          "346",
+          "45.6",
+          "24.8",
+          "14.5",
+          "6631~9500"
+        ],
+        [
+          "120000(115001~135000)",
+          "367",
+          "48.2",
+          "29.7",
+          "15.5",
+          "9501~11000"
+        ],
+        [
+          "150000(135001~175000)",
+          "367",
+          "51.2",
+          "29.9",
+          "16.0",
+          "11001~15500"
+        ],
+        [
+          "200000(175001~200000)",
+          "399",
+          "59.0",
+          "30.3",
+          "16.0",
+          "15501~18000"
+        ]
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "A1-实录表-型宽B",
+      "table_id": "table-doc-11922bab:131:3",
+      "channel": "table_lookup",
+      "signature": "复式表头",
+      "table_name": "表A.0.2-1",
+      "conditions": {
+        "载重吨DWT(t)": "45071"
+      },
+      "target_column": "型宽B",
+      "expected": 32.2,
+      "expected_why": "载重吨 45071 命中第4行 CCNI Potrerillos，型宽B=32.2（型宽B 列名住在 body[0] 子表头行）",
+      "baseline": {
+        "序号": "4",
+        "船名": "CCNI Potrerillos",
+        "载重吨DWT(t)": "45071",
+        "船舶主要尺度(m)": "184.0",
+        "船舶主要尺度(m)#2": "32.2",
+        "船舶主要尺度(m)#3": "17.0",
+        "船舶主要尺度(m)#4": "12.1"
+      },
+      "baseline_mode": "value",
+      "status": "xfail",
+      "note": "P2-1 靶区：行命中了但目标列找不到（header 里只有重复的「船舶主要尺度(m)」）→ 引擎回落返回整行字典，链路取不到标量"
+    },
+    {
+      "case_id": "A2-c系数",
+      "table_id": "table-doc-11922bab:52:12",
+      "channel": "table_read",
+      "signature": "复式表头",
+      "table_name": "表6.4.2-2",
+      "conditions": {
+        "船型": "集装箱船",
+        "航速(kn)": "8"
+      },
+      "target_column": "c的系数（纯数字；0.50B→0.5，B→1.0，1.50B→1.5）",
+      "expected": 0.75,
+      "expected_why": "杂货船或集装箱船 × 航速>6kn → 0.75B → 0.75（宽度 SOP step_5 原样查询）",
+      "baseline": 0.75,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "宽度 SOP 在用；live 首测=0.75（2026-10-16，夹具 provider + 真 LLM）"
+    },
+    {
+      "case_id": "A3-Z3滚装船",
+      "table_id": "table-doc-11922bab:27:5",
+      "channel": "table_lookup",
+      "signature": "成对列",
+      "table_name": "表5.4.12-2",
+      "conditions": {
+        "船舶吨级": "1000"
+      },
+      "target_column": "Z3",
+      "expected": 0.3,
+      "expected_why": "吨级≤1000 → Z3=0.30（目标列名 Z3 与表里 $Z_{3}$ (m) 需归一化）",
+      "baseline": {
+        "船舶吨级": "$\\leqslant 1000$",
+        "船舶吨级#2": "$\\leqslant 3000$",
+        "$Z_{3}$ (m)": "0.30"
+      },
+      "baseline_mode": "value",
+      "status": "xfail",
+      "note": "行字典里已含 0.30，但目标列未定位（Z3 与 $Z_{3}$ (m) 之间的归一化缺失）"
+    },
+    {
+      "case_id": "A4-潮位波浪-ΔF",
+      "table_id": "table-doc-11922bab:24:7",
+      "channel": "table_lookup",
+      "signature": "复式表头",
+      "table_name": "表5.4.8",
+      "conditions": {
+        "组合情况": "基本标准"
+      },
+      "target_column": "受力标准下的富裕高度 ΔF（m）",
+      "expected": "0~1.0m",
+      "expected_why": "基本标准 × 受力标准 → ΔF 取 0~1.0m（上层表头「受力标准」× 子表头「富裕高度 ΔF」）",
+      "baseline": "设计高水位",
+      "baseline_mode": "value",
+      "status": "xfail",
+      "note": "当前返回「设计高水位」（首个文本格）——两层表头合并没有建模"
+    },
+    {
+      "case_id": "B1-Z1-底质条件键",
+      "table_id": "table-doc-11922bab:26:17",
+      "channel": "table_lookup",
+      "signature": "成对列",
+      "table_name": "表5.4.12-1",
+      "conditions": {
+        "底质条件": "含砂或含粘土的块状土"
+      },
+      "target_column": "Z1",
+      "expected": 0.4,
+      "expected_why": "值文本落在第1行第二组「海底底质」对 → 其配对 Z1=0.40（成对列按值文本定位的正路）",
+      "baseline": 0.4,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "P0-1 修复的已验证路径：条件键用 SOP 口径「底质条件」，锁住防回归"
+    },
+    {
+      "case_id": "B2-Z1-单位后缀目标列",
+      "table_id": "table-doc-11922bab:26:17",
+      "channel": "table_lookup",
+      "signature": "成对列",
+      "table_name": "表5.4.12-1",
+      "conditions": {
+        "海底底质": "含砂或含粘土的块状土"
+      },
+      "target_column": "Z1 (m)",
+      "expected": 0.4,
+      "expected_why": "同上真值 0.40；只是目标列写成带单位形式「Z1 (m)」（B1 用裸「Z1」时正确）",
+      "baseline": 0.2,
+      "baseline_mode": "value",
+      "status": "xfail",
+      "note": "成对列劫持实锤：目标列带单位后缀时取到首组 Z1（0.20=淤泥土值）——P2-2/P2-3 靶区"
+    },
+    {
+      "case_id": "B3-n",
+      "table_id": "table-doc-11922bab:52:11",
+      "channel": "table_read",
+      "signature": "区间列",
+      "table_name": "表6.4.2-1",
+      "conditions": {
+        "横风风力(级)": "6",
+        "横流V(m/s)": "0.31"
+      },
+      "target_column": "n",
+      "expected": 1.69,
+      "expected_why": "V=0.31 落在「0.25 < V≤0.50」列 → n=1.69（宽度 SOP step_3 原样查询；该值已在生产链验证）",
+      "baseline": 1.69,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "live 首测=1.69（2026-10-16）；该值已在生产宽度链验证"
+    },
+    {
+      "case_id": "B4-γ",
+      "table_id": "table-doc-11922bab:52:11",
+      "channel": "table_read",
+      "signature": "区间列",
+      "table_name": "表6.4.2-1",
+      "conditions": {
+        "横风风力(级)": "6",
+        "横流V(m/s)": "0.31"
+      },
+      "target_column": "γ(°)",
+      "expected": 7,
+      "expected_why": "同上列 → γ=7（宽度 SOP step_3b）",
+      "baseline": 7,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "live 首测=7（2026-10-16）；宽度 SOP step_3b 口径"
+    },
+    {
+      "case_id": "C1-Z1-吨级区间列",
+      "table_id": "table-doc-11922bab:54:1",
+      "channel": "table_read",
+      "signature": "区间列",
+      "table_name": "表6.4.6-1",
+      "conditions": {
+        "土质特性": "坚硬粘性土",
+        "船舶吨级(t)": "150000"
+      },
+      "target_column": "龙骨下最小富裕深度Z1（m）",
+      "expected": 0.7,
+      "expected_why": "150000 落在「100000≤DWT<300000」列，坚硬粘性土行 → 0.70（q2020-007 gold 口径）",
+      "baseline": 0.6,
+      "baseline_mode": "value",
+      "status": "xfail",
+      "note": "P2-7 靶区：live 实况 0.60（cell 写对列名、值取邻列）"
+    },
+    {
+      "case_id": "C2-Z2系数-T8行",
+      "table_id": "table-doc-11922bab:54:2",
+      "channel": "table_read",
+      "signature": "区间列",
+      "table_name": "船、浪夹角\\Psi与Z_{2}/H_{4\\%}的变化系数值",
+      "conditions": {
+        "船浪夹角Ψ(°)": "20"
+      },
+      "target_column": "Z2/H4%（T̄≤8s 行）",
+      "expected": 0.38,
+      "expected_why": "Ψ=20° 列 × T̄≤8s 行 → 0.38（P2-4 SOP step_5b 真值）",
+      "baseline": 0.38,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "表号在 caption 里丢失 → 选表靠 caption 原文（score 220），锁住 P2-4 解法"
+    },
+    {
+      "case_id": "C3-集装箱-T",
+      "table_id": "table-doc-11922bab:128:3",
+      "channel": "table_read",
+      "signature": "区间列",
+      "table_name": "表A.0.1-4",
+      "conditions": {
+        "船舶吨级DWT(t)": "5000"
+      },
+      "target_column": "满载吃水T",
+      "expected": 6.9,
+      "expected_why": "吨级 5000 落在「5000(4501~7500)」行 → 满载吃水T=6.9（q2019-009 实况，与 gold 一致）",
+      "baseline": 6.9,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "航道 SOP step_1 原样查询（q2019-009 实况已核）"
+    },
+    {
+      "case_id": "C4-集装箱-B",
+      "table_id": "table-doc-11922bab:128:3",
+      "channel": "table_read",
+      "signature": "区间列",
+      "table_name": "表A.0.1-4",
+      "conditions": {
+        "船舶吨级DWT(t)": "5000"
+      },
+      "target_column": "型宽B",
+      "expected": 19.2,
+      "expected_why": "同上行 → 型宽B=19.2（宽度 SOP step_1b 原样查询）",
+      "baseline": 19.2,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "live 首测=19.2（2026-10-16）——同一张复式表头表，读表判读能在子表头行里取对型宽B，确定性引擎却做不到（见 A1/D1 对照）"
+    },
+    {
+      "case_id": "D1-target失配不猜",
+      "table_id": "table-doc-11922bab:128:3",
+      "channel": "table_lookup",
+      "signature": "复式表头",
+      "table_name": "表A.0.1-4",
+      "conditions": {
+        "船舶吨级DWT(t)": "5000"
+      },
+      "target_column": "满载吃水T(m)",
+      "expected": "no_scalar",
+      "expected_why": "目标列「满载吃水T(m)」在表头不存在 → 不得返回任何标量（P2-3 验收：返回整行或明确 error）",
+      "baseline": 121.0,
+      "baseline_mode": "value",
+      "status": "xfail",
+      "note": "P2-3 实锤：现返回 121.0＝总长L（吨级行首个数），静默错列"
+    }
+  ]
+}

@@ -70,6 +70,15 @@ SOP 的 `table_name` 现用 caption 原文（含 LaTeX）；重解析补齐表�
 > ②P2-3「失配不猜」+ P2-2 别名（小、纯加法，先把静默错值变显式）；③再上 P2-1 的
 > **表头归一化**（合并表头→唯一列名 + 标出维度列），它是 P2-2/P2-3 的共同上游；
 > ④P2-7 走**自检**路线（用已有 `_read_cell`/`_read_quote` 做「值-位置一致性」核对，不改提示词，可 A/B）。
+>
+> **① 已立（2026-10-16）**：`services/angineer-core/tests/` 下
+> `test_table_type_regression.py` + `fixtures/table_type_regression_v1.json`（9 张真表快照 / 13 用例），
+> 夹具自带生成器 `fixtures/build_table_type_regression.py` 与语料对账 `fixtures/check_table_type_regression_drift.py`。
+> 现状 **7 绿 / 6 红（XFAIL 显式登记）**：绿=已正确行为（含 P0-1 的 表5.4.12-1 正路、P2-4 的 caption 选表、读表通道 6 条含 尺度表型宽B）；
+> 红（P2 靶区，修好须把夹具 status 改 fixed）= A1 实录表列名在子表头行取不到值（返回整行）、
+> A3 Z3 目标列缺 LaTeX 归一化、A4 表5.4.8 两层表头返回首文本格、B2 目标列带单位后缀时成对列取错、
+> C1 表6.4.6-1 区间列取邻列（0.60 应 0.70）、D1 目标列失配静默返回标量（121.0=总长L）。
+> 用法：离线 `python -m pytest tests/test_table_type_regression.py`；读表取值 A/B `P2_FIXTURE_LIVE=1`（真 LLM，夹具自带 provider）。
 
 ### P2-1 表内行语义：复式表头子表头行被当数据行
 
