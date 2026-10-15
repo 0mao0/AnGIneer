@@ -238,11 +238,14 @@ class CommunityService:
         """仅 published + 已绑定才可见；其余一律 None（路由回 404，不区分「不存在/未公开」防探测）。
 
         status 在 SopSource 已复核过一次，这里再兜一道：假源/上游过滤坏掉也不放草稿进公开面。
+        与 source 层同口径：**缺 status 键=已通过服务端 status=published 查询过滤**——`/api/sops/full`
+        返回体不带该字段（10-15 实踩：严格要求 ==published 让所有公开 SOP 详情一律 404，
+        页面流程图画布全空；同一坑在 _keep_published 已修过一次，这是第二处）。
         """
         if not self.store.is_bound(scope_id=models.SCOPE_SOP, kind=models.BIND_KIND_SOP, ref_id=sop_id):
             return None
         sop = self.sop_src.get(sop_id)
-        if sop is None or sop.get("status") != "published":
+        if sop is None or sop.get("status", "published") != "published":
             return None
         return sop
 

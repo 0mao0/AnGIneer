@@ -105,6 +105,23 @@ def test_sop_draft_invisible_even_if_upstream_leaks(tmp_path):
     assert [i["ref_id"] for i in tree["items"]] == ["sop-1"]
 
 
+def test_sop_detail_without_status_key_is_served(tmp_path):
+    """回归（10-15 实踩）：`/api/sops/full` 条目不带 status 字段——缺键=已过服务端过滤。
+
+    此前 service.get_sop 严格要求 status=="published"，让全部真 SOP 详情 404
+    （公开页选任何 SOP 流程图画布全空，只剩「SOP 不存在或未公开」）。
+    """
+    real_sop = {"id": "sop-real", "name_zh": "真 SOP", "steps": [{"id": "s1", "name_zh": "第一步"}]}
+    folders = [{"folder_id": "folder-a", "title": "疏浚计算", "parent_folder_id": None, "sort_order": 1}]
+    store, client = make_client(tmp_path, sop_src=FakeSopSource([real_sop], folders=folders))
+    store.bind(scope_id="sop", kind="sop", ref_id="sop-real", node_id="folder-a")
+    resp = client.get("/api/community/sops/sop-real")
+    assert resp.status_code == 200
+    assert resp.json()["id"] == "sop-real"
+    tree = client.get("/api/community/tree?scope=sop").json()
+    assert [i["ref_id"] for i in tree["items"]] == ["sop-real"]
+
+
 def test_submission_dataset_and_echo_in_tree(tmp_path):
     """A5：投稿题集全量接收，即时回显带 origin=user。"""
     _, client = make_client(tmp_path)

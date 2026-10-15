@@ -37,6 +37,9 @@ class FakeEvalSource:
 
 
 class FakeSopSource:
+    """SopSource 的替身：**与真实源同口径**——显式 draft 是草稿，缺 status 键按 published 放行
+    （真实 `/api/sops/full` 条目不带 status，10-15 实踩）。"""
+
     def __init__(self, sops: Optional[List[Dict[str, Any]]] = None,
                  folders: Optional[List[Dict[str, Any]]] = None):
         # 假源可以含草稿——service/SopSource 的 published 复核应把它挡住
@@ -56,9 +59,9 @@ class FakeSopSource:
                 "confidence": s.get("confidence"),
                 "step_count": len(s.get("steps") or []),
             }
-            for s in self.sops.values() if s.get("status") == "published"
+            for s in self.sops.values() if s.get("status", "published") == "published"
         ]
 
     def get(self, sop_id: str) -> Optional[Dict[str, Any]]:
         s = self.sops.get(sop_id)
-        return s if s and s.get("status") == "published" else None
+        return s if s and s.get("status", "published") == "published" else None
