@@ -26,6 +26,12 @@
           </span>
         </span>
       </template>
+      <!-- 只读树：覆盖 SmartTree 默认行内操作槽（重命名/查看/删除按钮），公开面一律不给
+          写操作入口（业主 2026-10-15：这些都不允许编辑删除，按钮全部禁止）。
+          槽里必须放一个真实元素——只写注释/空白时 Vue 视为空槽、会回退渲染默认按钮 -->
+      <template #actions>
+        <span class="actions-none" aria-hidden="true" />
+      </template>
     </SmartTree>
     <div v-if="loadError" class="tree-error">{{ loadError }}</div>
   </div>
@@ -62,6 +68,11 @@ function onSelect(_keys: string[], nodes: SmartTreeNode[]) {
 .public-tree-panel {
   height: 100%;
   overflow: hidden;
+
+  // 只读：行内操作槽的占位元素不占位（见模板 #actions）
+  .actions-none {
+    display: none;
+  }
 
   .tree-title {
     display: inline-flex;
