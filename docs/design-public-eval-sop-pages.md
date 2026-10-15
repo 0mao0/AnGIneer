@@ -478,7 +478,8 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
 - 直接挂本节点、不设二级子目录；**不进 AUTOBIND_KEYWORDS**（通用成员是人工决定，走 `community_bind.py bind eval dataset <ref> general`）。
 - 成员名单（业主点名 = 端到端题集编号 1/3/5/6/7/8/9，本地已绑）：
   `financebench-open-150-v1`／`open-ragbench-subset-v4.1`／`gdp-pdf-v1`／`nomiracl-zh-refusal-v2`／`squad2-en-mixed-v2`／`dureader-robust-zh-v2`／`officeqa-pro-133-v1`。
-  （2 水运/4 港航两套专业卷按编号语义不属通用，留在各自专业节点。）
+  （2 水运/4 港航不属通用；业主 10-15 定改挂「水运」一级目录直属：`reviewed-exam-2020-2019` + `eval_1`，
+  eval_1 由首次自动绑定误落水工→水文节点已解绑重挂。）
 - 存量库根序不会自动改（ensure_node 只补不覆盖）：本地已跑一次性 UPDATE 改 sort_order；全新库（含生产首发）种子新序天然正确、无需补丁。
 - 顺带修：`seed_tree` 新建计数漏记一级节点（只影响日志数字）。
 - 左树排序与计数（业主 10-15 追）：`useCommunityTree` 弃自写排序，改用 SmartTree 共用 `sortTreeNodes({foldersFirst, numberedFirst})`——此前自写按 created_at 排导致「1/3/5…」乱序（共用工具是有的，本页没接）；目录名后 `(x)` = 子树条目数（含子目录，前端组装时算，不落库）。
