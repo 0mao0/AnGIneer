@@ -496,7 +496,7 @@ defineExpose({ reload })
   justify-content: center;
   height: 200px;
   gap: 8px;
-  color: #6b7280;
+  color: var(--text-secondary, #6b7280);
 }
 .graph-empty-text {
   font-size: 15px;
@@ -587,16 +587,16 @@ defineExpose({ reload })
 .rel-item {
   display: flex; align-items: flex-start; gap: 6px;
   padding: 4px 0; font-size: 13px;
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid var(--border-color, #f3f4f6);
   cursor: pointer; flex-wrap: wrap;
 }
-.rel-item:hover { background: #f8fafc; }
-.rel-dir { color: #9ca3af; font-size: 12px; }
+.rel-item:hover { background: var(--bg-tertiary, #f8fafc); }
+.rel-dir { color: var(--text-tertiary, #9ca3af); font-size: 12px; }
 .rel-type { color: #6366f1; font-weight: 500; min-width: 80px; }
 .rel-target { flex: 1; }
-.rel-conf { color: #9ca3af; font-size: 11px; }
-.rel-evidence-preview { width: 100%; color: #6b7280; font-size: 11px; padding-left: 18px; }
-.no-rels { color: #9ca3af; font-size: 13px; padding: 8px 0; }
+.rel-conf { color: var(--text-tertiary, #9ca3af); font-size: 11px; }
+.rel-evidence-preview { width: 100%; color: var(--text-secondary, #6b7280); font-size: 11px; padding-left: 18px; }
+.no-rels { color: var(--text-tertiary, #9ca3af); font-size: 13px; padding: 8px 0; }
 .edge-detail {
   h4 { margin: 12px 0 6px; font-size: 14px; }
   p { margin: 4px 0; font-size: 13px; }
