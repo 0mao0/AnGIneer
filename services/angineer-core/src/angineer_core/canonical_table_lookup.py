@@ -309,6 +309,21 @@ def _render_table_text(headers: List[Any], rows: List[Any]) -> str:
     return "\n".join(lines)
 
 
+def _loads_lenient(fragment: str) -> dict:
+    """宽松 JSON 解析：修掉 LLM 回抄 LaTeX 时未转义的反斜杠。
+
+    2026-10-15 实踩（P2-4 验收轮）：表头/行标签含 LaTeX（$Z_{2}/H_{4\\%} (\\overline{T}…)$）时，
+    判读模型会把行标签原样抄进 cell/quote，单个反斜杠是非法 JSON 转义 → json.loads 抛
+    "Invalid \\escape" → 整步失败（值其实已读对）。只补未成对的反斜杠，不碰合法转义。
+    """
+    import json as _json2
+
+    try:
+        return _json2.loads(fragment)
+    except Exception:
+        return _json2.loads(re.sub(r'\\(?![\\"/bfnrtu])', r"\\\\", fragment))
+
+
 def canonical_table_read(
     *,
     table_name: str,
@@ -390,7 +405,7 @@ def canonical_table_read(
         )
         raw = (result.text or "").strip()
         start, end = raw.find("{"), raw.rfind("}")
-        parsed = _json.loads(raw[start:end + 1]) if start >= 0 and end > start else {}
+        parsed = _loads_lenient(raw[start:end + 1]) if start >= 0 and end > start else {}
     except Exception as exc:  # noqa: BLE001
         return {"error": f"读表判读失败: {exc}"}
 

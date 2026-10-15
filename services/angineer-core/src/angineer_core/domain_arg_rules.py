@@ -4,8 +4,9 @@ plan：classifier 深层港口逻辑外置（2026-10-12，plan-sop-l4-synth 排�
 
 引擎只提供匹配原语与计算算子，具体规则（K1/掩护/船型/Hnav…）全部住领域包 JSON：
 - 规则段：``arg_rules``（required 相位=按 SOP required 提参；always 相位=无条件派生），
-  ``arg_computes``（算子：subtract / numeric_flag / compass_angle / pick_ts_water /
-  fallback_regexes / wan_to_tons），``arg_defaults``，``ship_type_rules``，``stop_markers``，``clean_rules``。
+  ``arg_computes``（算子：subtract / numeric_flag / compass_angle / axis_wave_angle /
+  pick_ts_water / fallback_regexes / wan_to_tons），``arg_defaults``，``ship_type_rules``，
+  ``stop_markers``，``clean_rules``。
 - 不启用领域包 → 全部规则为空 → 行为=通用（不注入任何领域参数，仅做通用清洗）。
 
 提取语义（与原 classifier 逐字节对齐，对拍测试锁死）：
@@ -18,6 +19,12 @@ plan：classifier 深层港口逻辑外置（2026-10-12，plan-sop-l4-synth 排�
 """
 import re
 from typing import Any, Dict, List, Optional, Tuple
+
+# 八向罗盘字母 → 方位角（°），供 axis_wave_angle 用（浪向/流向常以字母给）
+_WIND_ROSE = {
+    "N": 0.0, "NE": 45.0, "E": 90.0, "SE": 135.0,
+    "S": 180.0, "SW": 225.0, "W": 270.0, "NW": 315.0,
+}
 
 
 def _extract_by_patterns(query: str, patterns: List[str]) -> Optional[str]:
@@ -222,6 +229,44 @@ def _apply_computes(
                     if angle > 90:
                         angle = 180 - angle
                     args[param] = str(round(angle, 1))
+            elif op == "axis_wave_angle":
+                # 波向与航道轴线的夹角（船浪夹角Ψ）：轴线给两方位（如 255°~75°）时按
+                # 「离波向最近的一端」取角，折到 [0,90]。与 compass_angle 的差别：后者取
+                # 两方位中点、波向只认「字母+度数」；本算子支持罗盘字母（SE=135°）与纯度数。
+                wave = re.search(
+                    str(spec.get("wave_regex") or r"(?:强)?浪向\s*(?:为|是)?\s*([NSEW]{1,2})\s*(\d+)?\s*[°度]?"),
+                    query,
+                )
+                digits_only = False
+                if not wave:
+                    wave = re.search(str(spec.get("digits_regex") or r"(?:强)?浪向\s*(?:为|是)?\s*(\d+)\s*[°度]"), query)
+                    digits_only = wave is not None
+                channel = re.search(
+                    str(spec.get("channel_regex") or r"航道(?:轴线)?方位(?:为|是)?\s*(\d+)\s*[°°]\s*[~～]\s*(\d+)\s*[°°]"),
+                    query,
+                )
+                if wave and channel:
+                    bearing: Optional[float] = None
+                    if digits_only:
+                        bearing = float(wave.group(1))
+                    else:
+                        groups = wave.groups()
+                        letters = (groups[0] or "").upper()
+                        deg_txt = groups[1] if len(groups) > 1 else None
+                        if len(letters) == 1 and deg_txt:
+                            # 单字母+度数：沿用 compass_angle 约定（N: deg，S: 180+deg，E/W 取本位）
+                            bearing = {"N": float(deg_txt), "S": 180.0 + float(deg_txt),
+                                       "E": 90.0, "W": 270.0}.get(letters)
+                        else:
+                            bearing = _WIND_ROSE.get(letters)
+                    if bearing is not None:
+                        axis = (float(channel.group(1)), float(channel.group(2)))
+                        angle = min(abs(bearing - axis[0]), abs(bearing - axis[1])) % 360.0
+                        if angle > 180.0:
+                            angle = 360.0 - angle
+                        if angle > 90.0:
+                            angle = 180.0 - angle
+                        args[param] = str(round(angle, 1))
             elif op == "pick_ts_water":
                 # 乘潮水位：优先「频率∈[90,95] 的水位对」，其次单一「乘潮水位 X」表述
                 lo, hi = (spec.get("freq_range") or [90, 95])[:2]
