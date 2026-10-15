@@ -235,7 +235,11 @@ def test_invalid_payload_400(tmp_path):
 
 
 def test_sop_source_status_recheck_filters_draft():
-    """SopSource 内置复核：上游把草稿混进 /full 响应也进不了缓存。"""
+    """SopSource 内置复核：显式标注的非 published 不进缓存；缺 status 键放行。
+
+    真实 `/api/sops/full` 返回体不带 status 字段（10-15 实踩：严格要求 ==published
+    把 54 条真 SOP 全滤掉，公开页只剩带标注的 2 条演示），缺键=信任服务端查询过滤。
+    """
     from community.sources.sop_source import SopSource
     kept = SopSource._keep_published([PUBLISHED_SOP, DRAFT_SOP, "not-a-dict", {"id": "x"}])
-    assert [s["id"] for s in kept] == ["sop-1"]
+    assert [s["id"] for s in kept] == ["sop-1", "x"]

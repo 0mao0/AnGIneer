@@ -139,8 +139,14 @@ class SopSource:
 
     @staticmethod
     def _keep_published(items: List[Any]) -> List[Dict[str, Any]]:
-        """逐条复核 status——上游过滤坏掉也不放草稿进公开面。"""
-        return [s for s in items if isinstance(s, dict) and s.get("status") == "published"]
+        """逐条复核 status——只拦**显式标注**非 published 的条目。
+
+        `/api/sops/full` 返回体不带 status 字段（仅 code_review/math_sop 两条演示
+        随存；10-15 实踩：严格要求 ==published 把 54 条真 SOP 全滤掉，公开页只剩 2 条）。
+        缺字段视为已通过服务端 `status=published` 查询过滤；上游若混入显式 draft 标注仍挡得住。
+        快照兜底同受此规则保护。
+        """
+        return [s for s in items if isinstance(s, dict) and s.get("status", "published") == "published"]
 
     def _read_snapshot(self) -> Optional[List[Dict[str, Any]]]:
         try:
