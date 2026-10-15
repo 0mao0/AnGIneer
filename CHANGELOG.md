@@ -2,6 +2,17 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.2.99
+
+- 公开测试集/公开 SOP 两页上线（6ca92832/99e00677/e318c829/bfced9cf/af4ac00b/3be32796/4f450db2/0be96244/38482e9c/4b543222/8a4bf8ac/4d1848b1/87d5f1fe/060d8c85/338950cb/e9419fd3）：新包 services/community 挂 aichat-api /api/community，user-web 新增 /evals /sops 两页；分类树加「通用」一级目录置顶＋目录名后条目计数＋共用 sortTreeNodes 排序（SOP 页分类改经验库文件夹实时镜像、不再用 community 种子树）；题目行点开＝详情（问题＋参考答案＋标签，参考答案默认公开、=0 回盲测）；题目「答题」按钮复用评测单题通道（save:false 用完即清，零新接口零新存储）；题集特性卡复用后台同款 EvalDatasetCardModal；参考答案键改 gold_answer 优先（全库 1730 条实测统一此键，只认 reference_answer/answer 会全量取空）；公开 SOP 列表与详情两处 status 严格复核误滤修复（/api/sops/full 返回体不带 status 键→56 条真 SOP 被滤到只剩 2 条演示、详情一律 404 致流程图画布全空）；公开树装配/展开/只读化修复（二层目录整层丢失改共用 buildTreeFromFlat、展开改 SmartTree 自带 defaultExpandAll、左树隐藏行内写操作按钮）；顶栏页签「公开测试集」→「测试集」、「公开SOP」→「经验库」（业主 10-15 定）
+- 聊天里 SOP 全链路可视化（0f02e6d8/c57a7594）：SSE sop_flow 快照通道（plan→step→done 三快照）＋ SopFlowPanel 可折叠步骤卡（失败步红叉＋error、缺参黄条、按 sop_id 记忆折叠）；「流程图」抽屉＝sop-ui 定义画布（与公开经验库页同组件）＋本次执行状态着色（绿成功/红失败/灰未执行，sop-ui 新增 applyRunStatus，公开页与编辑器零影响）；步骤行渲染「参数=值 → 结果」（执行器快照 bindings/result 走 live 帧与回放两条路，缺失显「=缺」，历史旧消息无字段不渲染）
+- SOP 可执行性三修（e5ed5136）：实踩「4 步全红『表达式不能为空』」根因＝自动化生成的 SOP 的 calculator 步 inputs 写成参数说明字典、生成提示词 schema 从未要求表达式（39/57 条同病）；修：生成提示词强制 expression（${变量} 占位、写不出公式改查表/人工）＋校验器规则 6（calculator 缺 expression 不许落盘/发布）＋半圆堤 SOP 按 JTS 154-2018 附录J 式 J.0.1-1~12 补全 9 步公式（规范无封闭式的总分力写进描述不硬凑）；连带修 AI 缺参推荐预算闸（同 run 共享 ANGINEER_SOP_AI_RECOMMEND_TIMEOUT 默认 30s，慢网关下不再逐步调用拖爆 sop_execute 120s 工具超时）；存量 38 条分流清单落 docs/sop-expression-backfill-status.md
+- 查表与判分链修复（00626901/feb2f442/4433a64b/a4e1c508/4307dcc3/7b6ef70f）：P2-4 查表链补齐（表6.4.6-2 读表步＋两行确定性内插，三题 Z2 清零，表型回归集 v1 同批落地）；范围表名按「行匹配可行性」重选目标表（修 SOP 查表步选错表致整链缺参）；查表链缺参对账四修（同义双键桥接/键缺失/吨级船型捕获/半角逗号边界）；eval_1 差 6 题四根病因修三根（判分刻度统一 0–10、检索工具超时自动重试、回退提示不再注入段名）；判官双判一致制（默认关，零行为变更，治同题判分跨阈翻转）；SOP 缺参收尾正文回退保险＋选择题作答协议
+- 解析入库吞吐三修（bf2c268f/f9f8082f/0c6b8109）：FTS 连接加 synchronous=NORMAL（WAL 下省每篇 fsync）；PoPo 多端点按请求轮询分流（原「顺序优先级」在 DGX 健康时让 company 端点零流量，业主 10-15 令双端点并行）；批量解析三处限流缺口补齐＝convert/FTS 闸门＋MinerU 端点分流（9298 篇入库实踩）
+- 前台小件（3499718b/9f529b67/37a06add/9c1f83f6/2ed8515c）：admin 知识库「查看」抽屉恢复知识图谱页签（只读化）；SOPTree 补 dark 属性透传（修树暗色样式失效致「新建文件夹」图标全黑，经验库/公开两页接 useTheme().isDark）；docs-ui 图谱浮层深色下白字白底与实体抽屉硬编码色收口（改主题变量含浅色兜底）；hero 引导问题改两行形态（第二行计算题截断展示、悬停看全文、点击直发）＋ SOP 流程图抽屉宽度收窄 25%（72%→54%、窄屏 92%→69%）
+- 安全与合规（aab12095/2a93f657）：docs-api internal 面公网封锁（前端 nginx 加 ^~ /api/knowledge/internal/ 403，审计 2026-10-15 匿名 422 直通实锤）；许可全仓统一 MIT（「Apache 2.0+附加条款」退役，JS/Py 包声明补齐）
+- 测试与施工账（21cf9017/3e613bdb/1f14db3d/ff59a49d/6aabcbd6/f11fba80/6f645c67/9769033a/b8c840e8/edef74b3）：表型回归集 v1 预注册落地（9 张真表快照/13 用例 7 绿 6 红）；任务假死看门狗、评测链剩余项、社区两页、L4 合成 Task 7 验收等施工单与施工记录入档；README 四处过时口径修正（四路召回按 step09_query 五路实据、sop-core 目录实名、版本表与路线图）
+
 ## v0.2.98
 
 - L4 合成车道施工落地（默认关，5460e72a/13330bc5/188e773c/9a3891bb/4fe8638a/31aab1f8/b1c0b240/41344b83/0f630a4f/b9117a80/ad155f4c/3644e83a）：生成器公共入口 generate_sop_from_steps（LLM 优先、骨架兜底）；合成管线 path_selector（搜实体→ACTION 锚定路径→骨架/LLM 兜底→校验）；sop-api 增 synthesize/crystallize 端点（缺料 412 语义、draft 结晶进审核流）；sop_execute 适配器加 synth/crystallize 回调位（None=现状逐键一致）、车道装配接线开关 ANGINEER_SOP_L4_SYNTH 默认关＋每问题 1 次合成预算＋HTTP 回调实现；校验闭包两处补齐（提示词教 ${} 引用＋装配层确定性补引用——手测实踩「L4 合成全量 412」）；nginx 公网封锁两端点；私有符号收口 _normalize_step_dict；evals-core 增 SOP 链路冒烟 B 层断言（真客户端打 aichat→sop-api→docs-api）；docs-api 实体搜索补 library_id 过滤＋关系端点补 library_id/doc_id（防串库）
