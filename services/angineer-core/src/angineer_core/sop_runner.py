@@ -529,6 +529,46 @@ class SopRunner:
                 return step
         return None
 
+    def _step_param_bindings(self, step: Step) -> Dict[str, Any]:
+        """步骤参数绑定快照（面板展示用）：模板里的 ${名} → 当前黑板值；未解析的给 None。
+
+        2026-10-16 业主需求：聊天面板不只标红，绿步也要能看见「参数和参数值」。
+        名字取自步骤定义模板（inputs 里的 ${}），值取执行后的黑板（同一步产出的键
+        不会在此刻被覆写，取值即该步实际代入值）。
+        """
+        try:
+            names = self._collect_unresolved_names(step.inputs or {})
+        except Exception:  # noqa: BLE001
+            return {}
+        bindings: Dict[str, Any] = {}
+        for name in names:
+            try:
+                val = self.memory.resolve_value("${" + name + "}")
+            except Exception:  # noqa: BLE001
+                val = None
+            # 未解析返回字面模板串 → 记 None（缺失），与「缺什么报什么」口径一致
+            if isinstance(val, str) and val.strip() == "${" + name + "}":
+                val = None
+            if isinstance(val, (dict, list)):
+                val = None  # 展示层只收标量，复杂结构不塞快照
+            bindings[name] = val
+        return bindings
+
+    @staticmethod
+    def _compact_step_result(outputs: Any) -> Any:
+        """步骤结果标量快照（展示用）：工具结果里的 result 字段，标量才带、长串截断。"""
+        if not isinstance(outputs, dict):
+            val: Any = outputs if isinstance(outputs, (int, float, bool)) else None
+        else:
+            val = outputs.get("result")
+        if isinstance(val, bool) or val is None:
+            return val
+        if isinstance(val, (int, float)):
+            return val
+        if isinstance(val, str):
+            return val if len(val) <= 200 else val[:200] + "…"
+        return None
+
     def _build_step_info(self, step: Step) -> Dict[str, Any]:
         """构建单个步骤的执行信息，用于回调通知。"""
         history = getattr(self.memory, "history", [])
@@ -546,6 +586,8 @@ class SopRunner:
             "description": step.description_zh or (step.description.content if step.description else ""),
             "inputs": (record.inputs if record else step.inputs) or {},
             "outputs": (record.outputs if record else None),
+            "bindings": self._step_param_bindings(step),
+            "result": self._compact_step_result(record.outputs if record else None),
             "duration": step_durations.get(step.id, 0.0),
             "status": (record.status if record else "pending"),
             "error": (record.error if record else None),
@@ -1528,6 +1570,8 @@ class SopRunner:
                 "description": step.description_zh or (step.description.content if step.description else ""),
                 "inputs": (record.inputs if record else step.inputs) or {},
                 "outputs": (record.outputs if record else None),
+                "bindings": (runner._step_param_bindings(step) if hasattr(runner, "_step_param_bindings") else {}),
+                "result": SopRunner._compact_step_result(record.outputs if record else None),
                 "duration": step_durations.get(step.id, 0.0),
                 "status": (record.status if record else "pending"),
                 "error": (record.error if record else None),

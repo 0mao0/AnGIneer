@@ -8,6 +8,9 @@ import {
 } from '@vue-flow/core'
 import type { SopData, SopStep, BranchTarget, FlowBranchEdgeData } from '../types/sop'
 
+/** 单次执行的步骤状态（叠加到画布节点上的只读装饰；编辑器/公开页不传即零影响）。 */
+export type SopRunStatus = 'success' | 'failed' | 'pending' | 'running' | 'skipped'
+
 interface FlowNode {
   id: string
   type: 'sop-step' | 'sop-fork'
@@ -16,6 +19,7 @@ interface FlowNode {
     step: SopStep
     stepIndex: number
     dirty?: boolean
+    runStatus?: SopRunStatus
     branchEdges?: Array<{ id: string; label: string; target: string; isDefault?: boolean }>
   }
   selected?: boolean
@@ -491,6 +495,26 @@ export function useSopFlow() {
     undoStack.value = []
     selectedStepId.value = null
   }
+
+  /**
+   * 叠加单次执行的步骤状态到画布节点（只读装饰，不产生 dirty）。
+   *
+   * 消费者：聊天里的「查看流程图」抽屉（把本次 run 的 成功/失败/未执行 画在 SOP 原图上）。
+   * 编辑器与公开页不调用，节点不带 runStatus 时渲染零变化。
+   */
+  const applyRunStatus = (statusByStepId: Record<string, SopRunStatus>) => {
+    const byId = statusByStepId || {}
+    nodes.value = nodes.value.map((node) => ({
+      ...node,
+      data: {
+        ...node.data,
+        runStatus: byId[node.id],
+      },
+    }))
+  }
+
+  /** 清除执行状态装饰（复用同一画布实例时先清后置）。 */
+  const clearRunStatus = () => applyRunStatus({})
 
   /**
    * 将 Vue Flow Nodes/Edges 转换回 SOP JSON。
@@ -1137,6 +1161,8 @@ export function useSopFlow() {
     undoStack,
     redoStack,
     loadFromSopData,
+    applyRunStatus,
+    clearRunStatus,
     exportToSopData,
     handleNodesChange,
     handleEdgesChange,

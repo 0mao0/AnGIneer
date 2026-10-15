@@ -71,6 +71,10 @@ export interface SopFlowStepState {
   status: 'pending' | 'success' | 'failed'
   duration_ms?: number
   error?: string
+  /** 参数绑定快照（名 → 值；null=定义引用了但本次没取到，即缺参）。绿步也带 */
+  bindings?: Record<string, string | number | null>
+  /** 工具结果标量快照（calculator 的 result 等；复杂结构不带） */
+  result?: string | number | null
 }
 
 /**

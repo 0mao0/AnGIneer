@@ -4,28 +4,34 @@
     :key="flow.sop_id"
     class="sop-flow-card"
   >
-    <button
-      type="button"
-      class="sop-flow-header"
-      @click="toggleFlow(flow.sop_id)"
-    >
-      <PartitionOutlined class="sop-flow-icon" />
-      <span class="sop-flow-label">
-        SOP 流程
-        <template v-if="flow.sop_name">· {{ flow.sop_name }}</template>
-        <span class="sop-flow-count">
-          （{{ flow.done }}/{{ flow.total }} 步<template v-if="totalDurationText(flow)"> · {{ totalDurationText(flow) }}</template>）
+    <div class="sop-flow-head">
+      <button
+        type="button"
+        class="sop-flow-header"
+        @click="toggleFlow(flow.sop_id)"
+      >
+        <PartitionOutlined class="sop-flow-icon" />
+        <span class="sop-flow-label">
+          SOP 流程
+          <template v-if="flow.sop_name">· {{ flow.sop_name }}</template>
+          <span class="sop-flow-count">
+            （{{ flow.done }}/{{ flow.total }} 步<template v-if="totalDurationText(flow)"> · {{ totalDurationText(flow) }}</template>）
+          </span>
         </span>
+        <span v-if="flow.running" class="sop-flow-running">
+          <LoadingOutlined spin />
+          执行中
+        </span>
+        <span class="sop-flow-arrow">
+          <DownOutlined v-if="isExpanded(flow.sop_id)" />
+          <RightOutlined v-else />
+        </span>
+      </button>
+      <!-- 扩展位：宿主可放「查看流程图」等入口（未提供插槽时零渲染，独立包消费方不受影响） -->
+      <span class="sop-flow-action">
+        <slot name="flow-action" :flow="flow" />
       </span>
-      <span v-if="flow.running" class="sop-flow-running">
-        <LoadingOutlined spin />
-        执行中
-      </span>
-      <span class="sop-flow-arrow">
-        <DownOutlined v-if="isExpanded(flow.sop_id)" />
-        <RightOutlined v-else />
-      </span>
-    </button>
+    </div>
     <div v-if="isExpanded(flow.sop_id)" class="sop-flow-body">
       <div
         v-for="(step, idx) in flow.steps"
@@ -46,6 +52,12 @@
           <span v-if="step.tool && step.tool !== 'auto'" class="sop-flow-step-tool">{{ step.tool }}</span>
           <span v-if="step.duration_ms" class="sop-flow-step-duration">{{ formatStepDuration(step.duration_ms) }}</span>
           <span v-if="step.error" class="sop-flow-step-error" :title="step.error">{{ step.error }}</span>
+          <!-- 参数与结果（2026-10-16）：绿步也带出代入的参数值和算出的结果 -->
+          <span
+            v-if="stepParamsText(step)"
+            class="sop-flow-step-params"
+            :title="stepParamsText(step)"
+          >{{ stepParamsText(step) }}</span>
         </span>
       </div>
       <div v-if="flow.missing_report?.length" class="sop-flow-missing">
@@ -109,6 +121,33 @@ const missingText = (items: NonNullable<SopFlowState['missing_report']>) =>
     }
     return seg
   }).join('、')
+
+/** 数值展示：浮点收敛到 6 位、整数不带小数、非有限值退字符串 */
+const formatParamValue = (value: string | number | null): string => {
+  if (value === null || value === undefined) return '缺'
+  if (typeof value === 'number') {
+    if (!Number.isFinite(value)) return String(value)
+    return Number.isInteger(value) ? String(value) : String(Math.round(value * 1e6) / 1e6)
+  }
+  const text = String(value)
+  return text.length > 24 ? text.slice(0, 24) + '…' : text
+}
+
+/** 单步「参数=值 → 结果」一行文本；无绑定也无结果时返回空串（不占位） */
+const stepParamsText = (step: SopFlowState['steps'][number]): string => {
+  const parts: string[] = []
+  if (step.bindings) {
+    for (const [name, value] of Object.entries(step.bindings)) {
+      parts.push(`${name}=${formatParamValue(value)}`)
+    }
+  }
+  const head = parts.join('、')
+  const tail = step.result !== undefined && step.result !== null
+    ? ` → ${formatParamValue(step.result)}`
+    : ''
+  if (!head && !tail) return ''
+  return head ? `${head}${tail}` : tail.replace(/^ → /, '结果 ')
+}
 </script>
 
 <style lang="less" scoped>
@@ -119,11 +158,24 @@ const missingText = (items: NonNullable<SopFlowState['missing_report']>) =>
   background: rgba(128, 128, 128, 0.05);
   overflow: hidden;
 
+  .sop-flow-head {
+    display: flex;
+    align-items: center;
+  }
+
+  .sop-flow-action {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding-right: 10px;
+  }
+
   .sop-flow-header {
     display: flex;
     align-items: center;
     gap: 6px;
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     padding: 6px 10px;
     border: none;
     background: transparent;
@@ -256,6 +308,16 @@ const missingText = (items: NonNullable<SopFlowState['missing_report']>) =>
         width: 100%;
         color: #ff4d4f;
         font-size: 11px;
+      }
+
+      .sop-flow-step-params {
+        width: 100%;
+        font-size: 11px;
+        line-height: 1.5;
+        color: var(--text-tertiary, #999);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 

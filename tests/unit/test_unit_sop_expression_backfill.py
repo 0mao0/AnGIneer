@@ -124,6 +124,29 @@ class HemicycleBreakwaterSopTests(unittest.TestCase):
         for item in runner.missing_report:
             self.assertIn("不臆造", str(item.get("rationale") or ""))
 
+    def test_step_bindings_and_result_snapshot(self):
+        """参数绑定与结果标量快照（2026-10-16 面板展示绿步参数/值）：两条路径都要有。"""
+        ctx = {"设计波高H": 2.8, "静水位水深h": 8.5, "波长L": 26, "user_query": "半圆堤"}
+        runner, _ = self._run(ctx)
+
+        # ① live 步骤回调携带 bindings/result
+        infos = {}
+        runner2 = SopRunner(domain_hints=load_domain_pack("harbor"), llm_client=object())
+        runner2.run_sop(self.sop, dict(ctx), step_callback=lambda i: infos.setdefault(i["step_id"], i))
+        self.assertEqual(infos["step_1"]["bindings"], {"设计波高H": 2.8})
+        self.assertEqual(infos["step_1"]["result"], 4.2)
+        # 失败步：已知值照给、缺失名记 None（前端渲染为「缺」）
+        self.assertEqual(infos["step_4"]["bindings"].get("静水位水深h"), 8.5)
+        self.assertIsNone(infos["step_4"]["bindings"].get("基床上水深d1"))
+        self.assertIsNone(infos["step_4"]["result"])
+
+        # ② 终态 trace（回放/历史路径）同样携带
+        trace = SopRunner._build_sop_trace(runner, self.sop)
+        by_id = {t["step_id"]: t for t in trace}
+        self.assertEqual(by_id["step_1"]["bindings"], {"设计波高H": 2.8})
+        self.assertEqual(by_id["step_1"]["result"], 4.2)
+        self.assertEqual(by_id["step_3"]["result"], 17.481859)
+
 
 class GeneratorPromptTests(unittest.TestCase):
     """生成提示词根因回归：calculator 步必须要求 expression、outputs 固定 result。"""

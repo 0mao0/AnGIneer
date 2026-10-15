@@ -1422,6 +1422,11 @@ class SopRunnerAdapter:
                             pass
                     if info.get("error"):
                         entry["error"] = str(info["error"])[:200]
+                    # 参数绑定 + 结果标量（2026-10-16 业主需求：绿步也要看得见参数和值）
+                    if isinstance(info.get("bindings"), dict) and info["bindings"]:
+                        entry["bindings"] = info["bindings"]
+                    if info.get("result") is not None:
+                        entry["result"] = info["result"]
                     _emit_flow(True)
 
                 _emit_flow(True)  # plan 快照：前端先渲 pending 骨架

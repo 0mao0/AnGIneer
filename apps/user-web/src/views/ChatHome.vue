@@ -33,6 +33,17 @@
           <template #hero>
             <h1 class="hero-title">今天，想查点什么？</h1>
           </template>
+          <!-- SOP 卡片扩展位：打开该 SOP 的定义流程图（只读画布 + 本次执行状态着色） -->
+          <template #sop-flow-action="{ flow }">
+            <button
+              type="button"
+              class="sop-flowchart-entry"
+              title="查看该 SOP 的定义流程图（按本次执行状态着色）"
+              @click="openFlowchart(flow)"
+            >
+              流程图
+            </button>
+          </template>
         </AIChat>
       </div>
       <aside v-if="panelDocId" class="citation-panel">
@@ -61,6 +72,44 @@
       @remove="deleteSession"
       @new-chat="startNewChat"
     />
+    <!-- SOP 定义流程图（只读）：与公开 SOP 页同一画布组件；节点按本次执行状态着色 -->
+    <a-drawer
+      v-model:open="flowchartOpen"
+      placement="right"
+      :width="flowchartWidth"
+      :title="flowchartTitle"
+      :body-style="{ padding: '12px 16px' }"
+      destroy-on-close
+    >
+      <div v-if="flowchartLoading" class="sop-flowchart-loading">
+        <a-spin size="small" />
+        <span>正在加载 SOP 定义…</span>
+      </div>
+      <div v-else-if="flowchartError" class="sop-flowchart-error">{{ flowchartError }}</div>
+      <div v-else class="sop-flowchart-body">
+        <SOPFlowCanvas
+          :nodes="sopFlow.nodes.value"
+          :edges="sopFlow.edges.value"
+          :read-only="true"
+          :blackboard="sopFlow.blackboard.value"
+        />
+      </div>
+      <div v-if="!flowchartLoading && !flowchartError" class="sop-flowchart-legend">
+        <span class="legend-item">
+          <CheckCircleFilled class="legend-success" />
+          本次执行成功
+        </span>
+        <span class="legend-item">
+          <CloseCircleFilled class="legend-failed" />
+          本次执行失败
+        </span>
+        <span class="legend-item">
+          <span class="legend-pending-dot" />
+          未执行
+        </span>
+        <span class="legend-tip">图形为该 SOP 的定义流程；颜色来自本次对话的执行结果</span>
+      </div>
+    </a-drawer>
   </div>
 </template>
 
@@ -74,9 +123,10 @@
  * - 历史：@messagesChange 落盘 localStorage（chatHistory.ts），抽屉恢复。
  */
 import { computed, defineAsyncComponent, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { CloseOutlined } from '@ant-design/icons-vue'
+import { CheckCircleFilled, CloseCircleFilled, CloseOutlined } from '@ant-design/icons-vue'
 import { AIChat } from '@angineer/aichat-ui'
-import type { AIChatMessage, AIChatCitation, BaseChatLibrarySection } from '@angineer/aichat-ui'
+import type { AIChatMessage, AIChatCitation, BaseChatLibrarySection, SopFlowState } from '@angineer/aichat-ui'
+import { SOPFlowCanvas, normalizeSopData, useSopFlow, type SopRunStatus } from '@angineer/sop-ui'
 import type DocumentViewType from '@/views/DocumentView.vue'
 import ChatTopBar from '@/components/ChatTopBar.vue'
 import HistoryDrawer from '@/components/HistoryDrawer.vue'
@@ -85,6 +135,7 @@ import { defaultAIChatTransport } from '../../../shared/chatTransport'
 import { useAuthStore } from '@/stores/auth'
 import { siteFooterVisible } from '@/composables/siteFooter'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
+import { communityApi } from '@/api/community'
 import {
   deriveTitle,
   fetchSessionMessages,
@@ -327,6 +378,41 @@ const closePanel = () => {
   panelTitle.value = ''
 }
 
+// —— SOP 定义流程图抽屉（2026-10-15 业主需求：聊天里也能看「本来就画好的流程图」）——
+// 数据走公开 SOP 详情端点（与公开 SOP 页同源同组件）；节点按本次执行状态着色（绿/红/灰）。
+const sopFlow = useSopFlow()
+const flowchartOpen = ref(false)
+const flowchartLoading = ref(false)
+const flowchartError = ref('')
+const flowchartTitle = ref('SOP 流程图')
+const flowchartWidth = computed(() => (window.innerWidth < 1100 ? '92%' : '72%'))
+
+const openFlowchart = async (flow: SopFlowState) => {
+  if (!flow?.sop_id) return
+  flowchartOpen.value = true
+  flowchartLoading.value = true
+  flowchartError.value = ''
+  flowchartTitle.value = `${flow.sop_name || flow.sop_id} · 流程图`
+  try {
+    const raw = await communityApi.getSop(flow.sop_id)
+    sopFlow.loadFromSopData(normalizeSopData(raw as any))
+    const statusById: Record<string, SopRunStatus> = {}
+    for (const step of flow.steps || []) {
+      statusById[step.step_id] = step.status
+    }
+    // 定义里有、本次 run 未走到的步骤（含历史 run 未覆盖的新增步骤）→「未执行」，与图例一致
+    for (const node of sopFlow.nodes.value) {
+      if (!statusById[node.id]) statusById[node.id] = 'pending'
+    }
+    sopFlow.applyRunStatus(statusById)
+  } catch {
+    // 未公开/定义未入库：如实提示，不静默空白
+    flowchartError.value = '该 SOP 的定义流程图暂不可用（SOP 未公开或定义未入库）。'
+  } finally {
+    flowchartLoading.value = false
+  }
+}
+
 const restoreSession = async (record: ChatSessionRecord) => {
   historyOpen.value = false
   closePanel()
@@ -377,6 +463,82 @@ const startNewChat = () => {
   display: flex;
   flex-direction: column;
   background: var(--bg-primary);
+}
+
+/* SOP 卡片上的「流程图」入口（插槽内容由本页提供，样式随宿主） */
+.sop-flowchart-entry {
+  padding: 1px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary, #666);
+  font-size: 11px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-color, #1677ff);
+    border-color: var(--primary-color, #1677ff);
+  }
+}
+
+.sop-flowchart-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 32px 8px;
+  color: var(--text-secondary, #666);
+  font-size: 13px;
+}
+
+.sop-flowchart-error {
+  padding: 32px 8px;
+  color: var(--text-secondary, #666);
+  font-size: 13px;
+}
+
+.sop-flowchart-body {
+  height: calc(100vh - 190px);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sop-flowchart-legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 2px 2px;
+  font-size: 12px;
+  color: var(--text-secondary, #666);
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .legend-success {
+    color: #52c41a;
+  }
+
+  .legend-failed {
+    color: #ff4d4f;
+  }
+
+  .legend-pending-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid rgba(128, 128, 128, 0.65);
+    border-radius: 50%;
+  }
+
+  .legend-tip {
+    margin-left: auto;
+    color: var(--text-tertiary, #999);
+  }
 }
 
 .system-warning-banner {

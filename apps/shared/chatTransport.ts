@@ -636,18 +636,55 @@ export function extractToolResultItems(content: string): ThinkingTraceItem[] | u
   return undefined
 }
 
+/** 参数绑定快照清洗：只收标量、截断长串、限条目数（展示层用，防脏负载） */
+function sanitizeBindings(raw: any): Record<string, string | number | null> | undefined {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return undefined
+  const out: Record<string, string | number | null> = {}
+  let count = 0
+  for (const [key, value] of Object.entries(raw)) {
+    if (count >= 8) break
+    const name = String(key).slice(0, 40)
+    if (value === null || value === undefined) {
+      out[name] = null
+    } else if (typeof value === 'number' || typeof value === 'boolean') {
+      out[name] = Number(value)
+    } else if (typeof value === 'string') {
+      out[name] = value.length > 60 ? value.slice(0, 60) + '…' : value
+    } else {
+      continue
+    }
+    count += 1
+  }
+  return Object.keys(out).length ? out : undefined
+}
+
+/** 结果标量清洗：数字/短字符串保留，其余丢弃 */
+function sanitizeStepResult(raw: any): string | number | null | undefined {
+  if (raw === null || raw === undefined) return undefined
+  if (typeof raw === 'number') return Number.isFinite(raw) ? raw : undefined
+  if (typeof raw === 'boolean') return Number(raw)
+  if (typeof raw === 'string') return raw.length > 80 ? raw.slice(0, 80) + '…' : raw
+  return undefined
+}
+
 /** sop_flow 事件 payload → SopFlowState（shape 不认识的返回 undefined，静默丢弃） */
 export function normalizeSopFlow(payload: any): SopFlowState | undefined {
   const raw = payload ?? {}
   if (typeof raw.sop_id !== 'string' || !raw.sop_id || !Array.isArray(raw.steps)) return undefined
-  const steps = raw.steps.filter((s: any) => s && typeof s.step_id === 'string').map((s: any) => ({
-    step_id: String(s.step_id),
-    step_name: String(s.step_name || s.step_id),
-    tool: String(s.tool || 'auto'),
-    status: s.status === 'success' ? 'success' : (s.status === 'pending' ? 'pending' : 'failed'),
-    ...(Number(s.duration_ms) > 0 ? { duration_ms: Number(s.duration_ms) } : {}),
-    ...(s.error ? { error: String(s.error).slice(0, 200) } : {}),
-  }) as SopFlowState['steps'][number])
+  const steps = raw.steps.filter((s: any) => s && typeof s.step_id === 'string').map((s: any) => {
+    const bindings = sanitizeBindings(s.bindings)
+    const result = sanitizeStepResult(s.result)
+    return {
+      step_id: String(s.step_id),
+      step_name: String(s.step_name || s.step_id),
+      tool: String(s.tool || 'auto'),
+      status: s.status === 'success' ? 'success' : (s.status === 'pending' ? 'pending' : 'failed'),
+      ...(Number(s.duration_ms) > 0 ? { duration_ms: Number(s.duration_ms) } : {}),
+      ...(s.error ? { error: String(s.error).slice(0, 200) } : {}),
+      ...(bindings ? { bindings } : {}),
+      ...(result !== undefined ? { result } : {}),
+    } as SopFlowState['steps'][number]
+  })
   return {
     sop_id: raw.sop_id,
     sop_name: String(raw.sop_name || raw.sop_id),
@@ -682,6 +719,11 @@ export function extractSopFlowsFromToolMessages(
       const status = String(entry?.status ?? detail?.status ?? 'pending')
       const durationSec = Number(detail?.duration ?? 0)
       const error = detail?.error ? String(detail.error).slice(0, 200) : undefined
+      // 参数绑定/结果：优先取 trace 明细（新字段），旧消息没有则缺省不渲染
+      const bindings = sanitizeBindings(detail?.bindings ?? entry?.bindings)
+      const result = sanitizeStepResult(
+        detail?.result !== undefined ? detail.result : (entry?.outputs as any)?.result
+      )
       return {
         step_id: String(entry?.step_id || detail?.step_id || ''),
         step_name: String(entry?.step_name || detail?.step_name || entry?.step_id || ''),
@@ -689,6 +731,8 @@ export function extractSopFlowsFromToolMessages(
         status: status === 'success' ? 'success' : (status === 'pending' ? 'pending' : 'failed'),
         ...(durationSec > 0 ? { duration_ms: Math.round(durationSec * 1000) } : {}),
         ...(error ? { error } : {}),
+        ...(bindings ? { bindings } : {}),
+        ...(result !== undefined ? { result } : {}),
       } as SopFlowState['steps'][number]
     })
     flows.push({

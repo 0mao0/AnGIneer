@@ -48,6 +48,9 @@
   >
     <template #hero><slot name="hero" /></template>
     <template v-if="$slots['hero-below']" #hero-below><slot name="hero-below" /></template>
+    <template v-if="$slots['sop-flow-action']" #sop-flow-action="scope">
+      <slot name="sop-flow-action" v-bind="scope" />
+    </template>
   </BaseChat>
 </template>
 

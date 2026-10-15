@@ -152,7 +152,11 @@
                 v-if="(msg.sop_flows || []).length"
                 :flows="msg.sop_flows || []"
                 :default-expanded="false"
-              />
+              >
+                <template v-if="$slots['sop-flow-action']" #flow-action="scope">
+                  <slot name="sop-flow-action" v-bind="scope" />
+                </template>
+              </SopFlowPanel>
 
               <div class="answer-text" v-html="renderAssistantContent(msg)" />
               <details v-for="(interim, iIdx) in (msg.interim_answers || [])" :key="iIdx" class="interim-answer">
@@ -195,7 +199,11 @@
               v-if="streamingSopFlows?.length"
               :flows="streamingSopFlows"
               :default-expanded="true"
-            />
+            >
+              <template v-if="$slots['sop-flow-action']" #flow-action="scope">
+                <slot name="sop-flow-action" v-bind="scope" />
+              </template>
+            </SopFlowPanel>
             <details v-for="(interim, idx) in interimAnswers" :key="idx" class="interim-answer">
               <summary>中间输出（已被最终回答顶替，点击展开）</summary>
               <div class="interim-answer-body">{{ interim }}</div>

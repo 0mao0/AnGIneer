@@ -4,12 +4,24 @@
 <template>
   <div
     class="sop-step-node"
-    :class="{ selected: selected, hovered: hovered, dirty: isDirty }"
+    :class="{
+      selected: selected,
+      hovered: hovered,
+      dirty: isDirty,
+      'has-run-status': !!runStatus,
+      [`run-${runStatus}`]: !!runStatus,
+    }"
     @mouseenter="hovered = true"
     @mouseleave="hovered = false"
   >
     <span v-if="isDirty" class="node-dirty-dot" />
     <span v-if="hasWarnings" class="node-warning-badge" title="包含反例/注意项">⚠</span>
+    <span v-if="runStatus" class="node-run-badge" :title="runStatusTitle">
+      <CheckCircleFilled v-if="runStatus === 'success'" class="run-success-icon" />
+      <CloseCircleFilled v-else-if="runStatus === 'failed'" class="run-failed-icon" />
+      <LoadingOutlined v-else-if="runStatus === 'running'" class="run-running-icon" spin />
+      <span v-else class="run-pending-dot" />
+    </span>
     <Handle id="top" type="target" :position="Position.Top" class="handle handle-top" />
     <Handle id="left" type="source" :position="Position.Left" class="handle handle-left" />
     <Handle id="right" type="source" :position="Position.Right" class="handle handle-right" />
@@ -53,15 +65,19 @@ import {
   TableOutlined,
   ThunderboltOutlined,
   ToolOutlined,
+  CheckCircleFilled,
+  CloseCircleFilled,
+  LoadingOutlined,
 } from '@ant-design/icons-vue'
 import { CitationInline } from '@angineer/aichat-ui'
 import type { CitationBinding } from '@angineer/aichat-ui'
 import { buildCitationSegments } from '@angineer/aichat-ui/utils/citation'
 import type { SopStep } from '../types/sop'
+import type { SopRunStatus } from '../composables/useSopFlow'
 
 const props = defineProps<{
   id: string
-  data: { step: SopStep; stepIndex: number; dirty?: boolean }
+  data: { step: SopStep; stepIndex: number; dirty?: boolean; runStatus?: SopRunStatus }
   selected?: boolean
   deletable?: boolean
 }>()
@@ -75,6 +91,19 @@ const hovered = ref(false)
 
 const isDirty = computed(() => props.data.dirty ?? false)
 const hasWarnings = computed(() => props.data.step.warnings?.length ?? false)
+
+/** 单次执行状态装饰（仅聊天「查看流程图」叠加；编辑器/公开页无此字段时渲染零变化）。 */
+const runStatus = computed(() => props.data.runStatus)
+const runStatusTitle = computed(() => {
+  const map: Record<string, string> = {
+    success: '本次执行：成功',
+    failed: '本次执行：失败',
+    running: '本次执行：进行中',
+    pending: '本次执行：未执行',
+    skipped: '本次执行：已跳过',
+  }
+  return map[String(runStatus.value)] || ''
+})
 
 const step = computed(() => props.data.step)
 const stepIndex = computed(() => props.data.stepIndex)
@@ -162,6 +191,66 @@ const displaySegments = computed<Segment[]>(() => {
   &.selected .handle {
     background: rgba(24, 144, 255, 0.14);
     border-color: rgba(24, 144, 255, 0.45);
+  }
+
+  // —— 单次执行状态装饰（runStatus 存在时才有）——
+  &.has-run-status {
+    cursor: default;
+  }
+
+  &.run-success {
+    border-color: #52c41a;
+  }
+
+  &.run-failed {
+    border-color: #ff4d4f;
+  }
+
+  &.run-running {
+    border-color: rgba(24, 144, 255, 0.65);
+  }
+
+  &.run-pending,
+  &.run-skipped {
+    border-color: rgba(128, 128, 128, 0.4);
+    opacity: 0.78;
+  }
+}
+
+.node-run-badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--panel-bg, #fff);
+  z-index: 4;
+  font-size: 18px;
+  line-height: 1;
+
+  .run-success-icon {
+    color: #52c41a;
+  }
+
+  .run-failed-icon {
+    color: #ff4d4f;
+  }
+
+  .run-running-icon {
+    color: rgba(24, 144, 255, 0.85);
+    font-size: 14px;
+  }
+
+  .run-pending-dot {
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid rgba(128, 128, 128, 0.65);
+    border-radius: 50%;
+    background: var(--panel-bg, #fff);
   }
 }
 

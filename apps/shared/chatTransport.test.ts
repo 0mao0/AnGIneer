@@ -743,6 +743,66 @@ test('extractSopFlowsFromToolMessages 从 sop_trace 重建终态：失败与缺�
   assert.equal(extractSopFlowsFromToolMessages([{ role: 'tool', content: 'not json' }]).length, 0)
 })
 
+test('SOP 步骤参数绑定与结果透传：live 归一 + 回放重建都要保留，脏值清洗', () => {
+  // live 帧：bindings + result 原样保留（截断/标量清洗）
+  const live = normalizeSopFlow({
+    sop_id: 'sop_breakwater',
+    total: 1,
+    running: true,
+    steps: [
+      {
+        step_id: 'step_1',
+        step_name: '计算零点高度',
+        tool: 'calculator',
+        status: 'success',
+        duration_ms: 7,
+        bindings: { 设计波高H: 2.8, 长文本: 'x'.repeat(80), 结构体: { a: 1 }, 缺失名: null },
+        result: 4.2,
+      },
+    ],
+  })
+  assert.deepEqual(live?.steps[0].bindings, {
+    设计波高H: 2.8,
+    长文本: 'x'.repeat(60) + '…',
+    缺失名: null,
+  })
+  assert.equal(live?.steps[0].result, 4.2)
+
+  // 回放：从 sop_trace 明细取 bindings/result；旧消息（无字段）不渲染不报错
+  const toolMessage = {
+    role: 'tool',
+    content: JSON.stringify({
+      sop_id: 'sop_breakwater',
+      sop_name: '半圆型防波堤波浪力计算',
+      steps: [{ step_id: 'step_1', step_name: '计算零点高度', status: 'success' }],
+      sop_trace: [
+        {
+          step_id: 'step_1',
+          status: 'success',
+          duration: 0.007,
+          tool: 'calculator',
+          bindings: { 设计波高H: 2.8 },
+          result: 4.2,
+        },
+      ],
+    }),
+  }
+  const replay = extractSopFlowsFromToolMessages([toolMessage])
+  assert.deepEqual(replay[0].steps[0].bindings, { 设计波高H: 2.8 })
+  assert.equal(replay[0].steps[0].result, 4.2)
+
+  const legacy = extractSopFlowsFromToolMessages([{
+    role: 'tool',
+    content: JSON.stringify({
+      sop_id: 'sop_old',
+      steps: [{ step_id: 's1', step_name: '旧步', status: 'success' }],
+      sop_trace: [{ step_id: 's1', status: 'success', duration: 1 }],
+    }),
+  }])
+  assert.equal(legacy[0].steps[0].bindings, undefined)
+  assert.equal(legacy[0].steps[0].result, undefined)
+})
+
 test('SSE sop_flow 事件驱动 onSopFlow 回调，run_end 工具消息终态覆盖 live 快照', async () => {
   const sopToolContent = JSON.stringify({
     sop_id: 'sop_tide',
