@@ -461,18 +461,36 @@
 
     <!-- Hero 态专属扩展区（引导问题/站点特色徽标等），会话开始即隐藏；宿主未传 slot 且无引导问题时整块不渲染 -->
     <div
-      v-if="hero && !displayMessages.length && !loading && !currentStreamContent && ($slots['hero-below'] || suggestedQuestions.length)"
+      v-if="hero && !displayMessages.length && !loading && !currentStreamContent && ($slots['hero-below'] || suggestedQuestions.length || suggestedQuestionRows.length)"
       class="hero-below"
     >
-      <button
-        v-for="question in suggestedQuestions"
-        :key="question"
-        type="button"
-        class="hero-question"
-        @click="handleSuggestedQuestion(question)"
-      >
-        {{ question }}
-      </button>
+      <!-- 分行形态（可选，2026-10-16）：每行独立居中的 flex 行——长题面截断展示，不靠自动换行猜行界 -->
+      <template v-if="suggestedQuestionRows.length">
+        <div v-for="(row, rowIdx) in suggestedQuestionRows" :key="rowIdx" class="hero-question-row">
+          <button
+            v-for="question in row"
+            :key="question"
+            type="button"
+            class="hero-question"
+            :title="question"
+            @click="handleSuggestedQuestion(question)"
+          >
+            {{ question }}
+          </button>
+        </div>
+      </template>
+      <template v-else>
+        <button
+          v-for="question in suggestedQuestions"
+          :key="question"
+          type="button"
+          class="hero-question"
+          :title="question"
+          @click="handleSuggestedQuestion(question)"
+        >
+          {{ question }}
+        </button>
+      </template>
       <slot name="hero-below" />
     </div>
   </div>
@@ -564,6 +582,9 @@ interface Props {
   hero?: boolean
   /** Hero 空态引导问题：点击即按该问题直发；不传或空数组不渲染（可开可关），内容归宿主定 */
   suggestedQuestions?: string[]
+  /** 分行引导问题（可选）：每行一条 flex 行，行内不自动换行即可控行界；与 suggestedQuestions 二选一，
+   *  两者都传时本项优先。长题面按钮自动省略号截断，title 悬停看全文，点击同样直发 */
+  suggestedQuestionRows?: string[][]
   /** 对话态在输入框上方左侧显示「新对话」浮层按钮（hero 空态不出现）；点击只发 newChat 事件，会话重置归宿主 */
   showNewChat?: boolean
   /** 新对话浮层按钮文案 */
@@ -605,6 +626,7 @@ const props = withDefaults(defineProps<Props>(), {
   searchCitations: undefined,
   hero: false,
   suggestedQuestions: () => [],
+  suggestedQuestionRows: () => [],
   showNewChat: false,
   newChatLabel: '新对话',
   mentionLabel: '插入引用 @',
@@ -2501,6 +2523,25 @@ html.dark .hero-question,
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px 10px;
+  }
+
+  /* 分行形态：每行独立 flex 行，行界可控（长题面按行摆放，不靠顶层自动换行猜边界） */
+  .hero-question-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 10px;
+    width: 100%;
+
+    /* 第二行起（计算题等长题面）：只展示一部分——单按钮封顶「行容器三分之一」，
+       title 悬停看全文（2026-10-16）。封顶走百分比而非固定 266px：窄窗口
+       （如 771px 视口 → 710px 容器）也能一行放下三个（实踩：固定值把第三个挤下一行）。
+       首行短问法不受影响，按内容自然宽度排。 */
+    &:not(:first-child) .hero-question {
+      max-width: min(266px, calc((100% - 24px) / 3));
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
   .hero-question {

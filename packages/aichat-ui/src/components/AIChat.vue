@@ -25,6 +25,7 @@
     :render-message="renderAIChatMessage"
     :hero="hero"
     :suggested-questions="suggestedQuestions"
+    :suggested-question-rows="suggestedQuestionRows"
     :show-new-chat="showNewChat"
     :new-chat-label="newChatLabel"
     @new-chat="emit('newChat')"
@@ -93,6 +94,8 @@ interface Props {
   hero?: boolean
   /** Hero 空态引导问题（透传 BaseChat）：点击即直发；不传或空数组不渲染（可开可关），内容归宿主定 */
   suggestedQuestions?: string[]
+  /** 分行引导问题（透传 BaseChat，可选）：每行一条 flex 行；长题面省略号截断、title 看全、点击直发 */
+  suggestedQuestionRows?: string[][]
   /** 对话态输入框上方显示「新对话」浮层按钮（透传 BaseChat；hero 空态不出现） */
   showNewChat?: boolean
   /** 新对话浮层按钮文案 */
@@ -132,6 +135,7 @@ const props = withDefaults(defineProps<Props>(), {
   libraryId: 'default',
   hero: false,
   suggestedQuestions: () => [],
+  suggestedQuestionRows: () => [],
   showNewChat: false,
   newChatLabel: '新对话',
   transport: undefined,

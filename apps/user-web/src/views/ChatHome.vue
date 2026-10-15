@@ -21,7 +21,7 @@
           :library-sections="authStore.guestMode ? [] : librarySections"
           :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
-          :suggested-questions="suggestedQuestions"
+          :suggested-question-rows="suggestedQuestionRows"
           show-new-chat
           @new-chat="startNewChat"
           @send="hasConversation = true"
@@ -275,12 +275,20 @@ onMounted(() => {
 
 const aiChatRef = ref<InstanceType<typeof AIChat> | null>(null)
 
-/** Hero 空态引导问题：内容归宿主定，机制在 aichat-ui（suggestedQuestions props，空数组=关闭）；航道/水运/市政/公路各一条 */
-const suggestedQuestions = [
-  '内河航道养护有什么技术要求？',
-  '水运工程混凝土施工有什么技术要求？',
-  '城镇排水管道闭水试验怎么做？',
-  '沥青路面裂缝该怎么处治？',
+/** Hero 空态引导（内容归宿主定，机制在 aichat-ui）：
+ *  第一行=通用问法（航道/水运/市政），第二行=可直接进 SOP 计算链的题面——
+ *  题面长，UI 自动省略号截断，悬停 title 看全文，点击按全文直发（2026-10-16 业主定版）。 */
+const suggestedQuestionRows = [
+  [
+    '内河航道养护有什么技术要求？',
+    '水运工程混凝土施工有什么技术要求？',
+    '城镇排水管道闭水试验怎么做？',
+  ],
+  [
+    '某半圆型防波堤工程，堤址处设计水深 8.5 m，设计波高 H1% = 2.8 m，波长 L = 26 m，试计算作用在半圆型防波堤上的波浪浮托力和水平波浪力。',
+    '我要设计一个油船航道，设计船型是 100000 DWT 油船。航道底质是岩石。设计通航水位是理论最低潮面 0.5m。航速 10节，受限水域。水深 15m。',
+    '某海港航道设计，设计船型为 50000 吨级散货船，船宽 b = 32.3 m，横风风力 6 级，流速 1.5 kn，船舶航速 8 kn，夹角 15°，计算航道通航宽度。',
+  ],
 ]
 
 /** 刷新后回填活跃会话历史：①本地缓存先同步渲染（消除 hero 闪烁）②服务端真相覆盖（失败保留本地） */
@@ -385,7 +393,8 @@ const flowchartOpen = ref(false)
 const flowchartLoading = ref(false)
 const flowchartError = ref('')
 const flowchartTitle = ref('SOP 流程图')
-const flowchartWidth = computed(() => (window.innerWidth < 1100 ? '92%' : '72%'))
+// 宽度在原有基础上收窄 25%（2026-10-16 业主定：72%→54%、92%→69%），流程图不至于占满屏幕
+const flowchartWidth = computed(() => (window.innerWidth < 1100 ? '69%' : '54%'))
 
 const openFlowchart = async (flow: SopFlowState) => {
   if (!flow?.sop_id) return
@@ -508,7 +517,8 @@ const startNewChat = () => {
 .sop-flowchart-legend {
   display: flex;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 6px 16px;
   padding: 10px 2px 2px;
   font-size: 12px;
   color: var(--text-secondary, #666);
