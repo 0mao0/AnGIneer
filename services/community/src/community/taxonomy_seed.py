@@ -40,6 +40,9 @@ SEED_TAXONOMY: List[Tuple[str, str, List[Tuple[str, str]]]] = [
         ("sp-hydraulics-structure", "水工建筑物"),
         ("sp-hydraulics-regulation", "河道整治"),
     ]),
+    # 通用：跨专业条目（如 user-web 端到端评测集）直接挂本节点下，不设二级子目录。
+    # 不进 AUTOBIND_KEYWORDS——通用成员名单属人工决定，一律走 community_bind.py 手工绑。
+    ("dom-general", "通用", []),
 ]
 
 # 首次自动绑定关键词表（§9.3，顺序即优先级：命中第一个匹配节点即绑，未命中不绑）。
@@ -68,6 +71,8 @@ def seed_tree(store) -> int:
     for scope in models.SCOPES:
         for root_idx, (root_slug, root_title, children) in enumerate(SEED_TAXONOMY):
             root_id = full_node_id(scope, root_slug)
+            if store.get_node(root_id) is None:
+                created += 1
             store.ensure_node(
                 root_id, scope_id=scope, title=root_title, parent_id=None, sort_order=root_idx,
             )
