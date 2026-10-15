@@ -19,6 +19,7 @@
       <template #title="{ node }">
         <span class="tree-title">
           <span class="tree-title-text">{{ node.title }}</span>
+          <span v-if="node.isFolder" class="folder-count">({{ node.communityCount ?? 0 }})</span>
           <span v-if="node.communityItem?.origin === 'user'" class="user-badge" title="网友投稿">投稿</span>
           <span v-else-if="node.communityItem?.kind === 'dataset' && node.communityItem.question_count != null" class="count-badge">
             {{ node.communityItem.question_count }}
@@ -86,6 +87,12 @@ function onSelect(_keys: string[], nodes: CommunityTreeNode[]) {
   .count-badge {
     flex-shrink: 0;
     font-size: 11px;
+    color: var(--text-tertiary);
+  }
+
+  .folder-count {
+    flex-shrink: 0;
+    font-size: 12px;
     color: var(--text-tertiary);
   }
 
