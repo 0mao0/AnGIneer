@@ -37,9 +37,15 @@ class FakeEvalSource:
 
 
 class FakeSopSource:
-    def __init__(self, sops: Optional[List[Dict[str, Any]]] = None):
+    def __init__(self, sops: Optional[List[Dict[str, Any]]] = None,
+                 folders: Optional[List[Dict[str, Any]]] = None):
         # 假源可以含草稿——service/SopSource 的 published 复核应把它挡住
         self.sops = {s["id"]: s for s in (sops or [])}
+        # 公开 SOP 页分类=经验库文件夹实时镜像（业主 2026-10-15 定），假源用 folders 喂目录
+        self.folders = folders or []
+
+    def list_folders(self) -> List[Dict[str, Any]]:
+        return list(self.folders)
 
     def list_briefs(self) -> List[Dict[str, Any]]:
         return [

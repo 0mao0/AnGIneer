@@ -66,9 +66,10 @@ def full_node_id(scope: str, slug: str) -> str:
 
 
 def seed_tree(store) -> int:
-    """两 scope 各实例化一份起步树；已存在的节点原样保留。返回新建节点数。"""
+    """eval scope 起步树（SOP 页不种子：分类=经验库文件夹实时镜像，业主 2026-10-15 定）；
+    已存在的节点原样保留。返回新建节点数。"""
     created = 0
-    for scope in models.SCOPES:
+    for scope in (models.SCOPE_EVAL,):
         for root_idx, (root_slug, root_title, children) in enumerate(SEED_TAXONOMY):
             root_id = full_node_id(scope, root_slug)
             if store.get_node(root_id) is None:
@@ -100,6 +101,9 @@ def _match_node(title: str) -> str:
 def autobind_once(store, eval_src, sop_src) -> Dict[str, Dict[str, Any]]:
     """首次自动绑定（marker 防重跑）。返回 {scope: {bound, total, unmatched}}。
 
+    只跑 eval scope：SOP 公开与否=人工按经验库文件夹绑（published 本就过审核，
+    不再按标题关键词自动公开，业主 2026-10-15 定；sop_src 参数保留=签名兼容）。
+
     marker 即使绑到 0 条也置位：marker 的含义是「这个决定已经人工确认跑过」，
     不是「绑到了东西」——否则空库环境下每次重启都会重跑，等哪天导入内容就
     悄悄全部自动公开（B2 想防的正是这个）。
@@ -108,8 +112,6 @@ def autobind_once(store, eval_src, sop_src) -> Dict[str, Dict[str, Any]]:
     targets = (
         (models.SCOPE_EVAL, models.BIND_KIND_DATASET,
          [(b["dataset_id"], b["title"]) for b in eval_src.list_dataset_briefs()]),
-        (models.SCOPE_SOP, models.BIND_KIND_SOP,
-         [(b["sop_id"], b["title"]) for b in sop_src.list_briefs()]),
     )
     for scope, kind, refs in targets:
         marker = f"{models.META_AUTOBIND_DONE}:{scope}"

@@ -60,7 +60,33 @@ class SopSource:
         self.snapshot_path = Path(snapshot_path) if snapshot_path else _default_snapshot_path()
         self._cache: List[Dict[str, Any]] = []
         self._cache_built_at = 0.0
+        self._folders_cache: List[Dict[str, Any]] = []
+        self._folders_cache_built_at = 0.0
         self._lock = threading.Lock()
+
+    def list_folders(self) -> List[Dict[str, Any]]:
+        """经验库目录清单（公开 SOP 页的分类直接跟随经验库文件夹，业主 2026-10-15 定）。
+
+        只读 `GET /api/sops/folders/list`；拉取失败回退上次缓存（可能为空列表）——
+        分类缺失不致命，页面上已绑定条目仍按根级挂出。无快照兜底：文件夹真身在 sop-api 侧。
+        """
+        now = time.time()
+        with self._lock:
+            if self._folders_cache and self.ttl > 0 and (now - self._folders_cache_built_at) <= self.ttl:
+                return list(self._folders_cache)
+        try:
+            resp = self.session.get(f"{self.base_url}/api/sops/folders/list", timeout=self.timeout)
+            resp.raise_for_status()
+            folders = resp.json().get("folders") or []
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("拉取经验库 SOP 目录失败，回退上次缓存: %s", exc)
+            with self._lock:
+                return list(self._folders_cache)
+        out = [f for f in folders if isinstance(f, dict) and f.get("folder_id")]
+        with self._lock:
+            self._folders_cache = out
+            self._folders_cache_built_at = now
+        return list(out)
 
     def list_published(self) -> List[Dict[str, Any]]:
         now = time.time()

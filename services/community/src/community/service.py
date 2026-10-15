@@ -57,14 +57,24 @@ class CommunityService:
     # ---- 左树（节点 + 条目一次拉齐） ----
 
     def get_tree(self, scope: str) -> Dict[str, Any]:
+        if scope == models.SCOPE_SOP:
+            # 公开 SOP 页的分类 = 经验库文件夹实时镜像（业主 2026-10-15 定，不再用 community 种子树）；
+            # 绑定 node_id 即经验库 folder_id，未绑定的不进公开面（公开范围仍只由 community_binding 决定）。
+            nodes = [
+                {
+                    "node_id": f["folder_id"],
+                    "parent_id": f.get("parent_folder_id") or None,
+                    "title": f.get("title") or f["folder_id"],
+                    "sort_order": int(f.get("sort_order") or 0),
+                }
+                for f in self.sop_src.list_folders()
+            ]
+            return {"scope": scope, "nodes": nodes, "items": self._official_sop_items()}
         nodes = [models.node_out(n) for n in self.store.list_nodes(scope)]
         items: List[Dict[str, Any]] = []
-        if scope == models.SCOPE_EVAL:
-            items.extend(self._official_eval_items())
-            if _visibility() == "open":  # pool 档：投稿仍在库、不回树（A9）
-                items.extend(self._user_dataset_items())
-        elif scope == models.SCOPE_SOP:
-            items.extend(self._official_sop_items())
+        items.extend(self._official_eval_items())
+        if _visibility() == "open":  # pool 档：投稿仍在库、不回树（A9）
+            items.extend(self._user_dataset_items())
         return {"scope": scope, "nodes": nodes, "items": items}
 
     def _official_eval_items(self) -> List[Dict[str, Any]]:
@@ -106,8 +116,8 @@ class CommunityService:
         out: List[Dict[str, Any]] = []
         for brief in self.sop_src.list_briefs():
             node_id = bindings.get(brief["sop_id"])
-            if not node_id:
-                continue
+            if node_id is None:
+                continue  # 未绑定=不公开；空串=已绑但无文件夹（经验库未分类），前端挂根级
             out.append(models.tree_item(
                 origin="official", ref_id=brief["sop_id"], node_id=node_id,
                 kind=models.BIND_KIND_SOP, title=brief["title"],

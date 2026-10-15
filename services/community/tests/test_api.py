@@ -90,12 +90,17 @@ def test_questions_blind_mode_omits_answer_key(tmp_path, monkeypatch):
 
 def test_sop_draft_invisible_even_if_upstream_leaks(tmp_path):
     """A3：假上游把草稿漏出来，绑定/复核双闸也必须 404。"""
-    store, client = make_client(tmp_path, sop_src=FakeSopSource([PUBLISHED_SOP, DRAFT_SOP]))
-    store.bind(scope_id="sop", kind="sop", ref_id="sop-1", node_id="sop:sp-waterway-channel")
-    store.bind(scope_id="sop", kind="sop", ref_id="sop-draft", node_id="sop:sp-waterway-channel")
+    folders = [{"folder_id": "folder-a", "title": "疏浚计算", "parent_folder_id": None, "sort_order": 1}]
+    store, client = make_client(
+        tmp_path, sop_src=FakeSopSource([PUBLISHED_SOP, DRAFT_SOP], folders=folders),
+    )
+    store.bind(scope_id="sop", kind="sop", ref_id="sop-1", node_id="folder-a")
+    store.bind(scope_id="sop", kind="sop", ref_id="sop-draft", node_id="folder-a")
     assert client.get("/api/community/sops/sop-1").status_code == 200
     assert client.get("/api/community/sops/sop-draft").status_code == 404
     tree = client.get("/api/community/tree?scope=sop").json()
+    # 分类节点=经验库文件夹镜像（不再是 community 种子节点）
+    assert {n["node_id"] for n in tree["nodes"]} == {"folder-a"}
     assert [i["ref_id"] for i in tree["items"]] == ["sop-1"]
 
 

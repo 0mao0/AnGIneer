@@ -497,6 +497,16 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
   其余七张 gold 任何开关下都不出——A4 验收改判为「默认只多参考答案这一个键，gold 列仍物理不外泄」，测试两条分别覆盖默认开/盲测关。
 - **改判后果（业主已知悉口径）**：官方绑定的公开基准集答案公网可读，第三方拿该集自跑分不再构成盲测对照；对外引用成绩时须注明「题目与参考答案公开」。
 
-### 16.7 已知不改动项
+### 16.7 公开 SOP 页分类 = 经验库文件夹实时镜像（业主 10-15 定）
+
+- SOP 页左树分类**不再用 community 种子树**，改为直接镜像经验库（sop-api）文件夹：
+  `GET /api/sops/folders/list`（TTL 缓存，失败回退上次缓存）；`community_binding.node_id` 即 `folder_id`。
+- 种子与首次自动绑定收缩为**只跑 eval**（`seed_tree`/`autobind_once` 不再种 sop scope）；
+  SOP 公开=人工把 published 绑到经验库文件夹（`community_bind.py bind sop sop <id> <folder_id>`）。
+- 已绑但无文件夹（经验库未分类）的 SOP：绑定 `node_id=""`，公开页挂根级（`_official_sop_items` 判 `is None` 而非假值）。
+- 3002 经验库「看不到 SOP」实为 **sop-api(8792) 未启动**（数据未丢：57 条=56 published+1 draft，`data/platform/sops/`）；起服务即恢复。
+- 生产首发：published 为空 ⇒ SOP 页空态不变；经验库文件夹随 sop-api 数据走，无同步动作。
+
+### 16.8 已知不改动项
 
 - `AuthGate` 文案沿用「游客试用轮数已达上限」——与公开页语境不完全贴，投稿弹窗内自带游客提示条＋登录链接补足语境；改文案属全局组件，未在本版动。

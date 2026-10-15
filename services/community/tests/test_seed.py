@@ -11,14 +11,14 @@ def store(tmp_path):
     return CommunityStore(db_path=str(tmp_path / "community.sqlite"))
 
 
-def test_seed_tree_both_scopes_idempotent(store):
+def test_seed_tree_eval_only_idempotent(store):
+    """种子只种 eval 树；SOP 页分类=经验库文件夹镜像，不种子（业主 2026-10-15 定）。"""
     created = taxonomy_seed.seed_tree(store)
     assert created > 0
     again = taxonomy_seed.seed_tree(store)
     assert again == 0  # 第二次零新建（幂等只补）
-    assert len(store.list_nodes("eval")) == len(store.list_nodes("sop"))
+    assert store.list_nodes("sop") == []
     assert store.get_node("eval:sp-waterway-channel")["title"] == "航道"
-    assert store.get_node("sop:sp-waterway-channel")["title"] == "航道"
 
 
 def test_autobind_first_run_keyword_match(store):
