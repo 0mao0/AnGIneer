@@ -12,7 +12,7 @@
       :loading="loading"
       :virtual="true"
       :height="treeHeight"
-      :default-expanded-keys="rootKeys"
+      :default-expand-all="true"
       empty-text="该分类暂无公开内容"
       @select="onSelect"
     >
@@ -38,7 +38,7 @@ import { computed } from 'vue'
 import { SmartTree, type SmartTreeNode } from '@angineer/smartree'
 import type { CommunityTreeNode } from '@/composables/useCommunityTree'
 
-const props = defineProps<{
+defineProps<{
   treeData: CommunityTreeNode[]
   loading: boolean
   loadError: string
@@ -48,10 +48,8 @@ const emit = defineEmits<{
   (e: 'select', row: CommunityTreeNode | null): void
 }>()
 
-// 默认展开全部目录（含二层子类）：分类是这两页的主信息，折叠起来只剩一排骨架
-const allFolderKeys = (rows: CommunityTreeNode[]): string[] =>
-  rows.flatMap((r) => (r.isFolder ? [r.key, ...allFolderKeys(r.children || [])] : []))
-const rootKeys = computed(() => allFolderKeys(props.treeData))
+// 默认展开全部目录（含二层子类）：分类是这两页的主信息，折叠起来只剩一排骨架。
+// 用 SmartTree 自带的 defaultExpandAll（内部 collectFolderKeys 全树收集），别再自己算 key 列表。
 const treeHeight = computed(() => Math.max(320, window.innerHeight - 160))
 
 // SmartTree 的 select 事件按基类型 SmartTreeNode[] 回传（传进去的就是本页的行对象，取回即本型）
