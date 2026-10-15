@@ -510,3 +510,36 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
 ### 16.8 已知不改动项
 
 - `AuthGate` 文案沿用「游客试用轮数已达上限」——与公开页语境不完全贴，投稿弹窗内自带游客提示条＋登录链接补足语境；改文案属全局组件，未在本版动。
+
+### 16.9 题目「答题」= 复用评测单题通道（业主 10-15 追加）
+
+- 业主原话：「每个题目的右侧，应该有个答题按钮，点击后实际上是调用 aichat，把问题和知识库塞进去，然后回答，
+  回答结果展示在题目展开的内容里。最后再有个判分。纯粹利用已有接口和数据库，不要新增接口和数据库、数据，用完就结束了。」
+- 落地形态：**前端单改，后端零改动、零新接口、零新存储**。
+  - 点「答题」= `POST /api/evals/runs {dataset_id, question_id, save:false, allow_concurrent:true}`
+    （与 admin「单题评测」同一通道），服务端沿评测问答链路作答（题目自带知识库 scope：数据集
+    `library_id` + 题级 `doc_ids`）并判分；前端 2.5s 轮询 `GET /api/evals/runs/{id}?light=true`，
+    终态后补取全量详情（`light` 不含 `prediction.answer`，见 `_RUN_DETAIL_LIGHT_COLUMNS`）。
+  - 「用完就结束了」= 单题 run 的既有语义：`is_full_run=0` 不进历史列表（`list_runs` 过滤）；
+    完成后 1 小时由 `result_store.cleanup_individual_runs` 自动清理；页面态只在内存，刷新即清。
+  - 展示：题目展开区顶部「模型作答」块 = 判分徽章（`quality` correct/incorrect/未判定）＋得分·链路耗时·判官名
+    ＋回答正文（纯插值，R5）＋引用清单（marker+文档名，最多 4 条）＋判分理由；失败态就地显示原因。
+  - 「把知识库塞进去」无需用户选库：评测 run 用数据集自身 scope；仅官方题有按钮（投稿题不在 evals 库，run 必 400）。
+  - 同页同时只答一题（其余按钮禁用+悬停提示）：公开页没有后台那套占用弹框可交互。
+  - `allow_concurrent:true` 的理由：沿用 admin 的 409 语义会让夜巡在跑时整页按钮全哑；公开页载量小，
+    并发由宿主层兜底（见下）。
+- 资源口径与部署前置：每题点击 = 一次完整问答链 + 一次判分 LLM（与 admin 单题评测同成本，L1 题约 1–2 分钟，
+  实测网关慢时分类单跳即 127s）；`/api/evals/*` 无鉴权且本轮未加频控——**生产上线须在宿主 ai-proxy.conf
+  同时放行 `/api/evals` 并评估给 `POST /api/evals/runs` 加 `limit_req`（不在仓库内，随 16.3 一起做）**。
+- 代码落点：`apps/user-web/src/api/evalRun.ts`（接口封装）、`apps/user-web/src/composables/useQuestionAttempt.ts`
+  （状态+轮询+10 分钟超时+失联退避）、`PublicEvalView.vue`（按钮与作答块）。
+
+### 16.10 两处「取空/误滤」实锤修复（业主 10-15 抽查暴露，均在 16.9 之前）
+
+- **参考答案全量取空**（`0be96244`）：evals 全库 answer_gold 的键名统一是 **`gold_answer`**，
+  公开投影只认 `reference_answer`/`answer` ⇒ 所有题答案为空、页面显示「盲测档」。修：提取链
+  `gold_answer` 优先。教训：读 evals 金标先核真实键名，别按前端字段猜。
+- **公开 SOP 只剩 2 条**（`38482e9c`）：`/api/sops/full` 返回体**不带 status 字段**（56 条里只有
+  `code_review`/`math_sop` 两条演示随存），「逐条复核 status==published」的双保险把 54 条真 SOP 全滤掉。
+  修：缺 status 键视为已通过服务端 `status=published` 查询过滤，只拦显式标注。教训：对上游做逐条复核前，
+  先实测真实响应带不带该字段。

@@ -61,9 +61,41 @@
                         <!-- 用户文本一律纯插值（R5 硬约束：禁 v-html / renderRichText） -->
                         <div class="question-text">{{ q.question }}</div>
                       </div>
+                      <!-- 答题=既有评测单题通道（save:false，1 小时自清）：官方题才有，投稿题不在评测库 -->
+                      <a-button
+                        v-if="q.origin === 'official'"
+                        class="answer-btn"
+                        size="small"
+                        :loading="attemptOf(q.question_id)?.status === 'running'"
+                        :disabled="hasRunning && attemptOf(q.question_id)?.status !== 'running'"
+                        :title="hasRunning && attemptOf(q.question_id)?.status !== 'running' ? '同一时间只答一题，请等当前作答完成' : '让系统按本题知识库作答并判分'"
+                        @click.stop="answerQuestion(q)"
+                      >
+                        答题
+                      </a-button>
                       <span class="question-chevron">{{ expandedKey === q.question_id ? '▾' : '▸' }}</span>
                     </div>
                     <div v-if="expandedKey === q.question_id" class="question-detail">
+                      <div v-if="attemptOf(q.question_id)" class="attempt-block">
+                        <template v-if="attemptOf(q.question_id)?.status === 'running'">
+                          <a-spin size="small" />
+                          <span class="attempt-running-text">模型作答中…已 {{ elapsedText(q.question_id) }}（检索 + 判分，通常几分钟）</span>
+                        </template>
+                        <template v-else-if="attemptOf(q.question_id)?.status === 'failed'">
+                          <div class="detail-label">模型作答</div>
+                          <div class="question-answer detail-muted">{{ attemptOf(q.question_id)?.error }}</div>
+                        </template>
+                        <template v-else>
+                          <div class="attempt-head">
+                            <span class="detail-label">模型作答</span>
+                            <a-tag :color="verdictColor(q.question_id)">{{ verdictText(q.question_id) }}</a-tag>
+                            <span class="attempt-sub">{{ attemptMeta(q.question_id) }}</span>
+                          </div>
+                          <div class="question-answer">{{ attemptOf(q.question_id)?.answer }}</div>
+                          <div v-if="citationText(q.question_id)" class="attempt-cites">{{ citationText(q.question_id) }}</div>
+                          <div v-if="attemptOf(q.question_id)?.reason" class="attempt-reason">判分理由：{{ attemptOf(q.question_id)?.reason }}</div>
+                        </template>
+                      </div>
                       <div class="detail-label">参考答案</div>
                       <div v-if="q.answer" class="question-answer">{{ q.answer }}</div>
                       <div v-else class="question-answer detail-muted">本集参考答案未公开（盲测档）</div>
@@ -123,11 +155,14 @@ import PublicTreePanel from '@/components/public/PublicTreePanel.vue'
 import SubmitDatasetModal from '@/components/public/SubmitDatasetModal.vue'
 import SubmitQuestionModal from '@/components/public/SubmitQuestionModal.vue'
 import { useCommunityTree, type CommunityTreeNode } from '@/composables/useCommunityTree'
+import { useQuestionAttempt } from '@/composables/useQuestionAttempt'
 import { communityApi, type DatasetCard, type PublicQuestion, type TreeItem } from '@/api/community'
 import { useAuthStore } from '@/stores/auth'
 
 const authStore = useAuthStore()
 const tree = useCommunityTree('eval')
+const attempt = useQuestionAttempt()
+const hasRunning = attempt.hasRunning
 const loginOpen = ref(false)
 const datasetModalOpen = ref(false)
 const questionModalOpen = ref(false)
@@ -175,6 +210,70 @@ const datasetOptions = computed(() =>
   tree.items.value.map((item) => ({ ref_id: item.ref_id, origin: item.origin, title: item.title })),
 )
 
+/** ---- 答题（复用评测单题通道，见 useQuestionAttempt 头注释） ---- */
+
+function attemptOf(questionId: string) {
+  return attempt.attempts[questionId]
+}
+
+function answerQuestion(q: PublicQuestion) {
+  const ds = currentDataset.value
+  if (!ds) return
+  expandedKey.value = q.question_id
+  void attempt.start(ds.ref_id, q.question_id)
+}
+
+function elapsedText(questionId: string): string {
+  void attempt.tick.value // 心跳依赖：驱动每秒重渲染
+  const a = attempt.attempts[questionId]
+  if (!a) return '0 秒'
+  const ms = a.status === 'running' ? Date.now() - a.startedAt : a.elapsedMs
+  const sec = Math.max(0, Math.floor(ms / 1000))
+  if (sec < 60) return `${sec} 秒`
+  return `${Math.floor(sec / 60)} 分 ${sec % 60} 秒`
+}
+
+// quality 取值与后台评测一致：correct / wrong / uncertain（EvalQuestionCard 同口径）
+function verdictText(questionId: string): string {
+  const a = attempt.attempts[questionId]
+  if (a?.quality === 'correct') return '判分：正确'
+  if (a?.quality === 'wrong') return '判分：错误'
+  if (a?.quality === 'uncertain') return '判分：存疑'
+  return '判分：未判定'
+}
+
+function verdictColor(questionId: string): string {
+  const a = attempt.attempts[questionId]
+  if (a?.quality === 'correct') return 'green'
+  if (a?.quality === 'wrong') return 'red'
+  if (a?.quality === 'uncertain') return 'orange'
+  return 'default'
+}
+
+function attemptMeta(questionId: string): string {
+  const a = attempt.attempts[questionId]
+  if (!a) return ''
+  const parts: string[] = []
+  if (a.score !== null) parts.push(`得分 ${a.score}`)
+  if (a.latencyMs > 0) parts.push(`链路耗时 ${(a.latencyMs / 1000).toFixed(1)} 秒`)
+  if (a.judge) parts.push(`判官 ${a.judge}`)
+  return parts.join(' · ')
+}
+
+function truncateText(text: string, max: number): string {
+  return text.length > max ? `${text.slice(0, max)}…` : text
+}
+
+function citationText(questionId: string): string {
+  const cites = attempt.attempts[questionId]?.citations || []
+  if (!cites.length) return ''
+  const shown = cites
+    .slice(0, 4)
+    .map((c) => `${c.marker ? `[${c.marker}] ` : ''}${truncateText(c.title, 28)}`)
+    .join('；')
+  return `引用 ${cites.length} 处：${shown}${cites.length > 4 ? '…' : ''}`
+}
+
 async function openItem(item: TreeItem) {
   currentItem.value = item
   card.value = null
@@ -182,6 +281,7 @@ async function openItem(item: TreeItem) {
   questionsTotal.value = 0
   offset.value = 0
   expandedKey.value = null
+  attempt.reset() // 题号可能跨集重名，清掉上一集的作答态
   if (item.kind !== 'dataset') return
   try {
     card.value = await communityApi.getDataset(item.ref_id, item.origin)
@@ -362,6 +462,11 @@ onMounted(async () => {
       font-size: 12px;
       padding-top: 2px;
     }
+
+    .answer-btn {
+      flex-shrink: 0;
+      margin-top: -2px;
+    }
   }
 
   .question-detail {
@@ -395,6 +500,44 @@ onMounted(async () => {
       margin-top: 6px;
       font-size: 11px;
       color: var(--text-tertiary);
+    }
+
+    .attempt-block {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--border-color, rgba(0, 0, 0, 0.08));
+
+      .attempt-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 4px;
+        flex-wrap: wrap;
+
+        .detail-label {
+          margin-bottom: 0;
+        }
+      }
+
+      .attempt-sub {
+        font-size: 11px;
+        color: var(--text-tertiary);
+      }
+
+      .attempt-running-text {
+        margin-left: 8px;
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+
+      .attempt-cites,
+      .attempt-reason {
+        margin-top: 6px;
+        font-size: 11px;
+        color: var(--text-tertiary);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
     }
   }
 
