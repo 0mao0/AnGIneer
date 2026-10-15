@@ -24,7 +24,12 @@ SOP_GENERATION_SYSTEM_PROMPT = """你是工程标准 SOP 生成器。你的任�
 - 每个步骤必须有唯一的 id（如 step_1, step_2）
 - 每个步骤的 name 应简短描述该步骤做什么
 - execution.tool 根据步骤类型选择：calculator（计算）、table_lookup（查表）、manual（查询/收集信息）、conditional（if/else 判断）
-- execution.inputs 和 execution.outputs 列出输入/输出变量名及其描述
+- calculator 步骤的 execution.inputs 必须包含 expression：一段可直接计算的数学表达式，
+  变量一律用 ${变量名} 占位引用（运行时由黑板代入），不许把数值写死在表达式里。
+  例：{"expression": "${设计波高H} * 1.5"} 或 {"expression": "${T} + ${Z0} + ${Z1}"}
+- 若某步骤没有可直接写出的计算公式（需要查表、资料统计或分点/图形积分），不要用 calculator，
+  改用 table_lookup 或 manual，并在 description 中写明依据条款。
+- execution.outputs 固定写成 {"结果变量名": "result"}（不要写结果说明文字）
 - next_step_id 指向下一步（最后一步可以为 null）
 - 步骤可以直接列出来，无需考虑分支走向。如果有分支，用 conditional 类型并列出分支走向。
 - description 写清楚具体的操作、引用的规范条款号、必要的公式
@@ -39,11 +44,11 @@ SOP_GENERATION_SYSTEM_PROMPT = """你是工程标准 SOP 生成器。你的任�
     {
       "id": "step_1",
       "name": "步骤名称",
-      "description": "具体操作说明，含规范条款号",
+      "description": "具体操作说明，含规范条款号与公式",
       "execution": {
         "tool": "calculator",
-        "inputs": {"变量名": "变量说明"},
-        "outputs": {"变量名": "结果说明"}
+        "inputs": {"expression": "${输入变量1} * ${输入变量2}"},
+        "outputs": {"输出变量名": "result"}
       },
       "next_step_id": "step_2"
     }
@@ -56,9 +61,9 @@ SOP_GENERATION_SYSTEM_PROMPT = """你是工程标准 SOP 生成器。你的任�
 ```
 
 【输入引用约定（校验器强制）】blackboard.required 里的每个输入变量，必须在至少一个步骤的
-execution.inputs 的说明文字中以 ${变量名} 形式被引用，例如 "排水量": "船舶满载排水量，取自${排水量}"。
-未被任何步骤引用的 required 键会导致校验失败（2026-10-14 实踩：L4 合成全量 412）。
-若某输入实际不参与任何步骤，请勿放入 required。
+execution.inputs 中以 ${变量名} 形式被引用（calculator 步写在 expression 里，
+table_lookup 步写在 query_conditions 里）。未被任何步骤引用的 required 键会导致校验失败
+（2026-10-14 实踩：L4 合成全量 412）。若某输入实际不参与任何步骤，请勿放入 required。
 
 请只输出 JSON，不要输出其他内容。"""
 

@@ -104,6 +104,29 @@ class SopValidatorTests(unittest.TestCase):
         problems = validate_sop_data(data)
         self.assertTrue(any("description.content" in p for p in problems))
 
+    def test_calculator_without_expression_rejected(self):
+        """规则 6（2026-10-15）：calculator 步缺 expression = 运行时「表达式不能为空」空转。"""
+        data = valid_sop_dict()
+        data["steps"][1]["inputs"] = {"L": "查表得到的长度", "W": "宽度"}
+        problems = validate_sop_data(data)
+        self.assertTrue(any("缺少 expression" in p for p in problems))
+
+    def test_calculator_blank_expression_rejected(self):
+        data = valid_sop_dict()
+        data["steps"][1]["inputs"] = {"expression": "   "}
+        problems = validate_sop_data(data)
+        self.assertTrue(any("缺少 expression" in p for p in problems))
+
+    def test_calculator_batch_expressions_accepted(self):
+        data = valid_sop_dict()
+        data["steps"][1]["inputs"] = {"expressions": ["${L}*${W}", "${L}+${W}"], "labels": ["S", "P"]}
+        self.assertEqual(validate_sop_data(data), [])
+
+    def test_non_calculator_without_expression_ok(self):
+        data = valid_sop_dict()
+        data["blackboard"] = {"required": ["船型"], "outputs": ["L", "S"]}
+        self.assertEqual(validate_sop_data(data), [])
+
 
 if __name__ == "__main__":
     unittest.main()

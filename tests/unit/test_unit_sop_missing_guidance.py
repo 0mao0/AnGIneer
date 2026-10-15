@@ -1,10 +1,12 @@
 """缺参引导回归（2026-10-13 业主纪律：如实报缺 + 引导补充 + 给推荐值，系统不臆造数值）。
 
 覆盖：领域包 param_recommendations 装载、build_missing_guidance 成文规则、
-runner 失败步挂引导（含嵌套模板扫描与计算器 unknowns 收集）。
+runner 失败步挂引导（含嵌套模板扫描与计算器 unknowns 收集）、
+AI 推荐预算闸（2026-10-15：慢网关下单次/累计超预算一律降级仅报缺）。
 """
 import os
 import sys
+import time
 import unittest
 from unittest.mock import MagicMock, patch
 
@@ -133,6 +135,31 @@ class TestAiRecommendationFallback(unittest.TestCase):
             runner._attach_missing_guidance(step)
         item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["船舶航速"]
         self.assertEqual(item["recommend"], "8")
+
+    def test_ai_timeout_degrades_to_report_only(self):
+        """单次超预算：放弃等待、仅报缺（2026-10-15：慢网关不得拖爆工具超时）。"""
+        runner, step = self._runner_with_missing("冷门参数T")
+
+        def _slow(*_a, **_k):
+            time.sleep(2.0)
+            return MagicMock(text='{"冷门参数T": {"recommend": 9, "rationale": "x"}}')
+
+        with patch.dict(os.environ, {"ANGINEER_SOP_AI_RECOMMEND_TIMEOUT": "1.05"}), \
+             patch("angineer_core.sop_runner.chat_result_guarded", side_effect=_slow):
+            runner._attach_missing_guidance(step)
+        item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["冷门参数T"]
+        self.assertNotIn("recommend", item)
+        self.assertIn("不臆造", item["rationale"])
+        self.assertGreaterEqual(runner._ai_rec_spent_s, 1.0)
+
+    def test_ai_budget_exhausted_skips_llm(self):
+        """累计预算耗尽：后续步骤直接仅报缺，不再调 LLM。"""
+        runner, step = self._runner_with_missing("冷门参数U")
+        runner._ai_rec_spent_s = 1e9
+        with patch("angineer_core.sop_runner.chat_result_guarded", side_effect=AssertionError("不应调用 LLM")):
+            runner._attach_missing_guidance(step)
+        item = {i["param"]: i for i in runner.memory.history[-1].outputs["missing_guidance"]}["冷门参数U"]
+        self.assertNotIn("recommend", item)
 
 
 if __name__ == "__main__":

@@ -157,6 +157,26 @@ def validate_sop(sop: SOP) -> List[str]:
         if not str(content).strip():
             problems.append(f"步骤 {step.id} 的 description.content 不能为空")
 
+    # 规则 6：calculator 步骤必须有可计算表达式（expression 模板或 expressions 列表）。
+    # 2026-10-15 实踩：自动生成的 SOP 把 inputs 写成「参数名→参数说明」字典且不含
+    # expression，运行时直接调 calculator 空表达式，整步 1ms 报「表达式不能为空」——
+    # 生成期放过 = 发布后静默哑火（39/57 条存量 SOP 同病）。
+    for step in steps:
+        if str(step.tool or "").strip().lower() != "calculator":
+            continue
+        inputs = step.inputs if isinstance(step.inputs, dict) else {}
+        expression = inputs.get("expression")
+        expressions = inputs.get("expressions")
+        has_expr = bool(str(expression).strip()) if isinstance(expression, str) else bool(expression)
+        has_batch = isinstance(expressions, list) and any(
+            (isinstance(item, str) and item.strip()) or item for item in expressions
+        )
+        if not (has_expr or has_batch):
+            problems.append(
+                f"步骤 {step.id} 为 calculator 但 inputs 缺少 expression"
+                "（运行时将以「表达式不能为空」空转失败）"
+            )
+
     return problems
 
 

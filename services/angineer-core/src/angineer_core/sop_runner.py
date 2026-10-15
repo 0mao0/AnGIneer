@@ -116,6 +116,11 @@ class SopRunner:
         self._reported_param_filter: Optional[set] = None
         # AI 推荐值缓存（同 run 内同名参数只调一次 LLM；值只作建议不进计算）
         self._ai_rec_cache: Dict[str, Dict[str, Any]] = {}
+        # AI 推荐累计耗时（跨步共享预算）。2026-10-15 实踩：按步调用在慢网关下
+        # 逐次超时把整个 sop_execute 拖爆 120s 工具预算——步骤结果与 sop_flow 帧
+        # 全被超时吞掉（5 个几何缺参 4 次调用 ≈ 11 分钟）。预算内 best-effort，
+        # 超预算/单次超时一律降级「仅报缺」（不臆造），绝不让增强项拖死主结果。
+        self._ai_rec_spent_s: float = 0.0
 
         if self.result_md_path:
             with open(self.result_md_path, "w", encoding="utf-8") as f:
@@ -318,18 +323,34 @@ class SopRunner:
                 SopRunner._collect_unresolved_names(item, acc)
         return acc
 
+    def _ai_rec_budget_s(self) -> float:
+        """同 run AI 推荐总预算（秒，跨步共享）；``ANGINEER_SOP_AI_RECOMMEND_TIMEOUT`` 覆盖。"""
+        try:
+            return max(0.0, float(os.getenv("ANGINEER_SOP_AI_RECOMMEND_TIMEOUT", "30")))
+        except ValueError:
+            return 30.0
+
     def _llm_recommend(self, names: List[str], step: Step) -> Dict[str, Dict[str, Any]]:
         """静态推荐表未覆盖的参数：AI 现场生成推荐值（受约束）。
 
         - 来源标注 ``ai``，与领域包静态值区分（业主可审、可随时挪进静态表）；
         - 提示词硬约束：无可靠依据必须 recommend=null 只讲获取途径；
-        - 推荐值只作建议、绝不自动进计算；LLM 失败静默降级为「仅报缺」。
+        - 推荐值只作建议、绝不自动进计算；LLM 失败/超时静默降级为「仅报缺」。
+        - 预算：跨步共享 ``ANGINEER_SOP_AI_RECOMMEND_TIMEOUT``（默认 30s），
+          单次等待与累计均不得超出，保证 sop_execute 不被增强项拖爆工具超时。
         开关：``ANGINEER_SOP_AI_RECOMMEND=0`` 关闭。
         """
         if os.getenv("ANGINEER_SOP_AI_RECOMMEND", "1").strip() in ("0", "false", "False", "off"):
             return {}
         client = self._llm_client
         if client is None or not names:
+            return {}
+        remaining = self._ai_rec_budget_s() - self._ai_rec_spent_s
+        if remaining <= 1.0:
+            logger.info(
+                "AI 推荐预算已用尽（累计 %.1fs），降级为仅报缺: %s",
+                self._ai_rec_spent_s, names,
+            )
             return {}
         known = {
             k: v for k, v in (self.memory.blackboard or {}).items()
@@ -365,20 +386,33 @@ class SopRunner:
             f"已知参数：{known_desc}\n"
             "缺失参数（含释义）：\n" + "\n".join(names_lines) + "\n"
         )
+        started = time.time()
+        executor = ThreadPoolExecutor(max_workers=1)
         try:
-            result = chat_result_guarded(
+            future = executor.submit(
+                chat_result_guarded,
                 client,
                 [{"role": "user", "content": prompt}],
                 mode=self.mode,
                 config_name=self.config_name,
                 max_tokens=600,
             )
+            result = future.result(timeout=remaining)
             raw = (result.text or "").strip()
             start, end = raw.find("{"), raw.rfind("}")
             data = json.loads(raw[start:end + 1]) if 0 <= start < end else {}
+        except FuturesTimeoutError:
+            logger.warning(
+                "AI 推荐生成超时（预算 %.1fs），降级为仅报缺（不臆造）: %s", remaining, names,
+            )
+            return {}
         except Exception as exc:  # noqa: BLE001
             logger.warning("AI 推荐值生成失败（降级为仅报缺，不臆造）: %s", exc)
             return {}
+        finally:
+            # 超时后放弃等待（禁止 with 默认 wait=True；线程未杀死，如实记录限制）
+            self._ai_rec_spent_s += time.time() - started
+            executor.shutdown(wait=False)
         out: Dict[str, Dict[str, Any]] = {}
         for name in names:
             entry = data.get(name)
