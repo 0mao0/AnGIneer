@@ -1,5 +1,6 @@
 /** 公开测试集 / 公开 SOP 两页的后端调用（/api/community，契约=设计 §10）。
  *  走 aichatApiClient：baseURL /api、自动带 Bearer（登录投稿归属用）、cookie 随同源请求带上。 */
+import type { EvalDatasetCardMeta } from '@angineer/evals-ui'
 import { aichatApiClient } from '../../../shared/apiClient'
 
 export type CommunityScope = 'eval' | 'sop'
@@ -38,7 +39,8 @@ export interface DatasetCard {
   question_count: number
   category: string
   version: string
-  meta: Record<string, string>
+  // 后端按白名单过滤后的题集卡元信息（publisher/domain/mode/purpose/source_url/source_note/distribution/leaderboard）
+  meta: EvalDatasetCardMeta & Record<string, unknown>
   origin?: ItemOrigin
   author_label?: string
 }

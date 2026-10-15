@@ -7,8 +7,11 @@ manager 惰性 import——本包被 aichat-api 挂载时 evals-core 已在 sys.
 """
 from typing import Any, Dict, List, Optional, Tuple
 
-# 题集卡片对外只留这几项（设计 §10：公开元信息白名单，防内部字段外泄）
-_PUBLIC_META_KEYS = ("publisher", "domain", "mode", "purpose", "source_url", "source_note")
+# 题集卡片对外只留这几项（设计 §10：公开元信息白名单，防内部字段外泄）。
+# distribution/leaderboard=题集卡弹层的分布条形与公开锚点成绩（EvalDatasetCardModal 渲染），
+# 均为对外口径展示数据（meta 由 bundle 导入/回填脚本维护），不含 gold/内部字段。
+_PUBLIC_META_KEYS = ("publisher", "domain", "mode", "purpose", "source_url", "source_note",
+                     "distribution", "leaderboard")
 
 
 def _manager():

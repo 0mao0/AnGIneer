@@ -446,6 +446,12 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
   原因二：`EvalQuestionList` 深度耦合 run 记录与 docTree，公开页用不上；加了 prop 也无公开侧调用方 = 死代码。
   落地形态：公开页题目行**自建渲染（纯插值）**＋`EvalLevelBadge`；JSON 整包导入在 `SubmitDatasetModal` 自实现（bundle v2 / 裸数组，`answer || gold_answer` 兼容）。
   连带收益：evals-ui 零改动 ⇒ A8 后台零变更自动满足。
+  **10-15 修订（业主裁定）**：题集特性卡不该自写成 `key: value` 文字——改为复用后台同款
+  `EvalDatasetCardModal`（发布方/测试类型/简介/来源/分布/公开锚点成绩，直连单文件 import，
+  其 scoped less 实测 0 处 `@evals-*` 变量、无需 additionalData）。配套：后端 meta 白名单
+  追加 `distribution`/`leaderboard`（卡弹层的分布条与公开锚点成绩，对外口径展示数据、不含 gold）。
+  弹层不传 `questions`（公开面只有分页题目，喂局部数据会把层级分布统计算歪）；
+  `library_id` 传空 ⇒ 「知识库」行不渲染（不向公网露内部库 id）。
 - **偏差②（§7.4 样式两行不接线）**：`EvalLevelBadge` 的 scoped less 实测 0 处 `@evals-*` 变量，无需给 user-web 注 additionalData。
   但 **import 必须走单文件直连**（`@angineer/evals-ui/components/EvalLevelBadge.vue` + tsconfig `@angineer/evals-ui/*` 通配）：走 barrel 会把 `EvalRunPanel` 整包送进 vite 编译，其 less 引用 `@evals-primary`（admin 侧 additionalData 注入）⇒ user-web build 直接炸。此为施工实踩。
 

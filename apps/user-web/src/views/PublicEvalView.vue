@@ -31,22 +31,20 @@
             <template v-else>
               <div class="dataset-card">
                 <div class="dataset-title">
-                  {{ card?.title || currentItem.title }}
-                  <a-tag v-if="currentItem.origin === 'user'" color="purple">网友投稿</a-tag>
-                  <a-tag v-else color="blue">官方</a-tag>
+                  <span class="dataset-title-main">
+                    {{ card?.title || currentItem.title }}
+                    <a-tag v-if="currentItem.origin === 'user'" color="purple">网友投稿</a-tag>
+                    <a-tag v-else color="blue">官方</a-tag>
+                  </span>
+                  <a-button size="small" @click="cardModalOpen = true">题集卡</a-button>
                 </div>
                 <div class="dataset-meta">
                   <span>{{ card?.question_count ?? currentItem.question_count ?? 0 }} 题</span>
-                  <span v-if="card?.category">· {{ card.category }}</span>
-                  <span v-if="card?.version">· {{ card.version }}</span>
                   <span v-if="currentItem.origin === 'user'">
                     · {{ currentItem.author_label || '游客' }} 投稿
                   </span>
                 </div>
                 <div v-if="card?.description" class="dataset-desc">{{ card.description }}</div>
-                <div v-if="card?.meta && Object.keys(card.meta).length" class="dataset-pubmeta">
-                  <span v-for="(v, k) in card.meta" :key="k" class="pubmeta-item">{{ k }}: {{ v }}</span>
-                </div>
               </div>
 
               <a-spin :spinning="questionsLoading">
@@ -90,6 +88,9 @@
       @submitted="onSubmitted"
       @login="loginOpen = true"
     />
+    <!-- 题集卡弹层复用后台同款组件（EvalDatasetCardModal）：发布方/测试类型/简介/来源/分布/公开锚点成绩。
+         不传 questions——公开面只有分页题目，喂局部数据会把层级分布统计算歪。 -->
+    <EvalDatasetCardModal v-model:open="cardModalOpen" :dataset="cardDataset" />
   </div>
 </template>
 
@@ -102,6 +103,8 @@ import { SplitPanes } from '@angineer/ui-kit'
 // 直连单文件、不走 evals-ui barrel：barrel 会把 EvalRunPanel 等整包送进 vite 编译，
 // 其 scoped less 引用 @evals-* 变量（admin 侧 additionalData 注入，user-web 未注）即构建失败。
 import EvalLevelBadge from '@angineer/evals-ui/components/EvalLevelBadge.vue'
+import EvalDatasetCardModal from '@angineer/evals-ui/components/EvalDatasetCardModal.vue'
+import type { EvalDataset } from '@angineer/evals-ui'
 import PublicTopBar from '@/components/PublicTopBar.vue'
 import AuthGate from '@/components/AuthGate.vue'
 import PublicTreePanel from '@/components/public/PublicTreePanel.vue'
@@ -125,6 +128,30 @@ const offset = ref(0)
 const questionsLoading = ref(false)
 
 const currentDataset = computed(() => currentItem.value?.kind === 'dataset' ? currentItem.value : null)
+
+const cardModalOpen = ref(false)
+// EvalDatasetCardModal 吃后台 EvalDataset 形状；公开面 DatasetCard 是其白名单子集，
+// 缺省字段给空串——library_id 留空即「知识库」行不渲染（不向公网露内部库 id）。
+const cardDataset = computed(() => {
+  const c = card.value
+  if (!c) return null
+  return {
+    dataset_id: c.dataset_id,
+    title: c.title,
+    category: '',
+    description: c.description || '',
+    schema_version: '',
+    version: c.version || '',
+    library_id: '',
+    question_count: c.question_count ?? 0,
+    source_file: '',
+    meta: c.meta || {},
+    folder_id: '',
+    sort_order: 0,
+    created_at: '',
+    updated_at: '',
+  } as unknown as EvalDataset
+})
 
 const datasetOptions = computed(() =>
   tree.items.value.map((item) => ({ ref_id: item.ref_id, origin: item.origin, title: item.title })),
@@ -235,7 +262,15 @@ onMounted(async () => {
       font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 12px;
+
+      .dataset-title-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+      }
     }
 
     .dataset-meta {
@@ -253,15 +288,6 @@ onMounted(async () => {
       white-space: pre-wrap;
     }
 
-    .dataset-pubmeta {
-      margin-top: 6px;
-      font-size: 12px;
-      color: var(--text-tertiary);
-
-      .pubmeta-item {
-        margin-right: 12px;
-      }
-    }
   }
 
   .question-list {
