@@ -13,6 +13,7 @@
       :virtual="true"
       :height="treeHeight"
       :default-expand-all="true"
+      :dark="isDark"
       empty-text="该分类暂无公开内容"
       @select="onSelect"
     >
@@ -42,6 +43,7 @@
  *  只读树：增删/拖拽/文件操作全部关闭。 */
 import { computed } from 'vue'
 import { SmartTree, type SmartTreeNode } from '@angineer/smartree'
+import { useTheme } from '@angineer/ui-kit'
 import type { CommunityTreeNode } from '@/composables/useCommunityTree'
 
 defineProps<{
@@ -49,6 +51,9 @@ defineProps<{
   loading: boolean
   loadError: string
 }>()
+
+// 暗色样式挂在 SmartTree 的 dark 属性上（组件内 .dark-mode 作用域），宿主不传=整段暗色失效
+const { isDark } = useTheme()
 
 const emit = defineEmits<{
   (e: 'select', row: CommunityTreeNode | null): void

@@ -48,6 +48,7 @@
               :allow-add-file="false"
               :allowed-file-types="['.json']"
               :loading="sopTree.loading.value"
+              :dark="isDark"
               empty-text="暂无经验 SOP"
               @select="onTreeSelect"
               @rename="onTreeRename"
@@ -410,7 +411,7 @@ import FolderModal from './components/FolderModal.vue'
 /** keep-alive 的 include 按组件名匹配（见 App.vue 的 cachedViews），少这行会静默不缓存 */
 defineOptions({ name: 'ExperienceManage' })
 
-const { appClass } = useTheme()
+const { appClass, isDark } = useTheme()
 const { modal } = App.useApp()
 const router = useRouter()
 

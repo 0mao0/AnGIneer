@@ -19,6 +19,7 @@
     :empty-text="emptyText"
     :default-expanded-keys="defaultExpandedKeys"
     :default-selected-keys="defaultSelectedKeys"
+    :dark="dark"
     @select="(keys, nodes) => emit('select', keys, nodes as SOPTreeNode[])"
     @rename="(node) => emit('rename', node as SOPTreeNode)"
     @add-folder="(node) => emit('add-folder', node as SOPTreeNode | null)"
@@ -84,6 +85,10 @@ interface Props {
   emptyText?: string
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
+  // 暗色主题（宿主 useTheme().isDark 传入）：SmartTree 暗色样式挂在 dark 属性上，
+  // 不传则整段暗色样式失效（2026-10-15 实踩：搜索框旁「新建文件夹」图标 rgba(0,0,0,.45) 全黑）。
+  // docs-ui KnowledgeTree / evals-ui EvalDatasetTree 早有此属性和透传，本组件补齐对齐。
+  dark?: boolean
 }
 
 defineProps<Props>()
