@@ -182,7 +182,10 @@ class CommunityService:
         if _show_gold_default():
             gold = row.get("answer_gold")
             if isinstance(gold, dict):
-                answer = gold.get("reference_answer") or gold.get("answer") or None
+                # evals-core 实际键是 gold_answer（全库 1730 条实测，10-15 业主抽查暴露：
+                # 只认 reference_answer/answer 会全量取空）；两别名保留作兼容。
+                answer = (gold.get("gold_answer") or gold.get("reference_answer")
+                          or gold.get("answer")) or None
         tags = row.get("tags") if isinstance(row.get("tags"), list) else []
         return models.question_out(
             question_id=str(row.get("question_id") or ""),

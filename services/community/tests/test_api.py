@@ -60,7 +60,8 @@ def _gold_probe_source():
         "questions": [{
             "question_id": "q-1", "question": "设计水深怎么取？", "intent_level": "L3",
             "tags": ["水运"],
-            "answer_gold": {"reference_answer": "参考答案文本"}, "sql_gold": {"sql": "SELECT 1"},
+            # 与 evals-core 真库同键（gold_answer，10-15 实测全库统一此键）
+            "answer_gold": {"gold_answer": "参考答案文本"}, "sql_gold": {"sql": "SELECT 1"},
         }],
     }])
 
