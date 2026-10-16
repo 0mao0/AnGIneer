@@ -35,6 +35,61 @@ def normalize_query(query: str) -> str:
     return normalize_chinese_clause_numbers(query)
 
 
+def _tag_item_libraries(items: List[Any], nodes: Optional[List[Any]]) -> int:
+    """逐条回填 item.metadata["library_id"]（多库集合下条目的库归属）。
+
+    引擎侧按这份库标回填引用与证据的库归属：前端点引用用 citation.library_id 取文档，
+    缺标时只能回退会话首库——非首库的文档必 404「Document not found」
+    （2026-10-16 本地 6 库会话实踩：PDF 在 std-water、回退 std-highway）。
+    HTTP 多库通道（retrieve_service._retrieve_multi）早有同样的打标，本地进程内通道此前没有。
+
+    归属只取节点/meta 库的事实，取不到就不标：宁可不标（前端回退，与修复前同行为），
+    也不按首库猜——误标会同时把 evidence.library_id 写错。
+    """
+    mapping: Dict[str, str] = {}
+    unresolved: List[str] = []
+    for node in nodes or []:
+        doc_id = str(getattr(node, "id", "") or "").strip()
+        if not doc_id:
+            continue
+        lib = str(getattr(node, "library_id", "") or "").strip()
+        if lib:
+            mapping[doc_id] = lib
+        else:
+            unresolved.append(doc_id)
+    if unresolved:
+        # 外部注入/旧装配的节点可能不带库标：按 meta 库读穿一次（同 _retrieve_multi 的归属分桶）
+        try:
+            from docs_core.docs_service import get_docs_service
+
+            meta_store = get_docs_service().meta_store
+        except Exception:  # noqa: BLE001 — 服务不可用只是不标，不拖垮检索
+            meta_store = None
+        if meta_store is not None:
+            for doc_id in unresolved:
+                try:
+                    lib = str(meta_store.get_node_library_id(doc_id) or "").strip()
+                except Exception:  # noqa: BLE001 — 单条读失败只跳过该条
+                    lib = ""
+                if lib:
+                    mapping[doc_id] = lib
+    tagged = 0
+    for item in items:
+        if isinstance(item, dict):
+            metadata = item.get("metadata")
+            doc_id = str(item.get("doc_id") or "")
+        else:
+            metadata = getattr(item, "metadata", None)
+            doc_id = str(getattr(item, "doc_id", "") or "")
+        if not isinstance(metadata, dict):
+            continue
+        lib = mapping.get(doc_id)
+        if lib:
+            metadata["library_id"] = lib
+            tagged += 1
+    return tagged
+
+
 def knowledge_local_search(
     *,
     query: str,
@@ -157,6 +212,8 @@ def knowledge_local_search(
             full = table_text_by_id.get(tid) or ""
             if full and len(full) > len(str(item.text or "")):
                 item.text = full
+    # 多库集合逐条回填库标：引用/证据按库定位的真相源（缺标即前端回退会话首库 → 非首库 404）
+    _tag_item_libraries(items, nodes)
     # stage_times 随返回值上浮：引擎层（agent_tools）选择性消费后落 ops jsonl，
     # docs-core 不感知观测设施（req-table-retrieval-latency §10 方案 E）。
     return {"items": items, "stage_times": dict(stage_times)}
@@ -230,6 +287,8 @@ def table_local_search(
         len(items),
         query[:40],
     )
+    # 逐条回填库标（同 knowledge_local_search：表格条目的引用/证据也要能按库定位）
+    _tag_item_libraries(items, nodes)
     # stage_times 随返回值上浮（同 knowledge_local_search，方案 E）
     return {"items": items, "stage_times": dict(stage_times)}
 
