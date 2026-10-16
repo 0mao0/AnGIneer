@@ -42,10 +42,12 @@
 
 .PARAMETER Packages
     Package names to sync. Defaults to @('docs-ui', 'aichat-ui', 'smartree',
-    'table-ui', 'ai-inference', 'core', 'tree-core', 'docs-core'). 'core' is the short id for
+    'table-ui', 'ai-inference', 'core', 'tree-core', 'docs-core', 'sop-core').
+    'core' is the short id for
     the angineer-core python package (services/angineer-core, repo angineer-core);
     'tree-core' maps to services/tree-core (repo angineer-tree-core);
-    'docs-core' maps to services/docs-core (repo angineer-docs-core).
+    'docs-core' maps to services/docs-core (repo angineer-docs-core);
+    'sop-core' maps to services/sop-core (repo angineer-sop-core).
 
 .PARAMETER AllowVersionDrift
     Proceed even when a python package's HEAD pyproject.toml version is BEHIND
@@ -65,7 +67,7 @@ param(
     [string]$Message = '',
     [switch]$DryRun,
     [switch]$AllowVersionDrift,
-    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference', 'core', 'tree-core', 'docs-core')
+    [string[]]$Packages = @('docs-ui', 'aichat-ui', 'smartree', 'table-ui', 'ai-inference', 'core', 'tree-core', 'docs-core', 'sop-core')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -78,6 +80,7 @@ $SourcePathOverrides = @{
     'core' = 'services/angineer-core'
     'tree-core' = 'services/tree-core'
     'docs-core' = 'services/docs-core'
+    'sop-core' = 'services/sop-core'
 }
 # standalone-owned or diverging files: never auto-overwritten, main-side diff is
 # printed for manual porting instead

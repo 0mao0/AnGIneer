@@ -6,10 +6,26 @@ build-backend = "setuptools.build_meta"
 name = "angineer-sop-core"
 version = "0.1.0"
 description = "AnGIneer SOP authoring library: loader/parser/validator/path generator (execution lives in angineer-core)"
+readme = "README.md"
 requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "AnGIneer Team"}
+]
+keywords = ["sop", "agent", "engineering", "standard-operating-procedure"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
-    "angineer-ai-inference>=0.2.2",
-    "angineer-core>=0.1.1",
+    # 仓库内兄弟包（SOP/Step 契约与执行器在 core；LLM 客户端独立发包）
+    "angineer-core>=0.1.1,<0.2.0",
+    "angineer-ai-inference>=0.2.2,<0.3.0",
 ]
 
 [tool.setuptools]
@@ -17,3 +33,6 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.urls]
+Repository = "https://github.com/0mao0/angineer-sop-core"
