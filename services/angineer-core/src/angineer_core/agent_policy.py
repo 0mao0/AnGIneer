@@ -35,6 +35,14 @@ def _last_answer(messages: List[AgentMessage]) -> Optional[str]:
 
 
 def _has_evidence(messages: List[AgentMessage]) -> bool:
+    """工具结果里是否带引用号（cite）。
+
+    读法走 agent_configs._item_cite（顶层 + metadata 两形态）——只读 metadata 时
+    投影形态恒 False，L2 档会被判「未命中」并次次回退 L1（2026-10-06 起实况，
+    2026-10-16 定位）。
+    """
+    from angineer_core.agent_configs import _item_cite
+
     for message in messages:
         if message.role != "tool" or message.is_error:
             continue
@@ -45,8 +53,7 @@ def _has_evidence(messages: List[AgentMessage]) -> bool:
         except Exception:
             continue
         if isinstance(raw, dict) and isinstance(raw.get("items"), list) and any(
-            isinstance(item, dict) and bool((item.get("metadata") or {}).get("cite"))
-            for item in raw["items"]
+            _item_cite(item) for item in raw["items"]
         ):
             return True
     return False

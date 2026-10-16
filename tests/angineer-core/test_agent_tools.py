@@ -452,6 +452,8 @@ class LlmProjectionShellTests(unittest.TestCase):
                     "retrieval_policy": "hybrid",
                     "metadata": {
                         "page_idx": 3, "page_label": "12", "cite": "K3",
+                        "doc_title": "公路水泥规范.pdf", "section_path": "4 材料 / 4.1 水泥",
+                        "library_id": "std-highway",
                         "source_kind": "mineru", "chunk_type": "text", "strategy": "rrf",
                         "table_id": "t9", "raw_score": 0.11, "normalized_score": 0.2,
                         "rrf_score": 0.3, "fusion_score": 0.4, "fusion_sources": ["dense"],
@@ -464,20 +466,46 @@ class LlmProjectionShellTests(unittest.TestCase):
             "_admission": {"kept": 1},
         }
 
-    def test_shell_stripped_text_cite_kept(self):
+    def test_shell_stripped_consumer_surface_kept(self):
+        """投影只剥遥测外壳；模型 + 引擎 + 前端三方消费面一律留。
+
+        2026-10-16 复盘：白名单曾只按「模型要不要」裁——item_id/doc_id 被删后，
+        前端思考轨迹证据条目与回看指针随之失效（同批还误剥了正文引用标记）。
+        增删白名单前先 grep 字段名找全部消费方，本断言即该契约。
+        """
         from angineer_core.agent_loop import _llm_content_payload
 
         with mock.patch.dict(os.environ, {"ANGINEER_LLM_SHELL_STRIP": "1", "ANGINEER_LLM_EVIDENCE_DEDUP": "1"}):
             out = _llm_content_payload(self._raw())
         item = out["items"][0]
+        self.assertEqual(
+            set(item.keys()),
+            {
+                # 模型面
+                "text", "title", "rerank_score", "score",
+                # 引擎面（守卫/回看指针）
+                "doc_id", "doc_title", "cite",
+                # 前端面（思考轨迹条目跳原文、引用归属、页码/章节展示）
+                "item_id", "citation_target_id", "entity_type", "library_id",
+                "page_idx", "page_label", "section_path",
+            },
+        )
         self.assertEqual(item["text"], "混凝土标号 C30。")
         self.assertEqual(item["cite"], "K3")  # metadata.cite 提升顶层
         self.assertEqual(item["page_label"], "12")
+        self.assertEqual(item["page_idx"], 3)
+        self.assertEqual(item["section_path"], "4 材料 / 4.1 水泥")
+        self.assertEqual(item["doc_title"], "公路水泥规范.pdf")
+        self.assertEqual(item["library_id"], "std-highway")
+        self.assertEqual(item["item_id"], "i1")
+        self.assertEqual(item["doc_id"], "d1")
+        self.assertEqual(item["citation_target_id"], "ct1")
         self.assertEqual(item["rerank_score"], 0.72)
         self.assertEqual(item["title"], "公路水泥规范")
-        for gone in ("metadata", "item_id", "doc_id", "citation_target_id", "retrieval_policy",
-                     "score", "entity_type"):
-            self.assertNotIn(gone, item)
+        # 遥测外壳与私有键仍剥
+        self.assertNotIn("metadata", item)
+        self.assertNotIn("retrieval_policy", item)
+        self.assertNotIn("fusion_sources", json.dumps(item, ensure_ascii=False))
         self.assertNotIn("evidences", out)   # 旧去重仍在
         self.assertNotIn("_admission", out)  # 私有键仍不进
 

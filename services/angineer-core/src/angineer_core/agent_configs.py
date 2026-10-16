@@ -53,6 +53,20 @@ def _load_qa_system_prompt() -> str:
     return load("agent_configs.qa_system_prompt", effective_qa_prompt_version())
 
 
+def _item_cite(item: Any) -> str:
+    """条目引用号：兼容投影前后两种存放位置。
+
+    LLM 投影（agent_loop._project_items）把 metadata.cite 提升到条目顶层；
+    只读 metadata 的写法在生产实为恒空——守卫据此把真标记全判成编造并剥除，
+    问答正文的引用标记（内联圆圈）自 2026-10-06 起全部消失（2026-10-16 定位）。
+    顶层与 metadata 两处都读，缺一即复发。
+    """
+    if not isinstance(item, dict):
+        return ""
+    cite = item.get("cite") or (item.get("metadata") or {}).get("cite")
+    return str(cite or "")
+
+
 def _valid_markers(added_messages: List[AgentMessage]) -> set:
     valid = set()
     for message in added_messages:
@@ -63,10 +77,9 @@ def _valid_markers(added_messages: List[AgentMessage]) -> set:
         except Exception:  # noqa: BLE001
             continue
         for item in (raw.get("items") or []) if isinstance(raw, dict) else []:
-            if isinstance(item, dict):
-                cite = (item.get("metadata") or {}).get("cite")
-                if cite:
-                    valid.add(str(cite))
+            cite = _item_cite(item)
+            if cite:
+                valid.add(cite)
     return valid
 
 
@@ -623,14 +636,16 @@ def _item_pointer_keys(items: List[Any], limit: int = 6) -> str:
     for item in items:
         if not isinstance(item, dict):
             continue
-        doc_id = str(item.get("doc_id") or "")
+        # 投影形态兼容：doc_id 在顶层（投影白名单保留），旧形态在 metadata；
+        # 两处都不读会把整条指针丢掉（doc_id 空即 continue）
+        meta = item.get("metadata") or {}
+        doc_id = str(item.get("doc_id") or meta.get("doc_id") or "")
         if not doc_id or doc_id in seen:
             continue
         seen.add(doc_id)
-        meta = item.get("metadata") or {}
-        title = str(meta.get("doc_title") or item.get("title") or "")
+        title = str(item.get("doc_title") or meta.get("doc_title") or item.get("title") or "")
         title = re.sub(r"\.(pdf|docx?|xlsx?|pptx?|md|txt)$", "", title, flags=re.IGNORECASE)[:24]
-        cite = str(meta.get("cite") or "")
+        cite = _item_cite(item)
         tag = f"{cite}·{title}" if cite and title else (cite or title or doc_id)
         keys.append(f"{tag}[doc_id={doc_id}]")
         if len(keys) >= limit:

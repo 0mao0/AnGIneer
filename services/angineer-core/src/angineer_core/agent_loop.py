@@ -460,19 +460,36 @@ def _llm_shell_strip_enabled() -> bool:
     return os.environ.get("ANGINEER_LLM_SHELL_STRIP", "1").strip().lower() not in ("0", "false", "off")
 
 
-# LLM 投影 items[] 白名单：模型作答/引用需要的最小面。
-#   text 正文、cite 引用号（规则 17 依赖）、title/doc_title 出处、
-#   rerank_score 相关性分（证据相关性标注链依赖）、page_label 页码（引用展示）。
+# LLM 投影 items[] 白名单：模型作答/引用需要的最小面，也是引擎与前端消费面
+# （同一份 content 供三方读：prompt、守卫/L2 判据/回看指针、前端引用与思考轨迹）。
+#   text 正文、title 出处、rerank_score 相关性分（证据相关性标注链依赖）、
+#   item_id/citation_target_id 前端「证据条目→点击跳原文」的目标 id（旧投影删掉 item_id，
+#   前端 extractToolResultItems 逐条丢、思考轨迹证据列表整条消失）、
+#   doc_id 回看指针键与按文件归并（旧投影删掉后 _item_pointer_keys 整条空）、
+#   entity_type 前端引用类型、score 原始分兜底。
 #   引擎判定只读 text（_tool_evidence_present/_tool_evidence_parts）；
 #   retrieval_policy/fusion_*/table_* 等检索器遥测走 raw/meta 通道供评测（policy_query 读 message.meta），不进 prompt。
-_LLM_ITEM_KEEP_KEYS = ("text", "title", "doc_title", "cite", "rerank_score", "page_label")
+# ⚠️ 2026-10-16 复盘（勿复犯）：本清单曾只按「模型要不要」裁——cite/page_label 提升到顶层、
+#   item_id/doc_id 直接删。同一份 content 的下游（守卫 _valid_markers、agent_policy._has_evidence、
+#   _item_pointer_keys、前端 collectCitationsFromToolMessages/extractToolResultItems）仍按旧形态读，
+#   10-06 起问答引用标记被守卫全量剥除、L2 恒回退 L1、思考轨迹证据条目消失。
+#   增删本清单前先按字段名 grep 全部消费方，只按一方需要裁剪必复发。
+_LLM_ITEM_KEEP_KEYS = (
+    "item_id", "citation_target_id", "entity_type", "doc_id",
+    "text", "title", "rerank_score", "score",
+)
+# metadata 里提升到顶层的键（投影后 metadata 不再随 content 下发，两形态读法并存）
+_LLM_ITEM_HOIST_KEYS = (
+    "doc_title", "doc_id", "cite", "page_label", "page_idx", "section_path", "library_id",
+)
 
 
 def _project_items(payload: Dict[str, Any]) -> Dict[str, Any]:
-    """items[] 逐条投影：只留白名单键（metadata 里的 cite/page_label 提升到顶层）。
+    """items[] 逐条投影：只留白名单键（metadata 里的引用/位置键提升到顶层）。
 
     实测（2026-10-05 生产 chat.sqlite 40 条 tool result）：正文占 29%、外壳占 53%——
-    外壳里的 rerank_score 以 relevance 标签进 text 顶层，metadata 副本对模型是纯重复。
+    外壳里的 rerank_score 以 relevance 标签进 text 顶层，metadata 副本对模型是纯重复；
+    检索器遥测（retrieval_policy/fusion_*）留 raw/meta 通道。
     非 dict 条目原样保留（防御未知工具形态）；无 text 键的条目原样保留（表格/实体形态不猜结构）。
     """
     items = payload.get("items")
@@ -488,7 +505,7 @@ def _project_items(payload: Dict[str, Any]) -> Dict[str, Any]:
         for key in _LLM_ITEM_KEEP_KEYS:
             if key in item:
                 slim[key] = item[key]
-        for key in ("cite", "page_label"):
+        for key in _LLM_ITEM_HOIST_KEYS:
             if key in meta and key not in slim:
                 slim[key] = meta[key]
         projected.append(slim)

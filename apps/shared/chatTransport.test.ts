@@ -220,6 +220,37 @@ test('多库溯源（B1）：citations 帧不带 library_id 时按同消息 item
   assert.equal(orphan?.citations?.[0]?.library_id, undefined)
 })
 
+test('多库溯源（投影形态）：顶层 cite/library_id 同样回填，条目不得整条丢', () => {
+  const steps = buildThinkingTrace([
+    {
+      role: 'assistant',
+      content: '',
+      tool_calls: [{ name: 'knowledge_search', arguments: { query: 'x' } }],
+    },
+    {
+      role: 'tool',
+      name: 'knowledge_search',
+      // 投影形态：metadata 已剥，cite/library_id 在条目顶层（生产 10-06 起实况）
+      content: JSON.stringify({
+        total: 2,
+        citations: [
+          { target_id: 't1', doc_id: 'dB', doc_title: 'B规范.pdf', marker: 'K1', page_idx: 0, section_path: '3.1', snippet: 'a', score: 0.9 },
+        ],
+        items: [
+          { item_id: 't1', entity_type: 'content', doc_id: 'dB', title: 'B规范', text: 'a', rerank_score: 0.9, cite: 'K1', library_id: 'libB', doc_title: 'B规范.pdf' },
+          { item_id: 't2', entity_type: 'content', doc_id: 'dC', title: 'C手册', text: 'b', rerank_score: 0.8, cite: 'K2', library_id: 'libC', doc_title: 'C手册.pdf' },
+        ],
+      }),
+    },
+  ])
+  const kb = steps.find(step => step.kind === 'result' && step.tool === 'knowledge_search')
+  const byMarker = new Map((kb?.citations || []).map(c => [c.marker, c]))
+  assert.equal(byMarker.get('K1')?.library_id, 'libB')
+  assert.equal(byMarker.get('K2')?.library_id, 'libC')
+  assert.equal(kb?.resultItems?.length, 2)
+  assert.equal(kb?.resultItems?.[0]?.cite, 'K1')
+})
+
 test('extractToolResultItems 带出 cite 标记', () => {
   const items = extractToolResultItems(JSON.stringify({
     items: [{
@@ -232,6 +263,47 @@ test('extractToolResultItems 带出 cite 标记', () => {
     }],
   }))
   assert.equal(items?.[0]?.cite, 'K2')
+})
+
+test('extractToolResultItems 兼容投影形态（顶层 cite/doc_id/位置键，metadata 已剥）', () => {
+  // 生产形态：LLM 投影把 metadata 的引用/位置键提升到条目顶层（2026-10-16 复盘）
+  const items = extractToolResultItems(JSON.stringify({
+    total: 1,
+    items: [{
+      item_id: 'i1',
+      entity_type: 'chunk',
+      doc_id: 'd1',
+      title: '公路水泥规范',
+      text: '混凝土保护层厚度 30mm。',
+      rerank_score: 0.72,
+      citation_target_id: 'ct1',
+      cite: 'K1',
+      page_idx: 3,
+      page_label: '12',
+      section_path: '4 材料 / 4.1 水泥',
+      library_id: 'std-highway',
+      doc_title: '公路水泥规范.pdf',
+    }],
+  }))
+  const item = items?.[0]
+  assert.equal(item?.cite, 'K1')
+  assert.equal(item?.doc_id, 'd1')
+  assert.equal(item?.doc_title, '公路水泥规范.pdf')
+  // 顶层位置键合回 metadata：思考轨迹条目点击跳页走 item.metadata.page_idx，两形态都要有
+  assert.equal(item?.metadata?.page_idx, 3)
+  assert.equal(item?.metadata?.page_label, '12')
+  assert.equal(item?.metadata?.section_path, '4 材料 / 4.1 水泥')
+  assert.equal(item?.metadata?.library_id, 'std-highway')
+})
+
+test('extractToolResultItems 对缺 item_id 的历史行按位置兜底，不再整条丢弃', () => {
+  const items = extractToolResultItems(JSON.stringify({
+    total: 1,
+    items: [{ doc_id: 'd9', text: '无 id 的历史投影行', cite: 'K7' }],
+  }))
+  assert.equal(items?.length, 1)
+  assert.equal(items?.[0]?.cite, 'K7')
+  assert.match(String(items?.[0]?.item_id), /^item-0-d9/)
 })
 
 test('run_end 消息里的完整检索条目进入思考轨迹', () => {

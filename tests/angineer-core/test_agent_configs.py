@@ -22,7 +22,7 @@ from angineer_core.tool_codec import TextToolCallCodec  # noqa: E402
 
 
 class QaConfigTests(unittest.TestCase):
-    def test_build_qa_config_assembles_three_readonly_tools(self):
+    def test_build_qa_config_assembles_readonly_toolbox(self):
         config = build_qa_config(
             llm=Mock(),
             doc_nodes=[],
@@ -35,8 +35,15 @@ class QaConfigTests(unittest.TestCase):
             "table_search",
             "entity_search",
             "knowledge_stats",  # 废 meta_query 路由（2026-10-02）下沉 L1 统一工具箱
+            "calculator",       # calculator 进 QA 档工具箱（2026-10-07）
         ])
-        self.assertTrue(all(tool.read_only for tool in config.tools))
+        # read_only 是声明性字段（引擎内无消费点）：锁检索类工具只读；
+        # calculator 在装配处显式 read_only=False（2026-10-07 加入时如此），不在只读集
+        readonly_names = {tool.name for tool in config.tools if tool.read_only}
+        self.assertEqual(
+            readonly_names,
+            {"knowledge_search", "table_search", "entity_search", "knowledge_stats"},
+        )
         self.assertEqual(config.max_turns, 3)
         self.assertIsInstance(config.codec, TextToolCallCodec)
         self.assertIn("检索证据", config.system_prompt)
@@ -222,6 +229,7 @@ class QaConfigTests(unittest.TestCase):
             "table_search",
             "entity_search",
             "knowledge_stats",  # 废 meta_query 路由（2026-10-02）下沉 L1 统一工具箱
+            "calculator",       # calculator 进 QA 档工具箱（2026-10-07）
         ])
 
     def test_guard_removes_invalid_markers(self):

@@ -308,11 +308,11 @@ function collectCitationsFromToolMessages(
     const libByTarget = new Map<string, string>()
     const libByDoc = new Map<string, string>()
     for (const item of items) {
-      const lib = String(item?.metadata?.library_id || '').trim()
+      const lib = String(item?.library_id || item?.metadata?.library_id || '').trim()
       if (!lib) continue
-      const cite = String(item?.metadata?.cite || '')
-      const target = String(item?.item_id || item?.id || '')
-      const doc = String(item?.doc_id || '')
+      const cite = String(item?.cite || item?.metadata?.cite || '')
+      const target = String(item?.citation_target_id || item?.item_id || item?.id || '')
+      const doc = String(item?.doc_id || item?.metadata?.doc_id || '')
       if (cite && !libByMarker.has(cite)) libByMarker.set(cite, lib)
       if (target && !libByTarget.has(target)) libByTarget.set(target, lib)
       if (doc && !libByDoc.has(doc)) libByDoc.set(doc, lib)
@@ -342,18 +342,18 @@ function collectCitationsFromToolMessages(
       }
     }
     for (const item of items) {
-      if (!item?.item_id) continue
+      if (!item?.item_id && !item?.citation_target_id) continue
       citations.push({
-        target_id: String(item.item_id || ''),
+        target_id: String(item.citation_target_id || item.item_id || ''),
         target_type: String(item.entity_type || 'content'),
-        doc_id: String(item.doc_id || ''),
-        doc_title: String(item.metadata?.doc_title || item.title || ''),
-        marker: String(item.metadata?.cite || ''),
-        page_idx: Number(item.metadata?.page_idx || 0),
-        section_path: String(item.metadata?.section_path || ''),
+        doc_id: String(item.doc_id || item.metadata?.doc_id || ''),
+        doc_title: String(item.doc_title || item.metadata?.doc_title || item.title || ''),
+        marker: String(item.cite || item.metadata?.cite || ''),
+        page_idx: Number(item.page_idx ?? item.metadata?.page_idx ?? 0),
+        section_path: String(item.section_path || item.metadata?.section_path || ''),
         snippet: String(item.text || ''),
-        score: Number(item.score || 0),
-        library_id: String(item.metadata?.library_id || '') || undefined,
+        score: Number(item.rerank_score ?? item.score ?? 0),
+        library_id: String(item.library_id || item.metadata?.library_id || '') || undefined,
       })
     }
   }
@@ -595,24 +595,29 @@ export function extractToolResultItems(content: string): ThinkingTraceItem[] | u
   }
   if (!raw || typeof raw !== 'object') return undefined
 
-  const normalizeItem = (entry: any): ThinkingTraceItem | null => {
+  const normalizeItem = (entry: any, index: number): ThinkingTraceItem | null => {
     if (!entry || typeof entry !== 'object') return null
-    const itemId = String(entry.item_id || entry.id || '')
-    if (!itemId) return null
-    const metadata = entry.metadata && typeof entry.metadata === 'object'
-      ? entry.metadata
-      : {}
+    const rawMeta = entry.metadata && typeof entry.metadata === 'object' ? entry.metadata : {}
+    // 两形态合一：LLM 投影把 metadata 的引用/位置键提升到条目顶层且删掉 item_id
+    // （2026-10-16 复盘），这里把顶层键合回 metadata，下游（toCitation 跳页、引用归属）
+    // 按既有 metadata 读法照常工作；item_id 缺失的历史行按位置补稳定 key（整条不再被丢）
+    const metadata: Record<string, any> = { ...rawMeta }
+    for (const key of ['doc_id', 'doc_title', 'cite', 'page_idx', 'page_label', 'section_path', 'library_id']) {
+      if (metadata[key] === undefined && entry[key] !== undefined) metadata[key] = entry[key]
+    }
+    const itemId = String(entry.item_id || entry.id || entry.citation_target_id || '')
+      || `item-${index}-${String(entry.doc_id || metadata.doc_title || entry.title || '').slice(0, 24)}`
     const title = String(entry.title || entry.name || metadata.doc_title || '')
     const text = String(entry.text || entry.description || entry.content || '')
     if (!text) return null
     return {
       item_id: itemId,
       entity_type: String(entry.entity_type || 'content'),
-      doc_id: String(entry.doc_id || ''),
-      doc_title: String(metadata.doc_title || entry.doc_title || title),
+      doc_id: String(entry.doc_id || metadata.doc_id || ''),
+      doc_title: String(entry.doc_title || metadata.doc_title || title),
       title,
       text,
-      cite: String(metadata.cite || ''),
+      cite: String(entry.cite || metadata.cite || ''),
       // 优先展示融合/重排后的相关度（0~1 量级），原始 dense/sparse 分可能超过 1
       score: Number(
         entry.rerank_score
@@ -626,11 +631,15 @@ export function extractToolResultItems(content: string): ThinkingTraceItem[] | u
   }
 
   if (Array.isArray(raw.items)) {
-    const items = raw.items.map(normalizeItem).filter(Boolean) as ThinkingTraceItem[]
+    const items = raw.items
+      .map((entry: any, index: number) => normalizeItem(entry, index))
+      .filter(Boolean) as ThinkingTraceItem[]
     return items.length ? items : undefined
   }
   if (Array.isArray(raw.entities)) {
-    const items = raw.entities.map(normalizeItem).filter(Boolean) as ThinkingTraceItem[]
+    const items = raw.entities
+      .map((entry: any, index: number) => normalizeItem(entry, index))
+      .filter(Boolean) as ThinkingTraceItem[]
     return items.length ? items : undefined
   }
   return undefined
