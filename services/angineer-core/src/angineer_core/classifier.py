@@ -286,6 +286,32 @@ def _is_clause_number_query(query: str) -> bool:
     return bool(_CLAUSE_NUMBER_PATTERN.search(query))
 
 
+# 计算方法问句快路径（2026-10-16，docs/req-calc-method-l2-routing.md）：
+# 「XX怎么计算/如何计算/计算公式是什么」类问句（计算动词 + 题面零数值）问的是方法与公式
+# （规范条款查证，L2），不是执行计算（L3 需具体数值参数 + SOP 承接）。
+# 生产实况：同句 2026-10-04→10-06 被 LLM 从 L1 漂到 L3，L3 链路无 SOP 可执行即缺参/拒答。
+# 刻意窄口径（问句尾巴限定）防误伤；开关 ANGINEER_CALC_METHOD_FASTPATH 默认开。
+_CALC_METHOD_PATTERN = re.compile(
+    r"(?:怎么|如何|怎样)(?:计算|算(?!法)|求解|求|算出|得出|推算)"
+    r"|(?:计算|求解|(?<![寻请要需])求)(?:公式|方法|步骤|过程)\s*"
+    r"(?:是什么|是啥|是多少|怎么样|是怎样的|为多少|为|有哪些|分别|呢|[?？]|$)"
+)
+
+_DIGIT_PATTERN = re.compile(r"[0-9０-９]")
+
+
+def _calc_method_fastpath_enabled() -> bool:
+    return (os.getenv("ANGINEER_CALC_METHOD_FASTPATH", "true") or "").strip().lower() not in ("0", "false", "no", "off")
+
+
+def _is_calc_method_query(query: str) -> bool:
+    if not query:
+        return False
+    if _DIGIT_PATTERN.search(query):
+        return False
+    return bool(_CALC_METHOD_PATTERN.search(query))
+
+
 # L0 闲聊快速检测（独立函数，供 classify_intent 优先调用）
 def _check_l0_intent(query: str) -> Optional[IntentResult]:
     """仅检测明确的闲聊/问候意图，不做 L1-L4 判定。"""
@@ -402,6 +428,17 @@ def _rule_based_classify(query: str) -> Optional[IntentResult]:
     
     has_l1_keyword = any(kw in query for kw in L1_KEYWORDS)
     has_l4_compound = any(kw in query for kw in L4_COMPOUND_SIGNALS)
+
+    # 计算方法问句（无数值参数）→ L2 条款/公式查证（与计算快路径同口径；2026-10-16）
+    # 必须置于 L1 分支之前：L1_KEYWORDS 含「是什么」，否则「计算公式是什么」会被 L1 先截胡（实测）
+    if _calc_method_fastpath_enabled() and _is_calc_method_query(query):
+        return _build_intent_result(
+            intent_level="L2",
+            intent_type="method_lookup",
+            required_capabilities=["retrieval", "sql"],
+            service_mode="structured_lookup",
+            reason="计算方法问句（无数值参数）：规则归 L2 条款/公式查证（计算快路径同口径）",
+        )
     
     # L1: 概念/定义/位置类查询（只要检测到L1关键词且没有强L3信号）
     if has_l1_keyword and not (has_l3_keyword and len(num_values) >= 1):
@@ -537,6 +574,7 @@ class IntentClassifier:
                     "level": getattr(result, "intent_level", None),
                     "mode": getattr(result, "service_mode", None),
                     "query": user_query,
+                    "reason": getattr(result, "reason", None),
                 },
             )
         except Exception:  # noqa: BLE001
@@ -581,6 +619,19 @@ class IntentClassifier:
             )
             logger.info(f"[DEBUG-SOP-ROUTE] 条款号快路径命中: {user_query[:50]}")
             return clause_result
+
+        # 步骤 1.8: 计算方法问句快路径（2026-10-16，docs/req-calc-method-l2-routing.md）
+        # 「堤顶高程怎么计算」类：问方法/公式而非执行计算（题面无数值参数），规则直达 L2。
+        if _calc_method_fastpath_enabled() and _is_calc_method_query(user_query):
+            calc_method_result = _build_intent_result(
+                intent_level="L2",
+                intent_type="method_lookup",
+                required_capabilities=["retrieval", "sql"],
+                service_mode="structured_lookup",
+                reason="计算方法问句快路径：似查公式/方法而非执行计算（无数值参数），规则直达 L2",
+            )
+            logger.info(f"[DEBUG-SOP-ROUTE] 计算方法问句快路径命中: {user_query[:50]}")
+            return calc_method_result
 
         # 步骤 2: LLM 直接分类 L1/L2/L3/L4（主力分类器）
         logger.debug("[DEBUG-SOP-ROUTE] 非L0查询，进入 LLM 主力分类...")
