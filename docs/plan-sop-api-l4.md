@@ -323,13 +323,16 @@ query
 
 ## 7. 阶段 4：sop-core 独立发包（0.5-1 天）
 
-- [ ] **前置核查（开工先做）**：angineer-core 独立仓远端已到 v0.1.2、PyPI 最新 0.1.2（2026-10-12 本机核实），而主仓 `services/angineer-core/pyproject.toml` 仍 0.1.1——按 `git diff split/core HEAD:services/angineer-core/src` 判内容漂移，先对齐（或确认仅版本字段漂移）再发包
-- [ ] `services/sop-core/pyproject.toml`：依赖行 `angineer-docs-core` → `angineer-core>=0.1.1`（干净 venv 实装会拉到 0.1.2 现货，满足语义） + `angineer-ai-inference>=0.2.2`
-- [ ] 删 `services/sop-core/src/sop_core/sop_loader.py:9` 的 `sys.path.append` hack（以 grep 行号为准）
-- [ ] 独立仓库 `angineer-sop-core`：`scripts/sync-standalone.ps1` 的 `$SourcePathOverrides` 加 `'sop-core' = 'services/sop-core'`；独立仓库侧照 ai-inference 模式放 `publish.yml`（OIDC trusted publishing + tag 与 pyproject 版本一致性校验）、LICENSE（MIT）、CI
-- [ ] **版本号 0.1.0 首发需用户确认**（AGENTS.md 约定；未发布过，无占用）
-- [ ] PyPI 侧配 trusted publisher（用户操作）
-- [ ] 干净 venv 验收：`pip install angineer-sop-core` → `import sop_core; sop_core.SopLoader(...)` 可用，依赖自动拉 angineer-core（PyPI 现货已核实存在：0.1.0/0.1.1/0.1.2）
+> **10-16 已完成（首发 0.1.0 上 PyPI）**：独立仓 [github.com/0mao0/angineer-sop-core](https://github.com/0mao0/angineer-sop-core)（main=63dd460d，tag v0.1.0）；publish.yml 三作业全绿；干净 venv 从 PyPI 真装验收通过（import/校验/落盘/生成器）。
+> 实施备注：①前置核查只剩历史意义——主仓 angineer-core 已 0.1.5，无漂移；②依赖上限改按同族惯例（`angineer-core>=0.1.1,<0.2.0`、`angineer-ai-inference>=0.2.2,<0.3.0`）；③主仓 tag 命名空间 `v0.1.0` 已被占（ai-inference 首发），故本地 tag 用 `sop-core@0.1.0` 显式带 sha、推送时映射为远端 `v0.1.0`；④本机 pip 走阿里云镜像、新包同步有延迟，验证/安装需 `--index-url https://pypi.org/simple`。
+
+- [x] **前置核查（开工先做）**：angineer-core 独立仓远端已到 v0.1.2、PyPI 最新 0.1.2（2026-10-12 本机核实），而主仓 `services/angineer-core/pyproject.toml` 仍 0.1.1——按 `git diff split/core HEAD:services/angineer-core/src` 判内容漂移，先对齐（或确认仅版本字段漂移）再发包
+- [x] `services/sop-core/pyproject.toml`：依赖行 `angineer-docs-core` → `angineer-core>=0.1.1`（干净 venv 实装会拉到 0.1.2 现货，满足语义） + `angineer-ai-inference>=0.2.2`
+- [x] 删 `services/sop-core/src/sop_core/sop_loader.py:9` 的 `sys.path.append` hack（以 grep 行号为准）
+- [x] 独立仓库 `angineer-sop-core`：`scripts/sync-standalone.ps1` 的 `$SourcePathOverrides` 加 `'sop-core' = 'services/sop-core'`；独立仓库侧照 ai-inference 模式放 `publish.yml`（OIDC trusted publishing + tag 与 pyproject 版本一致性校验）、LICENSE（MIT）、CI
+- [x] **版本号 0.1.0 首发需用户确认**（AGENTS.md 约定；未发布过，无占用）
+- [x] PyPI 侧配 trusted publisher（用户操作）
+- [x] 干净 venv 验收：`pip install angineer-sop-core` → `import sop_core; sop_core.SopLoader(...)` 可用，依赖自动拉 angineer-core（PyPI 现货已核实存在：0.1.0/0.1.1/0.1.2）
 
 ## 8. 风险与回滚
 
