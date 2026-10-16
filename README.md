@@ -129,7 +129,7 @@ flowchart LR
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.98` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.99` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.2` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.3` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
@@ -138,6 +138,7 @@ flowchart LR
 | [angineer-core](https://github.com/0mao0/angineer-core) | `v0.1.5` | Python 问答编排内核（Agent Harness：意图分级 / 工具调用 / 证据守卫；可选 `[server]` 壳） |
 | [angineer-tree-core](https://github.com/0mao0/angineer-tree-core) | `v0.1.0` | Python 树节点存储层（sqlite：CRUD / 移动重排 / 作用域隔离） |
 | [angineer-docs-core](https://github.com/0mao0/angineer-docs-core) | `v0.1.4` | Python 文档解析入库引擎（九阶段管线 + 五路检索 + 导出；PoPo 随包；可选 `[server]` 壳） |
+| [angineer-sop-core](https://github.com/0mao0/angineer-sop-core) | `v0.1.0` | Python SOP 编写库（加载 / 解析 / 校验 / 生成；执行器在 angineer-core） |
 
 ***
 
