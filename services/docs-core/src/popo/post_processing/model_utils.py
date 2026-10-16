@@ -16,26 +16,62 @@ _TRANSFORMERS_MODEL = None
 _TRANSFORMERS_PROCESSOR = None
 
 # 多端点轮询游标（进程内单调计数；本模块每次推理在独立子进程加载，
-# 子进程内各计数器的起点仍保证「先 dgx 后 company」交替近似均匀）。
+# 子进程内各计数器的起点仍保证近似按权重分配）。
 _POPO_RR_LOCK = threading.Lock()
 _POPO_RR_CURSOR = itertools.count()
 
 
+def _endpoint_weights(endpoints):
+    """POPO_ENDPOINT_WEIGHTS='dgx:1,company:3' → [1, 3]（与 endpoints 同序）。
+
+    缺省/未匹配的端点权重 1。权重语义=发往该端点的请求占比（轮询配比），
+    不是并发上限——并发由 POPO_MAX_CONCURRENCY（文档槽位）× 占比决定。
+    """
+    raw = os.environ.get("POPO_ENDPOINT_WEIGHTS", "").strip()
+    table = {}
+    for part in raw.split(","):
+        if ":" in part:
+            k, _, v = part.partition(":")
+            try:
+                table[k.strip()] = max(1, int(v))
+            except ValueError:
+                pass
+    out = []
+    for ep in endpoints:
+        name = ep[0] if len(ep) > 3 else ""
+        out.append(table.get(name, 1))
+    return out
+
+
 def _rotated_endpoints(endpoints):
-    """按全局请求计数把端点列表轮转：第 N 次请求优先 endpoints[N % len]，
-    失败顺延其余端点（顺序=轮转后的余序）。单端点时恒返回原列表，行为不变。"""
+    """按权重轮转端点：第 N 次请求优先按展开表选中某端点，失败顺延其余端点。
+
+    展开表 = 每个端点按权重重复 N 次（如 dgx:1,company:3 → [dgx, c, c, c]）；
+    轮转后按 URL 去重保序（第一个=首选，其余=失败回退顺序）。
+    单端点时恒返回原列表，行为不变。"""
     if len(endpoints) <= 1:
         return list(endpoints)
+    weights = _endpoint_weights(endpoints)
+    expanded = [ep for ep, w in zip(endpoints, weights) for _ in range(w)]
     with _POPO_RR_LOCK:
-        start = next(_POPO_RR_CURSOR) % len(endpoints)
-    return list(endpoints[start:]) + list(endpoints[:start])
+        start = next(_POPO_RR_CURSOR) % len(expanded)
+    order = expanded[start:] + expanded[:start]
+    seen = set()
+    uniq = []
+    for ep in order:
+        url = ep[1]
+        if url not in seen:
+            seen.add(url)
+            uniq.append(ep)
+    return uniq
 
 
 def _popo_endpoints():
-    """推理端点列表：[(url, key, model), ...]，数组顺序=优先级，第一项为默认。
+    """推理端点列表：[(name, url, key, model), ...]，数组顺序=优先级，第一项为默认。
 
     来自 POPO_CONFIGS (JSON list)：[{"name","url","api_key","model"}, ...]；
-    连接失败/超时自动尝试列表中的下一项（由调用方循环实现）。
+    连接失败/超时自动尝试列表中的下一项（由调用方循环实现）；
+    name 供 POPO_ENDPOINT_WEIGHTS 按端点配请求占比。
     """
     raw = os.environ.get("POPO_CONFIGS", "").strip()
     if not raw:
@@ -56,7 +92,8 @@ def _popo_endpoints():
             continue
         key = str(item.get("api_key") or "").strip()
         model = str(item.get("model") or "").strip() or "Popo"
-        endpoints.append((url, key, model))
+        name = str(item.get("name") or "").strip() or url.split("//")[-1].split("/")[0]
+        endpoints.append((name, url, key, model))
     return endpoints
 
 
@@ -156,7 +193,7 @@ def popo_generate(prompt, base64_image):
     # 原语义「顺序优先级回退」在 DGX 健康时会让 company 端点零流量，无法并行提速）。
     order = _rotated_endpoints(endpoints)
     last_error = None
-    for url, key, base_model in order:
+    for _name, url, key, base_model in order:
         try:
             client = OpenAI(
                 base_url=url or None,
@@ -219,7 +256,7 @@ def qwen_generate(prompt, base64_image):
             }
         ]
 
-    for url, key, _model in endpoints:
+    for _name, url, key, _model in endpoints:
         try:
             client = OpenAI(
                 base_url=url or None,
@@ -282,7 +319,7 @@ def gpt_generate(prompt, base64_image):#gemini-3-pro-preview
             }
         ]
 
-    for url, key, _model in endpoints:
+    for _name, url, key, _model in endpoints:
         try:
             client = OpenAI(
                 base_url=url or None,

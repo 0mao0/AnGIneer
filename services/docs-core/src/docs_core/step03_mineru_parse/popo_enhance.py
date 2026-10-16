@@ -356,15 +356,18 @@ class PoPoPipelineRunner:
             raise
         # 非空校验：端点全挂时 popo_generate 只 return ""、退出码仍是 0，阶段会被记成 done
         # 而产物里一个判定都没有。这里把它变成显式失败（popo 是 soft 阶段，不影响后续解析）。
+        # 2026-10-16 修正：旧版只要 stdout 出现一条 "POPO endpoint X failed" 就判失败——
+        # 多端点容错下会误杀（company 连不上、DGX 成功产出判定，整篇仍被标 failed，当天 PoPo
+        # 零产出 12h 的真因）。改为先数产物：有判定=成功（端点失败只是容错噪音）；零判定才失败。
+        verdicts = _count_popo_verdicts(enriched_out, doc_id)
         failed_endpoints = _popo_endpoint_failures(infer_output)
-        if failed_endpoints:
+        if failed_endpoints and verdicts["blocks"] == 0:
             detail = f"端点失败 {len(failed_endpoints)} 次：{failed_endpoints[0]}"
             _emit_on_step(on_step, "PoPo 4B 推理", "failed", detail)
             raise PopoEndpointUnavailableError(
                 f"PoPo 推理端点全部失败，本文档没有可用判定（{detail}）"
                 "；历史行为是静默返回空串、阶段记 done，故此前一直不可见"
             )
-        verdicts = _count_popo_verdicts(enriched_out, doc_id)
         logger.info("PoPo 判定产出: %s", verdicts)
         _emit_on_step(
             on_step,
