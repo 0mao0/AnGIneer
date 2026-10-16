@@ -121,6 +121,9 @@ export const buildInlineCitationTagHtml = (
     ` data-page-idx="${Number(citation.page_idx || 0)}"`,
     ` data-section-path="${escapeHtmlAttribute(citation.section_path || '')}"`,
     ` data-snippet="${escapeHtmlAttribute(citation.snippet || '')}"`,
+    // 归属库随标记一起下发：点击走事件委托、按 data-* 重建引用，漏掉它只能回退宿主主库，
+    // 多库会话里非主库文档必 404（2026-10-16 本地 6 库会话实踩）
+    ` data-library-id="${escapeHtmlAttribute(citation.library_id || '')}"`,
     ` title="${escapeHtmlAttribute(hover)}"`,
     `>${number}</span>`,
   ].join('')
@@ -299,6 +302,7 @@ export const findMentionAtCaret = (
 export const mapReferenceToBaseChatCitation = (reference: CitationReference): BaseChatCitation => ({
   target_id: reference.targetId,
   target_type: reference.targetType,
+  library_id: reference.libraryId,
   doc_id: reference.docId,
   doc_title: reference.docTitle,
   page_idx: Number(reference.pageIdx || 0),

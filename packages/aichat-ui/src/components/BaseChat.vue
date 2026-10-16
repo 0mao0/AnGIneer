@@ -1048,6 +1048,8 @@ const renderAssistantContent = (message: BaseChatMessage): string => {
       ` data-page-idx="${Number(citation.page_idx || 0)}"`,
       ` data-section-path="${escapeHtml(citation.section_path || '')}"`,
       ` data-snippet="${escapeHtml(citation.snippet || '')}"`,
+      // 归属库随内联链接一起下发（点击事件委托按 data-* 重建引用，见 handleMessageClick）
+      ` data-library-id="${escapeHtml(citation.library_id || '')}"`,
       `>${escapeHtml(link.label)}</a>`,
     ].join('')
   })
@@ -1125,6 +1127,9 @@ const handleMessageClick = (event: MouseEvent) => {
     page_idx: Number(target.dataset.pageIdx || 0),
     section_path: String(target.dataset.sectionPath || ''),
     snippet: String(target.dataset.snippet || ''),
+    // 归属库必须随 data-* 带回来：宿主按 library_id 定位溯源面板，缺省只能回退主库，
+    // 多库会话里非主库文档必 404（2026-10-16 本地 6 库会话实踩）
+    library_id: String(target.dataset.libraryId || '') || undefined,
     score: 0,
   })
 }

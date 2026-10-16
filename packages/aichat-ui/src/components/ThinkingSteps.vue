@@ -276,6 +276,9 @@ const toCitation = (item: ThinkingTraceItem): BaseChatCitation => ({
   snippet: item.text,
   content: item.text,
   content_type: 'text',
+  // 归属库：投影后可能落在顶层或 metadata（两形态并存），缺了宿主只能回退主库 →
+  // 多库会话里非主库文档必 404（2026-10-16 本地 6 库会话实踩）
+  library_id: String((item as any).library_id || item.metadata?.library_id || '') || undefined,
   score: item.score || 0,
 })
 
