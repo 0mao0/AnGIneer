@@ -56,6 +56,16 @@ class _FakeStore:
         return self._claimed
 
 
+class _RaisingStore:
+    """运行期存储异常（DB 锁/IO）：语义维持 fail-open，但必须打日志留痕。"""
+
+    def guest_rounds(self, owner):
+        raise RuntimeError("database is locked")
+
+    def guest_is_claimed(self, guest_id):
+        raise RuntimeError("database is locked")
+
+
 class ResolveGuestOwnerTests(unittest.TestCase):
     def setUp(self):
         self.chat_auth = _load_chat_auth()
@@ -112,6 +122,14 @@ class GuestGateTests(unittest.TestCase):
 
     def test_store_none_fail_open(self):
         self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", None))
+
+    def test_store_exception_fail_open_with_log(self):
+        """运行期异常仍 fail-open（可用性优先），但必须留 warning——静默放行曾致轮闸
+        失效无从排查（2026-10-17 实踩：7 轮通过疑似此路径）。"""
+        with self.assertLogs("aichat.auth", level="WARNING") as logs:
+            self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _RaisingStore()))
+        self.assertIn("fail-open", logs.output[0])
+        self.assertIn("database is locked", logs.output[0])
 
     def test_boundary_29_30_31(self):
         # 轮数按 run 计（1 run = 提问 1 次）：29 放行，已有 30 → 第 31 次拦

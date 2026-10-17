@@ -255,5 +255,10 @@ def guest_gate_blocked(owner: str, store, state=None) -> bool:
         if store.guest_is_claimed(owner[2:]):
             return True
         return store.guest_rounds(owner) >= guest_rounds_limit(state)
-    except Exception:  # noqa: BLE001
+    except Exception as exc:  # noqa: BLE001
+        # fail-open 仅对「store=None 存储降级」属设计豁免（§3.3）；运行期异常（DB 锁/IO）
+        # 同样放行但必须留痕——否则游客轮闸静默失效无从排查（2026-10-17 排查实踩）。
+        logger.warning(
+            "游客闸判定异常，按 fail-open 放行（owner=%s）: %s", owner, exc,
+        )
         return False
