@@ -158,7 +158,7 @@ const documentViewLoader = () => import('@/views/DocumentView.vue')
 const DocumentView = defineAsyncComponent(documentViewLoader)
 
 const authStore = useAuthStore()
-/** 游客恒为默认库（D2），登录态按授权库走 */
+/** 单值库口径统一走 effectiveLibraryId：游客=勾选首项||允许集首项||'default'（2026-10-17 游客设置），登录态按授权库走 */
 const libraryId = computed(() => authStore.effectiveLibraryId || 'default')
 
 /** 游客 30 轮闸弹出的登录浮层（login_required 或顶栏「登录」按钮触发） */
