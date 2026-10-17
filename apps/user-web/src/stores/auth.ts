@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { docsApiClient } from '../../../shared/apiClient'
 import { clearSessionToken, getSessionToken, setSessionToken } from '../../../shared/session'
+import { guestApi, type GuestConfig } from '@/api/guest'
 
 // 2026-10-09 多库勾选上限移除（设计稿 design-user-kb-access-scope.md R4/B1 定版，已完结清理、git 历史可查）：
 // 原 MAX_SELECTED_LIBRARIES = 5 与服务端 ANGINEER_MAX_CHAT_LIBRARIES 截断同批移除，勾选集合无上限（>20 仅服务端记 warning）。
@@ -28,14 +29,26 @@ export const useAuthStore = defineStore('auth', {
     activeLibraryIds: [] as string[],
     checking: false,
     guestMode: true,
+    /** 游客公开配置（2026-10-17 游客设置）：默认 null；拉取后提供游客库集合/分组 */
+    guestConfig: null as GuestConfig | null,
   }),
   getters: {
     isAuthed: (state) => Boolean(state.token),
     libraryId: (state) => state.activeLibraryId || state.user?.default_library || '',
-    /** 派生集 = 检索范围唯一真相源（R6 统一走派生）；消费点（ChatHome 选择器/setActiveLibraries 过滤）都读它 */
-    libraries: (state) => state.user?.accessible_libraries ?? state.user?.libraries ?? [],
-    /** 游客恒只能问默认库（服务端 v0.2.66 闸 + D2 双重约束） */
-    effectiveLibraryId: (state) => (state.guestMode ? 'default' : state.activeLibraryId || state.user?.default_library || ''),
+    /** 派生集 = 检索范围唯一真相源（R6 统一走派生）；消费点（ChatHome 选择器/setActiveLibraries 过滤）都读它；
+     *  游客态（2026-10-17 游客设置）= 公开配置的允许集（服务端闸门为最终裁定） */
+    libraries: (state) =>
+      state.guestMode
+        ? (state.guestConfig?.groups ?? []).flatMap((g) => g.libraries.map((l) => l.id))
+        : state.user?.accessible_libraries ?? state.user?.libraries ?? [],
+    /** 游客态 = 勾选首项 || 允许集首项 || 'default'（服务端游客允许集闸兜底） */
+    effectiveLibraryId: (state) => {
+      if (!state.guestMode) return state.activeLibraryId || state.user?.default_library || ''
+      const ids = state.activeLibraryIds.length
+        ? state.activeLibraryIds
+        : (state.guestConfig?.groups ?? []).flatMap((g) => g.libraries.map((l) => l.id))
+      return ids[0] || 'default'
+    },
   },
   actions: {
     async enterGuestMode() {
@@ -43,6 +56,22 @@ export const useAuthStore = defineStore('auth', {
       // 已登录调用是安全的 no-op（resolve_pool_owner 永远优先 u:）
       await fetch('/api/chat/guest', { method: 'POST' }).catch(() => {})
       this.guestMode = true
+    },
+    /** 拉游客公开配置（2026-10-17 游客设置）：默认勾选 = 允许集全选；失败保持空集合
+     *  （选择器降级为空、发送侧服务端仍按文件兜底裁定） */
+    async loadGuestConfig() {
+      if (!this.guestMode) return
+      try {
+        const cfg = await guestApi.getConfig()
+        this.guestConfig = cfg
+        const ids = cfg.groups.flatMap((g) => g.libraries.map((l) => l.id))
+        this.activeLibraryIds = ids.length ? [...ids] : []
+        this.activeLibraryId = this.activeLibraryIds[0] || 'default'
+      } catch {
+        this.guestConfig = null
+        this.activeLibraryIds = []
+        this.activeLibraryId = ''
+      }
     },
     exitGuestMode() {
       this.guestMode = false

@@ -15,10 +15,10 @@
           :session-id="sessionId"
           :library-id="libraryId"
           :mention-mode="'document'"
-          :library-options="authStore.guestMode ? [] : libraryOptions"
+          :library-options="effectiveLibraryOptions"
           library-multi
           :library-values="authStore.activeLibraryIds"
-          :library-sections="authStore.guestMode ? [] : librarySections"
+          :library-sections="effectiveLibrarySections"
           :show-model-select="!authStore.guestMode"
           :transport="defaultAIChatTransport"
           :suggested-question-rows="suggestedQuestionRows"
@@ -178,7 +178,10 @@ watch(
   () => authStore.isAuthed,
   () => {
     loginPrompt.value = false
-    void loadLibraryNames()
+    // 登录/登出切换重拉数据源（2026-10-17 游客设置）：登出回游客态必须重拉公开配置，
+    // 否则选择器停在空集（自动登录清档后点发送会 403）
+    if (authStore.guestMode) void authStore.loadGuestConfig()
+    else void loadLibraryNames()
     void refreshSessions()
   }
 )
@@ -236,6 +239,32 @@ const librarySections = computed<BaseChatLibrarySection[]>(() => {
   return sections
 })
 
+/** 游客选择器数据源（2026-10-17 游客设置）：来自公开配置的分组库清单（服务端已按允许集过滤、已剔 evals） */
+const guestLibraryOptions = computed(() =>
+  (authStore.guestConfig?.groups ?? []).flatMap((g) =>
+    g.libraries.map((l) => ({ value: l.id, label: l.name || l.id })),
+  ),
+)
+const guestLibrarySections = computed<BaseChatLibrarySection[]>(() => {
+  const sections: BaseChatLibrarySection[] = []
+  for (const g of authStore.guestConfig?.groups ?? []) {
+    if (!g.libraries.length) continue
+    sections.push({
+      key: g.group_name,
+      label: GROUP_LABELS[g.group_name] || stripDomainPrefix(g.display_name || '') || g.group_name,
+      libraries: g.libraries.map((l) => ({ id: l.id, name: l.name || l.id })),
+    })
+  }
+  return sections
+})
+/** 选择器统一出口：游客走公开配置，登录态走授权派生集（模型选择仍只对登录态展示，维持现状） */
+const effectiveLibraryOptions = computed(() =>
+  authStore.guestMode ? guestLibraryOptions.value : libraryOptions.value,
+)
+const effectiveLibrarySections = computed(() =>
+  authStore.guestMode ? guestLibrarySections.value : librarySections.value,
+)
+
 const loadLibraryNames = async () => {
   // 两个请求各自独立成败（allSettled）：分组失败不该拖累库名、反之亦然——否则选择器整段退化
   const [listRes, groupsRes] = await Promise.allSettled([
@@ -257,7 +286,9 @@ const loadLibraryNames = async () => {
 onMounted(() => {
   // 未登录（游客态）：补签游客 cookie，保证首轮问答即落在 g: 桶（幂等，已登录是安全的 no-op）
   if (!authStore.isAuthed) void authStore.enterGuestMode()
-  if (!authStore.guestMode) void loadLibraryNames()
+  // 游客态拉公开配置（默认全选在 store 里完成）；登录态拉授权库名/分组（既有逻辑）
+  if (authStore.guestMode) void authStore.loadGuestConfig()
+  else void loadLibraryNames()
   // 空闲预热预览栈：不抢首屏带宽，页面可用后悄悄把它加载完，点引用时无需再等
   const prime = () => { void documentViewLoader() }
   if (typeof requestIdleCallback === 'function') requestIdleCallback(prime, { timeout: 4000 })
