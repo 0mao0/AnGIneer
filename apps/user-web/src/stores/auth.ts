@@ -63,11 +63,16 @@ export const useAuthStore = defineStore('auth', {
       if (!this.guestMode) return
       try {
         const cfg = await guestApi.getConfig()
+        // 竞态守护（2026-10-17 评审补）：飞行中登录成功（刷新页时 App 收敛 guestMode=false 晚于本请求）
+        // → 不得用游客允许集覆写 refreshMe 刚恢复的用户派生集
+        if (!this.guestMode) return
         this.guestConfig = cfg
         const ids = cfg.groups.flatMap((g) => g.libraries.map((l) => l.id))
         this.activeLibraryIds = ids.length ? [...ids] : []
         this.activeLibraryId = this.activeLibraryIds[0] || 'default'
       } catch {
+        // 同上守护：飞行中登录完成时不得清空用户派生集
+        if (!this.guestMode) return
         this.guestConfig = null
         this.activeLibraryIds = []
         this.activeLibraryId = ''
