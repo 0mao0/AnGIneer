@@ -43,5 +43,50 @@ class TestConditionalToolTableLookup(unittest.TestCase):
         self.assertIsInstance(result, dict)
 
 
+class TestConditionalToolErrorPropagation(unittest.TestCase):
+    """分支内嵌子工具的错误必须透传到顶层 error 键（2026-10-17 QA 实踩：
+    错误埋在 calculator_result/table_result 里，runner 只认顶层 error，
+    导致「分支计算失败但步骤记 success、result=None」假成功，缺参也不进 missing_report）。"""
+
+    def test_calculator_branch_error_propagates_to_top_level(self):
+        tool = ConditionalTool()
+        result = tool.run(
+            condition_var="细沙型",
+            branches=[
+                {"match": ["细沙型"], "calculator": {"expression": "0.4 * ${有效波高H13} / ${波长L}"}},
+            ],
+            context={},  # 黑板无参数 → calculator 应报「表达式包含未知量」
+        )
+        self.assertIsInstance(result, dict)
+        self.assertIn("error", result, "calculator 分支失败时顶层必须有 error 键，否则 runner 记假成功")
+        self.assertNotIn("result", {k: v for k, v in result.items() if v is not None and k == "result"})
+
+    def test_calculator_branch_success_has_no_error(self):
+        tool = ConditionalTool()
+        result = tool.run(
+            condition_var="细沙型",
+            branches=[
+                {"match": ["细沙型"], "calculator": {"expression": "0.4 * ${有效波高H13}"}},
+            ],
+            context={"有效波高H13": 2.0},
+        )
+        self.assertIsInstance(result, dict)
+        self.assertNotIn("error", result)
+        self.assertAlmostEqual(result["result"], 0.8, places=6)
+
+    def test_table_lookup_branch_missing_scope_error_at_top_level(self):
+        tool = ConditionalTool()
+        result = tool.run(
+            condition_var="粗沙型",
+            branches=[
+                {"match": ["粗沙型"], "table_lookup": {
+                    "table_name": "图F.0.5", "query_conditions": {}, "file_name": "x", "target_column": "Z"}},
+            ],
+            context={},  # 无 scope → canonical 路径应报缺 scope
+        )
+        self.assertIsInstance(result, dict)
+        self.assertIn("error", result, "table_lookup 分支缺 scope 时顶层必须有 error 键")
+
+
 if __name__ == "__main__":
     unittest.main()

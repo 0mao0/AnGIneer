@@ -339,6 +339,7 @@ class ConditionalTool(BaseTool):
                 "matched_action": "table_lookup",
                 "table_name": table_name,
                 "query_conditions": resolved_conditions,
+                "error": "conditional 的 table_lookup 分支缺少知识库 scope（library_id 需由 SopRunner 注入）",
                 "table_result": {"error": "conditional 的 table_lookup 分支缺少知识库 scope（library_id 需由 SopRunner 注入）"}
             }
 
@@ -352,13 +353,18 @@ class ConditionalTool(BaseTool):
             library_ids=library_ids,
         )
 
-        return {
+        out = {
             "result": result.get("result"),
             "matched_action": "table_lookup",
             "table_name": table_name,
             "query_conditions": resolved_conditions,
             "table_result": result
         }
+        # 子工具错误必须透传到顶层 error：runner 只认顶层 error 键，埋在 table_result 里
+        # 会被当成步骤成功（result=None 假成功），缺参也不会进 missing_report（2026-10-17 QA 实踩）
+        if isinstance(result, dict) and result.get("error"):
+            out["error"] = str(result["error"])
+        return out
 
     def _execute_calculator(self, expression: str, context: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -371,12 +377,16 @@ class ConditionalTool(BaseTool):
 
         result = tool.run(expression=resolved_expr, variables=context)
 
-        return {
+        out = {
             "result": result.get("result"),
             "matched_action": "calculator",
             "expression": resolved_expr,
             "calculator_result": result
         }
+        # 同上：calculator 子错误透传顶层，避免「分支计算失败但步骤假成功」
+        if isinstance(result, dict) and result.get("error"):
+            out["error"] = str(result["error"])
+        return out
 
     def _resolve_value(self, value: Any, context: Dict[str, Any]) -> Any:
         """
