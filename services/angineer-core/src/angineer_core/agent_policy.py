@@ -15,6 +15,17 @@ from angineer_core.agent_messages import AgentMessage, is_refusal_text
 _MCQ_OPTION_RE = re.compile(r"[（(][A-D][)）]")
 
 
+def _env_max_turns(name: str, default: int) -> int:
+    """轮数预算的 env 覆盖（2026-10-18）：原值写死在 attempt 里，换任务形态只能改代码。
+
+    Harvey LAB 实踩：枚举型题一题要遍历多个 matter，L1 只给 3 轮，模型第一轮调工具、
+    第二轮被迫收尾；把轮数做成 env，评测/长任务按需放宽，产品默认值不变。"""
+    try:
+        return max(1, int(os.environ.get(name, str(default)) or default))
+    except (TypeError, ValueError):
+        return default
+
+
 def _looks_like_mcq(query: Optional[str]) -> bool:
     """选择题识别：题面含 ≥2 个选项标记（A）～（D）即视为选择题（题型壳判定，不看语义）。"""
     return len(_MCQ_OPTION_RE.findall(str(query or ""))) >= 2
@@ -92,7 +103,7 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             library_ids=library_ids,
             doc_ids=doc_ids,
             task_type="content_qa",
-            max_turns=3,
+            max_turns=_env_max_turns("ANGINEER_QA_MAX_TURNS", 6),
             config_name=config_name,
             mode=mode,
             enforce_evidence=enforce_evidence,
@@ -125,7 +136,7 @@ def _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             doc_ids=doc_ids,
             task_type="table_qa",
             knowledge_task_type="content_qa",
-            max_turns=3,
+            max_turns=_env_max_turns("ANGINEER_QA_MAX_TURNS", 6),
             config_name=config_name,
             mode=mode,
             enforce_evidence=True,
@@ -227,7 +238,7 @@ def build_attempts(
                 library_id=library_id,
                 library_ids=library_ids,
                 doc_ids=doc_ids,
-                max_turns=8,
+                max_turns=_env_max_turns("ANGINEER_COMPLEX_MAX_TURNS", 12),
                 config_name=config_name,
                 mode=mode,
                 sops=sops,

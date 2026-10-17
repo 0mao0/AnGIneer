@@ -731,14 +731,30 @@ def _budget_stopper_est() -> int:
     return _budget_tokens_est("ANGINEER_BUDGET_STOPPER_EST", 120_000)
 
 
-def make_budget_stopper(threshold: Optional[int] = None):
-    """P4.3 闸门二：turn 结束估算超阈值 → 循环优雅停止（reason=should_stop）。
+def _budget_stopper_tokens() -> int:
+    """真实 prompt token 口径的停止线（ANGINEER_BUDGET_STOPPER_TOKENS，默认 160000）。
 
-    threshold 显式传参优先（测试/特殊档位用）；不传读 ANGINEER_BUDGET_STOPPER_EST。"""
-    resolved = threshold if threshold is not None else _budget_stopper_est()
+    2026-10-18：原实现只看 chars//2 估算，长题干 + 一次 20 块检索就能越线
+    （Harvey LAB 实踩：prompt 40,499 tokens 即被判超 120k est，模型还没作答就被收尾）。
+    真实 token 更准，且能随模型窗口直接设（DGX qwen3.6-35b 窗口 233k → 160k 留出输出余量）。
+    估算口径保留为兜底：网关没回 usage 时才用。"""
+    return _budget_tokens_est("ANGINEER_BUDGET_STOPPER_TOKENS", 160_000)
+
+
+def make_budget_stopper(threshold: Optional[int] = None):
+    """P4.3 闸门二：turn 结束超预算 → 循环优雅停止（reason=should_stop）。
+
+    优先用本轮真实 prompt_tokens（模型窗口口径）；拿不到 usage 时回落到 chars//2 估算。
+    threshold 显式传参时按估算口径生效（测试/特殊档位用）。"""
+    est_limit = _budget_stopper_est()
+    token_limit = threshold if threshold is not None else _budget_stopper_tokens()
 
     def should_stop(context: TurnContext) -> bool:
-        return _estimate_tokens(context.messages) > resolved
+        usage = getattr(context, "usage", None) or {}
+        prompt_tokens = usage.get("prompt_tokens") if isinstance(usage, dict) else None
+        if isinstance(prompt_tokens, (int, float)) and prompt_tokens > 0:
+            return int(prompt_tokens) > token_limit
+        return _estimate_tokens(context.messages) > est_limit
 
     return should_stop
 
