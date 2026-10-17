@@ -1,9 +1,9 @@
 {
  "dataset": {
   "dataset_id": "intent-router-v1",
-  "title": "意图路由测试集 v1（100 题 L0-L4 分层）",
+  "title": "意图路由测试集 v1（103 题 L0-L4 分层）",
   "category": "knowledge",
-  "description": "专用意图识别测试集：100 题覆盖 L0-L4，每题带陷阱族/金标依据/路由桶；只跑分类器路由断言，不跑检索、生成与判官。",
+  "description": "专用意图识别测试集：103 题覆盖 L0-L4，每题带陷阱族/金标依据/路由桶；只跑分类器路由断言，不跑检索、生成与判官。",
   "schema_version": "eval.bundle.v2",
   "version": "1.0",
   "library_id": "default"
@@ -1879,6 +1879,84 @@
     "xfail": false,
     "source": "crafted",
     "rule_hit": "model"
+   }
+  },
+  {
+   "question_id": "ir-l2-method-01",
+   "question": "堤顶高程怎么计算",
+   "task_type": "structured_lookup",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_method"
+   ],
+   "question_family": "L2_method",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_method",
+    "trap": "无参数计算方法问句",
+    "rationale": "问计算方法/公式且题面无数值 → L2；计算快路径直达（v5 规则 1 收紧），对照 ir-l3-calc-* 有数值参数",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_calc_method"
+   }
+  },
+  {
+   "question_id": "ir-l2-method-02",
+   "question": "乘潮水位怎么计算",
+   "task_type": "structured_lookup",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_method"
+   ],
+   "question_family": "L2_method",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_method",
+    "trap": "无参数计算方法问句",
+    "rationale": "生产同族问法（ops 实测）→ L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_calc_method"
+   }
+  },
+  {
+   "question_id": "ir-l2-method-03",
+   "question": "高速公路桥梁的雪荷载计算方法是什么",
+   "task_type": "structured_lookup",
+   "intent_level": "L2",
+   "library_id": "default",
+   "difficulty": "easy",
+   "tags": [
+    "intent-router-v1",
+    "family:L2_method"
+   ],
+   "question_family": "L2_method",
+   "intent": {
+    "level": "L2",
+    "mode": "structured_lookup",
+    "route": "L2",
+    "family": "L2_method",
+    "trap": "无参数计算方法问句（跨域）",
+    "rationale": "「计算方法是什么」型；跨域（非海港）验证通用性 → L2",
+    "strict_level": false,
+    "strict_mode": false,
+    "xfail": false,
+    "source": "crafted",
+    "rule_hit": "rule_calc_method"
    }
   },
   {

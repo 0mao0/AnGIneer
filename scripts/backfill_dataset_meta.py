@@ -144,12 +144,12 @@ ENTRIES = [
     },
     {
         "dataset_id": "intent-router-v1",
-        "title": "意图路由测试集 v1（100 题 L0-L4 分层）",
+        "title": "意图路由测试集 v1（103 题 L0-L4 分层）",
         "meta": {
             "publisher": "AnGIneer",
             "domain": "意图路由",
             "purpose": "意图分类 L0-L4 路由正确性（不跑检索/生成）",
-            "source_note": "100 题；3 次重跑逐题一致",
+            "source_note": "103 题；前 100 题 3 次重跑逐题一致；2026-10-16 新增 L2_method 族 3 题（无参计算方法问句→L2）",
         },
     },
 ]

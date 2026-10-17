@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""构建 intent-router-v1 题集：100 题专用意图识别测试集（L0-L4 分层 + 陷阱族 + 金标可审计）。
+"""构建 intent-router-v1 题集：103 题专用意图识别测试集（L0-L4 分层 + 陷阱族 + 金标可审计）。
 
 为什么是脚本而不是手写 JSON：题集要可复现、可校验。本脚本
   ① 持有全部题面与金标（唯一真相源）；
   ② 跑机械校验（结构不变量 + 与主仓库规则层的一致性），不通过就拒绝出题集；
   ③ 产出 data/evals/datasets/intent-router-v1.json（eval.bundle.v2，item 带 intent 金标块）。
 
-金标依据：services/angineer-core/src/angineer_core/prompts/classifier.py（v3 层级表与规则 1-7）
+金标依据：services/angineer-core/src/angineer_core/prompts/classifier.py（v5 层级表与规则 1-6）
 + agent_policy.build_attempts 的实际路由优先级。每条都带 rationale（为什么是这个层级）与
 trap（这条在考什么），使复核者不必回读 prompt 就能审计。
 
@@ -20,8 +20,11 @@ trap（这条在考什么），使复核者不必回读 prompt 就能审计。
   ② 新增 3 个陷阱族：L1_stdcode_trap（标准号≠L2）、L1_numbered（有数值≠L3）、
      L3_mixed_signal（依据规范+计算 → L3）；
   ③ 每题补 trap / rationale；
-  ④ 机械校验：与上游规则层（_check_l0_intent / 条款号快路径）对账，
+  ④ 机械校验：与上游规则层（_check_l0_intent / 条款号快路径 / 计算快路径）对账，
      并记录 rule_hit —— 生产链上该题会被规则前置拦下，还是真的会进分类模型。
+
+2026-10-16：+3 道 L2_method（无参「XX怎么计算/计算公式是什么」问句；L3 定义随 v5 收紧为须有数值参数），
+100→103；规则对账新增 rule_calc_method（_is_calc_method_query 快路径，见 docs/req-calc-method-l2-routing.md）。
 """
 import argparse
 import json
@@ -169,6 +172,13 @@ ITEMS = [
     ("ir-l2-nc-03", "C40混凝土的轴心抗压强度设计值查表是多少？", "L2", "structured_lookup", "L2_trap_noncalc",
      "有数值≠L3", "含强度等级但只是查表取值 → L2"),
 
+    ("ir-l2-method-01", "堤顶高程怎么计算", "L2", "structured_lookup", "L2_method",
+     "无参数计算方法问句", "问计算方法/公式且题面无数值 → L2；计算快路径直达（v5 规则 1 收紧），对照 ir-l3-calc-* 有数值参数"),
+    ("ir-l2-method-02", "乘潮水位怎么计算", "L2", "structured_lookup", "L2_method",
+     "无参数计算方法问句", "生产同族问法（ops 实测）→ L2"),
+    ("ir-l2-method-03", "高速公路桥梁的雪荷载计算方法是什么", "L2", "structured_lookup", "L2_method",
+     "无参数计算方法问句（跨域）", "「计算方法是什么」型；跨域（非海港）验证通用性 → L2"),
+
     # ---------------- L3 标准计算（16）→ route complex ----------------
     ("ir-l3-calc-01", "某5万吨级散货船，设计船型总长L=230m，型宽B=32m，满载吃水T=12.8m，试计算码头前沿水深。",
      "L3", "standard_sop", "L3_calc", "多参数计算", "含具体参数 + 计算动作 → L3（规则 1）"),
@@ -259,7 +269,7 @@ def rule_hit_for(question: str) -> str:
         sys.path.insert(0, str(REPO / "services" / "angineer-core" / "src"))
         sys.path.insert(0, str(REPO / "services" / "ai-inference" / "src"))
         from angineer_core.classifier import _check_l0_intent, _is_clause_number_query
-        from angineer_core.classifier import _clause_fastpath_enabled
+        from angineer_core.classifier import _clause_fastpath_enabled, _calc_method_fastpath_enabled, _is_calc_method_query
     except Exception:  # noqa: BLE001
         return "unknown"
     if _check_l0_intent(question):
@@ -267,6 +277,8 @@ def rule_hit_for(question: str) -> str:
     # meta 规则拦截已随废路由删除（2026-10-02）：统计题不再有规则前置，全部进分类模型
     if _clause_fastpath_enabled() and _is_clause_number_query(question):
         return "rule_clause"
+    if _calc_method_fastpath_enabled() and _is_calc_method_query(question):
+        return "rule_calc_method"
     return "model"
 
 
@@ -305,9 +317,9 @@ def build() -> dict:
     return {
         "dataset": {
             "dataset_id": "intent-router-v1",
-            "title": "意图路由测试集 v1（100 题 L0-L4 分层）",
+            "title": "意图路由测试集 v1（103 题 L0-L4 分层）",
             "category": "knowledge",
-            "description": "专用意图识别测试集：100 题覆盖 L0-L4，每题带陷阱族/金标依据/路由桶；"
+            "description": "专用意图识别测试集：103 题覆盖 L0-L4，每题带陷阱族/金标依据/路由桶；"
                            "只跑分类器路由断言，不跑检索、生成与判官。",
             "schema_version": "eval.bundle.v2",
             "version": "1.0",
@@ -324,8 +336,8 @@ def validate(bundle: dict) -> list:
     seen = set()
     fam_counter = Counter()
 
-    if len(items) != 100:
-        problems.append(f"题数 {len(items)} ≠ 100")
+    if len(items) != 103:
+        problems.append(f"题数 {len(items)} ≠ 103")
 
     for it in items:
         qid = it["question_id"]
@@ -361,8 +373,8 @@ def validate(bundle: dict) -> list:
     # 分层面与设计一致（分层被改动时强制复核，防止悄悄漂移）
     by_level = Counter(i["intent"]["level"] for i in items)
     by_route = Counter(i["intent"]["route"] for i in items)
-    expect_level = {"L0": 12, "L1": 38, "L2": 22, "L3": 16, "L4": 12}
-    expect_route = {"L0": 12, "L1": 38, "L2": 22, "complex": 28}  # meta 桶已废（2026-10-02）：10 题 meta 金标并入 L1
+    expect_level = {"L0": 12, "L1": 38, "L2": 25, "L3": 16, "L4": 12}
+    expect_route = {"L0": 12, "L1": 38, "L2": 25, "complex": 28}  # meta 桶已废（2026-10-02）：10 题 meta 金标并入 L1
     if dict(by_level) != expect_level:
         problems.append(f"分层面变动：{dict(by_level)} ≠ {expect_level}")
     if dict(by_route) != expect_route:
@@ -374,6 +386,11 @@ def validate(bundle: dict) -> list:
         hit = it["intent"]["rule_hit"]
         if it["intent"]["family"] == "L2_clause_number" and hit != "rule_clause":
             problems.append(f"{it['question_id']}: 条款号族未被条款号快路径命中（rule_hit={hit}）")
+
+    # L2_method 族的定义就是「生产计算快路径能认出的问句」，该族必须真被快路径命中（与条款号族同款对账）。
+    for it in items:
+        if it["intent"]["family"] == "L2_method" and it["intent"]["rule_hit"] != "rule_calc_method":
+            problems.append(f"{it['question_id']}: L2_method 族未被计算快路径命中（rule_hit={it['intent']['rule_hit']}）")
     return problems
 
 

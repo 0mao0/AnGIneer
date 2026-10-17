@@ -32,10 +32,10 @@ def test_set_passes_its_own_validation():
     assert problems == [], "题集校验未通过：" + "; ".join(problems)
 
 
-def test_shape_is_100_items_covering_l0_to_l4():
+def test_shape_is_103_items_covering_l0_to_l4():
     mod = _load_builder()
     items = mod.build()["items"]
-    assert len(items) == 100
+    assert len(items) == 103
     levels = {i["intent"]["level"] for i in items}
     assert levels == {"L0", "L1", "L2", "L3", "L4"}, f"层级覆盖不全: {levels}"
 
@@ -48,7 +48,7 @@ def test_every_item_self_documents_gold():
         assert g["trap"].strip(), f"{it['question_id']} 缺 trap"
         assert g["rationale"].strip(), f"{it['question_id']} 缺 rationale"
         assert g["family"].strip(), f"{it['question_id']} 缺 family"
-        assert g["rule_hit"] in ("model", "rule_L0", "rule_meta", "rule_clause", "unknown")
+        assert g["rule_hit"] in ("model", "rule_L0", "rule_meta", "rule_clause", "rule_calc_method", "unknown")
 
 
 def test_route_derivation_matches_evaluator():
@@ -78,8 +78,8 @@ def test_gray_zone_concept_compare_items_are_unambiguous():
 
 
 def test_new_trap_families_present():
-    """三个后补陷阱族必须在位（它们各自对应一类过度触发）。"""
+    """后补陷阱族必须在位（它们各自对应一类过度触发）。"""
     mod = _load_builder()
     fams = {i["intent"]["family"] for i in mod.build()["items"]}
-    for fam in ("L1_stdcode_trap", "L1_numbered", "L3_mixed_signal", "L1_trap_stat", "L2_clause_number"):
+    for fam in ("L1_stdcode_trap", "L1_numbered", "L3_mixed_signal", "L1_trap_stat", "L2_clause_number", "L2_method"):
         assert fam in fams, f"缺陷阱族 {fam}"
