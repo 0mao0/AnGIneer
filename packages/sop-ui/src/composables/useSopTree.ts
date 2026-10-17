@@ -2,7 +2,7 @@
  * 经验库树 Composable
  * 提供经验库树数据的加载、查找、选中状态管理与 CRUD 操作
  */
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import type { DropEvent } from '@angineer/ui-kit'
 import type { SOPTreeNode, SopListItem, SopFolder, SopData, SopStatus } from '../types/sop'
 import { sopApi } from './useSopApi'
@@ -227,6 +227,17 @@ export function useSopTree() {
     treeData.value = nodes
   }
 
+  /** 树内第一条目（深度优先第一个非文件夹节点）：进页默认聚焦用 */
+  const selectedFirstLeaf = computed<SOPTreeNode | null>(() => {
+    const stack = [...treeData.value]
+    while (stack.length) {
+      const row = stack.shift()!
+      if (!row.isFolder) return row
+      stack.unshift(...(row.children || []))
+    }
+    return null
+  })
+
   /** 递归查找指定经验库节点 */
   const findNode = (nodes: SOPTreeNode[], key: string): SOPTreeNode | null => {
     for (const node of nodes) {
@@ -249,6 +260,7 @@ export function useSopTree() {
     selectedNode,
     currentSopData,
     loading,
+    selectedFirstLeaf,
     setTreeData,
     fetchTreeFromApi,
     fetchSopDetail,

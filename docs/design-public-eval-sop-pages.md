@@ -617,3 +617,16 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
   `pnpm --filter @angineer/user-web build`、`pnpm --filter @angineer/admin-web build`（均含 vue-tsc）全绿
   （2026-10-17 本地实测）；sop-ui / evals-ui 无 typecheck 脚本，由 admin-web 构建覆盖。
   浏览器走查（四棵树默认折叠态、进页自动选中只展开一条路径、聚焦/上传后路径展开）待部署后补。
+
+### 16.14 评测集/经验库左树进页默认聚焦第一条目（业主 10-17 令）
+
+- 业主口径：「admin 评测集、admin 经验库都改一下，默认选中第一条目并展开其路径」（与公开两页树同构）。
+- `useEvalDatasetTree` 新增 `selectedFirstLeaf`（深度优先第一个数据集节点，跳过文件夹）；`EvalManage`
+  onMounted 改为 `await Promise.all([fetchDatasets(), fetchFolders()])` 后，无既有选中（selectedDatasetId 为空）时
+  走 `onDatasetSelect([first.key], [first])`——选中高亮 + 路径展开（expand-selected-path）+ 详情/题目/最近 run 加载。
+- `useSopTree` 新增 `selectedFirstLeaf`（深度优先第一个非文件夹节点）；`ExperienceManage` onMounted 在刷新树 +
+  `nextTick`（树挂 v-if="hasData"，等渲染 flush 才有 ref）后，无既有选中时 `selectedKeys = [first.key]` +
+  `loadNode(first)`（默认 edit 模式，同既有聚焦链路）。
+- 两条均为「无选中才补首条」守卫：路由/缓存/会话内既有选中不被覆盖；keep-alive 的 onActivated 行为不变。
+- 知识库树维持现状（注释明示默认不补选首文档，防首屏加载 PDF）。
+- 验收：`pnpm --filter @angineer/admin-web build`（含 vue-tsc）全绿（2026-10-17 本地实测）；浏览器走查待部署后补。

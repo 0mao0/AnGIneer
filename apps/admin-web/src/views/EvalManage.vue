@@ -524,6 +524,7 @@ const {
 
 const {
   treeData: evalTreeData,
+  selectedFirstLeaf: evalFirstLeaf,
   isCategoryFolder: isCategoryFolderFn,
   isPersistedFolder: isPersistedFolderFn,
   getCategoryFromNode,
@@ -1251,11 +1252,14 @@ const handleFolderModalOk = async () => {
   }
 }
 
-onMounted(() => {
-  fetchDatasets()
-  fetchFolders()
+onMounted(async () => {
+  await Promise.all([fetchDatasets(), fetchFolders()])
   fetchDocOptions()
   void libraryStore.loadLibraries()
+  // 进页默认选中第一条目并展开其路径（避免左树全折叠且右栏空白）；已有选中（路由/缓存）时不覆盖
+  if (!selectedDatasetId.value && evalFirstLeaf.value) {
+    await onDatasetSelect([evalFirstLeaf.value.key], [evalFirstLeaf.value])
+  }
 })
 
 onBeforeUnmount(() => {

@@ -88,8 +88,20 @@ export function useEvalDatasetTree(
     })
   })
 
+  /** 树内第一条目（深度优先第一个数据集节点，跳过文件夹）：进页默认选中并展开其路径用 */
+  const selectedFirstLeaf = computed<EvalTreeNode | null>(() => {
+    const stack = [...treeData.value]
+    while (stack.length) {
+      const row = stack.shift()!
+      if (!row.isFolder) return row
+      stack.unshift(...((row.children || []) as EvalTreeNode[]))
+    }
+    return null
+  })
+
   return {
     treeData,
+    selectedFirstLeaf,
     isCategoryFolder,
     isPersistedFolder,
     getCategoryFromNode,

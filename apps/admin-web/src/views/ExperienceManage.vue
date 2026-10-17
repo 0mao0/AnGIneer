@@ -1464,8 +1464,18 @@ onBeforeRouteLeave(async (_to, _from, next) => {
   }
 })
 
-onMounted(() => {
-  refreshTreeAndFocus()
+onMounted(async () => {
+  await refreshTreeAndFocus()
+  // 树挂在 v-if="hasData" 下：等渲染 flush 后 ref 才可用
+  await nextTick()
+  // 进页默认聚焦第一条目（避免右栏空白；路径展开由 expand-selected-path 完成，与公开经验库页同构）
+  if (sopTreeRef.value && (sopTreeRef.value.selectedKeys?.length ?? 0) === 0) {
+    const first = sopTree.selectedFirstLeaf.value
+    if (first) {
+      sopTreeRef.value.selectedKeys = [first.key]
+      await loadNode(first)
+    }
+  }
 })
 
 /**
