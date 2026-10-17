@@ -22,6 +22,8 @@
     :dark="dark"
     :virtual="virtual"
     :height="height"
+    :load-data="loadDataAdapter"
+    :remote-search="remoteSearch"
     @select="(keys, nodes) => emit('select', keys, nodes as KnowledgeTreeNode[])"
     @rename="(node) => emit('rename', node as KnowledgeTreeNode)"
     @add-folder="(node) => emit('add-folder', node as KnowledgeTreeNode | null)"
@@ -34,8 +36,8 @@
     @file-drop="(files, targetFolder) => emit('file-drop', files, targetFolder as KnowledgeTreeNode | null)"
     @drop-invalid="(reason) => emit('drop-invalid', reason)"
     @drop-root="(dragNodeKey) => emit('drop-root', dragNodeKey)"
-  >
-    <template #icon="slotProps">
+    @search-hit="(hit) => emit('search-hit', hit)"
+  >    <template #icon="slotProps">
       <slot name="icon" v-bind="slotProps">
         <FolderOutlined v-if="slotProps.node?.isFolder" style="color: var(--tree-folder-color)" />
         <FilePdfOutlined v-else-if="getKnowledgeFileType(slotProps.node) === 'pdf'" style="color: var(--tree-danger-hover)" />
@@ -97,6 +99,10 @@ export interface KnowledgeTreeProps {
   /** 大库（如 omnidocbench 2609 节点）须开虚拟滚动，否则展开越多 DOM 越大越卡；开时应同时给 height */
   virtual?: boolean
   height?: number
+  /** 懒加载通道（转发 SmartTree loadData）：children 缺省的节点展开时按需拉取数据 */
+  loadData?: (node: KnowledgeTreeNode) => Promise<unknown>
+  /** 远端搜索通道（转发 SmartTree remoteSearch）：懒加载数据的全库搜索，命中经 search-hit 事件回传 */
+  remoteSearch?: (keyword: string) => Promise<SmartTreeRemoteHit[]>
 }
 </script>
 
@@ -105,9 +111,9 @@ export interface KnowledgeTreeProps {
  * 知识树语义组件。
  * 在 docs-ui 中承接知识节点类型与基础树组件之间的边界，便于后续扩展知识域默认行为。
  */
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { SmartTree } from '@angineer/smartree'
-import type { SmartTreeExposed } from '@angineer/smartree'
+import type { SmartTreeExposed, SmartTreeRemoteHit } from '@angineer/smartree'
 import type { DropEvent } from '../../../types/tree'
 import {
   FolderOutlined,
@@ -118,7 +124,13 @@ import {
 } from '@ant-design/icons-vue'
 import { getPreviewFileType as getKnowledgeFileType } from '../../../utils/knowledge'
 
-defineProps<KnowledgeTreeProps>()
+const props = defineProps<KnowledgeTreeProps>()
+
+/** 懒加载适配：转发给 SmartTree（参数做类型收敛） */
+const loadDataAdapter = computed<((node: any) => Promise<unknown>) | undefined>(() => {
+  if (!props.loadData) return undefined
+  return (node: any) => props.loadData!(node as KnowledgeTreeNode)
+})
 
 const emit = defineEmits<{
   select: [keys: string[], nodes: KnowledgeTreeNode[]]
@@ -133,6 +145,7 @@ const emit = defineEmits<{
   'file-drop': [files: File[], targetFolder: KnowledgeTreeNode | null]
   'drop-invalid': [reason: string]
   'drop-root': [dragNodeKeys: string[]]
+  'search-hit': [hit: SmartTreeRemoteHit]
 }>()
 
 const smartTreeRef = ref<SmartTreeExposed | null>(null)

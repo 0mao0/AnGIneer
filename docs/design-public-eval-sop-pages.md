@@ -630,3 +630,33 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
 - 两条均为「无选中才补首条」守卫：路由/缓存/会话内既有选中不被覆盖；keep-alive 的 onActivated 行为不变。
 - 知识库树维持现状（注释明示默认不补选首文档，防首屏加载 PDF）。
 - 验收：`pnpm --filter @angineer/admin-web build`（含 vue-tsc）全绿（2026-10-17 本地实测）；浏览器走查待部署后补。
+
+### 16.15 知识库树数据层懒加载落地（2026-10-17，§16.13 的「专项工程」实做）
+
+- 背景（实测）：admin 知识库页进页 3-5s——KPW 每次挂载都全量拉「所有库所有节点」（本地 20 库 22,646 节点
+  ≈ 12.7MB，直连 8790 TTFB 1.1–2.6s，vite 代理到 3002 后 1.4–3.5s）+ 服务端 `list_nodes` 逐条
+  `tree_store.get_node` 的 N+1（2.2 万次查询）+ 客户端 jsonable_encoder/传输/parse。公网链路丢包（33–50%）
+  真实存在，但只影响线上站点，不是本地 dev 慢因（本地 API 走 vite 代理直连 localhost:8790）。
+- 服务端两处改动（`docs-core` / `docs-api`）：
+  - `blocks_sql_store.list_nodes`：文档树元数据（parent_id/sort_order）由逐条 `get_node` 改为一次
+    `SELECT node_id, parent_id, sort_order FROM tree_node WHERE tree_type='knowledge_doc'`（按库时下推 scope）建 map。
+  - 新增 `GET /api/knowledge/nodes/{node_id}/library` 反查（`docs_service.get_doc_library_id` 公开入口，
+    底层 `meta_store.get_node_library_id`）——聚焦跳转先定位所属库、再按库拉取。
+- 前端懒加载（属性开关式，宿主零自写查找）：SmartTree / KnowledgeTree 新增 `loadData` prop（透传 a-tree
+  loadData，节点 children 缺省时展开触发，期间节点自带加载态）；`useKnowledgeTree.buildTree` 新增
+  options `{ loadedLibraryIds }`——未载库根不带 children。KPW 维护 `loadedLibIds` + `libNodes` 缓存
+  （有意不进响应式）+ `rebuildTree/loadLibrary`；`loadNodes` 改为「刷库列表 + 只重拉已载库」；聚焦
+  （路由 doc_id / 上传后）目标不在已载库时经反查接口按库载入再选中展开。
+- 全库搜索（懒加载把树内过滤限额到已载库，业主定「刚需」后补齐）：SmartTree / KnowledgeTree 新增
+  `remoteSearch` prop（搜索词防抖 300ms 调宿主通道）+ 搜索框下命中面板（title+所属库标签，同 `loadData`
+  模式零宿主自写 UI）；`@search-hit` 回传后 KPW 按库载入 → 选中（祖先链由 expand-selected-path 展开）→
+  加载正文。KPW 的 provider 只回「未载库」命中（已载库命中由树内过滤实时展示，避免重复）。
+  后端 `GET /api/knowledge/nodes/search?q=&limit=`（nodes.title + 文件夹标题 LIKE，排 deleted，前缀命中优先）。
+  不传 remoteSearch 的树（公开两页/评测集/经验库）行为零变化——它们非懒加载、数据全量在树内。
+- 口径变化（有意接受）：①新建文件夹弹窗的文件夹选择器（folderTreeData）只见已载库；
+  ②「拖到库根」的跨库移动本就不完整（后端只改 parent 不改 library_id），行为同前。
+  （原「树搜索只搜已载库」已在同批以 remoteSearch 通道补齐，见上。）
+- 验收（2026-10-17 本地实测）：四包 typecheck 全绿（smartree/docs-ui/admin-web/user-web，均含 vue-tsc）；
+  smartree 22/22、docs-ui 31/31 测试通过；重拉全量 TTFB 1.14s（仅显式全量请求时），单库按需 std-water
+  0.22s/148KB、lab-firm-dms 0.51s/5MB、反查接口直返 library_id、搜索接口 0.23s（water→lab-firm-full/dms
+  命中、通知→std-highway 命中，跨库）；首屏只拉 `/libraries`。浏览器走查待用户验证。

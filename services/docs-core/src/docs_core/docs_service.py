@@ -350,6 +350,14 @@ class DocsService:
         """doc→library 读穿反查（meta nodes 主键命中）。"""
         return self.meta_store.get_node_library_id(doc_id)
 
+    def get_doc_library_id(self, doc_id: str) -> Optional[str]:
+        """doc→library 反查公开入口（知识树懒加载聚焦：先定位所属库，再按库载入树）。"""
+        return self._library_of_doc(doc_id)
+
+    def search_nodes_by_title(self, keyword: str, limit: int = 50) -> List[Dict[str, Any]]:
+        """全库标题搜索（懒加载树的远端搜索通道：未展开库的命中在此返回，前端点击时按库拉取）。"""
+        return self.meta_store.search_nodes_by_title(keyword, limit)
+
     def _canonical_store_for_doc(self, doc_id: str) -> CanonicalSQLiteStore:
         return self._canonical_store_for(self._library_of_doc(doc_id))
 

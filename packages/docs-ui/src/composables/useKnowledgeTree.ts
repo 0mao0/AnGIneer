@@ -17,6 +17,12 @@ export interface UploadTask {
   folderId?: string
 }
 
+/** buildTree 选项：懒加载模式（按库可见，未载库根不带 children） */
+export interface BuildTreeOptions {
+  /** 已加载的库 id 集合；给定时未载库根的 children 缺省，供展开时按库拉取 */
+  loadedLibraryIds?: Iterable<string> | null
+}
+
 export function useKnowledgeTree() {
   // 状态
   const treeData = ref<KnowledgeTreeNode[]>([])
@@ -42,9 +48,16 @@ export function useKnowledgeTree() {
 
   // 构建树结构：libraries 提供库根虚拟节点（key 约定 lib:{id}），各库根级节点挂到其下。
   // 历史遗留的根级『默认/管理员上传』文件夹展平（不显示），其内容直接挂库根。
-  const buildTree = (nodes: any[], libraries: any[] = []): KnowledgeTreeNode[] => {
+  // options.loadedLibraryIds：懒加载模式——仅集合内的库根带 children（空数组），
+  // 其余库根 children 缺省（undefined），由宿主经树组件的 loadData 通道按库拉取后重建。
+  const buildTree = (
+    nodes: any[],
+    libraries: any[] = [],
+    options: BuildTreeOptions = {}
+  ): KnowledgeTreeNode[] => {
     const nodeMap = new Map<string, KnowledgeTreeNode>()
     const roots: KnowledgeTreeNode[] = []
+    const loadedLibraryIds = options.loadedLibraryIds ? new Set(options.loadedLibraryIds) : null
 
     nodes.forEach(n => {
       nodeMap.set(n.id, {
@@ -67,7 +80,7 @@ export function useKnowledgeTree() {
 
     // 所有知识库都生成库根虚拟节点（含空库），保证新建库在树中可见
     for (const lib of libraries) {
-      roots.push({
+      const root: KnowledgeTreeNode = {
         key: `lib:${lib.id}`,
         title: lib.name || lib.id,
         isFolder: true,
@@ -81,9 +94,12 @@ export function useKnowledgeTree() {
         parseStage: '',
         parseError: '',
         parseTaskId: '',
-        strategy: 'doc_blocks_graph_v1',
-        children: []
-      })
+        strategy: 'doc_blocks_graph_v1'
+      }
+      if (!loadedLibraryIds || loadedLibraryIds.has(lib.id)) {
+        root.children = []
+      }
+      roots.push(root)
     }
 
     // 展平：历史遗留的库根级文件夹不显示，内容挂库根。

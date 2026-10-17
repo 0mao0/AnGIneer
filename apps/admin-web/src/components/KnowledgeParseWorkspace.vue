@@ -61,6 +61,7 @@
               @drop-root="onTreeDropRoot"
               @drop-invalid="onInvalidDrop"
               @file-drop="handleFileDrop"
+              @search-hit="onRemoteSearchHit"
             >
               <!-- 自定义操作按钮：根据节点状态显示不同按钮 -->
               <template #actions="{ node }">
@@ -658,6 +659,128 @@ const docContentBuildId = ref<string | null>(null)
 const graphBuildId = ref<string | null>(null)
 const buildIdMismatch = ref(false)
 
+// ===== 知识树懒加载（2026-10-17）：库根全量可视，库内容按需加载 =====
+// 背景：此前每次挂载/操作后都全量拉「所有库所有节点」（本地 20 库 2.2 万节点 ≈ 12.7MB、TTFB 秒级）。
+// 现改为：首屏只拉库列表；展开某库（或聚焦反查命中某库）时才按库拉取。
+// 库节点缓存有意不进响应式（Map + 普通数组），避免万级节点被 Proxy 包住的读写开销。
+const loadedLibIds = ref<string[]>([])
+const libNodes = new Map<string, any[]>()
+const libLoadInflight = new Map<string, Promise<void>>()
+
+// 从库缓存重建树：懒加载模式——未载库根不带 children，展开时经 KnowledgeTree 的 load-data 拉取
+const rebuildTree = () => {
+  const response: any[] = []
+  for (const id of loadedLibIds.value) {
+    const nodes = libNodes.get(id)
+    if (nodes) response.push(...nodes)
+  }
+  treeData.value = buildTree(response, libraryStore.libraries, { loadedLibraryIds: loadedLibIds.value })
+}
+
+// 按需加载单个库的节点（并发去重；失败原样上抛——load-data 通道由 antd 保留「失败可重试」语义）
+const loadLibrary = (libraryId: string): Promise<void> => {
+  if (libNodes.has(libraryId)) return Promise.resolve()
+  const inflight = libLoadInflight.get(libraryId)
+  if (inflight) return inflight
+  const task = (async () => {
+    try {
+      libNodes.set(libraryId, await props.api.getNodes(libraryId, false) as unknown as any[])
+      if (!loadedLibIds.value.includes(libraryId)) {
+        loadedLibIds.value = [...loadedLibIds.value, libraryId]
+      }
+      rebuildTree()
+    } finally {
+      libLoadInflight.delete(libraryId)
+    }
+  })()
+  libLoadInflight.set(libraryId, task)
+  return task
+}
+
+// 展开未载库根 → SmartTree load-data 回调：按库拉取后重建树（拉取期间该节点显示加载态）
+const handleTreeLoadData = (node: KnowledgeTreeNode): Promise<unknown> => {
+  if (isLibRootNode(node)) return loadLibrary(String(node.key).slice(4))
+  return Promise.resolve()
+}
+
+// doc→库反查（聚焦目标不在已载库时：先定位所属库再按库拉取）
+const resolveNodeLibrary = async (nodeKey: string): Promise<string | null> => {
+  if (!props.api.getNodeLibrary) return null
+  try {
+    const result = await props.api.getNodeLibrary(nodeKey)
+    return result?.library_id ? String(result.library_id) : null
+  } catch {
+    return null
+  }
+}
+
+// 聚焦应用（选中键由调用方先设）：加载正文/结构/轮询——远端搜索跳转与路由聚焦共用
+const applyFocusNode = async (node: SmartTreeNode) => {
+  selectedNode.value = node as unknown as KnowledgeTreeNode
+  if (!node.isFolder) {
+    // completed/partial/failed 均尝试加载：failed 可能有部分产物（如结构完成但 fts 失败），可预览与高亮
+    if (['completed', 'partial', 'failed'].includes(String(node.status))) {
+      await loadDocContent(node.key)
+      await loadStructuredStats(node.key)
+    } else {
+      if (!keepCurrentPreview(node.key)) {
+        docContent.value = ''
+        docContentDocId.value = ''
+        docContentBuildId.value = null
+        graphData.value = null
+        graphBuildId.value = null
+        buildIdMismatch.value = false
+        graphBuildDocId.value = null
+        structuredStats.value = {}
+        structuredItems.value = []
+      }
+    }
+    if (node.status === 'processing' && (node as any).parseTaskId) {
+      _startParsePollingWrapper((node as any).parseTaskId, node.key)
+    } else {
+      stopParsePolling()
+    }
+  }
+}
+
+// 远端搜索（懒加载树的「全库搜索」）：只回未载库命中（已载库命中由树内过滤展示），点击后按库载入并聚焦
+const handleRemoteSearch = async (keyword: string) => {
+  if (!props.api.searchNodes) return []
+  try {
+    const items = await props.api.searchNodes(keyword, 50)
+    return (items || [])
+      .filter((item) => item.library_id && !libNodes.has(String(item.library_id)))
+      .map((item) => ({
+        key: String(item.id),
+        title: String(item.title),
+        group: libraryStore.libraries.find((l) => l.id === item.library_id)?.name || String(item.library_id),
+        data: item
+      }))
+  } catch (error) {
+    console.error('全库搜索失败:', error)
+    return []
+  }
+}
+
+// 点击远端命中：按库载入（未载时）→ 选中并展开（祖先链由 expand-selected-path 完成）→ 加载内容
+const onRemoteSearchHit = async (hit: { key: string; data?: unknown }) => {
+  const libraryId = String((hit.data as { library_id?: string } | undefined)?.library_id || '')
+  if (libraryId && !libNodes.has(libraryId)) {
+    try {
+      await loadLibrary(libraryId)
+    } catch (error) {
+      console.error('按库载入失败:', libraryId, error)
+      message.error('加载知识库内容失败')
+      return
+    }
+  }
+  const node = findNode(treeData.value as unknown as SmartTreeNode[], hit.key)
+  if (!node) return
+  defaultSelectedKeys.value = [hit.key]
+  selectedKeys.value = [hit.key]
+  await applyFocusNode(node)
+}
+
 // 计算属性
 const folderModalTitle = computed(() => folderForm.value.isNew ? '新建文件夹' : '重命名')
 // 弹窗展示的所属知识库名（只读）
@@ -681,7 +804,11 @@ const smartTreeProps = {
   draggable: true,
   allowAddFile: true,
   allowedFileTypes: allowedFileTypes,
-  emptyText: '暂无文档'
+  emptyText: '暂无文档',
+  // 懒加载通道：展开未载库根时按库拉取节点（见上方 loadLibrary/rebuildTree）
+  loadData: handleTreeLoadData,
+  // 远端搜索通道：未载库的标题命中经后端返回，点击后按库载入并聚焦（见 onRemoteSearchHit）
+  remoteSearch: handleRemoteSearch
 }
 
 // 大库（omnidocbench 2609 节点）树必须开虚拟滚动：不虚拟时展开越多 DOM 越大、二三级越展开越卡。
@@ -802,14 +929,16 @@ const findNode = (nodes: SmartTreeNode[], key: string): SmartTreeNode | null => 
   return null
 }
 
-// 加载节点：所有知识库可视（库根虚拟节点），各库内容挂在库下
+// 加载节点：库根全量可视（key 约定 lib:{id}），库内容懒加载——刷新只重拉「已载库」，
+// 未载库等展开时经 load-data 管道拉取；聚焦目标不在已载库时先反查所属库（见 resolveNodeLibrary）
 const loadNodes = async (focusNodeKey?: string) => {
   try {
-    const [response, libraries] = await Promise.all([
-      props.api.getNodes(undefined, false) as unknown as any[],
-      libraryStore.loadLibraries(),
-    ])
-    treeData.value = buildTree(response, libraries)
+    await libraryStore.loadLibraries()
+    // 刷新已载库：只重拉展开过的库，保持打开的分支不被弹掉，也不拖慢首屏
+    await Promise.all(loadedLibIds.value.map(async (id) => {
+      libNodes.set(id, await props.api.getNodes(id, false) as unknown as any[])
+    }))
+    rebuildTree()
     // 左侧知识树默认收起：不展开任何节点（含库根虚拟节点），只展示一级目录。
     // 展开由用户点击，或显式定位（路由 doc_id / 上传后聚焦）触发。
     // 校验当前选中节点是否仍存在（列表页可能已删除该文档），不存在则清空选中态与视图缓存
@@ -833,37 +962,25 @@ const loadNodes = async (focusNodeKey?: string) => {
     // 默认不自动补选首个文档（避免一进页面就加载 PDF/图谱拖慢首屏，也让树保持全收起）；
     // 仅显式定位（路由 doc_id / 上传后聚焦）时展开目标文件祖先链并高亮选中。
     if (focusNodeKey) {
+      let node = findNode(treeData.value as unknown as SmartTreeNode[], focusNodeKey)
+      if (!node && !String(focusNodeKey).startsWith('lib:')) {
+        // 目标不在已载库中：反查所属库并按库载入（SOP/AI 引用跳转、跨库上传的场景）
+        const libraryId = await resolveNodeLibrary(focusNodeKey)
+        if (libraryId && !libNodes.has(libraryId)) {
+          try {
+            await loadLibrary(libraryId)
+          } catch (error) {
+            console.error('按库载入失败:', libraryId, error)
+          }
+        }
+        node = findNode(treeData.value as unknown as SmartTreeNode[], focusNodeKey)
+      }
       // 显式定位（路由 doc_id / 上传后聚焦）：选中目标文件；祖先链展开由
       // KnowledgeTree 的 expand-selected-path 属性完成（选中即展开）
       defaultSelectedKeys.value = [focusNodeKey]
       selectedKeys.value = [focusNodeKey]
-      const node = findNode(treeData.value as unknown as SmartTreeNode[], focusNodeKey)
       if (node) {
-        selectedNode.value = node as unknown as KnowledgeTreeNode
-        if (!node.isFolder) {
-          // completed/partial/failed 均尝试加载：failed 可能有部分产物（如结构完成但 fts 失败），可预览与高亮
-          if (['completed', 'partial', 'failed'].includes(String(node.status))) {
-            await loadDocContent(node.key)
-            await loadStructuredStats(node.key)
-          } else {
-            if (!keepCurrentPreview(node.key)) {
-              docContent.value = ''
-              docContentDocId.value = ''
-              docContentBuildId.value = null
-              graphData.value = null
-              graphBuildId.value = null
-              buildIdMismatch.value = false
-              graphBuildDocId.value = null
-              structuredStats.value = {}
-              structuredItems.value = []
-            }
-          }
-          if (node.status === 'processing' && (node as any).parseTaskId) {
-            _startParsePollingWrapper((node as any).parseTaskId, node.key)
-          } else {
-            stopParsePolling()
-          }
-        }
+        await applyFocusNode(node)
       }
     }
   } catch (error) {

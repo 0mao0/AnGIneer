@@ -201,6 +201,12 @@ export const knowledgeApi = {
 
   getNodes: (libraryId?: string, visible: boolean = false) =>
     api.get('/knowledge/nodes', { params: { visible, ...(libraryId ? { library_id: libraryId } : {}) } }),
+  getNodeLibrary: (nodeId: string) =>
+    api.get(`/knowledge/nodes/${nodeId}/library`) as Promise<{ node_id: string; library_id: string }>,
+  searchNodes: (q: string, limit: number = 50) =>
+    api.get('/knowledge/nodes/search', { params: { q, limit } }) as Promise<
+      Array<{ id: string; title: string; type?: string; library_id?: string; status?: string }>
+    >,
   createNode: (data: {
     title: string
     node_type: string

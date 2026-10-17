@@ -390,6 +390,23 @@ def list_knowledge_nodes(library_id: Optional[str] = None, visible: bool = False
     return ks.list_nodes(library_id, visible)
 
 
+@docs_router.get("/nodes/{node_id}/library")
+def get_knowledge_node_library(node_id: str):
+    """doc→library 所属库反查（知识树懒加载聚焦：路由跳转先定位目标库、按库拉取）。"""
+    ks = get_docs_service()
+    library_id = ks.get_doc_library_id(node_id)
+    if not library_id:
+        raise HTTPException(status_code=404, detail=f"Node {node_id} not found")
+    return {"node_id": node_id, "library_id": library_id}
+
+
+@docs_router.get("/nodes/search")
+def search_knowledge_nodes(q: str, limit: int = 50):
+    """全库标题搜索（文档+文件夹，跨库）——知识树懒加载的远端搜索通道。"""
+    ks = get_docs_service()
+    return ks.search_nodes_by_title(q, max(1, min(int(limit), 200)))
+
+
 @docs_router.post("/nodes")
 def create_knowledge_node(request: KnowledgeNodeCreate):
     """创建知识库节点。"""

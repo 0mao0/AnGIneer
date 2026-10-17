@@ -28,6 +28,17 @@ export interface SmartTreeNode {
 
 export type TreeNodeAction = 'rename' | 'add-folder' | 'add-file' | 'delete' | 'batch-delete' | 'view'
 
+/** 远端搜索命中（remoteSearch 通道返回；面板点击后以 search-hit 事件回传） */
+export interface SmartTreeRemoteHit {
+  /** 目标节点 key（点击后宿主据此定位/跳转） */
+  key: string
+  title: string
+  /** 分组标签（如所属库名），展示在命中行右侧 */
+  group?: string
+  /** 原始业务数据，随事件原样回传 */
+  data?: unknown
+}
+
 export interface DropEvent {
   dragKey: string
   dragKeys: string[]

@@ -338,6 +338,10 @@ export interface KnowledgeStructuredApi {
  */
 export interface KnowledgeApiPort extends KnowledgeParseApi, KnowledgeStructuredApi {
   getNodes: (libraryId?: string, visible?: boolean) => Promise<any>
+  /** doc→library 所属库反查（树懒加载聚焦用；未实现时聚焦仅限已载库）。 */
+  getNodeLibrary?: (nodeId: string) => Promise<{ node_id?: string; library_id?: string }>
+  /** 全库标题搜索（树懒加载的远端搜索用；未实现时树内搜索仅限已载库）。 */
+  searchNodes?: (q: string, limit?: number) => Promise<Array<{ id: string; title: string; type?: string; library_id?: string }>>
   createNode: (data: {
     title: string
     node_type: string

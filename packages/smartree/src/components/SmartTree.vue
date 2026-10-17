@@ -32,6 +32,25 @@
       </button>
     </div>
 
+    <div
+      v-if="remoteSearch && searchText.trim() && (remoteSearchLoading || remoteHits.length)"
+      class="remote-search-panel"
+    >
+      <div v-if="remoteSearchLoading && !remoteHits.length" class="remote-hit remote-hit-loading">
+        搜索中...
+      </div>
+      <button
+        v-for="hit in remoteHits"
+        :key="hit.key"
+        type="button"
+        class="remote-hit"
+        @click="onRemoteHitClick(hit)"
+      >
+        <span class="remote-hit-title">{{ hit.title }}</span>
+        <span v-if="hit.group" class="remote-hit-group">{{ hit.group }}</span>
+      </button>
+    </div>
+
     <div class="tree-content">
       <a-tree
         v-if="filteredTreeData.length"
@@ -45,6 +64,7 @@
         :multiple="multiple"
         :virtual="virtual"
         :height="height"
+        :load-data="treeLoadData"
         @select="onSelect"
         @drop="onDrop"
         @dragstart="onNodeDragStart"
@@ -223,7 +243,7 @@
  * 通用智能树组件。
  * 支持搜索、拖拽、自定义渲染，适用于知识树、经验树等多种场景。
  */
-import { computed, ref, shallowRef, watch, type Component } from 'vue'
+import { computed, onBeforeUnmount, ref, shallowRef, watch, type Component } from 'vue'
 import type { TreeProps } from 'ant-design-vue'
 import {
   CloudUploadOutlined,
@@ -245,7 +265,7 @@ import {
   FolderOutlined,
   SearchOutlined
 } from '@ant-design/icons-vue'
-import type { SmartTreeNode, DropEvent } from '../types/tree'
+import type { SmartTreeNode, DropEvent, SmartTreeRemoteHit } from '../types/tree'
 
 import {
   highlightText,
@@ -301,6 +321,16 @@ interface Props<T extends SmartTreeNode> {
   defaultExpandAll?: boolean
   /** 选中项变化/树数据到达时，自动展开各选中项的祖先链（只并集展开、不回缩用户已开分支），默认关 */
   expandSelectedPath?: boolean
+  /**
+   * 懒加载通道（转发 antd a-tree loadData）：节点 children 缺省（undefined）时展开会调用，
+   * 宿主拉取数据后更新 treeData 即可；promise 期间该节点显示加载态。
+   */
+  loadData?: (node: T) => Promise<unknown>
+  /**
+   * 远端搜索通道（懒加载数据的全库搜索）：提供后，搜索词输入防抖 300ms 调用；
+   * 命中在搜索框下方面板展示，点击以 search-hit 事件回传（宿主据此定位/跳转）。
+   */
+  remoteSearch?: (keyword: string) => Promise<SmartTreeRemoteHit[]>
 }
 
 const props = withDefaults(defineProps<Props<T>>(), {
@@ -330,7 +360,9 @@ const props = withDefaults(defineProps<Props<T>>(), {
   fileDropHintPrefix: '释放上传至',
   actionLabels: () => ({}),
   defaultExpandAll: false,
-  expandSelectedPath: false
+  expandSelectedPath: false,
+  loadData: undefined,
+  remoteSearch: undefined
 })
 
 const emit = defineEmits<{
@@ -346,6 +378,7 @@ const emit = defineEmits<{
   'file-drop': [files: File[], targetFolder: T | null]
   'drop-invalid': [reason: string]
   'drop-root': [dragNodeKeys: string[]]
+  'search-hit': [hit: SmartTreeRemoteHit]
 }>()
 
 const DEFAULT_ACTION_LABELS: Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete' | 'batchDelete', string> = {
@@ -362,6 +395,58 @@ const actionLabel = (action: keyof typeof DEFAULT_ACTION_LABELS): string =>
 
 const searchText = ref('')
 const initialExpandedApplied = ref(false)
+
+/** 懒加载适配：把 loadData 透传给 a-tree（参数做泛型收敛，antd 侧收到的是我们的节点对象） */
+const treeLoadData = computed<((node: any) => Promise<unknown>) | undefined>(() => {
+  if (!props.loadData) return undefined
+  return (node: any) => props.loadData!(node as T)
+})
+
+/** 远端搜索（懒加载数据的全库搜索通道）：输入防抖后经 remoteSearch 拉取，面板点击以 search-hit 回传 */
+const remoteHits = ref<SmartTreeRemoteHit[]>([])
+const remoteSearchLoading = ref(false)
+let remoteSearchTimer: ReturnType<typeof setTimeout> | null = null
+let remoteSearchSeq = 0
+
+const runRemoteSearch = async (keyword: string) => {
+  if (!props.remoteSearch) return
+  const seq = ++remoteSearchSeq
+  remoteSearchLoading.value = true
+  try {
+    const hits = await props.remoteSearch(keyword)
+    if (seq === remoteSearchSeq) remoteHits.value = Array.isArray(hits) ? hits : []
+  } catch {
+    if (seq === remoteSearchSeq) remoteHits.value = []
+  } finally {
+    if (seq === remoteSearchSeq) remoteSearchLoading.value = false
+  }
+}
+
+watch(searchText, (value) => {
+  if (remoteSearchTimer) {
+    clearTimeout(remoteSearchTimer)
+    remoteSearchTimer = null
+  }
+  const keyword = value.trim()
+  if (!props.remoteSearch || !keyword) {
+    remoteSearchSeq += 1
+    remoteHits.value = []
+    remoteSearchLoading.value = false
+    return
+  }
+  remoteSearchTimer = setTimeout(() => {
+    remoteSearchTimer = null
+    void runRemoteSearch(keyword)
+  }, 300)
+})
+
+const onRemoteHitClick = (hit: SmartTreeRemoteHit) => {
+  emit('search-hit', hit)
+}
+
+onBeforeUnmount(() => {
+  if (remoteSearchTimer) clearTimeout(remoteSearchTimer)
+})
 
 const collectFolderKeys = (nodes: T[]): string[] => {
   const keys: string[] = []
@@ -940,6 +1025,32 @@ defineExpose({
       }
     }
 
+    .remote-search-panel {
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+
+      .remote-hit {
+        color: rgba(255, 255, 255, 0.85);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.06);
+        }
+
+        .remote-hit-group {
+          color: rgba(255, 255, 255, 0.45);
+          background: rgba(255, 255, 255, 0.08);
+        }
+
+        &.remote-hit-loading {
+          color: rgba(255, 255, 255, 0.45);
+
+          &:hover {
+            background: transparent;
+          }
+        }
+      }
+    }
+
     .tree-node-default {
       .node-icon {
         color: rgba(255, 255, 255, 0.55);
@@ -1040,6 +1151,60 @@ defineExpose({
 
       .anticon {
         font-size: 16px;
+      }
+    }
+  }
+
+  .remote-search-panel {
+    flex-shrink: 0;
+    max-height: 220px;
+    overflow: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    background: var(--tree-panel-bg, #fafafa);
+    padding: 4px 0;
+
+    .remote-hit {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 4px 10px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 22px;
+      color: rgba(0, 0, 0, 0.85);
+
+      &:hover {
+        background: var(--tree-hit-hover-bg, rgba(24, 144, 255, 0.08));
+      }
+
+      .remote-hit-title {
+        flex: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .remote-hit-group {
+        flex-shrink: 0;
+        font-size: 11px;
+        color: rgba(0, 0, 0, 0.45);
+        background: rgba(0, 0, 0, 0.04);
+        border-radius: 3px;
+        padding: 0 6px;
+        line-height: 18px;
+      }
+
+      &.remote-hit-loading {
+        cursor: default;
+        color: rgba(0, 0, 0, 0.45);
+
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }

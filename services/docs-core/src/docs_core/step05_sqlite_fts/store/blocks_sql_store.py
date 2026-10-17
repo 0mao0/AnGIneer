@@ -293,12 +293,23 @@ class KnowledgeMetaStore:
                 """,
                 lib_params,
             ).fetchall()
+            # 批量取文档的树元数据（parent_id/sort_order）：逐条 tree_store.get_node 在
+            # 万级文档下是 N+1 热点（20 库全量 ≈ 2.2 万次查询，TTFB 秒级的主因）。
+            tree_rows = conn.execute(
+                f"""
+                SELECT node_id, parent_id, sort_order
+                FROM tree_node
+                WHERE tree_type = 'knowledge_doc'{" AND scope_id = ?" if library_id else ""}
+                """,
+                lib_params,
+            ).fetchall()
+            tree_map = {row["node_id"]: row for row in tree_rows}
             for row in doc_rows:
                 item = dict(row)
-                tree_node = tree_store.get_node(conn, item["id"])
-                if tree_node:
-                    item["parent_id"] = tree_node.get("parent_id")
-                    item["sort_order"] = tree_node.get("sort_order", 0)
+                tree_node = tree_map.get(item["id"])
+                if tree_node is not None:
+                    item["parent_id"] = tree_node["parent_id"]
+                    item["sort_order"] = tree_node["sort_order"] if tree_node["sort_order"] is not None else 0
                 else:
                     item["parent_id"] = None
                     item["sort_order"] = 0
@@ -335,6 +346,59 @@ class KnowledgeMetaStore:
                     "updated_at": item["updated_at"],
                 })
             return result
+
+    # 按标题搜索节点（懒加载树的「全库搜索」后端通道）：文档 + 文件夹，跨库合并，排除已删除；
+    # 前缀命中优先，其后按标题序，LIMIT 截断。库根/scope 归属由调用方展示时补充。
+    def search_nodes_by_title(self, keyword: str, limit: int = 50) -> List[Dict[str, Any]]:
+        kw = str(keyword or "").strip()
+        if not kw:
+            return []
+        escaped = kw.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        pattern = f"%{escaped}%"
+        prefix = f"{escaped}%"
+        results: List[Dict[str, Any]] = []
+        with self.connect() as conn:
+            doc_rows = conn.execute(
+                """
+                SELECT id, title, type, library_id, status
+                FROM nodes
+                WHERE deleted = 0 AND title LIKE ? ESCAPE '\\'
+                ORDER BY (title LIKE ? ESCAPE '\\') DESC, title ASC
+                LIMIT ?
+                """,
+                (pattern, prefix, limit),
+            ).fetchall()
+            for row in doc_rows:
+                item = dict(row)
+                results.append({
+                    "id": item["id"],
+                    "title": item["title"],
+                    "type": item["type"] or "document",
+                    "library_id": item["library_id"],
+                    "status": item["status"],
+                })
+            remaining = max(0, limit - len(results))
+            if remaining:
+                folder_rows = conn.execute(
+                    """
+                    SELECT node_id, title, scope_id
+                    FROM tree_node
+                    WHERE tree_type = 'knowledge_folder' AND deleted = 0 AND title LIKE ? ESCAPE '\\'
+                    ORDER BY (title LIKE ? ESCAPE '\\') DESC, title ASC
+                    LIMIT ?
+                    """,
+                    (pattern, prefix, remaining),
+                ).fetchall()
+                for row in folder_rows:
+                    item = dict(row)
+                    results.append({
+                        "id": item["node_id"],
+                        "title": item["title"],
+                        "type": "folder",
+                        "library_id": item["scope_id"],
+                        "status": "completed",
+                    })
+            return results
 
     # 读取所有解析任务。
     def list_parse_tasks(self) -> List[sqlite3.Row]:
