@@ -18,8 +18,8 @@ from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化�
     COMPLEX_AGENT_SYSTEM_PROMPT,
     FOLLOWUP_QUESTION_RULE,
     NO_FOLLOWUP_QUESTION_RULE,
-    QA_AGENT_SYSTEM_PROMPT,
 )
+# 裸别名 QA_AGENT_SYSTEM_PROMPT（原 re-export，钉死 V11 已与 latest 漂移）已清退，勿复引入。
 from angineer_core.tool_codec import TextToolCallCodec
 
 

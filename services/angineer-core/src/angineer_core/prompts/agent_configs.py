@@ -326,8 +326,9 @@ QA_AGENT_SYSTEM_PROMPT_V18 = QA_AGENT_SYSTEM_PROMPT_V17.replace(
 assert QA_AGENT_SYSTEM_PROMPT_V18 != QA_AGENT_SYSTEM_PROMPT_V17, "v18 规则 2 追加未命中"
 
 
-# 当前版本别名（re-export 契约见 test_prompts.py；历史版本用 V<N> 常量显式引用）
-QA_AGENT_SYSTEM_PROMPT = QA_AGENT_SYSTEM_PROMPT_V11
+# 「当前版本别名」QA_AGENT_SYSTEM_PROMPT 已清退（2026-10-17）：别名曾 = V11 而 latest 已是 v18，
+# 生产零消费（生效一律走 load(latest)，见 agent_configs._load_qa_system_prompt）；别名与 latest
+# 必然漂移，防复活断言见 test_prompts.PromptMigrationContractTests。历史版本用 V<N> 常量显式引用。
 
 
 COMPLEX_AGENT_SYSTEM_PROMPT = (

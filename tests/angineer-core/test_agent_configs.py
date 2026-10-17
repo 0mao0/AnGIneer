@@ -8,7 +8,6 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
 from angineer_core.agent_configs import (  # noqa: E402
-    QA_AGENT_SYSTEM_PROMPT,
     build_chat_config,
     build_complex_config,
     build_qa_config,
@@ -187,9 +186,6 @@ class QaConfigTests(unittest.TestCase):
         )
         self.assertIn("规范A", config.system_prompt)
         self.assertIn("显式引用证据", config.system_prompt)
-
-    def test_system_prompt_constant_documented(self):
-        self.assertTrue(QA_AGENT_SYSTEM_PROMPT.startswith("你是一个工程规范领域"))
 
     def test_build_chat_config_has_no_tools(self):
         config = build_chat_config(llm=Mock())

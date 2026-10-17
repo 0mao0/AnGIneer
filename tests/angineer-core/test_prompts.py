@@ -93,45 +93,41 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("堤顶高程怎么计算", CLASSIFY_INTENT_SYSTEM_PROMPT)
         self.assertIn("SOP 匹配器", ROUTE_SOP_SYSTEM_PROMPT)
 
-    def test_agent_configs_reexports_prompts_constants(self):
-        from angineer_core.agent_configs import (
-            COMPLEX_AGENT_SYSTEM_PROMPT as COMPLEX,
-            QA_AGENT_SYSTEM_PROMPT as QA,
-        )
-        from angineer_core.prompts.agent_configs import (
-            COMPLEX_AGENT_SYSTEM_PROMPT as COMPLEX_SRC,
-            QA_AGENT_SYSTEM_PROMPT as QA_SRC,
-        )
+    def test_agent_configs_dead_bare_prompt_alias_removed(self):
+        """裸别名 QA_AGENT_SYSTEM_PROMPT 已清退（2026-10-17）：别名曾钉死 V11 而 latest 已是
+        v18，生产零消费（生效一律走 load(latest)）。别名与 latest 必然漂移，勿再引入「当前
+        版本别名」——有人改回时让本用例先红。"""
+        import angineer_core.agent_configs as agent_configs_module
+        import angineer_core.prompts.agent_configs as prompts_agent_configs_module
 
-        self.assertEqual(QA, QA_SRC)
-        self.assertEqual(COMPLEX, COMPLEX_SRC)
+        self.assertFalse(hasattr(agent_configs_module, "QA_AGENT_SYSTEM_PROMPT"), "agent_configs")
+        self.assertFalse(hasattr(prompts_agent_configs_module, "QA_AGENT_SYSTEM_PROMPT"), "prompts.agent_configs")
 
     def test_qa_prompt_refusal_requires_tool_round_and_prefers_table_search(self):
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT as QA
+        QA = load("agent_configs.qa_system_prompt")  # 生效版（latest）——勿再引裸别名（已清退且必然漂移）
 
-        self.assertIn("调用检索工具后仍无有效证据时，直接回答：没有检索到足够证据支持最终结论", QA)
+        self.assertIn("没有检索到足够证据支持最终结论", QA)
         self.assertIn("表格/公式定位类问题必须优先调用 table_search", QA)
         self.assertIn("条款/条文定位类问题必须优先调用 knowledge_search", QA)
 
     def test_qa_prompt_has_partial_evidence_rule(self):
-        """证据只覆盖部分问题时，必须先答已支持部分并说明缺失项，禁止整体拒答。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT as QA
+        """证据只覆盖部分问题时（v12+ 收进规则 3「部分覆盖」分支），必须先答已支持部分并说明缺失项，禁止整体拒答。"""
+        QA = load("agent_configs.qa_system_prompt")
 
-        self.assertIn("只覆盖问题的部分内容", QA)
-        self.assertIn("先回答证据已支持的部分", QA)
-        self.assertIn("明确说明", QA)
-        self.assertIn("禁止因答案不完整而整体拒答", QA)
+        self.assertIn("部分覆盖（证据直接答出了问题的一部分）", QA)
+        self.assertIn("先答证据支持的部分", QA)
+        self.assertIn("证据中缺失/未列出的内容", QA)
+        self.assertIn("不要整体拒答", QA)
 
     def test_qa_prompt_has_reference_refusal_rule(self):
-        """规则 16（v10）：证据只相关不可答时走「拒答开头+供参考」第三档。"""
-        from angineer_core.prompts.agent_configs import (
-            QA_AGENT_SYSTEM_PROMPT as QA,
-            QA_AGENT_SYSTEM_PROMPT_V9 as QA_V9,
-        )
+        """第三档（拒答头+供参考）仍在生效版 prompt（v10 引入，v12+ 收进规则 3 未覆盖分支）。"""
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V9 as QA_V9
+
+        QA = load("agent_configs.qa_system_prompt")
 
         self.assertIn("以下相关信息供参考", QA)
-        self.assertIn("禁止把相邻证据当作答案强行作答", QA)
-        self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无规则 16
+        self.assertIn("禁止用「根据《X》」把相邻片段包装成确定结论", QA)
+        self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无第三档
 
     def test_qa_prompt_latest_is_v18(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
