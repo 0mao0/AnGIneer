@@ -57,7 +57,13 @@ calculator 收到无 expression 键的字典 → {"error": "表达式不能为�
 `data/knowledge/libraries/std-water/documents/doc-fbb3306e/parsed/content.md`）内的公式条数；
 内公式 = 步骤描述里已自带显式公式的步数。
 
-### A 类：公式在原文/描述里可依（16 条，优先补）
+### A 类：公式在原文/描述里可依（16 条，优先补）—— **2026-10-17 已全部补全**
+
+16 条全部补完 expression 并按需分流工具类型，逐条过 `scripts/sop_check.py`（validator 全规则含规则 6）
++ 全参数直跑出数（手算抽核）+ 缺参直跑如实报缺；原件备份在 `data/platform/sops/json/.bak-20261017-sopexpr/`。
+施工中修正的共性问题：部分步骤误用未注册工具 `manual`（改 calculator 守卫/user_input/conditional）；
+`doc-e2eeabd7` 为死溯源链接，16 条 `doc_id` 统一改为实际规范文档 `doc-fbb3306e`；
+个别原描述误引规范/式号或写错不等式右端的，已按 JTS 154-2018 原文更正（见各步骤 description）。
 
 | SOP | 缺步 | 源段 | 备注 |
 |---|---|---|---|
@@ -69,10 +75,10 @@ calculator 收到无 expression 键的字典 → {"error": "表达式不能为�
 | 重力式直立堤抗滑稳定验算流程 efd10ff391f0 | 2 | 5.3 | |
 | 坐床式圆筒直立堤稳定性计算流程 c74a8e948a3e | 4 | 5.7.3-5.7.5 | |
 | 箱筒型基础结构防波堤稳定性估算 2b61dcff5d38 | 4 | 附录K | |
-| 护面块体稳定重量计算流程 4daf8ab7c5ef | 2 | 4.3.7 | |
-| 斜坡式防波堤承载能力极限状态设计流程 25ae5b6a36df | 8 | 4.3.1/4.3.3/4.3.5 | |
-| 开孔沉箱波浪力计算 61ef9eb27ba9 | 4 | 附录H | |
-| 斜坡式防波堤正常使用极限状态设计流程 dae53763ea51 | 4 | 4.3.1/4.3.3/4.3.4 | |
+| 护面块体稳定重量计算流程 4daf8ab7c5ef | 2 | 4.3.7 | 已修 2026-10-17：式4.3.7-1/-2 入 step_8；manual×2 改 user_input；波向角/斜坡倾角补 calculator |
+| 斜坡式防波堤承载能力极限状态设计流程 25ae5b6a36df | 8 | 4.3.1/4.3.3/4.3.5 | 已修 2026-10-17：护面（4.3.7)/底流速（4.3.22)/抗滑（4.3.6-1)/抗倾（4.3.6-2) 5 步 calculator；设计状况/γ0 改 conditional；水位/波高改 user_input；表4.3.24 改 table_lookup；胸墙强度/整体稳定改 knowledge_search |
+| 开孔沉箱波浪力计算 61ef9eb27ba9 | 4 | 附录H | 已修 2026-10-17：重构为波峰（H.0.2-1~-12)/波谷（H.0.3-1~-10) 20 步 calculator；P0/Pv0/l0/lv0(JTS 145) 列 required |
+| 斜坡式防波堤正常使用极限状态设计流程 dae53763ea51 | 4 | 4.3.1/4.3.3/4.3.4 | 已修 2026-10-17：源段无封闭式——沉降/裂缝按 4.3.26/JTS147 由用户提供后以式3.2.2-2 裕度 C−Sd≥0 验算；设计状况改 conditional |
 | 胸墙抗滑稳定性验算流程 6e5dee1dad6f | 4 | 4.3.6.1 | |
 | 明基床基肩和坡面块体稳定重量计算 22d61b71f16a | 3 | 附录E | |
 | 斜坡堤前海底冲刷形态判别与计算 8603d564dc3f | 2 | 附录D | 含判别分支，部分步转 conditional |
@@ -127,9 +133,12 @@ calculator 收到无 expression 键的字典 → {"error": "表达式不能为�
 `ANGINEER_SOP_AI_RECOMMEND_TIMEOUT`（默认 30s，`.env.example` 已登记）；
 单次等待与累计都不超预算，超了降级「仅报缺」（不臆造）。增强项永不阻塞主结果。
 
-## 生产现状（2026-10-15 只读核查）
+## 生产现状（2026-10-17 复核更正）
 
-部署机 `/home/runner/AnGIneer/data/platform/sops/json/` 为空（0 条），
-`index.json`/`sop_published_snapshot.json` 皆空 —— **57 条 SOP（含 39 条残废）只存在于开发机**，
-生产 SOP 库尚未上线。因此本批修复不需要（也无从）同步生产数据；
-将来 SOP 库上生产时，带的就是修好的定义 + 规则 6 校验闸。
+2026-10-15 21:1x 只读核查时部署机 `/home/runner/AnGIneer/data/platform/sops/json/` 为空（0 条）属实；
+但**当夜 23:15–23:32 本地做过一轮批量改写（仅工具类型分流，未补 expression），23:36 已同步上生产**。
+2026-10-17 复核（按 `execution.tool == "calculator"` 且 inputs 缺 `expression`/`expressions` 口径）：
+- 生产 55 条，其中 **38 条 / 113 个 calculator 步仍缺 expression**；本地同一份（半圆堤 96682af0ed26 md5 两端一致）。
+- 即残废 SOP 已是**线上缺陷**：用户跑到这 38 条即 1ms 报「表达式不能为空」。
+- 本文档早先「57 条/39 条残废」口径含已修复的半圆堤；现 55 条/38 条残废（少了市场研究等改名/并档差异，残废数 39→38 即半圆堤已修）。
+- 生产修复路径：本地补全 → 校验过 → 同步部署机同目录（同 10-15 的同步方式），同步后重启 sop-api。
