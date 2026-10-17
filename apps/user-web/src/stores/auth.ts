@@ -58,21 +58,22 @@ export const useAuthStore = defineStore('auth', {
       this.guestMode = true
     },
     /** 拉游客公开配置（2026-10-17 游客设置）：默认勾选 = 允许集全选；失败保持空集合
-     *  （选择器降级为空、发送侧服务端仍按文件兜底裁定） */
+     *  （选择器降级为空、发送侧服务端仍按文件兜底裁定）。
+     *  仅纯游客（无 token）可拉写：token 在场 = 登录已发生或收敛中——刷新页时本请求与
+     *  refreshMe 并发，游客集先落地会被 refreshMe 的 keep 分支当作用户勾选保留（2026-10-17 质量评审修正） */
     async loadGuestConfig() {
-      if (!this.guestMode) return
+      if (!this.guestMode || this.token) return
       try {
         const cfg = await guestApi.getConfig()
-        // 竞态守护（2026-10-17 评审补）：飞行中登录成功（刷新页时 App 收敛 guestMode=false 晚于本请求）
-        // → 不得用游客允许集覆写 refreshMe 刚恢复的用户派生集
-        if (!this.guestMode) return
+        // 竞态守护（落地再查）：飞行中登录完成 → 丢弃，不覆写 refreshMe 恢复的用户派生集
+        if (!this.guestMode || this.token) return
         this.guestConfig = cfg
         const ids = cfg.groups.flatMap((g) => g.libraries.map((l) => l.id))
         this.activeLibraryIds = ids.length ? [...ids] : []
         this.activeLibraryId = this.activeLibraryIds[0] || 'default'
       } catch {
         // 同上守护：飞行中登录完成时不得清空用户派生集
-        if (!this.guestMode) return
+        if (!this.guestMode || this.token) return
         this.guestConfig = null
         this.activeLibraryIds = []
         this.activeLibraryId = ''

@@ -179,7 +179,7 @@ watch(
   () => {
     loginPrompt.value = false
     // 登录/登出切换重拉数据源（2026-10-17 游客设置）：登出回游客态必须重拉公开配置，
-    // 否则选择器停在空集（自动登录清档后点发送会 403）
+    // 否则选择器停在空集（发送仍有服务端隐式允许集兜底，但默认全选可见性丢失）
     if (authStore.guestMode) void authStore.loadGuestConfig()
     else void loadLibraryNames()
     void refreshSessions()
