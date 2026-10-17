@@ -16,7 +16,7 @@ _BUSY_MARKERS = ("database is locked", "database is busy")
 # 断电最多丢最后几个已提交事务（重解析可补），换来单篇提交 3–5×。owner: 2026-10-15 13:1x 业主「先做A」
 def create_connection(db_path: Path) -> sqlite3.Connection:
     db_path.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(str(db_path), timeout=10)
+    conn = sqlite3.connect(str(db_path), timeout=30)  # 2026-10-17 并发写实测：10s busy 超时在补跑高峰会被击穿
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA synchronous=NORMAL")

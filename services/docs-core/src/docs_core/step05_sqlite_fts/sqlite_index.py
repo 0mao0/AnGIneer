@@ -6,6 +6,7 @@ import docs_core.paths as paths
 from docs_core.step04_structure.shared.jsonl_io import get_doc_blocks_graph
 from docs_core.docs_file_io import file_storage as _file_storage
 from docs_core.step05_sqlite_fts.store.blocks_sql_store import get_index_store
+from docs_core.step05_sqlite_fts.store.sqlite_utils import run_with_write_lock
 from docs_core.step05_sqlite_fts.rows_projection import build_doc_block_rows, build_document_segments
 
 
@@ -67,9 +68,17 @@ def build_sqlite_index_from_graph(
         derive_version=derive_version,
         parser_version=parser_version,
     )
-    index_store.clear_doc_blocks(doc_id)
-    inserted = index_store.insert_doc_blocks_base_rows(base_rows) if base_rows else 0
-    updated = index_store.update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
+
+    # 写序列套上「按库写锁 + busy 退避」（2026-10-17 18:4x 实踩：补跑并发下多个 fts 线程
+    # 直连写 doc_blocks/segments，10s busy 超时即抛 database is locked → 阶段失败；
+    # 这三个写方法本身没走 run_with_write_lock，与 canonical 写路径不同源，故在此统一收口。）
+    def _write_doc_blocks():
+        index_store.clear_doc_blocks(doc_id)
+        n_base = index_store.insert_doc_blocks_base_rows(base_rows) if base_rows else 0
+        n_derived = index_store.update_doc_blocks_derived_rows(derived_rows) if derived_rows else 0
+        return n_base, n_derived
+
+    inserted, updated = run_with_write_lock(index_store.db_path, _write_doc_blocks)
     _emit_on_step(on_step, "doc_blocks 行写入", "done", f"base {inserted} / derived {updated}")
 
     node_line_map = {
@@ -85,8 +94,11 @@ def build_sqlite_index_from_graph(
             "markdown_line_end": node.get("markdown_line_end"),
         })
     segments = build_document_segments(canonical_document, block_line_ranges)
-    index_store.clear_document_segments(doc_id)
-    saved_segments = index_store.save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", segments)
+    def _write_segments():
+        index_store.clear_document_segments(doc_id)
+        return index_store.save_document_segments(doc_id, library_id, "doc_blocks_graph_v1", segments)
+
+    saved_segments = run_with_write_lock(index_store.db_path, _write_segments)
     _emit_on_step(on_step, "segments 生成", "done", f"{saved_segments} 段")
 
     docs_service.rebuild_document_fts(doc_id)
