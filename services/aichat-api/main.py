@@ -476,7 +476,7 @@ async def chat_agent_stream(request: QueryRequest, raw_request: Request):
     # 历史存储：组装层注入；不可用则降级为纯内存池（行为同改造前）
     store = _get_history_store()
     # 游客 30 轮硬闸（D2）：满阈值或游客身份已认领（登录后退出的空桶复活）→ 403 + login_required
-    if guest_gate_blocked(owner, store):
+    if guest_gate_blocked(owner, store, raw_request.state):
         raise HTTPException(
             status_code=403,
             detail={

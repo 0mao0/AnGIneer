@@ -147,11 +147,22 @@ def enforce_bound_libraries(state, requested: "list[str]") -> "list[str]":
         return libs[: max_chat_libraries()]
     bound = getattr(state, "bound_library_id", "") or ""
     if not bound:
-        # 匿名（无 API key 也无会话）：只允许默认库（2026-09-17 收紧语义的集合版）。
+        # 游客（无 API key 也无会话）：只可访问「游客设置」允许集 S（2026-10-17 设计稿 §3.3）。
+        # 隐式（空/["default"]）= S 全选（与登录用户 V2 隐式语义一致，不截断）；
+        # 显式非成员 → 403 可见报错；S>FANOUT_WARN_THRESHOLD 仅 warning（V2 观测口径）。
+        allowed = [str(x) for x in (_guest_settings(state).get("library_ids") or ["default"])]
+        if len(allowed) > FANOUT_WARN_THRESHOLD:
+            logger.warning("游客允许集 %d 库（无上限，观测口径）: %s", len(allowed), allowed)
         libs = [str(x).strip() for x in requested if str(x).strip()]
         if not libs or libs == ["default"]:
-            return ["default"]
-        raise HTTPException(status_code=403, detail="未登录访问仅限默认知识库，请登录后选择其它知识库")
+            return list(allowed)
+        for lib in libs:
+            if lib not in allowed:
+                raise HTTPException(
+                    status_code=403,
+                    detail="未登录仅可访问游客开放的知识库，请登录后选择其它知识库",
+                )
+        return libs
     # API key：单库绑定不变（spec：Key 仍单库），集合收敛为 [bound]；
     # 计划 v3 片段此处直接 return [bound] 会把旧 enforce_bound_library 的冲突 403 吞成静默收敛，
     # 破兼容铁律 1（2026-10-04 实施时修正：非绑定成员一律 403）。
@@ -196,27 +207,53 @@ def resolve_pool_owner(request: Request) -> str:
     return f"ip:{_client_ip_digest(request)}"
 
 
-def guest_rounds_limit() -> int:
-    """游客 30 轮闸阈值（策略注入，§3 硬约束 2）。"""
-    try:
-        return max(1, int(os.getenv("ANGINEER_GUEST_ROUNDS", "30") or 30))
-    except ValueError:
-        return 30
+def _guest_settings(state=None) -> dict:
+    """游客设置单请求共读（设计稿 §3.2 评审补）：state 有缓存就复用，否则读盘并挂回 state。
 
-
-def guest_gate_blocked(owner: str, store) -> bool:
-    """游客闸（D2）：``g:`` 桶提问轮数 ≥ 阈值 → 拦；**已 claim 的身份直接拦**。
-
-    轮数按 chat_runs 计（1 run = 提问 1 次；检索重试/steer 追加的 user 消息不重复计，
-    2026-09-18 实踩：按 user 消息计会把 1 问答算成多轮）。claimed 即作废：claim 把 g:
-    桶搬空后登出再聊会落到计数清零的空桶（无限对话实踩），登录过的游客身份须保持登录。
-    存储降级（store=None）时 fail-open，行为同改造前；非游客桶永不拦。
+    state=None（测试直调/无请求上下文）每次直读；挂 state 的缓存让同请求内
+    enforce_bound_libraries 与 guest_gate_blocked 共用一次文件加载。
     """
+    if state is not None:
+        cached = getattr(state, "_guest_settings_cache", None)
+        if cached is not None:
+            return cached
+    from shared.guest_settings import load_guest_settings
+
+    cfg = load_guest_settings()
+    if state is not None:
+        try:
+            state._guest_settings_cache = cfg
+        except Exception:  # noqa: BLE001
+            pass
+    return cfg
+
+
+def guest_rounds_limit(state=None) -> int:
+    """游客轮数阈值：游客设置文件 > env(ANGINEER_GUEST_ROUNDS) > 30。
+
+    2026-10-17 游客设置（设计稿 §3.1）：文件一旦保存即钉死 rounds，改 .env 不再生效；
+    文件缺失时退回 env 语义。state 传入则复用请求级缓存（见 _guest_settings）。
+    """
+    return int(_guest_settings(state).get("rounds") or 30)
+
+
+def guest_gate_blocked(owner: str, store, state=None) -> bool:
+    """游客闸（D2 + 2026-10-17 游客设置，闸序见设计稿 §3.3）：
+
+    ① enabled=false → g:/ip: 都拦（读设置文件，不依赖 store——存储降级不得吞掉关闭语义）；
+    ② store=None 降级 fail-open 仅豁免轮数/claim（行为同改造前）；
+    ③ 轮闸/claim 仍只对 g: 桶（ip: 桶永不进；claimed 即作废防「登出后空桶无限聊」实踩回归）；
+    u:/k: 主体永远不受游客闸影响。轮数按 chat_runs 计（1 run = 提问 1 次）。
+    state 可选：同请求复用设置缓存（见 _guest_settings），直调不传保持兼容。
+    """
+    if not owner.startswith(("u:", "k:")):
+        if not _guest_settings(state).get("enabled", True):
+            return True
     if store is None or not owner.startswith("g:"):
         return False
     try:
         if store.guest_is_claimed(owner[2:]):
             return True
-        return store.guest_rounds(owner) >= guest_rounds_limit()
+        return store.guest_rounds(owner) >= guest_rounds_limit(state)
     except Exception:  # noqa: BLE001
         return False

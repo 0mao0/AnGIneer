@@ -8,7 +8,9 @@ stub 深度按 main.py 端点真实结构：get_agent_session/route_request/赌�
 """
 import importlib
 import os
+import shutil
 import sys
+import tempfile
 import unittest
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, patch
@@ -132,6 +134,15 @@ class AgentEndpointLibraryIdsTests(unittest.TestCase):
             p.start()
         self.addCleanup(lambda: [p.stop() for p in reversed(patches)])
         os.environ.pop("ANGINEER_CHAT_AUTH_REQUIRED", None)
+        # 游客设置文件隔离（2026-10-17 游客设置）：匿名默认语义按「无文件」钉死，
+        # 不受开发机 data/platform/guest_settings.json 真实状态影响
+        self._guest_tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self._guest_tmp, ignore_errors=True))
+        self._guest_env = patch.dict(
+            os.environ, {"GUEST_SETTINGS_FILE": os.path.join(self._guest_tmp, "guest_settings.json")}
+        )
+        self._guest_env.start()
+        self.addCleanup(self._guest_env.stop)
 
         headers = {}
         if api_key is not None:

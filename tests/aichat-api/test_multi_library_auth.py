@@ -5,8 +5,11 @@
 上限截断（ANGINEER_MAX_CHAT_LIBRARIES 默认 5，夹 1..10）永远发生在鉴权之后。
 """
 import importlib
+import json
 import os
+import shutil
 import sys
+import tempfile
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -53,6 +56,15 @@ class TestEnforceBoundLibraries(unittest.TestCase):
         env_patch.start()
         self.addCleanup(env_patch.stop)
         os.environ.pop("ANGINEER_MAX_CHAT_LIBRARIES", None)
+        # 游客设置文件隔离（2026-10-17 游客设置）：匿名默认语义按「无文件」钉死，
+        # 不受开发机 data/platform/guest_settings.json 真实状态影响
+        self._guest_tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self._guest_tmp, ignore_errors=True))
+        self._guest_env = patch.dict(
+            os.environ, {"GUEST_SETTINGS_FILE": os.path.join(self._guest_tmp, "guest_settings.json")}
+        )
+        self._guest_env.start()
+        self.addCleanup(self._guest_env.stop)
 
     def _state(self, **kw):
         base = dict(session_user=None, bound_library_id="", bound_library_ids=None)
@@ -94,6 +106,31 @@ class TestEnforceBoundLibraries(unittest.TestCase):
 
         with self.assertRaises(HTTPException):
             self.chat_auth.enforce_bound_libraries(state, ["libA"])
+
+    def _write_guest_settings(self, library_ids):
+        path = os.path.join(self._guest_tmp, "guest_settings.json")
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump({"enabled": True, "rounds": 30, "library_ids": library_ids}, fh, ensure_ascii=False)
+
+    def test_anonymous_allowed_set_expansion(self):
+        """游客设置允许集（2026-10-17）：隐式（空/default）展开为 S 全选、不截断。"""
+        self._write_guest_settings(["default", "guifan"])
+        state = self._state()
+        self.assertEqual(self.chat_auth.enforce_bound_libraries(state, []), ["default", "guifan"])
+        state2 = self._state()
+        self.assertEqual(self.chat_auth.enforce_bound_libraries(state2, ["default"]), ["default", "guifan"])
+
+    def test_anonymous_allowed_set_member_and_non_member(self):
+        """显式 @：∈S 放行原样返回；∉S → 403 可见报错（不静默剔除）。"""
+        from fastapi import HTTPException
+
+        self._write_guest_settings(["default", "guifan"])
+        state = self._state()
+        self.assertEqual(self.chat_auth.enforce_bound_libraries(state, ["guifan"]), ["guifan"])
+        state2 = self._state()
+        with self.assertRaises(HTTPException) as ctx:
+            self.chat_auth.enforce_bound_libraries(state2, ["libA"])
+        self.assertEqual(ctx.exception.status_code, 403)
 
     def test_cap_truncates_after_auth(self):
         state = self._state(session_user=SimpleNamespace(is_admin=True))

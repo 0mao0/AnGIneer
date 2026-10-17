@@ -3,8 +3,11 @@
 覆盖：resolve_pool_owner 的 g: cookie 优先级（登录/key > cookie > ip:）、
 guest_gate_blocked 边界（29/30/31）、存储降级 fail-open、env 阈值注入。
 """
+import json
 import os
+import shutil
 import sys
+import tempfile
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -90,9 +93,15 @@ class GuestGateTests(unittest.TestCase):
     def setUp(self):
         self.chat_auth = _load_chat_auth()
         self.addCleanup(lambda: sys.modules.pop("chat_auth", None))
-        # 隔离外部 env：本地 .env 可能带 ANGINEER_GUEST_ROUNDS 调试值（如实测期=5），
-        # 边界用例按默认 30 写死
-        self._env_patch = patch.dict(os.environ, {"ANGINEER_GUEST_ROUNDS": "30"})
+        # 隔离外部 env 与游客设置文件：本地 .env 可能带 ANGINEER_GUEST_ROUNDS 调试值、
+        # data/platform/guest_settings.json 可能已被手工改过——默认语义用例必须「无文件」
+        self._tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self._tmp, ignore_errors=True))
+        self._settings_path = os.path.join(self._tmp, "guest_settings.json")
+        self._env_patch = patch.dict(
+            os.environ,
+            {"ANGINEER_GUEST_ROUNDS": "30", "GUEST_SETTINGS_FILE": self._settings_path},
+        )
         self._env_patch.start()
         self.addCleanup(self._env_patch.stop)
 
@@ -119,6 +128,49 @@ class GuestGateTests(unittest.TestCase):
             self.assertEqual(self.chat_auth.guest_rounds_limit(), 5)
             self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=5)))
             self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=4)))
+
+    def _write_settings(self, **overrides):
+        cfg = {"enabled": True, "rounds": 30, "library_ids": ["default"]}
+        cfg.update(overrides)
+        with open(self._settings_path, "w", encoding="utf-8") as fh:
+            json.dump(cfg, fh, ensure_ascii=False)
+
+    def test_disabled_blocks_guest_and_ip_not_users(self):
+        """关闭游客（2026-10-17 游客设置）：g: 与 ip: 都拦；u:/k: 永远不受影响。"""
+        self._write_settings(enabled=False)
+        self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore()))
+        self.assertTrue(self.chat_auth.guest_gate_blocked("ip:abc", _FakeStore()))
+        self.assertFalse(self.chat_auth.guest_gate_blocked("u:1", _FakeStore()))
+        self.assertFalse(self.chat_auth.guest_gate_blocked("k:1", _FakeStore()))
+
+    def test_disabled_gate_survives_store_none(self):
+        """评审钉：存储降级 fail-open 只豁免轮数/claim，不得吞掉「关闭游客」闸。"""
+        self._write_settings(enabled=False)
+        self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", None))
+        self.assertTrue(self.chat_auth.guest_gate_blocked("ip:abc", None))
+
+    def test_file_rounds_override_env(self):
+        """文件 > env：文件写 5 时 env 30 失效。"""
+        self._write_settings(rounds=5)
+        with patch.dict(os.environ, {"ANGINEER_GUEST_ROUNDS": "30"}):
+            self.assertEqual(self.chat_auth.guest_rounds_limit(), 5)
+            self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=5)))
+            self.assertFalse(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=4)))
+
+    def test_corrupt_file_fails_closed(self):
+        with open(self._settings_path, "w", encoding="utf-8") as fh:
+            fh.write("{ 半截")
+        self.assertTrue(self.chat_auth.guest_gate_blocked("g:x", _FakeStore(rounds=0)))
+        self.assertTrue(self.chat_auth.guest_gate_blocked("ip:abc", _FakeStore(rounds=0)))
+
+    def test_state_cache_single_load_per_request(self):
+        """单请求共读（设计稿 §3.2 评审补）：同 state 二次调用不重读文件。"""
+        self._write_settings(rounds=5)
+        state = SimpleNamespace()
+        self.assertEqual(self.chat_auth.guest_rounds_limit(state), 5)
+        self._write_settings(rounds=7)  # 文件变了，同 state 依旧拿缓存
+        self.assertEqual(self.chat_auth.guest_rounds_limit(state), 5)
+        self.assertEqual(self.chat_auth.guest_rounds_limit(SimpleNamespace()), 7)
 
 
 if __name__ == "__main__":

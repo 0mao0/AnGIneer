@@ -11,7 +11,9 @@
 """
 import importlib
 import os
+import shutil
 import sys
+import tempfile
 import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -63,6 +65,15 @@ class TestEnforceBoundV2(unittest.TestCase):
         self.addCleanup(env_patch.stop)
         os.environ.pop("ANGINEER_MAX_CHAT_LIBRARIES", None)
         os.environ.pop("ANGINEER_KB_SUBSCRIPTION_V2", None)
+        # 游客设置文件隔离（2026-10-17 游客设置）：匿名默认语义按「无文件」钉死，
+        # 不受开发机 data/platform/guest_settings.json 真实状态影响
+        self._guest_tmp = tempfile.mkdtemp()
+        self.addCleanup(lambda: shutil.rmtree(self._guest_tmp, ignore_errors=True))
+        self._guest_env = patch.dict(
+            os.environ, {"GUEST_SETTINGS_FILE": os.path.join(self._guest_tmp, "guest_settings.json")}
+        )
+        self._guest_env.start()
+        self.addCleanup(self._guest_env.stop)
 
     def _state(self, *, user=None, bound_id="", bound_ids=None):
         return SimpleNamespace(session_user=user, bound_library_id=bound_id, bound_library_ids=bound_ids)
