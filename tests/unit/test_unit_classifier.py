@@ -277,6 +277,27 @@ class TestRouteWithMockLLM(unittest.TestCase):
         self.assertIsInstance(result.candidates, list)
         self.assertTrue(len(result.candidates) > 0)
 
+    def test_route_llm_hang_degrades_fast(self):
+        """精排 LLM 挂起：内层预算超时后按失败降级，不烧满外层工具超时。"""
+        import time as _time
+
+        def _hang(*args, **kwargs):
+            _time.sleep(5)
+            return ChatResult(text=self._make_rerank_response(sop_id="math_sop"), finish_reason="stop")
+
+        mock_client = Mock()
+        mock_client.chat_result.side_effect = _hang
+
+        classifier = IntentClassifier(self.sops, llm_client=mock_client)
+        with patch.dict(os.environ, {"ANGINEER_SOP_ROUTE_LLM_TIMEOUT": "0.5"}):
+            started = _time.monotonic()
+            result = classifier.route("计算 25 * 4")
+            elapsed = _time.monotonic() - started
+
+        self.assertIsNone(result.sop)
+        self.assertIn("超时", result.reason)
+        self.assertLess(elapsed, 3.0)
+
 
 class TestSOPMatching(unittest.TestCase):
     """测试 SOP 匹配逻辑。"""

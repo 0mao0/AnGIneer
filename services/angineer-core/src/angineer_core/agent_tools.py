@@ -1330,6 +1330,10 @@ class SopRunnerAdapter:
                     "reason": route_result.reason or "SOP 路由未命中",
                     "confidence": route_result.confidence,
                 }
+                # 精排超时走的是同一 route-miss 出口，但语义是「降级」不是「没匹配」——
+                # 错误文案带上原因，模型与前端思考过程（summary 只渲染 error）才看得见。
+                if "精排超时" in str(route_result.reason or ""):
+                    legacy_error["error"] = "SOP 精排超时，已跳过 SOP 执行；请改用知识检索作答"
                 if synth_callback is None:  # 开关关：早退，与现状逐键一致
                     return legacy_error
                 synth = synth_callback(query)  # → {"sop": <契约形态 dict>} | None

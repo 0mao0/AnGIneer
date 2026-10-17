@@ -273,3 +273,17 @@ class L4SynthTests(unittest.TestCase):
         result = self._miss_tool(synth_callback=lambda q: None).handler(sop_query="不相关的问题")
         self.assertEqual(result["error"], "未匹配到合适的 SOP")
         self.assertTrue(result["l4_synth_attempted"])
+
+    def test_route_timeout_error_is_explicit(self):
+        """精排超时降级：error 文案要说明超时（前端 summary 只渲染 error 字段）。"""
+        miss = RouteResult(
+            sop=None, args={}, reason="LLM精排超时（30.0s），已降级",
+            confidence=0.0, candidates=[],
+        )
+        tool = SopRunnerAdapter.sop_execute(
+            sops=[make_sop(status="published")],
+            classifier=FakeClassifier(miss),
+        )
+        result = tool.handler(sop_query="计算码头前沿水深")
+        self.assertIn("精排超时", result["error"])
+        self.assertIn("30.0s", result["reason"])

@@ -6,6 +6,7 @@ import math
 import os
 import re
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from typing import List, Optional, Tuple, Dict, Any
 
 from angineer_core.base_contracts import SOP, AgentResponse, IntentResult, IntentLevel, ServiceMode, RouteResult
@@ -55,6 +56,19 @@ STANDARD_CODE_PATTERN = re.compile(
 
 ROUTE_RECALL_TOP_K = 5
 ROUTE_RECALL_MIN_SCORE = 0.02
+
+
+def _route_llm_timeout_s() -> float:
+    """精排 LLM 单次调用预算（秒），``ANGINEER_SOP_ROUTE_LLM_TIMEOUT`` 覆盖。
+
+    无内层预算时精排挂起会烧满 sop_execute 的 loop 级 120s 工具超时才报错
+    （agent_loop 只按 config.tool_timeout_s 掐，不知内部构成）；加内层闸让
+    挂起在 ~30s 走既有「精排失败 → 回 error → 模型转检索」降级路。
+    """
+    try:
+        return max(1.0, float(os.getenv("ANGINEER_SOP_ROUTE_LLM_TIMEOUT", "30")))
+    except ValueError:
+        return 30.0
 
 # 各意图层级的默认升级链：当前路径失败后逐级回退
 DEFAULT_EXECUTION_PLANS: Dict[str, List[str]] = {
@@ -794,15 +808,35 @@ class IntentClassifier:
 
         try:
             logger.debug("[DEBUG-SOP-ROUTE] 调用 LLM 进行精排...")
-            result = chat_result_guarded(
-                self._llm_client,
-                [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"用户问题: {user_query}"},
-                ],
-                mode=mode,
-                config_name=config_name,
-            )
+            # 内层超时闸（同 sop_runner llm_generate 模式）：网关挂起时内层先超时，
+            # 走下方统一的精排失败降级路，而非烧满 sop_execute 的 120s 工具预算。
+            route_timeout = _route_llm_timeout_s()
+            executor = ThreadPoolExecutor(max_workers=1)
+            try:
+                future = executor.submit(
+                    chat_result_guarded,
+                    self._llm_client,
+                    [
+                        {"role": "system", "content": system_prompt},
+                        {"role": "user", "content": f"用户问题: {user_query}"},
+                    ],
+                    mode=mode,
+                    config_name=config_name,
+                )
+                result = future.result(timeout=route_timeout)
+            except FuturesTimeoutError:
+                # 超时后立即放弃等待；线程未杀死（泄漏至客户端总超时，与全仓同款限制）
+                logger.warning(
+                    "[DEBUG-SOP-ROUTE] LLM 精排超时（%ss），按精排失败降级（线程未杀死）",
+                    route_timeout,
+                )
+                return RouteResult(
+                    sop=None, args={},
+                    reason=f"LLM精排超时（{route_timeout}s），已降级",
+                    confidence=0.0, candidates=candidates,
+                )
+            finally:
+                executor.shutdown(wait=False, cancel_futures=True)
             response_text = result.text
             logger.info(f"[DEBUG-SOP-ROUTE] LLM 精排原始响应: {response_text}")
         except Exception as e:
