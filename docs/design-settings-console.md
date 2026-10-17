@@ -1,6 +1,6 @@
 # 运维参数可视化设置系统 · 设计稿
 
-> 2026-10-17 定稿（用户已确认架构方向与分期范围）。本文所有文件:行号均为当日仓库实测，作为实施依据。
+> 2026-10-17 定稿（用户已确认架构方向与分期范围）；同日专家评审修订：首注时序与快照基线、bool canonical 序列化（§2.2-G）、nginx 改容器层、source=env 拒绝码、EMBEDDING 维度探比、间接读白名单、包归属补齐。本文所有文件:行号均为当日实测（含评审纠错的 parse_pipeline.py:1292），作为实施依据。
 
 ## 0. 背景与目标
 
@@ -78,9 +78,21 @@ SettingSpec = {
   "source": "settings|env",   # settings=页面可写；env=只读展示
   "sensitivity": "public|secret",  # secret：api_key/token 类，脱敏展示、密文输入框
   "effective": "live|lazy|restart", # live=动态读热生效；lazy=懒单例（有热换口则等效 live）；restart=需重建容器
+  "bool_style": "zero_pad|word",    # 仅 type=bool：false 态序列化口径（见 §2.2/G）；true 态统一 "true"
   "related": list[str],   # 牵连提示 key（如 EMBEDDING→存量向量维度警示、GUEST_ROUNDS→guest_settings.json 钉死规则）
 }
 ```
+
+### 2.2-G canonical 序列化（os.environ 注入的唯一形态）
+
+os.environ 只装字符串，registry 必须定死每类 canonical 形式，PUT 校验层**统一序列化后再落盘/注入**（前端永不直接塞原文）：
+
+| type | canonical | 实测验算依据 |
+|---|---|---|
+| bool | `true`→统一 `"true"`；`false`→按条目 `bool_style` 输出 `"0"` 或 `"false"` | true 态 `"true"` 三类读点全命中：route_pre in ("true","1","yes","on")✓；mineru_parser.py:147 `!= '0'`✓；其 :148 `== 'true'`✓。false 态**无万能串**（`"0"` 会被 `=='true'` 类读对、`"false"` 会被 `!='0'` 类读反——mineru_parser.py:147 注入 `"false"` 即被读成 True）→ 按条目登记时实测就近读点口径：`!='0'` 类登 `zero_pad`（如 MINERU_PROXY_FALLBACK_ENABLED），`=='true'` 类登 `word`（如 MINERU_OCR_ENABLED），in 序列类两者皆通、取 `word` |
+| int/float | `str(value)` | 所有读点都是 int()/float() 包裹 |
+| json | `json.dumps(obj, ensure_ascii=False)` | 五件套 CONFIGS 等 |
+| str/secret | 原文（secret 明文不回显） | — |
 
 `effective` 判定依据（实测）：
 - `live`：每请求/每调用动态读（route_pre.py:27-91、agent_tools.py:19-151/449-461、middleware/api_key_auth.py:57、guest_settings.py、popo model_utils.py:69-97 每推理、figure_describer.py 每图、answer_eval.py:94-114 每判分）
@@ -95,6 +107,8 @@ SettingSpec = {
 3. 豁免白名单（测试夹具/脚本探针/VITE_）内置在脚本里，白名单变更也要过 PR
 
 这是「防止有遗漏」诉求的机械化兜底：以后任何代码新增 env 读点，registry 不登就无法通过校验。
+
+扫描口径限制（实测白名单预留）：regex 只能抓**字面量**读点；间接读法（变量名是参数，如 `services/sop-api/docs_graph_client.py:23-24` `os.getenv(var)` 循环读、`os.environ.get(拼串)`）扫不出——checker 白名单 **第 III 区「已知间接读点清单」**（人工补登、PR 维护），并应定期人工比对新增间接读法。
 
 ## 3. 存储布局
 
@@ -125,11 +139,19 @@ PUT /api/settings│  1) 探针（仅 CONFIGS 与 secret 类）失败→422 不�
 
 新增 `services/shared/src/shared/runtime_overlays.py`：
 
-- `apply_runtime_overlays()`：读 settings.json → 注入键值进 `os.environ`（对「首注前原值」做快照存内存，供 delete 键还原），随后**启动并常驻一条 daemon watcher 线程**（30s 间隔 stat mtime；文件无变化零开销）。每次启动首注**必须发生在任何业务模块 import 之前**，三服务接入点：
-  - docs-api `main.py:23` ensure_env 之前/同级最先；aichat-api `main.py:43` 同位；sop-api 现无 ensure_env（main.py 仅 :24 setdefault DATA_DIR），在 main.py 顶部 import fastapi 之前补调用——与 ensure_env 分离，不要塞进 config_validator（避免耦合校验语义）。
-- 注入语义：**settings 覆盖永远优先于 .env**（理由：页面双向 = 用户最后一手）；`load_dotenv()` 默认不覆盖已存在值（config_validator.py:19、base_config.py:15、llm_client.py:49 均在各自 import 时调用）——watcher 后续重注不与 load_dotenv 冲突；时序上首注赶在上述三处 load_dotenv 之前即可。
-- Watcher 还原语义：registry 里某键被「恢复默认」→ 从 settings.json 删除 → watcher diff 发现 → `os.environ[key]` 还原为首注快照值（若本无则删除注入键）。
-- watcher 间隔参数化：默认 30s，允许参数/测试注入更短间隔（集成测试不等真实 30s）。
+- `apply_runtime_overlays()`：读 settings.json → 注入键值进 `os.environ` → 常驻 daemon watcher 线程（间隔参数化，默认 30s，测试可注入更短；mtime 无变化零开销）。
+
+**接入点时序（警告：首注不得早于 .env 载入）**——快照基线 = apply 执行时刻的 `os.environ` 全量快照，供 DELETE 还原；若快照时 .env 还没并入进程环境，「恢复默认」会把 .env 有值的键删成缺失、回落代码默认，违背 §8「DELETE→回 .env 值」。因此：
+
+| 服务 | 接入点 | .env 就绪保证 |
+|---|---|---|
+| docs-api | `main.py:23` `ensure_env()` 调用**之后**、`main.py:25` 首个业务 import 之前 | config_validator 模块 import 期已 `load_dotenv()`（config_validator.py:19；接入点行 :21 import 即触发），快照天然含 .env |
+| aichat-api | `main.py:43` `ensure_env()` 之后、业务 import 前 | 同上（main.py:41 import） |
+| sop-api | sys.path 装配后、import fastapi 前；runtime_overlays 内部先 `ensure_repo_dotenv()`（复用 config_validator.py:64-69 的 .env 定位 + `load_dotenv(override=False)` 幂等）再 apply | 本地 dev 由 ensure_repo_dotenv 载入；容器 env_file 出生即有 |
+
+保证不变量：**apply 之后任何业务模块 import 才发生**（所有 import 期固化读点仍赶得上）；watcher 后续重注不与 `load_dotenv()` 冲突（override=False 尊重已存在值，config_validator.py:19 / base_config.py:15 / llm_client.py:49 导入时调用均无碍）。runtime_overlays 是独立 shared 模块，不塞进 config_validator（避免耦合校验语义）。
+
+- 注入语义：**settings 覆盖永远优先于 .env**（页面双向 = 用户最后一手）；Watcher 还原语义：某键被「恢复默认」→ 从 settings.json 删除 → watcher diff 发现 → `os.environ[key]` 还原为快照基线值（若本无则删除注入键）。
 - 生效时限承诺：watcher 间隔 30s + aichat 进程 PUT 时即时 apply → 全集群 ≤30s。
 
 > 这条链路的价值硬通货：**现有 ~90 个 `os.getenv` 动态读点一行不改**，route_pre/agent_tools/判分候选链等热路径全部自动吃到新值。
@@ -138,10 +160,10 @@ PUT /api/settings│  1) 探针（仅 CONFIGS 与 secret 类）失败→422 不�
 
 | CONFIGS | 固化位（实测） | 热换口设计 |
 |---|---|---|
-| LLM_CONFIGS | llm_client.py:1595-1611 首建后缓存；set_llm_client:1614-1617 无锁全局替换；构造快照 load_llm_config_from_env（llm_config.py:150-176） | watcher diff → 在已 import llm_client 的进程设 `set_llm_client(None)`（即 reset_llm_client:1620-1624，下次 get 重建）；`_LLMClientProxy`（:1580-1587） 经属性访问面即刻切换，持旧引用的在跑 run 自然跑完 |
-| EMBEDDING_CONFIGS | embedding_provider.py:333 模块顶层单例 + dense_retriever.py:121 抓死引用，import 期固化（最重） | 新增 `step06_vectors/provider_service.py`：`get_default_embedding_provider()` + `replace_default_provider()`；`default_embedding_provider` 降级为 Proxy（照 _LLMClientProxy 模式：属性访问重解析）；dense_retriever.py:121 抓引用改经 getter；watcher diff → replace。**牵连警示常驻编辑区**：改 embedding ≠ 迁移存量向量，startup_guard.py:126-135 维度探比对报告搬进页面展示；不做自动迁移 |
-| RERANKER_CONFIGS | base_config.py:158-166 get_config() 首调后缓存（RERANKER 首请求即固化） | base_config 加 `invalidate_config()`（置 _config=None），watcher diff → 两进程各自调（base_config 被 docs-api/aichat 双面 import，hook 按注册进程执行——try-import 注册，未 import 该模块的进程静默跳过） |
-| MINERU_CONFIGS | mineru_parser.py:1039 import 期单例快照；parse_pipeline.py:1264 每新任务重读 env（半动态） | 快照单例补 reset；watcher diff → docs-api 进程 reset；per-task 路线天然随下一任务生效 |
+| LLM_CONFIGS | ai-inference `llm_client.py`:1580-1589（_LLMClientProxy 属性访问重解析）、:1595-1611（双重检查锁首建）、:1614-1617（无锁替换）、:1620-1624（有锁置空）；构造快照 `load_llm_config_from_env`（llm_config.py:150-176） | watcher diff → 在已 import llm_client 的进程调 `reset_llm_client()`，下次 get 重建；`_LLMClientProxy` 经属性访问面即刻切换，持旧引用的在跑 run 自然跑完 |
+| EMBEDDING_CONFIGS | doc-core `embedding_provider.py:333` 模块顶层单例 + `dense_retriever.py:121` 抓死引用，import 期固化（最重） | 新增 `step06_vectors/provider_service.py`：`get_default_embedding_provider()` + `replace_default_provider()`；`default_embedding_provider` 降级为 Proxy（照 _LLMClientProxy 模式：属性访问重解析）；dense_retriever.py:121 抓引用改经 getter；watcher diff → replace。**replace 后立即跑一次维度探比**（startup_guard.py:126-135 同口径：embed 测试句 → 与存量 collection 维度比对），不一致记日志 + 页面 related 告警常驻（put 时探针已先行阻断，此处兜底其它落盘来源）。**牵连警示常驻编辑区**：改 embedding ≠ 迁移存量向量，startup_guard 报告搬进页面展示；不做自动迁移 |
+| RERANKER_CONFIGS | angineer-core `base_config.py:158-166` get_config() 首调后缓存（RERANKER 首请求即固化） | base_config 加 `invalidate_config()`（置 _config=None），watcher diff → 两进程各自调（base_config 被 docs-api/aichat 双面 import，hook 按注册进程执行——try-import 注册，未 import 该模块的进程静默跳过） |
+| MINERU_CONFIGS | doc-core `mineru_parser.py:1039` import 期单例快照；`parse_pipeline.py:1292` 每新任务重读 env（半动态） | 快照单例补 reset；watcher diff → docs-api 进程 reset；per-task 路线天然随下一任务生效 |
 | POPO_CONFIGS | model_utils.py:69-97 每次推理 `_popo_endpoints()` 现读 | **零口**：注入 os.environ 即生效，无需 hook |
 
 HOT 兜底：任何 hook 执行异常只记日志+审计「apply 失败」告警（复用 WEBHOOK_SYSTEM 通道），绝不阻断文件写入；下一次 watcher diff 重试。
@@ -154,13 +176,13 @@ HOT 兜底：任何 hook 执行异常只记日志+审计「apply 失败」告警
 
 ## 5. API 契约（归属 aichat-api）
 
-新增 `services/aichat-api/settings_routes.py`，路由前缀 `/api/settings`；vite dev proxy（admin vite.config.ts:107-118）**新加一条** `/api/settings` → 8791（aichat）的代理规则；生产 nginx `location /api/settings/` → 127.0.0.1:8791（手改，见 §7）。
+新增 `services/aichat-api/settings_routes.py`，路由前缀 `/api/settings`；vite dev proxy（admin vite.config.ts）**新加一条** `/api/settings` → 8791（aichat）的代理规则，**必须置于 `:117` 的 `/api` 兜底（→ docs-api）之前**，否则被兜底吞掉；生产分流走容器层 nginx（见 §7，与 dev 层选择一致）。
 
 | 方法+路径 | 语义 |
 |---|---|
 | `GET /api/settings` | 合并视图：registry 全条目 + 当前 effective 值 + 来源徽标（default/env/settings）+ 脱敏 + effective/lazy/restart 标注 |
 | `GET /api/settings/registry` | 纯目录元信息（分组树、解释、默认值）——前端构建目录树用 |
-| `PUT /api/settings/{name}` | body `{value}`；先按 type 校验，secret/CONFIGS 类先跑探针（§6）；通过 → 原子写 + 审计 + 本进程即时 apply；`name` 必须在 registry 内（不允许注任意键） |
+| `PUT /api/settings/{name}` | body `{value}`；**registry 外的 name → 422，`source=env` 只读项 → 422 `{reason:"read_only_env"}`**；先按 type/bool_style 校验并统一序列化（§2.2-G），secret/CONFIGS 类先跑探针（§6）；通过 → 原子写 + 审计 + 本进程即时 apply |
 | `DELETE /api/settings/{name}` | 恢复默认 = 从覆盖层删键；审计「revert」；watcher 还原 os.environ（CONFIGS 走 hook 重建） |
 | `POST /api/settings/probe` | body `{name, value}`：单独试跑不落盘（UI「测试连通」按钮用） |
 | `GET /api/settings/audit?limit=N` | 审计最近 N 条 |
@@ -172,7 +194,7 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 | CONFIGS | 探针 | 失败处理 |
 |---|---|---|
 | LLM_CONFIGS | 用新配置起一次性 LLMClient 跑 chat「ping」（不 set 全局） | 422 + 原因，不落盘 |
-| EMBEDDING_CONFIGS | 一次性 provider embed 一句话 | 同上 |
+| EMBEDDING_CONFIGS | 一次性 provider embed 一句话，**顺带比对存量向量维度**（startup_guard 同口径：不匹配 → 422 阻断落盘，防换模型造成静默劣化；存量迁移仍不做） | 同上 |
 | RERANKER_CONFIGS | rerank 两条 1 句 | 同上 |
 | MINERU_CONFIGS / POPO_CONFIGS | 端点 URL 连通握手（不跑整册解析） | 同上 |
 | EVAL_JUDGE_CONFIGS | 元素须是 LLM_CONFIGS 已有 name（结构校验即可） | 同上 |
@@ -190,7 +212,8 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 
 ## 7. 部署注意
 
-- nginx：`/etc/nginx/conf.d/ai-proxy-locations.conf`（80/443 共用片段）手加 `location /api/settings/ { proxy_pass http://127.0.0.1:8791; }`（不进 git，`nginx -t && reload`）；漏改则 /api/settings 兜底进 docs-api 8790 会 404——上线清单第一步。
+- nginx（容器层，**零手工步骤**）：分流加进 `docker/nginx/nginx.conf`（git 内、deploy 自动生效，容器只读挂载）——浏览器流量走宿主机 `location /` → frontend 容器 nginx，容器内已有 `$aichat_upstream` 先例（nginx.conf:107-110 `/api/chat`），照抄一条 `/api/settings` location 指向 `http://aichat-api:8791`；宿主机 `ai-proxy-locations.conf` **不动**（它管 DGX/spark 外部 API，不管 AnGIneer 业务面分流）。
+- vite 规则顺序（§5 已注）：`/api/settings` 必须在 `/api` 兜底之前。
 - 服务器 .env：本期**不动**（覆盖层叠加，不删改原值）；二期瘦身另行评审。
 - 本功能纯代码发布：标准 deploy（push 后自动重建容器，watcher/注入随新容器出生）；settings.json 首次为空 = 全部走 .env 现状，行为回退零成本。
 - 本地 dev：`apply_runtime_overlays()` 同样工作（resolve_data_file 同根解析）；uvicorn --reload 与 watcher 线程同生共死，无特殊处理。
@@ -199,7 +222,7 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 
 | 层 | 用例要点 |
 |---|---|
-| 单测（pytest） | apply/revert 快照还原；原子写；审计脱敏；registry checker（含白名单跳过）；五类探针 mock 传输层 |
+| 单测（pytest） | apply/revert 快照还原；原子写；审计脱敏；registry checker（含白名单跳过+间接读清单）；五类探针 mock 传输层；**bool_style 两样式往返**（对齐 mineru_parser.py:147 `!='0'` 与 :148 `=='true'` 类读点各注入一轮验证读值正确）；canonical int/float/json 序列化 |
 | 集成 | PUT LIVE 旋钮 → 同进程 os.getenv 立刻变 + 另进程（TestClient 双实例）≤30s watcher 变；PUT LLM_CONFIGS 探针失败 → 422 且 settings.json 未变；DELETE → 回 .env 值 + /health 无 config 错；audit 行完整 |
 | 前端 | typecheck 必跑；三 tab 渲染、编辑抽屉（bool/int/str/json/secret 五控件）、搜索过滤、来源徽标、恢复默认回退 |
 | 手工冒烟 | dev 起三服务改 `ANGINEER_GUEST_ROUNDS`/`LLM_CONFIGS` 验证热效 + 审计 + restart 类参数提示文案 |
@@ -217,15 +240,17 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 |---|---|
 | env_file 容器创建时固化，restart 无效 | docker-compose.yml:33-34/63-64/94-95；AGENTS.md 2026-09-25 实踩 |
 | 三容器同挂 ../data:/app/data | docker-compose.yml:36/66/97 |
-| guest_settings 原子写/每读先例 | services/shared/src/shared/guest_settings.py:55-62,87-95 |
-| ensure_env 接入时序 | docs-api/main.py:21-23；aichat-api/main.py:41-43；sop-api/main.py:24（无 ensure_env） |
-| LLM 单例/替换口 | llm_client.py:1580-1624；构造快照 llm_config.py:117,150-176 |
-| EMBEDDING 双单例 import 固化 | embedding_provider.py:333；dense_retriever.py:121；维度守卫 startup_guard.py:126-135 |
-| RERANKER 懒单例 | base_config.py:158-166（load_config_from_env:126-154） |
-| MINERU 单例+每任务重读 | mineru_parser.py:1039,145-159；parse_pipeline.py:1264 |
-| POPO 每推理现读 | popo/post_processing/model_utils.py:69-97 |
-| /api/llm_configs 现状只读 | aichat-api/main.py:342-356 |
-| 动态读热路径代表 | route_pre.py:27-91；agent_tools.py:19-151,449-461；answer_eval.py:94-114 |
-| watcher 先例 | nightly_control.py:514-536（60s 轮询重读 JSON）；main.py:184-221 daemon Thread 先例 |
-| admin 会话门槛先例 | evals_routes.py:588-612（nightly settings GET/PUT） |
-| nginx 片段位置 | /etc/nginx/conf.d/ai-proxy.conf + ai-proxy-locations.conf（AGENTS.md 部署拓扑节） |
+| guest_settings 原子写/每读先例 | `services/shared/src/shared/guest_settings.py:55-62,87-95` |
+| ensure_env 接入时序 | `services/docs-api/main.py:21-23`；`services/aichat-api/main.py:41-43`；`services/sop-api/main.py:24`（无 ensure_env，本设计由 runtime_overlays 内 ensure_repo_dotenv 补齐）；.env 定位 `services/shared/src/shared/config_validator.py:64-69` |
+| LLM 单例/替换口 | `services/ai-inference/src/ai_inference/llm_client.py:1580-1624`（Proxy/首建/替换/重置；当日实测行号）；构造快照同包 `llm_config.py:117,150-176` |
+| EMBEDDING 双单例 import 固化 | `services/docs-core/src/docs_core/step06_vectors/embedding_provider.py:333`；`dense_retriever.py:121`；维度守卫 `step06_vectors/startup_guard.py:126-135` |
+| RERANKER 懒单例 | `services/angineer-core/src/angineer_core/base_config.py:158-166`（load_config_from_env:126-154） |
+| MINERU 单例+每任务重读 | `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py:1039,145-159`；`parse_pipeline.py:1292` |
+| POPO 每推理现读 | `services/docs-core/src/popo/post_processing/model_utils.py:69-97` |
+| /api/llm_configs 现状只读 | `services/aichat-api/main.py:342-356` |
+| 动态读热路径代表 | angineer-core `route_pre.py:27-91`、`agent_tools.py:19-151,449-461`；evals-core `runner/answer_eval.py:94-114` |
+| bool 读点口径分叉实测 | `mineru_parser.py:147` `!= '0'` 与 `:148` `== 'true'`（§2.2-G canonical 依据） |
+| watcher 先例 | aichat-api `nightly_control.py:514-536`（60s 轮询重读 JSON）；`main.py:184-221` daemon Thread 先例 |
+| admin 会话门槛先例 | aichat-api `evals_routes.py:588-612`（nightly settings GET/PUT） |
+| 容器 nginx 分流先例 | `docker/nginx/nginx.conf:107-110`（$aichat_upstream / /api/chat），同文件 :123-124/156-157 多处同构 |
+| 间接读读点实例 | `services/sop-api/docs_graph_client.py:23-24`（os.getenv(var) 循环读） |
