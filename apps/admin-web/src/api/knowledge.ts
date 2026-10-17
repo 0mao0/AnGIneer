@@ -473,9 +473,14 @@ export const knowledgeApi = {
     api.post(`/knowledge/migrations/${taskId}/rollback`) as Promise<{ task_id: string; message: string }>,
   getMigrationAudit: (params?: { offset?: number; limit?: number }) =>
     api.get('/knowledge/migrations/audit', { params }) as Promise<{ entries: any[]; total: number }>,
-  /** 体量看板：默认走服务端 5 分钟缓存；refresh=true（面板刷新按钮）强制重扫 */
+  /** 体量看板：默认走服务端快照（TTL 30 分钟，过期后台重算）；refresh=true（面板刷新按钮）强制重扫 */
   getLibraryVolumes: (refresh = false) =>
-    api.get('/knowledge/migrations/volumes', refresh ? { params: { refresh: 1 } } : undefined) as Promise<{ volumes: LibraryVolume[]; thresholds: { docs: number; vectors: number; disk_bytes: number } }>,
+    api.get('/knowledge/migrations/volumes', refresh ? { params: { refresh: 1 } } : undefined) as Promise<{
+      volumes: LibraryVolume[]
+      thresholds: { docs: number; vectors: number; disk_bytes: number }
+      /** 快照元信息（2026-10-17）：stale=已过期（后台重算中）；vector_store_ok=false 时向量列不可用 */
+      meta?: { computed_at?: string; stale?: boolean; age_seconds?: number; ttl_seconds?: number; vector_store_ok?: boolean; warnings?: string[] }
+    }>,
 
   // ---- 语料包导出（服务端流式，不落盘）----
   previewExport: (libraries: string[]) =>

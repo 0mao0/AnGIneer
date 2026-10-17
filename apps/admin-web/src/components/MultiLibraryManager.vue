@@ -27,7 +27,7 @@
             </a-menu>
           </template>
         </a-dropdown>
-        <a-button :loading="loading" title="刷新（体量列强制重算）" @click="() => load(true)">
+        <a-button :loading="loading || volumesLoading" title="刷新（体量列强制重算）" @click="() => load(true)">
           <template #icon><reload-outlined /></template>
         </a-button>
         <a-button title="新建知识库组" @click="openCreateGroup">
@@ -354,25 +354,39 @@ const columns = [
   { title: '操作', key: 'actions', width: 204, fixed: 'right' as const },
 ]
 
-// ── 体量看板（§5.10：只提示不自动动作；失败整列「—」，缓存由服务端 5 分钟承担）──
+// ── 体量看板（§5.10：只提示不自动动作）──
+// 体量列独立异步（2026-10-17 业主定版）：全量重扫含十几万文件的磁盘遍历（冷算 37s），
+// 原实现把它并进整表 loading，页面一进来就转圈 37s。现在表格先出「—/…」，数据到了再补。
 const volumesById = ref(new Map<string, { docs: number; chunks: number; vectors: number; disk_bytes: number; updated_at?: string }>())
 const volumeThresholds = ref<{ docs: number; vectors: number; disk_bytes: number } | null>(null)
+/** 体量列自己的加载态：只影响「…」占位与刷新按钮转圈，不阻塞表格与筛选 */
+const volumesLoading = ref(false)
+/** 服务端快照元信息：vector_store_ok=false 时向量列显示「—」（避免把不可用显示成 0） */
+const volumesMeta = ref<{ vector_store_ok?: boolean; stale?: boolean; computed_at?: string } | null>(null)
+let volumesSeq = 0
 
 async function loadVolumes(force = false) {
+  const seq = ++volumesSeq
+  volumesLoading.value = true
   try {
     const resp = await knowledgeApi.getLibraryVolumes(force)
+    if (seq !== volumesSeq) return
     volumesById.value = new Map(resp.volumes.map((v) => [v.library_id, v]))
     volumeThresholds.value = resp.thresholds
+    volumesMeta.value = resp.meta ?? null
   } catch {
-    volumesById.value = new Map()
+    if (seq === volumesSeq) volumesById.value = new Map()
+  } finally {
+    if (seq === volumesSeq) volumesLoading.value = false
   }
 }
 
 function volumeCell(libId: string, field: 'chunks' | 'vectors' | 'disk' | 'updated'): string {
   const v = volumesById.value.get(libId)
-  if (!v) return '—'
+  if (!v) return volumesLoading.value ? '…' : '—'
   if (field === 'chunks') return fmtWan(v.chunks)
-  if (field === 'vectors') return fmtWan(v.vectors)
+  // 向量库不可达时服务端把计数留在 0 并标 vector_store_ok=false：显示「—」而不是假的 0
+  if (field === 'vectors') return volumesMeta.value?.vector_store_ok === false ? '—' : fmtWan(v.vectors)
   if (field === 'disk') {
     const gb = v.disk_bytes / 1024 ** 3
     return gb >= 1 ? `${gb.toFixed(1)}G` : `${Math.round(v.disk_bytes / 1024 ** 2)}M`
@@ -538,11 +552,13 @@ function onMigrationSettled(status: string) {
   settleMigration(status)
 }
 
-/** forceVolumes=true（刷新按钮）时体量列强制重算，绕过服务端 5 分钟缓存（2026-10-09 业主定版）。
+/** forceVolumes=true（刷新按钮）时体量列强制重算，绕过服务端缓存（2026-10-09 业主定版）。
  *
  *  **按钮转圈要盖住体量列**：块/向量/磁盘三列的数据源是 /migrations/volumes（要遍历各库目录 +
- *  向 qdrant 逐库计数，强算时更慢）。只等库清单就关 loading，会出现「按钮不转了但三列还是旧数」
- *  ——用户据此判断刷新没生效（2026-10-09 业主）。三路都落了才收圈。 */
+ *  向 qdrant 逐库计数，强算时更慢）。所以按钮 loading = 列表加载 || 体量加载。
+ *
+ *  **但整表 loading 不再等体量**（2026-10-17 业主定版）：服务端已改为「快照 + 过期后台重算」，
+ *  正常情况下毫秒级返回；即便真算，表格也应先可用（体量列显示「…」），不能整页转圈 37s。 */
 async function load(forceVolumes = false) {
   const seq = ++loadSeq          // 并发调用时由最后一次决定何时收圈，避免旧的先回来把圈关掉
   loading.value = true
@@ -556,11 +572,13 @@ async function load(forceVolumes = false) {
     } catch (err) {
       message.error(`加载库组失败：${(err as Error).message}`)
     }
-    // 两者各自吞错不抛，await 只为收圈时机
-    await Promise.all([loadMigrationState(), loadVolumes(forceVolumes)])
+    // 列表与迁移状态优先收圈（毫秒级）
+    await loadMigrationState()
   } finally {
     if (seq === loadSeq) loading.value = false
   }
+  // 体量列独立异步：不阻塞表格；刷新按钮由 volumesLoading 继续转圈
+  void loadVolumes(forceVolumes)
 }
 
 // ── 新建 ──
