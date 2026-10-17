@@ -4,7 +4,7 @@
   <div v-if="!auth.isAuthed || authFailed" class="auth-gate">
     <div class="auth-card">
       <h2>登录 AnGIneer</h2>
-      <p class="auth-hint">游客试用轮数已达上限，登录后当前对话自动并入你的账号历史，可继续聊天</p>
+      <p class="auth-hint">登录后即可继续使用 AnGIneer，当前页面内容不会丢失</p>
       <a-input
         v-model:value="username"
         placeholder="用户名"
@@ -78,7 +78,7 @@ async function handleLogin() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-primary);
+  background: rgba(0, 0, 0, 0.35);
 }
 .auth-card {
   width: 360px;
