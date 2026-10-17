@@ -5,16 +5,29 @@
       <AppButton variant="primary" size="sm" @click="openCreate">新建用户</AppButton>
     </div>
 
+    <a-alert
+      v-if="guestSettings?.load_error"
+      type="error"
+      show-icon
+      class="guest-load-error"
+      message="游客设置文件读取失败（游客当前被临时关闭）"
+      :description="`原因：${guestSettings.load_error}。点击游客行「编辑」保存一次即可恢复。`"
+    />
+
     <div class="user-table-wrap">
       <DataTable
         :columns="columns"
-        :data-source="users"
+        :data-source="tableRows"
         row-key="id"
         :loading="loading"
         :pagination="{ pageSize: 15 }"
         storage-key="angineer-users-v2"
       >
         <template #bodyCell="{ column, record }">
+          <template v-if="column.key === 'username' && isGuestRow(record)">
+            <span class="guest-name">游客</span>
+            <a-tag color="gold">免登录</a-tag>
+          </template>
           <template v-if="column.key === 'libraries'">
             <!-- 2026-10-09 业主定版：列内同样按授权单位聚合（组名（全部）/组名（N）/组内单勾显库名），
                  与编辑弹框选择框共用 ./components/accessScope 的同一规则 -->
@@ -28,6 +41,7 @@
             <a-switch
               :checked="record.is_admin"
               size="small"
+              :disabled="isGuestRow(record)"
               @change="(checked: boolean) => handleAdminToggle(record, checked)"
             />
           </template>
@@ -35,16 +49,21 @@
             <a-switch
               :checked="record.is_active"
               size="small"
-              @change="(checked: boolean) => handleToggle(record, checked)"
+              @change="(checked: boolean) => (isGuestRow(record) ? handleGuestToggle(checked) : handleToggle(record, checked))"
             />
           </template>
           <template v-else-if="column.key === 'action'">
             <div class="action-cell">
-              <AppButton variant="link" size="sm" @click="openEdit(record)">编辑</AppButton>
-              <AppButton variant="link" size="sm" @click="openResetPassword(record)">重置密码</AppButton>
-              <a-popconfirm title="确定删除该用户？此操作不可恢复" placement="left" @confirm="handleDelete(record)">
-                <AppButton variant="link" size="sm" danger>删除</AppButton>
-              </a-popconfirm>
+              <template v-if="isGuestRow(record)">
+                <AppButton variant="link" size="sm" @click="openGuestEdit">编辑</AppButton>
+              </template>
+              <template v-else>
+                <AppButton variant="link" size="sm" @click="openEdit(record)">编辑</AppButton>
+                <AppButton variant="link" size="sm" @click="openResetPassword(record)">重置密码</AppButton>
+                <a-popconfirm title="确定删除该用户？此操作不可恢复" placement="left" @confirm="handleDelete(record)">
+                  <AppButton variant="link" size="sm" danger>删除</AppButton>
+                </a-popconfirm>
+              </template>
             </div>
           </template>
         </template>
@@ -91,6 +110,18 @@
       </a-form>
     </a-modal>
 
+    <a-modal v-model:open="guestEditVisible" title="编辑游客权限" @ok="handleGuestSave" :confirm-loading="saving">
+      <a-form :model="guestForm" :label-col="{ span: 5 }" :wrapper-col="{ span: 18 }">
+        <a-form-item label="可用知识库" required>
+          <!-- 游客选择器：评测语料组不展示（V3 服务端同口径 400）；扁平勾选集直存 library_ids -->
+          <AccessScopeSelect v-model="guestForm.accessChecked" :groups="guestLibraryGroups" :loose="guestLooseLibraries" />
+        </a-form-item>
+        <a-form-item label="轮数上限" required>
+          <a-input-number v-model:value="guestForm.rounds" :min="1" :max="1000" :precision="0" style="width: 160px" />
+        </a-form-item>
+      </a-form>
+    </a-modal>
+
     <a-modal v-model:open="passwordVisible" title="重置密码" @ok="handleResetPassword" :confirm-loading="saving">
       <a-form layout="vertical">
         <a-form-item label="新密码" required>
@@ -114,6 +145,7 @@ import { buildAccessUnits } from '@/components/accessScope'
 import { useAdminAuthStore } from '@/stores/auth'
 import { usersApi, type AdminUserItem, type LibraryOptionItem, type UserAccessPayload } from '@/api/users'
 import { knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
+import { guestApi, type GuestSettings } from '@/api/guest'
 
 const { appClass } = useTheme()
 const authStore = useAdminAuthStore()
@@ -154,6 +186,100 @@ function checkedOf(record: AdminUserItem): string[] {
 /** 列表列展示：勾选集合 → 聚合标签（与选择框共用同一规则） */
 function accessUnitsOf(record: AdminUserItem): ReturnType<typeof buildAccessUnits> {
   return buildAccessUnits(checkedOf(record), libraryGroups.value, looseLibraries.value)
+}
+
+// ---- 游客虚拟行（2026-10-17 游客设置，设计稿 §3.4）：非数据库记录，前端合成置顶 ----
+
+const GUEST_ROW_ID = '__guest__'
+const guestSettings = ref<GuestSettings | null>(null)
+
+/** 游客选择器不展示评测语料组（V3：evals 不进游客允许集，服务端同口径 400 拒绝） */
+const guestLibraryGroups = computed(() => libraryGroups.value.filter((g) => g.group_name !== 'evals'))
+const evalsLibIds = computed(
+  () => new Set(libraryGroups.value.filter((g) => g.group_name === 'evals').flatMap((g) => g.libraries.map((l) => l.id))),
+)
+const guestLooseLibraries = computed(() => looseLibraries.value.filter((l) => !evalsLibIds.value.has(l.id)))
+
+/** 与真实用户同构的合成行：列分支复用（libraries 列走 accessUnitsOf → buildAccessUnits） */
+const guestRow = computed(() => ({
+  id: GUEST_ROW_ID,
+  username: '游客',
+  display_name: '免登录访客',
+  is_admin: false,
+  library_ids: guestSettings.value?.library_ids ?? [],
+  accessible_libraries: guestSettings.value?.library_ids ?? [],
+  is_active: guestSettings.value?.enabled ?? false,
+  created_at: '',
+  last_login_at: null as string | null,
+}))
+const tableRows = computed(() =>
+  guestSettings.value ? [guestRow.value as unknown as AdminUserItem, ...users.value] : users.value,
+)
+function isGuestRow(record: any): boolean {
+  return record?.id === GUEST_ROW_ID
+}
+
+async function loadGuestSettings(): Promise<void> {
+  try {
+    guestSettings.value = await guestApi.getSettings()
+  } catch (e: any) {
+    message.error('加载游客设置失败: ' + (e.message || e))
+  }
+}
+
+/** 启用开关行内直切（PUT 三键恒全发——服务端按整份设置保存）；失败不动本地态=开关自动回滚 */
+async function handleGuestToggle(checked: boolean): Promise<void> {
+  if (!guestSettings.value) return
+  try {
+    guestSettings.value = await guestApi.saveSettings({
+      enabled: checked,
+      rounds: guestSettings.value.rounds,
+      library_ids: guestSettings.value.library_ids,
+    })
+    message.success(checked ? '已开放游客访问' : '已关闭游客访问')
+  } catch (e: any) {
+    message.error('操作失败: ' + (e.message || e))
+  }
+}
+
+// ---- 游客编辑弹框（复用 AccessScopeSelect 扁平勾选集 → library_ids，不走 V2 订阅序列化） ----
+
+const guestEditVisible = ref(false)
+const guestForm = reactive({ rounds: 30, accessChecked: [] as string[] })
+
+function openGuestEdit(): void {
+  void (async () => {
+    await loadLibraries() // R5：无缓存——每次开弹框重拉库清单
+    guestForm.rounds = guestSettings.value?.rounds ?? 30
+    guestForm.accessChecked = [...(guestSettings.value?.library_ids ?? [])]
+    guestEditVisible.value = true
+  })()
+}
+
+async function handleGuestSave(): Promise<void> {
+  if (!guestForm.accessChecked.length) {
+    message.warning('请至少选择一个知识库')
+    return
+  }
+  const rounds = Number(guestForm.rounds)
+  if (!Number.isInteger(rounds) || rounds < 1 || rounds > 1000) {
+    message.warning('轮数上限必须是 1–1000 的整数')
+    return
+  }
+  saving.value = true
+  try {
+    guestSettings.value = await guestApi.saveSettings({
+      enabled: guestSettings.value?.enabled ?? true,
+      rounds,
+      library_ids: guestForm.accessChecked,
+    })
+    message.success('已保存')
+    guestEditVisible.value = false
+  } catch (e: any) {
+    message.error('保存失败: ' + (e.message || e))
+  } finally {
+    saving.value = false
+  }
 }
 
 const columns: DataTableColumn[] = [
@@ -351,6 +477,7 @@ async function handleDelete(record: AdminUserItem): Promise<void> {
 onMounted(() => {
   loadLibraries()
   loadUsers()
+  loadGuestSettings()
 })
 </script>
 
@@ -387,5 +514,13 @@ onMounted(() => {
   align-items: center;
   gap: 2px;
   white-space: nowrap;
+}
+
+.guest-load-error {
+  max-width: 1100px;
+  margin: 0 auto 12px;
+}
+.guest-name {
+  margin-right: 6px;
 }
 </style>
