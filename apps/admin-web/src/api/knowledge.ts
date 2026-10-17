@@ -15,6 +15,11 @@ import type {
 } from '@angineer/docs-ui'
 import { docsApiClient, aichatApiClient } from '../../../shared/apiClient'
 
+// 删除类端点（purge 节点/硬删记录/孤儿清理）后端要做多库写+rmtree+全表扫描，
+// 解析高峰期还会排在 fts 大事务写锁后面，默认 30s 必超时（2026-10-17 实踩）；
+// 与下载 300s 上限对齐思路，给 120s 客户端宽限——超时报错≠服务端没删掉
+const DESTRUCTIVE_OP_TIMEOUT = 120000
+
 export type {
   KnowledgeParseOptions,
   LlmConfigOption,
@@ -219,7 +224,7 @@ export const knowledgeApi = {
     api.patch(`/knowledge/nodes/${nodeId}`, data),
   getDeleteNodePreview: (nodeId: string) =>
     api.get(`/knowledge/nodes/${nodeId}/delete-preview`) as Promise<DeleteNodePreviewResponse>,
-  deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`),
+  deleteNode: (nodeId: string) => api.delete(`/knowledge/nodes/${nodeId}`, { timeout: DESTRUCTIVE_OP_TIMEOUT }),
   softDeleteNode: (nodeId: string) =>
     api.delete(`/knowledge/nodes/${nodeId}/soft-delete`) as Promise<{ status: string; message: string; affected: number }>,
   batchSoftDeleteNodes: (nodeIds: string[]) =>
@@ -227,7 +232,7 @@ export const knowledgeApi = {
       { status: string; deleted: number; failed: Array<{ node_id: string; reason: string }> }
     >,
   forceDeleteNode: (nodeId: string) =>
-    api.delete(`/knowledge/nodes/${nodeId}/force`) as Promise<{ status: string; message: string }>,
+    api.delete(`/knowledge/nodes/${nodeId}/force`, { timeout: DESTRUCTIVE_OP_TIMEOUT }) as Promise<{ status: string; message: string }>,
   cancelParseTask: (taskId: string) =>
     api.post(`/knowledge/parse/${taskId}/cancel`) as Promise<{ status: string; task_id: string; message: string }>,
   retryParseTask: (docId: string) =>
@@ -426,15 +431,15 @@ export const knowledgeApi = {
   }>,
 
   cleanOrphanedRecords: () =>
-    api.post('/knowledge/records/clean-orphaned') as Promise<{ status: string; message: string }>,
+    api.post('/knowledge/records/clean-orphaned', undefined, { timeout: DESTRUCTIVE_OP_TIMEOUT }) as Promise<{ status: string; message: string }>,
 
   restoreRecord: (recordId: number) =>
     api.put(`/knowledge/records/${recordId}/restore`) as Promise<{ status: string; message: string }>,
 
   hardDeleteRecord: (recordId: number) =>
-    api.delete(`/knowledge/records/${recordId}/hard-delete`) as Promise<{ status: string; message: string }>,
+    api.delete(`/knowledge/records/${recordId}/hard-delete`, { timeout: DESTRUCTIVE_OP_TIMEOUT }) as Promise<{ status: string; message: string }>,
   batchHardDeleteRecords: (recordIds: number[]) =>
-    api.post('/knowledge/records/batch-hard-delete', { record_ids: recordIds }) as Promise<
+    api.post('/knowledge/records/batch-hard-delete', { record_ids: recordIds }, { timeout: DESTRUCTIVE_OP_TIMEOUT }) as Promise<
       { status: string; deleted: number; failed: Array<{ record_id: number; reason: string }> }
     >,
 

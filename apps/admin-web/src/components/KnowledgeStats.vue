@@ -245,6 +245,9 @@
       :width="520"
       ok-text="永久删除"
       ok-danger
+      :confirm-loading="adminDeleting"
+      :mask-closable="!adminDeleting"
+      :closable="!adminDeleting"
       :ok-button-props="{ disabled: adminDeleteInput.trim() !== adminDeleteFileName.trim() }"
       @ok="confirmAdminDelete"
       @cancel="adminDeleteInput = ''"
@@ -277,6 +280,9 @@
       :width="560"
       ok-text="永久删除"
       ok-danger
+      :confirm-loading="batchDeleting"
+      :mask-closable="!batchDeleting"
+      :closable="!batchDeleting"
       :ok-button-props="{ disabled: batchAdminInput.trim() !== BATCH_DELETE_CONFIRM_SENTENCE }"
       @ok="batchHardDelete"
       @cancel="batchAdminInput = ''"
@@ -334,6 +340,9 @@
       title="删除文件夹"
       ok-text="永久删除"
       ok-danger
+      :confirm-loading="folderDelete.deleting"
+      :mask-closable="!folderDelete.deleting"
+      :closable="!folderDelete.deleting"
       :ok-button-props="{ disabled: folderDelete.input.trim() !== folderDelete.title.trim() || folderDelete.deleting }"
       @ok="confirmFolderDelete"
       @cancel="folderDelete.input = ''"
@@ -781,6 +790,7 @@ async function openFolderDeleteById(folderId: string) {
 
 async function confirmFolderDelete() {
   const d = folderDelete.value
+  if (d.deleting) return
   if (d.input.trim() !== d.title.trim()) return
   d.deleting = true
   try {
@@ -891,6 +901,8 @@ const adminDeleteDocId = ref('')
 const adminDeleteRecordId = ref(0)
 const adminDeleteFileName = ref('')
 const adminDeleteInput = ref('')
+// 永久删除大文件时后端清理耗时可能数秒，OK 按钮必须转 loading，否则用户会反复点
+const adminDeleting = ref(false)
 const batchParsing = ref(false)
 
 /* ── 文档抽屉「解析过程」折叠面板：与「过程」弹框同款九阶段，数据独立 ── */
@@ -1423,7 +1435,9 @@ async function deleteRecord(record: ParseRecordItem) {
 }
 
 async function confirmAdminDelete() {
+  if (adminDeleting.value) return
   if (adminDeleteInput.value.trim() !== adminDeleteFileName.value.trim()) return
+  adminDeleting.value = true
   try {
     await purgeNodeIfExists(adminDeleteDocId.value)
     await knowledgeApi.hardDeleteRecord(adminDeleteRecordId.value)
@@ -1433,12 +1447,15 @@ async function confirmAdminDelete() {
     await loadRecords()
   } catch (e: any) {
     message.error('删除失败: ' + (e?.response?.data?.detail || e?.message || e))
+  } finally {
+    adminDeleting.value = false
   }
 }
 
 // 批量删除入口：含用户未删除文件时走强确认（输入确认句），否则普通确认
 const batchAdminModalOpen = ref(false)
 const batchAdminInput = ref('')
+const batchDeleting = ref(false)
 const BATCH_DELETE_CONFIRM_SENTENCE = '我再次确认将要删除这些用户未删除的文件！'
 
 function onBatchDeleteClick() {
@@ -1459,8 +1476,10 @@ function onBatchDeleteClick() {
 }
 
 async function batchHardDelete() {
+  if (batchDeleting.value) return
   const ids = [...selectedRowKeys.value]
   if (!ids.length) return
+  batchDeleting.value = true
   const deletingKey = `batch-deleting-${Date.now()}`
   message.loading({ content: `正在删除 ${ids.length} 条记录…`, key: deletingKey, duration: 0 })
   try {
@@ -1480,6 +1499,8 @@ async function batchHardDelete() {
   } catch (e: any) {
     message.destroy(deletingKey)
     message.error('批量删除失败: ' + (e?.response?.data?.detail || e?.message || e))
+  } finally {
+    batchDeleting.value = false
   }
 }
 
