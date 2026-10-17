@@ -267,6 +267,7 @@ def fake_deepeval(monkeypatch):
     monkeypatch.setattr(deepeval.metrics, "AnswerRelevancyMetric", FakeRelevancy)
     monkeypatch.setattr(deepeval.metrics, "ContextualPrecisionMetric", FakeCtxPrecision)
     monkeypatch.setenv("EVAL_JUDGE_CONFIGS", json.dumps(["judge-a"]))
+    monkeypatch.setenv("EVAL_DEEPVAL_EXTRA", "1")
 
 
 def test_evaluate_via_deepeval_maps_legacy_fields_and_new_dims(fake_deepeval):
