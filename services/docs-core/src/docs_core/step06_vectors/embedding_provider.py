@@ -153,25 +153,68 @@ class DashScopeEmbeddingProvider(EmbeddingProvider):
         if not self.is_configured():
             return self._degrade(normalized_texts, "EMBEDDING_CONFIGS 端点配置缺失")
         try:
-            response = requests.post(
-                f"{self.api_url}/embeddings",
-                headers={
-                    "Authorization": f"Bearer {self.api_key}",
-                    "Content-Type": "application/json",
-                },
-                json={
-                    "model": self.model,
-                    "input": normalized_texts,
-                    "encoding_format": "float",
-                },
-                timeout=60,
-            )
-            response.raise_for_status()
-            payload = response.json()
-            data = list(payload.get("data") or [])
-            embeddings = [list(item.get("embedding") or []) for item in data]
-            if len(embeddings) != len(normalized_texts) or not all(embedding for embedding in embeddings):
-                raise ValueError("embedding 返回结果为空或数量不一致")
+            # 分批小请求（2026-10-17 实踩：厚册整册 chunk 一次请求读超时（60s）→ 降级链把
+            # hash(256 维) 当兜底 → 写库维度校验拒绝 → 向量站"假失败"累计 2200+ 篇。
+            # 三代修法叠加：①按条数分批 ≤64；②单条截断 ≤12000 字符（单条 >2.4 万字符被端点
+            # 400 拒）；③按总字符预算分批 ≤6 万字符（实测 64×1.2 万=百万字符的批次必超时 >180s，
+            # 6 万字符批次约 4-6 秒）。整批失败才走降级。）
+            batch_size = int(os.environ.get("EMBEDDING_BATCH_SIZE", "64") or 64)
+            max_chars = int(os.environ.get("EMBEDDING_MAX_CHARS", "12000") or 12000)
+            batch_chars = int(os.environ.get("EMBEDDING_BATCH_CHARS", "60000") or 60000)
+            batches = []
+            cur, cur_len = [], 0
+            for t in normalized_texts:
+                t = t[:max_chars]
+                if cur and (len(cur) >= batch_size or cur_len + len(t) > batch_chars):
+                    batches.append(cur)
+                    cur, cur_len = [], 0
+                cur.append(t)
+                cur_len += len(t)
+            if cur:
+                batches.append(cur)
+            embeddings = []
+            for batch in batches:
+                # 批次级重试（2026-10-17 04:0x 实锤：网关 embed 上游在整链满负荷时间歇 504/502，
+                # 一次失败即降级哈希 → 256 维被写库拒绝 → 向量站假失败。5xx/超时属瞬态，
+                # 重试 5 次（退避 5/10/20/40s）后再降级；非瞬态错误（400 等）不重试直接降级。）
+                last_exc = None
+                for attempt in range(5):
+                    try:
+                        response = requests.post(
+                            f"{self.api_url}/embeddings",
+                            headers={
+                                "Authorization": f"Bearer {self.api_key}",
+                                "Content-Type": "application/json",
+                            },
+                            json={
+                                "model": self.model,
+                                "input": batch,
+                                "encoding_format": "float",
+                            },
+                            timeout=120,
+                        )
+                        response.raise_for_status()
+                        payload = response.json()
+                        data = list(payload.get("data") or [])
+                        batch_embeddings = [list(item.get("embedding") or []) for item in data]
+                        if len(batch_embeddings) != len(batch) or not all(batch_embeddings):
+                            raise ValueError("embedding 返回结果为空或数量不一致")
+                        last_exc = None
+                        break
+                    except requests.exceptions.HTTPError as exc:
+                        last_exc = exc
+                        status = getattr(getattr(exc, "response", None), "status_code", 0)
+                        if status < 500 or attempt >= 4:
+                            raise
+                    except Exception as exc:
+                        last_exc = exc
+                        if attempt >= 4:
+                            raise
+                    import time as _time
+                    _time.sleep(5 * (attempt + 1))
+                if last_exc is not None:
+                    raise last_exc
+                embeddings.extend(batch_embeddings)
             self.dimension = len(embeddings[0])
             return embeddings
         except Exception as exc:
