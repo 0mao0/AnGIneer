@@ -104,7 +104,10 @@ class Calculator(BaseTool):
                     "cleaned": cleaned_expr
                 }
 
-            if "=" in cleaned_expr:
+            # 恒等号判定须排除比较运算符 < <= > >= != ==（2026-10-18 实踩：
+            # 'Piecewise((0, 1.4 <= 0),...)' 的 '<=' 含 '='，被误送方程求解路径，
+            # 在 '<' 处 split 后 sympify 截断报 TokenError）
+            if re.search(r'(?<![<>!=])=(?!=)', cleaned_expr):
                 return self._solve_equation(
                     cleaned_expr,
                     variables if variables else {},

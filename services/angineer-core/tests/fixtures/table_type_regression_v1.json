@@ -2,7 +2,7 @@
   "meta": {
     "name": "table_type_regression",
     "version": "v1",
-    "created": "2026-10-16",
+    "created": "2026-10-18",
     "corpus": "std-water 库（groups/standards.sqlite）；主体 doc-11922bab = JTS 165-2013 海港总体设计规范",
     "why": "P2 表格簇（P2-1 复式表头 / P2-2 成对列与别名 / P2-3 target 失配 / P2-7 区间列）的预注册回归集：把三条改动的行为锁在真表快照上，先写死期望值与修复前基线，再动手改引擎。",
     "how": "生成器 services/angineer-core/tests/fixtures/build_table_type_regression.py（需本地语料）。tables=真表快照（离线、无语料依赖）；cases.expected=人工按快照核对出的真值；cases.baseline=2026-10-16 修复前实测（确定性通道实跑；读表通道取实况读数）。status=fixed 锁正确行为、xfail 记已知缺陷（修好后须改 fixed）。table_read 用例离线只断选表，取值断言需 P2_FIXTURE_LIVE=1（真 LLM，2026-10-16 首测：7 条 6 达标）。",
@@ -541,6 +541,269 @@
           "15501~18000"
         ]
       ]
+    },
+    {
+      "table_id": "table-doc-fbb3306e:50:11",
+      "doc_id": "doc-fbb3306e",
+      "page": 50,
+      "table_type": "hybrid",
+      "title": "表 6.2.3 波浪力的分项系数\\gamma_{P}、\\gamma_{V}和\\gamma_{u}",
+      "signatures": [
+        "成对列",
+        "LaTeX 表头"
+      ],
+      "why_picked": "表6.2.3 波浪力分项系数 γP/γV/γu（目标列名带 γP 后缀 vs 表头 $\\gamma_{P}$；组合情况+稳定情况 双文本条件）",
+      "header_rows": [
+        [
+          "组合情况",
+          "稳定情况",
+          "水平波浪力分项系数 $\\gamma_{P}$",
+          "竖向波浪力分项系数 $\\gamma_{V}$",
+          "波浪浮托力分项系数 $\\gamma_{u}$"
+        ]
+      ],
+      "body_rows": [
+        [
+          "持久组合",
+          "抗滑",
+          "1.25",
+          "1.25",
+          "1.25"
+        ],
+        [
+          "持久组合",
+          "抗倾",
+          "1.25",
+          "1.25",
+          "1.25"
+        ],
+        [
+          "短暂组合",
+          "抗滑",
+          "1.2",
+          "1.2",
+          "1.2"
+        ],
+        [
+          "短暂组合",
+          "抗倾",
+          "1.2",
+          "1.2",
+          "1.2"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-fbb3306e:37:8",
+      "doc_id": "doc-fbb3306e",
+      "page": 37,
+      "table_type": "hybrid",
+      "title": "表 5.3.6 波浪力的分项系数\\gamma_{P}和\\gamma_{u}",
+      "signatures": [
+        "LaTeX 表头"
+      ],
+      "why_picked": "表5.3.6 波浪力分项系数 γP/γu（列名 $\\gamma_{P}$/$\\gamma_{u}$；单文本条件）",
+      "header_rows": [
+        [
+          "组合情况",
+          "$\\gamma_{P}$",
+          "$\\gamma_{u}$"
+        ]
+      ],
+      "body_rows": [
+        [
+          "持久组合",
+          "1.3",
+          "1.3"
+        ],
+        [
+          "短暂组合",
+          "1.2",
+          "1.2"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-fbb3306e:28:15",
+      "doc_id": "doc-fbb3306e",
+      "page": 28,
+      "table_type": "mapping_enum",
+      "title": "表 4.3.24 堤前护底块石的稳定重量",
+      "signatures": [
+        "横向成对双列",
+        "区间列"
+      ],
+      "why_picked": "表4.3.24 堤前护底块石稳定重量（Vmax|W|Vmax|W 四列一组横排；右半区若只扫首列会选错行）",
+      "header_rows": [
+        [
+          "提前最大波浪底流速 $V_{\\max}$ (m/s)",
+          "护底块石稳定重量 $W$ (kg)",
+          "提前最大波浪底流速 $V_{\\max}$ (m/s)",
+          "护底块石稳定重量 $W$ (kg)"
+        ]
+      ],
+      "body_rows": [
+        [
+          "2.0~2.5",
+          "60~100",
+          "3.6~4.0",
+          "300~400"
+        ],
+        [
+          "2.6~3.0",
+          "100~200",
+          "4.1~4.5",
+          "400~600"
+        ],
+        [
+          "3.1~3.5",
+          "200~300",
+          "4.6~5.0",
+          "600~800"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-fbb3306e:13:6",
+      "doc_id": "doc-fbb3306e",
+      "page": 13,
+      "table_type": "hybrid",
+      "title": "表 3.1.18 摩擦系数设计值",
+      "signatures": [
+        "两级列",
+        "区间值"
+      ],
+      "why_picked": "表3.1.18 摩擦系数设计值（材料两级列；值含 0.50~0.60 范围文本）",
+      "header_rows": [
+        [
+          "材料",
+          "材料",
+          "摩擦系数"
+        ]
+      ],
+      "body_rows": [
+        [
+          "混凝土面与混凝土面",
+          "混凝土面与混凝土面",
+          "0.55"
+        ],
+        [
+          "浆砌石面与浆砌石面",
+          "浆砌石面与浆砌石面",
+          "0.65"
+        ],
+        [
+          "墙底与抛石基床顶面",
+          "墙身为预制混凝土结构",
+          "0.60"
+        ],
+        [
+          "墙底与抛石基床顶面",
+          "墙身为预制浆砌石方块结构",
+          "0.65"
+        ],
+        [
+          "抛石基床底面与地基土顶面",
+          "地基为细砂—粗砂",
+          "0.50~0.60"
+        ],
+        [
+          "抛石基床底面与地基土顶面",
+          "地基为粉砂",
+          "0.40"
+        ],
+        [
+          "抛石基床底面与地基土顶面",
+          "地基为砂质粉土",
+          "0.35~0.50"
+        ],
+        [
+          "抛石基床底面与地基土顶面",
+          "地基为黏土、粉质黏土",
+          "0.30~0.45"
+        ]
+      ]
+    },
+    {
+      "table_id": "table-doc-fbb3306e:23:10",
+      "doc_id": "doc-fbb3306e",
+      "page": 23,
+      "table_type": "hybrid",
+      "title": "表 4.3.7 稳定系数K_{D}",
+      "signatures": [
+        "子表头行在 body[0]"
+      ],
+      "why_picked": "表4.3.7 稳定系数 K_D（真列名「护面块体/构造型式」在 body[0]；SOP 用 header 可见键「护面型式」+行文本条件适配）",
+      "header_rows": [
+        [
+          "护面型式",
+          "护面型式",
+          "护面块体容许失稳率n(%)",
+          "$K_{\\mathrm{D}}$"
+        ]
+      ],
+      "body_rows": [
+        [
+          "护面块体",
+          "构造型式",
+          "护面块体容许失稳率n(%)",
+          "$K_{\\mathrm{D}}$"
+        ],
+        [
+          "块石",
+          "抛填2层",
+          "1~2",
+          "4.0"
+        ],
+        [
+          "块石",
+          "安放1层",
+          "0~1",
+          "5.5"
+        ],
+        [
+          "方块",
+          "随机安放",
+          "1~2",
+          "—"
+        ],
+        [
+          "四脚锥体",
+          "随机安放2层",
+          "0~1",
+          "8.5"
+        ],
+        [
+          "四脚空心方块",
+          "规则安放1层",
+          "0",
+          "14"
+        ],
+        [
+          "扭工字块体",
+          "随机安放2层",
+          "0",
+          "15~18"
+        ],
+        [
+          "扭工字块体",
+          "规则安放2层",
+          "0",
+          "15~18"
+        ],
+        [
+          "扭王字块体",
+          "随机安放1层",
+          "0",
+          "15~18"
+        ],
+        [
+          "扭王字块体",
+          "规则安放1层",
+          "0",
+          "15~18"
+        ]
+      ]
     }
   ],
   "cases": [
@@ -599,14 +862,10 @@
       "target_column": "Z3",
       "expected": 0.3,
       "expected_why": "吨级≤1000 → Z3=0.30（目标列名 Z3 与表里 $Z_{3}$ (m) 需归一化）",
-      "baseline": {
-        "船舶吨级": "$\\leqslant 1000$",
-        "船舶吨级#2": "$\\leqslant 3000$",
-        "$Z_{3}$ (m)": "0.30"
-      },
+      "baseline": 0.3,
       "baseline_mode": "value",
-      "status": "xfail",
-      "note": "行字典里已含 0.30，但目标列未定位（Z3 与 $Z_{3}$ (m) 之间的归一化缺失）"
+      "status": "fixed",
+      "note": "2026-10-18 修复：LaTeX 符号剥离变体定位目标列（Z3 → $Z_{3}$ (m)）；修复前目标列未定位返回整行字典"
     },
     {
       "case_id": "A4-潮位波浪-ΔF",
@@ -654,10 +913,10 @@
       "target_column": "Z1 (m)",
       "expected": 0.4,
       "expected_why": "同上真值 0.40；只是目标列写成带单位形式「Z1 (m)」（B1 用裸「Z1」时正确）",
-      "baseline": 0.2,
+      "baseline": 0.4,
       "baseline_mode": "value",
-      "status": "xfail",
-      "note": "成对列劫持实锤：目标列带单位后缀时取到首组 Z1（0.20=淤泥土值）——P2-2/P2-3 靶区"
+      "status": "fixed",
+      "note": "2026-10-18 修复：LaTeX/符号剥离变体使目标列可解析（$Z_{1}$ (m)）＋成对列校正把目标列对齐到条件命中列（海底底质 col2 → Z1 col3）；修复前取首组 0.20"
     },
     {
       "case_id": "B3-n",
@@ -780,6 +1039,233 @@
       "baseline_mode": "value",
       "status": "xfail",
       "note": "P2-3 实锤：现返回 121.0＝总长L（吨级行首个数），静默错列"
+    },
+    {
+      "case_id": "E1-γP后缀目标列",
+      "table_id": "table-doc-fbb3306e:50:11",
+      "channel": "table_lookup",
+      "signature": "LaTeX 表头",
+      "table_name": "表6.2.3",
+      "conditions": {
+        "组合情况": "持久组合",
+        "稳定情况": "抗滑"
+      },
+      "target_column": "水平波浪力分项系数γP",
+      "expected": 1.25,
+      "expected_why": "持久组合×抗滑 → γP=1.25（规范表6.2.3；SOP 半圆堤链 step_2 原样查询）",
+      "baseline": 1.25,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "2026-10-18 修复：目标「…系数γP」经符号剥变体对齐表头 $\\gamma_{P}$（修复前 target 失配回落成对列，返回「抗滑」字符串）"
+    },
+    {
+      "case_id": "E2-γV后缀目标列",
+      "table_id": "table-doc-fbb3306e:50:11",
+      "channel": "table_lookup",
+      "signature": "LaTeX 表头",
+      "table_name": "表6.2.3",
+      "conditions": {
+        "组合情况": "持久组合",
+        "稳定情况": "抗滑"
+      },
+      "target_column": "竖向波浪力分项系数γV",
+      "expected": 1.25,
+      "expected_why": "持久组合×抗滑 → γV=1.25（同上表；修复前返回「抗滑」字符串）",
+      "baseline": 1.25,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "同 E1：γV 与 $\\gamma_{V}$ 归一对齐"
+    },
+    {
+      "case_id": "E3-γu短暂组合",
+      "table_id": "table-doc-fbb3306e:50:11",
+      "channel": "table_lookup",
+      "signature": "LaTeX 表头",
+      "table_name": "表6.2.3",
+      "conditions": {
+        "组合情况": "短暂组合",
+        "稳定情况": "抗滑"
+      },
+      "target_column": "波浪浮托力分项系数γu",
+      "expected": 1.2,
+      "expected_why": "短暂组合×抗滑 → γu=1.2（规范表6.2.3 短暂组合取 1.2）",
+      "baseline": 1.2,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "修复前靠 γu 小写 u 误中 key_parts 正则侥幸命中；现走正规变体对齐"
+    },
+    {
+      "case_id": "E4-横向成对右半区",
+      "table_id": "table-doc-fbb3306e:28:15",
+      "channel": "table_lookup",
+      "signature": "横向成对双列",
+      "table_name": "表4.3.24",
+      "conditions": {
+        "堤前最大波浪底流速Vmax": 3.835
+      },
+      "target_column": "护底块石稳定重量W",
+      "expected": 300,
+      "expected_why": "V=3.835 落在右半区「3.6~4.0」→ W=300~400 取下限 300（规范表4.3.24；SOP step_30 口径）",
+      "baseline": 300.0,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "2026-10-18 修复：数值条件扫全部同名列（0,2），区间单元格按区间判距选行；成对列校正把目标对齐到命中组（修复前选 3.1~3.5 行且目标未定位返回整行）"
+    },
+    {
+      "case_id": "E5-横向成对左半区",
+      "table_id": "table-doc-fbb3306e:28:15",
+      "channel": "table_lookup",
+      "signature": "横向成对双列",
+      "table_name": "表4.3.24",
+      "conditions": {
+        "堤前最大波浪底流速Vmax": 2.3
+      },
+      "target_column": "护底块石稳定重量W",
+      "expected": 60,
+      "expected_why": "V=2.3 落在左半区「2.0~2.5」→ W=60~100 取下限 60",
+      "baseline": 60.0,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "成对列校正随命中组选左组目标列（m+1=1）"
+    },
+    {
+      "case_id": "E6-横向成对右边界",
+      "table_id": "table-doc-fbb3306e:28:15",
+      "channel": "table_lookup",
+      "signature": "横向成对双列",
+      "table_name": "表4.3.24",
+      "conditions": {
+        "堤前最大波浪底流速Vmax": 3.6
+      },
+      "target_column": "护底块石稳定重量W",
+      "expected": 300,
+      "expected_why": "V=3.6 是右半区下边界 → W=300~400 取 300（左半区上界 3.5 不命中）",
+      "baseline": 300.0,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "区间命中优先（dist=0）压过左列近似（3.6-3.5=0.1×10=1）"
+    },
+    {
+      "case_id": "E7-γP带组合键",
+      "table_id": "table-doc-fbb3306e:37:8",
+      "channel": "table_lookup",
+      "signature": "LaTeX 表头",
+      "table_name": "表5.3.6",
+      "conditions": {
+        "组合情况": "持久组合"
+      },
+      "target_column": "水平波浪力分项系数γP",
+      "expected": 1.3,
+      "expected_why": "持久组合 → γP=1.3（规范表5.3.6；圆筒堤链 step_6 原样查询）",
+      "baseline": 1.3,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "修复前靠成对列兜底恰取相邻 γP 列侥幸正确；现正路解析 $\\gamma_{P}$"
+    },
+    {
+      "case_id": "E8-γu带组合键",
+      "table_id": "table-doc-fbb3306e:37:8",
+      "channel": "table_lookup",
+      "signature": "LaTeX 表头",
+      "table_name": "表5.3.6",
+      "conditions": {
+        "组合情况": "短暂组合"
+      },
+      "target_column": "波浪浮托力分项系数γu",
+      "expected": 1.2,
+      "expected_why": "短暂组合 → γu=1.2（规范表5.3.6）",
+      "baseline": 1.2,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "修复前兜底取到 γP 列（该表两列值相同故侥幸正确）；现正路对齐 $\\gamma_{u}$"
+    },
+    {
+      "case_id": "E9-摩擦系数两级列",
+      "table_id": "table-doc-fbb3306e:13:6",
+      "channel": "table_lookup",
+      "signature": "两级列",
+      "table_name": "表3.1.18",
+      "conditions": {
+        "材料": "墙身为预制混凝土结构"
+      },
+      "target_column": "摩擦系数",
+      "expected": 0.6,
+      "expected_why": "墙底与抛石基床顶面×预制混凝土结构 → f=0.60（规范表3.1.18）",
+      "baseline": 0.6,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "锁住既有正确路径（材料两级列表头展开后子串命中）"
+    },
+    {
+      "case_id": "E10-摩擦系数范围值",
+      "table_id": "table-doc-fbb3306e:13:6",
+      "channel": "table_lookup",
+      "signature": "两级列",
+      "table_name": "表3.1.18",
+      "conditions": {
+        "材料": "地基为细砂"
+      },
+      "target_column": "摩擦系数",
+      "expected": 0.5,
+      "expected_why": "地基为细砂—粗砂 → f=0.50~0.60 取首数 0.50（下限，既有口径）",
+      "baseline": 0.5,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "锁住范围文本取值口径（_extract_first_number 取下限）"
+    },
+    {
+      "case_id": "E11-子表头行适配",
+      "table_id": "table-doc-fbb3306e:23:10",
+      "channel": "table_lookup",
+      "signature": "子表头行在body[0]",
+      "table_name": "表4.3.7",
+      "conditions": {
+        "护面型式": "四脚空心方块",
+        "构造型式": "规则安放1层"
+      },
+      "target_column": "K_D",
+      "expected": 14,
+      "expected_why": "四脚空心方块×规则安放1层 → K_D=14（规范表4.3.7；SOP db749895 step_2 口径）",
+      "baseline": 14.0,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "2026-10-18：子表头行在 body[0]（引擎不合并），SOP 改用 header 可见键「护面型式」过滤第 1 列 + 「构造型式」走行文本条件；含数字文本值（'规则安放1层'）修复了误判数值条件"
+    },
+    {
+      "case_id": "E12-子表头行适配-块石安放",
+      "table_id": "table-doc-fbb3306e:23:10",
+      "channel": "table_lookup",
+      "signature": "子表头行在body[0]",
+      "table_name": "表4.3.7",
+      "conditions": {
+        "护面型式": "块石",
+        "构造型式": "安放1层"
+      },
+      "target_column": "K_D",
+      "expected": 5.5,
+      "expected_why": "块石×安放1层 → K_D=5.5（同表第2行；修复前同过滤命中两行块石靠行序侥幸）",
+      "baseline": 5.5,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "行文本条件「安放1层」只命中所属行"
+    },
+    {
+      "case_id": "E13-子表头行适配-扭王字",
+      "table_id": "table-doc-fbb3306e:23:10",
+      "channel": "table_lookup",
+      "signature": "子表头行在body[0]",
+      "table_name": "表4.3.7",
+      "conditions": {
+        "护面型式": "扭王字块体",
+        "构造型式": "随机安放1层"
+      },
+      "target_column": "K_D",
+      "expected": 15,
+      "expected_why": "扭王字块体×随机安放1层 → K_D=15~18 取首数 15（表注②由设计人取定）",
+      "baseline": 15.0,
+      "baseline_mode": "value",
+      "status": "fixed",
+      "note": "锁住区间文本取下限口径"
     }
   ]
 }
