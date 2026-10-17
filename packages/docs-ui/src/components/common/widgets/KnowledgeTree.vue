@@ -18,6 +18,7 @@
     :empty-text="emptyText"
     :default-expanded-keys="defaultExpandedKeys"
     :default-selected-keys="defaultSelectedKeys"
+    :expand-selected-path="expandSelectedPath"
     :dark="dark"
     :virtual="virtual"
     :height="height"
@@ -90,6 +91,8 @@ export interface KnowledgeTreeProps {
   emptyText?: string
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
+  /** 转发 SmartTree expandSelectedPath：选中项变化时自动展开其祖先链（只并集），默认关 */
+  expandSelectedPath?: boolean
   dark?: boolean
   /** 大库（如 omnidocbench 2609 节点）须开虚拟滚动，否则展开越多 DOM 越大越卡；开时应同时给 height */
   virtual?: boolean

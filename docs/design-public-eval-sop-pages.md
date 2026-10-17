@@ -570,3 +570,50 @@ T3 与 T4 可并行；T6 必须与 T4 同批合入（否则公开页会先长出
   上游前先 grep 一遍 `== "published"`**（假源 `FakeSopSource` 已同步同口径，回归测试覆盖「缺键放行」）。
   观察（数据侧，非渲染 bug）：本地两份 SOP 的条件步（如 302 的 step_2/6/7）没有 `branches` 数据，
   共享画布组件按其口径渲染成「?」分叉节点——后台 3002 同一渲染，属 SOP 生成侧数据不完整。
+
+### 16.12 user-web 经验库页改左中右三栏（业主 10-17 令，与后台经验库同构）
+
+- 业主原话：「web的经验库，也应该是左中右式的三栏布局」。落点 = user-web `/sops` 页（`PublicSopView.vue`，
+  顶栏页签名即「经验库」）；后台 `ExperienceManage.vue` 本就是左中右三栏，本次对齐其右栏交互。
+- 版式：左 = 分类树（不动）；中 = 只读流程画布**占满高度**（原先固定 360px 高、步骤属性/元信息/意见
+  全堆在其下随页滚动，一并迁出）；右 = 「属性 | 意见（n）」页签。
+- 右栏口径（与后台经验库右栏「属性 | AI 对话」同构）：
+  - 属性页签沿用后台互斥逻辑——有选中步骤 → `SOPPropertyPanel(readOnly)`；否则 → `SopMetaPanel
+    (readOnly, showReview=false)`；SOP 加载失败 → 空态提示。
+  - 意见页签 = 原 `CommentPanel`（本版只收不审语义不变）；新增 `count-change` emit 上报条数
+    （n>0 时页签标签显示）；`v-show` 保持挂载——进页即拉取意见、切页签不丢本地回显。
+  - 切 SOP 或点画布步骤 → 右栏回「属性」页签（点步骤=看属性，与后台行为一致）。
+- SplitPanes 右栏比例 0.28、左栏 0.2（与后台同档）；**不做比例持久化**（后台经验库同样未持久化，
+  公开页更不应在访客机留布局记忆）。
+- 组件适配：`CommentPanel` 根容器由「页面堆叠样式」（margin-top + border-top）改「页签容器样式」
+  （自成滚动区、padding 12px），意见步骤选择框宽度 260px→100%（适配窄右栏）；渲染结构不变。
+- 不改后端、不改 sop-ui 共享组件；改动仅 `PublicSopView.vue` 版式重排 + `CommentPanel.vue`（+1 emit + 样式适配）。
+- 验收：`pnpm --filter @angineer/user-web build`（含 vue-tsc）全绿（2026-10-17 本地实测）；
+  浏览器走查（选 SOP→画布满高 + 属性页签=元信息；点步骤→步骤属性；意见页签条数/提交；切 SOP 回属性页签）
+  待部署后补。
+- §11 线框中公开 SOP 页的「左树 + 右内容」两栏版式自本节起按上述三栏版式执行。
+
+### 16.13 左侧树统一收口：默认全折叠 + SmartTree「expandSelectedPath」属性（业主 10-17 令）
+
+- 业主口径：「左侧树默认全部折叠，打开一级加载一级」「尽可能做成统一的组件…打开关闭某些属性参数就行」。
+- SmartTree 新增属性 `expandSelectedPath`（boolean，默认 false）：选中项变化、树数据到达时，把各选中项的
+  祖先链并集进 expandedKeys（只并集、不回缩用户已开分支）。包装组件 KnowledgeTree / EvalDatasetTree /
+  SOPTree 同步新增透传 prop——宿主只传参，不再自写 findParentChain / 手动 expandedKeys 改写。
+- 「打开一级加载一级」两层口径：渲染层 a-tree 折叠子树不进 DOM，默认折叠即按需渲染；
+  数据层逐级懒加载（loadData 通道）四棵数据源均为全量接口，本轮不做（属专项工程）。
+- 四棵左树收口结果：
+  - 公开两页树 `PublicTreePanel`：删唯一一处 `:default-expand-all="true"`；改 `:expand-selected-path="true"`
+    + `:default-selected-keys`（`useCommunityTree` 新增 `selectedKeys` computed）——进页仍自动选中首个条目，
+    但只展开其祖先链并高亮。
+  - admin 评测集树：`useEvalDatasetTree` 删「根级文件夹默认展开」computed（原暴露 defaultExpandedKeys）；
+    `EvalManage` 改传 `:expand-selected-path="true"`（选中项可见性由既有 selectedDatasetId 通道保障）。
+  - admin 知识库树：本已全折叠；聚焦（路由 doc_id）与上传后聚焦两处手写 findParentChain + 手动
+    expandedKeys 收编为 expand-selected-path（删本地 findParentChain 与 defaultExpandedKeys ref）。
+  - admin 经验库树：本已全折叠；`refreshTreeAndFocus` 手写链路同样收编（删本地 findParentChain）。
+- 保留项：搜索时自动展开命中项（SmartTree 内建，属搜索意图）不动；`expandAll()` / `collapseAll()` 暴露方法保留；
+  `defaultExpandAll` 属性保留（其它场景仍可按需使用）；`defaultExpandedKeys` 整体替换语义不变
+  （逐次叠加展开请用 expandSelectedPath 或自行 Set 并集）。
+- 验收：`pnpm --filter @angineer/smartree typecheck`、`pnpm --filter @angineer/docs-ui typecheck`、
+  `pnpm --filter @angineer/user-web build`、`pnpm --filter @angineer/admin-web build`（均含 vue-tsc）全绿
+  （2026-10-17 本地实测）；sop-ui / evals-ui 无 typecheck 脚本，由 admin-web 构建覆盖。
+  浏览器走查（四棵树默认折叠态、进页自动选中只展开一条路径、聚焦/上传后路径展开）待部署后补。

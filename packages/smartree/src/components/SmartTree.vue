@@ -299,6 +299,8 @@ interface Props<T extends SmartTreeNode> {
   fileDropHintPrefix?: string
   actionLabels?: Partial<Record<'rename' | 'addSubFolder' | 'addFile' | 'view' | 'delete' | 'batchDelete', string>>
   defaultExpandAll?: boolean
+  /** 选中项变化/树数据到达时，自动展开各选中项的祖先链（只并集展开、不回缩用户已开分支），默认关 */
+  expandSelectedPath?: boolean
 }
 
 const props = withDefaults(defineProps<Props<T>>(), {
@@ -327,7 +329,8 @@ const props = withDefaults(defineProps<Props<T>>(), {
   noSearchResultText: '无匹配结果',
   fileDropHintPrefix: '释放上传至',
   actionLabels: () => ({}),
-  defaultExpandAll: false
+  defaultExpandAll: false,
+  expandSelectedPath: false
 })
 
 const emit = defineEmits<{
@@ -418,6 +421,38 @@ watch(() => props.defaultExpandedKeys, (value) => {
 watch(() => props.defaultSelectedKeys, (value) => {
   selectedKeys.value = value
 }, { immediate: true })
+
+/**
+ * 在 nodes 中查找 key 的祖先链（父 → 根顺序），未命中返回 null。
+ */
+const findParentChain = (nodes: T[], key: string, parents: string[] = []): string[] | null => {
+  for (const node of nodes) {
+    if (node.key === key) return parents
+    if (node.children?.length) {
+      const found = findParentChain(node.children as T[], key, [...parents, node.key])
+      if (found) return found
+    }
+  }
+  return null
+}
+
+/**
+ * 展开选中项的祖先链（expandSelectedPath 开启时生效）：
+ * 选中变化、树数据到达各补算一次；只并集展开，不回缩用户已开的分支。
+ */
+const expandPathOfSelected = () => {
+  if (!props.expandSelectedPath || selectedKeys.value.length === 0) return
+  const chainKeys: string[] = []
+  for (const key of selectedKeys.value) {
+    const chain = findParentChain(sourceTreeData.value, key)
+    if (chain?.length) chainKeys.push(...chain)
+  }
+  if (chainKeys.length === 0) return
+  expandedKeys.value = Array.from(new Set([...expandedKeys.value, ...chainKeys]))
+}
+
+watch(selectedKeys, () => expandPathOfSelected())
+watch(() => sourceTreeData.value, () => expandPathOfSelected())
 
 /**
  * 根据搜索词过滤树数据。

@@ -88,14 +88,8 @@ export function useEvalDatasetTree(
     })
   })
 
-  /** 默认展开所有文件夹层级（只收集文件夹节点 key，叶子节点不参与展开语义） */
-  const defaultExpandedKeys = computed(() =>
-    treeData.value.filter(n => n.isFolder).map(n => n.key)
-  )
-
   return {
     treeData,
-    defaultExpandedKeys,
     isCategoryFolder,
     isPersistedFolder,
     getCategoryFromNode,

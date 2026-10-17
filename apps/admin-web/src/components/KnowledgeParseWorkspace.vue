@@ -45,7 +45,7 @@
               v-else
               ref="smartTreeRef"
               :tree-data="treeData"
-              :default-expanded-keys="defaultExpandedKeys"
+              :expand-selected-path="true"
               :default-selected-keys="defaultSelectedKeys"
               :dark="isDark"
               :virtual="true"
@@ -706,8 +706,7 @@ onBeforeUnmount(() => {
   treeResizeObserver = null
 })
 
-// 默认展开/选中（SmartTree 监听 prop 变化并应用）
-const defaultExpandedKeys = ref<string[]>([])
+// 默认选中（SmartTree 监听 prop 变化并应用；祖先链展开交给 expand-selected-path 属性）
 const defaultSelectedKeys = ref<string[]>([])
 
 const keepCurrentPreview = (docId: string) => docContentDocId.value === docId && Boolean(docContent.value)
@@ -803,18 +802,6 @@ const findNode = (nodes: SmartTreeNode[], key: string): SmartTreeNode | null => 
   return null
 }
 
-// 查找父节点链
-const findParentChain = (nodes: SmartTreeNode[], key: string, parents: string[] = []): string[] | null => {
-  for (const node of nodes) {
-    if (node.key === key) return parents
-    if (node.children?.length) {
-      const found = findParentChain(node.children, key, [...parents, node.key])
-      if (found) return found
-    }
-  }
-  return null
-}
-
 // 加载节点：所有知识库可视（库根虚拟节点），各库内容挂在库下
 const loadNodes = async (focusNodeKey?: string) => {
   try {
@@ -846,16 +833,9 @@ const loadNodes = async (focusNodeKey?: string) => {
     // 默认不自动补选首个文档（避免一进页面就加载 PDF/图谱拖慢首屏，也让树保持全收起）；
     // 仅显式定位（路由 doc_id / 上传后聚焦）时展开目标文件祖先链并高亮选中。
     if (focusNodeKey) {
-      // 模拟用户点击：展开目标文件祖先链 + 高亮选中目标文件
-      const parents = findParentChain(treeData.value as unknown as SmartTreeNode[], focusNodeKey) || []
-      defaultExpandedKeys.value = Array.from(new Set([
-        ...defaultExpandedKeys.value,
-        ...parents
-      ]))
+      // 显式定位（路由 doc_id / 上传后聚焦）：选中目标文件；祖先链展开由
+      // KnowledgeTree 的 expand-selected-path 属性完成（选中即展开）
       defaultSelectedKeys.value = [focusNodeKey]
-      if (smartTreeRef.value) {
-        smartTreeRef.value.selectedKeys = [focusNodeKey]
-      }
       selectedKeys.value = [focusNodeKey]
       const node = findNode(treeData.value as unknown as SmartTreeNode[], focusNodeKey)
       if (node) {
@@ -1345,13 +1325,8 @@ const uploadFile = async (file: File, parentId?: string) => {
     treeData.value.push(tempNode)
   }
 
+  // 选中即展开祖先链（KnowledgeTree 的 expand-selected-path 属性）
   if (smartTreeRef.value) {
-    if (parentId) {
-      smartTreeRef.value.expandedKeys = Array.from(new Set([
-        ...(smartTreeRef.value.expandedKeys || []),
-        parentId
-      ]))
-    }
     smartTreeRef.value.selectedKeys = [tempKey]
   }
   selectedKeys.value = [tempKey]

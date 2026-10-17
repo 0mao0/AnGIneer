@@ -87,6 +87,7 @@ function onFileDrop(files: File[], folder: SmartTreeNode | null) { /* ... */ }
 | `emptyText` | `string` | `'暂无数据'` | 空态文案 |
 | `defaultExpandedKeys` / `defaultSelectedKeys` | `string[]` | `[]` | 初始展开/选中 |
 | `defaultExpandAll` | `boolean` | `false` | 初始全部展开 |
+| `expandSelectedPath` | `boolean` | `false` | 选中项变化/数据到达时自动展开其祖先链（只并集、不回缩） |
 | `dark` | `boolean` | `false` | 强制暗色（不依赖 `[data-theme]`） |
 | `virtual` / `height` | `boolean` / `number` | `false` / — | 虚拟滚动与容器高度 |
 | `rootDropText` / `noSearchResultText` / `fileDropHintPrefix` | `string` | — | 各类提示文案 |

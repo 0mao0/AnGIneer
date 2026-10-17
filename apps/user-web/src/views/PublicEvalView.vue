@@ -10,6 +10,7 @@
               :tree-data="tree.treeData.value"
               :loading="tree.loading.value"
               :load-error="tree.loadError.value"
+              :selected-keys="tree.selectedKeys.value"
               @select="onTreeSelect"
             />
           </div>

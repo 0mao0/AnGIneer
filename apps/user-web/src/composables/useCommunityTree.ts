@@ -24,6 +24,8 @@ export function useCommunityTree(scope: CommunityScope) {
   const loadError = ref('')
   const selectedKey = ref('')
   const selectedItem = ref<TreeItem | null>(null)
+  // 给树的选中高亮通道（SmartTree defaultSelectedKeys）：进页自动选中首个条目时同步树内高亮
+  const selectedKeys = computed(() => (selectedKey.value ? [selectedKey.value] : []))
 
   const treeData = computed<CommunityTreeNode[]>(() => {
     const folderRows: CommunityTreeNode[] = nodes.value.map((n) => ({
@@ -103,5 +105,5 @@ export function useCommunityTree(scope: CommunityScope) {
     selectedItem.value = row?.communityItem || null
   }
 
-  return { nodes, items, loading, loadError, treeData, selectedKey, selectedItem, reload, select }
+  return { nodes, items, loading, loadError, treeData, selectedKey, selectedKeys, selectedItem, reload, select }
 }

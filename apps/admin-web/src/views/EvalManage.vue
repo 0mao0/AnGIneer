@@ -36,7 +36,7 @@
               :show-icon="true"
               :show-status="false"
               :draggable="true"
-              :default-expanded-keys="evalDefaultExpandedKeys"
+              :expand-selected-path="true"
               :default-selected-keys="selectedDatasetId ? [selectedDatasetId] : []"
               :dark="isDark"
               empty-text="暂无测试集"
@@ -524,7 +524,6 @@ const {
 
 const {
   treeData: evalTreeData,
-  defaultExpandedKeys: evalDefaultExpandedKeys,
   isCategoryFolder: isCategoryFolderFn,
   isPersistedFolder: isPersistedFolderFn,
   getCategoryFromNode,

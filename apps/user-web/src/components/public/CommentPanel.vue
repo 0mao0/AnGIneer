@@ -49,6 +49,8 @@ const props = defineProps<{
 const emit = defineEmits<{
   (e: 'submitted'): void
   (e: 'login'): void
+  /** 意见总条数变化（含本地刚提交的）——供右栏页签标签显示条数 */
+  (e: 'count-change', count: number): void
 }>()
 
 const { message } = App.useApp()
@@ -113,13 +115,17 @@ async function submitComment() {
 }
 
 watch(() => props.sopId, () => void load(), { immediate: true })
+
+watch(() => allComments.value.length, (n) => emit('count-change', n), { immediate: true })
 </script>
 
 <style lang="less" scoped>
 .comment-panel {
-  margin-top: 16px;
-  border-top: 1px solid var(--border-color, rgba(0, 0, 0, 0.08));
-  padding-top: 12px;
+  /* 右栏「意见」页签内容器：自行滚动，不再为页面堆叠留 margin/border */
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 12px;
 
   .comment-header {
     display: flex;
@@ -136,7 +142,7 @@ watch(() => props.sopId, () => void load(), { immediate: true })
     margin-top: 10px;
 
     .step-select {
-      width: 260px;
+      width: 100%;
       margin-bottom: 8px;
     }
 

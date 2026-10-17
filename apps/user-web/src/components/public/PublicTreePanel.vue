@@ -12,7 +12,8 @@
       :loading="loading"
       :virtual="true"
       :height="treeHeight"
-      :default-expand-all="true"
+      :expand-selected-path="true"
+      :default-selected-keys="selectedKeys"
       :dark="isDark"
       empty-text="该分类暂无公开内容"
       @select="onSelect"
@@ -50,6 +51,8 @@ defineProps<{
   treeData: CommunityTreeNode[]
   loading: boolean
   loadError: string
+  /** 选中高亮通道（SmartTree defaultSelectedKeys），宿主传树数据源里当前选中的 key */
+  selectedKeys?: string[]
 }>()
 
 // 暗色样式挂在 SmartTree 的 dark 属性上（组件内 .dark-mode 作用域），宿主不传=整段暗色失效
@@ -59,8 +62,8 @@ const emit = defineEmits<{
   (e: 'select', row: CommunityTreeNode | null): void
 }>()
 
-// 默认展开全部目录（含二层子类）：分类是这两页的主信息，折叠起来只剩一排骨架。
-// 用 SmartTree 自带的 defaultExpandAll（内部 collectFolderKeys 全树收集），别再自己算 key 列表。
+// 默认全折叠（进页只出一级目录）：分类树会继续变深，全展开渲染会拖卡。
+// 进页自动选中首个条目时，靠 SmartTree 的 expand-selected-path 只展开它所在的祖先链并高亮（selectedKeys）。
 const treeHeight = computed(() => Math.max(320, window.innerHeight - 160))
 
 // SmartTree 的 select 事件按基类型 SmartTreeNode[] 回传（传进去的就是本页的行对象，取回即本型）

@@ -18,6 +18,7 @@
     :empty-text="emptyText"
     :default-expanded-keys="defaultExpandedKeys"
     :default-selected-keys="defaultSelectedKeys"
+    :expand-selected-path="expandSelectedPath"
     :dark="dark"
     @select="(keys, nodes) => emit('select', keys, nodes as EvalTreeNode[])"
     @rename="(node) => emit('rename', node as EvalTreeNode)"
@@ -80,6 +81,8 @@ export interface EvalDatasetTreeProps {
   emptyText?: string
   defaultExpandedKeys?: string[]
   defaultSelectedKeys?: string[]
+  /** 转发 SmartTree expandSelectedPath：选中项变化时自动展开其祖先链（只并集），默认关 */
+  expandSelectedPath?: boolean
   dark?: boolean
 }
 

@@ -49,6 +49,7 @@
               :allowed-file-types="['.json']"
               :loading="sopTree.loading.value"
               :dark="isDark"
+              :expand-selected-path="true"
               empty-text="暂无经验 SOP"
               @select="onTreeSelect"
               @rename="onTreeRename"
@@ -561,24 +562,6 @@ const folderTreeData = computed(() => {
 })
 
 /**
- * 查找节点的父级链路，用于刷新后自动展开并聚焦。
- */
-const findParentChain = (nodes: SOPTreeNode[], key: string, parents: string[] = []): string[] | null => {
-  for (const node of nodes) {
-    if (node.key === key) {
-      return parents
-    }
-    if (node.children?.length) {
-      const found = findParentChain(node.children, key, [...parents, node.key])
-      if (found) {
-        return found
-      }
-    }
-  }
-  return null
-}
-
-/**
  * 弹出未保存修改确认弹窗，返回用户选择：'save' | 'discard' | 'stay'。
  * save: 保存后继续导航；discard: 不保存直接导航；stay: 留在当前页面。
  */
@@ -747,8 +730,7 @@ const refreshTreeAndFocus = async (focusKey?: string) => {
   if (!focusKey || !sopTreeRef.value) {
     return
   }
-  const parents = findParentChain(tree, focusKey) || []
-  sopTreeRef.value.expandedKeys = Array.from(new Set([...(sopTreeRef.value.expandedKeys || []), ...parents]))
+  // 祖先链展开由 SOPTree 的 expand-selected-path 属性完成（选中即展开），这里只负责选中
   sopTreeRef.value.selectedKeys = [focusKey]
   const focusNode = sopTree.findNode(tree, focusKey)
   if (focusNode) {
