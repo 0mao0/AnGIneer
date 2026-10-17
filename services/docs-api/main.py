@@ -28,6 +28,7 @@ from retrieve_routes import retrieve_router
 from docs_core.server.engine_ports import build_engine_ports_router
 from api_key_routes import router as api_key_router
 from users_routes import router as users_router
+from guest_routes import router as guest_router
 from routes.v1 import router as v1_router
 from middleware.api_key_auth import APIKeyAuthMiddleware
 from orchestrator import parse_orchestrator
@@ -133,6 +134,7 @@ app.include_router(preview_router, prefix="/api", tags=["Preview"])
 app.include_router(graph_router, prefix="/api/graph", tags=["Knowledge Graph"])
 app.include_router(api_key_router)
 app.include_router(users_router)
+app.include_router(guest_router)
 app.include_router(v1_router)
 
 
