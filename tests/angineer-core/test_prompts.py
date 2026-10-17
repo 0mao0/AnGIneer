@@ -89,6 +89,8 @@ class PromptMigrationContractTests(unittest.TestCase):
         )
 
         self.assertIn("意图层级定义", CLASSIFY_INTENT_SYSTEM_PROMPT)
+        self.assertIn("题面给出具体数值", CLASSIFY_INTENT_SYSTEM_PROMPT)
+        self.assertIn("堤顶高程怎么计算", CLASSIFY_INTENT_SYSTEM_PROMPT)
         self.assertIn("SOP 匹配器", ROUTE_SOP_SYSTEM_PROMPT)
 
     def test_agent_configs_reexports_prompts_constants(self):
