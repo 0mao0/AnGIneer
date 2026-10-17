@@ -64,7 +64,7 @@ adminweb header
 | `NIGHTLY_*` / `WEBHOOK_*` / `NIGHTLY_SITE_URL` 等 | 登记（运行效果归评测组） |
 | `DOCS_*` / `QDRANT_*` / `CHAT_DB_PATH` / `API_KEYS_DB_PATH` 等基础设施 | 登记，`source=env` 只读（改 .env 需重建容器，页面展示指引） |
 | 路径散项（KNOWLEDGE_BASE_DIR、PARSE_RECORDS_DB_PATH、SOP_DATA_DIR 等） | 登记，只读 |
-| 测试夹具专用（`TEST_LLM_CONFIG`、`QDRANT_TEST_URL` 等）、scripts 一次性探针、`VITE_*` 构建期注入 | **不登**（registry 注明豁免清单，防漂移脚本对其白名单） |
+| 测试夹具专用（`TEST_LLM_CONFIG`、`QDRANT_TEST_URL` 等）、scripts 一次性探针、`VITE_*` 构建期注入 | **不登**（豁免白名单由防漂移脚本内置维护，见 §2.3） |
 
 ### 2.2 schema
 
@@ -74,7 +74,7 @@ SettingSpec = {
   "group": str,           # 组 id
   "desc": str,            # 中文解释（含定值依据，自带指向代码读点线索）
   "default": str|None,    # 代码默认值（无默认=未设时行为描述写进 desc）
-  "type": "bool|int|float|str|json|secret",
+  "type": "bool|int|float|str|json",  # secret 值一律按 str；敏感性由 sensitivity 单独决定
   "source": "settings|env",   # settings=页面可写；env=只读展示
   "sensitivity": "public|secret",  # secret：api_key/token 类，脱敏展示、密文输入框
   "effective": "live|lazy|restart", # live=动态读热生效；lazy=懒单例（有热换口则等效 live）；restart=需重建容器
@@ -128,7 +128,8 @@ PUT /api/settings│  1) 探针（仅 CONFIGS 与 secret 类）失败→422 不�
 - `apply_runtime_overlays()`：读 settings.json → 注入键值进 `os.environ`（对「首注前原值」做快照存内存，供 delete 键还原），随后**启动并常驻一条 daemon watcher 线程**（30s 间隔 stat mtime；文件无变化零开销）。每次启动首注**必须发生在任何业务模块 import 之前**，三服务接入点：
   - docs-api `main.py:23` ensure_env 之前/同级最先；aichat-api `main.py:43` 同位；sop-api 现无 ensure_env（main.py 仅 :24 setdefault DATA_DIR），在 main.py 顶部 import fastapi 之前补调用——与 ensure_env 分离，不要塞进 config_validator（避免耦合校验语义）。
 - 注入语义：**settings 覆盖永远优先于 .env**（理由：页面双向 = 用户最后一手）；`load_dotenv()` 默认不覆盖已存在值（config_validator.py:19、base_config.py:15、llm_client.py:49 均在各自 import 时调用）——watcher 后续重注不与 load_dotenv 冲突；时序上首注赶在上述三处 load_dotenv 之前即可。
--Watcher 还原语义：registry 里某键被「恢复默认」→ 从 settings.json 删除 → watcher diff 发现 → `os.environ[key]` 还原为首注快照值（若本无则删除注入键）。
+- Watcher 还原语义：registry 里某键被「恢复默认」→ 从 settings.json 删除 → watcher diff 发现 → `os.environ[key]` 还原为首注快照值（若本无则删除注入键）。
+- watcher 间隔参数化：默认 30s，允许参数/测试注入更短间隔（集成测试不等真实 30s）。
 - 生效时限承诺：watcher 间隔 30s + aichat 进程 PUT 时即时 apply → 全集群 ≤30s。
 
 > 这条链路的价值硬通货：**现有 ~90 个 `os.getenv` 动态读点一行不改**，route_pre/agent_tools/判分候选链等热路径全部自动吃到新值。
@@ -147,13 +148,13 @@ HOT 兜底：任何 hook 执行异常只记日志+审计「apply 失败」告警
 
 ### 4-C. 附带口径（防误解）
 
-- `NIGHTLY_*`/`WEBHOOK_*`：nightly 调度回路每轮 load_settings()（nightly_control.py:514-536 先例）即动态；`NIGHTLY_SCHEDULER` 本身是 startup hook 读一次（evals_routes.py:719-724）→ 标 `lazy | restart`，不做热换口。
+- `NIGHTLY_*`/`WEBHOOK_*`：nightly 调度回路每轮 load_settings()（nightly_control.py:514-536 先例）即动态；`NIGHTLY_SCHEDULER` 本身是 startup hook 读一次（evals_routes.py:719-724）→ 标 `restart`，不做热换口。
 - guest 档 `ANGINEER_GUEST_ROUNDS`：guest_settings.json 保存即钉死（design-guest-settings.md 定过契约）→ registry related 标注「改 env/页面不再影响已建档」，防运维误解。
 - 判分 `EVAL_JUDGE_CONFIGS`：answer_eval.py:94-114 每判分现读 → live；registry related 提示「与 LLM_CONFIGS name 引用一致性」。
 
 ## 5. API 契约（归属 aichat-api）
 
-新增 `services/aichat-api/settings_routes.py`，路由前缀 `/api/settings`；vite dev proxy（admin vite.config.ts:107-118）把 `/api/settings` 指到 8791（aichat）；生产 nginx `location /api/settings/` → 127.0.0.1:8791（手改，见 §7）。
+新增 `services/aichat-api/settings_routes.py`，路由前缀 `/api/settings`；vite dev proxy（admin vite.config.ts:107-118）**新加一条** `/api/settings` → 8791（aichat）的代理规则；生产 nginx `location /api/settings/` → 127.0.0.1:8791（手改，见 §7）。
 
 | 方法+路径 | 语义 |
 |---|---|
@@ -184,7 +185,7 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 | secret 输入 | 密文输入框，空值=保持不变 |
 | 落盘 | 明文只进 `data/platform/settings.json` 与 audit（data/ 已闭源/gitignore，与 .env 同级保护面） |
 | 越权 | 非 admin PUT/DELETE → 403 |
-| 并写冲突 | 单写者（管理页）+ 原子替换文件锁语义由 os.replace 保证 |
+| 并写冲突 | 仅管理页写（单写者）；`os.replace` 原子替换保证任何读侧读到完整版本，不保证多写者互斥（并发写不在威胁模型内） |
 | 误改自伤 | registry `related` 提示（如 ANGINEER_CHAT_AUTH_REQUIRED 打开会瞬间全员 401）+ secret 类试跑前置；页面顶部显示「生效来源」徽标，settings 覆盖 .env 不隐瞒 |
 
 ## 7. 部署注意
