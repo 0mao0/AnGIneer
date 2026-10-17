@@ -232,7 +232,7 @@ class GraphStore:
         self._init_schema()
 
     def _connect(self) -> sqlite3.Connection:
-        conn = sqlite3.connect(self.db_path)
+        conn = sqlite3.connect(self.db_path, timeout=30)  # 2026-10-17 22:0x 补跑并发实踩：默认 5s busy 超时 → 图谱站 database is locked 失败风暴；提到 30s
         conn.execute("PRAGMA journal_mode=WAL")
         conn.execute("PRAGMA foreign_keys=ON")
         conn.row_factory = sqlite3.Row

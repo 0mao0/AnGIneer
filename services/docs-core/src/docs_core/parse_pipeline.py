@@ -808,6 +808,27 @@ _FTS_MAX_CONCURRENCY = max(1, _env_int("FTS_MAX_CONCURRENCY", 2))
 _FTS_GATE = _FifoGpuGate(_FTS_MAX_CONCURRENCY)
 
 
+# ---- 向量索引闸门：压住并发 embed 请求（2026-10-17 22:1x 大批量补跑实踩） ----
+# 事故：vectors 阶段无闸门 → 补跑数百篇同时进本阶段 → 数百并发 embed 请求把网关上游
+# 打出一片 502，客户端 5 次重试耗尽后降级 256 维哈希被写库维度校验拒绝（8 分钟 18 篇失败）。
+# 嵌入请求为秒级短请求，默认 8 槽足够喂满端点，同时不再打崩上游。
+_VECTORS_MAX_CONCURRENCY = max(1, _env_int("VECTORS_MAX_CONCURRENCY", 8))
+_VECTORS_GATE = _FifoGpuGate(_VECTORS_MAX_CONCURRENCY)
+
+
+@contextmanager
+def vectors_slot(
+    cancel_check: Optional[Callable[[], None]] = None,
+    arrival_seq: int = 1,
+):
+    """向量索引槽位：按到达本闸门的先后排队（本闸门独立 FCFS）。"""
+    _VECTORS_GATE.acquire(arrival_seq, cancel_check)
+    try:
+        yield
+    finally:
+        _VECTORS_GATE.release()
+
+
 @contextmanager
 def fts_slot(
     cancel_check: Optional[Callable[[], None]] = None,
@@ -866,8 +887,15 @@ def _run_vectors(ctx: StageContext) -> str:
             ctx.cancel_check()
         ctx.log_step(step, status, detail)
 
-    ks = get_docs_service()
-    ks.rebuild_document_vectors(ctx.doc_id, on_step=_on_step)
+    if _VECTORS_GATE.should_wait(ctx.arrival_seq):
+        _mark_stage_queued(
+            ctx, "向量索引排队",
+            "等待向量索引槽位（控制并发 embed 请求，避免压垮网关）",
+            "等待向量索引槽位",
+        )
+    with vectors_slot(ctx.cancel_check, arrival_seq=ctx.arrival_seq):
+        ks = get_docs_service()
+        ks.rebuild_document_vectors(ctx.doc_id, on_step=_on_step)
     import docs_core.paths as paths
     ctx.input_summary = str(paths.get_graph_jsonl_path(ctx.library_id, ctx.doc_id))
     ctx.output_summary = "vector store (entity_id + embedding)"
