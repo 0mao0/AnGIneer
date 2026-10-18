@@ -1,5 +1,8 @@
 # Harvey LAB firm-knowledge 复测报告（48 题）
 
+> **已被 [100 题版](report-harvey-lab-100-final.md) 取代**（同日补跑 049–100）。本文件保留为中间记录：
+> 100 题最终口径为 all-pass 3.0%（95%CI [1.0, 8.5]）、criterion 17.0%。
+
 日期：2026-10-18　样本：firm-knowledge 001–048（连续 48 题，全部判分）
 题库：`harvey-firm-knowledge-v1`（250 题 / 2623 条 rubric）　语料：`lab-firm-full`（266 matter / 9007 篇）
 
