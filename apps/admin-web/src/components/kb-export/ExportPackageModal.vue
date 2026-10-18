@@ -44,13 +44,24 @@
 
       <a-spin :spinning="loadingPreview">
         <div class="exp-estimate" v-if="preview">
-          预计 <b>{{ formatBytes(preview.total_estimate) }}</b>
-          （{{ preview.file_count }} 个文件 + 向量快照约 {{ formatBytes(preview.snapshot_estimate) }}）
+          <div>
+            大包预计 <b>{{ formatBytes(preview.total_estimate) }}</b>
+            （{{ preview.file_count }} 个文件 + 向量快照约 {{ formatBytes(preview.snapshot_estimate) }}）
+          </div>
+          <ul class="exp-lib-ests" v-if="preview.libraries.length > 1">
+            <li v-for="lib in preview.libraries" :key="lib.library_id">
+              {{ lib.name }} —— 小包约 <b>{{ formatBytes(lib.total_estimate) }}</b>
+              <span class="exp-lib-id">
+                文件 {{ formatBytes(lib.files_bytes) }} + 索引 {{ formatBytes(lib.sqlite_estimate) }}
+                + 向量 {{ formatBytes(lib.snapshot_estimate) }}
+              </span>
+            </li>
+          </ul>
         </div>
       </a-spin>
 
       <a-alert
-        v-for="(w, i) in previewWarnings"
+        v-for="(w, i) in preview?.warnings || []"
         :key="i"
         type="warning"
         show-icon
@@ -65,7 +76,7 @@
         message="当前已有导出任务在运行，需等它结束或取消后再试。"
       />
       <p class="exp-hint">
-        包内固定含向量快照与源 PDF（可被对方直接导入检索），不含仅重解析才用得到的中间产物。
+        包内每个库一个独立小包（含向量快照与源 PDF，可单独交付、单独导入检索），不含仅重解析才用得到的中间产物。
       </p>
     </template>
 
@@ -178,18 +189,6 @@ const libsInGroup = computed<KnowledgeLibraryItem[]>(() => {
 const allChecked = computed(() => libsInGroup.value.length > 0 && selectedLibs.value.length === libsInGroup.value.length)
 const someChecked = computed(() => selectedLibs.value.length > 0)
 
-/** 后端给的权威文案；仅当未选中的同组库确实「可勾选」时才追加「建议全选」
- *  （空库不进可选清单，对它们说「全选」是点不到的建议）。 */
-const previewWarnings = computed(() => {
-  const p = preview.value
-  if (!p) return []
-  const out = [...p.warnings]
-  const selectable = new Set(p.selectable_library_ids || [])
-  const unselectedSelectable = (p.peers || []).filter((peer) => selectable.has(peer.library_id))
-  if (unselectedSelectable.length) out.push(`建议全选该组所有库（还有 ${unselectedSelectable.length} 个可选未勾选）。`)
-  return out
-})
-
 function formatBytes(n: number): string {
   if (!n) return '0 B'
   const units = ['B', 'KB', 'MB', 'GB', 'TB']
@@ -225,7 +224,7 @@ function onToggleAll(e: any) {
 }
 
 function onGroupChange() {
-  // 换组默认全选（同组共用 sqlite，全选才是自洽形态）
+  // 换组默认全选（惯例：整组交付最常用；v2 每库自包含，选不满也自洽）
   selectedLibs.value = libsInGroup.value.map((l) => l.id)
   preview.value = null
   void loadPreview()
@@ -508,6 +507,15 @@ async function onCancel() {
   margin-bottom: 8px;
   background: var(--adm-fill-quaternary, rgba(255, 255, 255, 0.04));
   border-radius: 6px;
+}
+.exp-lib-ests {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--adm-text-secondary, rgba(255, 255, 255, 0.65));
+}
+.exp-lib-ests li {
+  margin-top: 2px;
 }
 .exp-warn {
   margin-bottom: 8px;

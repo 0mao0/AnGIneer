@@ -154,18 +154,41 @@ export interface LibraryVolume {
   updated_at?: string
 }
 
-// ---- 语料包导出（docs/design-kb-export-ui.md）----
-// 服务端不落盘：边读边打包边出网。进度以后端 status 为准（字节口径），前端只展示。
-export interface ExportPreview {
-  libraries: { library_id: string; name: string; group_name: string; collection: string }[]
+// ---- 语料包导出 v2（docs/plan-kb-per-library-package.md）----
+// 大包套每库自包含小包：服务端不落盘，边读边打包边出网。进度以后端 status 为准（字节口径），前端只展示。
+export interface ExportPreviewLibrary {
+  library_id: string
+  name: string
+  group_name: string
+  collection: string
+  /** 文档树字节（默认已砍 parsed/{mineru_raw,popo}） */
   files_bytes: number
   file_count: number
+  /** 索引切片估算（组 sqlite 体积 × 本库 chunk 占比；仅参考，以包内 manifest 实测为准） */
+  sqlite_estimate: number
+  vector_points: number
+  /** 向量快照估算（points × 每点约 7KB） */
+  snapshot_estimate: number
+  counts: { docs: number; chunks: number }
+  /** 本库小包合计估算 */
+  total_estimate: number
+}
+export interface ExportPreview {
+  kind: 'bundle'
+  schema_version: number
+  /** 导出环境 EMBEDDING_CONFIGS 首项 model 名（导入侧对账基准，不一致即阻断） */
+  embed_model: string
+  /** 逐库小包明细（体积估算） */
+  libraries: ExportPreviewLibrary[]
+  files_bytes: number
+  file_count: number
+  /** 兼容旧字段名 = 逐库 sqlite_estimate 之和 */
   sqlite_bytes: number
   snapshot_estimate: number
   total_estimate: number
-  /** 同组未全选的警告（共用 sqlite，包内仍含未勾选库的索引数据） */
+  /** 包级与逐库 warning（如 nodes.file_path 非相对化契约的行计数） */
   warnings: string[]
-  /** 同组未选中的库（含空库）；空库不在可选清单，不能建议「全选」 */
+  /** v2 恒空（每库自包含，无「同组未全选」概念）；保留字段以兼容渐进改 */
   peers: { library_id: string; name: string }[]
   selectable_library_ids: string[]
   active_task_id: string | null

@@ -1,7 +1,8 @@
-"""语料包导出（管理后台）：预览 → 流式下载 → 进度轮询 → 取消。
+"""语料包导出 v2（管理后台）：预览 → 流式下载 → 进度轮询 → 取消。
 
-导出 = 把选中的库打成可跨环境导入的语料包（结构见 docs/plan-standards-kb-corpus-package.md）。
-**服务端不落盘**：读文件一次（同时算 sha256）写进 zip 直接推给浏览器；中断即弃，无续传。
+导出 = 大包（bundle）套每库自包含小包（libraries/<id>.zip），每库独立切片/快照/图谱闭包
+（结构见 docs/plan-kb-per-library-package.md）。**服务端不落盘**：读文件一次（同时算 sha256）
+写进 zip 直接推给浏览器；中断即弃，无续传。
 
 鉴权：全部 Depends(resolve_admin_session)——导出会读全库源文件与向量快照，不接受匿名调用。
 
@@ -14,6 +15,7 @@ from __future__ import annotations
 import secrets
 import threading
 import time
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request
@@ -21,8 +23,8 @@ from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from admin_auth import resolve_admin_session
-from docs_core.corpus_package import (DEFAULT_EXCLUDE_DIRS, ExportCancelled, ExportTasks,
-                                      iter_package_zip, scan_selection)
+from docs_core.corpus_package import (DEFAULT_EXCLUDE_DIRS, EXPORT_SCHEMA_VERSION, ExportCancelled,
+                                      ExportTasks, iter_bundle_zip, read_registry, scan_selection)
 from docs_core.library_registry import resolve_data_root
 
 export_router = APIRouter()
@@ -68,23 +70,24 @@ class TicketRequest(BaseModel):
 def issue_export_ticket(req: TicketRequest, session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
     """换一张一次性下载凭据（见 _issue_ticket 注释）。
 
-    这里只做**廉价校验**（registry 读表 + 同组判定）：原先调 scan_selection 全量扫目录，
+    这里只做**廉价校验**（registry 读表；v2 每库自包含，无同组闸）：原先调 scan_selection 全量扫目录，
     点「开始导出」到保存对话框弹出要等 3-5 秒（业主实感）。真正的体积统计在预览与流请求里做。
     """
-    from docs_core.corpus_package import validate_selection
-
     try:
-        validate_selection(resolve_data_root(), req.libraries)
+        read_registry(resolve_data_root(), req.libraries)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return {"ticket": _issue_ticket(req.task_id, req.libraries), "expires_in": _TICKET_TTL_S}
 
 
 class PreviewRequest(BaseModel):
-    libraries: List[str] = Field(min_length=1, description="选中的 library_id（同一组）")
+    libraries: List[str] = Field(min_length=1, description="选中的 library_id（每库独立小包，可跨组）")
 
 
 class PreviewResponse(BaseModel):
+    kind: str = "bundle"
+    schema_version: int = EXPORT_SCHEMA_VERSION
+    embed_model: str = ""
     libraries: List[Dict[str, Any]]
     files_bytes: int
     file_count: int
@@ -97,26 +100,33 @@ class PreviewResponse(BaseModel):
 
 @export_router.post("/exports/preview")
 def preview_export(req: PreviewRequest, session: Any = Depends(resolve_admin_session)) -> Dict[str, Any]:
-    """体积估算 + 同组未选警告。不建快照（那是导出时的实际工作）。"""
+    """逐库体积估算（大包总大小 + 各小包明细）。不建快照（那是导出时的实际工作）。"""
     data_root = resolve_data_root()
     try:
         result = scan_selection(data_root, req.libraries, exclude_dirs=DEFAULT_EXCLUDE_DIRS)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     active = get_tasks().active()
-    selectable = {lib["library_id"] for lib in result.libraries}
+    libraries: List[Dict[str, Any]] = []
+    for row in result["libraries"]:
+        libraries.append({
+            **row,
+            "total_estimate": row["files_bytes"] + row["sqlite_estimate"] + row["snapshot_estimate"],
+        })
+    totals = result["totals"]
     return {
-        "libraries": [{"library_id": r["library_id"], "name": r.get("name") or r["library_id"],
-                       "group_name": r["group_name"], "collection": r["collection"]} for r in result.libraries],
-        "files_bytes": result.files_bytes,
-        "file_count": result.file_count,
-        "sqlite_bytes": result.sqlite_bytes,
-        "snapshot_estimate": result.snapshot_estimate,
-        "total_estimate": result.total_estimate,
-        "warnings": result.warnings,
-        # 同组未选中的库（含空库）：空库不在前端可选清单里，「建议全选」对它们无效
-        "peers": [{"library_id": p["library_id"], "name": p["name"]} for p in result.peers],
-        "selectable_library_ids": sorted(selectable),
+        "kind": "bundle",
+        "schema_version": EXPORT_SCHEMA_VERSION,
+        "embed_model": result["embed_model"],
+        "libraries": libraries,
+        "files_bytes": totals["files_bytes"],
+        "file_count": totals["file_count"],
+        "sqlite_bytes": totals["sqlite_estimate"],
+        "snapshot_estimate": totals["snapshot_estimate"],
+        "total_estimate": totals["total_estimate"],
+        "warnings": result["warnings"],
+        "peers": [],  # v2 无同组未选概念（兼容旧前端字段，恒空）
+        "selectable_library_ids": sorted(r["library_id"] for r in result["libraries"]),
         "active_task_id": (active or {}).get("task_id"),
     }
 
@@ -125,7 +135,7 @@ def preview_export(req: PreviewRequest, session: Any = Depends(resolve_admin_ses
 def stream_export(
     request: Request,
     task_id: str = Query(..., min_length=8, max_length=64, description="前端生成的导出任务号"),
-    libraries: str = Query(..., description="逗号分隔 library_id（同一组）"),
+    libraries: str = Query(..., description="逗号分隔 library_id（每库独立小包，可跨组）"),
     ticket: str = Query("", description="一次性下载凭据（原生下载通道用；给了就不校验 Bearer）"),
 ) -> StreamingResponse:
     """流式下载 zip。这是导出本体：连接在，导出就在；断开即停。
@@ -146,13 +156,14 @@ def stream_export(
         scan = scan_selection(data_root, libs, exclude_dirs=DEFAULT_EXCLUDE_DIRS)
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    group = (scan["libraries"][0]["group_name"] if scan["libraries"] else "") or "corpus"
     try:
-        tasks.start(task_id, group=(scan.libraries[0]["group_name"] if scan.libraries else ""),
-                    libs=libs, total_estimate=scan.total_estimate)
+        tasks.start(task_id, group=group, libs=libs, total_estimate=scan["totals"]["total_estimate"])
     except RuntimeError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
 
-    filename = f"{scan.libraries[0]['group_name'] if scan.libraries else 'corpus'}-{'-'.join(libs)[:40]}.zip"
+    date_str = datetime.now(timezone(timedelta(hours=8))).strftime("%Y%m%d")
+    filename = f"{group}-{date_str}.zip"
 
     def generate():
         """流式产出 zip；**任何**退出路径都要收尾任务行。
@@ -164,7 +175,7 @@ def stream_export(
         failed = ""
         completed = False
         try:
-            for chunk in iter_package_zip(
+            for chunk in iter_bundle_zip(
                 libs,
                 exclude_dirs=DEFAULT_EXCLUDE_DIRS,
                 data_root=data_root,

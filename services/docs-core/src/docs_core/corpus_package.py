@@ -1,19 +1,24 @@
-"""语料包导出核心：CLI 落盘包与管理后台流式 zip 共用同一套逻辑。
+"""语料包导出核心 v2：大包（bundle）套每库自包含小包（library），流式不落盘。
 
-两种产出形态（内容一致）：
-- ``build_package``    落盘目录包（CLI：``scripts/kb_corpus_export.py``）
-- ``iter_package_zip``  流式 zip 字节（管理后台：边读边出网，服务端不落盘）
+产出形态：
+- ``iter_bundle_zip``   流式 zip 字节（管理后台：边读边出网，服务端不落盘）
+- ``build_bundle``      落盘 zip（CLI：``scripts/kb_corpus_export.py``）
 
-包结构：
-    <root>/
-    ├─ registry/rows.json           # library_registry + library_groups 行原样
-    ├─ meta/rows.json               # 共享 meta 库按 library_id 摘的 nodes/tree_node
-    ├─ files/<相对 data 根路径>      # 组 sqlite（checkpoint 后）+ libraries/<id>/ 文档树
-    ├─ qdrant/<collection>.snapshot # with_vectors=False 时跳过
-    └─ manifest.json                # 全量文件 sha256；流式时排最后（sha256 边读边算）
+包结构（v2 定版，两侧契约）：
+    外层 <组名>-<日期>.zip（ZIP_STORED，流式嵌套）
+    ├─ manifest.json                 # kind=bundle/schema_version=2；libraries[]（entry/sha256/bytes/counts）
+    └─ libraries/<library_id>.zip    # 每库自包含小包（可单独交付/单独导入）
+         ├─ manifest.json            # kind=library；counts{docs,chunks,vectors,graph_relations,graph_tables}
+         ├─ registry/rows.json       # 本库 registry 行（原 sqlite_file/collection 供追溯）+ 其组行
+         ├─ meta/rows.json           # 本库 nodes/tree_node + meta libraries 行（修 F10 缺口）
+         ├─ index/index.sqlite       # 组 sqlite 按库切片（corpus_slicing）
+         ├─ files/…                  # 文档树（排除 parsed/{mineru_raw,popo} 与 lib 根 index.sqlite）
+         ├─ qdrant/vectors.snapshot  # 本库向量快照（临时 collection 拷贝或独占直取）
+         └─ graph/graph.sqlite       # 本库图谱闭包切片（corpus_slicing）
 
-为什么流式一趟就够：CLI 旧路径是「staging 拷贝 → sha256 全扫 → zip」四趟 IO；
-流式读每个文件一次（同时算 sha256）→ 写 zip → 直接出网，只有一趟 IO。
+嵌套流式契约（P1-1 spike 结论，py3.11.17/3.12.6 双端实测）：
+内层 zip 写进外层 entry 写句柄（_CountingSink，无 tell/seek）→ zipfile 自动走 data descriptor
+路径，无需临时落盘；manifest 排最后（sha256 边流边算）；force_zip64 默认开。
 """
 from __future__ import annotations
 
@@ -22,25 +27,27 @@ import json
 import os
 import shutil
 import sqlite3
+import tarfile
+import tempfile
 import threading
 import time
-from contextlib import closing
+import zipfile
+from contextlib import ExitStack, closing, contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Callable, Dict, Iterator, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, Generator, Iterator, List, Optional, Sequence, Tuple
 from urllib import request as urlrequest
 
+from .kb_migrator import assert_library_not_migrating
 from .library_registry import REGISTRY_DB_NAME, resolve_data_root
 
-SCHEMA_VERSION = 1
+EXPORT_SCHEMA_VERSION = 2
 PAGE_BASE = 0  # canonical 页码 0-based，交付说明写死
 DEFAULT_EXCLUDE_DIRS: Tuple[str, ...] = ("mineru_raw", "popo")
 _READ_CHUNK = 1 << 20
 
-# qdrant 快照体积经验系数（字节/点）：system 8.5KB、standards 6.2KB → 取 7KB 做预览估算。
-# （2026-10-09 两组换名前，这两个系数分别测得于 standards / guifan 集合，数字未变、归属随换名。）
-# 正式进度分母用快照创建响应里的真实 size（见 iter_package_zip），不依赖此系数。
+# qdrant 快照体积经验系数（字节/点）：仅供预览估算；正式进度分母用快照创建响应里的真实 size。
 SNAPSHOT_BYTES_PER_POINT = 7000
 
 
@@ -86,6 +93,7 @@ def read_registry(data_root: Path, libs: Sequence[str]) -> Tuple[List[dict], Lis
 
 
 def read_meta_rows(data_root: Path, libs: Sequence[str]) -> Dict[str, list]:
+    """共享 meta 库按 library_id 摘行：nodes/tree_node + libraries 行（F10 缺口：旧版不带 libraries）。"""
     meta_db = data_root / "knowledge" / "knowledge_meta.sqlite"
     if not meta_db.exists():
         raise ValueError(f"meta 库不存在: {meta_db}")
@@ -94,48 +102,13 @@ def read_meta_rows(data_root: Path, libs: Sequence[str]) -> Dict[str, list]:
         marks = ",".join("?" * len(libs))
         nodes = [dict(r) for r in conn.execute(f"SELECT * FROM nodes WHERE library_id IN ({marks})", list(libs))]
         tree = [dict(r) for r in conn.execute(f"SELECT * FROM tree_node WHERE scope_id IN ({marks})", list(libs))]
-    return {"nodes": nodes, "tree_nodes": tree}
-
-
-def group_peer_libraries(data_root: Path, libs: Sequence[str]) -> List[dict]:
-    """同组但不在 libs 里的库：它们的数据仍在组 sqlite 内（FTS/graph 不可拆），预览时要警告。"""
-    libraries, _ = read_registry(data_root, libs)
-    groups = sorted({row["group_name"] for row in libraries})
-    with closing(sqlite3.connect(data_root / REGISTRY_DB_NAME)) as conn:
-        conn.row_factory = sqlite3.Row
-        marks = ",".join("?" * len(groups))
-        rows = [dict(r) for r in conn.execute(
-            f"SELECT library_id, name, group_name FROM library_registry WHERE group_name IN ({marks})", groups)]
-    chosen = set(libs)
-    return [r for r in rows if r["library_id"] not in chosen]
-
-
-# ---------------------------------------------------------------- 待打包条目
-
-
-@dataclass
-class FileEntry:
-    arcname: str          # 包内相对路径（POSIX）
-    path: Path            # 源文件绝对路径
-    size: int
-    rel_to_data: str      # 相对 data 根（staged_roots 用）
-
-
-@dataclass
-class ScanResult:
-    libraries: List[dict] = field(default_factory=list)
-    groups: List[dict] = field(default_factory=list)
-    files_bytes: int = 0
-    file_count: int = 0
-    sqlite_bytes: int = 0
-    snapshot_points: int = 0
-    snapshot_estimate: int = 0
-    peers: List[dict] = field(default_factory=list)   # 同组未选中的库
-    warnings: List[str] = field(default_factory=list)
-
-    @property
-    def total_estimate(self) -> int:
-        return self.files_bytes + self.sqlite_bytes + self.snapshot_estimate
+        has_libraries = conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='libraries'").fetchone()
+        lib_rows = (
+            [dict(r) for r in conn.execute(f"SELECT * FROM libraries WHERE id IN ({marks})", list(libs))]
+            if has_libraries else []
+        )
+    return {"nodes": nodes, "tree_nodes": tree, "libraries": lib_rows}
 
 
 def _iter_doc_files(lib_root: Path, exclude_dirs: Sequence[str]) -> Iterator[Tuple[Path, str, int]]:
@@ -176,100 +149,90 @@ def checkpoint_sqlite(path: Path) -> None:
         conn.close()
 
 
-def _validate_single_group(libraries: Sequence[dict]) -> str:
-    groups = {row["group_name"] for row in libraries}
-    if len(groups) != 1:
-        raise ValueError(f"一次只能导一个组（同组共用一个 sqlite），收到: {sorted(groups)}")
-    return groups.pop()
-
-
-def plan_entries(data_root: Path, libraries: Sequence[dict], exclude_dirs: Sequence[str]
-                 ) -> Tuple[Dict[str, bytes], List[FileEntry], List[str]]:
-    """返回 (内存条目, 文件条目, staged_roots)。两种产出形态共用，保证内容一致。"""
-    mem: Dict[str, bytes] = {}
-    files: List[FileEntry] = []
-    staged: List[str] = []
-
-    for rel in sorted({row["sqlite_file"] for row in libraries}):
-        src = data_root / rel
-        if not src.exists():
-            continue
-        checkpoint_sqlite(src)
-        # 只拷主库：checkpoint(TRUNCATE) 后 WAL 已归零（数据全在主库），-wal/-shm 都是瞬态——
-        # SQLite 会在最后一个连接关闭时自己删它们，拷了就是竞态（2026-10-09 实踩：
-        # 拷进包后被后端连接收尾删掉，manifest 却已扫进 sha256 表 → 导入侧报缺文件整包中止）。
-        files.append(FileEntry(arcname=f"files/{rel}", path=src, size=src.stat().st_size, rel_to_data=rel))
-        staged.append(rel)
-
+def _library_counts_and_estimates(data_root: Path, libraries: Sequence[dict]
+                                  ) -> Tuple[Dict[str, Dict[str, int]], Dict[str, int]]:
+    """逐库 (docs,chunks) 计数 + 组库体积占比估算（仅参考值，FTS 体积与 chunk 数不成线性，不设门槛）。"""
+    counts = {row["library_id"]: {"docs": 0, "chunks": 0} for row in libraries}
+    estimates = {row["library_id"]: 0 for row in libraries}
+    dbs: Dict[str, List[dict]] = {}
     for row in libraries:
-        lib_root = data_root / "knowledge" / "libraries" / row["library_id"]
-        if not lib_root.is_dir():
+        dbs.setdefault(str(row["sqlite_file"]), []).append(row)
+    for rel, db_rows in dbs.items():
+        db_path = Path(data_root) / rel
+        db_counts: Dict[str, Dict[str, int]] = {}
+        if db_path.exists():
+            try:
+                with closing(sqlite3.connect(db_path)) as conn:
+                    for lib_id, n in conn.execute(
+                            "SELECT library_id, COUNT(*) FROM canonical_documents GROUP BY library_id"):
+                        db_counts.setdefault(str(lib_id), {"docs": 0, "chunks": 0})["docs"] = int(n)
+                    for lib_id, n in conn.execute(
+                            "SELECT d.library_id, COUNT(*) FROM canonical_chunks c "
+                            "JOIN canonical_documents d ON c.doc_id = d.doc_id GROUP BY d.library_id"):
+                        db_counts.setdefault(str(lib_id), {"docs": 0, "chunks": 0})["chunks"] = int(n)
+            except sqlite3.Error:
+                db_counts = {}
+        total_chunks = sum(v["chunks"] for v in db_counts.values())
+        db_size = db_path.stat().st_size if db_path.exists() else 0
+        for row in db_rows:
+            lib_id = row["library_id"]
+            counts[lib_id] = db_counts.get(lib_id, {"docs": 0, "chunks": 0})
+            share = (counts[lib_id]["chunks"] / total_chunks) if total_chunks else 0.0
+            estimates[lib_id] = int(db_size * share)
+    return counts, estimates
+
+
+def _file_path_warnings(nodes: Sequence[dict]) -> List[str]:
+    """file_path 守卫（数据迁移契约 Stage A）：非 knowledge/libraries/<lib>/documents/… 的
+    POSIX 相对路径（绝对路径/含反斜杠/他库前缀）逐条告警——防把迁移契约的雷打进自包含包。"""
+    warnings: List[str] = []
+    for row in nodes:
+        path = str(row.get("file_path") or "")
+        if not path:
             continue
-        rel_root = lib_root.relative_to(data_root).as_posix()
-        for path, rel_in_lib, size in _iter_doc_files(lib_root, exclude_dirs):
-            rel = path.relative_to(data_root).as_posix()
-            files.append(FileEntry(arcname=f"files/{rel}", path=path, size=size, rel_to_data=rel))
-        staged.append(rel_root)
-    return mem, files, sorted(set(staged))
-
-
-def validate_selection(data_root: Path, libs: Sequence[str]) -> List[dict]:
-    """廉价校验：库都在注册表里且同组。**不碰文件系统**——供「换下载凭据」这类高频调用用
-    （全量扫目录的 scan_selection 要遍历两万多个文件，放在保存对话框之前会明显卡顿）。"""
-    libraries, _groups = read_registry(data_root, libs)
-    _validate_single_group(libraries)
-    return libraries
-
-
-def scan_selection(data_root: Path, libs: Sequence[str], *, exclude_dirs: Sequence[str] = DEFAULT_EXCLUDE_DIRS,
-                   qdrant_url: Optional[str] = None) -> ScanResult:
-    """预览：体积估算 + 同组未选警告。不创建快照（那是导出时的实际工作）。"""
-    libraries, groups = read_registry(data_root, libs)
-    _validate_single_group(libraries)
-    result = ScanResult(libraries=libraries, groups=groups)
-
-    for rel in sorted({row["sqlite_file"] for row in libraries}):
-        src = data_root / rel
-        if src.exists():
-            result.sqlite_bytes += src.stat().st_size
-    for row in libraries:
-        lib_root = data_root / "knowledge" / "libraries" / row["library_id"]
-        if not lib_root.is_dir():
-            continue
-        for _path, _rel, size in _iter_doc_files(lib_root, exclude_dirs):
-            result.files_bytes += size
-            result.file_count += 1
-
-    collections = sorted({row["collection"] for row in libraries})
-    result.snapshot_points = _collection_points(collections, qdrant_url)
-    result.snapshot_estimate = result.snapshot_points * SNAPSHOT_BYTES_PER_POINT
-
-    result.peers = group_peer_libraries(data_root, libs)
-    if result.peers:
-        # 只报名字，不带 library_id（内部标识，业主不看——2026-10-09 定）。
-        # 也不说「建议全选」：空库不进可选清单，那句话会指向点不到的目标，前端按可选择性自己补。
-        names = "、".join(p["name"] or p["library_id"] for p in result.peers)
-        result.warnings.append(
-            f"同组共用一份 sqlite（FTS/graph 无法按库拆分）：该组另有 {names} 未纳入本次导出，"
-            "但包内仍会含它们的索引数据。它们没有源文件随包，检索可能命中、溯源会 404。"
+        lib_id = str(row.get("library_id") or "")
+        ok = (
+            "\\" not in path
+            and not path.startswith("/")
+            and ":" not in path
+            and path.startswith(f"knowledge/libraries/{lib_id}/documents/")
         )
-    return result
+        if not ok:
+            warnings.append(
+                f"nodes 行 {row.get('id')} 的 file_path 非规范相对路径（Stage A 相对化契约）: {path}")
+    return warnings
+
+
+def _meta_for_lib(meta_rows: Dict[str, list], lib_id: str) -> Dict[str, list]:
+    return {
+        "nodes": [r for r in meta_rows.get("nodes", []) if str(r.get("library_id") or "") == lib_id],
+        "tree_nodes": [r for r in meta_rows.get("tree_nodes", []) if str(r.get("scope_id") or "") == lib_id],
+        "libraries": [r for r in meta_rows.get("libraries", []) if str(r.get("id") or "") == lib_id],
+    }
+
+
+# ---------------------------------------------------------------- qdrant REST
 
 
 def _qdrant_base(qdrant_url: Optional[str] = None) -> str:
     return (qdrant_url or os.getenv("QDRANT_URL", "http://localhost:6333")).rstrip("/")
 
 
-def _collection_points(collections: Sequence[str], qdrant_url: Optional[str] = None) -> int:
-    total = 0
+def count_points_filtered(collection: str, library_id: str, qdrant_url: Optional[str] = None) -> int:
+    """本库点数（REST count + library_id 过滤）。估算/对账用途，失败返回 0 不阻断。"""
     base = _qdrant_base(qdrant_url)
-    for col in collections:
-        try:
-            with urlrequest.urlopen(f"{base}/collections/{col}", timeout=10) as resp:
-                total += int(json.load(resp).get("result", {}).get("points_count") or 0)
-        except Exception:  # noqa: BLE001 — 估算失败不阻断预览
-            pass
-    return total
+    body = json.dumps({
+        "filter": {"must": [{"key": "library_id", "match": {"value": library_id}}]},
+        "exact": True,
+    }).encode("utf-8")
+    req = urlrequest.Request(
+        f"{base}/collections/{collection}/points/count", data=body,
+        headers={"Content-Type": "application/json"}, method="POST")
+    try:
+        with urlrequest.urlopen(req, timeout=10) as resp:
+            return int(json.load(resp).get("result", {}).get("count") or 0)
+    except Exception:  # noqa: BLE001 — 估算失败不阻断预览
+        return 0
 
 
 def create_snapshot(collection: str, qdrant_url: Optional[str] = None) -> Tuple[str, int]:
@@ -296,85 +259,59 @@ def open_snapshot(collection: str, name: str, qdrant_url: Optional[str] = None):
     return urlrequest.urlopen(f"{base}/collections/{collection}/snapshots/{name}", timeout=600)
 
 
-# ---------------------------------------------------------------- 产物：落盘目录包
+# ---------------------------------------------------------------- 预览（逐库明细）
 
 
-def build_package(libs: List[str], out_parent: Path, with_vectors: bool = True, pack_tar: bool = False,
-                  exclude_dirs: Optional[Sequence[str]] = None, data_root: Optional[Path] = None,
-                  on_stage: Optional[Callable[[str, str], None]] = None) -> Path:
-    """落盘目录包（CLI 用）。"""
-    data_root = data_root or resolve_data_root()
-    exclude = tuple(exclude_dirs if exclude_dirs is not None else DEFAULT_EXCLUDE_DIRS)
-    now = datetime.now(timezone(timedelta(hours=8)))
-    libraries, groups = read_registry(data_root, libs)
-    group = _validate_single_group(libraries)
-    out_root = out_parent / f"{group}-{now.strftime('%Y%m%d')}-{libs[0]}"
+def scan_selection(data_root: Path, libs: Sequence[str], *,
+                   exclude_dirs: Sequence[str] = DEFAULT_EXCLUDE_DIRS,
+                   qdrant_url: Optional[str] = None) -> Dict[str, Any]:
+    """预览：逐库明细（files 字节/ sqlite 估算/ vector_points/ snapshot 估算/ counts）+ 总量。
 
-    if on_stage:
-        on_stage("registry", "写 registry 行")
-    (out_root / "registry").mkdir(parents=True)
-    (out_root / "meta").mkdir(parents=True)
-    (out_root / "registry" / "rows.json").write_text(
-        json.dumps({"libraries": libraries, "groups": groups}, ensure_ascii=False, indent=1), encoding="utf-8")
-    (out_root / "meta" / "rows.json").write_text(
-        json.dumps(read_meta_rows(data_root, libs), ensure_ascii=False), encoding="utf-8")
+    v2 无同组闸、无 peers 警告（每库自包含）；估算仅参考，最终以包内 manifest 实测 bytes 为准。
+    """
+    data_root = Path(data_root)
+    libraries, _groups = read_registry(data_root, libs)
+    for row in libraries:
+        assert_library_not_migrating(row["library_id"])
 
-    if on_stage:
-        on_stage("files", "拷贝文件")
-    _, file_entries, staged = plan_entries(data_root, libraries, exclude)
-    for entry in file_entries:
-        dst = out_root / entry.arcname
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(entry.path, dst)
-
-    collections: List[str] = []
-    if with_vectors:
-        if on_stage:
-            on_stage("snapshot", "生成向量快照")
-        for col in sorted({row["collection"] for row in libraries}):
-            name, _size = create_snapshot(col)
-            target = out_root / "qdrant" / f"{col}.snapshot"
-            target.parent.mkdir(parents=True, exist_ok=True)
-            with open_snapshot(col, name) as resp, target.open("wb") as fh:
-                shutil.copyfileobj(resp, fh, _READ_CHUNK)
-            delete_snapshot(col, name)
-            print(f"  snapshot {col} → {target.name} ({target.stat().st_size // 1048576}MB)")
-            collections.append(col)
-
-    if on_stage:
-        on_stage("manifest", "算 sha256")
-    file_index = {entry.arcname: sha256_file(entry.path) for entry in file_entries}
-    file_index["registry/rows.json"] = sha256_file(out_root / "registry" / "rows.json")
-    file_index["meta/rows.json"] = sha256_file(out_root / "meta" / "rows.json")
-    for col in collections:
-        rel = f"qdrant/{col}.snapshot"
-        file_index[rel] = sha256_file(out_root / rel)
-
-    manifest = {
-        "schema_version": SCHEMA_VERSION,
-        "created_at": now.isoformat(),
-        "group": group,
+    counts_map, est_map = _library_counts_and_estimates(data_root, libraries)
+    details: List[dict] = []
+    for row in libraries:
+        lib_id = row["library_id"]
+        lib_root = data_root / "knowledge" / "libraries" / lib_id
+        files_bytes = 0
+        file_count = 0
+        if lib_root.is_dir():
+            for _path, rel_in_lib, size in _iter_doc_files(lib_root, exclude_dirs):
+                if rel_in_lib == "index.sqlite":
+                    continue  # lib 根旧切片不进包
+                files_bytes += size
+                file_count += 1
+        points = count_points_filtered(str(row["collection"]), lib_id, qdrant_url)
+        details.append({
+            "library_id": lib_id,
+            "name": row.get("name", ""),
+            "group_name": row.get("group_name", ""),
+            "collection": row.get("collection", ""),
+            "files_bytes": files_bytes,
+            "file_count": file_count,
+            "sqlite_estimate": est_map.get(lib_id, 0),
+            "vector_points": points,
+            "snapshot_estimate": points * SNAPSHOT_BYTES_PER_POINT,
+            "counts": counts_map.get(lib_id, {"docs": 0, "chunks": 0}),
+        })
+    totals = {key: sum(d[key] for d in details) for key in (
+        "files_bytes", "file_count", "sqlite_estimate", "vector_points", "snapshot_estimate")}
+    totals["total_estimate"] = totals["files_bytes"] + totals["sqlite_estimate"] + totals["snapshot_estimate"]
+    return {
         "embed_model": embed_model_from_env(),
-        "page_base": PAGE_BASE,
-        "collections": collections,
-        "libraries": [{"library_id": r["library_id"], "sqlite_file": r["sqlite_file"], "collection": r["collection"]}
-                      for r in libraries],
-        "staged_roots": staged,
-        "files": file_index,
+        "libraries": details,
+        "totals": totals,
+        "warnings": [],
     }
-    (out_root / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"包: {out_root}  文件={len(file_index)}  embed_model={manifest['embed_model'] or '(空!)'}")
-
-    if pack_tar:
-        import tarfile
-        tar_path = out_root.with_suffix(".tar")
-        with tarfile.open(tar_path, "w") as tf:
-            tf.add(out_root, arcname=out_root.name)
-        print(f"tar: {tar_path} ({tar_path.stat().st_size // 1048576}MB)")
-    return out_root
 
 
-# ---------------------------------------------------------------- 产物：流式 zip
+# ---------------------------------------------------------------- 流式 bundle
 
 
 class _ZipSink:
@@ -397,129 +334,284 @@ class _ZipSink:
         return None
 
 
-def iter_package_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EXCLUDE_DIRS,
-                     with_vectors: bool = True, data_root: Optional[Path] = None,
-                     on_stage: Optional[Callable[[str, str], None]] = None,
-                     on_progress: Optional[Callable[[int, int], None]] = None,
-                     is_cancelled: Optional[Callable[[], bool]] = None) -> Iterator[bytes]:
-    """流式产出 zip 字节。服务端不落盘；中断即弃（无续传）。
+class _CountingSink:
+    """外层 entry 写句柄的包装：只暴露 write/flush（无 tell）→ 内层 zip 走 data descriptor；
+    边流边算内层小包的字节数与 sha256（外层 manifest 要用）。"""
 
-    阶段：scan（统计）→ snapshot（向量快照，无字节输出）→ stream（打包出网）。
-    进度分母在 snapshot 建好后就精确（用真实快照字节数，不用估算系数）。
+    def __init__(self, dst) -> None:
+        self.dst = dst
+        self.written = 0
+        self.sha256 = hashlib.sha256()
+
+    def write(self, b) -> int:
+        data = bytes(b)
+        self.sha256.update(data)
+        self.written += len(data)
+        self.dst.write(data)
+        return len(data)
+
+    def flush(self) -> None:
+        self.dst.flush()
+
+
+def _copy_file_into(zf: zipfile.ZipFile, arcname: str, path: Path, cancelled, drain
+                    ) -> Generator[bytes, None, str]:
+    """本地文件 → zip 条目（边流边算 sha256，返回 hexdigest）。"""
+    h = hashlib.sha256()
+    with zf.open(zipfile.ZipInfo(arcname), "w") as dst, path.open("rb") as fh:
+        while True:
+            if cancelled():
+                raise ExportCancelled("已取消")
+            chunk = fh.read(_READ_CHUNK)
+            if not chunk:
+                break
+            h.update(chunk)
+            dst.write(chunk)
+            yield from drain()
+    return h.hexdigest()
+
+
+def _copy_response_into(zf: zipfile.ZipFile, arcname: str, resp, cancelled, drain
+                        ) -> Generator[bytes, None, str]:
+    """HTTP 流（快照下载）→ zip 条目（边流边算 sha256，返回 hexdigest）。"""
+    h = hashlib.sha256()
+    with zf.open(zipfile.ZipInfo(arcname), "w") as dst, resp:
+        while True:
+            if cancelled():
+                raise ExportCancelled("已取消")
+            chunk = resp.read(_READ_CHUNK)
+            if not chunk:
+                break
+            h.update(chunk)
+            dst.write(chunk)
+            yield from drain()
+    return h.hexdigest()
+
+
+def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EXCLUDE_DIRS,
+                    with_vectors: bool = True, data_root: Optional[Path] = None,
+                    on_stage: Optional[Callable[[str, str], None]] = None,
+                    on_progress: Optional[Callable[[int, int], None]] = None,
+                    is_cancelled: Optional[Callable[[], bool]] = None) -> Iterator[bytes]:
+    """流式产出 v2 bundle zip 字节。服务端不落盘；中断即弃（无续传）。
+
+    阶段：scan（registry/meta/文件清单）→ snapshot（每库向量快照，无字节输出）
+    → stream（逐库切片 + 嵌套打包出网；逐库前重闸迁移）。
     """
-    data_root = data_root or resolve_data_root()
+    from . import corpus_slicing  # 延迟导入：corpus_slicing 反向依赖本模块的 checkpoint/快照工具
+
+    data_root = Path(data_root) if data_root else resolve_data_root()
     cancelled = is_cancelled or (lambda: False)
     stage_cb = on_stage or (lambda _s, _m: None)
     report = on_progress or (lambda _d, _t: None)
+    exclude = tuple(exclude_dirs)
 
-    stage_cb("scan", "扫描待打包文件…")
+    stage_cb("scan", "扫描待打包内容…")
     libraries, groups = read_registry(data_root, libs)
-    group = _validate_single_group(libraries)
-    meta_rows = read_meta_rows(data_root, libs)
+    for row in libraries:
+        assert_library_not_migrating(row["library_id"])  # scan 闸（切片前另有逐库重闸）
+    embed_model = embed_model_from_env()  # 导出开始固化一次（关 settings console 热替换窗口）
+    meta_rows = read_meta_rows(data_root, list(libs))
+    now = datetime.now(timezone(timedelta(hours=8)))
 
-    registry_bytes = json.dumps({"libraries": libraries, "groups": groups},
-                                ensure_ascii=False, indent=1).encode("utf-8")
-    meta_bytes = json.dumps(meta_rows, ensure_ascii=False).encode("utf-8")
-    _, file_entries, staged = plan_entries(data_root, libraries, exclude_dirs)
-    payload_bytes = len(registry_bytes) + len(meta_bytes) + sum(e.size for e in file_entries)
+    counts_map, est_map = _library_counts_and_estimates(data_root, libraries)
 
-    snapshots: List[Tuple[str, str, int]] = []
+    per_lib_files: Dict[str, List[Tuple[Path, str, int]]] = {}
+    est_files = 0
+    for row in libraries:
+        lib_id = row["library_id"]
+        lib_root = data_root / "knowledge" / "libraries" / lib_id
+        entries: List[Tuple[Path, str, int]] = []
+        if lib_root.is_dir():
+            for path, rel_in_lib, size in _iter_doc_files(lib_root, exclude):
+                if rel_in_lib == "index.sqlite":
+                    continue  # lib 根旧切片不进包（防再导导入库时把旧切片带进包）
+                entries.append((path, f"files/{path.relative_to(data_root).as_posix()}", size))
+                est_files += size
+        per_lib_files[lib_id] = entries
+
+    stack = ExitStack()
+    snaps: Dict[str, Dict[str, Any]] = {}
     snapshot_bytes = 0
-    if with_vectors:
-        for col in sorted({row["collection"] for row in libraries}):
-            stage_cb("snapshot", f"生成并拉取向量的快照（{col}，约 1-3 分钟）…")
-            name, size = create_snapshot(col)
-            snapshots.append((col, name, size))
-            snapshot_bytes += size
-
-    total = payload_bytes + snapshot_bytes
-    report(0, total)
-    stage_cb("stream", "打包中…")
-
-    sink = _ZipSink(cancelled)
-    done = [0]
-    released: set = set()   # 已从 qdrant 删掉的快照（提前定义：finally 里要读，别放在 try 内）
-
-    def drain() -> Iterator[bytes]:
-        while sink.buf:
-            chunk = sink.buf.pop(0)
-            done[0] += len(chunk)
-            report(done[0], total)
-            yield chunk
-
+    zf_ref: Optional[zipfile.ZipFile] = None
+    inner_ref: Optional[zipfile.ZipFile] = None
     try:
-        import zipfile
+        if with_vectors:
+            stage_cb("snapshot", "生成每库向量快照（临时集合，约 1-3 分钟/库）…")
+            corpus_slicing.cleanup_stale_temp_collections()  # 清上次导出残留
+            for row in libraries:
+                lib_id = row["library_id"]
+                exclusive = corpus_slicing.library_owns_collection_exclusively(lib_id, str(row["collection"]))
+                snaps[lib_id] = stack.enter_context(
+                    corpus_slicing.library_vector_snapshot(lib_id, str(row["collection"]), exclusive=exclusive))
+                snapshot_bytes += int(snaps[lib_id]["size"])
+
+        total = est_files + sum(est_map.values()) + snapshot_bytes
+        report(0, total)
+        stage_cb("stream", "打包中…")
+
+        sink = _ZipSink(cancelled)
+        done = [0]
+
+        def drain() -> Iterator[bytes]:
+            while sink.buf:
+                chunk = sink.buf.pop(0)
+                done[0] += len(chunk)
+                report(done[0], total)
+                yield chunk
 
         zf = zipfile.ZipFile(sink, "w", zipfile.ZIP_STORED, allowZip64=True)
-        file_index: Dict[str, str] = {}
+        zf_ref = zf
+        outer_files: Dict[str, str] = {}
+        outer_libs: List[dict] = []
+        outer_files_index: Dict[str, str] = {}
 
-        for arcname, data in (("registry/rows.json", registry_bytes), ("meta/rows.json", meta_bytes)):
-            zf.writestr(zipfile.ZipInfo(arcname), data)
-            file_index[arcname] = hashlib.sha256(data).hexdigest()
-            yield from drain()
-
-        for entry in file_entries:
+        for row in libraries:
+            lib_id = row["library_id"]
             if cancelled():
                 raise ExportCancelled("已取消")
-            h = hashlib.sha256()
-            with zf.open(zipfile.ZipInfo(entry.arcname), "w") as dst, entry.path.open("rb") as fh:
-                while True:
-                    if cancelled():
-                        raise ExportCancelled("已取消")
-                    chunk = fh.read(_READ_CHUNK)
-                    if not chunk:
-                        break
-                    h.update(chunk)
-                    dst.write(chunk)
-                    yield from drain()
-            file_index[entry.arcname] = h.hexdigest()
-            yield from drain()
+            stage_cb("slice", f"构建「{row.get('name') or lib_id}」的索引/图谱切片…")
+            assert_library_not_migrating(lib_id)  # 切片前逐库重闸（窗口收到单库切片时长）
 
-        for col, name, _size in snapshots:
-            if cancelled():
-                raise ExportCancelled("已取消")
-            arcname = f"qdrant/{col}.snapshot"
-            h = hashlib.sha256()
-            with zf.open(zipfile.ZipInfo(arcname), "w") as dst, open_snapshot(col, name) as resp:
-                while True:
-                    if cancelled():
-                        raise ExportCancelled("已取消")
-                    chunk = resp.read(_READ_CHUNK)
-                    if not chunk:
-                        break
-                    h.update(chunk)
-                    dst.write(chunk)
-                    yield from drain()
-            file_index[arcname] = h.hexdigest()
-            # 快照已完整打进 zip，qdrant 侧那份立刻删：留到最后再删会让「服务端标记完成」
-            # 白等一次 DELETE（实测 2s），而客户端此时早已收满、界面却还停在「打包中」。
-            delete_snapshot(col, name)
-            released.add((col, name))
-            yield from drain()
+            staging = Path(tempfile.mkdtemp(prefix=f"kb-bundle-{lib_id}-"))
+            try:
+                index_info = corpus_slicing.build_library_sqlite_slice(
+                    data_root, row, staging / "index.sqlite")
+                graph_db = data_root / "knowledge" / "graph.sqlite"
+                if graph_db.exists():
+                    graph_info = corpus_slicing.build_library_graph_slice(
+                        graph_db, lib_id, staging / "graph.sqlite")
+                else:
+                    closing(sqlite3.connect(staging / "graph.sqlite")).close()
+                    graph_info = {"relations": 0, "tables": {}, "fk_violations": 0}
 
-        manifest = {
-            "schema_version": SCHEMA_VERSION,
-            "created_at": datetime.now(timezone(timedelta(hours=8))).isoformat(),
-            "group": group,
-            "embed_model": embed_model_from_env(),
+                snap = snaps.get(lib_id)
+                if snap is not None:
+                    vectors = int(snap["points"]) if snap["points"] is not None else \
+                        count_points_filtered(str(row["collection"]), lib_id)
+                else:
+                    vectors = 0
+                warnings = _file_path_warnings(_meta_for_lib(meta_rows, lib_id)["nodes"])
+                fk_dirty = int(graph_info.get("fk_violations") or 0)
+                if fk_dirty:
+                    warnings = warnings + [
+                        f"图谱切片含 {fk_dirty} 条继承自源库的 FK 悬空行（源 graph.sqlite 历史脏数据；"
+                        f"切片为忠实镜像，导入侧请以 counts.graph_fk_violations 为准判断，勿据此阻断）"
+                    ]
+                counts = {
+                    "docs": index_info["docs"],
+                    "chunks": index_info["chunks"],
+                    "vectors": vectors,
+                    "graph_relations": graph_info["relations"],
+                    "graph_tables": graph_info["tables"],
+                    "graph_fk_violations": fk_dirty,
+                }
+
+                entry_name = f"libraries/{lib_id}.zip"
+                oinfo = zipfile.ZipInfo(entry_name)
+                oinfo.compress_type = zipfile.ZIP_STORED
+                # force_zip64：内层小包实测可超 4GiB（P1-7 实采：std 库全树 2GB+ 文件叠 ~3GB
+                # 索引切片即越界），不预留 zip64 头会在 close 时 RuntimeError；小额条目零影响
+                with zf.open(oinfo, "w", force_zip64=True) as outer_dst:
+                    counter = _CountingSink(outer_dst)
+                    inner_zf = zipfile.ZipFile(counter, "w", zipfile.ZIP_STORED, allowZip64=True)
+                    inner_ref = inner_zf
+                    inner_files: Dict[str, str] = {}
+
+                    registry_bytes = json.dumps({
+                        "libraries": [row],
+                        "groups": [g for g in groups if g.get("group_name") == row.get("group_name")],
+                    }, ensure_ascii=False, indent=1).encode("utf-8")
+                    meta_bytes = json.dumps(
+                        _meta_for_lib(meta_rows, lib_id), ensure_ascii=False).encode("utf-8")
+                    for arcname, data in (("registry/rows.json", registry_bytes),
+                                          ("meta/rows.json", meta_bytes)):
+                        inner_zf.writestr(zipfile.ZipInfo(arcname), data)
+                        inner_files[arcname] = hashlib.sha256(data).hexdigest()
+                        yield from drain()
+
+                    inner_files["index/index.sqlite"] = yield from _copy_file_into(
+                        inner_zf, "index/index.sqlite", staging / "index.sqlite", cancelled, drain)
+
+                    for path, arcname, _size in per_lib_files.get(lib_id, []):
+                        inner_files[arcname] = yield from _copy_file_into(
+                            inner_zf, arcname, path, cancelled, drain)
+
+                    if snap is not None:
+                        inner_files["qdrant/vectors.snapshot"] = yield from _copy_response_into(
+                            inner_zf, "qdrant/vectors.snapshot",
+                            open_snapshot(str(snap["collection"]), str(snap["snapshot"])),
+                            cancelled, drain)
+
+                    inner_files["graph/graph.sqlite"] = yield from _copy_file_into(
+                        inner_zf, "graph/graph.sqlite", staging / "graph.sqlite", cancelled, drain)
+
+                    inner_manifest = {
+                        "kind": "library",
+                        "schema_version": EXPORT_SCHEMA_VERSION,
+                        "created_at": now.isoformat(),
+                        "library_id": lib_id,
+                        "name": row.get("name", ""),
+                        "group_name": row.get("group_name", ""),
+                        "embed_model": embed_model,
+                        "page_base": PAGE_BASE,
+                        "counts": counts,
+                        "warnings": warnings,
+                        "files": inner_files,
+                    }
+                    inner_zf.writestr(zipfile.ZipInfo("manifest.json"),
+                                      json.dumps(inner_manifest, ensure_ascii=False, indent=1))
+                    inner_zf.close()
+                    yield from drain()
+
+                outer_files_index[entry_name] = counter.sha256.hexdigest()
+                outer_libs.append({
+                    "library_id": lib_id,
+                    "name": row.get("name", ""),
+                    "group_name": row.get("group_name", ""),
+                    "entry": entry_name,
+                    "sha256": counter.sha256.hexdigest(),
+                    "bytes": counter.written,
+                    "counts": counts,
+                })
+            finally:
+                shutil.rmtree(staging, ignore_errors=True)
+
+        outer_manifest = {
+            "kind": "bundle",
+            "schema_version": EXPORT_SCHEMA_VERSION,
+            "created_at": now.isoformat(),
+            "embed_model": embed_model,
             "page_base": PAGE_BASE,
-            "collections": [col for col, _n, _s in snapshots],
-            "libraries": [{"library_id": r["library_id"], "sqlite_file": r["sqlite_file"], "collection": r["collection"]}
-                          for r in libraries],
-            "staged_roots": staged,
-            "files": file_index,
+            "libraries": outer_libs,
+            "files": outer_files_index,
         }
-        zf.writestr(zipfile.ZipInfo("manifest.json"), json.dumps(manifest, ensure_ascii=False, indent=1))
+        zf.writestr(zipfile.ZipInfo("manifest.json"),
+                    json.dumps(outer_manifest, ensure_ascii=False, indent=1))
         zf.close()
         yield from drain()
         report(total, total)
     finally:
-        # 无论正常结束、取消还是客户端断连，都清掉 qdrant 侧快照（服务端不留残留）。
-        # 正常路径上快照已在打包完那一刻删掉（见上），这里只是兜底。
-        for col, name, _size in snapshots:
-            if (col, name) in released:
-                continue
-            delete_snapshot(col, name)
+        # 无论正常结束、取消还是客户端断连，快照与临时集合都清掉（服务端不留残留）。
+        # 中断时 ZipFile 未走完 close：显式静默收尾，防 GC 期 __del__ 对已断路 sink 写尾部
+        # 抛「I/O operation on closed file」噪声（2026-10-18 取消演练实见；截断包无需收尾）。
+        for zombie in (inner_ref, zf_ref):
+            if zombie is not None:
+                try:
+                    zombie.close()
+                except Exception:  # noqa: BLE001 — 截断包的收尾写入失败无需上报
+                    pass
+        stack.close()
+
+
+def build_bundle(libs: List[str], out_path: Path, **kwargs) -> Path:
+    """落盘 bundle zip（CLI 用）。"""
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    with out_path.open("wb") as fh:
+        for chunk in iter_bundle_zip(libs, **kwargs):
+            fh.write(chunk)
+    return out_path
 
 
 # ---------------------------------------------------------------- 任务注册表（进程内）
@@ -617,3 +709,304 @@ class ExportTasks:
                 task = self._tasks.get(self._running)
                 return dict(task) if task else None
             return None
+
+
+# ================================================================ 导入侧（P2：读取 + 预检闸）
+# 契约：docs/plan-kb-per-library-package.md Stage P2。
+# v1（目录/tar 形态）只识别不解析，继续走 scripts/kb_corpus_import.py 旧路径；
+# v2 判据与导出侧对偶：外层 bundle zip / 单库小包 zip 两种输入。
+
+SUPPORTED_SCHEMA = {1, 2}
+
+
+class BundleError(ValueError):
+    """导入侧包结构/完整性/预检闸错误（CLI 捕获 → stderr + 非零退出）。"""
+
+
+@dataclass
+class BundleLibrary:
+    """单库小包句柄：manifest + 落位临时文件 + 打开的 ZipFile。"""
+
+    library_id: str
+    name: str
+    group_name: str
+    entry: str
+    manifest: Dict[str, Any]
+    files_index: Dict[str, str]
+    zip_path: Optional[Path] = None
+    outer_sha256: str = ""
+    outer_bytes: int = 0
+    _zip: Optional[zipfile.ZipFile] = field(default=None, repr=False)
+
+    def open_entry(self, arcname: str):
+        if self._zip is None:
+            raise BundleError(f"包已关闭或内层 zip 不可用: {self.entry}")
+        return self._zip.open(arcname)
+
+
+@dataclass
+class Bundle:
+    mode: str                       # "bundle"（外层大包）| "library"（单库小包）| "v1_dir"
+    path: Path
+    embed_model: str
+    libraries: List[BundleLibrary]
+    manifest: Dict[str, Any] = field(default_factory=dict)
+    dir: Optional[Path] = None      # v1 目录形态
+    _tmpdir: Optional[Path] = field(default=None, repr=False)
+    _outer_zip: Optional[zipfile.ZipFile] = field(default=None, repr=False)
+
+    @property
+    def library_ids(self) -> List[str]:
+        return [lb.library_id for lb in self.libraries]
+
+    def close(self) -> None:
+        for lb in self.libraries:
+            if lb._zip is not None:
+                try:
+                    lb._zip.close()
+                except Exception:  # noqa: BLE001 — 关闭失败无需上报
+                    pass
+                lb._zip = None
+        if self._outer_zip is not None:
+            try:
+                self._outer_zip.close()
+            except Exception:  # noqa: BLE001
+                pass
+            self._outer_zip = None
+        if self._tmpdir is not None:
+            shutil.rmtree(self._tmpdir, ignore_errors=True)
+            self._tmpdir = None
+
+
+def _read_json_file(path: Path, err: str) -> Dict[str, Any]:
+    try:
+        return json.loads(path.read_text("utf-8"))
+    except FileNotFoundError as exc:
+        raise BundleError(err) from exc
+    except ValueError as exc:
+        raise BundleError(f"{err}（JSON 解析失败: {exc}）") from exc
+
+
+def _sha_stream(f, bufsize: int = _READ_CHUNK) -> str:
+    h = hashlib.sha256()
+    while True:
+        chunk = f.read(bufsize)
+        if not chunk:
+            break
+        h.update(chunk)
+    return h.hexdigest()
+
+
+def _spool_zip_entry(zf: zipfile.ZipFile, entry: str, dst: Path) -> Tuple[str, int]:
+    """把外层 zip 的内层小包条目边流边算 sha256、边落临时文件（大包不整读进内存）。"""
+    h = hashlib.sha256()
+    n = 0
+    with zf.open(entry) as src, dst.open("wb") as out:
+        while True:
+            chunk = src.read(_READ_CHUNK)
+            if not chunk:
+                break
+            h.update(chunk)
+            n += len(chunk)
+            out.write(chunk)
+    return h.hexdigest(), n
+
+
+def check_schema_gate(manifest: Dict[str, Any]) -> None:
+    if manifest.get("schema_version") not in SUPPORTED_SCHEMA:
+        raise BundleError(f"不支持的包 schema_version={manifest.get('schema_version')}，先升级导入工具")
+
+
+@contextmanager
+def open_bundle(path) -> Iterator[Bundle]:
+    """识别并打开三种输入：v2 大包 zip（kind=bundle）、v2 小包 zip（kind=library）、v1 目录/tar。
+
+    v2 大包：内层小包**流式落临时文件**（内容大者 9GB+，不整读内存），外层 sha256/bytes
+    在落盘时同步算出（对账在 ``check_package_files``）；退出时清理临时文件与句柄。
+    v1（无 kind 的目录/tar）返回 ``mode="v1_dir"``，由旧 CLI 路径继续处理。
+    """
+    p = Path(path)
+    stack = ExitStack()
+    try:
+        if p.is_dir() or p.suffix.lower() == ".tar":
+            work = p
+            if p.suffix.lower() == ".tar":
+                tmpdir = Path(tempfile.mkdtemp(prefix="kb-bundle-tar-"))
+                stack.callback(shutil.rmtree, tmpdir, ignore_errors=True)
+                with tarfile.open(p) as tf:
+                    tf.extractall(tmpdir)  # noqa: S202 — 语料包自产自用，目录由调用方提供
+                sub = next((d for d in sorted(tmpdir.iterdir())
+                            if (d / "manifest.json").is_file()), None)
+                if sub is None:
+                    raise BundleError(f"tar 里没找到含 manifest.json 的目录: {p}")
+                work = sub
+            manifest = _read_json_file(work / "manifest.json", f"目录里没有 manifest.json: {work}")
+            check_schema_gate(manifest)
+            if manifest.get("kind"):
+                raise BundleError(f"v2 包应为 zip（收到目录/tar，kind={manifest.get('kind')}）")
+            bundle = Bundle(mode="v1_dir", path=work, embed_model=str(manifest.get("embed_model") or ""),
+                            libraries=[], manifest=manifest, dir=work)
+            stack.callback(bundle.close)
+            yield bundle
+            return
+
+        try:
+            zf = zipfile.ZipFile(p)
+        except zipfile.BadZipFile as exc:
+            raise BundleError(f"不是 zip 包: {p}") from exc
+        stack.callback(zf.close)
+
+        try:
+            manifest = json.loads(zf.read("manifest.json"))
+        except KeyError as exc:
+            raise BundleError(f"包里没有 manifest.json: {p}") from exc
+        except ValueError as exc:
+            raise BundleError(f"manifest.json 解析失败: {exc}") from exc
+        check_schema_gate(manifest)
+
+        kind = manifest.get("kind")
+        if kind == "bundle":
+            tmpdir = Path(tempfile.mkdtemp(prefix="kb-bundle-open-"))
+            stack.callback(shutil.rmtree, tmpdir, ignore_errors=True)
+            outer_model = str(manifest.get("embed_model") or "")
+            libs: List[BundleLibrary] = []
+            for e in manifest.get("libraries") or []:
+                entry = str(e.get("entry") or "")
+                lib_id = str(e.get("library_id") or "")
+                if not entry or not lib_id:
+                    raise BundleError(f"外层 manifest.libraries 行缺 entry/library_id: {e}")
+                spool = tmpdir / f"{lib_id}.zip"
+                sha, n = _spool_zip_entry(zf, entry, spool)
+                try:
+                    iz = zipfile.ZipFile(spool)
+                    iman = json.loads(iz.read("manifest.json"))
+                except (zipfile.BadZipFile, KeyError, ValueError) as exc:
+                    raise BundleError(f"内层包损坏或缺 manifest: {entry}") from exc
+                stack.callback(iz.close)
+                if iman.get("kind") != "library":
+                    raise BundleError(f"内层 {entry} kind={iman.get('kind')!r} ≠ library")
+                check_schema_gate(iman)
+                im_model = str(iman.get("embed_model") or "")
+                if im_model != outer_model:
+                    raise BundleError(
+                        f"内层 {entry} embed_model={im_model!r} 与外层 {outer_model!r} 不一致（包被改动？）")
+                libs.append(BundleLibrary(
+                    library_id=lib_id,
+                    name=str(iman.get("name") or e.get("name") or lib_id),
+                    group_name=str(iman.get("group_name") or e.get("group_name") or ""),
+                    entry=entry, manifest=iman, files_index=dict(iman.get("files") or {}),
+                    zip_path=spool, outer_sha256=sha, outer_bytes=n, _zip=iz,
+                ))
+            if not libs:
+                raise BundleError("外层 manifest.libraries 为空——包不完整")
+            bundle = Bundle(mode="bundle", path=p, embed_model=outer_model, libraries=libs,
+                            manifest=manifest, _tmpdir=tmpdir, _outer_zip=zf)
+        elif kind == "library":
+            lib_id = str(manifest.get("library_id") or "")
+            if not lib_id:
+                raise BundleError("小包 manifest 缺 library_id")
+            libs = [BundleLibrary(
+                library_id=lib_id, name=str(manifest.get("name") or lib_id),
+                group_name=str(manifest.get("group_name") or ""), entry=p.name,
+                manifest=manifest, files_index=dict(manifest.get("files") or {}),
+                zip_path=p, outer_sha256="", outer_bytes=p.stat().st_size, _zip=zf,
+            )]
+            bundle = Bundle(mode="library", path=p, embed_model=str(manifest.get("embed_model") or ""),
+                            libraries=libs, manifest=manifest, _outer_zip=zf)
+        else:
+            raise BundleError("无法识别的包：manifest.kind 缺失或未知（v1 包是目录/tar 形态）")
+
+        stack.callback(bundle.close)
+        yield bundle
+    finally:
+        stack.close()
+
+
+def check_package_files(bundle: Bundle) -> None:
+    """两层 sha256 全量对账（外层=小包字节，内层=条目文件）+ 缺文件/多出条目判据。
+
+    完整性判据与导出侧镜像：外层 sha256/bytes 在 open_bundle 落临时文件时已同步算出，
+    内层逐条目复算。任何不符即 BundleError（不静默降级）。
+    """
+    if bundle.mode == "v1_dir":
+        raise BundleError("v1 目录包走 scripts/kb_corpus_import.py 旧校验路径")
+    outer_rows: Dict[str, dict] = {}
+    if bundle.mode == "bundle":
+        outer_rows = {str(e.get("entry")): e for e in (bundle.manifest.get("libraries") or [])}
+    for lb in bundle.libraries:
+        if bundle.mode == "bundle":
+            row = outer_rows.get(lb.entry) or {}
+            if lb.outer_sha256 != row.get("sha256"):
+                raise BundleError(f"小包 sha256 不符: {lb.entry}（传输损坏或包被改动）")
+            if lb.outer_bytes != row.get("bytes"):
+                raise BundleError(
+                    f"小包字节数不符: {lb.entry}（manifest={row.get('bytes')} 实读={lb.outer_bytes}）")
+        if not lb.files_index:
+            raise BundleError(f"[{lb.library_id}] 内层 manifest.files 为空——包不完整")
+        if lb._zip is None:
+            raise BundleError(f"[{lb.library_id}] 内层 zip 不可用（句柄已关闭？）")
+        names = set(lb._zip.namelist()) - {"manifest.json"}
+        expected = set(lb.files_index)
+        missing = sorted(expected - names)
+        if missing:
+            more = f" 等 {len(missing)} 个" if len(missing) > 1 else ""
+            raise BundleError(f"[{lb.library_id}] 缺文件: {missing[0]}{more}")
+        extra = sorted(names - expected)
+        if extra:
+            more = f" 等 {len(extra)} 个" if len(extra) > 1 else ""
+            raise BundleError(f"[{lb.library_id}] 包内多出未登记条目: {extra[0]}{more}（manifest 与包不符）")
+        for arc, digest in lb.files_index.items():
+            with lb.open_entry(arc) as f:
+                got = _sha_stream(f)
+            if got != digest:
+                raise BundleError(f"[{lb.library_id}] sha256 不符: {arc}（传输损坏或包被改动）")
+
+
+def check_embed_gate(manifest: Dict[str, Any], env_model: str) -> None:
+    """v2 硬闸（定版 b）：模型不一致即阻断，**不留 reembed 口**（v1 旧语义在 CLI 脚本内不动）。"""
+    pkg_model = str(manifest.get("embed_model") or "")
+    if not pkg_model:
+        raise BundleError("包 manifest 没记录 embed_model，无法对账——重出包")
+    if pkg_model != env_model:
+        raise BundleError(
+            f"embed 模型不一致：包={pkg_model} 现网={env_model or '(EMBEDDING_CONFIGS 未设置)'}。"
+            "向量跨模型复用=检索静默错乱；请在导出侧对齐现网模型、以目标模型重出包"
+            "（v2 不支持导入侧重嵌）。"
+        )
+
+
+def check_conflict_gate(*, package_libs: Sequence[dict], package_node_ids: Sequence[str] = (),
+                        target_library_ids: Sequence[str] = (), target_node_ids: Sequence[str] = (),
+                        target_collections: Sequence[str] = (), existing_index_files: Sequence[str] = (),
+                        package_entities: Sequence[dict] = (),
+                        target_entities: Optional[Dict[Tuple[str, str], str]] = None) -> Dict[str, list]:
+    """冲突闸（v2 扩展）：调用方采集目标侧四类占用与闭包实体谱，本函数纯判据。
+
+    - ``target_collections``：目标 registry 行 collection 值 ∪ qdrant 现存集合名。
+      qdrant 实测（P2-0）：目标集合已存在时 snapshot upload **不报错**（覆盖）——
+      本闸是唯一防线，不能指望 qdrant 拒绝。
+    - ``existing_index_files``：目标已存在的 ``knowledge/libraries/<lib>/index.sqlite``（相对 data 根的库 id 列表）。
+    - ``package_entities`` / ``target_entities``：闭包实体对账（小包实体归属他库时与目标
+      同 (name, library_id) 不同 entity_id → 告警不阻断，对账+FK 检查兜底）。
+    """
+    clashes: List[str] = []
+    warnings: List[str] = []
+    lib_ids = [str(l.get("library_id")) for l in package_libs]
+    for x in sorted(set(lib_ids) & set(target_library_ids)):
+        clashes.append(f"library_id 已存在: {x}")
+    for x in sorted(set(package_node_ids) & set(target_node_ids)):
+        clashes.append(f"节点 id 已存在: {x}")
+    for x in sorted({lid for lid in lib_ids if lid in set(target_collections)}):
+        clashes.append(f"collection 名已被占用: {x}")
+    existing = set(existing_index_files)
+    for x in sorted(set(lib_ids) & existing):
+        clashes.append(f"目标已有 index.sqlite: knowledge/libraries/{x}/index.sqlite")
+    tgt = target_entities or {}
+    for row in package_entities:
+        key = (str(row.get("name")), str(row.get("library_id")))
+        tid = tgt.get(key)
+        if tid and tid != row.get("entity_id"):
+            warnings.append(
+                f"闭包实体重名：{key[1]} 的「{key[0]}」目标已有 entity_id={tid}，"
+                f"包内为 {row.get('entity_id')}（不阻断；按对账/merge 处理）")
+    return {"clashes": clashes, "warnings": warnings}
