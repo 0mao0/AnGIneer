@@ -1008,16 +1008,23 @@ class RetrieverAdapter:
             query: Optional[str] = None,
             limit: int = 40,
             per_matter: int = 2,
+            filename_contains: Optional[List[str]] = None,
+            doc_type: Optional[str] = None,
             **_kwargs: Any,
         ) -> Dict[str, Any]:
-            if not query:
-                return {"error": "缺少 query 参数"}
+            if not query and not filename_contains:
+                return {"error": "缺少 query 参数（或 filename_contains）"}
             lib = (library_ids or [library_id])[0]
             client = retrieval_client or _client_from_env()
             if client is not None:
                 try:
                     return client.doc_search(
-                        query=query, library_id=lib, limit=int(limit or 40), per_matter=int(per_matter or 2)
+                        query=query or "",
+                        library_id=lib,
+                        limit=int(limit or 40),
+                        per_matter=int(per_matter or 2),
+                        filename_contains=filename_contains,
+                        doc_type=doc_type,
                     )
                 except Exception as exc:  # noqa: BLE001 —— HTTP 失败回落进程内
                     logger.warning("doc_search HTTP 失败，回落进程内: %s", exc)
@@ -1025,7 +1032,12 @@ class RetrieverAdapter:
                 from docs_core.step09_query.doc_search import search_documents
 
                 return search_documents(
-                    library_id=lib, query=query, limit=int(limit or 40), per_matter=int(per_matter or 2)
+                    library_id=lib,
+                    query=query or "",
+                    limit=int(limit or 40),
+                    per_matter=int(per_matter or 2),
+                    filename_contains=filename_contains,
+                    doc_type=doc_type,
                 )
             except Exception as exc:  # noqa: BLE001
                 return {"error": f"文档级检索不可用: {exc}"}
@@ -1036,16 +1048,24 @@ class RetrieverAdapter:
                 "文档级检索：把全库命中的段落聚合到文档，并按 matter（案件/项目）分组，返回候选文档清单"
                 "（标题、matter、命中片段）。用于「列出所有/每一个/全部…」的穷举类问题——"
                 "先用它拿候选全集（total_matters 是候选 matter 总数），再用 doc_read 批量读页确认。"
-                "limit 默认 40（最多 120 篇）；per_matter 控制每个 matter 返回几篇（默认 3）。"
+                "filename_contains 是目录谓词：按文件名/路径短语过滤（如 [\"second request\"]），"
+                "命中的卡片带 catalog_hit=true 与 matched_docs，是比语义检索更确定的信号，优先核对。"
+                "query 默认 40 篇、最多 120；per_matter 默认 2。"
             ),
             parameters_schema={
                 "type": "object",
                 "properties": {
                     "query": {"type": "string", "description": "检索词，如「HSR second request」「反垄断 二次问询」"},
+                    "filename_contains": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "目录谓词：文件名/路径必须包含的短语（多个短语为 AND，如 [\"second request\"]）",
+                    },
+                    "doc_type": {"type": "string", "description": "可选：限定扩展名，如 docx/xlsx/pdf"},
                     "limit": {"type": "integer", "description": "返回文档数，默认 40，最多 120"},
-                    "per_matter": {"type": "integer", "description": "每个 matter 返回的文档数，默认 3"},
+                    "per_matter": {"type": "integer", "description": "每个 matter 返回的文档数，默认 2"},
                 },
-                "required": ["query"],
+                "required": [],
             },
             handler=handler,
             read_only=True,
@@ -1372,6 +1392,8 @@ class StatsAdapter:
             description=(
                 "查询知识库的统计信息：文档总数、各状态/各库分布、上传趋势（近7天/30天/按月）、"
                 "文件格式分布、总页数与平均页数、存储占用，以及文档标题清单（documents.titles，最多 100 条）。"
+                "若该库有 matter 元数据（doc_catalog），还会返回 matters 清单（matter_id + 文档数 + 代表文件名），"
+                "相当于对目录做一次 ls——「库里有哪些 matter/案件」直接用它，不要靠检索猜。"
                 "当用户询问知识库规模、数量、分布、趋势，或问「库里有哪些文章/规范、收录了什么」"
                 "这类标题列举问题时使用：列举类回答直接基于 documents.titles（按问题关键词筛选标题）。"
                 "只在问题问知识库本身时使用；问某篇文档的正文内容/条款原文，请改用 knowledge_search。"

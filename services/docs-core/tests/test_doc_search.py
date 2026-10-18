@@ -107,6 +107,32 @@ def test_search_without_catalog_returns_docs(tmp_path, monkeypatch):
     assert result["docs"][0]["title"] == "second-request-strategy-memo.docx"
 
 
+def test_catalog_predicate_marks_matter_card(library_db):
+    # 目录谓词：文件名含 "second request"（连字符归一）的文档 → 带 catalog_hit 的 matter 卡
+    result = doc_search.search_documents(
+        library_id="lib", query="", limit=10, filename_contains=["second request"]
+    )
+    card = next(m for m in result["matters"] if m["matter_id"] == "1001-00001")
+    assert card.get("catalog_hit") is True
+    assert card["matched_docs"] == ["second-request-strategy-memo.docx"]
+    assert result["filter"]["catalog_docs"] == 1
+
+
+def test_list_matters(library_db):
+    result = doc_search.list_matters("lib")
+    assert result["catalog"] is True
+    assert result["total"] == 2
+    ids = [m["matter_id"] for m in result["matters"]]
+    assert ids == ["1001-00001", "1001-00002"]
+
+
+def test_list_matters_without_catalog(tmp_path, monkeypatch):
+    db = tmp_path / "plain2.sqlite"
+    _build_db(db)
+    monkeypatch.setattr(doc_search, "_connect", lambda library_id: _conn(db))
+    assert doc_search.list_matters("lib")["catalog"] is False
+
+
 def test_read_documents_head_and_match(library_db):
     head = doc_search.read_documents(library_id="lib", doc_ids=["d1"], max_chars_per_doc=500)
     doc = head["docs"][0]

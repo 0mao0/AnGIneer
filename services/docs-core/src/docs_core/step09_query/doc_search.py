@@ -133,6 +133,80 @@ def _title_hits(
     return out
 
 
+def _norm_name(text: str) -> str:
+    """文件名归一：小写 + 连字符/下划线/多空格压成单空格（second-request → second request）。"""
+    return re.sub(r"[\s\-_]+", " ", str(text or "").lower()).strip()
+
+
+def _catalog_filter_hits(
+    conn: sqlite3.Connection,
+    library_id: str,
+    phrases: List[str],
+    doc_type: Optional[str],
+    limit: int = 400,
+) -> Dict[str, str]:
+    """目录谓词：按文件名/路径短语（AND）筛选，返回 doc_id → 文件名。
+
+    这是枚举题最确定的通道：文档类型写在文件名里（second-request-*、hsr-withdrawal-*），
+    直接按路径过滤比 FTS 排序精确得多（题 001 实测：17 个候选命中真值 5/6）。
+    每个短语归一后要求逐词出现；多短语之间是 AND（调用方可用多次调用表达 OR）。
+    """
+    if not phrases or not has_catalog(conn):
+        return {}
+    clauses: List[str] = []
+    params: List[Any] = [library_id]
+    normalized = [_norm_name(p) for p in phrases if _norm_name(p)]
+    for phrase in normalized:
+        for token in phrase.split():
+            clauses.append("(filename like ? or rel_path like ?)")
+            params += [f"%{token}%", f"%{token}%"]
+    if not clauses:
+        return {}
+    where = " and ".join(clauses)
+    if doc_type:
+        where += " and doc_type=?"
+        params.append(str(doc_type).lower().lstrip("."))
+    try:
+        rows = conn.execute(
+            f"select doc_id, filename, rel_path from doc_catalog where library_id=? and ({where}) limit ?",
+            [*params, limit],
+        ).fetchall()
+    except sqlite3.OperationalError:
+        return {}
+    out: Dict[str, str] = {}
+    for row in rows:
+        flat = _norm_name(f"{row['filename']} {row['rel_path']}")
+        if all(phrase in flat for phrase in normalized):
+            out[row["doc_id"]] = row["filename"]
+    return out
+
+
+def list_matters(library_id: str, limit: int = 300) -> Dict[str, Any]:
+    """matter 清单（等价于对 DMS 做一次 ls）：matter_id + 文档数 + 代表文件名。"""
+    conn = _connect(library_id)
+    try:
+        if not has_catalog(conn):
+            return {"catalog": False, "total": 0, "matters": []}
+        rows = conn.execute(
+            "select matter_id, count(*) as n, min(filename) as sample, max(folder) as folder "
+            "from doc_catalog where library_id=? group by matter_id order by matter_id limit ?",
+            (library_id, max(1, min(int(limit or 300), 500))),
+        ).fetchall()
+        total = conn.execute(
+            "select count(distinct matter_id) from doc_catalog where library_id=?", (library_id,)
+        ).fetchone()[0]
+    finally:
+        conn.close()
+    return {
+        "catalog": True,
+        "total": int(total),
+        "matters": [
+            {"matter_id": r["matter_id"], "docs": int(r["n"]), "sample": r["sample"], "folder": r["folder"]}
+            for r in rows
+        ],
+    }
+
+
 def _match_plans(tokens: List[str], *, include_loose: bool = True) -> List[Any]:
     """FTS 查询计划：整串短语（最高权重）→ 相邻二元短语 → 全词 AND。
 
@@ -230,12 +304,18 @@ def search_documents(
     query: str,
     limit: int = 40,
     per_matter: int = 2,
+    filename_contains: Optional[List[str]] = None,
+    doc_type: Optional[str] = None,
 ) -> Dict[str, Any]:
-    """文档级检索：返回按 matter 归并的候选清单（枚举视图）。"""
+    """文档级检索：返回按 matter 归并的候选清单（枚举视图）。
+
+    filename_contains：目录谓词（短语列表，AND）——按文件名/路径过滤，高于 FTS 的确定性信号；
+    doc_type：限定扩展名（xlsx/docx/pdf…）。两者只在有 doc_catalog 的库生效。
+    """
     limit = max(1, min(int(limit or 40), MAX_DOCS))
     per_matter = max(1, min(int(per_matter or 2), 10))
     tokens = _tokens(query)
-    if not tokens:
+    if not tokens and not filename_contains:
         return {"error": "缺少有效检索词", "query": query}
 
     conn = _connect(library_id)
@@ -244,12 +324,13 @@ def search_documents(
     matter_list: List[Dict[str, Any]] = []
     groups: Dict[str, Dict[str, Any]] = {}
     candidates: Dict[str, Dict[str, Any]] = {}
+    catalog_docs: Dict[str, str] = {}
     try:
-        text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=False)
-        if len(text_rows) < 5:
+        text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=False) if tokens else []
+        if tokens and len(text_rows) < 5:
             # 短语通道过窄（术语写法不一/复数/换行断裂）时才放开松散 AND，避免漏召回
             text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=True)
-        title_scores = _title_hits(conn, library_id, tokens, limit)
+        title_scores = _title_hits(conn, library_id, tokens, limit) if tokens else {}
         candidates = {r["doc_id"]: r for r in text_rows}
         for doc_id, (matched_tokens, phrase_hit) in title_scores.items():
             entry = candidates.setdefault(
@@ -258,6 +339,16 @@ def search_documents(
             entry["hits"] = max(1, entry["hits"])
             entry["score"] += 4.0 * matched_tokens + (12.0 if phrase_hit else 0.0)
             entry["title_hit"] = True
+        if filename_contains:
+            catalog_docs = _catalog_filter_hits(conn, library_id, filename_contains, doc_type)
+            for doc_id, filename in catalog_docs.items():
+                entry = candidates.setdefault(
+                    doc_id, {"doc_id": doc_id, "hits": 0, "score": 0.0, "best_text": "", "best_chunk": ""}
+                )
+                entry["hits"] = max(1, entry["hits"])
+                entry["score"] += 30.0  # 目录谓词命中：确定性最高，排在最前
+                entry["catalog_hit"] = True
+                entry["catalog_title"] = filename
 
         catalog = _catalog_map(conn, library_id, list(candidates)[: max(limit * 8, 400)])
         # matter 优先分配：同一 matter 最多 per_matter 篇进 docs，避免大 matter 挤掉其它候选。
@@ -304,7 +395,10 @@ def search_documents(
             entries = sorted(groups[key]["entries"], key=lambda x: (-x["score"], -x["hits"]))
             best = entries[0]
             best_cat = catalog.get(best["doc_id"]) or {}
-            matter_list.append({
+            matched_docs = [
+                catalog_docs[e["doc_id"]] for e in entries if e["doc_id"] in catalog_docs
+            ]
+            card = {
                 "matter_id": key,
                 "n_docs": len(entries),
                 "folder": best_cat.get("folder") or "",
@@ -322,7 +416,11 @@ def search_documents(
                     }
                     for entry in entries[:per_matter]
                 ],
-            })
+            }
+            if matched_docs:
+                card["catalog_hit"] = True
+                card["matched_docs"] = matched_docs[:5]
+            matter_list.append(card)
     finally:
         conn.close()
 
@@ -340,9 +438,16 @@ def search_documents(
         "catalog": bool(catalog),
         "note": (
             "matters 为按 matter 归并的枚举视图（best.snippet 是最佳证据片段，docs 列出该 matter 的命中文档）。"
+            "catalog_hit=true 的卡片是文件名/路径谓词命中（确定性信号，优先核对）；"
             "片段只是线索：确认资格必须用 doc_read 读正文，不要只凭片段下结论。"
         ),
     }
+    if filename_contains:
+        result["filter"] = {
+            "filename_contains": list(filename_contains),
+            "doc_type": doc_type or "",
+            "catalog_docs": len(catalog_docs),
+        }
     if not catalog:
         result["docs"] = docs
     return result

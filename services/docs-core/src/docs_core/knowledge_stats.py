@@ -106,9 +106,21 @@ def compute_knowledge_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
     finally:
         rconn.close()
 
+    # matter 清单（等价于对 DMS 做一次 ls）：只有回填过 doc_catalog 的库才有；
+    # 枚举题需要「库里有哪些 matter」，这条不依赖检索，成本一条 GROUP BY。
+    matters: Dict[str, Any] = {"catalog": False, "total": 0, "matters": []}
+    if library_id:
+        try:
+            from docs_core.step09_query.doc_search import list_matters
+
+            matters = list_matters(library_id)
+        except Exception:  # noqa: BLE001 —— catalog 缺失/查询失败不影响其它统计
+            pass
+
     return {
         "library_id": library_id,
         "generated_at": now.isoformat(),
+        "matters": matters,
         "documents": {
             "total": total,
             "deleted": deleted,

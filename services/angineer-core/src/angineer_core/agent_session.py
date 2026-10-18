@@ -67,7 +67,34 @@ class AgentSession:
                 run_id=run_id,
                 pending_messages_provider=self._drain_steer,
             )
-            return self.history[start_idx:]
+            # P0 退化兜底：回显题面/空答/有证据却拒答 → 单次重试（见 answer_sanity）
+            added = self.history[start_idx:]
+            if not self._cancel_event.is_set():
+                try:
+                    from angineer_core.answer_sanity import (
+                        RETRY_HINT,
+                        is_degenerate,
+                        last_assistant_text,
+                        retry_enabled,
+                    )
+
+                    if retry_enabled() and is_degenerate(last_assistant_text(added), user_text, added):
+                        self.history.append(AgentMessage(role="user", content=RETRY_HINT))
+                        retry_config = (config_factory or self.config_factory)()
+                        run_agent_loop(
+                            self.history,
+                            retry_config,
+                            emit=emit,
+                            cancel=self._cancel_event,
+                            run_id=run_id,
+                            pending_messages_provider=self._drain_steer,
+                        )
+                        added = self.history[start_idx:]
+                except Exception as exc:  # noqa: BLE001 —— 兜底失败保留原答案
+                    import logging
+
+                    logging.getLogger(__name__).warning("答案退化重试失败: %s", exc)
+            return added
         finally:
             with self._lock:
                 self._running = False

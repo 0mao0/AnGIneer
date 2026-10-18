@@ -414,9 +414,19 @@ def local_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
     finally:
         rconn.close()
 
+    matters: Dict[str, Any] = {"catalog": False, "total": 0, "matters": []}
+    if library_id:
+        try:
+            from .doc_search import list_matters
+
+            matters = list_matters(library_id)
+        except Exception:  # noqa: BLE001
+            pass
+
     return {
         "library_id": library_id,
         "generated_at": now.isoformat(),
+        "matters": matters,
         "documents": {
             "total": total,
             "deleted": deleted,

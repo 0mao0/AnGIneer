@@ -139,11 +139,16 @@ class DocSearchInternalRequest(BaseModel):
     library_id: str = "default"
     limit: int = 60
     per_matter: int = 2
+    filename_contains: List[str] = Field(default_factory=list)
+    doc_type: str = ""
 
 
 @retrieve_router.post("/internal/doc-search")
 def doc_search_internal(request: DocSearchInternalRequest) -> Dict[str, Any]:
-    """文档级检索（枚举型任务）：FTS 命中按文档聚合、按 matter 归并，返回候选清单。"""
+    """文档级检索（枚举型任务）：FTS 命中按文档聚合、按 matter 归并，返回候选清单。
+
+    filename_contains/doc_type 走目录谓词（按文件名/路径过滤），是比 FTS 更确定的信号。
+    """
     from docs_core.step09_query.doc_search import search_documents
 
     try:
@@ -152,6 +157,8 @@ def doc_search_internal(request: DocSearchInternalRequest) -> Dict[str, Any]:
             query=request.query,
             limit=request.limit,
             per_matter=request.per_matter,
+            filename_contains=request.filename_contains or None,
+            doc_type=request.doc_type or None,
         )
     except Exception as exc:  # noqa: BLE001 —— 工具语义：错误以 {"error": ...} 返回
         logger.warning("doc-search 失败: %s", exc, exc_info=True)

@@ -146,11 +146,20 @@ class DocsRetrievalClient:
         library_id: str = "default",
         limit: int = 60,
         per_matter: int = 2,
+        filename_contains: Optional[List[str]] = None,
+        doc_type: Optional[str] = None,
     ) -> Dict[str, Any]:
         """文档级检索（/internal/doc-search）：枚举型任务的候选清单（按 matter 归并）。"""
         resp = requests.post(
             f"{self.base_url}/api/knowledge/internal/doc-search",
-            json={"query": query, "library_id": library_id, "limit": limit, "per_matter": per_matter},
+            json={
+                "query": query,
+                "library_id": library_id,
+                "limit": limit,
+                "per_matter": per_matter,
+                "filename_contains": list(filename_contains or []),
+                "doc_type": doc_type or "",
+            },
             timeout=self.timeout,
         )
         if resp.status_code != 200:
