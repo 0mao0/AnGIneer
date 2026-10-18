@@ -123,13 +123,13 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.2.99** ——公开测试集/公开 SOP 两页上线（新包 services/community＋user-web /evals /sops：分类树「通用」置顶＋条目计数＋排序、SOP 页分类改经验库文件夹实时镜像、题目点开＝详情含参考答案（默认公开）、题目「答题」复用评测单题通道用完即清、题集卡复用后台同款、gold_answer 键统一、列表与详情误滤及公开树装配/展开/只读化一批修复；顶栏页签改名「测试集」「经验库」）；聊天里 SOP 全链路可视化（流程步骤流可折叠卡＝SSE sop_flow 快照通道；「流程图」抽屉＝定义画布＋本次执行绿/红/灰着色；步骤行「参数=值 → 结果」，缺失显「=缺」）；SOP 可执行性三修（calculator 步缺 expression 生成提示词修根＋校验规则 6 拦缺表达式＋半圆堤 SOP 按 JTS 154-2018 附录J 补全 9 步；AI 缺参推荐加同 run 预算闸防慢网关拖爆工具超时）；查表与判分链修复（P2-4 表6.4.6-2 读表步＋两行内插、范围表按行匹配可行性重选、查表链缺参四修、eval_1 判分刻度统一 0–10＋检索工具超时自动重试＋回退提示不注入段名、判官双判一致制（默认关）、SOP 缺参收尾保险＋选择题作答协议）；解析入库吞吐三修（FTS 连接 synchronous=NORMAL；PoPo 多端点按请求轮询分流；批量解析三处限流缺口补齐＝convert/FTS 闸门＋MinerU 端点分流）；前台小件（admin 知识库「查看」抽屉恢复知识图谱页签（只读）、SOPTree 暗色样式失效修复、图谱浮层深色配色收口、hero 引导两行＝计算题截断展示/悬停看全文/点击直发）；安全与合规（docs-api internal 面公网封锁＝nginx 403；全仓许可统一 MIT）；测试与施工账（表型回归集 v1＝9 张真表快照/13 用例；评测·社区·看门狗施工单与施工记录入档；README 四处过时口径修正）。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.0** ——游客设置体系上线（后台「游客」虚拟行＝开放开关＋文件轮数＋可用库弹框、shared 模块、aichat 闸门三档、docs-api /api/guest 三端点、游客端库选择器放开，含纯游客限定/落地竞态/异常留痕/登录弹层四修，设计稿结题归档）；Harvey LAB 文档级检索（doc_search/doc_read＝FTS 按文档聚合＋matter 出卡＋三级查询计划、docs-api 两 internal 端点、angineer-core 工具接 L1/L3/L4、9008 篇 doc_catalog 回填，graph 抽取并发闸、问答轮数 3→6/8→12、预算闸改真实 prompt_tokens，48 题复测 criterion 3.4%→11.3%、all-pass 4.2%）；语料包 v2（每库自包含导出＝组库/图谱闭包/向量切片＋嵌套流式＋preview/CLI/admin 接线，导入侧 v2 reader＋两层 sha256＋schema/embed/冲突闸，v1 路径保留，apply_import 留待 P2-2）；SOP 引擎修复（表查询 LaTeX/成对列/区间三缺陷族与 `<=` 方程误判、ConditionalTool 子工具错误透传、精排 LLM 30s 内层超时闸，A 类 16 条残废 SOP 补全 expression＋sop_check.py，B 类 22 条重构、全库 55 条残废清零）；管理后台性能（知识库树懒加载＋全库搜索、总览体量看板落盘快照＋SWR＋qdrant 熔断、删除交互 loading/重入锁与超时放宽）；解析入库稳定性（向量站并发闸 8、图谱 busy 30s、FTS 写锁、embedding 分批/截断/重试、PoPo 产物计数判成败＋端点加权轮询）；引用与左树（引用圆圈消失根因＝投影白名单改消费面口径＋双形态读、多库 library_id 后端回填与前端三入口、SmartTree expandSelectedPath 四树全折叠、公开经验库页三栏、评测集/经验库进页聚焦首条、六张架构图入库）；意图分类与测试（无参计算方法问句规则直达 L2＋classify_intent v5、意图题集 100→103、L0 词表补笑话、test_judge_deepeval 测试自足、清退 QA prompt 裸别名）；设计与工程账（设置控制台 /settings 三页设计稿＋专家评审/实测修订、游客与 Harvey LAB 报告、L4 结题与语料包 v2 基线、.dockerignore 补 community_bind.py、sop-core PyPI 0.1.0 登记）。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
 | 仓库 | 版本 | 说明 |
 | :--- | :--- | :--- |
-| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.2.99` | 主仓库（产品迭代基线） |
+| [AnGIneer](https://github.com/0mao0/AnGIneer) | `v0.3.0` | 主仓库（产品迭代基线） |
 | [angineer-docs-ui](https://github.com/0mao0/angineer-docs-ui) | `v0.3.1` | 知识库前端组件库（npm: @angineer/docs-ui） |
 | [angineer-aichat-ui](https://github.com/0mao0/angineer-aichat-ui) | `v0.2.2` | 对话前端组件库（npm: @angineer/aichat-ui） |
 | [angineer-smartree-ui](https://github.com/0mao0/angineer-smartree-ui) | `v0.1.3` | 通用树组件库 SmartTree（npm: @angineer/smartree） |
@@ -170,8 +170,8 @@ cd docker && docker compose up -d --build   # Docker 部署（前端 8080 · API
 | 版本 | 主题 | 状态 |
 | :--- | :--- | :--- |
 | **v0.1** | 基础框架：解析入库、图谱、SOP 引擎、L0–L4 分级、对话、评测 | ✅ 已完成 |
-| **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | 🔄 迭代中（当前 v0.2.98，预计收版 v0.2.99） |
-| **v0.3** | SOP 自进化：图谱自动生成 → 审核闸门 → 执行轨迹反哺，支撑注册考题 | 🚧 规划中（生成链路已落地独立 sop-api 服务，L4 合成车道施工中） |
+| **v0.2** | Docs 模块完成：结构化 pipeline 双端基准背书、nightly 门禁、angineer.cn 上线 | ✅ 已完成（收版 v0.2.99） |
+| **v0.3** | SOP 自进化：图谱自动生成 → 审核闸门 → 执行轨迹反哺，支撑注册考题 | 🔄 迭代中（当前 v0.3.0，生成链路已落地独立 sop-api 服务，L4 合成车道施工中） |
 | **v0.4** | GIS × CAD：真实空间数据接入、断面/土方计算、DWG/DXF 出图算量 | 🚧 规划中（geo-core / engtools 骨架已存在） |
 | **v0.5** | 报告编制：工可/初设等正式设计报告自动编制（Markdown / Word / PDF） | 🚧 规划中 |
 | **v1.0** | 正式版：多专业覆盖、精度与稳定性、SaaS 化多租户 | 🚧 目标 |
