@@ -1,0 +1,122 @@
+# Harvey LAB 枚举型检索改造：文档级筛选 + 批量读页
+
+状态：**已施工**（doc_search / doc_read / doc_catalog 上线），100 题复测进行中。
+日期：2026-10-18。范围：`services/docs-core`、`services/docs-api`、`services/angineer-core`、`scripts/`。
+
+## 1. 根因（实测，不是推断）
+
+题目形态是枚举：「pull every one of our antitrust matters where we drew an HSR second request」。
+语料 lab-firm-full = 266 个 matter / 9007 篇文档 / 约 250 万段落 chunk。
+
+| 证据 | 数值 | 说明 |
+|---|---|---|
+| 精确 matter 名查询 | 9/9 命中 | 能查到「某篇已知文档」 |
+| 主题查询（top-20 段落） | 0/9 覆盖全部 matter | 查不到「全部候选」 |
+| 注入的首轮 knowledge_search | 15 条命中、**12 篇不同文档** | 段落级检索的文档覆盖面 |
+| 题 001 需要的候选 matter | 6 个（真值） | 30 题样本 all-pass 6.7% |
+
+结论：缺的不是相似度，是**文档级候选清单**。段落 top-k 的排序目标（最相关段落）
+与枚举目标（覆盖全部候选文档）天然冲突；k 调大也解决不了分组与去重。
+
+## 2. 方案
+
+两层工具 + 一层元数据，全部复用既有 canonical 索引，**不重跑解析**。
+
+### 2.1 数据层：`doc_catalog`（可选表）
+
+`doc_catalog(doc_id, library_id, matter_id, folder, rel_path, filename, doc_type, source)`，
+落在库组 index sqlite（`resolve_index_db_path`），`CREATE TABLE IF NOT EXISTS` 懒建，不迁移既有表。
+
+- 有表：检索结果按 matter 归并，等于恢复官方 harness 里 `dms/matters/<matter>/<folder>/<file>`
+  的目录信息面（我们的入库把目录扁平化成了文件名）。
+- 无表：退化为按文档分组，功能不变。
+
+回填脚本 `scripts/backfill_doc_catalog.py`：从导入清单的 `(rel, tier, doc_id)` 写元数据，
+lab-firm-full 实测 9008 行 / 266 matter，耗时 < 1s，不触碰解析产物。
+
+### 2.2 `doc_search`：文档级筛选
+
+- FTS 命中按 **文档** 聚合（`canonical_chunk_fts` 明细取出后在 Python 侧聚合，
+  因为 FTS5 的 `bm25()` 不能进 GROUP BY——实踩）；
+- 查询计划三级：整串短语（权重 3）→ 相邻二元短语（权重 2，如 `"second request"`）→ 全词 AND（权重 1，仅在短语通道 < 5 篇时放开）；
+- 文件名/路径通道：命中 ≥2 个 query 词或整串短语才计分（`hsr-filing-*` 这类泛词不算二次问询信号）；
+- 输出按 matter 分组的卡片：`matter_id / n_docs / best.{doc_id,title,snippet} / docs[≤per_matter]`，
+  默认 40 篇、最多 120 篇、最多 40 张 matter 卡；
+- 实测（题 001，query `HSR second request`）：**147 篇候选 / 25 个 matter，真值 6/6 全在卡内**，
+  单次结果约 10 KB（旧的 docs+matters 双份清单会到 25 KB，已删掉重复字段）。
+
+### 2.3 `doc_read`：批量读页
+
+- 一次最多 8 篇，`mode=head` 读开头、`mode=match` 读命中段落，每篇默认 1200 字符（上限 4000）；
+- 输出带页码 `[pN]`，模型据此判断「真的收到二次问询」还是「仅为风险/预案」。
+
+### 2.4 接入
+
+- L1（`build_qa_config`）与 L3/L4（`build_complex_config`）工具箱都加入两件工具；
+- HTTP 端点：`POST /api/knowledge/internal/doc-search`、`/internal/doc-read`，
+  `DocsRetrievalClient` 新增同名方法，进程内回退走 `docs_core.step09_query.doc_search`；
+- 预算闸默认从 160k 降到 120k：网关侧 qwen3.6-35b 安全容量只有 138,146 tokens，
+  实测 155,582 tokens 直接 400 中断整题——停止线必须低于真实窗口。
+
+## 3. 验证
+
+题 001 单题（同一判官 gpt-5.5、同一 rubric）：
+
+| 版本 | 工具调用 | criterion |
+|---|---|---|
+| 改造前（top-20 段落） | knowledge_search ×1 | 1/7 |
+| 首版 doc_search（80 卡） | knowledge_search + doc_search | 3/7 |
+| 加「matter 卡 + 读页」后 | + doc_read ×4 | **4/7** |
+
+剩余失败是精度与细节：把 1038-00001（Cascade/Pinnacle）与 1038-00009（Cascade/NovaMart）
+混为一条，并把 1001-00004（「anticipated second request」）计入合格集。
+
+## 4. 失败实验（已回退，留档）
+
+把枚举纪律写成 **系统提示规则 16**（v19）后，qwen3.6-35b 在工具结果之后稳定退化为
+「逐字回显用户问题」（4 次复现，答案长度恒等于题面 523 字符，`has_tool_calls=false`）。
+同配置撤掉规则、只留工具描述即恢复正常。
+
+结论：**枚举纪律放工具描述，不进系统提示规则清单**。`prompts/agent_configs.py` 里
+v19/v6 只保留注释，不注册；`ANGINEER_QA_PROMPT_VERSION` 仍取 latest=v18。
+
+## 5. 已知风险 / 下一步
+
+1. **工具使用不稳定**：同一配置下模型有时只调 knowledge_search 就作答（题 001 复现）。
+   下一步：把 doc_search 做成枚举题的**自动注入**（与赌博式预检同层），不依赖模型自觉调用。
+2. **matter 元数据只在有 catalog 的库可用**：产品侧应在入库时保留上传路径/目录，
+   当前只对 lab-firm-full 用清单回填。
+3. **评测口径**：`doc_search` 的候选集依赖 query 词面；换写法（复数、缩写）召回会掉，
+   二元短语 + 回退 AND 是兜底，不是语义等价。
+
+## 6. P1 实验记录（2026-10-18，未达门槛，默认关闭）
+
+实现：enum_prefetch（判定 + 改写 + 卡片/检索式两种形态）+ L1/L4 接线 + 开关（默认 0）+ 13 条单测。
+
+十题门槛（001/005/009/016/020/021/027/031/041/045，与 48 题基线同题配对）：
+
+| 形态 | 题 001 | 十题 criterion | all-pass |
+|---|---|---|---|
+| 不注入（100c 基线） | 1/7 | 13.1%（16/122） | 0 |
+| 卡片注入（60 张） | 1/7 | — | — |
+| 卡片注入（40 张） | 0/7 | — | — |
+| **检索式注入** | **4/7** | **18.9%（23/122）** | **0** |
+
+结论：卡片形态把模型带保守（片段里没有就当不存在），检索式形态恢复并略优（6 升 / 1 降 / 3 平），但 all-pass 仍为 0，未达「criterion 翻倍且 all-pass≥1」的门槛 → 不扩到 100 题，开关保持默认关。下一步转 P3（精度：集合外 matter 显式排除）。
+
+
+## 7. P3 答案自检实验（2026-10-18，未达门槛，默认关闭）
+
+实现：answer_audit（枚举题生成后，把「预案/风险/未证实」项移出合格清单）+ final_answer_guard 包装 + 开关（默认 0）+ 5 条单测。
+
+十题门槛（与 P1、48 题基线同题配对，criterion 条数 122）：
+
+| 方案 | criterion | all-pass |
+|---|---|---|
+| 不注入（基线） | 13.1%（16/122） | 0 |
+| P1 检索式注入 | 18.9%（23/122） | 0 |
+| P3 答案自检 | 16.4%（20/122） | 0 |
+
+逐题：P3 在 031/041/045/016 上 +1~2 条，但在 001（4→1）、009（1→0）上掉——自检会把「草稿没写死事实」的正确项也降级，精度与召回的取舍在逐题层面互相抵消。
+
+结论：单用 P3 不达门槛。下一步只值得试「P1+P3 组合」（先改善查询召回，再自检降噪），预期上限仍受制于合取指标；若不达标，应停止在检索侧加码，转向「逐条证据绑定」的生成方式或接受当前成绩收口。
