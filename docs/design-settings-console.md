@@ -8,7 +8,7 @@
 
 | 痛点 | 事实 |
 |---|---|
-| 参数散落无目录 | 代码读点 ~150 个环境变量，`.env.example` 模板（244 行）只登常用集，无全量中文解释目录 |
+| 参数散落无目录 | 代码读点 202 个环境变量、236 处（2026-10-18 扫 `services/` 去 `.venv` 实测），`.env.example` 模板（247 行）只登常用集，无全量中文解释目录 |
 | 改动成本高 | env_file 在容器创建时固化，改参数 = SSH 改 .env + `docker compose up -d` 重建（docker-compose.yml:33-34 等三处）；曾因 `restart` 不读新 env 致评测 915 题秒败（2026-09-25 实踩） |
 | 生效时机不明 | 读法三档并存：import 期固化 / 懒单例 / 每请求动态，运维无法预判改完何时生效 |
 | 无可视化面板 | admin 后台无任何参数页面 |
@@ -59,7 +59,7 @@ adminweb header
 
 | 范围 | 处理 |
 |---|---|
-| `ANGINEER_*` 活跃变量 ~90 个 | 全量登记，按功能分组（约 7 组：路由与预检 / 证据上桌与预算 / 对话与 SOP / LLM 客户端运行参数 / 鉴权与游客 / 日志与观测 / 其它散项） |
+| `ANGINEER_*` 活跃变量 84 个（2026-10-18 实测） | 全量登记，按功能分组（约 7 组：路由与预检 / 证据上桌与预算 / 对话与 SOP / LLM 客户端运行参数 / 鉴权与游客 / 日志与观测 / 其它散项） |
 | 五件套 `LLM/MINERU/POPO/EMBEDDING/RERANKER_CONFIGS` + `EVAL_JUDGE_CONFIGS` | 登记，单列「模型配置」组，编辑体验特殊（§4-B） |
 | `NIGHTLY_*` / `WEBHOOK_*` / `NIGHTLY_SITE_URL` 等 | 登记（运行效果归评测组） |
 | `DOCS_*` / `QDRANT_*` / `CHAT_DB_PATH` / `API_KEYS_DB_PATH` 等基础设施 | 登记，`source=env` 只读（改 .env 需重建容器，页面展示指引） |
@@ -102,13 +102,16 @@ os.environ 只装字符串，registry 必须定死每类 canonical 形式，PUT 
 ### 2.3 防遗漏 / 防漂移（机械保证）
 
 `scripts/check_settings_registry.py`：
-1. 扫 `services/**` `os.getenv\(|os.environ` 读点 → 提取变量名集合 A
+1. 扫 `services/**` 两类字面量读点（`os.getenv(...)` / `os.environ` 与 helper `_get_env_*("NAME")`；排除 `tests/`、`.venv`/`site-packages`、构建产物）→ 提取变量名集合 A
 2. 与 registry 全集 B 对比：`A - B` = 「代码在读但未登记」→ 报错退出（CI/dev 可跑）
 3. 豁免白名单（测试夹具/脚本探针/VITE_）内置在脚本里，白名单变更也要过 PR
 
 这是「防止有遗漏」诉求的机械化兜底：以后任何代码新增 env 读点，registry 不登就无法通过校验。
 
-扫描口径限制（实测白名单预留）：regex 只能抓**字面量**读点；间接读法（变量名是参数，如 `services/sop-api/docs_graph_client.py:23-24` `os.getenv(var)` 循环读、`os.environ.get(拼串)`）扫不出——checker 白名单 **第 III 区「已知间接读点清单」**（人工补登、PR 维护），并应定期人工比对新增间接读法。
+扫描口径限制（2026-10-18 实测修订）：
+- regex 只能抓**字面量**读点；间接读法（变量名是参数，如 `services/sop-api/docs_graph_client.py:23-24` `os.getenv(var)` 循环读、`os.environ.get(拼串)`）扫不出——checker 白名单 **第 III 区「已知间接读点清单」**（人工补登、PR 维护），并应定期人工比对新增间接读法。
+- **helper 读法必须单独扫**：`_get_env_str("ANGINEER_TIMEOUT_READ", 60.0)` / `get_env_int(...)` 这类经函数转手的字面量读点，`os.getenv` 正则一概看不见（实测 49 个变量只走这条路）。checker 第 I 区须并列两条正则。
+- **必须排除虚拟环境**：`services/angineer-core/.venv` 下 site-packages 会贡献 84 个三方变量（`COVERAGE_*` / `PYTEST_*` / `OPENAI_*` / `AZURE_*`），不排除则校验永不归零。
 
 ## 3. 存储布局
 
@@ -154,7 +157,7 @@ PUT /api/settings│  1) 探针（仅 CONFIGS 与 secret 类）失败→422 不�
 - 注入语义：**settings 覆盖永远优先于 .env**（页面双向 = 用户最后一手）；Watcher 还原语义：某键被「恢复默认」→ 从 settings.json 删除 → watcher diff 发现 → `os.environ[key]` 还原为快照基线值（若本无则删除注入键）。
 - 生效时限承诺：watcher 间隔 30s + aichat 进程 PUT 时即时 apply → 全集群 ≤30s。
 
-> 这条链路的价值硬通货：**现有 ~90 个 `os.getenv` 动态读点一行不改**，route_pre/agent_tools/判分候选链等热路径全部自动吃到新值。
+> 这条链路的价值硬通货：**现有 202 个变量名（236 处读点）一行不改**，route_pre/agent_tools/判分候选链等热路径全部自动吃到新值。
 
 ### 4-B. CONFIGS 五件套：热换口（diff 触发，按进程注册）
 
@@ -222,7 +225,7 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 
 | 层 | 用例要点 |
 |---|---|
-| 单测（pytest） | apply/revert 快照还原；原子写；审计脱敏；registry checker（含白名单跳过+间接读清单）；五类探针 mock 传输层；**bool_style 两样式往返**（对齐 mineru_parser.py:147 `!='0'` 与 :148 `=='true'` 类读点各注入一轮验证读值正确）；canonical int/float/json 序列化 |
+| 单测（pytest） | apply/revert 快照还原；原子写；审计脱敏；registry checker（含白名单跳过+间接读清单+helper 读法）；五类探针（真实链路 + 可注入 fake 传输层）；**bool_style 两样式往返**（对齐 mineru_parser.py:143 `!='0'` 与 :144 `=='true'` 类读点各注入一轮验证读值正确）；canonical int/float/json 序列化 |
 | 集成 | PUT LIVE 旋钮 → 同进程 os.getenv 立刻变 + 另进程（TestClient 双实例）≤30s watcher 变；PUT LLM_CONFIGS 探针失败 → 422 且 settings.json 未变；DELETE → 回 .env 值 + /health 无 config 错；audit 行完整 |
 | 前端 | typecheck 必跑；三 tab 渲染、编辑抽屉（bool/int/str/json/secret 五控件）、搜索过滤、来源徽标、恢复默认回退 |
 | 手工冒烟 | dev 起三服务改 `ANGINEER_GUEST_ROUNDS`/`LLM_CONFIGS` 验证热效 + 审计 + restart 类参数提示文案 |
@@ -245,12 +248,13 @@ CONFIGS body 类型：JSON 数组（结构同现 LLM_CONFIGS：name/model/api_ke
 | LLM 单例/替换口 | `services/ai-inference/src/ai_inference/llm_client.py:1580-1624`（Proxy/首建/替换/重置；当日实测行号）；构造快照同包 `llm_config.py:117,150-176` |
 | EMBEDDING 双单例 import 固化 | `services/docs-core/src/docs_core/step06_vectors/embedding_provider.py:333`；`dense_retriever.py:121`；维度守卫 `step06_vectors/startup_guard.py:126-135` |
 | RERANKER 懒单例 | `services/angineer-core/src/angineer_core/base_config.py:158-166`（load_config_from_env:126-154） |
-| MINERU 单例+每任务重读 | `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py:1039,145-159`；`parse_pipeline.py:1292` |
+| MINERU 单例+每任务重读 | `services/docs-core/src/docs_core/step03_mineru_parse/mineru_parser.py:1039,140-155`；`parse_pipeline.py:1292` |
 | POPO 每推理现读 | `services/docs-core/src/popo/post_processing/model_utils.py:69-97` |
 | /api/llm_configs 现状只读 | `services/aichat-api/main.py:342-356` |
 | 动态读热路径代表 | angineer-core `route_pre.py:27-91`、`agent_tools.py:19-151,449-461`；evals-core `runner/answer_eval.py:94-114` |
-| bool 读点口径分叉实测 | `mineru_parser.py:147` `!= '0'` 与 `:148` `== 'true'`（§2.2-G canonical 依据） |
+| bool 读点口径分叉实测 | `mineru_parser.py:143` `!= '0'` 与 `:144` `.lower() == 'true'`（§2.2-G canonical 依据；原稿 147/148 已漂移，2026-10-18 复核） |
 | watcher 先例 | aichat-api `nightly_control.py:514-536`（60s 轮询重读 JSON）；`main.py:184-221` daemon Thread 先例 |
 | admin 会话门槛先例 | aichat-api `evals_routes.py:588-612`（nightly settings GET/PUT） |
 | 容器 nginx 分流先例 | `docker/nginx/nginx.conf:107-110`（$aichat_upstream / /api/chat），同文件 :123-124/156-157 多处同构 |
 | 间接读读点实例 | `services/sop-api/docs_graph_client.py:23-24`（os.getenv(var) 循环读） |
+| 环境变量规模实测 | 2026-10-18 扫 `services/` 去 `.venv`：202 个变量名（`ANGINEER_*` 84）、236 处读点；其中 49 个变量只经 helper 读（`_get_env_str/int/float("NAME")`），`os.getenv` 正则扫不到；`.venv` 下 site-packages 另有 84 个三方变量 |
