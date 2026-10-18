@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: 用 subagent-driven-development（推荐）或 executing-plans 逐任务执行。步骤用 `- [ ]` 复选框跟踪。
 
-**Goal:** 把语料包从「整组共享 sqlite/qdrant 一个包」升级为 v2 格式：**大 zip 里每库一个小 zip，每个小 zip 自包含该库的全部检索资产**（canonical+FTS 切片、文档树、向量快照、图谱切片），可单库独立交付与导入；导入侧每库独立桶（自己的 sqlite 文件 + 自己的 qdrant collection），归入操作者指定的组；导入通道 = CLI 扩展 + admin-web 上传 UI。**全程零重解析、零重嵌入**：切片全部从现有产物抽取；embed 模型不一致的 v2 包导入**直接阻断**（v2 不支持 reembed——rebuild 工具未覆盖独立桶，要求以目标模型重出包；v1 旧通道 `--reembed` 语义原样保留）。
+**Goal:** 把语料包从「整组共享 sqlite/qdrant 一个包」升级为 v2 格式：**大 zip 里每库一个小 zip，每个小 zip 自包含该库的全部检索资产**（canonical+FTS 切片、文档树、向量快照、图谱切片），可单库独立交付与导入；导入侧每库独立桶（自己的 sqlite 文件 + 自己的 qdrant collection），归入操作者指定的组；导入通道 = CLI 扩展 + admin-web 上传 UI。**全程零重解析、零重嵌入**：切片全部从现有产物抽取；embed 模型不一致的 v2 包导入**直接阻断**（v2 不支持 reembed——rebuild 工具未覆盖独立桶，要求以目标模型重出包；v1 旧包不在范围，2026-10-18 修订）。
 
 **Architecture:**
 ```
@@ -25,9 +25,9 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-18）：** P1-1～P1-7、P2-0、P2-1 已完成；P1/P2-1 代码已并入检查点 `f48cc5ec`（未 push）。P2-2 起按第三轮口径施工。
-**业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1 导出，v1 仅保留导入兼容；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
-**上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
+**执行状态（2026-10-18）：** P1-1～P1-7、P2-0、P2-1 已完成；P1/P2-1 代码已并入检查点 `f48cc5ec`（未 push）。**开发暂停：等 HarveyLab 收尾后再恢复；恢复第一项 = P2-0b。**
+**业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
+**上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
 ---
 
@@ -70,7 +70,7 @@
      │                                      # files{包内相对路径: sha256}
      ├─ registry/rows.json                 # 本库 library_registry 行（含原 sqlite_file/collection，供追溯）+ 其组行
      ├─ meta/rows.json                     # 本库 nodes/tree_node + **meta libraries 行**（修复 F10 缺口）
-     ├─ index/index.sqlite                 # 按库切片：12 张 doc 表（F3 清单）+ canonical_chunk_fts，DDL 原样
+     ├─ index/index.sqlite                 # 按库切片：12 张 doc 表（F3 清单；P2-0b 后含 doc_catalog = 13 张），DDL 原样
      ├─ files/knowledge/libraries/<lib>/…  # 文档树（排除 documents/<doc>/parsed/{mineru_raw,popo}；不含 lib 根 index.sqlite）
      ├─ qdrant/vectors.snapshot            # 本库向量快照（导出侧临时每库 collection 的原生快照）
      └─ graph/graph.sqlite                 # 本库图谱**闭包**切片（F17：relations/artifacts/deletions 按库；
@@ -208,7 +208,7 @@
 
 ---
 
-## Stage P2：导入核心（CLI，v2 + v1 兼容）
+## Stage P2：导入核心（CLI，v2 only）
 
 ### Task P2-0: qdrant recover 改名能力实测（卡点，先于实现）
 
@@ -222,11 +222,27 @@
 - 附加实测（冲突闸输入）：**目标集合已存在时上传不报错**（200，内容被快照覆盖）→ 冲突闸不能指望 qdrant 拒绝，`<lib_id>` collection 名占用前置检查（P2-1）是唯一防线。
 - 探针集合（p2-0-*）已全部删除，本地 qdrant 无残留。
 
+### Task P2-0b: HarveyLab 合流：`doc_catalog` 纳入切片（恢复施工第一项）
+
+**前置：** HarveyLab 收尾、`doc_catalog` DDL/回填定版后再动；本票暂停期间只记录。
+
+**Files:**
+- Modify: `services/docs-core/src/docs_core/kb_migrator.py`（`_DOC_TABLES`）
+- Modify: `scripts/split_sqlite_groups.py`（同名清单逐字同步）
+- Test: `tests/unit/test_unit_corpus_slicing.py`、迁移/拆组相关测试
+
+- [ ] 把 `doc_catalog` 加入 `KbMigrator._DOC_TABLES` 与 split 脚本清单；切片自动跟随（表有 `library_id` 列，按库过滤；无表跳过，旧库兼容）。
+- [ ] 测试：有表/无表两态；两库夹具断言本库行保留、他库 0 行；split/migrate 后行数不变。
+- [ ] 同步包格式/F3 的「12 张」→「13 张」；确认 HarveyLab 的表名/DDL 定版（若改名以 Harvey 为准）。
+- [ ] commit `fix(docs-core): doc_catalog 纳入 doc 键表切片与拆并`（HarveyLab 收尾后）
+
+**背景（2026-10-18 实测）：** `doc_catalog` 现不在 `_DOC_TABLES`，按库切片不带它；现网 `data/evals/groups/evals_corpus.sqlite` 已有 **9008 行**。不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
+
 ### Task P2-1: bundle reader + 闸（TDD）
 
 **Files:**
 - Modify: `services/docs-core/src/docs_core/corpus_package.py`（导入侧函数：`open_bundle`/`parse_bundle`、闸函数）
-- Test: `tests/unit/test_unit_kb_corpus_import.py`（扩 v2；v1 用例保留）
+- Test: `tests/unit/test_unit_kb_corpus_import.py`（扩 v2；v1 用例随 P2-3 删除）
 
 - [x] 实现 `open_bundle(path)`：识别三种输入——v2 大 zip（manifest.kind=bundle）、v2 小 zip（kind=library）、v1 目录/tar（走旧路径）。返回 `{libraries:[{library_id, inner_bytes, manifest, files_index}], embed_model, ...}`
 - [x] 闸扩展（纯函数，沿用现有可测风格）：
@@ -241,6 +257,8 @@
 - `corpus_package.py` 导入侧落地：`BundleError(ValueError)`、`BundleLibrary`/`Bundle`（dataclass）、`open_bundle`（contextmanager：v2 大包内层小包**流式落临时文件**（`_spool_zip_entry` 边落边算外层 sha256/bytes，9GB+ 不整读内存）、v2 小包直用句柄、v1 目录/tar 识别后 raise/转交；kind/schema/内外层 embed_model 一致性校验；ExitStack 统一收尾句柄+临时文件）、`check_package_files`（外层 sha256+bytes / 内层逐条目 sha256 + 缺文件 + 多出未登记条目）、`check_schema_gate({1,2})`、`check_embed_gate`（无 embed_model 也阻断；文案含「以目标模型重出包」且不含 reembed 字样）、`check_conflict_gate`（纯输入四类 clash + 闭包实体重名 warning）。
 - 测试扩至 **22 passed**（原 v1 8 用例保留不动 + 新增 14：V2OpenBundleTests 4 / V2IntegrityTests 5 / V2GateTests 5；fixture=`_inner_zip_bytes`/`_bundle_zip` 手工构造小 v2 包，篡改=manifest 记原 sha 而字节改）。
 - 回归 `python -m pytest tests/unit -k "corpus" -q` → **42 passed**（28 旧 + 14 新）。
+
+**2026-10-18 范围修订：** v1 兼容移出范围（旧包暂无人用）。恢复施工时 `open_bundle` 只认 v2、`SUPPORTED_SCHEMA={2}`、删除 v1 分支与 8 个旧用例；当前检查点代码仍保留 v1 分支，不影响 v2，清理并入 P2-3。
 
 ### Task P2-2: `apply_import` 应用逻辑（TDD）
 
@@ -261,22 +279,25 @@
 - [ ] 测试：tmp data 根全流程（快照环节 fake；含一个跨库实体的闭包切片）→ 断言 registry/meta/graph/index 落位、逐表计数对账、合并后新增 `foreign_key_check` 违例=0；另造一个含 436 类悬空基线的小包，断言合并成功且新增=0、超出基线的违例回滚；再跑一次 → 冲突闸拒。
 - [ ] commit `feat(docs-core): 语料包 v2 导入应用（独立桶落位 + 图谱合并 + 对账）`
 
-### Task P2-3: CLI 双格式 + 容器白名单
+### Task P2-3: CLI v2 单格式 + 容器白名单（并清 v1 死代码）
 
 **Files:**
-- Modify: `scripts/kb_corpus_import.py`（v2 主路径；`--group`/`--group-display-name` 新增；`--only lib1,lib2`；v1 旧逻辑原样保留；**`--reembed` 仅对 v1 生效，喂 v2 包时硬报错**「v2 不支持 reembed（rebuild 未覆盖独立桶），请以目标模型重出包」）
+- Modify: `scripts/kb_corpus_import.py`（v2 单格式；`--group`/`--group-display-name` 新增；`--only lib1,lib2`；**删除 v1 目录/tar 旧路径与 `--reembed`**；收到 v1 包硬报错「v1 旧包不再支持，请用 v2 重新导出」）
+- Modify: `services/docs-core/src/docs_core/corpus_package.py`（删除 `open_bundle` 的 v1 分支；`SUPPORTED_SCHEMA={2}`）
+- Modify: `tests/unit/test_unit_kb_corpus_import.py`（删除 8 个 v1 用例）
 - Modify: `docker/Dockerfile.backend:118`、`.dockerignore`（放行 `kb_corpus_import.py`、`kb_corpus_export.py`——F14，缺一构建即失败）
 - Test: 脚本 dry-run 输出（手工验收）
 
+- [ ] Step 0: 清 v1：删 `open_bundle` 的 v1 目录/tar 分支、脚本旧落盘函数、`--reembed` 与 8 个旧用例；`SUPPORTED_SCHEMA` 收为 `{2}`；v1 包给明确升级提示
 - [ ] Step 1: CLI：`--dry-run`（默认）解析包 → 打印逐库落位预览（目标组/collection/路径/体积/counts）+ 闸结果；`--apply` 执行；末尾打印验收清单（重启或探针）
 - [ ] Step 2: 白名单两处同改，`docker build`（或至少 `docker build --target` 校验层）确认 COPY 不再 file not found
-- [ ] Step 3: commit `feat(scripts): 语料包 v2 导入 CLI（单库 zip/大包/旧包三态）+ 容器白名单放行`
+- [ ] Step 3: commit `feat(scripts): 语料包 v2 导入 CLI（单库 zip/大包）+ 清 v1 旧路径 + 容器白名单放行`
 
 ### Task P2-4: reembed 口径定版 b（收口，不再二选一）
 
 **已定版（2026-10-17 评审）：v2 导入不支持 reembed**——`rebuild_vectors.py` 只覆盖默认单文件（不认独立桶，F19），扩展属另立票范围；与其半吊子不如阻断。
 
-- [ ] 落地三点，文案逐字一致（CLI 报错 / P3-1 预检响应 / P3-2 前端提示）：**「embed 模型不一致，v2 导入不支持 reembed；请用目标环境模型重新导出，或走 v1 组包通道 `--reembed`（旧语义）」**
+- [ ] 落地三点，文案逐字一致（CLI 报错 / P3-1 预检响应 / P3-2 前端提示）：**「embed 模型不一致，v2 导入不支持 reembed；请用目标环境模型重新导出」**
 - [ ] 若确有跨模型迁移需求 → 另立票「rebuild_vectors 支持 `--library`（独立桶自嵌）」，本票只记录
 - [ ] commit `docs(import): v2 reembed 口径定版（阻断+指引）`
 
@@ -377,6 +398,7 @@
 |---|---|---|
 | qdrant recover 改名能力不确定 | v1 代码注释声称支持，未实测 | P2-0 卡点先验证（先试集合级 upload 路径）；兜底=临时名恢复+复制（P1-4 复用） |
 | 源图谱历史悬空行 | 现网 `graph.sqlite` 与 default 切片实测 436 条（relations 112 + junctions 324）；FK ON 合并第一张联结表即回滚 | 合并连接 FK OFF + 事务内 `foreign_key_check` 对「目标原有 ∪ 包内自带」签名，新增违例回滚（P2-2） |
+| HarveyLab `doc_catalog` 未进切片 | 现网 `data/evals/groups/evals_corpus.sqlite` 已有 9008 行；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；HarveyLab 收尾后做 |
 | 图谱闭包切片的他库实体行 | 小包含归属他库 entity；目标已存同 `(name,library_id)` 异 id 行时 `OR IGNORE` 会丢实体 → 关系端点悬空 | P2-2 首版预检阻断；自然键重映射另立票；禁止静默 `OR IGNORE` |
 | 导出临时 collection 残留 | 取消/断连可能留 `exp-tmp-*` | 导出启动清扫 + finally 删除 + 快照同删 |
 | apply 中途进程重启 | 留半成品（文件/行已写）；冲突闸只拦已落 registry/index 的阶段 | P2-2 增清理命令/暂存标记；CLI/UI 输出暂存与清理指引，不做复杂回滚 |
@@ -397,14 +419,15 @@
 2. 导入后每库落在独立桶（`knowledge/libraries/<lib>/index.sqlite` + collection=`<lib_id>`），归入指定组；检索（FTS/向量）、图谱查询（合并后逐表对账平、新增 `foreign_key_check` 违例=0，允许包内继承悬空）、溯源 `/pdf` 全通。
 3. 全程零重解析（对账用既存产物计数即可证明：导出前后源库计数不变；导入后切片计数=manifest 计数）。
 4. 拆并/改组/删库对独立桶库行为安全（拒绝或清理，无静默坏数据）。
-5. v1 旧包导入路径不回归（既有测试全绿）。
+5. v1 旧包不再支持；导入器只认 `schema_version=2`，旧包给明确升级提示。
 6. `pytest tests/unit` + 相关 docs-api/docs-core 测试全绿；`vue-tsc -b` 过。
 
 ## Self-Review 记录
 
-- 覆盖：①大包套小包（P1-5 定版格式）✔ ②每库自包含+零重解析（P1-2/3/4 切片来源=现有产物）✔ ③图谱随包（P1-3/P2-2 落位）✔ ④独立桶落位（P2-2 映射表 + P4 保护）✔ ⑤CLI+UI 双通道（P2-3/P3）✔ ⑥v1 兼容（P2-1 SUPPORTED_SCHEMA 扩、CLI 三态识别）✔。
+- 覆盖：①大包套小包（P1-5 定版格式）✔ ②每库自包含+零重解析（P1-2/3/4 切片来源=现有产物）✔ ③图谱随包（P1-3/P2-2 落位）✔ ④独立桶落位（P2-2 映射表 + P4 保护）✔ ⑤CLI+UI 双通道（P2-3/P3）✔ ⑥v1 兼容已移出范围（2026-10-18 业主：旧包无人用；导入器只认 v2）✔。
 - 已实测卡点：qdrant recover 改名（P2-0，可直接恢复成目标名）、嵌套 zip 流式（P1-1，py3.11/3.12 双端通过）——均已完成；当前硬卡点=图谱 436 条继承悬空，按第三轮修订的 FK OFF 基线口径处理。
 - 评审修订（2026-10-17，全部已核实代码后落定）：P1-3 图谱切片改**闭包口径**（F17，含切片 `foreign_key_check` 硬断言，「B 库 0 行」断言只加 relations/artifacts）；P2-2 合并改**单事务+固定顺序+逐表对账+`foreign_key_check`**（F18）；reembed 定版 b 并 CLI/预检/前端三处文案收口（F19）；导出增 file_path 守卫（P1-5）与迁移中闸（`assert_library_not_migrating`）；P1-2 表清单改**直接 import `KbMigrator._DOC_TABLES`**（单一真相源）；P1-7 去掉估算误差门槛（FTS 体积非 chunk 线性）；P2-0 先试集合级 `POST /collections/<target>/snapshots/upload`。
 - 评审修订·第二轮（2026-10-17）：P3-3 改**两层 nginx**（容器层 `docker/nginx/nginx.conf` 入 git 随 deploy + 宿主机手工报备，F21）；P1-5 增切片前逐库重闸（窗口见风险表「迁移启动时序窗」行）与 `embed_model` 导出开始固化（关 settings console 热替换窗）；FK 口径改「**对账为主、FK 检查为辅**」并据实测修正定式（F18：OR IGNORE 遇 FK 违例=报错回滚，非静默跳行）；P1-3 切片构建连接 FK OFF 纯拷贝，让检查拿完整诊断。
 - 评审修订·第三轮（2026-10-18，开工前实测）：P2-2 图谱合并改 **连接 FK OFF + 事务内 `foreign_key_check` 基线对账**——现网 `graph.sqlite` 与 default 切片实测 436 条继承悬空（relations 112 + junctions 324），FK ON 第一张联结表 `principle_entities` 即回滚；只放行「目标原有 ∪ 包内自带」悬空，新增违例回滚。闭包实体同 `(name,library_id)` 异 `entity_id` 首版**预检阻断**，禁止 `OR IGNORE` 静默丢行；P2-2 增 `library_id`/`files` 路径安全闸与清理/磁盘预检。
+- 评审修订·第四轮（2026-10-18，暂停施工）：v1 导入兼容移出范围（旧包暂无人用；P2-3 清死代码、验收改“只认 v2”）；新增 **P2-0b** 合流 `doc_catalog`（现网 evals 组库 9008 行，`_DOC_TABLES` 未含）；**HarveyLab 收尾前不恢复 P2-2**。
 - 未含（边界外）：见上「边界外发现」三条。
