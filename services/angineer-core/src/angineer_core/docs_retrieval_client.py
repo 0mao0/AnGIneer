@@ -139,6 +139,55 @@ class DocsRetrievalClient:
             raise RuntimeError(str(data["error"]))
         return list(data.get("entities") or [])
 
+    def doc_search(
+        self,
+        *,
+        query: str,
+        library_id: str = "default",
+        limit: int = 60,
+        per_matter: int = 2,
+    ) -> Dict[str, Any]:
+        """文档级检索（/internal/doc-search）：枚举型任务的候选清单（按 matter 归并）。"""
+        resp = requests.post(
+            f"{self.base_url}/api/knowledge/internal/doc-search",
+            json={"query": query, "library_id": library_id, "limit": limit, "per_matter": per_matter},
+            timeout=self.timeout,
+        )
+        if resp.status_code != 200:
+            raise RuntimeError(f"docs-api doc-search status {resp.status_code}")
+        data = resp.json()
+        if data.get("error"):
+            raise RuntimeError(str(data["error"]))
+        return data
+
+    def doc_read(
+        self,
+        *,
+        library_id: str,
+        doc_ids: List[str],
+        query: str = "",
+        max_chars_per_doc: int = 1200,
+        mode: str = "head",
+    ) -> Dict[str, Any]:
+        """批量读页（/internal/doc-read）。"""
+        resp = requests.post(
+            f"{self.base_url}/api/knowledge/internal/doc-read",
+            json={
+                "library_id": library_id,
+                "doc_ids": list(doc_ids or []),
+                "query": query,
+                "max_chars_per_doc": max_chars_per_doc,
+                "mode": mode,
+            },
+            timeout=self.timeout,
+        )
+        if resp.status_code != 200:
+            raise RuntimeError(f"docs-api doc-read status {resp.status_code}")
+        data = resp.json()
+        if data.get("error"):
+            raise RuntimeError(str(data["error"]))
+        return data
+
     def list_doc_nodes(self, library_id: str) -> List[KnowledgeNode]:
         """调用 docs-api /internal/doc-nodes，返回 KnowledgeNode 列表。"""
         resp = requests.get(

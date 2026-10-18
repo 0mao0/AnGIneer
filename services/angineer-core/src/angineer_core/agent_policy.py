@@ -92,12 +92,33 @@ def _l0_attempt(load_nodes: Callable[[], list], llm_factory: Callable, config_na
     )
 
 
+def _enum_context(query, library_id, llm, config_name, mode):
+    """枚举题预取候选：开关/库白名单/判定任一不满足或抛错都返回 None（原链路零影响）。"""
+    try:
+        from angineer_core.enum_prefetch import build_enum_context
+
+        return build_enum_context(
+            query=str(query or ""),
+            library_id=library_id,
+            llm=llm,
+            config_name=config_name,
+            mode=mode,
+        )
+    except Exception as exc:  # noqa: BLE001 —— 预取失败不得阻断问答
+        import logging
+
+        logging.getLogger(__name__).warning("enum_prefetch 跳过: %s", exc)
+        return None
+
+
 def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None, answer_format=None, query=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
+        llm = llm_factory()
+        enum_ctx = _enum_context(query, library_id, llm, config_name, mode)
         cfg = build_qa_config(
-            llm=llm_factory(),
+            llm=llm,
             doc_nodes=load_nodes(),
             library_id=library_id,
             library_ids=library_ids,
@@ -109,6 +130,8 @@ def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
             enforce_evidence=enforce_evidence,
             marker_allocator=marker_allocator,
             answer_format=answer_format,
+            enum_context=enum_ctx,
+            audit_query=query,
         )
         if _looks_like_mcq(query):
             cfg.system_prompt = (cfg.system_prompt or "") + _MCQ_PROTOCOL
@@ -232,8 +255,10 @@ def build_attempts(
         sop_hint = _build_sop_hint(query, sops)
 
         def complex_factory() -> AgentLoopConfig:
+            llm = llm_factory()
+            enum_ctx = _enum_context(query, library_id, llm, config_name, mode)
             return build_complex_config(
-                llm=llm_factory(),
+                llm=llm,
                 doc_nodes=load_nodes(),
                 library_id=library_id,
                 library_ids=library_ids,
@@ -252,6 +277,7 @@ def build_attempts(
                 step_event=step_event,
                 # 与 L1/L2 同口径：复杂档答案必须过证据闸（2026-10-04 补装，防无证据出结论）
                 final_answer_guard=make_final_answer_guard(enforce_evidence=True),
+                enum_context=enum_ctx,
             )
 
         return [AttemptConfig(

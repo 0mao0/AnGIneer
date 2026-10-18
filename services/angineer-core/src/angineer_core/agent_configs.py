@@ -1,5 +1,6 @@
 """P3.1 知识问答 + P4.1 大题型 agent 循环配置装配。"""
 import json
+import logging
 import os
 import re
 from dataclasses import replace
@@ -36,7 +37,7 @@ def effective_qa_prompt_version() -> str:
 
 
 def effective_complex_prompt_version() -> str:
-    """复杂档 prompt 生效版本（env 指定或 latest）；当前注册仅 v5，机制预留供后续版本回退。"""
+    """复杂档 prompt 生效版本（env 指定或 latest）；当前注册 v5/v6，机制预留供后续版本回退。"""
     return os.getenv("ANGINEER_COMPLEX_PROMPT_VERSION", "latest").strip() or "latest"
 
 
@@ -475,12 +476,17 @@ def build_qa_config(
     followup_question: Optional[bool] = None,
     max_tokens_est: Optional[int] = None,
     answer_format: Optional[str] = None,
+    enum_context: Optional[str] = None,
+    audit_query: Optional[str] = None,
 ) -> AgentLoopConfig:
     """装配 QA 档 agent 循环：四个只读工具（三检索 + 知识库统计）+ 内联 QA prompt（P5 前）。
 
     answer_format=评测侧注入的「答案收尾形态」要求（OfficeQA 注入实验，
     docs/plan-officeqa-arms.md §7.7）：非空时原样追加到系统提示词末尾；
     None＝现行为逐字节不变，仅评测调用方传参，HTTP chat 不暴露。
+
+    enum_context=枚举题预取候选（enum_prefetch.build_enum_context）：非空时作为
+    「预取证据」段追加到系统提示词（不是规则），None＝逐字节不变。
     """
     effective_tools = tools
     if effective_tools is None:
@@ -517,15 +523,25 @@ def build_qa_config(
             config_name=config_name,
             mode=mode,
         )
+        # 文档级检索 + 批量读页（2026-10-18 枚举型任务改造）：段落 top-20 覆盖不了全库，
+        # 「列出所有/每一个」类问题必须先用 doc_search 拿候选全集，再 doc_read 逐篇确认。
+        doc_search_tool = RetrieverAdapter.doc_search(
+            library_id=library_id,
+            library_ids=library_ids,
+        )
+        doc_read_tool = RetrieverAdapter.doc_read(
+            library_id=library_id,
+            library_ids=library_ids,
+        )
         # 查表/数值类任务把 table_search 排在首位，引导模型优先用它
         table_first = (
             str(effective_table_task_type).startswith("table_")
             or str(effective_table_task_type) in {"locate_table", "locate_qa"}
         )
         ordered = (
-            [table_tool, knowledge_tool, entity_tool]
+            [table_tool, doc_search_tool, doc_read_tool, knowledge_tool, entity_tool]
             if table_first
-            else [knowledge_tool, table_tool, entity_tool]
+            else [knowledge_tool, doc_search_tool, doc_read_tool, table_tool, entity_tool]
         )
         # knowledge_stats 下沉 L1 统一工具箱（废 meta_query 路由第二步，2026-10-02）：
         # 统计题与正文题同档、模型按工具描述自选；工具描述已把「只在问知识库本身」边界写死（§2.5 暴露面）
@@ -555,6 +571,8 @@ def build_qa_config(
     explicit = _build_inline_citation_context(inline_citations or [])
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
+    if enum_context:
+        system_prompt += "\n\n" + str(enum_context).strip()
 
     followup_enabled = _followup_question_enabled() if followup_question is None else bool(followup_question)
     if followup_enabled:
@@ -570,6 +588,25 @@ def build_qa_config(
             enforce_evidence=enforce_evidence,
             followup_question=followup_enabled,
         )
+    # P3 答案自检：仅枚举题 + 开关 + 库白名单；失败/关闭时 guard 原样不变
+    if audit_query:
+        try:
+            from angineer_core.answer_audit import enabled as _audit_enabled
+            from angineer_core.answer_audit import library_allowed as _audit_library_allowed
+            from angineer_core.answer_audit import make_audit_guard
+            from angineer_core.enum_prefetch import is_enumeration
+
+            if _audit_enabled() and _audit_library_allowed(library_id) and is_enumeration(audit_query):
+                guard = make_audit_guard(
+                    guard,
+                    llm=llm,
+                    question=audit_query,
+                    enabled_for_query=True,
+                    config_name=config_name,
+                    mode=mode,
+                )
+        except Exception as _exc:  # noqa: BLE001 —— 自检装配失败不影响原 guard
+            logging.getLogger(__name__).warning("answer_audit 装配失败: %s", _exc)
 
     budget_est = _qa_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
     qa_transformer = (
@@ -732,13 +769,15 @@ def _budget_stopper_est() -> int:
 
 
 def _budget_stopper_tokens() -> int:
-    """真实 prompt token 口径的停止线（ANGINEER_BUDGET_STOPPER_TOKENS，默认 160000）。
+    """真实 prompt token 口径的停止线（ANGINEER_BUDGET_STOPPER_TOKENS，默认 120000）。
 
     2026-10-18：原实现只看 chars//2 估算，长题干 + 一次 20 块检索就能越线
     （Harvey LAB 实踩：prompt 40,499 tokens 即被判超 120k est，模型还没作答就被收尾）。
-    真实 token 更准，且能随模型窗口直接设（DGX qwen3.6-35b 窗口 233k → 160k 留出输出余量）。
+    真实 token 更准，且能随模型窗口直接设。默认值从 160k 下调到 120k：网关口径
+    qwen3.6-35b 的安全容量只有 138,146 tokens（2026-10-18 实测 155,582 tokens 直接
+    400 context_length_exceeded，整题中断）——停止线必须低于真实窗口，不能按标称 233k 设。
     估算口径保留为兜底：网关没回 usage 时才用。"""
-    return _budget_tokens_est("ANGINEER_BUDGET_STOPPER_TOKENS", 160_000)
+    return _budget_tokens_est("ANGINEER_BUDGET_STOPPER_TOKENS", 120_000)
 
 
 def make_budget_stopper(threshold: Optional[int] = None):
@@ -786,10 +825,12 @@ def build_complex_config(
     answer_format: Optional[str] = None,
     sop_hint: Optional[str] = None,
     l4_synth: Optional[Any] = None,
+    enum_context: Optional[str] = None,
 ) -> AgentLoopConfig:
     """P4.1 大题型 agent 循环：QA 三件套 + SOP 执行 + 计算/查表/条件分支。
 
     answer_format 与 build_qa_config 同义（§7.7 注入实验）：非空追加到系统提示词末尾，None 不变。
+    enum_context 与 build_qa_config 同义：枚举题预取候选，空则逐字节不变。
     """
     if tools is None:
         qa_tools = [
@@ -824,6 +865,9 @@ def build_complex_config(
                 config_name=config_name,
                 mode=mode,
             ),
+            # 枚举型任务（L3/L4「列出所有…」）同样需要文档级候选 + 批量读页
+            RetrieverAdapter.doc_search(library_id=library_id, library_ids=library_ids),
+            RetrieverAdapter.doc_read(library_id=library_id, library_ids=library_ids),
         ]
         effective_tools = [
             *qa_tools,
@@ -882,6 +926,8 @@ def build_complex_config(
     explicit = _build_inline_citation_context(inline_citations or [])
     if explicit:
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
+    if enum_context:
+        system_prompt += "\n\n" + str(enum_context).strip()
 
     complex_followup = _followup_question_enabled() and _complex_followup_question_enabled()
     if complex_followup:

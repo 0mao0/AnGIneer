@@ -132,3 +132,53 @@ def graph_append_note_internal(request: GraphAppendNoteRequest) -> Dict[str, Any
     entity.description = (entity.description or "") + " " + marker
     store.upsert_entity(entity)
     return {"status": "ok", "entity_id": request.entity_id}
+
+
+class DocSearchInternalRequest(BaseModel):
+    query: str
+    library_id: str = "default"
+    limit: int = 60
+    per_matter: int = 2
+
+
+@retrieve_router.post("/internal/doc-search")
+def doc_search_internal(request: DocSearchInternalRequest) -> Dict[str, Any]:
+    """文档级检索（枚举型任务）：FTS 命中按文档聚合、按 matter 归并，返回候选清单。"""
+    from docs_core.step09_query.doc_search import search_documents
+
+    try:
+        return search_documents(
+            library_id=request.library_id,
+            query=request.query,
+            limit=request.limit,
+            per_matter=request.per_matter,
+        )
+    except Exception as exc:  # noqa: BLE001 —— 工具语义：错误以 {"error": ...} 返回
+        logger.warning("doc-search 失败: %s", exc, exc_info=True)
+        return {"error": f"文档级检索失败: {exc}"}
+
+
+class DocReadInternalRequest(BaseModel):
+    library_id: str = "default"
+    doc_ids: List[str] = Field(default_factory=list)
+    query: str = ""
+    max_chars_per_doc: int = 1200
+    mode: str = "head"
+
+
+@retrieve_router.post("/internal/doc-read")
+def doc_read_internal(request: DocReadInternalRequest) -> Dict[str, Any]:
+    """批量读页：按 doc_id 列表读正文（head=从头，match=读命中段落）。"""
+    from docs_core.step09_query.doc_search import read_documents
+
+    try:
+        return read_documents(
+            library_id=request.library_id,
+            doc_ids=request.doc_ids,
+            query=request.query,
+            max_chars_per_doc=request.max_chars_per_doc,
+            mode=request.mode,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("doc-read 失败: %s", exc, exc_info=True)
+        return {"error": f"批量读页失败: {exc}"}

@@ -900,6 +900,16 @@ def _build_relevant_citations(query: str, items: list, limit: int = 5) -> List[D
     return citations_fn(query, items, limit)
 
 
+def _client_from_env():
+    """docs-api HTTP client（未配置 ANGINEER_DOCS_API_URL 时返回 None）。"""
+    try:
+        from angineer_core.docs_retrieval_client import client_from_env
+
+        return client_from_env()
+    except Exception:  # noqa: BLE001 —— 配置/导入失败按「无 HTTP 通道」处理，回落进程内
+        return None
+
+
 class RetrieverAdapter:
     """包装 step09_query 五路检索器与图谱检索。"""
 
@@ -976,6 +986,136 @@ class RetrieverAdapter:
                     },
                 },
                 "required": ["query"],
+            },
+            handler=handler,
+            read_only=True,
+        )
+
+    @staticmethod
+    def doc_search(
+        *,
+        library_id: str = "default",
+        library_ids: Optional[List[str]] = None,
+        retrieval_client: Any = None,
+    ) -> AgentTool:
+        """文档级检索工具（枚举型任务）：返回按 matter 归并的候选文档清单。
+
+        与 knowledge_search 的分工：knowledge_search 是「段落级 top-k」，适合定位一处
+        条款/定义；doc_search 是「文档级全库覆盖」，适合「列出全部/每一个」的穷举题——
+        它把 FTS 命中聚合到文档、再按 matter 归并，模型能看到候选全集而不是前 20 段。
+        """
+        def handler(
+            query: Optional[str] = None,
+            limit: int = 40,
+            per_matter: int = 2,
+            **_kwargs: Any,
+        ) -> Dict[str, Any]:
+            if not query:
+                return {"error": "缺少 query 参数"}
+            lib = (library_ids or [library_id])[0]
+            client = retrieval_client or _client_from_env()
+            if client is not None:
+                try:
+                    return client.doc_search(
+                        query=query, library_id=lib, limit=int(limit or 40), per_matter=int(per_matter or 2)
+                    )
+                except Exception as exc:  # noqa: BLE001 —— HTTP 失败回落进程内
+                    logger.warning("doc_search HTTP 失败，回落进程内: %s", exc)
+            try:
+                from docs_core.step09_query.doc_search import search_documents
+
+                return search_documents(
+                    library_id=lib, query=query, limit=int(limit or 40), per_matter=int(per_matter or 2)
+                )
+            except Exception as exc:  # noqa: BLE001
+                return {"error": f"文档级检索不可用: {exc}"}
+
+        return AgentTool(
+            name="doc_search",
+            description=(
+                "文档级检索：把全库命中的段落聚合到文档，并按 matter（案件/项目）分组，返回候选文档清单"
+                "（标题、matter、命中片段）。用于「列出所有/每一个/全部…」的穷举类问题——"
+                "先用它拿候选全集（total_matters 是候选 matter 总数），再用 doc_read 批量读页确认。"
+                "limit 默认 40（最多 120 篇）；per_matter 控制每个 matter 返回几篇（默认 3）。"
+            ),
+            parameters_schema={
+                "type": "object",
+                "properties": {
+                    "query": {"type": "string", "description": "检索词，如「HSR second request」「反垄断 二次问询」"},
+                    "limit": {"type": "integer", "description": "返回文档数，默认 40，最多 120"},
+                    "per_matter": {"type": "integer", "description": "每个 matter 返回的文档数，默认 3"},
+                },
+                "required": ["query"],
+            },
+            handler=handler,
+            read_only=True,
+        )
+
+    @staticmethod
+    def doc_read(
+        *,
+        library_id: str = "default",
+        library_ids: Optional[List[str]] = None,
+        retrieval_client: Any = None,
+    ) -> AgentTool:
+        """批量读页工具：一次读多篇文档的正文（按页），供枚举题逐篇确认资格。"""
+        def handler(
+            doc_ids: Optional[List[str]] = None,
+            query: Optional[str] = None,
+            mode: str = "head",
+            max_chars_per_doc: int = 1200,
+            **_kwargs: Any,
+        ) -> Dict[str, Any]:
+            ids = [str(d).strip() for d in (doc_ids or []) if str(d).strip()]
+            if not ids:
+                return {"error": "缺少 doc_ids 参数"}
+            lib = (library_ids or [library_id])[0]
+            client = retrieval_client or _client_from_env()
+            if client is not None:
+                try:
+                    return client.doc_read(
+                        library_id=lib,
+                        doc_ids=ids,
+                        query=str(query or ""),
+                        max_chars_per_doc=int(max_chars_per_doc or 1200),
+                        mode=str(mode or "head"),
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    logger.warning("doc_read HTTP 失败，回落进程内: %s", exc)
+            try:
+                from docs_core.step09_query.doc_search import read_documents
+
+                return read_documents(
+                    library_id=lib,
+                    doc_ids=ids,
+                    query=str(query or ""),
+                    max_chars_per_doc=int(max_chars_per_doc or 1200),
+                    mode=str(mode or "head"),
+                )
+            except Exception as exc:  # noqa: BLE001
+                return {"error": f"批量读页不可用: {exc}"}
+
+        return AgentTool(
+            name="doc_read",
+            description=(
+                "批量读页：一次读最多 8 篇文档的正文（按页返回，[pN] 是页码）。"
+                "mode=head 从头读（默认），mode=match 只读与 query 相关的段落。"
+                "用于枚举题逐篇确认候选文档：先把 doc_search 返回的 doc_id 列表分批读，"
+                "再据正文判断是否满足条件；不要只凭 snippet 下结论。"
+            ),
+            parameters_schema={
+                "type": "object",
+                "properties": {
+                    "doc_ids": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "要读的文档 id 列表（来自 doc_search 的 doc_id），一次最多 8 篇",
+                    },
+                    "query": {"type": "string", "description": "mode=match 时的相关段落检索词"},
+                    "mode": {"type": "string", "enum": ["head", "match"], "description": "head=从头读；match=读命中段落"},
+                    "max_chars_per_doc": {"type": "integer", "description": "每篇最多读多少字符，默认 1200，最多 4000"},
+                },
+                "required": ["doc_ids"],
             },
             handler=handler,
             read_only=True,
