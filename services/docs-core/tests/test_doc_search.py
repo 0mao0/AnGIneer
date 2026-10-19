@@ -198,6 +198,32 @@ def test_classify_doc_type(name, expected):
     assert doc_search.classify_doc_type(name) == expected
 
 
+def test_group_identity():
+    assert doc_search._group_identity("1001-00001", "", "d1") == {
+        "group_id": "1001-00001", "group_kind": "case"}
+    assert doc_search._group_identity("", "HSR", "d1") == {
+        "group_id": "folder:HSR", "group_kind": "folder"}
+    assert doc_search._group_identity("", "", "d1") == {
+        "group_id": "doc:d1", "group_kind": "doc"}
+
+
+def test_upsert_catalog_doc_derives_group(library_db):
+    out = doc_search.upsert_catalog_doc(
+        library_id="lib", doc_id="d9", filename="2024年度检测报告.pdf", rel_path="报告/2024"
+    )
+    assert out["group_kind"] == "folder"
+    assert out["doc_type"] == "report"
+    conn = _conn(library_db)
+    try:
+        row = conn.execute("select title_semantic, folder from doc_catalog where doc_id='d9'").fetchone()
+        stats = doc_search.list_matters("lib")
+    finally:
+        conn.close()
+    assert row["title_semantic"] == "2024年度检测报告"
+    assert row["folder"] == "报告"
+    assert stats["group_kinds"]["folder"] >= 1
+
+
 def test_read_documents_head_and_match(library_db):
     head = doc_search.read_documents(library_id="lib", doc_ids=["d1"], max_chars_per_doc=500)
     doc = head["docs"][0]

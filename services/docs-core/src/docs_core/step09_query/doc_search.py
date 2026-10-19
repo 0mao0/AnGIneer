@@ -321,6 +321,56 @@ def backfill_semantic_fields(conn: sqlite3.Connection, library_id: str, batch: i
     return {"total": total, "with_title": with_title, "typed": typed, "titles_from_blocks": len(titles)}
 
 
+def upsert_catalog_doc(
+    *,
+    library_id: str,
+    doc_id: str,
+    filename: str,
+    rel_path: str = "",
+    matter_id: str = "",
+    folder: Optional[str] = None,
+    conn: Optional[sqlite3.Connection] = None,
+) -> Dict[str, Any]:
+    """入库时写一行目录（幂等）。
+
+    title/type 先用文件名；解析完成后由 backfill_semantic_fields 用首屏标题刷新
+    （title_source='block' 的行不会被这里覆盖）。
+    """
+    own = conn is None
+    conn = conn or _connect(library_id)
+    try:
+        ensure_catalog(conn)
+        if conn.row_factory is None:
+            conn.row_factory = sqlite3.Row
+        folder_name = (
+            folder if folder is not None
+            else (str(rel_path).rsplit("/", 1)[0] if "/" in str(rel_path) else "")
+        )
+        stem = re.sub(r"\.[A-Za-z0-9]{1,6}$", "", filename or "")
+        title = stem
+        dtype = classify_doc_type(filename, title)
+        conn.execute(
+            "insert into doc_catalog(doc_id, library_id, matter_id, folder, rel_path, filename, "
+            "doc_type, source, updated_at, title_semantic, doc_type_semantic, title_source) "
+            "values(?,?,?,?,?,?,?,?,?,?,?,'filename') "
+            "on conflict(doc_id) do update set filename=excluded.filename, rel_path=excluded.rel_path, "
+            "folder=excluded.folder, "
+            "title_semantic=case when doc_catalog.title_source='block' then doc_catalog.title_semantic "
+            "else excluded.title_semantic end, "
+            "doc_type_semantic=case when doc_catalog.title_source='block' then doc_catalog.doc_type_semantic "
+            "else excluded.doc_type_semantic end",
+            (doc_id, library_id, matter_id or "", folder_name, rel_path or "", filename or "",
+             (str(filename).rsplit(".", 1)[-1].lower() if "." in str(filename) else ""), "upload",
+             "", title, dtype),
+        )
+        conn.commit()
+        kind = "case" if matter_id else ("folder" if folder_name else "doc")
+        return {"doc_id": doc_id, "group_kind": kind, "title": title, "doc_type": dtype}
+    finally:
+        if own:
+            conn.close()
+
+
 def catalog_semantic_coverage(conn: sqlite3.Connection, library_id: str) -> Dict[str, Any]:
     """目录质量：文件名语义率、首屏标题率、类型覆盖率，供预取门禁决定是否启用目录谓词。
 
@@ -370,6 +420,17 @@ def catalog_predicate_usable(library_id: str, threshold: float = 0.3) -> bool:
     )
 
 
+def _group_identity(matter_id: str, folder: str, doc_id: str) -> Dict[str, str]:
+    """分组的唯一身份：matter（case）> folder > 单篇（doc）。"""
+    matter = str(matter_id or "").strip()
+    if matter:
+        return {"group_id": matter, "group_kind": "case"}
+    folder_name = str(folder or "").strip()
+    if folder_name:
+        return {"group_id": f"folder:{folder_name}", "group_kind": "folder"}
+    return {"group_id": f"doc:{doc_id}", "group_kind": "doc"}
+
+
 def list_matters(library_id: str, limit: int = 300) -> Dict[str, Any]:
     """matter 清单（等价于对 DMS 做一次 ls）：matter_id + 文档数 + 代表文件名。
 
@@ -393,12 +454,21 @@ def list_matters(library_id: str, limit: int = 300) -> Dict[str, Any]:
         documents = conn.execute(
             "select count(*) from doc_catalog where library_id=?", (library_id,)
         ).fetchone()[0]
+        folder_groups = conn.execute(
+            "select count(distinct folder) from doc_catalog where library_id=? and matter_id='' and folder<>''",
+            (library_id,),
+        ).fetchone()[0]
+        doc_groups = conn.execute(
+            "select count(*) from doc_catalog where library_id=? and matter_id='' and folder=''",
+            (library_id,),
+        ).fetchone()[0]
     finally:
         conn.close()
     return {
         "catalog": True,
         "total": int(total),
         "documents": int(documents),
+        "group_kinds": {"case": int(total), "folder": int(folder_groups), "doc": int(doc_groups)},
         "matters": [
             {"matter_id": r["matter_id"], "docs": int(r["n"]), "sample": r["sample"], "folder": r["folder"]}
             for r in rows
@@ -558,8 +628,11 @@ def search_documents(
         ranked = sorted(candidates.values(), key=lambda x: (-x["score"], -x["hits"]))[:400]
         for entry in ranked:
             cat = catalog.get(entry["doc_id"]) or {}
-            key = cat.get("matter_id") or f"doc:{entry['doc_id']}"
-            group = groups.setdefault(key, {"matter_id": key, "score": 0.0, "entries": []})
+            ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), entry["doc_id"])
+            key = ident["group_id"]
+            group = groups.setdefault(
+                key, {"group_id": key, "group_kind": ident["group_kind"], "score": 0.0, "entries": []}
+            )
             group["entries"].append(entry)
             group["score"] = max(group["score"], entry["score"])
         ordered_groups = sorted(groups, key=lambda k: (-groups[k]["score"], k))
@@ -582,9 +655,12 @@ def search_documents(
 
         for entry in chosen:
             cat = catalog.get(entry["doc_id"]) or {}
+            ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), entry["doc_id"])
             docs.append({
                 "doc_id": entry["doc_id"],
                 "title": cat.get("display_title") or title_map.get(entry["doc_id"]) or entry["doc_id"],
+                "group_id": ident["group_id"],
+                "group_kind": ident["group_kind"],
                 "matter_id": cat.get("matter_id") or "",
                 "folder": cat.get("folder") or "",
                 "hits": entry["hits"],
@@ -600,8 +676,10 @@ def search_documents(
             matched_docs = [
                 catalog_docs[e["doc_id"]] for e in entries if e["doc_id"] in catalog_docs
             ]
+            kind = groups[key]["group_kind"]
             card = {
-                "matter_id": key,
+                "group_id": key,
+                "group_kind": kind,
                 "n_docs": len(entries),
                 "folder": best_cat.get("folder") or "",
                 "best": {
@@ -619,6 +697,8 @@ def search_documents(
                     for entry in entries[:per_matter]
                 ],
             }
+            if kind == "case":
+                card["matter_id"] = key
             if matched_docs:
                 card["catalog_hit"] = True
                 card["matched_docs"] = matched_docs[:5]
@@ -629,17 +709,23 @@ def search_documents(
     # 有 catalog 时 docs 与 matters 内容重复（都带 doc_id/title），只保留紧凑的 matters 视图，
     # 避免单次工具结果膨胀（2026-10-18 实踩：双份清单把上下文顶到 155k tokens 触发 400）。
     # 注意：不要留空 docs 数组——模型会把 "docs": [] 读成「没找到」，随后退化成回显题面。
+    kind_counts: Dict[str, int] = {}
+    for g in groups.values():
+        kind_counts[g["group_kind"]] = kind_counts.get(g["group_kind"], 0) + 1
     result: Dict[str, Any] = {
         "query": query,
         "library_id": library_id,
         "total_docs": len(candidates),
-        "total_matters": len(groups),
+        "total_groups": len(groups),
+        "group_kinds": kind_counts,
+        "total_matters": kind_counts.get("case", 0),
         "returned_matters": len(matter_list),
         "returned_docs": len(docs),
         "matters": matter_list,
         "catalog": bool(catalog),
         "note": (
-            "matters 为按 matter 归并的枚举视图（best.snippet 是最佳证据片段，docs 列出该 matter 的命中文档）。"
+            "matters 为按 group 归并的枚举视图（group_kind=case/folder/doc；"
+            "best.snippet 是最佳证据片段，docs 列出该组命中文档）。"
             "catalog_hit=true 的卡片是文件名/路径谓词命中（确定性信号，优先核对）；"
             "片段只是线索：确认资格必须用 doc_read 读正文，不要只凭片段下结论。"
         ),

@@ -270,6 +270,18 @@ def _normalize_parent_id(parent_id: Optional[str]) -> Optional[str]:
     return parent_id
 
 
+def _node_folder_path(ks, node_id: Optional[str]) -> str:
+    """沿父节点链拼目录路径（folder/folder），供 doc_catalog 的 folder 分组用。"""
+    parts = []
+    seen = set()
+    cur = ks.get_node(node_id) if node_id else None
+    while cur is not None and cur.type == 'folder' and cur.id not in seen:
+        seen.add(cur.id)
+        parts.append(cur.title or "")
+        cur = ks.get_node(cur.parent_id) if cur.parent_id else None
+    return "/".join(p for p in reversed(parts) if p)
+
+
 # --- 知识库 CRUD 路由 ---
 
 
@@ -948,6 +960,19 @@ async def upload_document(
         updated_at=datetime.now()
     )
     ks.create_node(node)
+
+    # 目录元数据：入库即写一行 doc_catalog（分组/谓词的唯一来源）；失败不影响上传
+    try:
+        from docs_core.step09_query.doc_search import upsert_catalog_doc
+
+        upsert_catalog_doc(
+            library_id=library_id,
+            doc_id=doc_id,
+            filename=file.filename or "",
+            rel_path=_node_folder_path(ks, normalized_parent_id),
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("doc_catalog 写入失败（上传继续）: %s", exc)
 
     # 插入解析统计记录
     insert_record(ParseRecord(

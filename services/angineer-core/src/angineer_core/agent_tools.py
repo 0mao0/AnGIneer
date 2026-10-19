@@ -1045,10 +1045,11 @@ class RetrieverAdapter:
         return AgentTool(
             name="doc_search",
             description=(
-                "文档级检索：把全库命中的段落聚合到文档，并按 matter（案件/项目）分组，返回候选文档清单"
-                "（标题、matter、命中片段）。用于「列出所有/每一个/全部…」的穷举类问题——"
-                "先用它拿候选全集（total_matters 是候选 matter 总数），再用 doc_read 批量读页确认。"
-                "filename_contains 是目录谓词：按文件名/路径短语过滤（如 [\"second request\"]），"
+                "文档级检索：把全库命中的段落聚合到文档，并按 group 分组（group_kind=case/folder/doc："
+                "法律库按案件、有目录的库按目录、散文件一篇一组），返回候选清单（标题、分组、命中片段）。"
+                "用于「列出所有/每一个/全部…」的穷举类问题——先用它拿候选全集"
+                "（total_groups 是候选组数，group_kinds 给出各类型组数），再用 doc_read 批量读页确认。"
+                "filename_contains 是目录谓词：按文件名/路径/首屏标题短语过滤（如 [\"second request\"]），"
                 "命中的卡片带 catalog_hit=true 与 matched_docs，是比语义检索更确定的信号，优先核对。"
                 "query 默认 40 篇、最多 120；per_matter 默认 2。"
             ),
