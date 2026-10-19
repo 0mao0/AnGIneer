@@ -31,7 +31,22 @@ _EN_ALL = re.compile(
     re.I,
 )
 _ZH_ENUM = re.compile(r"(所有|全部|每一个|每个|各个|有哪些|列出|枚举)")
+_EN_ACROSS = re.compile(r"\bacross\b.{0,80}\b(matters?|deals?|cases?|portfolio|practice)\b", re.I)
+_EN_HOWMANY = re.compile(r"\bhow (often|many)\b", re.I)
+_ZH_HOWMANY = re.compile(r"(多少次|多少个|几个|频率|占比)")
 _MCQ = re.compile(r"(^|\s)A[.、)]\s", re.M)
+
+# 目录谓词词表：问题里出现这些「文档类型/动作」词时，直接按文件名/标题过滤。
+# 只收具体词，不收 matter/client/our 这类泛词；长词优先，避免 "second request" 被 "request" 抢走。
+_CATALOG_TERMS = (
+    "second request", "hsr withdrawal", "hsr", "withdrawal", "credit agreement",
+    "assignment consent", "assignment", "tax opinion", "closing memo", "engagement letter",
+    "purchase agreement", "loan agreement", "lease", "indemnity", "subpoena", "complaint",
+    "settlement", "motion", "brief", "expert report", "diligence", "consent",
+    "dip financing", "capital markets", "patent infringement", "technical expert",
+    "use of proceeds", "leverage", "restructuring", "bankruptcy", "opinion", "proceeds",
+    "二次问询", "问询函", "尽调", "意见书", "备忘录", "协议", "起诉", "和解",
+)
 
 _REWRITE_PROMPT = """You turn a legal-research question into short keyword queries for a document search engine.
 
@@ -67,9 +82,11 @@ def is_enumeration(query: str) -> bool:
         return False
     if _MCQ.search(text):
         return False
-    if _ZH_ENUM.search(text):
+    if _ZH_ENUM.search(text) or _ZH_HOWMANY.search(text):
         return True
     if _EN_EVERY.search(text):
+        return True
+    if _EN_ACROSS.search(text) or _EN_HOWMANY.search(text):
         return True
     return bool(_EN_ALL.search(text))
 
@@ -160,6 +177,81 @@ def format_context(cards: Dict[str, Dict[str, Any]], total_matters: int, queries
     return "\n".join(lines)
 
 
+def catalog_phrases(query: str, limit: int = 3) -> List[str]:
+    """从问题里抽目录谓词短语（确定性，不调模型）：长词优先、去重。"""
+    flat = re.sub(r"[\s\-_]+", " ", str(query or "").lower())
+    found: List[str] = []
+    for term in sorted(_CATALOG_TERMS, key=len, reverse=True):
+        norm = re.sub(r"[\s\-_]+", " ", term.lower())
+        if len(norm) < 4 or norm in found:
+            continue
+        if norm in flat or (norm + "s") in flat:
+            # 已被更长的词覆盖（如 "hsr" 被 "hsr withdrawal" 覆盖）就不重复加
+            if any(norm in existing for existing in found):
+                continue
+            found.append(norm)
+        if len(found) >= limit:
+            break
+    return found
+
+
+def _catalog_cards(library_id: str, query: str, phrases: List[str]) -> "tuple[Dict[str, Dict[str, Any]], int]":
+    """目录谓词 + 内容检索并集；按 group_id 归并（case/folder/doc 都适用）。"""
+    from docs_core.step09_query.doc_search import search_documents
+
+    cards: Dict[str, Dict[str, Any]] = {}
+    total = 0
+
+    def absorb(result: Dict[str, Any]) -> None:
+        nonlocal total
+        total = max(total, int(result.get("total_groups") or result.get("total_matters") or 0))
+        for card in result.get("matters") or []:
+            gid = str(card.get("group_id") or card.get("matter_id") or "").strip()
+            if not gid or gid in cards:
+                continue
+            best = card.get("best") or {}
+            cards[gid] = {
+                "kind": str(card.get("group_kind") or ""),
+                "title": str(best.get("title") or ""),
+                "matched": list(card.get("matched_docs") or [])[:2],
+            }
+
+    for phrase in phrases[:3]:
+        try:
+            absorb(search_documents(
+                library_id=library_id, query=phrase, limit=40, per_matter=2,
+                filename_contains=[phrase],
+            ))
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("enum_prefetch 目录谓词失败(%r): %s", phrase, exc)
+    try:
+        absorb(search_documents(library_id=library_id, query=query, limit=40, per_matter=2))
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("enum_prefetch 内容检索失败: %s", exc)
+    return cards, total
+
+
+def format_catalog_context(cards: Dict[str, Dict[str, Any]], total: int, phrases: List[str]) -> str:
+    lines = [
+        "## 系统预取候选（目录谓词）",
+        f"本题判定为穷举型；系统按目录（文件名/标题/类型：{'、'.join(phrases)}）预取了候选组。",
+        "这是线索，不是结论：确认资格必须用 doc_read 读正文。候选里没有的组不代表不存在，"
+        "可用 doc_search 补查；不要因为候选不全而拒答。",
+    ]
+    used = 0
+    shown = 0
+    for gid, card in list(cards.items())[:MAX_CARDS]:
+        extra = f" | {card['matched'][0]}" if card["matched"] else ""
+        line = f"- {gid} | {card['kind'] or 'group'} | {card['title']}{extra}"
+        if used + len(line) > MAX_CHARS:
+            break
+        lines.append(line)
+        used += len(line)
+        shown += 1
+    lines.append(f"候选组共 {max(total, len(cards))} 个；上面列出 {shown} 个。")
+    return "\n".join(lines)
+
+
 def build_enum_context(
     *,
     query: str,
@@ -173,6 +265,26 @@ def build_enum_context(
         return None
     if not is_enumeration(query):
         return None
+    prefetch_mode = os.getenv("ANGINEER_ENUM_PREFETCH_MODE", "cards").strip().lower()
+    if prefetch_mode == "catalog":
+        try:
+            from docs_core.step09_query.doc_search import catalog_predicate_usable
+
+            if not catalog_predicate_usable(library_id):
+                logger.info("enum_prefetch 跳过：目录质量不足 library=%s", library_id)
+                return None
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("enum_prefetch 目录门禁失败: %s", exc)
+            return None
+        phrases = catalog_phrases(query)
+        if not phrases:
+            return None
+        cards, total = _catalog_cards(library_id, query, phrases)
+        if not cards:
+            return None
+        text = format_catalog_context(cards, total, phrases)
+        logger.info("enum_prefetch(catalog) 注入：phrases=%s cards=%d chars=%d", phrases, len(cards), len(text))
+        return text
     queries = rewrite_queries(llm, query, config_name=config_name, mode=mode)
     if not queries:
         return None

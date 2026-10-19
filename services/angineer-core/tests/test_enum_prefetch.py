@@ -32,6 +32,24 @@ def test_is_enumeration_negative(query):
     assert not ep.is_enumeration(query)
 
 
+@pytest.mark.parametrize("query,expected", [
+    ("pull every antitrust matter where we drew an HSR second request", "second request"),
+    ("list all tax opinions at more-likely-than-not level", "tax opinion"),
+    ("show every assignment-consent clause we handled", "assignment consent"),
+    ("列出所有二次问询的案件", "二次问询"),
+])
+def test_catalog_phrases(query, expected):
+    assert expected in ep.catalog_phrases(query)
+
+
+def test_catalog_format_compact():
+    cards = {"1003-00001": {"kind": "case", "title": "second-request-strategy-memo.docx", "matched": []}}
+    text = ep.format_catalog_context(cards, 17, ["second request"])
+    assert "1003-00001" in text
+    assert "候选组共 17 个" in text
+    assert len(text) < 2000
+
+
 def test_disabled_by_default(monkeypatch):
     monkeypatch.delenv("ANGINEER_ENUM_PREFETCH", raising=False)
     assert not ep.enabled()
