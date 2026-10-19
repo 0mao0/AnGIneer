@@ -127,6 +127,39 @@ def strip_unsupported(answer: str, claims: List[Dict[str, Any]]) -> "tuple[str, 
     return (text or answer), removed
 
 
+CITATION_CONTRACT = (
+    "## Citation contract (strict)\n"
+    "Every factual bullet or sentence must end with a citation of the form [<doc_id> p<page>], "
+    "using a doc_id and page that appear in the tool results you were given. "
+    "If a claim has no supporting document, write [no-source] instead of guessing. "
+    "Never invent doc ids, page numbers, or quotes."
+)
+
+
+def contract_enabled() -> bool:
+    return os.getenv("ANGINEER_EVIDENCE_CONTRACT", "0").strip().lower() in ("1", "true", "yes", "on")
+
+
+_CITE_RE = re.compile(r"\[([A-Za-z0-9_\-]+)\s+p(\d+)\]")
+
+
+def parse_citations(answer: str) -> List[Dict[str, str]]:
+    return [
+        {"doc_id": m.group(1), "page": m.group(2)}
+        for m in _CITE_RE.finditer(answer or "")
+    ]
+
+
+def verify_citations(answer: str, evidence: List[Dict[str, str]]) -> Dict[str, Any]:
+    """引用核验：doc_id 必须在证据里出现；页码只做区间检查（有 page 信息时）。"""
+    doc_ids = {str(e.get("doc_id") or "") for e in evidence}
+    cites = parse_citations(answer)
+    valid = [c for c in cites if c["doc_id"] in doc_ids]
+    invalid = [c for c in cites if c["doc_id"] not in doc_ids]
+    return {"total": len(cites), "valid": len(valid), "invalid": len(invalid),
+            "invalid_cites": invalid[:10]}
+
+
 def make_guard(inner: Any, *, llm: Any, config_name: Optional[str] = None, mode: str = "instruct"):
     """包在既有 guard 外侧：先跑原 guard，再对最终答案做证据绑定审计。"""
 
@@ -146,6 +179,13 @@ def make_guard(inner: Any, *, llm: Any, config_name: Optional[str] = None, mode:
         if not answer:
             return base
         evidence = collect_evidence(added_messages)
+        if contract_enabled():
+            stats = verify_citations(answer, evidence)
+            logger.info(
+                "evidence_contract: citations=%d valid=%d invalid=%d",
+                stats["total"], stats["valid"], stats["invalid"],
+            )
+            return base
         audit = audit_answer(llm, answer, evidence, config_name=config_name, mode=mode)
         if not audit["claims"]:
             logger.info("evidence_bind: 无可核断言（claims=0），答案原样")

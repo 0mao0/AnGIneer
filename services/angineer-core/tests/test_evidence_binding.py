@@ -67,6 +67,22 @@ def test_verify_and_strip():
     assert "1038-00001" in new
 
 
+def test_parse_and_verify_citations():
+    answer = "Deal A drew a Second Request [d1 p3]. Deal B did not [d9 p1]."
+    cites = eb.parse_citations(answer)
+    assert cites == [{"doc_id": "d1", "page": "3"}, {"doc_id": "d9", "page": "1"}]
+    stats = eb.verify_citations(answer, [{"doc_id": "d1", "text": TEXT}])
+    assert stats["total"] == 2 and stats["valid"] == 1 and stats["invalid"] == 1
+
+
+def test_contract_mode_does_not_rewrite(monkeypatch):
+    monkeypatch.setenv("ANGINEER_EVIDENCE_CONTRACT", "1")
+    assert eb.contract_enabled()
+    guard = eb.make_guard(None, llm=object())
+    msgs = [_Msg("assistant", "Deal A [d1 p3]."), _tool({"items": [{"doc_id": "d1", "text": TEXT}]})]
+    assert guard(msgs) is None  # 契约模式只核验，不改写
+
+
 def test_guard_degrades_without_claims(monkeypatch):
     monkeypatch.setattr(eb, "audit_answer", lambda *a, **k: {"claims": [], "supported": 0, "unsupported": 0})
     guard = eb.make_guard(None, llm=object())

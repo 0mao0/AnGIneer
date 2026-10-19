@@ -573,6 +573,13 @@ def build_qa_config(
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
     if enum_context:
         system_prompt += "\n\n" + str(enum_context).strip()
+    try:
+        from angineer_core.evidence_binding import CITATION_CONTRACT, contract_enabled
+
+        if contract_enabled():
+            system_prompt += "\n\n" + CITATION_CONTRACT
+    except Exception:  # noqa: BLE001
+        pass
 
     followup_enabled = _followup_question_enabled() if followup_question is None else bool(followup_question)
     if followup_enabled:
@@ -937,6 +944,13 @@ def build_complex_config(
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
     if enum_context:
         system_prompt += "\n\n" + str(enum_context).strip()
+    try:
+        from angineer_core.evidence_binding import CITATION_CONTRACT, contract_enabled
+
+        if contract_enabled():
+            system_prompt += "\n\n" + CITATION_CONTRACT
+    except Exception:  # noqa: BLE001
+        pass
 
     complex_followup = _followup_question_enabled() and _complex_followup_question_enabled()
     if complex_followup:
