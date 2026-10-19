@@ -212,7 +212,20 @@ def _catalog_filter_hits(
     return out
 
 
-# 文档类型规则（先规则后模型：覆盖常见法律/工程/学术语料，未知归 other）
+# 文档类型规则（先规则后模型：覆盖法律/工程规范/学术语料，未知归 other）
+# 顺序很重要：标准号前缀 → 具体文书 → 政策 → 规范词 → 报告 → 论文 → 其他。
+_STANDARD_CODE_RE = re.compile(
+    r"^\s*(?:GB(?:/T|_T)?|JTS?|JTG|JT[_/]T|DB\d*|SL|DL|CJJ|TB|HG|SH|SY|NB|"
+    r"ISO|IEC|EN|ASTM|API|BS|DIN|ANSI)\s*[_\-/]?\s*\d",
+    re.I,
+)
+_POLICY_KEYS = ("制度", "管理办法", "办法", "实施细则", "细则", "通知", "意见", "方案", "政策")
+_STANDARD_KEYS = ("规范", "标准", "规程", "规定", "导则", "技术要求", "技术条件", "图集", "条文")
+_REPORT_KEYS = (
+    "检测报告", "评估报告", "试验报告", "监测报告", "审计报告", "调查报告", "研究报告",
+    "年度报告", "白皮书", "bulletin", "report",
+)
+_REPORT_EXCLUDE_RE = re.compile(r"报告(?:编制|格式|模板|导则)")
 _DOC_TYPE_RULES = (
     ("memo", ("memo", "memorandum", "备忘", "纪要")),
     ("agreement", ("agreement", "contract", "spa", "credit agreement", "lease", "协议", "合同")),
@@ -220,19 +233,27 @@ _DOC_TYPE_RULES = (
     ("order", ("order", "judgment", "decree", "opinion", "裁定", "判决")),
     ("filing", ("filing", "notification", "form", "hsr", "申报", "备案")),
     ("invoice", ("invoice", "billing", "发票", "账单")),
-    ("policy", ("policy", "procedure", "guideline", "制度", "规程", "规定")),
-    ("report", ("report", "expert", "报告")),
     ("statement", ("statement", "certificate", "证明", "证书")),
-    ("standard", ("standard", "specification", "规范", "标准", "GB ", "JTS")),
-    ("paper", ("abstract", "arxiv", "论文")),
 )
 
 
 def classify_doc_type(filename: str, title: str = "") -> str:
-    hay = f"{filename} {title}".lower()
+    """规则分类。标准号前缀优先：`GB 17380 …规定` 是规范，不是「政策/规定」。"""
+    hay = f"{filename} {title}".strip()
+    low = hay.lower()
+    if _STANDARD_CODE_RE.match(str(filename or "").strip()) or _STANDARD_CODE_RE.match(str(title or "").strip()):
+        return "standard"
     for name, keys in _DOC_TYPE_RULES:
-        if any(k.lower() in hay for k in keys):
+        if any(k.lower() in low for k in keys):
             return name
+    if any(k in hay for k in _POLICY_KEYS):
+        return "policy"
+    if any(k in hay for k in _STANDARD_KEYS):
+        return "standard"
+    if any(k in low for k in _REPORT_KEYS) and not _REPORT_EXCLUDE_RE.search(hay):
+        return "report"
+    if any(k in low for k in ("abstract", "arxiv", "论文", "proceedings", "journal", "thesis", "et al.")):
+        return "paper"
     return "other"
 
 
@@ -260,13 +281,26 @@ def backfill_semantic_fields(conn: sqlite3.Connection, library_id: str, batch: i
             titles[r["doc_id"]] = path.split(" / ")[-1].strip() or path
     except sqlite3.OperationalError:
         titles = {}
+    abstract_docs: set[str] = set()
+    try:
+        abstract_docs = {
+            r[0]
+            for r in conn.execute(
+                "select distinct doc_id from doc_blocks where page_idx=0 and block_type='title' "
+                "and lower(title_path) like '%abstract%'"
+            )
+        }
+    except sqlite3.OperationalError:
+        abstract_docs = set()
     updates = []
     for doc_id, filename in names.items():
         stem = re.sub(r"\.[A-Za-z0-9]{1,6}$", "", filename or "")
         block_title = titles.get(doc_id) or ""
         title = block_title or stem
-        updates.append((title, classify_doc_type(filename, title),
-                        "block" if block_title else "filename", library_id, doc_id))
+        dtype = classify_doc_type(filename, title)
+        if dtype == "other" and doc_id in abstract_docs:
+            dtype = "paper"  # 首屏有 Abstract 标题块：学术论文（编号文件名也能识别）
+        updates.append((title, dtype, "block" if block_title else "filename", library_id, doc_id))
     conn.executemany(
         "update doc_catalog set title_semantic=?, doc_type_semantic=?, title_source=? "
         "where library_id=? and doc_id=?",

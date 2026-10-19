@@ -179,6 +179,20 @@ def test_list_matters_without_catalog(tmp_path, monkeypatch):
     assert doc_search.list_matters("lib")["catalog"] is False
 
 
+@pytest.mark.parametrize("name,expected", [
+    ("GB 17380-1998 中国海区水中建(构)筑物标志规定.pdf", "standard"),
+    ("GB_T 17872-2009 江海直达货船船型尺度系列.pdf", "standard"),
+    ("DB 13_T 5154-2019 高速公路高性能混凝土应用技术规程.pdf", "standard"),
+    ("JT_T 828-2019 公路水运试验检测数据报告编制导则.pdf", "standard"),
+    ("2024年度检测报告.pdf", "report"),
+    ("second-request-strategy-memo.docx", "memo"),
+    ("credit-agreement-execution.docx", "agreement"),
+    ("2409.16644v2.pdf", "other"),
+])
+def test_classify_doc_type(name, expected):
+    assert doc_search.classify_doc_type(name) == expected
+
+
 def test_read_documents_head_and_match(library_db):
     head = doc_search.read_documents(library_id="lib", doc_ids=["d1"], max_chars_per_doc=500)
     doc = head["docs"][0]
