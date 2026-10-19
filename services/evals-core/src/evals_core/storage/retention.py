@@ -28,7 +28,7 @@ from typing import Any, Dict, Optional
 from . import result_store
 
 # 过程快照字段：仅排查用，判分/报告/门禁不读（字段清单按 2026-09-15 实测定型）
-SNAPSHOT_KEYS = ("retrieval_debug", "retrieved_items", "evidences", "route_debug", "flow_debug", "trace_meta")
+SNAPSHOT_KEYS = ("retrieval_debug", "retrieved_items", "evidences", "route_debug", "flow_debug", "trace_meta", "trace")
 
 KEEP_FULL_DAYS_DEFAULT = 3
 DELETE_AFTER_DAYS_DEFAULT = 90

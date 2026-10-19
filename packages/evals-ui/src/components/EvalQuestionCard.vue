@@ -550,187 +550,128 @@
         </div>
       </div>
 
-      <div v-else-if="detail" class="eval-chain">
-        <div class="eval-chain__title">
-          {{ knowledgeTraceTitle }}
-          <a-spin v-if="evaluating" size="small" class="eval-chain__spinner" />
-        </div>
-        <div
-          v-for="(step, idx) in knowledgeTraceSteps"
-          :key="step.key"
-          class="eval-chain__step"
-        >
-          <span class="eval-chain__badge">{{ idx + 1 }}</span>
-          <a-tag v-if="step.timing !== undefined" color="processing" class="eval-chain__timing">
-            {{ (step.timing as number).toFixed(2) }}s
-          </a-tag>
-          <span class="eval-chain__label">{{ step.label }}</span>
-          <span class="eval-chain__value">{{ step.value }}</span>
-          <a-button
-            v-if="step.hasDetail"
-            type="link"
-            size="small"
-            @click.stop="toggleStep(step.key)"
+      <template v-else-if="detail">
+        <TraceTimeline
+          :title="knowledgeTraceTitle"
+          :trace="tracePayload"
+          :intent="intentDebug"
+          :stage-timings="stageTimings"
+          :evaluating="evaluating"
+        />
+
+        <!-- 引用证据：trace 工具卡只放结果预览，完整引用仍单独列 -->
+        <div v-if="citations.length" class="eval-section">
+          <div class="eval-section__title">引用证据</div>
+          <div
+            v-for="(c, ci) in citations"
+            :key="`citation-${ci}`"
+            class="eval-citation-card"
           >
-            {{ isExpanded(step.key) ? '收起' : '详情' }}
-          </a-button>
-          <div v-if="step.hasDetail && isExpanded(step.key)" class="eval-chain__detail">
-            <!-- 意图识别详情 -->
-            <template v-if="step.label === '意图识别'">
-              <div class="eval-detail-row">
-                <span class="eval-detail-label">任务类型:</span>
-                <span>{{ String(prediction?.task_type || question.task_type || '—') }}</span>
-              </div>
-              <div class="eval-detail-row">
-                <span class="eval-detail-label">识别层级:</span>
-                <span>{{ intentDebug.intent_level || traceMeta.level }}</span>
-              </div>
-              <div class="eval-detail-row">
-                <span class="eval-detail-label">首选层级:</span>
-                <span>{{ primaryIntentLevel || '—' }}</span>
-              </div>
-              <div class="eval-detail-row">
-                <span class="eval-detail-label">服务模式:</span>
-                <span>{{ intentDebug.service_mode || traceMeta.service_mode || '—' }}</span>
-              </div>
-              <div v-if="intentDebug.reason" class="eval-detail-block">
-                <div class="eval-prompt-label">判定理由:</div>
-                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(intentDebug.reason)" />
-              </div>
-              <div class="eval-detail-row">
-                <span class="eval-detail-label">元 SOP:</span>
-                <span>{{ metaSopPath }}</span>
-              </div>
-            </template>
-
-            <!-- 证据检索详情 -->
-            <template v-if="step.label === '证据检索' || step.label === '条款/查表定位'">
-              <div
-                v-for="(c, ci) in citations"
-                :key="`citation-${ci}`"
-                class="eval-citation-card"
-              >
-                <div class="eval-citation-meta">
-                  <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-                  <span
-                    v-if="c.score !== undefined && c.score !== null && c.score !== ''"
-                    class="eval-citation-score"
-                  >得分: {{ Number(c.score).toFixed(4) }}</span>
-                  <span v-if="c.fusion_sources && c.fusion_sources.length" class="eval-citation-source">
-                    来源: {{ formatFusionSources(c.fusion_sources) }}
-                  </span>
-                </div>
-                <div v-if="getCitationEntryLabel(c)" class="eval-citation-location">
-                  {{ getCitationEntryLabel(c) }}
-                </div>
-                <div v-if="getCitationDocTitle(c)" class="eval-citation-location">
-                  {{ getCitationDocTitle(c) }}
-                  <template v-if="getCitationPageLabel(c)"> · 页码: P{{ getCitationPageLabel(c) }}</template>
-                </div>
-                <div v-if="getCitationSectionPath(c)" class="eval-citation-section">
-                  章节: {{ getCitationSectionPath(c) }}
-                </div>
-                <div
-                  v-if="getCitationText(c)"
-                  class="eval-citation-content"
-                  v-html="renderRichText(getCitationText(c).slice(0, 2000))"
-                />
-              </div>
-              <div v-if="!citations.length" class="eval-detail-empty">无检索结果</div>
-              <div v-if="step.label === '条款/查表定位'" class="eval-detail-row">
-                <span class="eval-detail-label">查询策略:</span>
-                <span>{{ String(prediction?.strategy || routeDebug.route_kind || '—') }}</span>
-              </div>
-              <div v-if="sqlDebug" class="eval-sql-debug">
-                <div class="eval-prompt-label">SQL 执行详情</div>
-                <div class="eval-detail-row">
-                  <span class="eval-detail-label">执行状态:</span>
-                  <span :class="sqlDebug.execution_success ? 'eval-sql-success' : 'eval-sql-fail'">
-                    {{ sqlDebug.execution_success ? '成功' : '失败' }}
-                  </span>
-                  <span v-if="sqlDebug.score !== undefined" class="eval-sql-score">
-                    得分: {{ (sqlDebug.score * 100).toFixed(0) }}
-                  </span>
-                </div>
-                <div v-if="sqlDebug.execution_status" class="eval-detail-row">
-                  <span class="eval-detail-label">执行状态码:</span>
-                  <span>{{ sqlDebug.execution_status }}</span>
-                </div>
-                <div v-if="sqlDebug.generated_sql" class="eval-prompt-block">
-                  <div class="eval-prompt-label">生成 SQL:</div>
-                  <pre class="eval-sql-code">{{ sqlDebug.generated_sql }}</pre>
-                </div>
-                <div v-if="question.sql_gold?.expected_sql" class="eval-prompt-block">
-                  <div class="eval-prompt-label">期望 SQL:</div>
-                  <pre class="eval-sql-code">{{ question.sql_gold.expected_sql }}</pre>
-                </div>
-                <div v-if="sqlDebug.sql_exact_match !== undefined" class="eval-detail-row">
-                  <span class="eval-detail-label">SQL 精确匹配:</span>
-                  <span :class="sqlDebug.sql_exact_match ? 'eval-sql-success' : 'eval-sql-fail'">
-                    {{ sqlDebug.sql_exact_match ? '是' : '否' }}
-                  </span>
-                </div>
-                <div v-if="sqlDebug.execution_result" class="eval-prompt-block">
-                  <div class="eval-prompt-label">执行结果:</div>
-                  <pre class="eval-sql-code">{{ sqlDebug.execution_result }}</pre>
-                </div>
-                <div v-if="sqlDebug.error" class="eval-sql-error">
-                  错误: {{ sqlDebug.error }}
-                </div>
-              </div>
-              <div v-if="retrievalScores" class="eval-retrieval-scores">
-                <div class="eval-detail-row">
-                  <span class="eval-detail-label">检索评测:</span>
-                  <span>
-                    <template v-if="retrievalScores['hit@3'] !== undefined && retrievalScores['hit@3'] !== null">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
-                    <template v-if="retrievalScores['hit@5'] !== undefined && retrievalScores['hit@5'] !== null">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
-                    <template v-if="retrievalScores.mrr !== undefined && retrievalScores.mrr !== null">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
-                    <template v-if="retrievalScores.evaluated === false">未评测（无检索标准）</template>
-                  </span>
-                </div>
-              </div>
-            </template>
-
-            <!-- Prompt 拼装详情 -->
-            <template v-if="step.label === 'Prompt 拼装'">
-              <div v-if="systemPromptText" class="eval-prompt-block">
-                <div class="eval-prompt-label">System Prompt:</div>
-                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(systemPromptText)" />
-              </div>
-              <div class="eval-prompt-block">
-                <div class="eval-prompt-label">User Message - 问题:</div>
-                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(question.question)" />
-              </div>
-              <div class="eval-prompt-block">
-                <div class="eval-prompt-label">User Message - 证据片段:</div>
-                <div
-                  v-for="(c, ci) in citations.slice(0, 5)"
-                  :key="`prompt-citation-${ci}`"
-                  class="eval-prompt-citation"
-                >
-                  <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-                  {{ getCitationText(c).slice(0, 200) || '(无片段)' }}
-                </div>
-              </div>
-            </template>
-
-            <!-- LLM 回答详情 -->
-            <template v-if="step.label === 'LLM 回答'">
-              <div v-if="prediction?.thinking" class="eval-thinking-block">
-                <div class="eval-prompt-label">思考过程:</div>
-                <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(prediction.thinking)" />
-              </div>
-              <div v-if="answerHeadline" class="eval-answer-summary">
-                {{ answerHeadline }}
-              </div>
-              <div class="eval-prompt-block">
-                <div class="eval-prompt-label">最终回答:</div>
-                <div class="eval-rich-text eval-rich-text--answer" v-html="renderRichText(answerText)" />
-              </div>
-            </template>
+            <div class="eval-citation-meta">
+              <span class="eval-citation-index">[{{ ci + 1 }}]</span>
+              <span
+                v-if="c.score !== undefined && c.score !== null && c.score !== ''"
+                class="eval-citation-score"
+              >得分: {{ Number(c.score).toFixed(4) }}</span>
+              <span v-if="c.fusion_sources && c.fusion_sources.length" class="eval-citation-source">
+                来源: {{ formatFusionSources(c.fusion_sources) }}
+              </span>
+            </div>
+            <div v-if="getCitationEntryLabel(c)" class="eval-citation-location">
+              {{ getCitationEntryLabel(c) }}
+            </div>
+            <div v-if="getCitationDocTitle(c)" class="eval-citation-location">
+              {{ getCitationDocTitle(c) }}
+              <template v-if="getCitationPageLabel(c)"> · 页码: P{{ getCitationPageLabel(c) }}</template>
+            </div>
+            <div v-if="getCitationSectionPath(c)" class="eval-citation-section">
+              章节: {{ getCitationSectionPath(c) }}
+            </div>
+            <div
+              v-if="getCitationText(c)"
+              class="eval-citation-content"
+              v-html="renderRichText(getCitationText(c).slice(0, 2000))"
+            />
           </div>
         </div>
-      </div>
+
+        <!-- Prompt 拼装：默认折叠，保留排查入口 -->
+        <details v-if="systemPromptText || citations.length" class="eval-section eval-prompt-details">
+          <summary>Prompt 拼装</summary>
+          <div v-if="systemPromptText" class="eval-prompt-block">
+            <div class="eval-prompt-label">System Prompt:</div>
+            <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(systemPromptText)" />
+          </div>
+          <div class="eval-prompt-block">
+            <div class="eval-prompt-label">User Message - 问题:</div>
+            <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(question.question)" />
+          </div>
+          <div class="eval-prompt-block">
+            <div class="eval-prompt-label">User Message - 证据片段:</div>
+            <div
+              v-for="(c, ci) in citations.slice(0, 5)"
+              :key="`prompt-citation-${ci}`"
+              class="eval-prompt-citation"
+            >
+              <span class="eval-citation-index">[{{ ci + 1 }}]</span>
+              {{ getCitationText(c).slice(0, 200) || '(无片段)' }}
+            </div>
+          </div>
+        </details>
+
+        <!-- SQL 执行详情（L2） -->
+        <div v-if="sqlDebug" class="eval-section eval-sql-debug">
+          <div class="eval-section__title">SQL 执行详情</div>
+          <div class="eval-detail-row">
+            <span class="eval-detail-label">执行状态:</span>
+            <span :class="sqlDebug.execution_success ? 'eval-sql-success' : 'eval-sql-fail'">
+              {{ sqlDebug.execution_success ? '成功' : '失败' }}
+            </span>
+            <span v-if="sqlDebug.score !== undefined" class="eval-sql-score">
+              得分: {{ (sqlDebug.score * 100).toFixed(0) }}
+            </span>
+          </div>
+          <div v-if="sqlDebug.execution_status" class="eval-detail-row">
+            <span class="eval-detail-label">执行状态码:</span>
+            <span>{{ sqlDebug.execution_status }}</span>
+          </div>
+          <div v-if="sqlDebug.generated_sql" class="eval-prompt-block">
+            <div class="eval-prompt-label">生成 SQL:</div>
+            <pre class="eval-sql-code">{{ sqlDebug.generated_sql }}</pre>
+          </div>
+          <div v-if="question.sql_gold?.expected_sql" class="eval-prompt-block">
+            <div class="eval-prompt-label">期望 SQL:</div>
+            <pre class="eval-sql-code">{{ question.sql_gold.expected_sql }}</pre>
+          </div>
+          <div v-if="sqlDebug.sql_exact_match !== undefined" class="eval-detail-row">
+            <span class="eval-detail-label">SQL 精确匹配:</span>
+            <span :class="sqlDebug.sql_exact_match ? 'eval-sql-success' : 'eval-sql-fail'">
+              {{ sqlDebug.sql_exact_match ? '是' : '否' }}
+            </span>
+          </div>
+          <div v-if="sqlDebug.execution_result" class="eval-prompt-block">
+            <div class="eval-prompt-label">执行结果:</div>
+            <pre class="eval-sql-code">{{ sqlDebug.execution_result }}</pre>
+          </div>
+          <div v-if="sqlDebug.error" class="eval-sql-error">
+            错误: {{ sqlDebug.error }}
+          </div>
+        </div>
+
+        <!-- 检索评测 -->
+        <div v-if="retrievalScores" class="eval-section eval-retrieval-scores">
+          <div class="eval-section__title">检索评测</div>
+          <div class="eval-detail-row">
+            <span class="eval-detail-label">指标:</span>
+            <span>
+              <template v-if="retrievalScores['hit@3'] !== undefined && retrievalScores['hit@3'] !== null">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
+              <template v-if="retrievalScores['hit@5'] !== undefined && retrievalScores['hit@5'] !== null">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
+              <template v-if="retrievalScores.mrr !== undefined && retrievalScores.mrr !== null">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
+              <template v-if="retrievalScores.evaluated === false">未评测（无检索标准）</template>
+            </span>
+          </div>
+        </div>
+      </template>
 
       <!-- 正确性校验 -->
       <div v-if="correctnessSummary" class="eval-section">
@@ -896,7 +837,8 @@ import {
   type EvalCitationItem,
 } from '../utils/citation'
 import EvalLevelBadge from './EvalLevelBadge.vue'
-import type { EvalQuestion, EvalRunDetail, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
+import TraceTimeline from './TraceTimeline.vue'
+import type { EvalQuestion, EvalRunDetail, EvalTrace, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
 
 interface ThinkingStep {
   key: string
@@ -1120,6 +1062,13 @@ const displayStatusTag = computed(() => {
 const prediction = computed(() => {
   const p = props.detail?.prediction as Record<string, unknown> | null
   return p
+})
+
+/** 事件流 trace（policy_query 写时投影）；旧 run 没有则为 null */
+const tracePayload = computed<EvalTrace | null>(() => {
+  const trace = prediction.value?.trace
+  if (!trace || typeof trace !== 'object' || Array.isArray(trace)) return null
+  return trace as EvalTrace
 })
 
 const traceMeta = computed<Record<string, unknown>>(() => {
@@ -1637,63 +1586,6 @@ const answerHeadline = computed(() => {
 /** 判断步骤状态是否应视为错误。 */
 const isErrorStatus = (status: string) => ['error', 'failed', 'fail'].includes(status)
 
-const knowledgeTraceSteps = computed<ThinkingStep[]>(() => {
-  const steps: ThinkingStep[] = []
-  const timings = stageTimings.value
-  steps.push({
-    key: 'knowledge-intent',
-    label: '意图识别',
-    value: formatIntentLabel(),
-    hasDetail: true,
-    detailType: 'intent',
-    timing: timings['intent'],
-  })
-  if (citations.value.length) {
-    const rd = (prediction.value?.retrieval_debug as Record<string, unknown>) || {}
-    const sources = (rd.sources as Record<string, Record<string, unknown>>) || {}
-    const denseCount = ((sources.canonical_dense?.input_hits as number) || 0)
-    const sparseCount = ((sources.canonical_sparse?.input_hits as number) || 0)
-    let tableCount = 0
-    for (const key of Object.keys(sources)) {
-      if (key.startsWith('table_') || key.startsWith('table')) {
-        tableCount += (sources[key]?.input_hits as number) || 0
-      }
-    }
-    const deduped = (rd.deduped_hits as number) || citations.value.length
-    steps.push({
-      key: 'knowledge-evidence',
-      label: currentIntentLevel.value === 'L2' ? '条款/查表定位' : '证据检索',
-      value: `模糊语义 ${denseCount} 条 | 精确匹配 ${sparseCount} 条 | 表格 ${tableCount} 条 = 去重后 ${deduped} 条`,
-      hasDetail: true,
-      detailType: 'route',
-      timing: timings['retrieval'],
-    })
-  }
-  if (citations.value.length && prediction.value?.answer) {
-    const promptTokens = (timings['prompt_tokens'] as number) || 0
-    steps.push({
-      key: 'knowledge-prompt',
-      label: 'Prompt 拼装',
-      value: promptTokens ? `${promptTokens} tokens` : 'System Prompt + 问题 + 证据 → LLM',
-      hasDetail: true,
-      timing: timings['prompt'],
-    })
-  }
-  if (prediction.value?.answer) {
-    steps.push({
-      key: 'knowledge-answer',
-      label: 'LLM 回答',
-      value: 'LLM 生成',
-      hasDetail: true,
-      timing: getStageTiming('llm', 'answer', 'generation'),
-    })
-  }
-  // 渐进展示：评测中时只显示意图步骤，完成后显示全部
-  if (props.detail?.status === 'completed') return steps
-  if (currentStage.value === 'intent') return steps.slice(0, 1)
-  return steps
-})
-
 const casualTraceSteps = computed<ThinkingStep[]>(() => {
   const timings = stageTimings.value
   const allSteps: ThinkingStep[] = [
@@ -1868,21 +1760,6 @@ const enrichedQuestion = computed(() => {
   }
   q.taskTypeLabel = taskTypeLabels[q.task_type] || q.task_type
   return q
-})
-
-const metaSopPath = computed(() => {
-  if (hasTieredRouting.value) {
-    return formatExecutionPlanText(executionPlan.value)
-  }
-  const level = currentIntentLevel.value || 'L1'
-  const approachMap: Record<string, string> = {
-    L0: '闲聊直答 → 回答（非工程规范问题，不进入检索与 SOP）',
-    L1: '语义检索 → 直接回答（基于检索到的规范条文给出定义/组成）',
-    L2: '语义检索 → 条款定位 → 回答（定位到具体条款后给出答案）',
-    L3: '标准 SOP 执行 → 步骤推进 → 回答（命中预定义 SOP 并执行）',
-    L4: '动态 SOP 执行 → 步骤推进 → 回答（通过 LLM 生成临时 SOP 并执行）',
-  }
-  return approachMap[level] || '—'
 })
 
 const systemPromptText = computed(() => {
@@ -2773,6 +2650,15 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &--error {
     color: @evals-error;
     font-size: 12px;
+  }
+}
+
+.eval-prompt-details {
+  summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
   }
 }
 

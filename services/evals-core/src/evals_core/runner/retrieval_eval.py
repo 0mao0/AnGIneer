@@ -202,6 +202,7 @@ class RetrievalEvaluator(BaseEvaluator):
             "intent": partial.get("intent", {}),
             "runtime_flags": list(partial.get("runtime_flags") or []),
             "stage": partial.get("stage", ""),
+            "trace": partial.get("trace"),
         }
         stage_callback(enrich_prediction_trace(question, partial, prediction))
 
@@ -242,6 +243,7 @@ class RetrievalEvaluator(BaseEvaluator):
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
             "runtime_flags": list(data.get("runtime_flags") or []),
+            "trace": data.get("trace"),
             # 证据上桌/软帽留痕（policy_query 聚合 _admission）→ evaluate 写入 all_scores.retrieval.admission
             "admission": data.get("admission"),
         }

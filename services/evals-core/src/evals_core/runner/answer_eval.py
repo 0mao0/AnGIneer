@@ -432,6 +432,8 @@ class AnswerEvaluator(BaseEvaluator):
             "stage_timings": partial.get("stage_timings", {}),
             "intent": partial.get("intent", {}),
             "stage": partial.get("stage", ""),
+            # 事件流 trace（policy_query 写时投影）：评测页据此渲染，不再派生四步链
+            "trace": partial.get("trace"),
         }
         stage_callback(enrich_prediction_trace(question, partial, prediction))
 
@@ -478,6 +480,7 @@ class AnswerEvaluator(BaseEvaluator):
             "retrieval_debug": data.get("retrieval_debug", {}),
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
+            "trace": data.get("trace"),
             "scope": data.get("scope", {}),
             "evidences": list(data.get("evidences") or []),
             # 哨兵 b：链路被吞掉的 LLM 失败随 prediction 持久化——判分标注与

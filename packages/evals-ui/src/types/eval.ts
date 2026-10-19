@@ -224,3 +224,29 @@ export interface EvalCompareResult {
     change: 'improved' | 'regressed' | null
   }>
 }
+
+/** 单条 agent 事件（与 angineer-core AgentEvent 同构；payload 随 type 变化） */
+export interface EvalTraceEvent {
+  type: string
+  run_id?: string
+  turn?: number
+  ts?: number
+  payload?: Record<string, unknown>
+}
+
+/** 写时算好的 trace 摘要：前端不必解析事件数组 */
+export interface EvalTraceSummary {
+  turns?: number
+  tool_calls?: number
+  duration_ms?: number
+  reason?: string
+  final_outcome?: string | null
+  path_trace?: string[]
+}
+
+/** policy_query 落在 prediction.trace 的事件流投影 */
+export interface EvalTrace {
+  version?: number
+  events?: EvalTraceEvent[]
+  summary?: EvalTraceSummary | null
+}

@@ -182,6 +182,9 @@ def run_policy_query(
         messages: List[AgentMessage] = [AgentMessage(role="user", content=query)]
         added = run_agent_loop(messages, config, emit=collector.emit)
         loop_seconds = round(time.time() - t1, 3)
+        # trace 唯一真相源：事件流（过滤流式增量）+ 写时算好的 summary。
+        # 评测页直接渲染它，不再从 retrieval_debug 派生四步链。
+        trace_payload = collector.trace_payload(duration_ms=int(loop_seconds * 1000))
 
         run_payload = collector.run_end_payload()
         reason = str(run_payload.get("reason") or "completed")
@@ -254,7 +257,6 @@ def run_policy_query(
                 "reason": reason,
                 "strategy": "policy_agent",
             },
-            "agent_events": collector.agent_events_dump(),
         }
         route_debug = {
             "route_kind": "policy",
@@ -280,6 +282,7 @@ def run_policy_query(
                     "citations": citations,
                     "retrieved_items": retrieved_items,
                     "evidences": evidences,
+                    "trace": trace_payload,
                 })
             except Exception as exc:  # noqa: BLE001
                 logger.warning("stage_callback 异常（已忽略）: %s", exc)
@@ -308,6 +311,8 @@ def run_policy_query(
             "strategy": strategy,
             "system_prompt": "",
             "retrieval_debug": retrieval_debug,
+            # trace 唯一真相源（事件流 + summary）：评测页直接渲染，不再派生四步链
+            "trace": trace_payload,
             # 证据上桌/软帽留痕聚合（evals 经 prediction 写入 all_scores.retrieval.admission）
             "admission": _aggregate_admission(admission_blocks),
             "llm_errors": llm_errors,

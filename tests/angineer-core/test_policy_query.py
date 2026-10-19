@@ -95,6 +95,13 @@ class PolicyQueryTests(unittest.TestCase):
         self.assertGreaterEqual(result["latency_ms"], 0)
         self.assertIn("route_debug", result)
         self.assertIn("retrieval_debug", result)
+        self.assertNotIn("agent_events", result["retrieval_debug"])
+        # trace 是事件流的唯一投影：带版本、无流式增量、summary 写时算好
+        self.assertEqual(result["trace"]["version"], 1)
+        event_types = [event["type"] for event in result["trace"]["events"]]
+        self.assertNotIn("message_delta", event_types)
+        self.assertEqual(result["trace"]["summary"]["tool_calls"], 1)
+        self.assertGreater(result["trace"]["summary"]["duration_ms"], 0)
 
     def test_policy_query_marks_fallback_used(self):
         llm = MockLLM(lambda messages, kwargs: text_events("第一段" if len(llm.calls) == 1 else "第二段答案"))

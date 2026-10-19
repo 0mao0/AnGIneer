@@ -108,6 +108,31 @@ class RefusalMissSupportCheckTests(unittest.TestCase):
         self.assertIsNone(result["evidence_supported"])
 
 
+class AnswerTracePersistenceTests(unittest.TestCase):
+    """policy_query 的事件流 trace 必须随 prediction 落库（评测页据此渲染）。"""
+
+    def test_run_prediction_keeps_trace(self):
+        evaluator = AnswerEvaluator()
+        trace = {
+            "version": 1,
+            "events": [{"type": "run_start"}, {"type": "tool_end"}],
+            "summary": {"turns": 1, "tool_calls": 1},
+        }
+        with mock.patch(
+            "evals_core.runner.answer_eval.run_eval_query",
+            return_value={
+                "answer": "答案",
+                "citations": [],
+                "retrieved_items": [],
+                "trace": trace,
+            },
+        ):
+            prediction = evaluator.run_prediction(
+                {"question_id": "q1", "question": "问题"}
+            )
+        self.assertEqual(prediction["trace"], trace)
+
+
 class RefusalMissSummaryTests(unittest.TestCase):
     """suite_runner 聚合：有据未拒与真幻觉分别计数，不改 refusal_accuracy 口径。"""
 

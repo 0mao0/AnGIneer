@@ -32,6 +32,7 @@ class Text2SqlEvaluator(BaseEvaluator):
             "system_prompt": partial.get("system_prompt", ""),
             "retrieval_debug": partial.get("retrieval_debug", {}),
             "stage": partial.get("stage", ""),
+            "trace": partial.get("trace"),
         }
         stage_callback(enrich_prediction_trace(question, partial, prediction))
 
@@ -66,6 +67,7 @@ class Text2SqlEvaluator(BaseEvaluator):
             "system_prompt": data.get("system_prompt", ""),
             "retrieval_debug": data.get("retrieval_debug", {}),
             "intent": data.get("intent", {}),
+            "trace": data.get("trace"),
         }
         return enrich_prediction_trace(question, data, prediction)
 

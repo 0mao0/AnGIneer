@@ -1040,14 +1040,14 @@ def get_run_detail(run_id: str, question_id: str, light: bool = False) -> Option
 
 
 # 展开单题首屏不需要的 prediction 大块，分两档：
-# - prediction 顶层删证据副本（retrieved_items/evidences），保留 retrieval_debug——
-#   分析链路"证据检索"步只读顶层这一份的命中数（retrieval_debug.sources/deduped_hits）。
-# - all_predictions 各重试快照删证据副本 + retrieval_debug：首屏 UI 只读快照内
-#   text2sql.generated_sql/execution_result，不读快照内的检索调试；且实测同一题的
+# - prediction 顶层删证据副本（retrieved_items/evidences），保留 trace——
+#   分析链路直接渲染事件流（prediction.trace），retrieval_debug 只留 agent 元信息。
+# - all_predictions 各重试快照删证据副本 + retrieval_debug/trace：首屏 UI 只读快照内
+#   text2sql.generated_sql/execution_result，不读快照内的检索调试/事件流；且实测同一题的
 #   retrieval/answer/sop 三份快照各带一份完全相同的 retrieval_debug（单例可达数百 KB×3），
 #   是最主要的载荷来源。完整原文走 full=true 取回。
 _EVIDENCE_COPY_KEYS = ("retrieved_items", "evidences")
-_SNAPSHOT_HEAVY_KEYS = ("retrieved_items", "evidences", "retrieval_debug")
+_SNAPSHOT_HEAVY_KEYS = ("retrieved_items", "evidences", "retrieval_debug", "trace")
 
 
 def _strip_heavy_prediction_fields(item: Dict[str, Any]) -> None:

@@ -42,8 +42,9 @@ PRED_FULL = {
     "route_debug": {"steps": [1, 2, 3]},
     "flow_debug": {"trace": "w" * 100},
     "trace_meta": {"ms": 123},
+    "trace": {"version": 1, "events": [{"type": "run_start"}], "summary": {"turns": 1}},
 }
-SNAPSHOT_KEYS = {"retrieval_debug", "retrieved_items", "evidences", "route_debug", "flow_debug", "trace_meta"}
+SNAPSHOT_KEYS = {"retrieval_debug", "retrieved_items", "evidences", "route_debug", "flow_debug", "trace_meta", "trace"}
 KEPT_KEYS = {"answer", "citations", "intent", "prompt_versions"}
 
 

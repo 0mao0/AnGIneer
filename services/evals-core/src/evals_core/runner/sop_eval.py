@@ -126,6 +126,7 @@ class SopEvaluator(BaseEvaluator):
             "stage_timings": data.get("stage_timings", {}),
             "intent": data.get("intent", {}),
             "sop_trace": data.get("sop_trace", []),
+            "trace": data.get("trace"),
         }
 
         result = enrich_prediction_trace(question, data, result)
