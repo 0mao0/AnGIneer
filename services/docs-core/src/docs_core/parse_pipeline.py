@@ -1415,6 +1415,13 @@ class ParseOrchestrator:
         ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
                        parse_error=parse_error)
         self._sync_record(old_task_id, doc_id, overall, parse_error)
+        if overall in ("completed", "partial"):
+            try:
+                from docs_core.step09_query.doc_search import refresh_doc_semantics
+
+                refresh_doc_semantics(library_id, doc_id)
+            except Exception as exc:  # noqa: BLE001 —— 目录刷新失败不影响解析结果
+                logger.warning("目录语义刷新失败 doc=%s: %s", doc_id, exc)
         return {"task_id": old_task_id, "status": overall, "synced": True}
 
     def _run_parse_task(
@@ -1515,6 +1522,13 @@ class ParseOrchestrator:
             ks.update_node(doc_id, status=overall, parse_progress=100, parse_stage=overall,
                            parse_error=parse_error or None, parse_task_id=task_id)
             self._sync_record(task_id, doc_id, overall, degraded_note or None)
+            if overall in ("completed", "partial"):
+                try:
+                    from docs_core.step09_query.doc_search import refresh_doc_semantics
+
+                    refresh_doc_semantics(library_id, doc_id)
+                except Exception as exc:  # noqa: BLE001 —— 目录刷新失败不影响解析结果
+                    logger.warning("目录语义刷新失败 doc=%s: %s", doc_id, exc)
         except ParseTaskCancelledError as exc:
             error_message = str(exc) or "用户手动取消任务"
             ks.update_parse_task(

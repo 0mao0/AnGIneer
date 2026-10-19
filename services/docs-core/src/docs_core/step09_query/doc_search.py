@@ -371,6 +371,61 @@ def upsert_catalog_doc(
             conn.close()
 
 
+def _doc_semantic(conn: sqlite3.Connection, doc_id: str, filename: str) -> tuple[str, str, str]:
+    """单篇语义标题/类型：首屏 title 块优先，Abstract 判论文，否则文件名。"""
+    block_title = ""
+    try:
+        row = conn.execute(
+            "select title_path from doc_blocks where doc_id=? and page_idx=0 and block_type='title' "
+            "and length(trim(title_path))>1 order by block_seq limit 1",
+            (doc_id,),
+        ).fetchone()
+        if row and row[0]:
+            path = str(row[0]).strip()
+            block_title = path.split(" / ")[-1].strip() or path
+    except sqlite3.OperationalError:
+        block_title = ""
+    stem = re.sub(r"\.[A-Za-z0-9]{1,6}$", "", filename or "")
+    title = block_title or stem
+    dtype = classify_doc_type(filename, title)
+    if dtype == "other":
+        try:
+            hit = conn.execute(
+                "select 1 from doc_blocks where doc_id=? and page_idx=0 and block_type='title' "
+                "and lower(title_path) like '%abstract%' limit 1",
+                (doc_id,),
+            ).fetchone()
+            if hit:
+                dtype = "paper"
+        except sqlite3.OperationalError:
+            pass
+    return title, dtype, ("block" if block_title else "filename")
+
+
+def refresh_doc_semantics(library_id: str, doc_id: str) -> Dict[str, Any]:
+    """解析完成后刷新单篇的语义标题/类型（目录行不存在则跳过，由回填脚本兜底）。"""
+    conn = _connect(library_id)
+    try:
+        ensure_catalog(conn)
+        if conn.row_factory is None:
+            conn.row_factory = sqlite3.Row
+        row = conn.execute(
+            "select filename from doc_catalog where library_id=? and doc_id=?", (library_id, doc_id)
+        ).fetchone()
+        if row is None:
+            return {"doc_id": doc_id, "skipped": "no catalog row"}
+        title, dtype, source = _doc_semantic(conn, doc_id, row["filename"] or "")
+        conn.execute(
+            "update doc_catalog set title_semantic=?, doc_type_semantic=?, title_source=? "
+            "where library_id=? and doc_id=?",
+            (title, dtype, source, library_id, doc_id),
+        )
+        conn.commit()
+        return {"doc_id": doc_id, "title": title, "doc_type": dtype, "title_source": source}
+    finally:
+        conn.close()
+
+
 def catalog_semantic_coverage(conn: sqlite3.Connection, library_id: str) -> Dict[str, Any]:
     """目录质量：文件名语义率、首屏标题率、类型覆盖率，供预取门禁决定是否启用目录谓词。
 

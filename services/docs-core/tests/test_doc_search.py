@@ -224,6 +224,15 @@ def test_upsert_catalog_doc_derives_group(library_db):
     assert stats["group_kinds"]["folder"] >= 1
 
 
+def test_refresh_doc_semantics(library_db):
+    out = doc_search.refresh_doc_semantics("lib", "d1")
+    assert out["title"] == "Second Request Strategy Memo"
+    assert out["title_source"] == "block"
+    assert out["doc_type"] == "memo"
+    # 没有目录行：跳过，由回填脚本兜底
+    assert doc_search.refresh_doc_semantics("lib", "d5").get("skipped")
+
+
 def test_read_documents_head_and_match(library_db):
     head = doc_search.read_documents(library_id="lib", doc_ids=["d1"], max_chars_per_doc=500)
     doc = head["docs"][0]
