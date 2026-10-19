@@ -963,14 +963,15 @@ async def upload_document(
 
     # 目录元数据：入库即写一行 doc_catalog（分组/谓词的唯一来源）；失败不影响上传
     try:
-        from docs_core.step09_query.doc_search import upsert_catalog_doc
+        from docs_core.step09_query.doc_search import catalog_write_enabled, upsert_catalog_doc
 
-        upsert_catalog_doc(
-            library_id=library_id,
-            doc_id=doc_id,
-            filename=file.filename or "",
-            rel_path=_node_folder_path(ks, normalized_parent_id),
-        )
+        if catalog_write_enabled():
+            upsert_catalog_doc(
+                library_id=library_id,
+                doc_id=doc_id,
+                filename=file.filename or "",
+                rel_path=_node_folder_path(ks, normalized_parent_id),
+            )
     except Exception as exc:  # noqa: BLE001
         logger.warning("doc_catalog 写入失败（上传继续）: %s", exc)
 

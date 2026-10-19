@@ -1417,9 +1417,10 @@ class ParseOrchestrator:
         self._sync_record(old_task_id, doc_id, overall, parse_error)
         if overall in ("completed", "partial"):
             try:
-                from docs_core.step09_query.doc_search import refresh_doc_semantics
+                from docs_core.step09_query.doc_search import catalog_write_enabled, refresh_doc_semantics
 
-                refresh_doc_semantics(library_id, doc_id)
+                if catalog_write_enabled():
+                    refresh_doc_semantics(library_id, doc_id)
             except Exception as exc:  # noqa: BLE001 —— 目录刷新失败不影响解析结果
                 logger.warning("目录语义刷新失败 doc=%s: %s", doc_id, exc)
         return {"task_id": old_task_id, "status": overall, "synced": True}
@@ -1524,9 +1525,10 @@ class ParseOrchestrator:
             self._sync_record(task_id, doc_id, overall, degraded_note or None)
             if overall in ("completed", "partial"):
                 try:
-                    from docs_core.step09_query.doc_search import refresh_doc_semantics
+                    from docs_core.step09_query.doc_search import catalog_write_enabled, refresh_doc_semantics
 
-                    refresh_doc_semantics(library_id, doc_id)
+                    if catalog_write_enabled():
+                        refresh_doc_semantics(library_id, doc_id)
                 except Exception as exc:  # noqa: BLE001 —— 目录刷新失败不影响解析结果
                     logger.warning("目录语义刷新失败 doc=%s: %s", doc_id, exc)
         except ParseTaskCancelledError as exc:

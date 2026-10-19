@@ -224,6 +224,13 @@ def test_upsert_catalog_doc_derives_group(library_db):
     assert stats["group_kinds"]["folder"] >= 1
 
 
+def test_catalog_write_switch(monkeypatch):
+    monkeypatch.delenv("ANGINEER_CATALOG_WRITE", raising=False)
+    assert doc_search.catalog_write_enabled()
+    monkeypatch.setenv("ANGINEER_CATALOG_WRITE", "0")
+    assert not doc_search.catalog_write_enabled()
+
+
 def test_refresh_doc_semantics(library_db):
     out = doc_search.refresh_doc_semantics("lib", "d1")
     assert out["title"] == "Second Request Strategy Memo"

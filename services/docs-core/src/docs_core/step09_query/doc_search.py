@@ -17,6 +17,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import re
 import sqlite3
 from typing import Any, Dict, List, Optional
@@ -319,6 +320,15 @@ def backfill_semantic_fields(conn: sqlite3.Connection, library_id: str, batch: i
     with_title = sum(1 for u in updates if u[0])
     typed = sum(1 for u in updates if u[1] != "other")
     return {"total": total, "with_title": with_title, "typed": typed, "titles_from_blocks": len(titles)}
+
+
+def catalog_write_enabled() -> bool:
+    """目录写入总开关（ANGINEER_CATALOG_WRITE，默认开）。
+
+    关掉后上传不再写 doc_catalog、解析完成不再刷新语义；检索侧读不到目录行，
+    自动退回内容检索，行为与改造前一致。
+    """
+    return os.getenv("ANGINEER_CATALOG_WRITE", "1").strip().lower() not in ("0", "false", "no", "off")
 
 
 def upsert_catalog_doc(
