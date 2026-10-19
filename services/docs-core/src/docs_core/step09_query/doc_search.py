@@ -226,6 +226,13 @@ _REPORT_KEYS = (
     "年度报告", "白皮书", "bulletin", "report",
 )
 _REPORT_EXCLUDE_RE = re.compile(r"报告(?:编制|格式|模板|导则)")
+# 法律/法规：中华人民共和国…法、…条例、…法典；英文 Act/Statute。
+# 不用裸「法」匹配（会误伤「方法/算法」），要求「法」后是括号/结尾/空白。
+_LAW_RE = re.compile(
+    r"(?:中华人民共和国[^，。；\s]{0,30}法(?:[（(]|$|\s|\.))|(?:[^方法算]法(?:[（(]|$|\s|\.))|(?:条例|法典)(?:[（(]|$|\s|\.)"
+    r"|(?:^|\s)(?:act|statute)(?:\s|$|\.)",
+    re.I,
+)
 _DOC_TYPE_RULES = (
     ("memo", ("memo", "memorandum", "备忘", "纪要")),
     ("agreement", ("agreement", "contract", "spa", "credit agreement", "lease", "协议", "合同")),
@@ -248,6 +255,8 @@ def classify_doc_type(filename: str, title: str = "") -> str:
             return name
     if any(k in hay for k in _POLICY_KEYS):
         return "policy"
+    if _LAW_RE.search(hay):
+        return "law"
     if any(k in hay for k in _STANDARD_KEYS):
         return "standard"
     if any(k in low for k in _REPORT_KEYS) and not _REPORT_EXCLUDE_RE.search(hay):
@@ -362,24 +371,34 @@ def catalog_predicate_usable(library_id: str, threshold: float = 0.3) -> bool:
 
 
 def list_matters(library_id: str, limit: int = 300) -> Dict[str, Any]:
-    """matter 清单（等价于对 DMS 做一次 ls）：matter_id + 文档数 + 代表文件名。"""
+    """matter 清单（等价于对 DMS 做一次 ls）：matter_id + 文档数 + 代表文件名。
+
+    没有 matter 元数据的库（普通上传）matter_id 为空，不返回假 matter；
+    只报 documents 总数，调用方改走 docs 视图。
+    """
     conn = _connect(library_id)
     try:
         if not has_catalog(conn):
-            return {"catalog": False, "total": 0, "matters": []}
+            return {"catalog": False, "total": 0, "documents": 0, "matters": []}
         rows = conn.execute(
             "select matter_id, count(*) as n, min(filename) as sample, max(folder) as folder "
-            "from doc_catalog where library_id=? group by matter_id order by matter_id limit ?",
+            "from doc_catalog where library_id=? and matter_id<>'' "
+            "group by matter_id order by matter_id limit ?",
             (library_id, max(1, min(int(limit or 300), 500))),
         ).fetchall()
         total = conn.execute(
-            "select count(distinct matter_id) from doc_catalog where library_id=?", (library_id,)
+            "select count(distinct matter_id) from doc_catalog where library_id=? and matter_id<>''",
+            (library_id,),
+        ).fetchone()[0]
+        documents = conn.execute(
+            "select count(*) from doc_catalog where library_id=?", (library_id,)
         ).fetchone()[0]
     finally:
         conn.close()
     return {
         "catalog": True,
         "total": int(total),
+        "documents": int(documents),
         "matters": [
             {"matter_id": r["matter_id"], "docs": int(r["n"]), "sample": r["sample"], "folder": r["folder"]}
             for r in rows
