@@ -230,6 +230,38 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 
 ![FinanceBench 跨域旁证：官方 150 题 vs 论文公开基线](images/financebench-compare.png)
 
+### 3.6 文档目录与枚举检索（doc_catalog / doc_search）
+
+段落级 top-k 回答不了「列出全部/每一个」的枚举题：20 个 chunk 最多覆盖十几篇文档，而全库有 9000 篇。2026-10-18 起增加一层**文档目录**，把检索单位从「段落」提升到「文档 + 分组」。
+
+**数据模型**：每个库的正文 sqlite 里建 `doc_catalog(doc_id, library_id, matter_id, folder, rel_path, filename, doc_type, title_semantic, doc_type_semantic, title_source)`。分组不写死 matter，而是派生：
+
+| group_kind | 来源 | 行为 |
+|---|---|---|
+| `case` | `matter_id` 非空（法律 DMS 的案件号） | 一张卡 = 一个案件 |
+| `folder` | 否则 `folder` 非空（上传时的父目录链） | 一张卡 = 一个目录 |
+| `doc` | 两者都空（散文件） | 一篇一卡，不伪造分组 |
+
+`matter` 只是 `case` 的业务名，不再是数据模型的中心；`matter_id` 保持兼容——法律库的卡片仍返回 `matter_id`。
+
+**写入链路**（新增三处，解析管线未改）：
+
+![上传到可检索的完整链路](figures/catalog-chain.png)
+
+- 上传：`upsert_catalog_doc` 写目录行（文件名 + 父目录链），失败只告警；
+- 解析完成：`refresh_doc_semantics` 用首屏 `title` 块刷新语义标题、`Abstract` 判论文、否则回退文件名；目录行不存在则跳过；
+- 存量库：`scripts/backfill_catalog_all.py` 直接回填，不重跑解析（21 库 / 72.5s）。
+
+![本次改动在链路中的位置](figures/catalog-change-map.png)
+
+**检索接口**：`POST /api/knowledge/internal/doc-search`（agent 侧工具 `doc_search` / `doc_read`）。参数 `query`、`limit`、`per_matter`、`filename_contains`、`doc_type`；返回按 group 归并的 `matters` 卡（`group_id/group_kind/best/docs`），外加 `total_groups`、`group_kinds`、`catalog_quality`。目录谓词命中时卡片带 `catalog_hit=true` 与 `matched_docs`。
+
+**目录谓词与质量门禁**：短语在 `filename`/`rel_path`/`title_semantic` 上逐词匹配（标题常有停用词插入，如 “Conspiracy Theories on Telegram”）；`doc_type` 同时匹配扩展名与语义类型。类型规则按「标准号前缀 → 具体文书 → 法律 → 政策 → 规范 → 报告 → 论文」排序，`GB 17380…规定` 判规范而非政策。`catalog_semantic_coverage` 给出文件名语义率/首屏标题率/类型覆盖率，`catalog_predicate_usable` 以 30% 为门禁：文件名无意义但标题可用的语料（arXiv 编号）仍可启用；两者都没有时退回内容检索。
+
+**实测（2026-10-18，lab-firm-full）**：criterion 从 3.4% 提到 17.0%，all-pass 3.0%（95%CI 1.0–8.5%，n=100）；用过 `doc_search` 的 40 题 criterion 25.2%，未用的 60 题 10.4%。all-pass 仍被「每条判据都要过」的合取性质压住，逐条 17% 时 5 条判据全过约万分之一点四——这部分不是检索层能解的，见 [report-harvey-lab-100-final.md](report-harvey-lab-100-final.md)。
+
+**已知边界**：文件名/标题都无语义的库（扫描件、纯 UUID 且无标题块）谓词无效，退回内容检索；首屏无 `title` 块的基准页（OmniDocBench）标题率低，属预期；解析完成钩子 2026-10-19 才接入，此前入库的文档靠回填脚本。
+
 ---
 
 ## 4. AnGIneer-SOPs 经验库模块
