@@ -40,12 +40,20 @@ CREATE TABLE IF NOT EXISTS doc_catalog (
     filename    TEXT NOT NULL DEFAULT '',
     doc_type    TEXT NOT NULL DEFAULT '',
     source      TEXT NOT NULL DEFAULT '',
-    updated_at  TEXT NOT NULL DEFAULT ''
+    updated_at  TEXT NOT NULL DEFAULT '',
+    title_semantic    TEXT NOT NULL DEFAULT '',
+    doc_type_semantic TEXT NOT NULL DEFAULT ''
 );
 CREATE INDEX IF NOT EXISTS idx_doc_catalog_library ON doc_catalog(library_id);
 CREATE INDEX IF NOT EXISTS idx_doc_catalog_matter ON doc_catalog(library_id, matter_id);
 CREATE INDEX IF NOT EXISTS idx_doc_catalog_filename ON doc_catalog(library_id, filename);
 """
+
+_CATALOG_EXTRA_COLUMNS = (
+    ("title_semantic", "TEXT NOT NULL DEFAULT ''"),
+    ("doc_type_semantic", "TEXT NOT NULL DEFAULT ''"),
+    ("title_source", "TEXT NOT NULL DEFAULT ''"),
+)
 
 _WORD_RE = re.compile(r"[0-9A-Za-z_\u4e00-\u9fff]+")
 
@@ -58,8 +66,13 @@ def _connect(library_id: str) -> sqlite3.Connection:
 
 
 def ensure_catalog(conn: sqlite3.Connection) -> None:
-    """幂等建表：只在回填脚本需要时执行（不迁移、不改既有表）。"""
+    """幂等建表/补列：老表按需 ALTER，不重建、不丢数据。"""
     conn.executescript(_CATALOG_DDL)
+    if has_catalog(conn):
+        existing = {row[1] for row in conn.execute("pragma table_info(doc_catalog)")}
+        for name, ddl in _CATALOG_EXTRA_COLUMNS:
+            if name not in existing:
+                conn.execute(f"alter table doc_catalog add column {name} {ddl}")
     conn.commit()
 
 
@@ -82,6 +95,15 @@ def _fts_match(tokens: List[str], *, phrase: bool) -> Optional[str]:
     return " ".join(tokens)
 
 
+def _display_title(filename: str, title_semantic: str) -> str:
+    """展示名：文件名语义化时用文件名；纯编号/UUID 时退回首屏标题。"""
+    name = str(filename or "")
+    stem = re.sub(r"\.[A-Za-z0-9]{1,6}$", "", name)
+    if title_semantic and not re.search(r"[A-Za-z\u4e00-\u9fff]{3,}", stem):
+        return str(title_semantic)
+    return name or str(title_semantic or "")
+
+
 def _catalog_map(conn: sqlite3.Connection, library_id: str, doc_ids: List[str]) -> Dict[str, Dict[str, Any]]:
     if not doc_ids or not has_catalog(conn):
         return {}
@@ -90,12 +112,14 @@ def _catalog_map(conn: sqlite3.Connection, library_id: str, doc_ids: List[str]) 
         chunk = doc_ids[start : start + 400]
         marks = ",".join("?" * len(chunk))
         rows = conn.execute(
-            f"select doc_id, matter_id, folder, rel_path, filename from doc_catalog "
-            f"where library_id=? and doc_id in ({marks})",
+            f"select doc_id, matter_id, folder, rel_path, filename, title_semantic, doc_type_semantic "
+            f"from doc_catalog where library_id=? and doc_id in ({marks})",
             [library_id, *chunk],
         )
         for row in rows:
-            out[row["doc_id"]] = dict(row)
+            item = dict(row)
+            item["display_title"] = _display_title(row["filename"], row["title_semantic"])
+            out[row["doc_id"]] = item
     return out
 
 
@@ -111,19 +135,20 @@ def _title_hits(
     """
     if not tokens or not has_catalog(conn):
         return {}
-    like = " or ".join("(filename like ? or rel_path like ?)" for _ in tokens)
+    like = " or ".join("(filename like ? or rel_path like ? or title_semantic like ?)" for _ in tokens)
     params: List[Any] = [library_id]
     for token in tokens:
-        params += [f"%{token}%", f"%{token}%"]
+        params += [f"%{token}%", f"%{token}%", f"%{token}%"]
     rows = conn.execute(
-        f"select doc_id, filename, rel_path from doc_catalog where library_id=? and ({like}) limit ?",
+        f"select doc_id, filename, rel_path, title_semantic from doc_catalog "
+        f"where library_id=? and ({like}) limit ?",
         [*params, max(limit * 8, 400)],
     )
     phrase = " ".join(tokens).lower()
     min_tokens = 2 if len(tokens) >= 2 else 1
     out: Dict[str, Any] = {}
     for row in rows:
-        hay = f"{row['filename']} {row['rel_path']}".lower()
+        hay = f"{row['filename']} {row['rel_path']} {row['title_semantic'] or ''}".lower()
         flat = hay.replace("-", " ").replace("_", " ")
         matched = sum(1 for token in tokens if token.lower() in hay)
         phrase_hit = phrase in flat
@@ -145,10 +170,11 @@ def _catalog_filter_hits(
     doc_type: Optional[str],
     limit: int = 400,
 ) -> Dict[str, str]:
-    """目录谓词：按文件名/路径短语（AND）筛选，返回 doc_id → 文件名。
+    """目录谓词：按「文件名 / 路径 / 语义标题」短语（AND）筛选，返回 doc_id → 展示名。
 
     这是枚举题最确定的通道：文档类型写在文件名里（second-request-*、hsr-withdrawal-*），
-    直接按路径过滤比 FTS 排序精确得多（题 001 实测：17 个候选命中真值 5/6）。
+    或写在首屏标题里（arXiv 编号文件也有论文标题）。直接按目录过滤比 FTS 排序精确得多
+    （题 001 实测：["second request"] 命中 9 篇、24 张卡、真值 6/6）。
     每个短语归一后要求逐词出现；多短语之间是 AND（调用方可用多次调用表达 OR）。
     """
     if not phrases or not has_catalog(conn):
@@ -158,27 +184,147 @@ def _catalog_filter_hits(
     normalized = [_norm_name(p) for p in phrases if _norm_name(p)]
     for phrase in normalized:
         for token in phrase.split():
-            clauses.append("(filename like ? or rel_path like ?)")
-            params += [f"%{token}%", f"%{token}%"]
+            clauses.append("(filename like ? or rel_path like ? or title_semantic like ?)")
+            params += [f"%{token}%", f"%{token}%", f"%{token}%"]
     if not clauses:
         return {}
     where = " and ".join(clauses)
     if doc_type:
-        where += " and doc_type=?"
-        params.append(str(doc_type).lower().lstrip("."))
+        want = str(doc_type).lower().lstrip(".")
+        where += " and (doc_type=? or doc_type_semantic=?)"
+        params += [want, want]
     try:
         rows = conn.execute(
-            f"select doc_id, filename, rel_path from doc_catalog where library_id=? and ({where}) limit ?",
+            f"select doc_id, filename, rel_path, title_semantic from doc_catalog "
+            f"where library_id=? and ({where}) limit ?",
             [*params, limit],
         ).fetchall()
     except sqlite3.OperationalError:
         return {}
     out: Dict[str, str] = {}
+    norm_tokens = [token for phrase in normalized for token in phrase.split()]
     for row in rows:
-        flat = _norm_name(f"{row['filename']} {row['rel_path']}")
-        if all(phrase in flat for phrase in normalized):
-            out[row["doc_id"]] = row["filename"]
+        haystack = _norm_name(f"{row['filename']} {row['rel_path']} {row['title_semantic'] or ''}")
+        # 逐词检查而不是整串连续匹配：标题里常有停用词插入
+        #（"Conspiracy Theories on Telegram" 对 "conspiracy theories telegram"）
+        if all(token in haystack for token in norm_tokens):
+            out[row["doc_id"]] = row["filename"] or row["title_semantic"] or row["doc_id"]
     return out
+
+
+# 文档类型规则（先规则后模型：覆盖常见法律/工程/学术语料，未知归 other）
+_DOC_TYPE_RULES = (
+    ("memo", ("memo", "memorandum", "备忘", "纪要")),
+    ("agreement", ("agreement", "contract", "spa", "credit agreement", "lease", "协议", "合同")),
+    ("letter", ("letter", "email", "eml", "函", "信")),
+    ("order", ("order", "judgment", "decree", "opinion", "裁定", "判决")),
+    ("filing", ("filing", "notification", "form", "hsr", "申报", "备案")),
+    ("invoice", ("invoice", "billing", "发票", "账单")),
+    ("policy", ("policy", "procedure", "guideline", "制度", "规程", "规定")),
+    ("report", ("report", "expert", "报告")),
+    ("statement", ("statement", "certificate", "证明", "证书")),
+    ("standard", ("standard", "specification", "规范", "标准", "GB ", "JTS")),
+    ("paper", ("abstract", "arxiv", "论文")),
+)
+
+
+def classify_doc_type(filename: str, title: str = "") -> str:
+    hay = f"{filename} {title}".lower()
+    for name, keys in _DOC_TYPE_RULES:
+        if any(k.lower() in hay for k in keys):
+            return name
+    return "other"
+
+
+def backfill_semantic_fields(conn: sqlite3.Connection, library_id: str, batch: int = 500) -> Dict[str, int]:
+    """从 doc_blocks 首屏 title 块物化 title_semantic + doc_type_semantic（不重跑解析）。
+
+    - title：第一页最早的 title 块（title_path 末段），没有则用文件名去扩展名；
+    - doc_type_semantic：classify_doc_type(filename, title)。
+    """
+    ensure_catalog(conn)
+    if conn.row_factory is None:  # 回填脚本的连接可能没设 Row 工厂
+        conn.row_factory = sqlite3.Row
+    total = conn.execute("select count(*) from doc_catalog where library_id=?", (library_id,)).fetchone()[0]
+    rows = conn.execute("select doc_id, filename from doc_catalog where library_id=?", (library_id,)).fetchall()
+    names = {r["doc_id"]: (r["filename"] or "") for r in rows}
+    titles: Dict[str, str] = {}
+    try:
+        for r in conn.execute(
+            "select doc_id, title_path from ("
+            "  select doc_id, title_path, row_number() over (partition by doc_id order by page_idx, block_seq) rn"
+            "  from doc_blocks where block_type='title' and page_idx=0 and length(trim(title_path))>1"
+            ") where rn=1"
+        ):
+            path = str(r["title_path"] or "").strip()
+            titles[r["doc_id"]] = path.split(" / ")[-1].strip() or path
+    except sqlite3.OperationalError:
+        titles = {}
+    updates = []
+    for doc_id, filename in names.items():
+        stem = re.sub(r"\.[A-Za-z0-9]{1,6}$", "", filename or "")
+        block_title = titles.get(doc_id) or ""
+        title = block_title or stem
+        updates.append((title, classify_doc_type(filename, title),
+                        "block" if block_title else "filename", library_id, doc_id))
+    conn.executemany(
+        "update doc_catalog set title_semantic=?, doc_type_semantic=?, title_source=? "
+        "where library_id=? and doc_id=?",
+        updates,
+    )
+    conn.commit()
+    with_title = sum(1 for u in updates if u[0])
+    typed = sum(1 for u in updates if u[1] != "other")
+    return {"total": total, "with_title": with_title, "typed": typed, "titles_from_blocks": len(titles)}
+
+
+def catalog_semantic_coverage(conn: sqlite3.Connection, library_id: str) -> Dict[str, Any]:
+    """目录质量：文件名语义率、首屏标题率、类型覆盖率，供预取门禁决定是否启用目录谓词。
+
+    - filename_semantic_rate：文件名主干是否含 3 个以上字母/汉字（编号/UUID 文件为低）；
+    - title_block_rate：title_semantic 是否来自正文首屏标题（而非文件名回退）；
+    - type_rate：doc_type_semantic 非 other 的占比。
+    """
+    if not has_catalog(conn):
+        return {"catalog": False, "filename_semantic_rate": 0.0, "title_block_rate": 0.0, "type_rate": 0.0}
+    row = conn.execute(
+        "select count(*) as n,"
+        " sum(case when title_source='block' then 1 else 0 end) as block_n,"
+        " sum(case when doc_type_semantic<>'' and doc_type_semantic<>'other' then 1 else 0 end) as type_n"
+        " from doc_catalog where library_id=?",
+        (library_id,),
+    ).fetchone()
+    n = int(row["n"] or 0)
+    sample = conn.execute(
+        "select filename from doc_catalog where library_id=? limit 500", (library_id,)
+    ).fetchall()
+    sem = 0
+    for r in sample:
+        stem = re.sub(r"\.[A-Za-z0-9]{1,6}$", "", r[0] or "")
+        if re.search(r"[A-Za-z\u4e00-\u9fff]{3,}", stem):
+            sem += 1
+    return {
+        "catalog": True,
+        "total": n,
+        "filename_semantic_rate": round(sem / len(sample), 3) if sample else 0.0,
+        "title_block_rate": round((row["block_n"] or 0) / n, 3) if n else 0.0,
+        "type_rate": round((row["type_n"] or 0) / n, 3) if n else 0.0,
+    }
+
+
+def catalog_predicate_usable(library_id: str, threshold: float = 0.3) -> bool:
+    """目录谓词门禁：文件名语义率或首屏标题率 ≥ 阈值才建议启用。"""
+    conn = _connect(library_id)
+    try:
+        cov = catalog_semantic_coverage(conn, library_id)
+    finally:
+        conn.close()
+    if not cov.get("catalog"):
+        return False
+    return (
+        cov.get("filename_semantic_rate", 0) >= threshold
+        or cov.get("title_block_rate", 0) >= threshold
+    )
 
 
 def list_matters(library_id: str, limit: int = 300) -> Dict[str, Any]:
@@ -351,6 +497,9 @@ def search_documents(
                 entry["catalog_title"] = filename
 
         catalog = _catalog_map(conn, library_id, list(candidates)[: max(limit * 8, 400)])
+        quality: Optional[Dict[str, Any]] = (
+            catalog_semantic_coverage(conn, library_id) if catalog else None
+        )
         # matter 优先分配：同一 matter 最多 per_matter 篇进 docs，避免大 matter 挤掉其它候选。
         # 先按分数取前 400 个候选再分组——候选可能上千（泛词命中），全量分组会让 matter 数失真。
         ranked = sorted(candidates.values(), key=lambda x: (-x["score"], -x["hits"]))[:400]
@@ -382,7 +531,7 @@ def search_documents(
             cat = catalog.get(entry["doc_id"]) or {}
             docs.append({
                 "doc_id": entry["doc_id"],
-                "title": cat.get("filename") or title_map.get(entry["doc_id"]) or entry["doc_id"],
+                "title": cat.get("display_title") or title_map.get(entry["doc_id"]) or entry["doc_id"],
                 "matter_id": cat.get("matter_id") or "",
                 "folder": cat.get("folder") or "",
                 "hits": entry["hits"],
@@ -404,13 +553,13 @@ def search_documents(
                 "folder": best_cat.get("folder") or "",
                 "best": {
                     "doc_id": best["doc_id"],
-                    "title": best_cat.get("filename") or title_map.get(best["doc_id"]) or best["doc_id"],
+                    "title": best_cat.get("display_title") or title_map.get(best["doc_id"]) or best["doc_id"],
                     "snippet": _snippet(best.get("best_text") or "", 160),
                 },
                 "docs": [
                     {
                         "doc_id": entry["doc_id"],
-                        "title": (catalog.get(entry["doc_id"]) or {}).get("filename")
+                        "title": (catalog.get(entry["doc_id"]) or {}).get("display_title")
                         or title_map.get(entry["doc_id"])
                         or entry["doc_id"],
                     }
@@ -448,6 +597,8 @@ def search_documents(
             "doc_type": doc_type or "",
             "catalog_docs": len(catalog_docs),
         }
+    if catalog:
+        result["catalog_quality"] = quality
     if not catalog:
         result["docs"] = docs
     return result
@@ -515,7 +666,7 @@ def read_documents(
             cat = catalog.get(doc_id) or {}
             out.append({
                 "doc_id": doc_id,
-                "title": cat.get("filename") or doc_meta["title"],
+                "title": cat.get("display_title") or doc_meta["title"],
                 "matter_id": cat.get("matter_id") or "",
                 "page_count": int(doc_meta["page_count"] or 0),
                 "chars": used,

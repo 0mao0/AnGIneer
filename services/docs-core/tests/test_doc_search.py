@@ -29,6 +29,9 @@ def _build_db(path: Path) -> None:
             chunk_id UNINDEXED, doc_id UNINDEXED, chunk_type UNINDEXED,
             section_path, text_clean UNINDEXED, text_ngrams, tokenize='unicode61'
         );
+        CREATE TABLE doc_blocks(
+            doc_id TEXT, page_idx INTEGER, block_seq INTEGER, block_type TEXT, title_path TEXT
+        );
         """
     )
     docs = [
@@ -36,6 +39,7 @@ def _build_db(path: Path) -> None:
         ("d1", "second-request-strategy-memo.docx", "1001-00001", "FTC issued a Second Request to the parties", 1),
         ("d2", "matter-closing-memo.docx", "1001-00002", "No second request was issued in this matter", 0),
         ("d3", "hsr-filing-cover-letter.docx", "1001-00002", "HSR filing cover letter", 0),
+        ("d4", "2409.16644v2.pdf", "1001-00003", "Paper body about memes", 0),
     ]
     for idx, (doc_id, name, matter, text, page) in enumerate(docs, 1):
         chunk_id = f"c{idx}"
@@ -52,6 +56,14 @@ def _build_db(path: Path) -> None:
             "values (?,?,?,?,?,?)",
             (chunk_id, doc_id, "content", "", text, text.lower()),
         )
+    conn.executemany(
+        "insert into doc_blocks(doc_id, page_idx, block_seq, block_type, title_path) values (?,?,?,?,?)",
+        [
+            ("d1", 0, 1, "title", "Second Request Strategy Memo"),
+            ("d2", 0, 1, "title", "Matter Closing Memo"),
+            ("d4", 0, 1, "title", "More than Memes: Conspiracy Theories on Telegram"),
+        ],
+    )
     conn.commit()
     conn.close()
 
@@ -70,6 +82,8 @@ def library_db(tmp_path, monkeypatch):
          "matter-closing-memo.docx", "docx", "test", ""),
         ("d3", "lib", "1001-00002", "HSR", "1001-00002/HSR/hsr-filing-cover-letter.docx",
          "hsr-filing-cover-letter.docx", "docx", "test", ""),
+        ("d4", "lib", "1001-00003", "", "1001-00003/2409.16644v2.pdf",
+         "2409.16644v2.pdf", "pdf", "test", ""),
     ]
     conn.executemany(
         "insert into doc_catalog(doc_id, library_id, matter_id, folder, rel_path, filename, doc_type, source, updated_at) "
@@ -94,6 +108,38 @@ def test_search_groups_by_matter_and_omits_duplicate_docs(library_db):
     assert result["matters"][0]["best"]["title"] == "second-request-strategy-memo.docx"
     # catalog 存在时不重复下发 docs 清单（避免 payload 翻倍）
     assert "docs" not in result
+
+
+def test_backfill_semantic_fields(library_db):
+    conn = _conn(library_db)
+    try:
+        stats = doc_search.backfill_semantic_fields(conn, "lib")
+        cov = doc_search.catalog_semantic_coverage(conn, "lib")
+        row = conn.execute(
+            "select title_semantic, doc_type_semantic from doc_catalog where doc_id='d4'"
+        ).fetchone()
+    finally:
+        conn.close()
+    assert stats["with_title"] == 4
+    assert row["title_semantic"].startswith("More than Memes")
+    assert cov["title_block_rate"] == 0.75
+
+
+def test_catalog_filter_matches_semantic_title(library_db):
+    # 文件名是 arXiv 编号，靠首屏标题命中（标题里有 "on" 分隔，逐词匹配而非整串）
+    conn = _conn(library_db)
+    try:
+        doc_search.backfill_semantic_fields(conn, "lib")
+    finally:
+        conn.close()
+    result = doc_search.search_documents(
+        library_id="lib", query="", limit=10, filename_contains=["conspiracy theories telegram"]
+    )
+    ids = {m["best"]["doc_id"] for m in result["matters"]}
+    assert "d4" in ids
+    # 编号文件名展示时改用语义标题
+    card = next(m for m in result["matters"] if m["best"]["doc_id"] == "d4")
+    assert "Memes" in card["best"]["title"]
 
 
 def test_search_without_catalog_returns_docs(tmp_path, monkeypatch):
@@ -121,9 +167,9 @@ def test_catalog_predicate_marks_matter_card(library_db):
 def test_list_matters(library_db):
     result = doc_search.list_matters("lib")
     assert result["catalog"] is True
-    assert result["total"] == 2
+    assert result["total"] == 3
     ids = [m["matter_id"] for m in result["matters"]]
-    assert ids == ["1001-00001", "1001-00002"]
+    assert ids == ["1001-00001", "1001-00002", "1001-00003"]
 
 
 def test_list_matters_without_catalog(tmp_path, monkeypatch):

@@ -70,10 +70,16 @@ def main() -> int:
     ap.add_argument("--matter-key", default="tier")
     ap.add_argument("--doc-key", default="doc_id")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--skip-semantic", action="store_true", help="只回填目录，不物化 title/type 语义字段")
     args = ap.parse_args()
 
     from docs_core.library_registry import resolve_index_db_path
-    from docs_core.step09_query.doc_search import ensure_catalog, has_catalog
+    from docs_core.step09_query.doc_search import (
+        backfill_semantic_fields,
+        catalog_semantic_coverage,
+        ensure_catalog,
+        has_catalog,
+    )
 
     import sqlite3
 
@@ -99,9 +105,13 @@ def main() -> int:
         matters = conn.execute(
             "select count(distinct matter_id) from doc_catalog where library_id=?", (args.library,)
         ).fetchone()[0]
+        semantic = backfill_semantic_fields(conn, args.library) if not args.skip_semantic else {}
+        coverage = catalog_semantic_coverage(conn, args.library)
     finally:
         conn.close()
     print(f"inserted={len(todo)} catalog_rows={total} matters={matters}")
+    if semantic:
+        print(f"semantic: {semantic} coverage={coverage}")
     return 0
 
 
