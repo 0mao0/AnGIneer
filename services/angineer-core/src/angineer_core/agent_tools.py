@@ -1046,7 +1046,8 @@ class RetrieverAdapter:
             name="doc_search",
             description=(
                 "文档级检索：把全库命中的段落聚合到文档，并按 group 分组（group_kind=case/folder/doc："
-                "法律库按案件、有目录的库按目录、散文件一篇一组），返回候选清单（标题、分组、命中片段）。"
+                "法律库按案件、有目录的库按目录、散文件一篇一组；法律库的 matter 就是 case，"
+                "卡片仍返回 matter_id），返回候选清单（标题、分组、命中片段）。"
                 "用于「列出所有/每一个/全部…」的穷举类问题——先用它拿候选全集"
                 "（total_groups 是候选组数，group_kinds 给出各类型组数），再用 doc_read 批量读页确认。"
                 "filename_contains 是目录谓词：按文件名/路径/首屏标题短语过滤（如 [\"second request\"]），"
