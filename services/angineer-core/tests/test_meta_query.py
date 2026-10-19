@@ -74,10 +74,11 @@ class TestQaToolboxHasStats:
 
         config = build_qa_config(llm=object(), config_name="t")
         names = {t.name for t in config.tools}
-        # calculator 于 2026-10-07 进 QA 档（数值题不再心算，配套 tool_codec 计算纪律）
+        # calculator 于 2026-10-07 进 QA 档（数值题不再心算，配套 tool_codec 计算纪律）；
+        # doc_search/doc_read 于 2026-10-18 进 L1（枚举题按文档归并 + 批量读页）
         assert names == {
             "knowledge_search", "table_search", "entity_search",
-            "knowledge_stats", "calculator",
+            "knowledge_stats", "calculator", "doc_search", "doc_read",
         }
 
     def test_qa_table_first_toolbox_keeps_stats(self):
