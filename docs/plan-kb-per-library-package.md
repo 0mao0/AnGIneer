@@ -57,6 +57,7 @@
 | F20 | 边界外：`kb_migrator._relabel_meta` 的 file_path 改写按**绝对路径前缀**比较（`libraries_root_for` 绝对 vs `nodes.file_path` 已相对化）→ 恒不 match，走「告警+COALESCE 保旧路径」分支：迁移后重解析「源文件不存在」隐患（见文末另立票） | `kb_migrator.py:439-463`；`paths.py:94-107` |
 | F21 | 前端链路是**两跳 nginx**：宿主机网关（`ai-proxy-locations.conf`，非 git）→ **frontend 容器 nginx（git 内、deploy 生效）** → docs-api。容器层 http 级 `client_max_body_size 200M`、`/api/` 300s——只改宿主机层，GB 级上传照样 413 | `docker/nginx/nginx.conf:21,96-105`（宿主机层见 AGENTS.md 拓扑） |
 | F22 | 库文件根**按组不同**：knowledge 组=`knowledge/libraries`，evals 组=`evals/corpora/libraries`。导出代码 `iter_bundle_zip` 与 `_file_path_warnings` 仍写死 `knowledge/libraries`——导 `lab-firm-full` 会漏整个 `files/`，且 9,009 条 file_path 全误报 | `library_registry.py:47-66,430-440`；`corpus_package.py:198,423` |
+| F23 | 删库是**同步逐篇**：9,276 节点/4.1G 分钟级；前端 `deleteLibrary` 仍默认 30s（`6f66b67d` 只修了节点/记录删除，漏整库）；`doc_catalog` 未清；`evals_corpus` 共享 16 行（11 active）→ 不能删容器 | `docs_service.py:681-704`；`knowledge.ts:227`；`apiClient.ts:10`；registry 查询 |
 
 ## 包格式定版（v2，两侧契约）
 
@@ -378,6 +379,34 @@
 
 ## Stage P4：保护与收尾
 
+### Task P4-0: 删库异步化 + 共享桶清理（后端 + admin-web）
+
+**背景（2026-10-20 实踩）：** `delete_library` 同步逐篇清 9,276 节点（lab-firm-dms/4.1G），前端 `deleteLibrary` 仍是默认 30s（F23）；`6f66b67d` 只修了节点/记录删除，漏整库。另 `doc_catalog` 未清，`evals_corpus` 共享 16 行不能删容器。
+
+**Files:**
+- Create: `services/docs-core/src/docs_core/library_delete.py`（任务表 + worker + 批量清理）
+- Modify: `services/docs-core/src/docs_core/library_registry.py`（`STATUS_DELETING`）
+- Modify: `services/docs-api/docs_routes.py`（DELETE 202 / GET 状态 / 重试）
+- Modify: `services/docs-core/src/docs_core/docs_service.py`（拆出批量清理；保留同步入口给测试/CLI）
+- Modify: `apps/admin-web/src/api/knowledge.ts`、`apps/admin-web/src/components/MultiLibraryManager.vue`（进度弹框）
+- Test: docs-core 删库测试、docs-api 路由测试、`vue-tsc -b`
+
+- [ ] **任务与接口**：`DELETE /libraries/{id}` 立即 `202 {task_id}`；同库已有任务 → 409；`GET /libraries/deletions/{task_id}`、`GET /libraries/{id}/deletion` 返回 stage/progress/error；单飞 worker；启动时把遗留 `deleting` 标失败并可重试。
+- [ ] **状态**：registry 增 `deleting`；开始置 deleting，成功置 retired；失败保留 deleting + 任务错误，不回 active。
+- [ ] **批量清理顺序**（每库一次，按 library_id/doc_id 集合，不再逐篇）：
+  1. 向量：共享 collection 用一次 `delete` + filter `library_id`；独立 collection 留到容器步骤；
+  2. SQL：单事务按 doc_id 集合先删 FTS/citation_targets/tables/chunks/outlines/blocks/pages + `doc_blocks`/`document_segments`/`doc_block_corrections`/`canonical_vectors`（若存在），最后删 `canonical_documents`；
+  3. `doc_catalog`：`DELETE ... WHERE library_id=?`；
+  4. meta：`nodes`/`tree_node`/`libraries` 行；
+  5. 文件：一次 `rmtree` 库根（`resolve_libraries_dir(lib)/<lib>` + 旧 `knowledge/libraries/<lib>`，去重）；
+  6. 图谱：`GraphStore.delete_library`；
+  7. 容器：按 P4-3 规则，`sqlite_file`/`collection` 引用计数=0 且非默认/内置组桶才删；
+  8. registry 置 retired + `reload_scope_cache()`；对账 doc/point/file 计数=0。
+- [ ] **前端**：`deleteLibrary` 返回 `{task_id}`；提交后关闭确认框、提示“后台删除中”，轮询 1–2s；进度面板显示 `向量/SQL/文件/图谱/registry` 与文档进度；行状态“删除中”并禁用操作；失败显示错误+重试；刷新页面用 `GET /libraries/{id}/deletion` 恢复。
+- [ ] **文案**：共享桶确认写“只删本库数据，保留 `evals_corpus` 容器”；独立桶写“将删除本库 sqlite/collection”。
+- [ ] **测试**：共享桶删 A 留容器/B 数据不动、A 的行/点/文件/catalog 清空；独立桶删净；引用计数含 retired；内置桶不删；9k 节点任务进度/重试/重启恢复。
+- [ ] commit `feat(docs-core): 删库异步化 + 共享桶批量清理 + admin-web 进度`
+
 ### Task P4-1: 拆并「同组异构桶」保护（TDD）
 
 **Files:** `services/docs-core/src/docs_core/kb_migrator.py:204-217`；Test：docs-core 迁移单测（对应现有迁移测试文件）
@@ -394,12 +423,13 @@
 - [ ] 测试覆盖三分支
 - [ ] commit `fix(docs-core): 非空库跨桶改组拒绝（防数据失联）`
 
-### Task P4-3: `delete_library` 独立桶清理
+### Task P4-3: 独立桶容器删除（P4-0 worker 的收尾步骤）
 
-**Files:** `services/docs-core/src/docs_core/docs_service.py:681-704`；Test：`tests/test_delete_library.py`（附近文件）
+**Files:** `services/docs-core/src/docs_core/library_delete.py`（P4-0）；Test：`services/docs-core/tests/test_delete_library.py`（附近文件）
 
-- [ ] 删除时若该库的 `sqlite_file`/`collection` 无其他注册行共享（且非默认单文件/内置组桶）→ 删 sqlite 文件 + 删 qdrant collection + 清 `knowledge/libraries/<lib>/` 目录壳；共享桶维持现状（只 retired）
-- [ ] 测试：独立桶删净；共享桶不动
+- [ ] 仅当 `sqlite_file` 与 `collection` 的引用计数都为 0（含 retired 行）且非默认单文件/内置组桶 → 删 sqlite 文件 + 删 qdrant collection + 清库根目录壳；共享桶维持现状。
+- [ ] 共享桶不删容器，只由 P4-0 清本库行/点/文件；`doc_catalog` 由 P4-0 清。
+- [ ] 测试：独立桶删净；共享桶不动；retired 行引用不删；内置组桶不删。
 - [ ] commit `feat(docs-core): 删库清独立桶（sqlite/collection/目录）`
 
 ### Task P4-4: 文档更新
@@ -418,6 +448,7 @@
 | 源图谱历史悬空行 | 现网 `graph.sqlite` 与 default 切片实测 436 条（relations 112 + junctions 324）；FK ON 合并第一张联结表即回滚 | 合并连接 FK OFF + 事务内 `foreign_key_check` 对「目标原有 ∪ 包内自带」签名，新增违例回滚（P2-2） |
 | HarveyLab `doc_catalog` 未进切片 | 核心目标 `lab-firm-full` 9,009 行 / 267 matter（10-20 实测）；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；DDL 已提交，可立即做 |
 | evals 组文档树路径 | 导出写死 `knowledge/libraries/<lib>`；`lab-firm-full` 实际在 `evals/corpora/libraries` → `files/` 为空、9,009 条 file_path 全误报 | P1-8 用 `resolve_libraries_dir` 修正 + 两组夹具测试；先于 P2-0b/P2-2 |
+| 大库删库 | 9,276 节点/4.1G 同步逐篇；前端默认 30s；`doc_catalog` 残留；共享容器误删风险 | P4-0 异步 + 批量 + 引用计数；P4-3 只删独立容器 |
 | 图谱闭包切片的他库实体行 | 小包含归属他库 entity；目标已存同 `(name,library_id)` 异 id 行时 `OR IGNORE` 会丢实体 → 关系端点悬空 | P2-2 首版预检阻断；自然键重映射另立票；禁止静默 `OR IGNORE` |
 | 导出临时 collection 残留 | 取消/断连可能留 `exp-tmp-*` | 导出启动清扫 + finally 删除 + 快照同删 |
 | apply 中途进程重启 | 留半成品（文件/行已写）；冲突闸只拦已落 registry/index 的阶段 | P2-2 增清理命令/暂存标记；CLI/UI 输出暂存与清理指引，不做复杂回滚 |
@@ -440,6 +471,7 @@
 4. 拆并/改组/删库对独立桶库行为安全（拒绝或清理，无静默坏数据）。
 5. v1 旧包不再支持；导入器只认 `schema_version=2`，旧包给明确升级提示。
 6. `pytest tests/unit` + 相关 docs-api/docs-core 测试全绿；`vue-tsc -b` 过。
+7. 大库删库异步完成、可重试；共享桶保留、独立桶按引用删除；`doc_catalog` 无残留。
 
 ## Self-Review 记录
 
@@ -451,4 +483,5 @@
 - 评审修订·第四轮（2026-10-18，当时暂停，已被第五轮解除）：v1 导入兼容移出范围（旧包暂无人用；P2-3 清死代码、验收改“只认 v2”）；新增 **P2-0b** 合流 `doc_catalog`（10-18 时点 evals 组库 9008 行，`_DOC_TABLES` 未含）；当时决定 HarveyLab 收尾前不恢复 P2-2。
 - 评审修订·第五轮（2026-10-20，复核 HarveyLab）：100 题报告 §4 保留 `doc_catalog`/`doc_search`/`doc_read`；未采纳 P1/P3/P0.5/P2.1/P2.2 与 Harness2 上游试跑，属链路实验，不影响存储契约。`doc_catalog` 已扩语义列；全表 21,802 行，其中 `lab-firm-full` 9,009 行/267 matter（10-18 为 9,008/266）→ **P2-0b 解锁，P2-2 可恢复**；P1/P2-1 已随 v0.3.0 发布。
 - 评审修订·第六轮（2026-10-20，Harvey 库实测）：新增 **P1-8**——导出库根按组解析（evals 组=`evals/corpora/libraries`），当前写死 knowledge 会让 `lab-firm-full` 的 `files/` 为空、file_path 全误报；恢复顺序定为 **P1-8 → P2-0b → P2-2**。
+- 评审修订·第七轮（2026-10-20，删库复盘）：`6f66b67d` 只修了节点/记录删除，整库仍同步逐篇 + 30s；新增 **P4-0** 异步任务 + 按 `library_id` 批量清 + `doc_catalog` 清理 + 共享容器引用计数；P4-3 收窄为“只删独立桶容器”。
 - 未含（边界外）：见上「边界外发现」三条。
