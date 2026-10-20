@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-4、P2-5、P3-1、P3-2 代码、P3-3 容器层已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = 重启 docs-api 后手工走 P3-2/P3-4（小包上传→预检→应用），宿主机 nginx 放行需另行报备。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-4、P2-5、P3-1、P3-2 代码、P3-3 容器层、P4-0～P4-4 已完成（v2 导出随 v0.3.0 发布；P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`、P4-0 `00817fdf`/`21b90628`、P4-1 `b4203b04`、P4-2 `475376ab`、P4-3 `2508774a`、P4-4 `ac1535f4`）。**待收尾 = P3-4 UI 手测（测试库已补 parse_records）+ P3-3 宿主机 nginx 放行（需报备）；CHANGELOG/版本留发版。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -540,4 +540,5 @@
 - 评审修订·第十三轮（2026-10-20，P3-1 完成）：docs-api 导入路由上传/预检/后台应用/状态/清理落地；阶段回调 + 成功 reload；单飞；预检冲突以 400 阻断（无逐库告警列表）。
 - 评审修订·第十四轮（2026-10-20，P3-2/P3-3 容器层）：admin-web 导入弹框 + 头部按钮 + API 类型；预检逐库勾选/组选择/应用进度；nginx import location 放行；手测与宿主机 nginx 待做。
 - 评审修订·第十五轮（2026-10-20，导入台账）：管理端详情表读 `parse_records`，导入只写 nodes 显示「暂无数据」；补 `parse_records` 重建（`98959483`）；`lib-import-test` 已回填 1 行。
+- 评审修订·第十六轮（2026-10-20，P4 收口）：拆并拒绝同组异构桶（`b4203b04`）、非空库跨桶改组拒绝（`475376ab`）、独立桶 refcount/内置桶删除保护（`2508774a`）、导出设计标注 v2 取代（`ac1535f4`）。
 - 未含（边界外）：见上「边界外发现」三条。
