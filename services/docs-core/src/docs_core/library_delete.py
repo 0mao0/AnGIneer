@@ -282,6 +282,25 @@ def _clear_index_rows(library_id: str, node_ids: List[str]) -> None:
     run_with_write_lock(db_path, _delete)
 
 
+def _clear_parse_records(library_id: str) -> None:
+    """删除上传台账（parse_records）中该库的行；台账独立于 meta/index。"""
+    from .parse_records_store import db_path
+
+    path = Path(db_path())
+    if not path.exists():
+        return
+    conn = sqlite3.connect(str(path))
+    try:
+        has = conn.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='parse_records'"
+        ).fetchone()
+        if has:
+            conn.execute("DELETE FROM parse_records WHERE library_id = ?", (library_id,))
+            conn.commit()
+    finally:
+        conn.close()
+
+
 def _clear_meta_rows(service: Any, library_id: str, node_ids: List[str]) -> None:
     meta_store = getattr(service, "meta_store", None)
     db_path = getattr(meta_store, "db_path", None)
@@ -429,6 +448,7 @@ def delete_library_data(
     _notify(progress, "index", total, total)
     _clear_index_rows(library_id, node_ids)
     _notify(progress, "meta", total, total)
+    _clear_parse_records(library_id)
     _clear_meta_rows(service, library_id, node_ids)
     _notify(progress, "files", total, total)
     _remove_library_dirs(library_id)

@@ -90,6 +90,12 @@ def test_shared_bucket_keeps_container_and_clears_catalog(tmp_path, monkeypatch)
     _make_index_db(db, [("doc-a", "lib-a"), ("doc-b", "lib-b")])
     meta = tmp_path / "data/knowledge/knowledge_meta.sqlite"
     _make_meta_db(meta, [("doc-a", "lib-a"), ("doc-b", "lib-b")])
+    pr = tmp_path / "data/knowledge/parse_records.sqlite"
+    pr.parent.mkdir(parents=True, exist_ok=True)
+    with sqlite3.connect(pr) as conn:
+        conn.execute("CREATE TABLE parse_records (doc_id TEXT, library_id TEXT, status TEXT)")
+        conn.executemany("INSERT INTO parse_records VALUES (?,?,?)",
+                         [("doc-a", "lib-a", "completed"), ("doc-b", "lib-b", "completed")])
 
     lib_root = tmp_path / "data/knowledge/libraries/lib-a/documents/doc-a/source"
     lib_root.mkdir(parents=True)
@@ -114,6 +120,8 @@ def test_shared_bucket_keeps_container_and_clears_catalog(tmp_path, monkeypatch)
     assert (tmp_path / "data/knowledge/libraries/lib-b").parent.exists()
     assert service.vector_store.cleared == ["doc-a"]
     assert service.reloaded is True
+    with sqlite3.connect(pr) as conn:
+        assert conn.execute("SELECT doc_id FROM parse_records ORDER BY doc_id").fetchall() == [("doc-b",)]
 
 
 def test_independent_bucket_deletes_container(tmp_path, monkeypatch) -> None:
