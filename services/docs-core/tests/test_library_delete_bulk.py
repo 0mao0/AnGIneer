@@ -136,3 +136,51 @@ def test_independent_bucket_deletes_container(tmp_path, monkeypatch) -> None:
     assert result == {"docs": 1, "container_deleted": True}
     assert not db.exists()
     assert library_registry.get_library("lib-solo").status == "retired"
+
+
+def test_independent_bucket_kept_when_retired_row_references_it(tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path / "data"))
+    monkeypatch.setenv("ANGINEER_REGISTRY_DB", str(tmp_path / "registry.sqlite"))
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path / "kb"))
+
+    library_registry.register_library(
+        "lib-solo", name="Solo", group_name="system",
+        sqlite_file="knowledge/groups/solo.sqlite", collection="solo",
+    )
+    library_registry.register_library(
+        "lib-old", name="Old", group_name="system",
+        sqlite_file="knowledge/groups/solo.sqlite", collection="solo",
+        status=library_registry.STATUS_RETIRED,
+    )
+    db = tmp_path / "data/knowledge/groups/solo.sqlite"
+    _make_index_db(db, [("doc-s", "lib-solo")])
+    meta = tmp_path / "data/knowledge/knowledge_meta.sqlite"
+    _make_meta_db(meta, [("doc-s", "lib-solo")])
+
+    service = _FakeService(meta, ["lib-solo"], ["doc-s"])
+    result = delete_library_data(service, "lib-solo")
+
+    assert result == {"docs": 1, "container_deleted": False}
+    assert db.exists()  # retired 行仍引用，容器不删
+
+
+def test_builtin_group_bucket_not_deleted(tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path / "data"))
+    monkeypatch.setenv("ANGINEER_REGISTRY_DB", str(tmp_path / "registry.sqlite"))
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path / "kb"))
+
+    library_registry.register_library(
+        "lib-sys", name="Sys", group_name="system",
+        sqlite_file="knowledge/groups/system.sqlite", collection="system",
+    )
+    db = tmp_path / "data/knowledge/groups/system.sqlite"
+    _make_index_db(db, [("doc-s", "lib-sys")])
+    meta = tmp_path / "data/knowledge/knowledge_meta.sqlite"
+    _make_meta_db(meta, [("doc-s", "lib-sys")])
+
+    service = _FakeService(meta, ["lib-sys"], ["doc-s"])
+    result = delete_library_data(service, "lib-sys")
+
+    assert result == {"docs": 1, "container_deleted": False}
+    assert db.exists()  # 内置组桶不删
+
