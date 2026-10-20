@@ -68,33 +68,21 @@ class BusyGateTests(unittest.TestCase):
     def test_allow_concurrent_proceeds(self):
         captured = {}
 
-        class FakeThread:
-            def __init__(self, target=None, args=(), daemon=None):
-                captured["args"] = args
-
-            def start(self):
-                pass
-
         with mock.patch.object(suite_runner, "list_running_runs", return_value=self.BUSY), \
              mock.patch.object(suite_runner.result_store, "list_questions", return_value=QUESTIONS), \
              mock.patch.object(suite_runner.result_store, "create_run",
                                return_value={"run_id": "run-new", "status": "running"}), \
-             mock.patch.object(suite_runner.threading, "Thread", FakeThread):
+             mock.patch.object(suite_runner, "_spawn_worker",
+                               side_effect=lambda params: captured.setdefault("params", params)):
             run = suite_runner.start_eval_run("ds-b", allow_concurrent=True)
 
         self.assertEqual("run-new", run["run_id"])
-        self.assertTrue(captured["args"], "并发确认后必须真的起线程，而不是只跳过拦截")
+        self.assertTrue(captured.get("params"), "并发确认后必须真的起 worker 进程，而不是只跳过拦截")
+        self.assertEqual("run-new", captured["params"]["run_id"])
 
     def test_restart_of_self_is_not_busy(self):
         """重来的目标 run 自己仍是 running（刚点重来）：不该被自己拦住。"""
         captured = {}
-
-        class FakeThread:
-            def __init__(self, target=None, args=(), daemon=None):
-                captured["args"] = args
-
-            def start(self):
-                pass
 
         busy = [dict(self.BUSY[0], run_id="run-self")]
         with mock.patch.object(suite_runner, "list_running_runs", return_value=busy), \
@@ -102,10 +90,11 @@ class BusyGateTests(unittest.TestCase):
              mock.patch.object(suite_runner.result_store, "get_run",
                                return_value={"run_id": "run-self", "dataset_id": "ds-b", "run_name": "r"}), \
              mock.patch.object(suite_runner.result_store, "restart_run_for_retry"), \
-             mock.patch.object(suite_runner.threading, "Thread", FakeThread):
+             mock.patch.object(suite_runner, "_spawn_worker",
+                               side_effect=lambda params: captured.setdefault("params", params)):
             suite_runner.start_eval_run("ds-b", restart_run_id="run-self")
 
-        self.assertTrue(captured["args"])
+        self.assertTrue(captured.get("params"))
 
 
 class RunningListTests(unittest.TestCase):
@@ -144,6 +133,29 @@ class StopTargetTests(unittest.TestCase):
              mock.patch.object(suite_runner.result_store, "get_run",
                                return_value={"run_id": "run-z", "status": "completed"}):
             self.assertFalse(suite_runner.stop_eval_run("run-z"))
+
+    def test_stop_alive_worker_writes_db_flag(self):
+        """执行体拆进程后（2026-10-20）：worker 活着时「停止」= 往 DB 落标志，不打本地事件。"""
+        with mock.patch.dict(suite_runner._stop_events, {}, clear=True), \
+             mock.patch.object(suite_runner.result_store, "get_run",
+                               return_value={"run_id": "run-w", "status": "running", "owner_pid": 999999}), \
+             mock.patch.object(suite_runner, "_pid_alive", return_value=True), \
+             mock.patch.object(suite_runner.result_store, "request_stop", return_value=True) as req:
+            self.assertTrue(suite_runner.stop_eval_run("run-w"))
+        req.assert_called_once_with("run-w")
+
+    def test_stop_dead_owner_cancels_as_zombie(self):
+        """属主 pid 已死：DB 仍 running 是僵尸行，按已中断收尾（原语义保留）。"""
+        with mock.patch.dict(suite_runner._stop_events, {}, clear=True), \
+             mock.patch.object(suite_runner.result_store, "get_run",
+                               return_value={"run_id": "run-dead", "dataset_id": "ds", "status": "running", "owner_pid": 999998}), \
+             mock.patch.object(suite_runner, "_pid_alive", return_value=False), \
+             mock.patch.object(suite_runner.result_store, "list_run_details", return_value=[]), \
+             mock.patch.object(suite_runner.result_store, "list_questions", return_value=[]), \
+             mock.patch.object(suite_runner.result_store, "cancel_run") as cancel:
+            self.assertTrue(suite_runner.stop_eval_run("run-dead"))
+        cancel.assert_called_once()
+        self.assertTrue(cancel.call_args[0][1]["interrupted_by_startup_sweep"])
 
 
 if __name__ == "__main__":

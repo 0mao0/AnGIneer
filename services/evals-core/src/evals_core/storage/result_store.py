@@ -215,6 +215,13 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run ADD COLUMN owner_pid INTEGER NOT NULL DEFAULT 0")
     except Exception:
         pass
+    # 跨进程停止信号（评测执行体拆独立进程，2026-10-20）：「停止」是请求而非内存事件，
+    # API 进程落标志位，worker 进程的监控线程轮询到后置本地事件、当前题跑完优雅退出。
+    # 0=无停止请求；续跑/重来把标志清零，避免上一轮的停止请求复活。
+    try:
+        conn.execute("ALTER TABLE eval_run ADD COLUMN stop_requested INTEGER NOT NULL DEFAULT 0")
+    except Exception:
+        pass
     _ensure_eval_question_columns(conn)
     conn.commit()
 
@@ -759,6 +766,38 @@ def create_run(dataset_id: str, total_questions: int, run_name: str = "", is_ful
             "run_name": run_name, "is_full_run": is_full_run}
 
 
+def set_run_owner(run_id: str, pid: int) -> None:
+    """worker 进程启动后接管属主：拆进程后真正执行体的 pid 才是属主。
+
+    启动清扫（sweep_interrupted_runs）据此判定该 run「是否有活着进程正在执行」；
+    API 进程 create_run 时先写自己 pid，worker 起来后立即改写成 worker 的 pid。"""
+    conn = _get_conn()
+    conn.execute("UPDATE eval_run SET owner_pid = ? WHERE run_id = ?", (pid, run_id))
+    conn.commit()
+
+
+def request_stop(run_id: str) -> bool:
+    """落跨进程停止请求标志（仅对 running 的 run 生效）。True=标志写入成功。
+
+    消费方是 worker 进程的停止监控线程（evals_core.runner.run_worker）。"""
+    conn = _get_conn()
+    cur = conn.execute(
+        "UPDATE eval_run SET stop_requested = 1 WHERE run_id = ? AND status = 'running'",
+        (run_id,),
+    )
+    conn.commit()
+    return cur.rowcount > 0
+
+
+def is_stop_requested(run_id: str) -> bool:
+    """worker 侧轮询：该 run 是否被请求停止。"""
+    conn = _get_conn()
+    row = conn.execute(
+        "SELECT stop_requested FROM eval_run WHERE run_id = ?", (run_id,)
+    ).fetchone()
+    return bool(row and row[0])
+
+
 def update_run_progress(run_id: str, completed_questions: int) -> None:
     """更新运行进度。"""
     conn = _get_conn()
@@ -784,7 +823,7 @@ def reset_run_for_resume(run_id: str, config_snapshot: Dict[str, Any]) -> None:
     避免同一轮评测产生两条记录。"""
     conn = _get_conn()
     _write_run_state(conn, [(
-        "UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, config_snapshot = ?, owner_pid = ? WHERE run_id = ?",
+        "UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, config_snapshot = ?, owner_pid = ?, stop_requested = 0 WHERE run_id = ?",
         (json.dumps(config_snapshot, ensure_ascii=False), os.getpid(), run_id),
     )], what="reset_run_for_resume", run_id=run_id)
 
@@ -797,7 +836,7 @@ def restart_run_for_retry(run_id: str, config_snapshot: Dict[str, Any]) -> None:
     _write_run_state(conn, [
         ("DELETE FROM eval_run_detail WHERE run_id = ?", (run_id,)),
         ("UPDATE eval_run SET status = 'running', completed_at = NULL, summary_scores = NULL, "
-         "completed_questions = 0, started_at = ?, config_snapshot = ?, owner_pid = ? WHERE run_id = ?",
+         "completed_questions = 0, started_at = ?, config_snapshot = ?, owner_pid = ?, stop_requested = 0 WHERE run_id = ?",
          (now, json.dumps(config_snapshot, ensure_ascii=False), os.getpid(), run_id)),
     ], what="restart_run_for_retry", run_id=run_id)
 

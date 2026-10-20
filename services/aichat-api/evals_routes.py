@@ -36,37 +36,15 @@ evals_router = APIRouter()
 
 @evals_router.on_event("startup")
 async def _startup():
-    """应用启动时初始化数据库，并清扫上次进程被杀留下的僵尸 running run。"""
+    """应用启动时初始化数据库，注入评测器依赖，并清扫上次进程被杀留下的僵尸 running run。"""
     import logging
     result_store.init_db()
-    # probe 评测器（clause-probe 类题集）只跑检索断言，检索函数由本进程注入
-    # （evals-core 不依赖 docs-core，解耦口径见 evals_core.runner.probe_eval 模块头）
-    from evals_core.runner import probe_eval
-    try:
-        from docs_core.step09_query.retrieve_service import retrieve_knowledge
+    # 评测器注入与 worker 进程共用一份实现（evals_runtime），不再在此内联
+    from evals_runtime import configure_evaluators
 
-        probe_eval.set_retriever(retrieve_knowledge)
-    except Exception as exc:  # noqa: BLE001
-        logging.getLogger("evals").warning("probe 检索函数注入失败（探针题将报错而非静默跳过）: %s", exc)
-    # intent 评测器（intent-router 类题集）只跑分类器路由断言，分类器由本进程注入：
-    # 复用生产同一条链（IntentClassifier + sop_loader 算例），不另写近似实现。
-    # 与 sop_routes 同惯例：本模块自建 SopLoader 实例，不 import main（入口模块名是 __main__）。
-    from evals_core.runner import intent_eval
-
-    try:
-        from angineer_core import IntentClassifier
-        from sop_api_client import SopApiClient
-
-        # 与生产同源：经 sop-api HTTP + 快照兜底（不再各自直读文件）
-        _intent_sop_loader = SopApiClient()
-
-        def _classify_for_eval(query: str):
-            """生产分类链（与 main._classify_intent_blocking 逐行同源）。"""
-            return IntentClassifier(_intent_sop_loader.load_all()).classify_intent(query, mode="instruct")
-
-        intent_eval.set_intent_classifier(_classify_for_eval)
-    except Exception as exc:  # noqa: BLE001
-        logging.getLogger("evals").warning("intent 分类器注入失败（意图题将报错而非静默跳过）: %s", exc)
+    configure_evaluators()
+    # 注：执行体拆进程后 API 重启不再杀死在跑的评测（worker 独立存活），
+    # 清扫只回收真正的僵尸（worker 属主已死、DB 仍 running 的行）
     swept = suite_runner.sweep_interrupted_runs()
     if swept:
         logging.getLogger("evals").warning("启动清扫：%d 个中断评测已标记为已取消（可断点续跑）", swept)
@@ -76,14 +54,14 @@ async def _startup():
 
 
 @evals_router.get("/datasets")
-async def get_datasets():
+def get_datasets():
     """列出所有测试集。"""
     datasets = manager.list_datasets()
     return {"datasets": datasets}
 
 
 @evals_router.post("/datasets")
-async def create_dataset(req: CreateDatasetRequest):
+def create_dataset(req: CreateDatasetRequest):
     """创建空测试集。"""
     dataset = manager.create_dataset(req.model_dump())
     return dataset
@@ -107,7 +85,7 @@ async def import_dataset(file: UploadFile = FastAPIFile(...)):
 
 
 @evals_router.get("/datasets/{dataset_id}")
-async def get_dataset(dataset_id: str):
+def get_dataset(dataset_id: str):
     """获取测试集详情。"""
     dataset = manager.get_dataset(dataset_id)
     if not dataset:
@@ -116,7 +94,7 @@ async def get_dataset(dataset_id: str):
 
 
 @evals_router.delete("/datasets/{dataset_id}")
-async def delete_dataset(dataset_id: str):
+def delete_dataset(dataset_id: str):
     """删除测试集。"""
     success = manager.delete_dataset(dataset_id)
     if not success:
@@ -125,7 +103,7 @@ async def delete_dataset(dataset_id: str):
 
 
 @evals_router.patch("/datasets/{dataset_id}")
-async def update_dataset(dataset_id: str, body: Dict[str, Any] = None):
+def update_dataset(dataset_id: str, body: Dict[str, Any] = None):
     """更新测试集元信息（如标题）。"""
     if not body:
         raise HTTPException(status_code=400, detail="无更新内容")
@@ -136,7 +114,7 @@ async def update_dataset(dataset_id: str, body: Dict[str, Any] = None):
 
 
 @evals_router.get("/datasets/{dataset_id}/questions")
-async def get_questions(
+def get_questions(
     dataset_id: str,
     offset: Optional[int] = Query(None, ge=0),
     limit: Optional[int] = Query(None, ge=1, le=500),
@@ -168,7 +146,7 @@ async def get_questions(
 
 
 @evals_router.get("/datasets/{dataset_id}/questions/{question_id}")
-async def get_question(dataset_id: str, question_id: str):
+def get_question(dataset_id: str, question_id: str):
     """获取单道题目（含 gold 原文）：列表投影后展开/编辑按需取回。"""
     question = manager.get_question(dataset_id, question_id)
     if not question:
@@ -177,14 +155,14 @@ async def get_question(dataset_id: str, question_id: str):
 
 
 @evals_router.post("/datasets/{dataset_id}/questions")
-async def add_question(dataset_id: str, req: AddQuestionRequest):
+def add_question(dataset_id: str, req: AddQuestionRequest):
     """向测试集添加单题。"""
     question = manager.add_question(dataset_id, req.model_dump())
     return question
 
 
 @evals_router.put("/datasets/{dataset_id}/questions/{question_id}")
-async def update_question(dataset_id: str, question_id: str, req: UpdateQuestionRequest):
+def update_question(dataset_id: str, question_id: str, req: UpdateQuestionRequest):
     """编辑题目。"""
     updates = req.model_dump(exclude_none=True)
     if not updates:
@@ -196,7 +174,7 @@ async def update_question(dataset_id: str, question_id: str, req: UpdateQuestion
 
 
 @evals_router.delete("/datasets/{dataset_id}/questions/{question_id}")
-async def delete_question(dataset_id: str, question_id: str):
+def delete_question(dataset_id: str, question_id: str):
     """删除题目。"""
     success = manager.delete_question(dataset_id, question_id)
     if not success:
@@ -205,7 +183,7 @@ async def delete_question(dataset_id: str, question_id: str):
 
 
 @evals_router.get("/datasets/{dataset_id}/export")
-async def export_dataset(dataset_id: str):
+def export_dataset(dataset_id: str):
     """导出测试集为规范 JSON。"""
     data = manager.export_dataset(dataset_id)
     if not data:
@@ -217,21 +195,21 @@ async def export_dataset(dataset_id: str):
 
 
 @evals_router.get("/folders")
-async def get_folders():
+def get_folders():
     """列出所有文件夹。"""
     folders = manager.list_folders()
     return {"folders": folders}
 
 
 @evals_router.post("/folders")
-async def create_folder(req: CreateFolderRequest):
+def create_folder(req: CreateFolderRequest):
     """创建文件夹。"""
     folder = manager.create_folder(req.model_dump())
     return folder
 
 
 @evals_router.patch("/folders/{folder_id}")
-async def update_folder(folder_id: str, req: UpdateFolderRequest):
+def update_folder(folder_id: str, req: UpdateFolderRequest):
     """更新文件夹信息。"""
     updates = {}
     for field in req.model_fields_set:
@@ -247,7 +225,7 @@ async def update_folder(folder_id: str, req: UpdateFolderRequest):
 
 
 @evals_router.delete("/folders/{folder_id}")
-async def delete_folder(folder_id: str):
+def delete_folder(folder_id: str):
     """删除文件夹。"""
     success = manager.delete_folder(folder_id)
     if not success:
@@ -256,7 +234,7 @@ async def delete_folder(folder_id: str):
 
 
 @evals_router.patch("/datasets/{dataset_id}/move")
-async def move_dataset(dataset_id: str, req: MoveDatasetRequest):
+def move_dataset(dataset_id: str, req: MoveDatasetRequest):
     """移动数据集到指定文件夹。"""
     dataset = manager.move_dataset(dataset_id, req.folder_id, req.sort_order)
     if not dataset:
@@ -299,7 +277,7 @@ async def start_run(req: StartEvalRunRequest):
 
 
 @evals_router.delete("/runs/{run_id}")
-async def delete_run(run_id: str):
+def delete_run(run_id: str):
     """删除评测运行记录。"""
     success = suite_runner.delete_eval_run(run_id)
     if not success:
@@ -308,7 +286,7 @@ async def delete_run(run_id: str):
 
 
 @evals_router.post("/runs/{run_id}/stop")
-async def stop_run(run_id: str):
+def stop_run(run_id: str):
     """停止正在运行的评测任务。"""
     success = suite_runner.stop_eval_run(run_id)
     if not success:
@@ -317,7 +295,7 @@ async def stop_run(run_id: str):
 
 
 @evals_router.get("/runs/{run_id}")
-async def get_run(
+def get_run(
     run_id: str,
     light: bool = Query(False),
     fields: Optional[str] = Query(None),
@@ -340,7 +318,7 @@ async def get_run(
 
 
 @evals_router.get("/runs/{run_id}/questions/{question_id}")
-async def get_run_question_detail(run_id: str, question_id: str, full: bool = Query(False)):
+def get_run_question_detail(run_id: str, question_id: str, full: bool = Query(False)):
     """获取单道题目的运行详情（含过程 trace、分项分数等）。
 
     默认裁剪重字段（all_predictions + prediction 内检索调试/证据原文）以加快展开；
@@ -353,14 +331,14 @@ async def get_run_question_detail(run_id: str, question_id: str, full: bool = Qu
 
 
 @evals_router.get("/runs")
-async def list_runs(dataset_id: Optional[str] = None):
+def list_runs(dataset_id: Optional[str] = None):
     """列出历史运行记录。"""
     runs = suite_runner.list_eval_runs(dataset_id)
     return {"runs": runs}
 
 
 @evals_router.get("/compare")
-async def compare_runs(run_id_a: str, run_id_b: str):
+def compare_runs(run_id_a: str, run_id_b: str):
     """对比两次运行结果。"""
     result = suite_runner.compare_runs(run_id_a, run_id_b)
     if not result:

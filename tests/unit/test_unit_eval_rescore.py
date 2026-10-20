@@ -67,24 +67,18 @@ class StartEvalRunRescoreTests(unittest.TestCase):
     def test_rescore_map_and_pre_done_exclusion(self):
         captured = {}
 
-        class FakeThread:
-            def __init__(self, target=None, args=(), daemon=None):
-                captured["args"] = args
-
-            def start(self):
-                pass
-
         with mock.patch.object(suite_runner, "list_running_runs", return_value=[]), \
              mock.patch.object(suite_runner.result_store, "list_questions", return_value=self.QUESTIONS), \
              mock.patch.object(suite_runner.result_store, "get_run", return_value={"dataset_id": "ds", "run_name": "r"}), \
              mock.patch.object(suite_runner.result_store, "reset_run_for_resume"), \
              mock.patch.object(suite_runner.result_store, "list_run_details",
                                side_effect=lambda rid, light=False: self._details(light)), \
-             mock.patch.object(suite_runner.threading, "Thread", FakeThread):
+             mock.patch.object(suite_runner, "_spawn_worker",
+                               side_effect=lambda params: captured.setdefault("params", params)):
             suite_runner.start_eval_run("ds", resume_run_id="run-x", rescore_question_ids=["q1"])
 
-        args = captured["args"]
-        pre_done, in_place, rescore_map = args[4], args[5], args[7]
+        params = captured["params"]
+        pre_done, in_place, rescore_map = params["pre_done"], params["in_place"], params["rescore_map"]
         self.assertNotIn("q1", pre_done, "补判题必须从 pre_done 排除才会被重新处理")
         self.assertEqual({"q0", "q2"}, set(pre_done))
         self.assertTrue(in_place)

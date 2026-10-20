@@ -71,6 +71,19 @@ def is_running_here(run_id: str) -> bool:
     return run_id in _stop_events
 
 
+def set_local_stop(run_id: str) -> bool:
+    """置本进程登记的停止事件，返回是否命中。
+
+    worker 进程（evals_core.runner.run_worker）的监控线程把 DB 停止标志转化为
+    本地事件的落点：语义与旧 threading.Event 完全一致——当前题跑完优雅退出。"""
+    with _stop_events_lock:
+        stop_event = _stop_events.get(run_id)
+    if stop_event is None:
+        return False
+    stop_event.set()
+    return True
+
+
 def release_native_memory() -> None:
     """评测跑完后把已释放内存归还操作系统：glibc 各 arena 的 freelist 不会自动 madvise，
     千题级检索上下文（峰值 RSS 2G+）留在堆里表现为服务常驻虚高（2026-09-24 生产实测：
@@ -166,26 +179,32 @@ def _generate_run_name(config_name: Optional[str] = None) -> str:
 def stop_eval_run(run_id: str) -> bool:
     """请求停止指定运行ID的评测任务（优雅停止：完成当前题目后退出）。
 
-    并发下每个 run 有各自的停止信号，按 run_id 取；取不到才走僵尸清理分支。
+    执行体已拆独立进程（2026-10-20，根因＝评测链在 API 进程内跑满 GIL 拖垮全部接口）：
+    正常路径改为往 DB 落停止标志，worker 侧监控线程轮询到后置本地事件；
+    本进程登记表只覆盖在本进程内联执行的 run（测试/兼容旧调用）。
+    属主进程已死 → 僵尸收尾分支照旧（原"后端重启线程已死"场景）。
     """
-    stop_event = _stop_events.get(run_id)
-    if stop_event is None:
-        # 当前进程没有该运行的任务：若 DB 中仍是 running（僵尸状态，后端重启后线程已死），
+    if set_local_stop(run_id):
+        return True
+    run = result_store.get_run(run_id)
+    if run and run.get("status") == "running":
+        owner = int(run.get("owner_pid") or 0)
+        if owner > 0 and owner != os.getpid() and _pid_alive(owner):
+            # worker 活着：停止请求走 DB 标志位。标志若因 pid 复用无人消费，
+            # 也只是不被消费（不改任何数据），run 最终由下一次启动清扫收尾。
+            return result_store.request_stop(run_id)
+        # DB 中仍是 running 但属主已死（僵尸状态，进程被杀后执行体已消失），
         # 直接按已中断收尾，避免前端"停止"永远 404。
-        run = result_store.get_run(run_id)
-        if run and run.get("status") == "running":
-            details = result_store.list_run_details(run_id)
-            questions = result_store.list_questions(run.get("dataset_id") or "")
-            qmap = {str(q.get("question_id") or ""): q for q in questions}
-            enriched = [_enrich_detail_with_question(d, qmap.get(str(d.get("question_id") or ""), {})) for d in details]
-            summary = _compute_summary(enriched)
-            # 与启动清扫同语义：线程已死（进程被杀后用户点了"停止"清理僵尸），允许 nightly 续跑复活
-            summary["interrupted_by_startup_sweep"] = True
-            result_store.cancel_run(run_id, summary)
-            return True
-        return False
-    stop_event.set()
-    return True
+        details = result_store.list_run_details(run_id)
+        questions = result_store.list_questions(run.get("dataset_id") or "")
+        qmap = {str(q.get("question_id") or ""): q for q in questions}
+        enriched = [_enrich_detail_with_question(d, qmap.get(str(d.get("question_id") or ""), {})) for d in details]
+        summary = _compute_summary(enriched)
+        # 与启动清扫同语义：执行体已死（进程被杀后用户点了"停止"清理僵尸），允许 nightly 续跑复活
+        summary["interrupted_by_startup_sweep"] = True
+        result_store.cancel_run(run_id, summary)
+        return True
+    return False
 
 
 def _build_evaluators() -> Dict[str, Any]:
@@ -671,7 +690,7 @@ def _run_suite_thread(
     workers_override: Optional[int] = None,
     answer_format: Optional[str] = None,
 ) -> None:
-    """在线程中执行评测套件，含异常保护、并发控制和优雅停止支持。
+    """执行评测套件主体（worker 进程主线程入口，由 run_worker.py 调起），含异常保护、并发控制和优雅停止支持。
 
     pre_done: 断点续跑时，question_id -> 已完成详情 的映射。
     这些题目直接复用旧结果，只执行剩余题目；in_place=True 时详情已在原 run 记录中，
@@ -946,6 +965,55 @@ def list_running_runs() -> List[Dict[str, Any]]:
     return out
 
 
+def _spawn_worker(params: Dict[str, Any]) -> None:
+    """起独立进程执行一次评测运行（取代旧守护线程形态，2026-10-20）。
+
+    根因（用户实测）：评测链（意图分类→检索→LLM→判分）CPU 重，在 API 进程内跑
+    线程会吃满 GIL（Python 全局锁：同一时刻只允许一个线程执行 Python 代码），
+    所有 HTTP 接口排队——跑任务时轮询 9KB 要 1.4s、切题集白屏。拆进程后 API
+    进程空闲，进度/结果照旧走同一 SQLite（WAL），前端无感。
+
+    传参：_run_suite_thread 的参数均可 JSON 序列化（含题目清单、续跑 pre_done），
+    写临时 JSON 文件由 worker 读回 **params 执行。双保险清理：worker 读完自删，
+    本进程回收线程等退出后再删（API 若在 worker 读之前重启，文件留在临时目录，
+    交给系统临时目录回收）。
+
+    环境：PYTHONPATH 透传本进程 sys.path（API 的 sys.path 含各 services/*/src 与
+    services/aichat-api，worker 据此 import evals_runtime 复用评测器注入，与 API
+    启动同源）；解释器用 sys.executable，与 API 同一 venv。"""
+    import subprocess
+    import sys
+    import tempfile
+
+    fd, params_path = tempfile.mkstemp(
+        prefix=f"eval-worker-{params.get('run_id', 'x')}-", suffix=".json"
+    )
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        json.dump(params, f, ensure_ascii=False)
+
+    env = dict(os.environ)
+    path_parts = [p for p in sys.path if p and os.path.isdir(p)]
+    if env.get("PYTHONPATH"):
+        path_parts.append(env["PYTHONPATH"])
+    env["PYTHONPATH"] = os.pathsep.join(path_parts)
+
+    proc = subprocess.Popen(
+        [sys.executable, "-m", "evals_core.runner.run_worker", "--params", params_path],
+        env=env,
+    )
+
+    def _reap() -> None:
+        try:
+            proc.wait()
+        finally:
+            try:
+                os.unlink(params_path)
+            except OSError:
+                pass
+
+    threading.Thread(target=_reap, daemon=True).start()
+
+
 def start_eval_run(
     dataset_id: str, question_id: Optional[str] = None, save: bool = True,
     override_doc_ids: Optional[List[str]] = None, resume_run_id: Optional[str] = None,
@@ -1024,13 +1092,13 @@ def start_eval_run(
         result_store.restart_run_for_retry(restart_run_id, _manifest_with_judge(config_name, judge_config_name, answer_format))
         run_id = restart_run_id
         run_name = source_run.get("run_name") or _generate_run_name(config_name)
-        thread = threading.Thread(
-            target=_run_suite_thread,
-            args=(run_id, dataset_id, questions, override_doc_ids, {}, False,
-                  config_name, None, judge_config_name, workers, answer_format),
-            daemon=True,
-        )
-        thread.start()
+        _spawn_worker({
+            "run_id": run_id, "dataset_id": dataset_id, "questions": questions,
+            "override_doc_ids": override_doc_ids, "pre_done": {}, "in_place": False,
+            "config_name": config_name, "rescore_map": None,
+            "judge_config_name": judge_config_name, "workers_override": workers,
+            "answer_format": answer_format,
+        })
         return result_store.get_run(run_id) or {"run_id": run_id, "status": "running"}
 
     if resume_run_id:
@@ -1068,13 +1136,13 @@ def start_eval_run(
         )
         run_id = run_data["run_id"]
 
-    thread = threading.Thread(
-        target=_run_suite_thread,
-        args=(run_id, dataset_id, questions, override_doc_ids, pre_done, in_place_resume,
-              config_name, rescore_map, judge_config_name, workers, answer_format),
-        daemon=True,
-    )
-    thread.start()
+    _spawn_worker({
+        "run_id": run_id, "dataset_id": dataset_id, "questions": questions,
+        "override_doc_ids": override_doc_ids, "pre_done": pre_done, "in_place": in_place_resume,
+        "config_name": config_name, "rescore_map": rescore_map,
+        "judge_config_name": judge_config_name, "workers_override": workers,
+        "answer_format": answer_format,
+    })
     return result_store.get_run(run_id) or {"run_id": run_id, "status": "running"}
 
 

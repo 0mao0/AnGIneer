@@ -75,7 +75,9 @@ class SuiteRunnerManifestTests(unittest.TestCase):
             result_store.insert_question({
                 "question_id": "q1", "dataset_id": "ds-1", "question": "测试",
             })
-            with patch.object(suite_runner, "_run_suite_thread"):
+            # 拆进程后（2026-10-20）拦 _spawn_worker 而非 _run_suite_thread：
+            # 线程目标在子进程里执行，父进程 patch 它拦不住真起进程，会误写生产库
+            with patch.object(suite_runner, "_spawn_worker"):
                 run = suite_runner.start_eval_run("ds-1")
             loaded = result_store.get_run(run["run_id"])
 
