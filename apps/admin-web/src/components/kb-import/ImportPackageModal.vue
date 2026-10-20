@@ -71,7 +71,8 @@
               <div class="imp-lib-meta">
                 {{ lib.library_id }} · {{ lib.group_name }} ·
                 {{ lib.counts?.docs ?? 0 }} docs / {{ lib.counts?.chunks ?? 0 }} chunks /
-                {{ lib.counts?.vectors ?? 0 }} vectors · {{ formatBytes(lib.bytes) }}
+                {{ lib.counts?.vectors ?? 0 }} vectors /
+                {{ lib.counts?.graph_relations ?? 0 }} relations · {{ formatBytes(lib.bytes) }}
               </div>
             </div>
           </div>
