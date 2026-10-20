@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import shutil
 import sqlite3
 import tempfile
@@ -54,6 +55,9 @@ GRAPH_ORDER = (
     "graph_entity_deletions",
     "graph_relations",
 )
+
+# 包内 library_id 直接决定目标目录/collection 名；现网有 lib-DredgeAI-a5e1 这类大写。
+_LIBRARY_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,63}$")
 
 _JUNCTION_KEYS = {
     "principle_entities": ("principle_id", "entity_id"),
@@ -98,6 +102,12 @@ def _ensure_target_group(reg_path: Path, group_name: str, display_name: str = ""
         conn.commit()
     finally:
         conn.close()
+
+
+def _validate_library_id(lib_id: str) -> None:
+    if not _LIBRARY_ID_RE.match(lib_id or ""):
+        raise BundleError(
+            f"非法 library_id: {lib_id!r}（须以字母/数字开头，仅字母数字/下划线/连字符，1–64 位）")
 
 
 def _source_library_root(lb: BundleLibrary) -> str:
@@ -380,6 +390,7 @@ def _verify_library(
     counts: Dict[str, Any],
     qdrant_url: Optional[str],
     with_vectors: bool,
+    graph_path: Path,
 ) -> None:
     if not index_path.exists():
         raise ImportApplyError(f"[{lib_id}] 缺 index.sqlite")
@@ -395,6 +406,24 @@ def _verify_library(
         raise ImportApplyError(f"[{lib_id}] docs 对账失败: {docs} != {expect_docs}")
     if int(chunks) != expect_chunks:
         raise ImportApplyError(f"[{lib_id}] chunks 对账失败: {chunks} != {expect_chunks}")
+    graph_tables = counts.get("graph_tables") or {}
+    if graph_tables:
+        if not graph_path.exists():
+            raise ImportApplyError(f"[{lib_id}] 缺 graph.sqlite")
+        g = sqlite3.connect(str(graph_path))
+        try:
+            for table in ("graph_relations", "graph_principles",
+                          "graph_examples", "graph_warnings", "graph_frameworks",
+                          "graph_entity_deletions"):
+                expected = int(graph_tables.get(table) or 0)
+                actual = g.execute(
+                    f'SELECT COUNT(*) FROM "{table}" WHERE library_id = ?', (lib_id,)
+                ).fetchone()[0]
+                if int(actual) != expected:
+                    raise ImportApplyError(
+                        f"[{lib_id}] graph.{table} 对账失败: {actual} != {expected}")
+        finally:
+            g.close()
     if with_vectors:
         got = count_points_filtered(collection, lib_id, qdrant_url)
         expect = int(counts.get("vectors") or 0)
@@ -445,6 +474,7 @@ def import_bundle(
             all_node_ids: List[str] = []
             package_entities: List[dict] = []
             for lb in selected:
+                _validate_library_id(lb.library_id)
                 target_group = group_name or lb.group_name or library_registry.DEFAULT_GROUP
                 src_root = _source_library_root(lb)
                 target_root = (_target_libraries_dir(target_group).rstrip("/") + f"/{lb.library_id}")
@@ -575,7 +605,8 @@ def import_bundle(
                     )
                     completed.append(f"{lib_id}:verify")
                     _verify_library(lib_id, p["index_path"], lib_id, p["counts"],
-                                    qdrant_url, with_vectors)
+                                    qdrant_url, with_vectors,
+                                    data_root / "knowledge" / "graph.sqlite")
             except Exception as exc:
                 raise ImportApplyError(
                     f"导入失败（已完成: {completed[-8:]}）: {exc}") from exc

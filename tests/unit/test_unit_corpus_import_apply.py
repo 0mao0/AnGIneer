@@ -192,6 +192,14 @@ class ApplyImportTests(unittest.TestCase):
             apply_import(str(pkg), data_root=self.data, group_name="system",
                          apply=True, with_vectors=False)
 
+    def test_invalid_library_id_rejected(self):
+        pkg = _build_library_package(
+            self.tmp, lib_id="../x", source_root="knowledge/libraries/../x",
+        )
+        with self.assertRaises(BundleError):
+            apply_import(str(pkg), data_root=self.data, group_name="system",
+                         apply=False, with_vectors=False)
+
     def test_layout_mismatch_rejected(self):
         pkg = _build_library_package(
             self.tmp, lib_id="lib-e", source_root="evals/corpora/libraries/lib-e",
