@@ -784,15 +784,25 @@ class SopRunner:
             "items": items,
         }
 
-    def _run_canonical_table_lookup(self, inputs: Dict[str, Any]) -> Dict[str, Any]:
+    def _run_canonical_table_lookup(self, inputs: Dict[str, Any], step: Optional[Step] = None) -> Dict[str, Any]:
         """table_lookup 的 canonical 实现：scope 取构造期注入的 library/doc_ids，
-        存量 SOP 写死的 file_name 由引擎侧转译为 doc_ids（老 SOP 零改动）。"""
+        存量 SOP 写死的 file_name 由引擎侧转译为 doc_ids（老 SOP 零改动）。
+
+        单输出键（如 outputs={"T": "result"}）且未显式给 target_column 时，用输出键
+        反推目标列——否则查表返回整行 map，步骤输出把整行当标量，calculator 会报非法表达式。
+        """
         from angineer_core.canonical_table_lookup import canonical_table_lookup
+
+        target_column = inputs.get("target_column")
+        if not target_column and step is not None and isinstance(step.outputs, dict):
+            result_keys = [key for key, path in step.outputs.items() if path == "result"]
+            if len(result_keys) == 1:
+                target_column = result_keys[0]
 
         return canonical_table_lookup(
             table_name=str(inputs.get("table_name") or ""),
             query_conditions=inputs.get("query_conditions"),
-            target_column=inputs.get("target_column"),
+            target_column=target_column,
             library_id=self.library_id,
             doc_ids=self.doc_ids,
             file_name=inputs.get("file_name"),
@@ -804,7 +814,7 @@ class SopRunner:
         if tool_name == "knowledge_search":
             return self._run_canonical_knowledge_search(str(inputs.get("query") or ""))
         if tool_name == "table_lookup":
-            return self._run_canonical_table_lookup(inputs)
+            return self._run_canonical_table_lookup(inputs, step)
         if tool_name == "table_read":
             # 读表判读通道（方案 B）：矩阵/双层表头表专用；选表确定性、取值一次 LLM 抽取
             from angineer_core.canonical_table_lookup import canonical_table_read
@@ -1257,7 +1267,12 @@ class SopRunner:
             # If result_path is "result", extract the 'result' field from dict
             elif result_path == "result":
                 if isinstance(result, dict) and "result" in result:
-                    val = result["result"]
+                    inner = result["result"]
+                    # 单输出键 + 整行 map：优先取同名键，避免把整行 dict 当标量塞进 calculator
+                    if isinstance(inner, dict) and context_key in inner:
+                        val = inner[context_key]
+                    else:
+                        val = inner
                 elif isinstance(result, dict) and context_key in result:
                     val = result[context_key]
                 else:

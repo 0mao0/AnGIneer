@@ -12,6 +12,7 @@ JSON 契约（字段均可缺省）::
       "description": "海港/码头工程（JTS 规范族）参数释义与输出别名",
       "param_descriptions": {"H": "波高（m）..."},
       "output_aliases": {"dwl_basic": ["design_high_water_level", "..."]},
+      "table_column_aliases": {"吨级": ["载重吨DWT(t)", "DWT", "船舶吨级"]},
       "calculator_hint": "For K1 (wave coefficient): ..."
     }
 
@@ -38,6 +39,8 @@ class DomainHints:
 
     param_descriptions: Dict[str, str] = field(default_factory=dict)
     output_aliases: Dict[str, List[str]] = field(default_factory=dict)
+    # 表头别名：参数名 → 可匹配的表头片段（如 吨级 → 载重吨DWT(t)）；表引擎行过滤/取列消费。
+    table_column_aliases: Dict[str, List[str]] = field(default_factory=dict)
     calculator_hint: str = ""
     # 参数规则段（domain_arg_rules 消费；2026-10-12 classifier 深层逻辑外置）
     arg_rules: Dict[str, Any] = field(default_factory=dict)
@@ -52,7 +55,8 @@ class DomainHints:
 
     def __bool__(self) -> bool:
         return bool(
-            self.param_descriptions or self.output_aliases or self.calculator_hint
+            self.param_descriptions or self.output_aliases or self.table_column_aliases
+            or self.calculator_hint
             or self.arg_rules or self.arg_computes or self.arg_defaults
             or self.ship_type_rules or self.stop_markers or self.clean_rules
             or self.param_recommendations
@@ -77,6 +81,7 @@ def _parse_pack(text: str) -> DomainHints:
         raise ValueError("domain pack 根节点必须为对象")
     params = data.get("param_descriptions")
     aliases = data.get("output_aliases")
+    column_aliases = data.get("table_column_aliases")
     hint = data.get("calculator_hint")
     def _dict_of_dicts(raw: Any) -> Dict[str, Dict[str, Any]]:
         return {str(k): (v if isinstance(v, dict) else {}) for k, v in raw.items()} if isinstance(raw, dict) else {}
@@ -90,6 +95,10 @@ def _parse_pack(text: str) -> DomainHints:
             str(k): [str(a) for a in v] if isinstance(v, list) else [str(v)]
             for k, v in aliases.items()
         } if isinstance(aliases, dict) else {},
+        table_column_aliases={
+            str(k): [str(a) for a in v] if isinstance(v, list) else [str(v)]
+            for k, v in column_aliases.items()
+        } if isinstance(column_aliases, dict) else {},
         calculator_hint=str(hint) if hint else "",
         arg_rules=_dict_of_dicts(data.get("arg_rules")),
         arg_computes=_list_of_dicts(data.get("arg_computes")),

@@ -3,7 +3,7 @@ import os
 import sys
 import unittest
 from types import SimpleNamespace
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../services/angineer-core/src")))
 
@@ -18,6 +18,23 @@ LOOKUP_TABLE = {
     "rows": [["杂货船", "40000", "12.3"]],
     "context": "表A.0.2-3 设计船型尺度",
     "page_idx": 133,
+}
+
+# 真实 canonical 表的形态：父表头「船舶主要尺度(m)」重复 4 次，
+# 子表头（总长L/型宽B/型深H/满载吃水T）落进 body 首行。
+DUP_TABLE = {
+    "doc_id": "doc-hg-dup",
+    "header_rows": [[
+        "序号", "船名", "载重吨DWT(t)",
+        "船舶主要尺度(m)", "船舶主要尺度(m)", "船舶主要尺度(m)", "船舶主要尺度(m)",
+    ]],
+    "rows": [
+        ["序号", "船名", "载重吨DWT(t)", "总长L", "型宽B", "型深H", "满载吃水T"],
+        ["1", "矿石船", "100000", "254", "43", "22", "14.5"],
+        ["2", "矿石船", "50000", "200", "32", "18", "11.2"],
+    ],
+    "context": "表A.0.2-1 散货船船舶主要尺度",
+    "page_idx": 131,
 }
 
 
@@ -71,6 +88,24 @@ class SopTableLookupCanonicalTests(unittest.TestCase):
         self.assertEqual(blackboard["T"], 12.3)
         self.assertEqual(patch.provider_calls[0]["library_id"], "lib-x")
         self.assertEqual(patch.provider_calls[0]["doc_ids"], ["doc-hg"])
+        self.assertEqual(runner.memory.history[0].status, "success")
+
+    def test_tonnage_alias_and_subheader_resolve_T(self):
+        """吨级→载重吨DWT(t) 别名 + 子表头展开：不传 target_column 也能取到 T。"""
+        runner = SopRunner(llm_client=Mock())
+        with patch.dict(os.environ, {"ANGINEER_SOP_DOMAIN_PACK": "harbor"}):
+            from angineer_core import sop_domain
+
+            sop_domain._cache.pop("harbor", None)
+            with _PortsPatch(blocks=[DUP_TABLE]):
+                blackboard = runner.run_sop(
+                    make_lookup_sop({
+                        "table_name": "表A.0.2-1",
+                        "query_conditions": {"船型": "矿石船", "吨级": "100000"},
+                    }),
+                    {},
+                )
+        self.assertEqual(blackboard["T"], 14.5)
         self.assertEqual(runner.memory.history[0].status, "success")
 
     def test_file_name_translated_to_doc_scope(self):
