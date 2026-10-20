@@ -5,6 +5,12 @@
  */
 import type { EvalTrace, EvalTraceSummary } from '../types/eval'
 
+export interface TracePromptMessage {
+  role: string
+  content: string
+  truncated?: boolean
+}
+
 export type TraceRow =
   | {
       kind: 'intent'
@@ -15,6 +21,16 @@ export type TraceRow =
       timing?: number
     }
   | { kind: 'turn'; key: string; turn: number; label: string }
+  | {
+      kind: 'prompt'
+      key: string
+      turn: number
+      messageCount: number
+      promptChars: number
+      truncated: boolean
+      messagesOmitted: boolean
+      messages: TracePromptMessage[]
+    }
   | {
       kind: 'tool'
       key: string
@@ -64,6 +80,24 @@ function asStringList(value: unknown): string[] {
   return Array.isArray(value) ? value.map(item => String(item)) : []
 }
 
+function normalizePromptMessages(value: unknown): TracePromptMessage[] {
+  if (!Array.isArray(value)) return []
+  return value.map(item => {
+    const record = asRecord(item)
+    const content = record.content
+    return {
+      role: asString(record.role) || '?',
+      content:
+        typeof content === 'string'
+          ? content
+          : content === null || content === undefined
+            ? ''
+            : JSON.stringify(content),
+      truncated: Boolean(record.truncated),
+    }
+  })
+}
+
 function normalizeSummary(
   summary: EvalTraceSummary | null | undefined,
   payload: Record<string, unknown>,
@@ -76,6 +110,7 @@ function normalizeSummary(
     turns: asNumber(raw.turns) ?? asNumber(payload.turns) ?? turns,
     tool_calls: asNumber(raw.tool_calls) ?? toolCalls,
     duration_ms: asNumber(raw.duration_ms),
+    agent_loop_ms: asNumber(raw.agent_loop_ms) ?? asNumber(payload.agent_loop_ms),
     reason: asString(raw.reason) || asString(payload.reason),
     final_outcome: finalOutcome || null,
     path_trace: asStringList(raw.path_trace).length
@@ -137,6 +172,22 @@ export function buildTraceRows(input: TraceRowInput): TraceRow[] {
 
     if (type === 'turn_start') {
       ensureTurn(turn)
+      continue
+    }
+
+    if (type === 'llm_request') {
+      ensureTurn(turn)
+      const messages = normalizePromptMessages(payload.messages)
+      rows.push({
+        kind: 'prompt',
+        key: `prompt-${rowIndex++}`,
+        turn,
+        messageCount: asNumber(payload.message_count) ?? messages.length,
+        promptChars: asNumber(payload.prompt_chars) ?? 0,
+        truncated: Boolean(payload.truncated),
+        messagesOmitted: Boolean(payload.messages_omitted),
+        messages,
+      })
       continue
     }
 

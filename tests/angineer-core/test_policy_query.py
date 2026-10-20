@@ -100,8 +100,16 @@ class PolicyQueryTests(unittest.TestCase):
         self.assertEqual(result["trace"]["version"], 1)
         event_types = [event["type"] for event in result["trace"]["events"]]
         self.assertNotIn("message_delta", event_types)
+        self.assertIn("llm_request", event_types)
+        requests = [event for event in result["trace"]["events"] if event["type"] == "llm_request"]
+        self.assertEqual(len(requests), 2)
+        # 前序轮次只留统计，最后一轮留全文（防多轮 prompt 重复膨胀）
+        self.assertTrue(requests[0]["payload"].get("messages_omitted"))
+        self.assertNotIn("messages", requests[0]["payload"])
+        self.assertIn("messages", requests[1]["payload"])
         self.assertEqual(result["trace"]["summary"]["tool_calls"], 1)
         self.assertGreater(result["trace"]["summary"]["duration_ms"], 0)
+        self.assertGreater(result["trace"]["summary"]["agent_loop_ms"], 0)
 
     def test_policy_query_marks_fallback_used(self):
         llm = MockLLM(lambda messages, kwargs: text_events("第一段" if len(llm.calls) == 1 else "第二段答案"))

@@ -39,6 +39,21 @@
       }
     },
     { "type": "turn_start", "turn": 1, "payload": { "turn": 1 } },
+    {
+      "type": "llm_request",
+      "turn": 1,
+      "payload": {
+        "model": "qwen3.6",
+        "message_count": 3,
+        "prompt_chars": 1234,
+        "truncated": false,
+        "messages": [
+          { "role": "system", "content": "你是严谨的问答助手。" },
+          { "role": "user", "content": "What are some applications of proving strict comparison?" },
+          { "role": "tool", "content": "{\"items\": [{\"item_id\": \"chunk-1\"}]}" }
+        ]
+      }
+    },
     { "type": "message_start", "turn": 1, "payload": {} },
     { "type": "message_delta", "turn": 1, "payload": { "delta": "根据" } },
     { "type": "message_delta", "turn": 1, "payload": { "delta": "检索结果" } },

@@ -177,6 +177,8 @@ class AgentLoopConfig:
     # 被吞掉的 LLM 失败落点（哨兵 b）：调用方传入列表即可回收"降级继续跑"的失败明细，
     # 评测据此区分"校准过的拒答"与"故障吞错式拒答"（2026-09-06 53 题全灭事故驱动）
     error_sink: Optional[List[str]] = None
+    # 真实 prompt 留痕：仅评测开启（chat SSE 不传，避免把 system/证据整段推给浏览器）
+    capture_prompt: bool = False
 
 
 def _first_token_liveness_default() -> float:
@@ -288,6 +290,29 @@ def _safe_emit(emit: Optional[Callable[[AgentEvent], None]], event: AgentEvent) 
         emit(event)
     except Exception as exc:  # noqa: BLE001
         logger.warning("emit 回调异常（已忽略）: %s", exc)
+
+
+# 真实 prompt 入库上限（字符）：单题 trace 不能无上限膨胀。超限截断并标记 truncated。
+_PROMPT_TRACE_MAX_CHARS = 200_000
+
+
+def _prompt_messages_for_trace(
+    messages: List[Dict[str, Any]],
+) -> Tuple[List[Dict[str, Any]], bool]:
+    """把发给 LLM 的真实 messages 裁成可入库副本（超长截断 + truncated 标记）。"""
+    total = 0
+    out: List[Dict[str, Any]] = []
+    for message in messages:
+        copy = dict(message)
+        content = copy.get("content")
+        text = content if isinstance(content, str) else ("" if content is None else str(content))
+        if total + len(text) > _PROMPT_TRACE_MAX_CHARS:
+            copy["content"] = text[: max(0, _PROMPT_TRACE_MAX_CHARS - total)]
+            out.append(copy)
+            return out, True
+        out.append(copy)
+        total += len(text)
+    return out, False
 
 
 def _run_callback(callback, default, *args):
@@ -697,7 +722,13 @@ def _execute_tools_batch(
             continue
         validation_error = _validate_arguments(tool.parameters_schema, call.arguments)
         if validation_error:
-            results.append(fail(call, f"参数校验失败: {validation_error}"))
+            message = f"参数校验失败: {validation_error}"
+            # 懒加载：把 schema 直接带回错误结果，模型下一轮可按 schema 重试（不必再单独 tool_schema）
+            if not getattr(config.codec, "include_schemas", True):
+                message += "\n参数 schema: " + json.dumps(
+                    tool.parameters_schema or {}, ensure_ascii=False
+                )
+            results.append(fail(call, message))
             continue
         block_reason = _run_callback(config.before_tool_call, None, tool, call.arguments)
         if block_reason:
@@ -825,6 +856,28 @@ def _run_llm_turn(
         {"role": "system", "content": codec.augment_system_prompt(config.system_prompt, config.tools if allow_tools else [])}
     ]
     llm_messages.extend(to_llm_messages(transformed, tool_style=tool_style))
+
+    # 真实 prompt 留痕：调试时能核对模型实际看到的 system/问题/证据，而不是事后重建。
+    # 仅 capture_prompt=True（评测）落事件；chat SSE 不落，避免整段 prompt 推给浏览器。
+    if config.capture_prompt:
+        _prompt_chars = sum(len(str(message.get("content") or "")) for message in llm_messages)
+        _prompt_messages, _prompt_truncated = _prompt_messages_for_trace(llm_messages)
+        _safe_emit(
+            emit,
+            AgentEvent(
+                type="llm_request",
+                run_id=run_id,
+                turn=turn,
+                payload={
+                    "model": config.model or "",
+                    "config_name": config.config_name or "",
+                    "message_count": len(llm_messages),
+                    "prompt_chars": _prompt_chars,
+                    "truncated": _prompt_truncated,
+                    "messages": _prompt_messages,
+                },
+            ),
+        )
 
     _safe_emit(emit, AgentEvent(type="message_start", run_id=run_id, turn=turn, payload={}))
     full_text = ""

@@ -46,12 +46,21 @@ class TraceCollector:
                 payload.pop("answer_pre_strip", None)
                 item["payload"] = payload
             dumped.append(item)
+        # 多轮 prompt 只保留最后一轮全文：前面的轮次 messages 与后续 prompt 的历史部分重复，
+        # 13 轮 L3 若全存可达数 MB。前面轮次保留 message_count/prompt_chars，UI 标注已省略。
+        prompt_indices = [i for i, item in enumerate(dumped) if item.get("type") == "llm_request"]
+        for index in prompt_indices[:-1]:
+            payload = dict(dumped[index].get("payload") or {})
+            payload.pop("messages", None)
+            payload["messages_omitted"] = True
+            dumped[index]["payload"] = payload
         return dumped
 
-    def trace_payload(self, *, duration_ms: int = 0) -> Dict[str, Any]:
+    def trace_payload(self, *, duration_ms: int = 0, agent_loop_ms: int = 0) -> Dict[str, Any]:
         """评测 run 的 trace 投影：{version, events, summary}。
 
         summary 在写库时算好，前端不必解析事件数组。
+        duration_ms 是从请求开始的总时长（含意图分类）；agent_loop_ms 是循环段。
         """
         run_end = self.run_end_payload()
         events = self.agent_events_dump()
@@ -60,6 +69,7 @@ class TraceCollector:
             "turns": int(run_end.get("turns") or 0),
             "tool_calls": tool_calls,
             "duration_ms": int(duration_ms or 0),
+            "agent_loop_ms": int(agent_loop_ms or 0),
             "reason": str(run_end.get("reason") or ""),
             "final_outcome": run_end.get("final_outcome"),
             "path_trace": list(run_end.get("path_trace") or []),

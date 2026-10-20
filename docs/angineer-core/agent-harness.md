@@ -36,6 +36,7 @@ turn_start / turn_end
 message_start / message_delta / message_end
 tool_start / tool_end
 note（边界/过程说明） / answer（守卫替换的最终回答） / error
+llm_request（真实 prompt；仅 capture_prompt=True 的评测链路发，chat SSE 不发）
 ```
 
 前端通过 SSE 订阅这些事件，实时渲染"思考过程（N 步 · 工具耗时 X）"与执行步骤。
@@ -49,6 +50,9 @@ AgentTool(name, description, parameters_schema, handler, read_only, execution_mo
 - 检索类工具 `read_only=True`；
 - `execution_mode`：parallel / sequential；
 - 工具通过 `RetrieverAdapter` / `SopRunnerAdapter` / `EngtoolAdapter` 装配。
+- L1 QA 懒加载：`TextToolCallCodec(include_schemas=False)` 只把 `name + description` 放进 system；
+  参数 schema 由 `ToolSchemaAdapter.tool_schema` 元工具按需返回，参数校验失败时错误结果也带 schema
+  （`_execute_tools_batch`）。schema 留在对话历史里，后续轮次复用。
 
 ### 2.4 循环配置（agent_loop.py）
 
@@ -56,6 +60,7 @@ AgentTool(name, description, parameters_schema, handler, read_only, execution_mo
 AgentLoopConfig(
     llm, tools, system_prompt, max_turns, codec,
     attempts, final_answer_guard, should_stop_after_turn, pending_messages_provider,
+    capture_prompt=False,  # True=发 llm_request 事件（评测调试用；chat 保持 False）
 )
 TurnContext(turn, messages, tool_results, usage)
 ```

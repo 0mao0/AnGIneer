@@ -8,7 +8,7 @@
     <div v-if="!rows.length" class="eval-trace__empty">无事件 trace（该 run 没有落事件流）</div>
 
     <div
-      v-for="row in rows"
+      v-for="row in visibleRows"
       :key="row.key"
       class="eval-trace__row"
       :class="`eval-trace__row--${row.kind}`"
@@ -30,10 +30,47 @@
       </template>
 
       <template v-else-if="row.kind === 'turn'">
-        <div class="eval-trace__turn">
+        <div
+          class="eval-trace__turn"
+          role="button"
+          tabindex="0"
+          :aria-expanded="expandedTurns.has(row.turn)"
+          @click="toggleTurn(row.turn)"
+          @keydown.enter.prevent="toggleTurn(row.turn)"
+          @keydown.space.prevent="toggleTurn(row.turn)"
+        >
+          <span class="eval-trace__turn-chevron">{{ expandedTurns.has(row.turn) ? '▾' : '▸' }}</span>
           <span class="eval-trace__turn-line" />
           <span class="eval-trace__turn-label">{{ row.label }}</span>
+          <span v-if="turnMeta(row.turn)" class="eval-trace__turn-meta">{{ turnMeta(row.turn) }}</span>
           <span class="eval-trace__turn-line" />
+        </div>
+      </template>
+
+      <template v-else-if="row.kind === 'prompt'">
+        <span class="eval-trace__badge eval-trace__badge--prompt">P</span>
+        <div class="eval-trace__body">
+          <div class="eval-trace__head">
+            <span class="eval-trace__label">Prompt 拼装</span>
+            <a-tag v-if="row.truncated" color="warning" class="eval-trace__tag">已截断</a-tag>
+            <span class="eval-trace__meta">{{ row.messageCount }} 条消息 · {{ row.promptChars }} 字符</span>
+          </div>
+          <div v-if="row.messagesOmitted" class="eval-trace__note">
+            前序轮次的 prompt 已省略，仅保留最后一轮全文
+          </div>
+          <details v-else class="eval-trace__details">
+            <summary>查看真实 prompt</summary>
+            <div
+              v-for="(message, mi) in row.messages"
+              :key="`prompt-${row.key}-${mi}`"
+              class="eval-trace__prompt-message"
+            >
+              <div class="eval-trace__code-label">
+                {{ message.role }}<template v-if="message.truncated">（截断）</template>
+              </div>
+              <pre class="eval-trace__code">{{ message.content }}</pre>
+            </div>
+          </details>
         </div>
       </template>
 
@@ -42,6 +79,13 @@
         <div class="eval-trace__body">
           <div class="eval-trace__head">
             <span class="eval-trace__label">{{ row.name }}</span>
+            <a-tag
+              v-if="row.name === 'sop_execute' && (sopSteps?.length || 0) > 0"
+              color="processing"
+              class="eval-trace__tag"
+            >
+              SOP {{ sopSteps?.length }} 步
+            </a-tag>
             <a-tag v-if="row.injected" color="blue" class="eval-trace__tag">预检注入</a-tag>
             <a-tag v-if="row.pending" color="warning" class="eval-trace__tag">未完成</a-tag>
             <a-tag v-if="row.isError" color="error" class="eval-trace__tag">失败</a-tag>
@@ -60,6 +104,10 @@
               <pre class="eval-trace__code">{{ row.result }}</pre>
             </template>
           </details>
+          <SopSteps
+            v-if="row.name === 'sop_execute' && row.key === sopAnchorKey && (sopSteps?.length || 0) > 0"
+            :steps="sopSteps || []"
+          />
         </div>
       </template>
 
@@ -101,6 +149,9 @@
                 v-if="row.summary.duration_ms"
               > · {{ (row.summary.duration_ms / 1000).toFixed(1) }}s</template>
             </span>
+            <span v-if="row.summary.agent_loop_ms" class="eval-trace__meta">
+              loop {{ (row.summary.agent_loop_ms / 1000).toFixed(1) }}s
+            </span>
           </div>
           <div v-if="row.summary.path_trace?.length" class="eval-trace__paths">
             <a-tag v-for="path in row.summary.path_trace" :key="path" class="eval-trace__tag">
@@ -125,9 +176,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { EvalTrace } from '../types/eval'
-import { buildTraceRows } from '../utils/trace'
+import { computed, ref } from 'vue'
+import type { EvalSopTraceStep, EvalTrace } from '../types/eval'
+import { buildTraceRows, type TraceRow } from '../utils/trace'
+import SopSteps from './SopSteps.vue'
 
 const props = defineProps<{
   title?: string
@@ -135,6 +187,7 @@ const props = defineProps<{
   intent?: Record<string, unknown> | null
   stageTimings?: Record<string, number> | null
   evaluating?: boolean
+  sopSteps?: EvalSopTraceStep[]
 }>()
 
 const rows = computed(() =>
@@ -144,6 +197,50 @@ const rows = computed(() =>
     stageTimings: props.stageTimings,
   })
 )
+
+/** sop_trace 挂在最后一次 sop_execute 工具卡下（多次调用时按汇总展示）。 */
+const sopAnchorKey = computed(() => {
+  const tools = rows.value.filter(row => row.kind === 'tool' && row.name === 'sop_execute')
+  return tools.length ? tools[tools.length - 1].key : ''
+})
+
+/** 轮次默认折叠：只留意图、轮次头和终态；点轮次头再展开该轮内容。 */
+const expandedTurns = ref<Set<number>>(new Set())
+
+const visibleRows = computed(() => rows.value.filter(isRowVisible))
+
+function isRowVisible(row: TraceRow): boolean {
+  if (row.kind === 'intent' || row.kind === 'turn' || row.kind === 'run_end') return true
+  return expandedTurns.value.has(row.turn)
+}
+
+function toggleTurn(turn: number): void {
+  const next = new Set(expandedTurns.value)
+  if (next.has(turn)) next.delete(turn)
+  else next.add(turn)
+  expandedTurns.value = next
+}
+
+function turnMeta(turn: number): string {
+  let tools = 0
+  let notes = 0
+  let hasSop = false
+  for (const row of rows.value) {
+    if (row.kind === 'intent' || row.kind === 'turn' || row.kind === 'run_end') continue
+    if (row.turn !== turn) continue
+    if (row.kind === 'tool') {
+      tools += 1
+      if (row.name === 'sop_execute') hasSop = true
+    } else if (row.kind === 'note') {
+      notes += 1
+    }
+  }
+  const parts: string[] = []
+  if (tools) parts.push(`${tools} 次工具`)
+  if (notes) parts.push(`${notes} 条 note`)
+  if (hasSop && (props.sopSteps?.length || 0) > 0) parts.push(`SOP ${props.sopSteps?.length} 步`)
+  return parts.join(' · ')
+}
 
 function pretty(value: unknown): string {
   try {
@@ -162,9 +259,11 @@ function pretty(value: unknown): string {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 8px;
-    font-size: 13px;
+    margin-bottom: 6px;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 0.02em;
+    color: @evals-text-secondary;
   }
 
   &__empty {
@@ -197,6 +296,11 @@ function pretty(value: unknown): string {
     &--tool {
       color: @evals-success;
       background: fade(@evals-success, 14%);
+    }
+
+    &--prompt {
+      color: @evals-primary;
+      background: fade(@evals-primary, 14%);
     }
 
     &--note {
@@ -264,6 +368,26 @@ function pretty(value: unknown): string {
     gap: 8px;
     width: 100%;
     padding: 8px 0 2px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover &-label {
+      color: @evals-text-primary;
+    }
+  }
+
+  &__turn-chevron {
+    flex: none;
+    width: 12px;
+    text-align: center;
+    color: @evals-text-secondary;
+    font-size: 10px;
+  }
+
+  &__turn-meta {
+    color: @evals-text-secondary;
+    font-size: 11px;
+    white-space: nowrap;
   }
 
   &__turn-line {

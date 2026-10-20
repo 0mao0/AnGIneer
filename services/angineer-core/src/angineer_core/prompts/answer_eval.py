@@ -1,7 +1,7 @@
 """answer_eval 语义评测 prompt（P5 迁移自 evals-core/answer_eval.py）。
 
-用途：LLM 语义评判（评分 + 理由）；语言：中文；版本 v4（v4 增补跨语言/同义改写豁免）。
-最后变更：2026-09-30。
+用途：LLM 语义评判（评分 + 理由）；语言：中文；版本 v5（v5 要求 reason 用简体中文）。
+最后变更：2026-10-19。
 """
 from . import register
 
@@ -29,8 +29,9 @@ SEMANTIC_EVAL_PROMPT = """\
   不得因详略差异或表述风格不同而扣分。
 - 核心结论正确、仅遗漏个别次要数值或细节时，不得判为错误：应给 0.7~0.9 并通过（≥0.65），
   不得因遗漏次要数值/细节而整体判错。
+- 理由（reason）必须用简体中文书写（可保留必要的英文术语/公式），不要用英文整句。
 
-返回 JSON：{{"score": 0.0~1.0, "reason": "简短说明"}}"""
+返回 JSON：{{"score": 0.0~1.0, "reason": "用简体中文简短说明"}}"""
 
 
 SEMANTIC_EVAL_SYSTEM_PROMPT = "你是一个严格的评测助手，只返回 JSON 格式的评分结果。"
@@ -59,7 +60,7 @@ EVIDENCE_SUPPORT_PROMPT = """\
 EVIDENCE_SUPPORT_SYSTEM_PROMPT = "你是一个严格的评测助手，只返回 JSON 格式的判定结果。"
 
 
-register("answer_eval.semantic_eval_prompt", "v4", SEMANTIC_EVAL_PROMPT)
+register("answer_eval.semantic_eval_prompt", "v5", SEMANTIC_EVAL_PROMPT)
 register("answer_eval.semantic_eval_system_prompt", "v1", SEMANTIC_EVAL_SYSTEM_PROMPT)
 register("answer_eval.evidence_support_prompt", "v1", EVIDENCE_SUPPORT_PROMPT)
 register("answer_eval.evidence_support_system_prompt", "v1", EVIDENCE_SUPPORT_SYSTEM_PROMPT)

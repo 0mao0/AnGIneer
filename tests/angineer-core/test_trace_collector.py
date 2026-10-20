@@ -18,7 +18,7 @@ class TraceCollectorTests(unittest.TestCase):
     def test_collects_events_and_projects_run_end(self):
         collector = TraceCollector()
         llm = MockLLM(lambda messages, kwargs: text_events("答案", "stop"))
-        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1)
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1, capture_prompt=True)
         messages = [AgentMessage(role="user", content="q")]
 
         run_agent_loop(messages, config, emit=collector.emit, run_id="r1")
@@ -31,6 +31,11 @@ class TraceCollectorTests(unittest.TestCase):
         self.assertEqual(payload["turns"], 1)
         # 流式增量只服务聊天 SSE，入库 trace 不含 message_delta
         self.assertTrue(any(t == "message_delta" for t in types))
+        # 真实 prompt 在调用前留痕（system + user + tool 全量消息）
+        self.assertTrue(any(t == "llm_request" for t in types))
+        request = next(e for e in collector.events if e.type == "llm_request")
+        self.assertEqual(request.payload["messages"][0]["role"], "system")
+        self.assertGreater(request.payload["prompt_chars"], 0)
         dump = collector.agent_events_dump()
         self.assertFalse(any(e["type"] == "message_delta" for e in dump))
         self.assertEqual(dump[0]["type"], "run_start")
@@ -42,17 +47,18 @@ class TraceCollectorTests(unittest.TestCase):
     def test_trace_payload_has_version_events_and_summary(self):
         collector = TraceCollector()
         llm = MockLLM(lambda messages, kwargs: text_events("答案", "stop"))
-        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1)
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1, capture_prompt=True)
         messages = [AgentMessage(role="user", content="q")]
 
         run_agent_loop(messages, config, emit=collector.emit, run_id="r1")
 
-        trace = collector.trace_payload(duration_ms=1234)
+        trace = collector.trace_payload(duration_ms=1234, agent_loop_ms=1000)
         self.assertEqual(trace["version"], 1)
         self.assertEqual(trace["events"], collector.agent_events_dump())
         self.assertEqual(trace["summary"]["turns"], 1)
         self.assertEqual(trace["summary"]["tool_calls"], 0)
         self.assertEqual(trace["summary"]["duration_ms"], 1234)
+        self.assertEqual(trace["summary"]["agent_loop_ms"], 1000)
         self.assertEqual(trace["summary"]["reason"], "completed")
         self.assertIn("final_outcome", trace["summary"])
         self.assertIsInstance(trace["summary"]["path_trace"], list)
@@ -65,6 +71,24 @@ class TraceCollectorTests(unittest.TestCase):
         self.assertEqual(trace["events"], [])
         self.assertEqual(trace["summary"]["turns"], 0)
         self.assertEqual(trace["summary"]["tool_calls"], 0)
+
+    def test_prompt_messages_are_capped_and_marked(self):
+        from angineer_core.agent_loop import _PROMPT_TRACE_MAX_CHARS, _prompt_messages_for_trace
+
+        messages = [{"role": "user", "content": "x" * (_PROMPT_TRACE_MAX_CHARS + 10)}]
+        out, truncated = _prompt_messages_for_trace(messages)
+        self.assertTrue(truncated)
+        self.assertEqual(len(out[0]["content"]), _PROMPT_TRACE_MAX_CHARS)
+
+    def test_prompt_capture_off_by_default(self):
+        """chat SSE 等非评测调用不落 llm_request，避免整段 prompt 推给浏览器。"""
+        collector = TraceCollector()
+        llm = MockLLM(lambda messages, kwargs: text_events("答案", "stop"))
+        config = AgentLoopConfig(llm=llm, tools=[], system_prompt="p", max_turns=1)
+        run_agent_loop(
+            [AgentMessage(role="user", content="q")], config, emit=collector.emit, run_id="r1"
+        )
+        self.assertFalse(any(e.type == "llm_request" for e in collector.events))
 
 
 if __name__ == "__main__":

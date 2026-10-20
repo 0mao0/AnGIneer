@@ -47,6 +47,16 @@ test('tool_start/tool_end 按 call_id 配成一张卡', () => {
   assert.equal(tools[0].args.query, 'springing lien market practice')
 })
 
+test('llm_request 渲染为真实 prompt 行', () => {
+  const prompt = rowsOf().find(row => row.kind === 'prompt')
+  assert.ok(prompt)
+  assert.equal(prompt.messageCount, 3)
+  assert.equal(prompt.promptChars, 1234)
+  assert.equal(prompt.truncated, false)
+  assert.equal(prompt.messages[0].role, 'system')
+  assert.match(prompt.messages[0].content, /问答助手/)
+})
+
 test('note 保留 tokens / TTFT / 耗时', () => {
   const note = rowsOf().find(
     row => row.kind === 'note' && row.promptTokens === 1200

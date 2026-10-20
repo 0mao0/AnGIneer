@@ -239,6 +239,7 @@ export interface EvalTraceSummary {
   turns?: number
   tool_calls?: number
   duration_ms?: number
+  agent_loop_ms?: number
   reason?: string
   final_outcome?: string | null
   path_trace?: string[]
@@ -249,4 +250,20 @@ export interface EvalTrace {
   version?: number
   events?: EvalTraceEvent[]
   summary?: EvalTraceSummary | null
+}
+
+/** SOP 执行步骤（prediction.sop_trace；step_index=0 为题干已知条件） */
+export interface EvalSopTraceStep {
+  step_id: string
+  step_name: string
+  step_index: number
+  tool: string
+  description: string
+  inputs: Record<string, unknown>
+  outputs: Record<string, unknown> | null
+  duration: number
+  status: string
+  error: string | null
+  thinking?: string | null
+  evidence?: Record<string, unknown> | null
 }

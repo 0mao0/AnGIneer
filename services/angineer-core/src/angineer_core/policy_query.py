@@ -175,6 +175,8 @@ def run_policy_query(
             attempts=attempts,
             route_note=format_route_note(intent_result),
             error_sink=llm_errors,
+            # 评测要看到真实 prompt；chat SSE 不传该开关
+            capture_prompt=True,
         )
         from angineer_core.trace_collector import TraceCollector
 
@@ -184,7 +186,10 @@ def run_policy_query(
         loop_seconds = round(time.time() - t1, 3)
         # trace 唯一真相源：事件流（过滤流式增量）+ 写时算好的 summary。
         # 评测页直接渲染它，不再从 retrieval_debug 派生四步链。
-        trace_payload = collector.trace_payload(duration_ms=int(loop_seconds * 1000))
+        trace_payload = collector.trace_payload(
+            duration_ms=int((intent_seconds + loop_seconds) * 1000),
+            agent_loop_ms=int(loop_seconds * 1000),
+        )
 
         run_payload = collector.run_end_payload()
         reason = str(run_payload.get("reason") or "completed")

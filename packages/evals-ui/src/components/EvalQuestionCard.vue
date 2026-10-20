@@ -93,6 +93,23 @@
         <span>正在评测，结果返回后会自动展示。</span>
       </div>
 
+      <details v-if="detail" class="eval-group eval-group--first">
+        <summary class="eval-group__title">
+          运行轨迹
+          <span v-if="traceGroupMeta" class="eval-group__meta">{{ traceGroupMeta }}</span>
+        </summary>
+        <div class="eval-group__body">
+      <TraceTimeline
+        v-if="tracePayload"
+        :title="knowledgeTraceTitle"
+        :trace="tracePayload"
+        :intent="intentDebug"
+        :stage-timings="stageTimings"
+        :evaluating="evaluating"
+        :sop-steps="realSopTraceSteps"
+      />
+
+      <template v-else>
       <div v-if="detail && isFlowTraceLevel" class="eval-chain">
         <div class="eval-chain__title">
           {{ flowTraceTitle }}
@@ -557,121 +574,132 @@
           :intent="intentDebug"
           :stage-timings="stageTimings"
           :evaluating="evaluating"
+          :sop-steps="realSopTraceSteps"
         />
-
-        <!-- 引用证据：trace 工具卡只放结果预览，完整引用仍单独列 -->
-        <div v-if="citations.length" class="eval-section">
-          <div class="eval-section__title">引用证据</div>
-          <div
-            v-for="(c, ci) in citations"
-            :key="`citation-${ci}`"
-            class="eval-citation-card"
-          >
-            <div class="eval-citation-meta">
-              <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-              <span
-                v-if="c.score !== undefined && c.score !== null && c.score !== ''"
-                class="eval-citation-score"
-              >得分: {{ Number(c.score).toFixed(4) }}</span>
-              <span v-if="c.fusion_sources && c.fusion_sources.length" class="eval-citation-source">
-                来源: {{ formatFusionSources(c.fusion_sources) }}
-              </span>
-            </div>
-            <div v-if="getCitationEntryLabel(c)" class="eval-citation-location">
-              {{ getCitationEntryLabel(c) }}
-            </div>
-            <div v-if="getCitationDocTitle(c)" class="eval-citation-location">
-              {{ getCitationDocTitle(c) }}
-              <template v-if="getCitationPageLabel(c)"> · 页码: P{{ getCitationPageLabel(c) }}</template>
-            </div>
-            <div v-if="getCitationSectionPath(c)" class="eval-citation-section">
-              章节: {{ getCitationSectionPath(c) }}
-            </div>
-            <div
-              v-if="getCitationText(c)"
-              class="eval-citation-content"
-              v-html="renderRichText(getCitationText(c).slice(0, 2000))"
-            />
-          </div>
-        </div>
-
-        <!-- Prompt 拼装：默认折叠，保留排查入口 -->
-        <details v-if="systemPromptText || citations.length" class="eval-section eval-prompt-details">
-          <summary>Prompt 拼装</summary>
-          <div v-if="systemPromptText" class="eval-prompt-block">
-            <div class="eval-prompt-label">System Prompt:</div>
-            <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(systemPromptText)" />
-          </div>
-          <div class="eval-prompt-block">
-            <div class="eval-prompt-label">User Message - 问题:</div>
-            <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(question.question)" />
-          </div>
-          <div class="eval-prompt-block">
-            <div class="eval-prompt-label">User Message - 证据片段:</div>
-            <div
-              v-for="(c, ci) in citations.slice(0, 5)"
-              :key="`prompt-citation-${ci}`"
-              class="eval-prompt-citation"
-            >
-              <span class="eval-citation-index">[{{ ci + 1 }}]</span>
-              {{ getCitationText(c).slice(0, 200) || '(无片段)' }}
-            </div>
-          </div>
-        </details>
-
-        <!-- SQL 执行详情（L2） -->
-        <div v-if="sqlDebug" class="eval-section eval-sql-debug">
-          <div class="eval-section__title">SQL 执行详情</div>
-          <div class="eval-detail-row">
-            <span class="eval-detail-label">执行状态:</span>
-            <span :class="sqlDebug.execution_success ? 'eval-sql-success' : 'eval-sql-fail'">
-              {{ sqlDebug.execution_success ? '成功' : '失败' }}
-            </span>
-            <span v-if="sqlDebug.score !== undefined" class="eval-sql-score">
-              得分: {{ (sqlDebug.score * 100).toFixed(0) }}
-            </span>
-          </div>
-          <div v-if="sqlDebug.execution_status" class="eval-detail-row">
-            <span class="eval-detail-label">执行状态码:</span>
-            <span>{{ sqlDebug.execution_status }}</span>
-          </div>
-          <div v-if="sqlDebug.generated_sql" class="eval-prompt-block">
-            <div class="eval-prompt-label">生成 SQL:</div>
-            <pre class="eval-sql-code">{{ sqlDebug.generated_sql }}</pre>
-          </div>
-          <div v-if="question.sql_gold?.expected_sql" class="eval-prompt-block">
-            <div class="eval-prompt-label">期望 SQL:</div>
-            <pre class="eval-sql-code">{{ question.sql_gold.expected_sql }}</pre>
-          </div>
-          <div v-if="sqlDebug.sql_exact_match !== undefined" class="eval-detail-row">
-            <span class="eval-detail-label">SQL 精确匹配:</span>
-            <span :class="sqlDebug.sql_exact_match ? 'eval-sql-success' : 'eval-sql-fail'">
-              {{ sqlDebug.sql_exact_match ? '是' : '否' }}
-            </span>
-          </div>
-          <div v-if="sqlDebug.execution_result" class="eval-prompt-block">
-            <div class="eval-prompt-label">执行结果:</div>
-            <pre class="eval-sql-code">{{ sqlDebug.execution_result }}</pre>
-          </div>
-          <div v-if="sqlDebug.error" class="eval-sql-error">
-            错误: {{ sqlDebug.error }}
-          </div>
-        </div>
-
-        <!-- 检索评测 -->
-        <div v-if="retrievalScores" class="eval-section eval-retrieval-scores">
-          <div class="eval-section__title">检索评测</div>
-          <div class="eval-detail-row">
-            <span class="eval-detail-label">指标:</span>
-            <span>
-              <template v-if="retrievalScores['hit@3'] !== undefined && retrievalScores['hit@3'] !== null">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
-              <template v-if="retrievalScores['hit@5'] !== undefined && retrievalScores['hit@5'] !== null">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
-              <template v-if="retrievalScores.mrr !== undefined && retrievalScores.mrr !== null">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
-              <template v-if="retrievalScores.evaluated === false">未评测（无检索标准）</template>
-            </span>
-          </div>
-        </div>
       </template>
+      </template>
+        </div>
+      </details>
+
+      <details v-if="detail" class="eval-group">
+        <summary class="eval-group__title">
+          结果
+          <span v-if="resultGroupMeta" class="eval-group__meta">{{ resultGroupMeta }}</span>
+        </summary>
+        <div class="eval-group__body">
+
+      <!-- 标准答案对比 -->
+      <div class="eval-section">
+        <div class="eval-section__title">答案对比</div>
+        <div class="eval-comparison">
+          <div class="eval-comparison__col">
+            <div class="eval-comparison__label">系统回答</div>
+            <div class="eval-comparison__content">
+              <div v-if="answerHeadline" class="eval-answer-summary">
+                {{ answerHeadline }}
+              </div>
+              <div class="eval-rich-text eval-rich-text--answer" v-html="renderRichText(answerText)" />
+            </div>
+          </div>
+          <div class="eval-comparison__col">
+            <div class="eval-comparison__label">标准答案</div>
+            <div class="eval-comparison__content">
+              <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(question.answer_gold?.gold_answer || '—')" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 引用证据：trace 工具卡只放结果预览，完整引用仍单独列 -->
+      <div v-if="citations.length" class="eval-section">
+        <div class="eval-section__title">引用证据</div>
+        <div
+          v-for="(c, ci) in citations"
+          :key="`citation-${ci}`"
+          class="eval-citation-card"
+        >
+          <div class="eval-citation-meta">
+            <span class="eval-citation-index">[{{ ci + 1 }}]</span>
+            <span
+              v-if="c.score !== undefined && c.score !== null && c.score !== ''"
+              class="eval-citation-score"
+            >得分: {{ Number(c.score).toFixed(4) }}</span>
+            <span v-if="c.fusion_sources && c.fusion_sources.length" class="eval-citation-source">
+              来源: {{ formatFusionSources(c.fusion_sources) }}
+            </span>
+          </div>
+          <div v-if="getCitationEntryLabel(c)" class="eval-citation-location">
+            {{ getCitationEntryLabel(c) }}
+          </div>
+          <div v-if="getCitationDocTitle(c)" class="eval-citation-location">
+            {{ getCitationDocTitle(c) }}
+            <template v-if="getCitationPageLabel(c)"> · 页码: P{{ getCitationPageLabel(c) }}</template>
+          </div>
+          <div v-if="getCitationSectionPath(c)" class="eval-citation-section">
+            章节: {{ getCitationSectionPath(c) }}
+          </div>
+          <div
+            v-if="getCitationText(c)"
+            class="eval-citation-content"
+            v-html="renderRichText(getCitationText(c).slice(0, 2000))"
+          />
+        </div>
+      </div>
+
+      <!-- SQL 执行详情（L2） -->
+      <div v-if="sqlDebug" class="eval-section eval-sql-debug">
+        <div class="eval-section__title">SQL 执行详情</div>
+        <div class="eval-detail-row">
+          <span class="eval-detail-label">执行状态:</span>
+          <span :class="sqlDebug.execution_success ? 'eval-sql-success' : 'eval-sql-fail'">
+            {{ sqlDebug.execution_success ? '成功' : '失败' }}
+          </span>
+          <span v-if="sqlDebug.score !== undefined" class="eval-sql-score">
+            得分: {{ (sqlDebug.score * 100).toFixed(0) }}
+          </span>
+        </div>
+        <div v-if="sqlDebug.execution_status" class="eval-detail-row">
+          <span class="eval-detail-label">执行状态码:</span>
+          <span>{{ sqlDebug.execution_status }}</span>
+        </div>
+        <div v-if="sqlDebug.generated_sql" class="eval-prompt-block">
+          <div class="eval-prompt-label">生成 SQL:</div>
+          <pre class="eval-sql-code">{{ sqlDebug.generated_sql }}</pre>
+        </div>
+        <div v-if="question.sql_gold?.expected_sql" class="eval-prompt-block">
+          <div class="eval-prompt-label">期望 SQL:</div>
+          <pre class="eval-sql-code">{{ question.sql_gold.expected_sql }}</pre>
+        </div>
+        <div v-if="sqlDebug.sql_exact_match !== undefined" class="eval-detail-row">
+          <span class="eval-detail-label">SQL 精确匹配:</span>
+          <span :class="sqlDebug.sql_exact_match ? 'eval-sql-success' : 'eval-sql-fail'">
+            {{ sqlDebug.sql_exact_match ? '是' : '否' }}
+          </span>
+        </div>
+        <div v-if="sqlDebug.execution_result" class="eval-prompt-block">
+          <div class="eval-prompt-label">执行结果:</div>
+          <pre class="eval-sql-code">{{ sqlDebug.execution_result }}</pre>
+        </div>
+        <div v-if="sqlDebug.error" class="eval-sql-error">
+          错误: {{ sqlDebug.error }}
+        </div>
+      </div>
+
+      <!-- 标准思考过程 -->
+      <div v-if="question.answer_gold?.thought_process" class="eval-section">
+        <div class="eval-section__title">标准思考过程</div>
+        <div class="eval-rich-text eval-rich-text--answer" v-html="renderRichText(question.answer_gold.thought_process)" />
+      </div>
+
+        </div>
+      </details>
+
+      <details v-if="detail" class="eval-group">
+        <summary class="eval-group__title">
+          判分
+          <span v-if="scoreGroupMeta" class="eval-group__meta">{{ scoreGroupMeta }}</span>
+        </summary>
+        <div class="eval-group__body">
 
       <!-- 正确性校验 -->
       <div v-if="correctnessSummary" class="eval-section">
@@ -702,32 +730,18 @@
         </div>
       </div>
 
-      <!-- 标准答案对比 -->
-      <div class="eval-section">
-        <div class="eval-section__title">答案对比</div>
-        <div class="eval-comparison">
-          <div class="eval-comparison__col">
-            <div class="eval-comparison__label">系统回答</div>
-            <div class="eval-comparison__content">
-              <div v-if="answerHeadline" class="eval-answer-summary">
-                {{ answerHeadline }}
-              </div>
-              <div class="eval-rich-text eval-rich-text--answer" v-html="renderRichText(answerText)" />
-            </div>
-          </div>
-          <div class="eval-comparison__col">
-            <div class="eval-comparison__label">标准答案</div>
-            <div class="eval-comparison__content">
-              <div class="eval-rich-text eval-rich-text--compact" v-html="renderRichText(question.answer_gold?.gold_answer || '—')" />
-            </div>
-          </div>
+      <!-- 检索评测 -->
+      <div v-if="retrievalScores" class="eval-section eval-retrieval-scores">
+        <div class="eval-section__title">检索评测</div>
+        <div class="eval-detail-row">
+          <span class="eval-detail-label">指标:</span>
+          <span>
+            <template v-if="retrievalScores['hit@3'] !== undefined && retrievalScores['hit@3'] !== null">Hit@3: {{ ((retrievalScores['hit@3'] as number) * 100).toFixed(1) }}% </template>
+            <template v-if="retrievalScores['hit@5'] !== undefined && retrievalScores['hit@5'] !== null">Hit@5: {{ ((retrievalScores['hit@5'] as number) * 100).toFixed(1) }}% </template>
+            <template v-if="retrievalScores.mrr !== undefined && retrievalScores.mrr !== null">MRR: {{ ((retrievalScores.mrr as number) * 100).toFixed(1) }}%</template>
+            <template v-if="retrievalScores.evaluated === false">未评测（无检索标准）</template>
+          </span>
         </div>
-      </div>
-
-      <!-- 标准思考过程 -->
-      <div v-if="question.answer_gold?.thought_process" class="eval-section">
-        <div class="eval-section__title">标准思考过程</div>
-        <div class="eval-rich-text eval-rich-text--answer" v-html="renderRichText(question.answer_gold.thought_process)" />
       </div>
 
       <!-- 语义评判 -->
@@ -811,6 +825,9 @@
         </div>
       </div>
 
+        </div>
+      </details>
+
       <!-- 错误信息 -->
       <div v-if="detail?.error" class="eval-section eval-section--error">
         错误: {{ detail.error }}
@@ -838,7 +855,7 @@ import {
 } from '../utils/citation'
 import EvalLevelBadge from './EvalLevelBadge.vue'
 import TraceTimeline from './TraceTimeline.vue'
-import type { EvalQuestion, EvalRunDetail, EvalTrace, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
+import type { EvalQuestion, EvalRunDetail, EvalTrace, EvalSopTraceStep, SemanticEvalResult, EvalIntentLevel } from '../types/eval'
 
 interface ThinkingStep {
   key: string
@@ -849,20 +866,7 @@ interface ThinkingStep {
   timing?: number
 }
 
-interface SopTraceStep {
-  step_id: string
-  step_name: string
-  step_index: number
-  tool: string
-  description: string
-  inputs: Record<string, unknown>
-  outputs: Record<string, unknown> | null
-  duration: number
-  status: string
-  error: string | null
-  thinking?: string | null
-  evidence?: Record<string, unknown> | null
-}
+type SopTraceStep = EvalSopTraceStep
 
 /** 判断值是否可渲染为紧凑表格（简单 key-value 对象，所有值均为原始类型） */
 function isTableLike(val: unknown): val is Record<string, unknown> {
@@ -1503,6 +1507,36 @@ const routeConfidenceText = computed(() => {
 
 const answerText = computed(() => String(prediction.value?.answer || ''))
 
+/** 三组折叠头的摘要（默认折叠时也能看到关键数字） */
+const traceGroupMeta = computed(() => {
+  const summary = tracePayload.value?.summary
+  if (!summary) return ''
+  const parts: string[] = []
+  if (summary.turns) parts.push(`${summary.turns} 轮`)
+  if (summary.tool_calls) parts.push(`${summary.tool_calls} 次工具`)
+  if (summary.duration_ms) parts.push(`${(summary.duration_ms / 1000).toFixed(1)}s`)
+  return parts.join(' · ')
+})
+
+const resultGroupMeta = computed(() => {
+  const parts: string[] = []
+  if (answerText.value) parts.push('有答案')
+  if (citations.value.length) parts.push(`${citations.value.length} 条引用`)
+  return parts.join(' · ')
+})
+
+const scoreGroupMeta = computed(() => {
+  const parts: string[] = []
+  const semantic = semanticResult.value
+  if (semantic?.semantic_score !== null && semantic?.semantic_score !== undefined) {
+    parts.push(`语义 ${Math.round(semantic.semantic_score * 100)} 分`)
+  }
+  if (correctnessSummary.value) {
+    parts.push(correctnessAllPassed.value ? '正确性 ✓' : '正确性 ✗')
+  }
+  return parts.join(' · ')
+})
+
 /** 格式化输出值，截断过长的内容 */
 const formatOutputVal = (val: unknown): string => {
   if (val === null || val === undefined) return '—'
@@ -1762,10 +1796,6 @@ const enrichedQuestion = computed(() => {
   return q
 })
 
-const systemPromptText = computed(() => {
-  return (prediction.value?.system_prompt as string) || ''
-})
-
 const fusionSourceLabels: Record<string, string> = {
   canonical_dense: 'Dense',
   canonical_sparse: 'Sparse',
@@ -1976,10 +2006,11 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   margin-top: 10px;
 
   &__title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 6px;
+    color: @evals-text-secondary;
     display: flex;
     align-items: center;
     gap: 6px;
@@ -2629,14 +2660,87 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   white-space: pre-wrap;
 }
 
+.eval-group {
+  margin-top: 16px;
+
+  &--first {
+    margin-top: 10px;
+  }
+}
+
+.eval-group > .eval-group__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid @evals-border-color;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: fade(@evals-primary, 6%);
+    border-color: fade(@evals-primary, 35%);
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &::before {
+    content: '▸';
+    flex: none;
+    width: 14px;
+    text-align: center;
+    color: @evals-text-secondary;
+    font-size: 11px;
+  }
+}
+
+.eval-group[open] > .eval-group__title {
+  border-color: fade(@evals-primary, 28%);
+  background: fade(@evals-primary, 8%);
+
+  &::before {
+    content: '▾';
+    color: @evals-primary;
+  }
+}
+
+.eval-group__meta {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 400;
+  color: @evals-text-secondary;
+  white-space: nowrap;
+}
+
+.eval-group__body {
+  margin: 8px 0 0 12px;
+  padding: 2px 0 2px 22px;
+  border-left: 2px solid fade(@evals-primary, 20%);
+}
+
+.eval-group__body > .eval-section:first-child {
+  margin-top: 0;
+}
+
 .eval-section {
   margin-top: 12px;
 
   &__title {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 0.02em;
     margin-bottom: 6px;
-    color: var(--text-primary);
+    color: @evals-text-secondary;
   }
 
   &__header {
@@ -2650,15 +2754,6 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   &--error {
     color: @evals-error;
     font-size: 12px;
-  }
-}
-
-.eval-prompt-details {
-  summary {
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
   }
 }
 
@@ -2813,7 +2908,7 @@ const formatCheckRule = (check: CorrectnessDetail): string => {
   }
 
   &__label {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 500;
     color: var(--text-secondary);
     margin-bottom: 4px;
