@@ -215,6 +215,10 @@ class KbMigrator:
             blockers.append("目标库不是可用状态")
         if target_rec.group_name != source_rec.group_name:
             blockers.append("v1 仅支持同组迁移（两库组不同）")
+        elif (target_rec.sqlite_file, target_rec.collection) != (
+                source_rec.sqlite_file, source_rec.collection):
+            blockers.append(
+                "同组异构桶库不支持拆并（导入库为独立桶），请先联系维护迁移")
 
     def _face_counts(self, source: str, target: str, moved: List[str], op: str) -> Dict[str, Any]:
         ph = ",".join("?" for _ in moved) or "''"  # 空集兜底（合并空源库）
