@@ -2,6 +2,12 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.1
+
+- 检索时间维度：doc_catalog 增 doc_date/date_source/date_confidence（懒 ALTER）＋scripts/backfill_doc_dates.py 从正文首屏/文件名/mtime 回填（未来日期与英文孤立年份丢弃，mtime 不参与排序主序与区间过滤），doc_search 增 sort_by/date_after/date_before、entity_contains（先锁实体所在分组）与唯一命中时的 authoritative 卡片，doc_read 增 section 按章节读、match 模式 AND→OR 回退与命中词数排序
+- 日期预取默认关（date_prefetch，16 题对照臂实测 4/43 vs 14.0% 为负，结论入档），knowledge_stats 描述收窄（titles 仅是前 100 条样本，列举改走 doc_search）
+- 测试与文档：doc_search 日期/实体/读页、接口透传、date_prefetch 共 75 项测试，时间维度计划 §9–13、枚举计划 §13、tech-report §3.6 入库
+
 ## v0.3.0
 
 - 游客设置体系上线（1822ac25/a7d90f69/fa3e7f20/315d540d/416e453c/835ce015/c97b6828/f9715626/8e899632/2b839fff/9d4540c4）：后台用户管理新增「游客」虚拟行（开放开关＋文件轮数＋可用库，弹框编辑）；共享模块 `services/guest-settings`（类型与单测，后端与两前端共用）；aichat 闸门接设置（关闭闸／文件轮数／允许集三档，异常放行补日志留痕）；docs-api 增 `/api/guest` 三端点；游客端库选择器放开（可勾选公开库）；三处并发缺陷修复（配置拉取限定纯游客、登录完成落地竞态守护、登录弹层透出底层对话并中性化文案）；设计稿状态改「已施工已验收」（8 commit、测试全绿、业主真机验收）
