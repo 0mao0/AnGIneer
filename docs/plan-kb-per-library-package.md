@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-4、P2-5、P3-1、P3-2 代码、P3-3 容器层、P4-0～P4-4 已完成（v2 导出随 v0.3.0 发布；P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`、P4-0 `00817fdf`/`21b90628`、P4-1 `b4203b04`、P4-2 `475376ab`、P4-3 `2508774a`、P4-4 `ac1535f4`）。**待收尾 = P3-4 UI 手测（测试库已补 parse_records）+ P3-3 宿主机 nginx 放行（需报备）；CHANGELOG/版本留发版。**
+**执行状态（2026-10-20/21）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-4、P2-5、P3-1、P3-2 代码、P3-3 容器层、P4-0～P4-4 已完成（v2 导出随 v0.3.0 发布；P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`、P4-0 `00817fdf`/`21b90628`、P4-1 `b4203b04`、P4-2 `475376ab`、P4-3 `2508774a`、P4-4 `ac1535f4`；导入台账补丁 `98959483`/`b858e2c3`，P3-4 断点 `66ff9ada`）。**待收尾 = P3-4 检索探针/apply 中途 kill 演练 + P3-3 宿主机 nginx 放行（需报备）；CHANGELOG/版本留发版。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -410,10 +410,17 @@
 - [ ] **宿主机层（手工，不入 git）**：`/etc/nginx/ai-proxy-locations.conf` 同义放行（`client_max_body_size 0` + 长 timeout）；改完 `nginx -t && systemctl reload nginx`。**动手前向用户报备——尚未改。**
 - [ ] 验证：`docker compose up -d frontend` 后上传小文件走通 / 大文件（>200M）复测。
 
-### Task P3-4: P3 验收
+### Task P3-4: P3 验收（部分完成）
 
-- [ ] 开发环境 up 容器，走 UI 完整导一个真实小库 → 上传 → 应用 → 检索探针 + 概览页可见新库（组归属正确）
-- [ ] 断点：上传中途关页面 → 暂存目录可清（DELETE 端点）；apply 中途杀进程 → 重启后冲突闸拦住重导的半成品（或手工清理指引输出）
+- [x] 开发环境 UI 导入链路：上传 → 预检 → 应用 → 详情行（`parse_records` 已补）→ 删除；测试库 `lib-import-test` 已验（后因测试包 schema 问题用 bulk cleanup 清掉，换 `lib-import-test2`）。
+- [ ] 检索探针 + 概览页组归属（测试包只有 1 个 txt，未做真实检索回归）。
+- [x] 上传中途放弃 → `DELETE /imports/{task_id}` 清暂存；apply 失败保留暂存并输出 DELETE 指引（`test_import_routes.py` 7 passed，`66ff9ada`）。
+- [ ] apply 中途杀 docs-api 进程 → 重启后半成品清理演练（尚未真杀；代码路径已保留暂存与错误提示）。
+
+**执行记录（2026-10-21，`66ff9ada`）**
+- 新增两个路由用例：预检后 DELETE 清 scratch；apply 抛错后状态 failed、暂存保留、DELETE 可清。
+- 失败错误信息补 `暂存包 <path>；可 DELETE ...`。
+- 仍未做：真实检索探针、apply 中途 kill 演练、宿主机 nginx。
 
 ---
 
