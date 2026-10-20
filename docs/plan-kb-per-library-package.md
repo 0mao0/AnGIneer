@@ -392,7 +392,7 @@
 - [x] 流程：选包（拖拽/点击 `.zip`）→ 上传进度 → 预检逐库卡片（名称/库 id/组/docs/chunks/vectors/relations/体积）+ 库勾选（默认全选）+ 目标组下拉/新建组 → 应用阶段文字 → 完成/失败；失败展示服务端 detail
 - [x] 文案：embed 不一致由服务端 400 detail 直接展示（`REEMBED_BLOCK_MESSAGE`）；应用不可取消在确认区与进度区均明示
 - [x] `pnpm --filter admin-web exec vue-tsc -b` 通过
-- [ ] 本地手测（docs-api 已重启加载 P3-1；**不能用 default/现有库导入同一 data 根，冲突闸会拒**；用 `data/scratch/p3-ui-test/lib-import-test.zip`（207KB，新库 `lib-import-test`，可删）；现存 `lib-import-test` 已补 parse_records，刷新应见 1 行 a.txt）
+- [ ] 本地手测（docs-api 已重启加载 P3-1；**不能用 default/现有库导入同一 data 根，冲突闸会拒**；用 `data/scratch/p3-ui-test/lib-import-test2.zip`（301KB，新库 `lib-import-test2`，完整 canonical schema，可删））
 - [x] commit `feat(admin-web): 语料包导入上传 UI`（`37d8311a`；关系数 `c25cdc29`）
 
 ### Task P3-3: 网关两层运维项（容器层入 git 随 deploy；宿主机层手工报备）
@@ -453,6 +453,7 @@
 - 测试：`test_library_delete_bulk.py` 2 passed；`test_library_delete_routes.py` 6 passed；`test_delete_library.py` 3 passed；docs-core+docs-api 593 passed（2 个 GPU gate 环境失败，与改动无关）；`tests/unit` 998 passed（3 个 GPU gate/popo 环境失败）；`vue-tsc -b` 干净。
 - **真机验收（2026-10-20）**：`lab-firm-dms` DELETE 202 → task `del-2f4cc29ec0a9`，9,276 篇，约 104 秒 succeeded；nodes=0、doc_catalog=0、两处库目录已删、API 库列表 19→18；共享 `evals_corpus.sqlite` 与 collection 保留，`lab-firm-full` 9,009 行 catalog 未动，collection 点数不变。
 - 任务表未持久化；进程重启后 `GET /libraries/{id}/deletion` 返回 `interrupted`，DELETE 可重试。**docs-api 已重启加载本提交。**
+- 补丁 `b858e2c3`：删库按 `library_id` 清 `parse_records` 上传台账（此前残留）；补共享桶测试。
 
 ### Task P4-1: 拆并「同组异构桶」保护（TDD，已完成）
 
