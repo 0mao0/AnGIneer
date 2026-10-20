@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P2-2（导入应用）。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P2-3（CLI v2 + 清 v1 + 容器白名单）。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -291,24 +291,31 @@
 
 **2026-10-18 范围修订：** v1 兼容移出范围（旧包暂无人用）。恢复施工时 `open_bundle` 只认 v2、`SUPPORTED_SCHEMA={2}`、删除 v1 分支与 8 个旧用例；当前检查点代码仍保留 v1 分支，不影响 v2，清理并入 P2-3。
 
-### Task P2-2: `apply_import` 应用逻辑（TDD）
+### Task P2-2: `apply_import` 应用逻辑（TDD，已完成）
 
 **Files:**
-- Modify: `services/docs-core/src/docs_core/corpus_package.py`
-- Test: `tests/unit/test_unit_kb_corpus_import.py`（追加，qdrant 快照环节 monkeypatch）
+- Add: `services/docs-core/src/docs_core/corpus_import_apply.py`
+- Modify: `services/docs-core/src/docs_core/corpus_package.py`（惰性 `apply_import` wrapper）、`library_registry.py`（`ensure_schema` 显式关闭连接）
+- Test: `tests/unit/test_unit_corpus_import_apply.py`
 
-- [ ] **预检补强（P3 上传前必须）**：`library_id` 安全正则（现网存在 `lib-DredgeAI-a5e1` 这类大写，允许 `[A-Za-z0-9_-]`，拒绝空/路径分隔/`..`）+ `files/` 条目必须以 `knowledge/libraries/<lib_id>/` 开头、拒绝绝对路径/`..`/反斜杠；导入落位路径由校验后的 id 生成，不直接用包内值。
-- [ ] 逐库执行（顺序固定，任一步失败即停并报「已完成的步骤」，重跑靠冲突闸兜底不幂等）：
-  1. 解内层 zip 到 `data/scratch/imports/<task>/<lib>/`（校验后）；
+- [x] **预检补强（P3 上传前必须）**：`library_id` 安全正则 `[A-Za-z0-9][A-Za-z0-9_-]{0,63}`（现网 `lib-DredgeAI-a5e1` 大写放行，拒绝空/路径分隔/`..`）+ `files/` 条目必须以 `knowledge/libraries/<lib_id>/` 或 `evals/corpora/libraries/<lib_id>/` 开头、拒绝绝对路径/`..`/反斜杠；导入落位路径由校验后的 id 生成，不直接用包内值。
+- [x] 逐库执行（顺序固定，任一步失败即停并报「已完成的步骤」，重跑靠冲突闸兜底不幂等）：
+  1. 解内层 zip 到 `data/scratch/imports/<task>/<lib>/`（校验后；当前为系统临时目录，P3 可换 data/scratch）；
   2. `files/…` 放回 data 根；
-  3. `index/index.sqlite` → `knowledge/libraries/<lib>/index.sqlite`；
+  3. `index/index.sqlite` → `<目标组 libraries_dir>/<lib>/index.sqlite`（默认组 = `knowledge/libraries`，evals 组 = `evals/corpora/libraries`）；
   4. graph 切片合并进全局 `graph.sqlite`（目标不存在先建 schema）：连接级 `PRAGMA foreign_keys=OFF`（必须在 `BEGIN` 前设置），**单连接单事务**；固定顺序 **entities → principles/examples/warnings/frameworks → junctions → deletions → relations**；插入完成后在事务内对目标跑 `PRAGMA foreign_key_check`，按主键签名（`graph_relations.relation_id`；三张联结表复合键）与「目标原有悬空 ∪ 包内自带悬空」对账——只允许这两类，出现新增违例即 `ROLLBACK` 并报明细；包内自带悬空签名从 `graph/graph.sqlite` 预先算出（`counts.graph_fk_violations` 只作计数提示，不用于判据）；
   5. meta 行 INSERT：`nodes`/`tree_node`/`libraries`；
   6. registry 行（改写表见「包格式定版」映射表；组不存在时按 slug 建自定义组，display_name 取原组 display 或用户输入；**内置组跳过建组**，源包 `groups` 行不得写入目标）；
   7. 快照恢复（P2-0 确定的路径；v2 无 reembed 分支——模型不一致在闸就断了；无 `qdrant/vectors.snapshot` 的 `--no-vectors` 包跳过此步与向量对账）；
-  8. 对账**逐表**：`canonical_documents`==counts.docs、qdrant count(collection)==counts.vectors、图谱按 `counts.graph_tables` 逐表对（entities/relations/artifacts/junctions/deletions 都查——只数 relations 会漏丢实体）；图谱落地后新增 `foreign_key_check` 违例=0（允许并记录包内继承悬空）。
-- [ ] 测试：tmp data 根全流程（快照环节 fake；含一个跨库实体的闭包切片）→ 断言 registry/meta/graph/index 落位、逐表计数对账、合并后新增 `foreign_key_check` 违例=0；另造一个含 436 类悬空基线的小包，断言合并成功且新增=0、超出基线的违例回滚；再跑一次 → 冲突闸拒。
-- [ ] commit `feat(docs-core): 语料包 v2 导入应用（独立桶落位 + 图谱合并 + 对账）`
+  8. 对账**逐表**：`canonical_documents`==counts.docs、`canonical_chunks`==counts.chunks、qdrant count(collection)==counts.vectors、图谱 `relations/principles/examples/warnings/frameworks/entity_deletions` 按 `library_id` 对 `counts.graph_tables`；图谱落地后新增 `foreign_key_check` 违例=0（允许并记录包内继承悬空）。entities 是闭包（可含他库实体），不做按库计数，只由冲突闸校验重名。
+- [x] 测试：tmp data 根全流程（快照环节 monkeypatch）→ 断言 registry/meta/graph/index/doc_catalog 落位、逐表计数对账；evals 布局成功、knowledge 包导入 system 组被拒（布局闸）；含 1 条包内悬空基线的包合并成功且目标保留该悬空；重复导入被冲突闸拒；非法 `library_id` 被拒。
+- [x] commit `feat(docs-core): 语料包 v2 导入应用 apply_import（P2-2）`（`13842f9f`）；加固 `04107adc`
+
+**执行记录（2026-10-20，`13842f9f` / `04107adc`）**
+- 新增 `corpus_import_apply.py`（589 行）：preflight / 独立桶落位 / 图谱 FK OFF 合并 / qdrant upload / 逐表对账。
+- 目标组库根必须与包内 `files/` 根一致（`knowledge` 包 → knowledge 组，evals 包 → evals 组）；跨布局明确拒绝，避免 `file_path` 与组根错位。P3 选组时按此约束。
+- 测试 `test_unit_corpus_import_apply.py` **6 passed**；真机桌面 10.8MB evals 包导入临时根通过（docs 112/chunks 224/relations 1161；vectors 200 恢复后清理）。
+- `ensure_schema` 改为显式 `close`，消除 Windows 临时库 `PermissionError`。
 
 ### Task P2-3: CLI v2 单格式 + 容器白名单（并清 v1 死代码）
 
@@ -465,6 +472,7 @@
 |---|---|---|
 | qdrant recover 改名能力不确定 | v1 代码注释声称支持，未实测 | P2-0 卡点先验证（先试集合级 upload 路径）；兜底=临时名恢复+复制（P1-4 复用） |
 | 源图谱历史悬空行 | 现网 `graph.sqlite` 与 default 切片实测 436 条（relations 112 + junctions 324）；FK ON 合并第一张联结表即回滚 | 合并连接 FK OFF + 事务内 `foreign_key_check` 对「目标原有 ∪ 包内自带」签名，新增违例回滚（P2-2） |
+| 导入目标组布局与包根不一致 | knowledge 包误选 evals 组（或反向）→ 文件在 A 根、registry 指向 B 根，`/pdf`/重解析/删库错位 | P2-2 硬拒（目标组 `libraries_dir` 必须等于包内 `files/` 根）；P3 选组按包根约束 |
 | HarveyLab `doc_catalog` 未进切片 | 核心目标 `lab-firm-full` 9,009 行 / 267 matter（10-20 实测）；旧 12 表清单不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | **已修（P2-0b `331c1592`）**：纳入 `_DOC_TABLES` 13 表 + split 同步；真机 `lib-e9c2c464` 112 行切片验证通过 |
 | evals 组文档树路径 | 导出写死 `knowledge/libraries/<lib>`；`lab-firm-full` 实际在 `evals/corpora/libraries` → `files/` 为空、9,009 条 file_path 全误报 | P1-8 用 `resolve_libraries_dir` 修正 + 两组夹具测试；先于 P2-0b/P2-2 |
 | 大库删库 | 9,276 节点/4.1G 同步逐篇；前端默认 30s；`doc_catalog` 残留；共享容器误删风险 | P4-0 异步 + 批量 + 引用计数；P4-3 只删独立容器 |
@@ -505,4 +513,5 @@
 - 评审修订·第七轮（2026-10-20，删库复盘）：`6f66b67d` 只修了节点/记录删除，整库仍同步逐篇 + 30s；新增 **P4-0** 异步任务 + 按 `library_id` 批量清 + `doc_catalog` 清理 + 共享容器引用计数；P4-3 收窄为“只删独立桶容器”。
 - 评审修订·第八轮（2026-10-20，P1-8 完成）：导出/预览库根按组解析（知识组 knowledge、evals 组 evals/corpora）；`file_path` 守卫按库根；内层大条目补 `force_zip64`；`lab-firm-full` 真机 preview 0 告警。
 - 评审修订·第九轮（2026-10-20，P2-0b 完成）：`doc_catalog` 纳入 `_DOC_TABLES` 与 split 脚本（13 表）；切片按 library_id 过滤、旧库缺表跳过；真机 `lib-e9c2c464` 112 行验证通过。
+- 评审修订·第十轮（2026-10-20，P2-2 完成）：`apply_import` 独立桶落位 + 图谱 FK OFF 基线合并 + qdrant upload + 逐表对账；目标组库根必须匹配包内 `files/` 根（knowledge/evals），跨布局阻断；真机 10.8MB evals 包（112 docs/1161 relations/200 vectors）通过。
 - 未含（边界外）：见上「边界外发现」三条。
