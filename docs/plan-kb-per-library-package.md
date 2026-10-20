@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P2-4 口径收口（CLI 已无 reembed；P3 两处随 P3）+ P2-5 本地小库往返。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-5 已完成，P2-4 的 CLI 侧已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P3-1（HTTP 上传/预检/应用）。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -337,18 +337,24 @@
 - 测试：v2 bundle **16 passed**、CLI **3 passed**、apply_import **6 passed**。
 - 目标组仍须与包内 `files/` 根一致（P2-2 约束）；CLI 不提供跨布局改写。
 
-### Task P2-4: reembed 口径定版 b（收口，不再二选一）
+### Task P2-4: reembed 口径定版 b（CLI 侧已收口，P3 复用）
 
 **已定版（2026-10-17 评审）：v2 导入不支持 reembed**——`rebuild_vectors.py` 只覆盖默认单文件（不认独立桶，F19），扩展属另立票范围；与其半吊子不如阻断。
 
-- [ ] 落地三点，文案逐字一致（CLI 报错 / P3-1 预检响应 / P3-2 前端提示）：**「embed 模型不一致，v2 导入不支持 reembed；请用目标环境模型重新导出」**
-- [ ] 若确有跨模型迁移需求 → 另立票「rebuild_vectors 支持 `--library`（独立桶自嵌）」，本票只记录
-- [ ] commit `docs(import): v2 reembed 口径定版（阻断+指引）`
+- [x] CLI 报错落地：`REEMBED_BLOCK_MESSAGE = "embed 模型不一致，v2 导入不支持 reembed；请用目标环境模型重新导出"`，`check_embed_gate` 抛该常量，CLI `导入失败:` 原样透出；测试锁文案。
+- [ ] P3-1 预检响应 / P3-2 前端提示复用同一常量/文案（随 P3 落地）。
+- [x] 跨模型迁移需求另立票「rebuild_vectors 支持 `--library`（独立桶自嵌）」，本票只记录（未开票）。
+- [x] commit `docs(import): v2 reembed 口径定版常量（P2-4 CLI 侧）`（`d15462f3`）
 
-### Task P2-5: P2 验收（本地小库往返）
+### Task P2-5: P2 验收（本地小库往返，已完成）
 
-- [ ] 本地导出 `default` 单库小 zip → 改 `ANGINEER_DATA_ROOT` 指临时根（或直接备份后删）→ CLI `--dry-run`/`--apply` → 断言：registry/meta/graph/index 落位、FTS 检索命中、`/pdf` 探针 200（起临时 docs-api 或直接 store 层读）
-- [ ] 同一小 zip 再导一次 → 冲突闸拒绝；大包 `--only` 只导一个 → 另一个不进注册表
+- [x] 本地导出 `lib-408220ae` 单库小 zip（6.2MB；用这个小库替代 default 大库，目的相同）→ 临时 `ANGINEER_DATA_ROOT` → CLI `--dry-run`/`--apply` → registry/meta/graph/index 落位；FTS 88 行、token 命中 87；meta 5 节点；PDF 源文件存在（store 层 `/pdf` 判据）。
+- [x] 同一小 zip 再导一次 → 冲突闸拒绝（index 已存在）；两库大包 `--only lib-408220ae` → 只登记该库，`lib-e9c2c464` 的 index 不存在。
+
+**执行记录（2026-10-20，P2-5）**
+- 新导出包内层 13 表（含 `doc_catalog` 5 行）、30 条目；证明 P2-0b 已随导出生效。
+- 目标临时根：registry `lib-408220ae → evals/corpora/libraries/lib-408220ae/index.sqlite`；meta 5 nodes；graph 62 relations；FTS 88/88；PDF 5 个源文件路径均存在。
+- `--only` 两库包只导入一个，另一个未落 index/registry。
 
 ---
 
@@ -521,4 +527,5 @@
 - 评审修订·第九轮（2026-10-20，P2-0b 完成）：`doc_catalog` 纳入 `_DOC_TABLES` 与 split 脚本（13 表）；切片按 library_id 过滤、旧库缺表跳过；真机 `lib-e9c2c464` 112 行验证通过。
 - 评审修订·第十轮（2026-10-20，P2-2 完成）：`apply_import` 独立桶落位 + 图谱 FK OFF 基线合并 + qdrant upload + 逐表对账；目标组库根必须匹配包内 `files/` 根（knowledge/evals），跨布局阻断；真机 10.8MB evals 包（112 docs/1161 relations/200 vectors）通过。
 - 评审修订·第十一轮（2026-10-20，P2-3 完成）：CLI 只认 v2 zip，删 v1 目录/tar/`--reembed`；`SUPPORTED_SCHEMA={2}`；Docker 白名单放行 import/export；`docker build --check` 无告警；小库 `lib-408220ae` dry-run/apply 通过。
+- 评审修订·第十二轮（2026-10-20，P2-5 完成）：本地 6.2MB 小包往返通过；包内 13 表含 `doc_catalog` 5 行，FTS 88/88、PDF 源文件在、`--only` 与重复导入闸均按预期。
 - 未含（边界外）：见上「边界外发现」三条。
