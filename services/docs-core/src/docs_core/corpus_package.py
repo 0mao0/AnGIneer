@@ -1037,3 +1037,10 @@ def check_conflict_gate(*, package_libs: Sequence[dict], package_node_ids: Seque
                 f"闭包实体重名：{key[1]} 的「{key[0]}」目标已有 entity_id={tid}，"
                 f"包内为 {row.get('entity_id')}（不阻断；按对账/merge 处理）")
     return {"clashes": clashes, "warnings": warnings}
+
+
+def apply_import(*args, **kwargs):
+    """v2 导入应用入口（惰性 import，避免 corpus_package ↔ apply 模块循环）。"""
+    from .corpus_import_apply import import_bundle
+
+    return import_bundle(*args, **kwargs)

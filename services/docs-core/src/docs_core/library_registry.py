@@ -165,8 +165,11 @@ def _connect() -> sqlite3.Connection:
 def ensure_schema(db_path: Optional[Path] = None) -> Path:
     """建库建表（幂等）。注册表只能显式初始化——纯读取不得顺手建文件（读缺失=回退，非错误）。"""
     path = db_path or resolve_registry_db_path()
-    with create_connection(path) as conn:
+    conn = create_connection(path)
+    try:
         conn.executescript(_SCHEMA)
+    finally:
+        conn.close()
     return path
 
 
