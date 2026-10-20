@@ -42,6 +42,8 @@ def _seed_group_db(path: Path) -> None:
             CREATE TABLE canonical_chunks (chunk_id TEXT PRIMARY KEY, doc_id TEXT NOT NULL,
                                            chunk_type TEXT, text_clean TEXT, updated_at TEXT);
             CREATE TABLE doc_blocks (block_id TEXT PRIMARY KEY, doc_id TEXT NOT NULL, text TEXT);
+            CREATE TABLE doc_catalog (doc_id TEXT PRIMARY KEY, library_id TEXT NOT NULL,
+                                      matter_id TEXT, folder TEXT, filename TEXT);
             CREATE INDEX idx_canonical_chunks_doc_type ON canonical_chunks(doc_id, chunk_type);
             CREATE INDEX idx_canonical_pages_doc ON canonical_pages(doc_id);
             CREATE TRIGGER trg_chunks_del AFTER DELETE ON canonical_chunks BEGIN SELECT 1; END;
@@ -51,6 +53,12 @@ def _seed_group_db(path: Path) -> None:
         conn.executemany(
             "INSERT INTO canonical_documents VALUES (?,?,?)",
             [("a1", "lib-a", "A 文档"), ("a2", "lib-a", "A 文档二"), ("b1", "lib-b", "B 文档")],
+        )
+        conn.executemany(
+            "INSERT INTO doc_catalog VALUES (?,?,?,?,?)",
+            [("a1", "lib-a", "m1", "folder-a", "a.pdf"),
+             ("a2", "lib-a", "m1", "folder-a", "a2.pdf"),
+             ("b1", "lib-b", "m2", "folder-b", "b.pdf")],
         )
         conn.executemany(
             "INSERT INTO canonical_pages VALUES (?,?,?)",
@@ -107,8 +115,10 @@ class LibrarySqliteSliceTests(unittest.TestCase):
             self.assertEqual(_scalar(out, "SELECT COUNT(*) FROM canonical_pages"), 2)
             self.assertEqual(_scalar(out, "SELECT COUNT(*) FROM canonical_chunks"), 2)
             self.assertEqual(_scalar(out, "SELECT COUNT(*) FROM doc_blocks"), 1)
+            self.assertEqual(_scalar(out, "SELECT COUNT(*) FROM doc_catalog"), 2)
             self.assertEqual(_scalar(out, "SELECT COUNT(*) FROM canonical_chunk_fts"), 2)
-            for table in ("canonical_pages", "canonical_chunks", "doc_blocks", "canonical_chunk_fts"):
+            for table in ("canonical_pages", "canonical_chunks", "doc_blocks",
+                          "doc_catalog", "canonical_chunk_fts"):
                 self.assertEqual(
                     _scalar(out, f"SELECT COUNT(*) FROM {table} WHERE doc_id='b1'"), 0, table)
             # 源库缺表的兼容：夹具没有 canonical_vectors，切片重建里也不该有
@@ -119,6 +129,27 @@ class LibrarySqliteSliceTests(unittest.TestCase):
             self.assertEqual(counts["chunks"], 2)
             self.assertEqual(counts["bytes"], out.stat().st_size)
             self.assertEqual(counts["tables"]["doc_blocks"], 1)
+            self.assertEqual(counts["tables"]["doc_catalog"], 2)
+
+    def test_slice_skips_missing_doc_catalog(self):
+        """旧组库没有 doc_catalog：切片跳过，不报错。"""
+        with tempfile.TemporaryDirectory() as td:
+            tmp = Path(td)
+            data_root = tmp / "data"
+            group_db = data_root / "knowledge" / "groups" / "standards.sqlite"
+            _seed_group_db(group_db)
+            with closing(sqlite3.connect(group_db)) as conn:
+                conn.execute("DROP TABLE doc_catalog")
+                conn.commit()
+            out = tmp / "slice.sqlite"
+            counts = build_library_sqlite_slice(
+                data_root,
+                {"library_id": "lib-a", "sqlite_file": "knowledge/groups/standards.sqlite"},
+                out,
+            )
+            self.assertEqual(
+                _scalar(out, "SELECT COUNT(*) FROM sqlite_master WHERE name='doc_catalog'"), 0)
+            self.assertEqual(counts["docs"], 2)
 
     def test_slice_preserves_ddl_and_fts_search(self):
         with tempfile.TemporaryDirectory() as td:

@@ -36,6 +36,7 @@ _DOC_TABLES = [
     ("doc_blocks", "doc_id"),
     ("document_segments", "doc_id"),
     ("doc_block_corrections", "doc_id"),
+    ("doc_catalog", "doc_id"),
 ]
 
 

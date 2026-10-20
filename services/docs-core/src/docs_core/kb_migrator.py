@@ -306,12 +306,12 @@ class KbMigrator:
         }, sort_keys=True, ensure_ascii=False)
         return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
-    # 组文件 doc 键全表清单：与 scripts/split_sqlite_groups.py:26-38 的 _DOC_TABLES 逐字同步（12 张）
+    # 组文件 doc 键全表清单：与 scripts/split_sqlite_groups.py:26-38 的 _DOC_TABLES 逐字同步（13 张）
     _DOC_TABLES: tuple = (
         "canonical_documents", "canonical_pages", "canonical_blocks", "canonical_chunks",
         "canonical_tables", "canonical_outlines", "canonical_citation_targets",
         "canonical_chunk_fts", "canonical_vectors", "doc_blocks", "document_segments",
-        "doc_block_corrections",
+        "doc_block_corrections", "doc_catalog",
     )
 
     # 迁移有意改写的列，不计入长度和不变量（施工修：计划稿「改标不改变这些值」的前提
