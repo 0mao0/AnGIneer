@@ -40,7 +40,12 @@ from typing import Any, Callable, Dict, Generator, Iterator, List, Optional, Seq
 from urllib import request as urlrequest
 
 from .kb_migrator import assert_library_not_migrating
-from .library_registry import REGISTRY_DB_NAME, resolve_data_root
+from .library_registry import (
+    REGISTRY_DB_NAME,
+    resolve_data_root,
+    resolve_libraries_dir,
+)
+from .paths import resolve_knowledge_base_dir
 
 EXPORT_SCHEMA_VERSION = 2
 PAGE_BASE = 0  # canonical 页码 0-based，交付说明写死
@@ -182,20 +187,42 @@ def _library_counts_and_estimates(data_root: Path, libraries: Sequence[dict]
     return counts, estimates
 
 
-def _file_path_warnings(nodes: Sequence[dict]) -> List[str]:
-    """file_path 守卫（数据迁移契约 Stage A）：非 knowledge/libraries/<lib>/documents/… 的
-    POSIX 相对路径（绝对路径/含反斜杠/他库前缀）逐条告警——防把迁移契约的雷打进自包含包。"""
+def _library_doc_prefixes(library_id: str, data_root: Path) -> List[str]:
+    """该库文档树相对 data 根的合法前缀（按组解析；兼容 knowledge_base 旧布局）。"""
+    doc_root = resolve_libraries_dir(library_id) / library_id / "documents"
+    prefixes: List[str] = []
+    for base in (data_root, resolve_knowledge_base_dir()):
+        try:
+            rel = doc_root.resolve().relative_to(base.resolve()).as_posix()
+        except (ValueError, OSError):
+            continue
+        prefix = rel.rstrip("/") + "/"
+        if prefix not in prefixes:
+            prefixes.append(prefix)
+    return prefixes
+
+
+def _file_path_warnings(nodes: Sequence[dict], data_root: Optional[Path] = None) -> List[str]:
+    """file_path 守卫（数据迁移契约 Stage A）：按库根判断 POSIX 相对路径。
+
+    knowledge 组的合法前缀是 ``knowledge/libraries/<lib>/documents/``，evals 组是
+    ``evals/corpora/libraries/<lib>/documents/``（F22）。绝对路径/反斜杠/他库前缀仍告警。
+    """
     warnings: List[str] = []
+    root = Path(data_root) if data_root is not None else resolve_data_root()
+    prefix_cache: Dict[str, List[str]] = {}
     for row in nodes:
         path = str(row.get("file_path") or "")
         if not path:
             continue
         lib_id = str(row.get("library_id") or "")
+        if lib_id not in prefix_cache:
+            prefix_cache[lib_id] = _library_doc_prefixes(lib_id, root)
         ok = (
             "\\" not in path
             and not path.startswith("/")
             and ":" not in path
-            and path.startswith(f"knowledge/libraries/{lib_id}/documents/")
+            and any(path.startswith(prefix) for prefix in prefix_cache[lib_id])
         )
         if not ok:
             warnings.append(
@@ -269,7 +296,7 @@ def scan_selection(data_root: Path, libs: Sequence[str], *,
 
     v2 无同组闸、无 peers 警告（每库自包含）；估算仅参考，最终以包内 manifest 实测 bytes 为准。
     """
-    data_root = Path(data_root)
+    data_root = Path(data_root).resolve()
     libraries, _groups = read_registry(data_root, libs)
     for row in libraries:
         assert_library_not_migrating(row["library_id"])
@@ -278,7 +305,7 @@ def scan_selection(data_root: Path, libs: Sequence[str], *,
     details: List[dict] = []
     for row in libraries:
         lib_id = row["library_id"]
-        lib_root = data_root / "knowledge" / "libraries" / lib_id
+        lib_root = resolve_libraries_dir(lib_id) / lib_id
         files_bytes = 0
         file_count = 0
         if lib_root.is_dir():
@@ -358,7 +385,7 @@ def _copy_file_into(zf: zipfile.ZipFile, arcname: str, path: Path, cancelled, dr
                     ) -> Generator[bytes, None, str]:
     """本地文件 → zip 条目（边流边算 sha256，返回 hexdigest）。"""
     h = hashlib.sha256()
-    with zf.open(zipfile.ZipInfo(arcname), "w") as dst, path.open("rb") as fh:
+    with zf.open(zipfile.ZipInfo(arcname), "w", force_zip64=True) as dst, path.open("rb") as fh:
         while True:
             if cancelled():
                 raise ExportCancelled("已取消")
@@ -375,7 +402,7 @@ def _copy_response_into(zf: zipfile.ZipFile, arcname: str, resp, cancelled, drai
                         ) -> Generator[bytes, None, str]:
     """HTTP 流（快照下载）→ zip 条目（边流边算 sha256，返回 hexdigest）。"""
     h = hashlib.sha256()
-    with zf.open(zipfile.ZipInfo(arcname), "w") as dst, resp:
+    with zf.open(zipfile.ZipInfo(arcname), "w", force_zip64=True) as dst, resp:
         while True:
             if cancelled():
                 raise ExportCancelled("已取消")
@@ -400,7 +427,7 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
     """
     from . import corpus_slicing  # 延迟导入：corpus_slicing 反向依赖本模块的 checkpoint/快照工具
 
-    data_root = Path(data_root) if data_root else resolve_data_root()
+    data_root = Path(data_root).resolve() if data_root else resolve_data_root()
     cancelled = is_cancelled or (lambda: False)
     stage_cb = on_stage or (lambda _s, _m: None)
     report = on_progress or (lambda _d, _t: None)
@@ -420,7 +447,7 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
     est_files = 0
     for row in libraries:
         lib_id = row["library_id"]
-        lib_root = data_root / "knowledge" / "libraries" / lib_id
+        lib_root = resolve_libraries_dir(lib_id) / lib_id
         entries: List[Tuple[Path, str, int]] = []
         if lib_root.is_dir():
             for path, rel_in_lib, size in _iter_doc_files(lib_root, exclude):
@@ -491,7 +518,7 @@ def iter_bundle_zip(libs: List[str], *, exclude_dirs: Sequence[str] = DEFAULT_EX
                         count_points_filtered(str(row["collection"]), lib_id)
                 else:
                     vectors = 0
-                warnings = _file_path_warnings(_meta_for_lib(meta_rows, lib_id)["nodes"])
+                warnings = _file_path_warnings(_meta_for_lib(meta_rows, lib_id)["nodes"], data_root)
                 fk_dirty = int(graph_info.get("fk_violations") or 0)
                 if fk_dirty:
                     warnings = warnings + [

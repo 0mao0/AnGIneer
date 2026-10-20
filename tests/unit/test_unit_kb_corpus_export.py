@@ -164,6 +164,44 @@ def _seed_files(root: Path) -> None:
         p.write_bytes(data)
 
 
+def _seed_evals_library(root: Path) -> None:
+    """evals 组：库根在 evals/corpora/libraries（P1-8 的回归夹具）。"""
+    with closing(sqlite3.connect(root / "registry.sqlite")) as conn:
+        conn.execute(
+            "INSERT INTO library_registry VALUES (?,?,?,?,?,?,?,?,?)",
+            ("lib-e", "评测库E", "", "evals", "evals/groups/evals_corpus.sqlite",
+             "evals_corpus", "active", "t", "t"),
+        )
+        conn.commit()
+    group = root / "evals" / "groups" / "evals_corpus.sqlite"
+    group.parent.mkdir(parents=True, exist_ok=True)
+    with closing(sqlite3.connect(group)) as conn:
+        conn.executescript(
+            """
+            CREATE TABLE canonical_documents (doc_id TEXT PRIMARY KEY, library_id TEXT NOT NULL, title TEXT);
+            CREATE TABLE canonical_chunks (chunk_id TEXT PRIMARY KEY, doc_id TEXT NOT NULL,
+                                           chunk_type TEXT, text_clean TEXT, updated_at TEXT);
+            """
+        )
+        conn.execute("INSERT INTO canonical_documents VALUES ('e1','lib-e','E 文档')")
+        conn.execute("INSERT INTO canonical_chunks VALUES ('ce1','e1','clause','eval text','t')")
+        conn.commit()
+    with closing(sqlite3.connect(root / "knowledge" / "knowledge_meta.sqlite")) as conn:
+        conn.execute(
+            "INSERT INTO nodes VALUES (?,?,?)",
+            ("ne1", "lib-e", "evals/corpora/libraries/lib-e/documents/d3/source/c.pdf"),
+        )
+        conn.execute("INSERT INTO tree_node VALUES (?,?,?)", ("ne1", "lib-e", "{}"))
+        conn.execute(
+            "INSERT INTO libraries VALUES (?,?,?,?,?)",
+            ("lib-e", "评测库E", "", "t", "t"),
+        )
+        conn.commit()
+    source = root / "evals/corpora/libraries/lib-e/documents/d3/source/c.pdf"
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_bytes(b"%PDF-1.5 eval")
+
+
 def _fake_data_root(tmp: Path) -> Path:
     root = tmp / "data"
     root.mkdir(parents=True)
@@ -182,8 +220,10 @@ class KbCorpusBundleV2Tests(unittest.TestCase):
         self.tmp = Path(self._td.name)
         self.root = _fake_data_root(self.tmp)
         os.environ["ANGINEER_DATA_ROOT"] = str(self.root)
+        os.environ["ANGINEER_REGISTRY_DB"] = str(self.root / "registry.sqlite")
         os.environ["EMBEDDING_CONFIGS"] = json.dumps([{"model": "qwen3-embed-8b"}])
         self.addCleanup(lambda: os.environ.pop("ANGINEER_DATA_ROOT", None))
+        self.addCleanup(lambda: os.environ.pop("ANGINEER_REGISTRY_DB", None))
         self.addCleanup(lambda: os.environ.pop("EMBEDDING_CONFIGS", None))
         self.snap_calls = []
 
@@ -347,6 +387,28 @@ class KbCorpusBundleV2Tests(unittest.TestCase):
         self.assertNotIn("qdrant/vectors.snapshot", names)
         self.assertEqual(iman["counts"]["vectors"], 0)
         self.assertEqual(self.snap_calls, [])
+
+    def test_evals_group_files_follow_group_root(self):
+        _seed_evals_library(self.root)
+        with ExitStack() as stack:
+            for p in self._qdrant_patches():
+                stack.enter_context(p)
+            preview = corpus_package.scan_selection(self.root, ["lib-e"])
+        lib = preview["libraries"][0]
+        expected = (
+            self.root / "evals/corpora/libraries/lib-e/documents/d3/source/c.pdf"
+        ).stat().st_size
+        self.assertEqual(lib["files_bytes"], expected)
+
+        outer = self._bundle(["lib-e"], with_vectors=False)
+        inner = zipfile.ZipFile(io.BytesIO(outer.read("libraries/lib-e.zip")))
+        names = set(inner.namelist())
+        self.assertIn(
+            "files/evals/corpora/libraries/lib-e/documents/d3/source/c.pdf", names
+        )
+        self.assertFalse([n for n in names if n.startswith("files/knowledge/libraries/lib-e/")])
+        iman = json.loads(inner.read("manifest.json"))
+        self.assertFalse([w for w in iman["warnings"] if "file_path" in w])
 
 
 if __name__ == "__main__":

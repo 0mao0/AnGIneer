@@ -342,12 +342,15 @@ def get_library(library_id: str) -> Optional[LibraryRecord]:
     """读穿查单行；注册表未初始化或无此行返回 None（调用方走回退默认）。"""
     if not _registry_exists():
         return None
-    with _connect() as conn:
+    conn = _connect()
+    try:
         row = conn.execute(
             "SELECT library_id, name, description, group_name, sqlite_file, collection, status "
             "FROM library_registry WHERE library_id=?",
             (library_id,),
         ).fetchone()
+    finally:
+        conn.close()
     return _row_to_record(row) if row is not None else None
 
 
@@ -362,8 +365,11 @@ def list_libraries(*, include_retired: bool = False) -> List[LibraryRecord]:
     if not include_retired:
         sql += " WHERE status != 'retired'"
     sql += " ORDER BY created_at ASC"
-    with _connect() as conn:
+    conn = _connect()
+    try:
         rows = conn.execute(sql).fetchall()
+    finally:
+        conn.close()
     return [_row_to_record(row) for row in rows]
 
 
