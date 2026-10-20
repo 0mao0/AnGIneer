@@ -11,10 +11,12 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 from engtools.BaseTool import BaseTool, ToolRegistry  # noqa: E402
 from angineer_core import ports  # noqa: E402
 from angineer_core.agent_tools import (  # noqa: E402
+    AgentTool,
     EngtoolAdapter,
     RetrieverAdapter,
     SopRunnerAdapter,
     ToolResult,
+    ToolSchemaAdapter,
 )
 
 
@@ -25,6 +27,35 @@ class FakeEchoTool(BaseTool):
 
     def run(self, **kwargs):
         return kwargs
+
+
+class ToolSchemaAdapterTests(unittest.TestCase):
+    def _tools(self):
+        return [
+            AgentTool(
+                name="search",
+                description="检索",
+                parameters_schema={
+                    "type": "object",
+                    "properties": {"query": {"type": "string"}},
+                    "required": ["query"],
+                },
+                handler=lambda **kw: {},
+            )
+        ]
+
+    def test_returns_target_schema(self):
+        tools = self._tools()
+        schema_tool = ToolSchemaAdapter.tool_schema(tools)
+        out = schema_tool.handler(name="search")
+        self.assertEqual(out["name"], "search")
+        self.assertEqual(out["parameters"], tools[0].parameters_schema)
+
+    def test_unknown_tool_lists_available(self):
+        schema_tool = ToolSchemaAdapter.tool_schema(self._tools())
+        out = schema_tool.handler(name="missing")
+        self.assertIn("error", out)
+        self.assertIn("search", out["available"])
 
 
 class AgentToolContractTests(unittest.TestCase):

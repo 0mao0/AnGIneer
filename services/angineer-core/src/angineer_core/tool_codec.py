@@ -26,9 +26,11 @@ class ToolCallCodec(Protocol):
 class TextToolCallCodec:
     """文本工具调用协议：模型输出 ```tool_calls JSON 数组``` 块。"""
 
-    def __init__(self, call_prefix: str = "call"):
+    def __init__(self, call_prefix: str = "call", include_schemas: bool = True):
         self._call_prefix = call_prefix
         self._seq = 0
+        # 懒加载：system 只给 name+description，参数 schema 由 tool_schema 按需取。
+        self.include_schemas = bool(include_schemas)
 
     def augment_system_prompt(self, base: str, tools: List[AgentTool]) -> str:
         if not tools:
@@ -37,21 +39,41 @@ class TextToolCallCodec:
                 "不要输出任何工具调用代码块。）"
             )
 
-        tools_json = json.dumps(
-            [
-                {
-                    "name": tool.name,
-                    "description": tool.description,
-                    "parameters": tool.parameters_schema,
-                }
-                for tool in tools
-            ],
-            ensure_ascii=False,
-            indent=2,
-        )
+        tool_rows = []
+        for tool in tools:
+            row = {"name": tool.name, "description": tool.description}
+            if self.include_schemas:
+                row["parameters"] = tool.parameters_schema
+            tool_rows.append(row)
+        tools_json = json.dumps(tool_rows, ensure_ascii=False, indent=2)
+        if self.include_schemas:
+            protocol = (
+                "\n\n## 工具使用协议\n"
+                "你可以调用以下工具获取证据或执行计算：\n"
+                f"{tools_json}\n\n"
+                "规则：\n"
+                "1. 需要调用工具时，只输出一个工具调用代码块，不要输出其他内容：\n"
+                '```tool_calls\n[{"name": "工具名", "arguments": {"参数名": "参数值"}}]\n```\n'
+                "2. 可以一次调用多个工具（数组内放多个对象）。\n"
+                "3. 工具结果会以「工具返回」的形式提供给你。你可以继续调用工具，或给出最终答案。\n"
+                "4. 当你掌握足够证据时，直接输出最终答案（不要包含 tool_calls 代码块）。\n"
+                "5. 禁止编造工具返回中不存在的数字与结论。\n"
+                "6. 调用工具前不要输出任何解释或引导语，直接输出工具调用代码块；工具调用块之外不要夹杂对话文字。\n"
+                "7. 最终答案不要以提问方式收尾（如「您是否想知道…」），直接给出结论后结束。"
+            )
+            # 计算纪律（2026-10-07）：FinanceBench 实测计算器 0/150 次被调用，模型全靠心算，
+            # 数值小错（如 2.1% vs 金标 1.9%）即源于此——工具清单含 calculator 时追加强制规则。
+            if any(tool.name == "calculator" for tool in tools):
+                protocol += (
+                    "\n8. 计算纪律：答案中凡是需要通过运算得出的数值（差值、比值、百分比、增长率、"
+                    "均值、汇总等），必须先调用 calculator 执行运算，并以工具返回结果为准；"
+                    "直接从证据抄录的原始数值不需要计算。禁止心算后直接给出结果。"
+                )
+            return base + protocol
+
         protocol = (
             "\n\n## 工具使用协议\n"
-            "你可以调用以下工具获取证据或执行计算：\n"
+            "你可以调用以下工具获取证据或执行计算。清单只给名称和用途，参数 schema 按需获取：\n"
             f"{tools_json}\n\n"
             "规则：\n"
             "1. 需要调用工具时，只输出一个工具调用代码块，不要输出其他内容：\n"
@@ -61,13 +83,14 @@ class TextToolCallCodec:
             "4. 当你掌握足够证据时，直接输出最终答案（不要包含 tool_calls 代码块）。\n"
             "5. 禁止编造工具返回中不存在的数字与结论。\n"
             "6. 调用工具前不要输出任何解释或引导语，直接输出工具调用代码块；工具调用块之外不要夹杂对话文字。\n"
-            "7. 最终答案不要以提问方式收尾（如「您是否想知道…」），直接给出结论后结束。"
+            "7. 最终答案不要以提问方式收尾（如「您是否想知道…」），直接给出结论后结束。\n"
+            "8. 参数不确定时，先调用 tool_schema（参数 name=目标工具名）获取 parameters schema，"
+            "再按 schema 调用目标工具；简单工具（只需 query）可直接调用。\n"
+            "9. 参数校验失败时，工具结果会带回 schema；按 schema 修正后重试。"
         )
-        # 计算纪律（2026-10-07）：FinanceBench 实测计算器 0/150 次被调用，模型全靠心算，
-        # 数值小错（如 2.1% vs 金标 1.9%）即源于此——工具清单含 calculator 时追加强制规则。
         if any(tool.name == "calculator" for tool in tools):
             protocol += (
-                "\n8. 计算纪律：答案中凡是需要通过运算得出的数值（差值、比值、百分比、增长率、"
+                "\n10. 计算纪律：答案中凡是需要通过运算得出的数值（差值、比值、百分比、增长率、"
                 "均值、汇总等），必须先调用 calculator 执行运算，并以工具返回结果为准；"
                 "直接从证据抄录的原始数值不需要计算。禁止心算后直接给出结果。"
             )

@@ -14,6 +14,7 @@ from angineer_core.agent_tools import (
     RetrieverAdapter,
     SopRunnerAdapter,
     StatsAdapter,
+    ToolSchemaAdapter,
 )
 from angineer_core.prompts.agent_configs import (  # noqa: F401  # P5 资产化后 re-export，保持旧导入兼容
     COMPLEX_AGENT_SYSTEM_PROMPT,
@@ -479,7 +480,7 @@ def build_qa_config(
     enum_context: Optional[str] = None,
     audit_query: Optional[str] = None,
 ) -> AgentLoopConfig:
-    """装配 QA 档 agent 循环：四个只读工具（三检索 + 知识库统计）+ 内联 QA prompt（P5 前）。
+    """装配 QA 档 agent 循环：L1 工具箱（7 类工具 + tool_schema 懒加载元工具）。
 
     answer_format=评测侧注入的「答案收尾形态」要求（OfficeQA 注入实验，
     docs/plan-officeqa-arms.md §7.7）：非空时原样追加到系统提示词末尾；
@@ -489,6 +490,7 @@ def build_qa_config(
     「预取证据」段追加到系统提示词（不是规则），None＝逐字节不变。
     """
     effective_tools = tools
+    lazy_schema = tools is None
     if effective_tools is None:
         effective_knowledge_task_type = knowledge_task_type or task_type
         effective_table_task_type = table_task_type or task_type
@@ -565,7 +567,10 @@ def build_qa_config(
                 read_only=False,
             )
         )
-        effective_tools = ordered
+        effective_tools = list(ordered)
+        # 懒加载：system 只给工具名+用途；schema 由 tool_schema 按需取。
+        schema_tool = ToolSchemaAdapter.tool_schema(effective_tools)
+        effective_tools.insert(0, schema_tool)
 
     system_prompt = _load_qa_system_prompt()
     explicit = _build_inline_citation_context(inline_citations or [])
@@ -642,7 +647,7 @@ def build_qa_config(
         tools=effective_tools,
         system_prompt=system_prompt,
         max_turns=max_turns,
-        codec=TextToolCallCodec(),
+        codec=TextToolCallCodec(include_schemas=not lazy_schema),
         final_answer_guard=guard,
         route_note=route_note,
         followup_question=followup_enabled,

@@ -32,6 +32,25 @@ class TextToolCallCodecTests(unittest.TestCase):
         self.assertIn("search", prompt)
         self.assertIn("检索工具", prompt)
         self.assertIn("tool_calls", prompt)
+        self.assertIn('"parameters"', prompt)
+
+    def test_lazy_augment_omits_parameters_and_points_to_tool_schema(self):
+        """懒加载：system 只放 name+description，参数 schema 由 tool_schema 按需取。"""
+        codec = TextToolCallCodec(include_schemas=False)
+        prompt = codec.augment_system_prompt("基础提示", [dummy_tool()])
+        self.assertIn("search", prompt)
+        self.assertIn("检索工具", prompt)
+        self.assertNotIn('"parameters"', prompt)
+        self.assertIn("tool_schema", prompt)
+        self.assertIn("schema", prompt)
+
+    def test_lazy_augment_keeps_calculation_discipline(self):
+        codec = TextToolCallCodec(include_schemas=False)
+        prompt = codec.augment_system_prompt(
+            "base", [dummy_tool(), dummy_tool(name="calculator")]
+        )
+        self.assertIn("计算纪律", prompt)
+        self.assertIn("必须先调用 calculator", prompt)
 
     def test_augment_system_prompt_empty_tools_disables_calls(self):
         codec = TextToolCallCodec()

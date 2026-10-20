@@ -28,6 +28,8 @@ class ComplexConfigTests(unittest.TestCase):
                 "knowledge_search",
                 "table_search",
                 "entity_search",
+                "doc_search",
+                "doc_read",
                 "sop_execute",
                 "calculator",
                 "conditional",
@@ -40,7 +42,7 @@ class ComplexConfigTests(unittest.TestCase):
 
     def test_sop_execute_tool_has_execution_contract(self):
         config = build_complex_config(llm=Mock())
-        sop_tool = config.tools[3]
+        sop_tool = next(tool for tool in config.tools if tool.name == "sop_execute")
         self.assertEqual(sop_tool.name, "sop_execute")
         self.assertFalse(sop_tool.read_only)
         self.assertEqual(sop_tool.execution_mode, "sequential")

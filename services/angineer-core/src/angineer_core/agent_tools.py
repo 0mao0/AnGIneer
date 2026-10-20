@@ -209,6 +209,47 @@ class ToolResult:
     raw: Dict[str, Any] = field(default_factory=dict)  # citations 等，进 meta 不进 content
 
 
+class ToolSchemaAdapter:
+    """懒加载元工具：按名称返回目标工具的完整参数 schema。
+
+    system 只暴露 name+description；模型第一次要用某个工具、又不确定参数时，
+    先调 tool_schema(name) 取 schema，再按 schema 调目标工具。schema 会留在
+    对话历史里，后续轮次复用。
+    """
+
+    @staticmethod
+    def tool_schema(tools: List[AgentTool]) -> AgentTool:
+        def handler(name: str = "", **_kwargs: Any) -> Dict[str, Any]:
+            target = next((tool for tool in tools if tool.name == name), None)
+            if target is None:
+                return {
+                    "error": f"未知工具: {name}",
+                    "available": [tool.name for tool in tools],
+                }
+            return {
+                "name": target.name,
+                "description": target.description,
+                "parameters": target.parameters_schema,
+            }
+
+        return AgentTool(
+            name="tool_schema",
+            description=(
+                "获取工具的完整参数 schema。调用工具前若不确定参数名/类型，先调用本工具；"
+                "参数校验失败时也会返回 schema。参数 name=目标工具名。"
+            ),
+            parameters_schema={
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string", "description": "目标工具名"},
+                },
+                "required": ["name"],
+            },
+            handler=handler,
+            read_only=True,
+        )
+
+
 def _default_schema() -> Dict[str, Any]:
     return {"type": "object", "properties": {}}
 

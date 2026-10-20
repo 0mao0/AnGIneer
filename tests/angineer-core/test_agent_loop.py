@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 from angineer_core.agent_events import AgentEvent  # noqa: E402
 from angineer_core.agent_loop import AgentLoopConfig, AttemptConfig, run_agent_loop  # noqa: E402
 from angineer_core.agent_messages import AgentMessage  # noqa: E402
-from angineer_core.agent_tools import AgentTool, ToolResult  # noqa: E402
+from angineer_core.agent_tools import AgentTool, ToolResult, ToolSchemaAdapter  # noqa: E402
 from angineer_core.tool_codec import TextToolCallCodec  # noqa: E402
 
 from agent_test_utils import MockLLM, collect_events, text_events, tool_block  # noqa: E402
@@ -188,6 +188,68 @@ class AgentLoopTests(unittest.TestCase):
         tool_msgs = [m for m in messages if m.role == "tool"]
         self.assertTrue(tool_msgs[0].is_error)
         self.assertIn("参数校验失败", tool_msgs[0].content)
+
+    def test_parameter_validation_failure_includes_schema_in_lazy_mode(self):
+        schema = {"type": "object", "properties": {"q": {"type": "string"}}, "required": ["q"]}
+
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(tool_block([{"name": "search", "arguments": {"q": 123}}]))
+            else:
+                yield from text_events("按 schema 重试")
+
+        llm = MockLLM(handler)
+        messages: list = []
+        run_agent_loop(
+            messages,
+            make_config(
+                llm,
+                [make_tool("search", lambda q: None, schema)],
+                codec=TextToolCallCodec(include_schemas=False),
+            ),
+        )
+
+        tool_msgs = [m for m in messages if m.role == "tool"]
+        self.assertIn("参数校验失败", tool_msgs[0].content)
+        self.assertIn("参数 schema", tool_msgs[0].content)
+        self.assertIn('"q"', tool_msgs[0].content)
+
+    def test_lazy_tool_schema_then_call(self):
+        calls = []
+        search = make_tool(
+            "search",
+            lambda q: calls.append(q),
+            {"type": "object", "properties": {"q": {"type": "string"}}, "required": ["q"]},
+        )
+        schema_tool = ToolSchemaAdapter.tool_schema([search])
+
+        def handler(messages, kwargs):
+            if len(llm.calls) == 1:
+                yield from text_events(
+                    tool_block([{"name": "tool_schema", "arguments": {"name": "search"}}])
+                )
+            elif len(llm.calls) == 2:
+                yield from text_events(
+                    tool_block([{"name": "search", "arguments": {"q": "x"}}])
+                )
+            else:
+                yield from text_events("done")
+
+        llm = MockLLM(handler)
+        messages: list = []
+        run_agent_loop(
+            messages,
+            make_config(
+                llm,
+                [schema_tool, search],
+                codec=TextToolCallCodec(include_schemas=False),
+            ),
+        )
+
+        self.assertEqual(calls, ["x"])
+        schema_msg = [m for m in messages if m.role == "tool" and m.name == "tool_schema"][0]
+        self.assertIn('"parameters"', schema_msg.content)
+        self.assertEqual(messages[-1].content, "done")
 
     def test_truncation_guard_voids_tool_calls(self):
         calls = []

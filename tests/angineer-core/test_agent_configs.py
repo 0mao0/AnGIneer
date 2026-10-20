@@ -30,7 +30,10 @@ class QaConfigTests(unittest.TestCase):
             task_type="definition_qa",
         )
         self.assertEqual([tool.name for tool in config.tools], [
+            "tool_schema",      # 懒加载：schema 按需取
             "knowledge_search",
+            "doc_search",
+            "doc_read",
             "table_search",
             "entity_search",
             "knowledge_stats",  # 废 meta_query 路由（2026-10-02）下沉 L1 统一工具箱
@@ -41,10 +44,14 @@ class QaConfigTests(unittest.TestCase):
         readonly_names = {tool.name for tool in config.tools if tool.read_only}
         self.assertEqual(
             readonly_names,
-            {"knowledge_search", "table_search", "entity_search", "knowledge_stats"},
+            {"tool_schema", "knowledge_search", "doc_search", "doc_read", "table_search", "entity_search", "knowledge_stats"},
         )
         self.assertEqual(config.max_turns, 3)
         self.assertIsInstance(config.codec, TextToolCallCodec)
+        self.assertFalse(config.codec.include_schemas)
+        lazy_prompt = config.codec.augment_system_prompt(config.system_prompt, config.tools)
+        self.assertIn("tool_schema", lazy_prompt)
+        self.assertNotIn('"parameters"', lazy_prompt)
         self.assertIn("检索证据", config.system_prompt)
         self.assertIn("没有检索到足够证据支持最终结论", config.system_prompt)
 
@@ -53,6 +60,8 @@ class QaConfigTests(unittest.TestCase):
         config = build_qa_config(llm=Mock(), tools=[tool], max_turns=5)
         self.assertEqual(config.tools, [tool])
         self.assertEqual(config.max_turns, 5)
+        # 自定义工具箱没有注入 tool_schema，保持全量 schema，避免模型拿不到参数
+        self.assertTrue(config.codec.include_schemas)
 
     def test_followup_rule_appended_when_env_true(self):
         with patch.dict(os.environ, {"ANGINEER_FOLLOWUP_QUESTION": "true"}, clear=False):
@@ -221,7 +230,10 @@ class QaConfigTests(unittest.TestCase):
     def test_build_qa_config_accepts_marker_allocator(self):
         config = build_qa_config(llm=Mock(), marker_allocator=MarkerAllocator())
         self.assertEqual([tool.name for tool in config.tools], [
+            "tool_schema",      # 懒加载：schema 按需取
             "knowledge_search",
+            "doc_search",
+            "doc_read",
             "table_search",
             "entity_search",
             "knowledge_stats",  # 废 meta_query 路由（2026-10-02）下沉 L1 统一工具箱
