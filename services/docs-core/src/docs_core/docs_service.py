@@ -467,6 +467,15 @@ class DocsService:
     def reload_scope_cache(self) -> None:
         self._load_from_db()
 
+    def forget_library_stores(self, library_id: str) -> None:
+        """删库前丢弃该库的 store 缓存引用；Windows 下缓存对象可能仍持有 sqlite 句柄。"""
+        try:
+            key = str(library_registry.resolve_index_db_path(library_id))
+        except Exception:  # noqa: BLE001
+            return
+        self._canonical_stores.pop(key, None)
+        self._index_stores.pop(key, None)
+
     # 删除指定节点集合
     def _delete_nodes(self, node_ids: List[str]) -> None:
         self.meta_store.delete_nodes(node_ids)

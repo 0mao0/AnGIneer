@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import logging
+import gc
 import shutil
 import sqlite3
 import threading
@@ -154,7 +155,8 @@ class LibraryDeleteRunner:
         service = self._service_factory()
         if library_id == "default":
             raise LibraryDeleteError("默认知识库不允许删除")
-        if service.get_library(library_id) is None:
+        record = library_registry.get_library(library_id)
+        if record is None and service.get_library(library_id) is None:
             raise LibraryNotFound(f"知识库不存在: {library_id}")
         task = self.tasks.start(library_id)
         thread = threading.Thread(
@@ -361,7 +363,15 @@ def _remove_library_dirs(library_id: str) -> None:
             continue
         seen.add(resolved)
         if path.is_dir():
-            shutil.rmtree(path)
+            for attempt in range(5):
+                try:
+                    shutil.rmtree(path)
+                    break
+                except PermissionError:
+                    if attempt == 4:
+                        raise
+                    gc.collect()
+                    time.sleep(0.25)
 
 
 def _delete_graph(library_id: str) -> None:
@@ -429,10 +439,11 @@ def delete_library_data(
     """同步执行删库（runner 与单测共用）；返回 {docs, container_deleted}。"""
     if library_id == "default":
         raise LibraryDeleteError("默认知识库不允许删除")
-    if service.get_library(library_id) is None:
+    record = library_registry.get_library(library_id)
+    # 失败重试：meta 快照可能已清、service 看不到该库，但 registry 还在（deleting）
+    if record is None and service.get_library(library_id) is None:
         raise LibraryNotFound(f"知识库不存在: {library_id}")
 
-    record = library_registry.get_library(library_id)
     collection = (record.collection if record else "") or library_registry.resolve_collection(library_id)
     node_ids = _node_ids(service, library_id)
     total = len(node_ids)
@@ -451,6 +462,11 @@ def delete_library_data(
     _clear_parse_records(library_id)
     _clear_meta_rows(service, library_id, node_ids)
     _notify(progress, "files", total, total)
+    try:
+        service.forget_library_stores(library_id)
+    except Exception:  # noqa: BLE001 — fake/旧 service 无此方法
+        pass
+    gc.collect()
     _remove_library_dirs(library_id)
     _notify(progress, "graph", total, total)
     _delete_graph(library_id)

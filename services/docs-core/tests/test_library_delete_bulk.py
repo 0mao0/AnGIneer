@@ -146,6 +146,23 @@ def test_independent_bucket_deletes_container(tmp_path, monkeypatch) -> None:
     assert library_registry.get_library("lib-solo").status == "retired"
 
 
+def test_delete_retries_when_meta_snapshot_missing(tmp_path, monkeypatch) -> None:
+    monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path / "data"))
+    monkeypatch.setenv("ANGINEER_REGISTRY_DB", str(tmp_path / "registry.sqlite"))
+    monkeypatch.setenv("KNOWLEDGE_BASE_DIR", str(tmp_path / "kb"))
+    library_registry.register_library(
+        "lib-orphan", name="Orphan", group_name="system",
+        sqlite_file="knowledge/libraries/lib-orphan/index.sqlite", collection="lib-orphan",
+        status=library_registry.STATUS_DELETING,
+    )
+    meta = tmp_path / "data/knowledge/knowledge_meta.sqlite"
+    _make_meta_db(meta, [("doc-other", "lib-other")])
+    service = _FakeService(meta, [], [])
+    result = delete_library_data(service, "lib-orphan")
+    assert result["docs"] == 0
+    assert library_registry.get_library("lib-orphan").status == "retired"
+
+
 def test_independent_bucket_kept_when_retired_row_references_it(tmp_path, monkeypatch) -> None:
     monkeypatch.setenv("ANGINEER_DATA_ROOT", str(tmp_path / "data"))
     monkeypatch.setenv("ANGINEER_REGISTRY_DB", str(tmp_path / "registry.sqlite"))
