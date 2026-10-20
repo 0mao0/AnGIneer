@@ -235,6 +235,19 @@ class ApplyImportTests(unittest.TestCase):
         rec = library_registry.get_library("lib-e")
         self.assertEqual(rec.sqlite_file, "evals/corpora/libraries/lib-e/index.sqlite")
 
+    def test_retired_same_id_can_be_restored(self):
+        pkg = _build_library_package(self.tmp)
+        library_registry.register_library(
+            "lib-x", name="X", group_name="system",
+            sqlite_file="knowledge/libraries/lib-x/index.sqlite", collection="lib-x",
+            status=library_registry.STATUS_RETIRED,
+        )
+        result = apply_import(str(pkg), data_root=self.data, group_name="system",
+                              apply=True, with_vectors=False)
+        self.assertEqual(result["mode"], "applied")
+        rec = library_registry.get_library("lib-x")
+        self.assertEqual(rec.status, library_registry.STATUS_ACTIVE)
+
     def test_zero_vectors_skips_qdrant_count(self):
         pkg = _build_library_package(self.tmp)
         with mock.patch.object(corpus_import_apply, "_list_qdrant_collections", return_value=set()), \

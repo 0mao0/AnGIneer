@@ -421,6 +421,11 @@ def _insert_registry(
     now = _now()
     conn = create_connection(reg_path)
     try:
+        # 删库后 registry 留 retired 审计行；同 id 重新导入=restore，先替换审计行
+        conn.execute(
+            "DELETE FROM library_registry WHERE library_id=? AND status=?",
+            (lib_id, library_registry.STATUS_RETIRED),
+        )
         conn.execute(
             "INSERT INTO library_registry "
             "(library_id, name, description, group_name, sqlite_file, collection, status, created_at, updated_at) "
@@ -526,8 +531,13 @@ def import_bundle(
             check_package_files(bundle)
 
             target_libs, _groups = _registry_snapshot(reg_path)
-            target_lib_ids = {r["library_id"] for r in target_libs}
-            target_collections = {r["collection"] for r in target_libs}
+            # retired 行只留审计：数据已清，重新导入同 id 视为 restore，不占用冲突键
+            active_target = [
+                r for r in target_libs
+                if str(r.get("status") or "") != library_registry.STATUS_RETIRED
+            ]
+            target_lib_ids = {r["library_id"] for r in active_target}
+            target_collections = {r["collection"] for r in active_target}
             qdrant_cols = _list_qdrant_collections(qdrant_url) if with_vectors else set()
             if qdrant_cols is None:
                 if with_vectors:
