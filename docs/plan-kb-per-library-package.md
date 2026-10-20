@@ -7,7 +7,7 @@
 **Architecture:**
 ```
 导出（docs-api 进程内，流式不落盘；CLI 同源）
-  选库 → ①组 sqlite ATTACH 抽 12 张 doc 表 + FTS 行 → index/index.sqlite（临时文件）
+  选库 → ①组 sqlite ATTACH 抽 13 张 doc 表 + FTS 行 → index/index.sqlite（临时文件）
         ②全局 graph.sqlite 闭包剪裁（本库行 ∪ 关系端点在内的引用实体）→ graph/graph.sqlite（临时文件）
         ③源 collection 按 library_id 过滤 → 临时每库 collection → 原生快照（流）
         ④文档树原样收（排除 mineru_raw/popo）
@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-1 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**P2-2 可恢复；恢复顺序 = P2-0b（doc_catalog）→ P2-2。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P2-2（导入应用）。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -37,7 +37,7 @@
 |---|---|---|
 | F1 | 库→存储真相源 = `data/registry.sqlite`：`library_registry` 每行有 `sqlite_file`（相对 data 根）与 `collection`，**按库解析**（`resolve_collection` / `resolve_index_db_path`）；现网 29 行全部同组同桶 | `docs_core/library_registry.py:80-92,408-427`；查询证据见本票讨论记录 |
 | F2 | 导出唯一硬粒度闸 = 同组校验；包内 sqlite 是**整组文件**、快照是**整组 collection** | `corpus_package.py:179-183,193-213,426-433` |
-| F3 | 组 sqlite 的 doc 键全表清单（12 张，含 FTS/vectors/corrections）= 拆并迁移与拆组脚本共同契约；**单一真相源 = `KbMigrator._DOC_TABLES`，切片模块直接 import** | `kb_migrator.py:309-315`；`scripts/split_sqlite_groups.py:26-39` |
+| F3 | 组 sqlite 的 doc 键全表清单（13 张，含 FTS/vectors/corrections/**doc_catalog**）= 拆并迁移与拆组脚本共同契约；**单一真相源 = `KbMigrator._DOC_TABLES`，切片模块直接 import** | `kb_migrator.py:309-316`；`scripts/split_sqlite_groups.py:26-40` |
 | F4 | FTS 是普通 fts5 虚表（非 external-content），**可直接 INSERT SELECT 抽行**；按 doc 抽 FTS 已有先例 | `step05_sqlite_fts/store/canonical_sql_store.py:343-365`；`step10_export/export_artifacts.py:108-119` |
 | F5 | 图谱 = 全局单文件 `data/knowledge/graph.sqlite`，行级 `library_id` 隔离；entities `UNIQUE(name,library_id)`、relations `UNIQUE(source_id,target_id,relation_type,library_id,doc_id)` | `paths.py:89-91`；`step07_graph/graph_store.py:29-49,290-303,315-382` |
 | F6 | qdrant point payload 带 `library_id` 且已建 KEYWORD payload 索引；scroll 带向量、按过滤批量取点、set_payload 均已实现 | `step06_vectors/qdrant_vector_store.py:142-147,180-190,399-421,365-388` |
@@ -72,7 +72,7 @@
      │                                      # files{包内相对路径: sha256}
      ├─ registry/rows.json                 # 本库 library_registry 行（含原 sqlite_file/collection，供追溯）+ 其组行
      ├─ meta/rows.json                     # 本库 nodes/tree_node + **meta libraries 行**（修复 F10 缺口）
-     ├─ index/index.sqlite                 # 按库切片：12 张 doc 表（F3 清单；P2-0b 后含 doc_catalog = 13 张），DDL 原样
+     ├─ index/index.sqlite                 # 按库切片：13 张 doc 表（F3 清单，含 doc_catalog），DDL 原样
      ├─ files/<库根>/…                     # 文档树：knowledge 组=knowledge/libraries/<lib>/…；evals 组=evals/corpora/libraries/<lib>/…
      │                                      # 排除 documents/<doc>/parsed/{mineru_raw,popo}；不含 lib 根 index.sqlite
      ├─ qdrant/vectors.snapshot            # 本库向量快照（导出侧临时每库 collection 的原生快照）
@@ -255,12 +255,17 @@
 - Modify: `scripts/split_sqlite_groups.py`（同名清单逐字同步）
 - Test: `tests/unit/test_unit_corpus_slicing.py`、迁移/拆组相关测试
 
-- [ ] 把 `doc_catalog` 加入 `KbMigrator._DOC_TABLES` 与 split 脚本清单；切片自动跟随（表有 `library_id` 列，按库过滤；无表跳过，旧库兼容）。
-- [ ] 测试：有表/无表两态；两库夹具断言本库行保留、他库 0 行；split/migrate 后行数不变。
-- [ ] 同步包格式/F3 的「12 张」→「13 张」；表名/DDL 以 `doc_search.ensure_catalog` 当前定义为准。
-- [ ] commit `fix(docs-core): doc_catalog 纳入 doc 键表切片与拆并`
+- [x] 把 `doc_catalog` 加入 `KbMigrator._DOC_TABLES` 与 split 脚本清单；切片自动跟随（表有 `library_id` 列，按库过滤；无表跳过，旧库兼容）。
+- [x] 测试：有表/无表两态；两库夹具断言本库行保留、他库 0 行；split/migrate 后行数不变。
+- [x] 同步包格式/F3 的「12 张」→「13 张」；表名/DDL 以 `doc_search.ensure_catalog` 当前定义为准。
+- [x] commit `fix(docs-core): doc_catalog 纳入 doc 键表切片与拆并`（`331c1592`）
 
-**背景（2026-10-20 实测）：** 核心目标是 `lab-firm-full`：**9,009 行 / 267 matter**（10-18 报告为 9,008 / 266）。当时全表 21,802 行还含 `lab-firm-dms` 9,276 行（未使用、业主已准备删）、`omnidocbench` 2,609 行等；P2-0b 的理由是 `lab-firm-full` 这 9,009 行，其他库随切片按 `library_id` 自然带上。`_DOC_TABLES` 12 表不含它；不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
+**执行记录（2026-10-20，commit `331c1592`）**
+- `_DOC_TABLES` 与 `scripts/split_sqlite_groups.py` 同步补 `doc_catalog`（13 张）。
+- 测试：`test_unit_corpus_slicing.py` **11 passed**，覆盖有表两库过滤、他库 0 行、旧库缺表跳过；`tests/unit -k corpus` **44 passed**。
+- 真机切片：`lib-e9c2c464`（evals 组）源库 `doc_catalog` 112 行 → 切片 112 行且仅该库；`counts.tables.doc_catalog=112`。
+
+**背景（2026-10-20 实测）：** 核心目标是 `lab-firm-full`：**9,009 行 / 267 matter**（10-18 报告为 9,008 / 266）。当时全表 21,802 行还含 `lab-firm-dms` 9,276 行（未使用、业主已准备删）、`omnidocbench` 2,609 行等；P2-0b 的理由是 `lab-firm-full` 这 9,009 行，其他库随切片按 `library_id` 自然带上。原 `_DOC_TABLES` 12 表不含它；不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
 
 **HarveyLab 结论（2026-10-20 复核）：** 100 题报告 §4 明确保留 `doc_catalog`/`doc_search`/`doc_read`；被否的是 P1/P3/P0.5/P2.1/P2.2 链路实验与 Harness2 上游试跑，不影响本表。Harness2 的「按 matter 遍历」反而依赖它。
 
@@ -460,7 +465,7 @@
 |---|---|---|
 | qdrant recover 改名能力不确定 | v1 代码注释声称支持，未实测 | P2-0 卡点先验证（先试集合级 upload 路径）；兜底=临时名恢复+复制（P1-4 复用） |
 | 源图谱历史悬空行 | 现网 `graph.sqlite` 与 default 切片实测 436 条（relations 112 + junctions 324）；FK ON 合并第一张联结表即回滚 | 合并连接 FK OFF + 事务内 `foreign_key_check` 对「目标原有 ∪ 包内自带」签名，新增违例回滚（P2-2） |
-| HarveyLab `doc_catalog` 未进切片 | 核心目标 `lab-firm-full` 9,009 行 / 267 matter（10-20 实测）；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；DDL 已提交，可立即做 |
+| HarveyLab `doc_catalog` 未进切片 | 核心目标 `lab-firm-full` 9,009 行 / 267 matter（10-20 实测）；旧 12 表清单不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | **已修（P2-0b `331c1592`）**：纳入 `_DOC_TABLES` 13 表 + split 同步；真机 `lib-e9c2c464` 112 行切片验证通过 |
 | evals 组文档树路径 | 导出写死 `knowledge/libraries/<lib>`；`lab-firm-full` 实际在 `evals/corpora/libraries` → `files/` 为空、9,009 条 file_path 全误报 | P1-8 用 `resolve_libraries_dir` 修正 + 两组夹具测试；先于 P2-0b/P2-2 |
 | 大库删库 | 9,276 节点/4.1G 同步逐篇；前端默认 30s；`doc_catalog` 残留；共享容器误删风险 | P4-0 异步 + 批量 + 引用计数；P4-3 只删独立容器 |
 | 图谱闭包切片的他库实体行 | 小包含归属他库 entity；目标已存同 `(name,library_id)` 异 id 行时 `OR IGNORE` 会丢实体 → 关系端点悬空 | P2-2 首版预检阻断；自然键重映射另立票；禁止静默 `OR IGNORE` |
@@ -499,4 +504,5 @@
 - 评审修订·第六轮（2026-10-20，Harvey 库实测）：新增 **P1-8**——导出库根按组解析（evals 组=`evals/corpora/libraries`），当前写死 knowledge 会让 `lab-firm-full` 的 `files/` 为空、file_path 全误报；恢复顺序定为 **P1-8 → P2-0b → P2-2**。
 - 评审修订·第七轮（2026-10-20，删库复盘）：`6f66b67d` 只修了节点/记录删除，整库仍同步逐篇 + 30s；新增 **P4-0** 异步任务 + 按 `library_id` 批量清 + `doc_catalog` 清理 + 共享容器引用计数；P4-3 收窄为“只删独立桶容器”。
 - 评审修订·第八轮（2026-10-20，P1-8 完成）：导出/预览库根按组解析（知识组 knowledge、evals 组 evals/corpora）；`file_path` 守卫按库根；内层大条目补 `force_zip64`；`lab-firm-full` 真机 preview 0 告警。
+- 评审修订·第九轮（2026-10-20，P2-0b 完成）：`doc_catalog` 纳入 `_DOC_TABLES` 与 split 脚本（13 表）；切片按 library_id 过滤、旧库缺表跳过；真机 `lib-e9c2c464` 112 行验证通过。
 - 未含（边界外）：见上「边界外发现」三条。
