@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.
 
 from docs_core.corpus_package import (  # noqa: E402
     BundleError,
+    REEMBED_BLOCK_MESSAGE,
     check_conflict_gate,
     check_embed_gate,
     check_package_files,
@@ -201,8 +202,9 @@ class V2GateTests(unittest.TestCase):
         with self.assertRaises(BundleError) as ctx:
             check_embed_gate({"embed_model": "model-A"}, env_model="model-B")
         msg = str(ctx.exception)
-        self.assertIn("以目标模型重出包", msg)  # v2 无 --reembed 口（定版 b）
-        self.assertNotIn("reembed", msg.lower())
+        self.assertTrue(msg.startswith(REEMBED_BLOCK_MESSAGE))
+        self.assertIn("不支持 reembed", msg)
+        self.assertIn("重新导出", msg)
 
     def test_embed_gate_v2_match_and_empty(self):
         check_embed_gate({"embed_model": "model-A"}, env_model="model-A")  # 不抛

@@ -743,6 +743,9 @@ class ExportTasks:
 
 SUPPORTED_SCHEMA = {2}
 
+# P2-4 定版文案：CLI / P3-1 预检响应 / P3-2 前端提示三处逐字一致。
+REEMBED_BLOCK_MESSAGE = "embed 模型不一致，v2 导入不支持 reembed；请用目标环境模型重新导出"
+
 
 class BundleError(ValueError):
     """导入侧包结构/完整性/预检闸错误（CLI 捕获 → stderr + 非零退出）。"""
@@ -960,15 +963,14 @@ def check_package_files(bundle: Bundle) -> None:
 
 
 def check_embed_gate(manifest: Dict[str, Any], env_model: str) -> None:
-    """v2 硬闸（定版 b）：模型不一致即阻断，**不留 reembed 口**（v1 旧语义在 CLI 脚本内不动）。"""
+    """v2 硬闸（定版 b）：模型不一致即阻断，**不留 reembed 口**。"""
     pkg_model = str(manifest.get("embed_model") or "")
     if not pkg_model:
         raise BundleError("包 manifest 没记录 embed_model，无法对账——重出包")
     if pkg_model != env_model:
         raise BundleError(
-            f"embed 模型不一致：包={pkg_model} 现网={env_model or '(EMBEDDING_CONFIGS 未设置)'}。"
-            "向量跨模型复用=检索静默错乱；请在导出侧对齐现网模型、以目标模型重出包"
-            "（v2 不支持导入侧重嵌）。"
+            f"{REEMBED_BLOCK_MESSAGE}"
+            f"（包={pkg_model} 现网={env_model or '(EMBEDDING_CONFIGS 未设置)'}）"
         )
 
 
