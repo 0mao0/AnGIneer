@@ -5,7 +5,7 @@
 import pytest
 
 from docs_core import library_registry as registry
-from docs_core.docs_service import get_docs_service
+from docs_core.docs_service import KnowledgeNode, get_docs_service
 
 
 @pytest.fixture()
@@ -35,6 +35,18 @@ def test_update_library_to_custom_group(iso):
     ks.create_group("bridge", "桥梁")
     ks.update_library("lib-mov", group_name="bridge")
     assert registry.get_library("lib-mov").group_name == "bridge"
+
+
+def test_nonempty_library_cross_bucket_group_rejected(iso):
+    ks = get_docs_service()
+    ks.create_library("lib-full", "非空库", "")
+    ks.create_node(KnowledgeNode(
+        id="doc-full", title="文档", type="document", library_id="lib-full",
+    ))
+    ks.create_group("bridge", "桥梁")
+    with pytest.raises(ValueError, match="跨桶"):
+        ks.update_library("lib-full", group_name="bridge")
+    assert registry.get_library("lib-full").group_name == "system"
 
 
 def test_grouped_includes_empty_custom_group_with_display(iso):

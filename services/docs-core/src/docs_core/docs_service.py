@@ -616,6 +616,25 @@ class DocsService:
         library = self.get_library(library_id)
         if library is None:
             return None
+        if group_name is not None and group_name != library.group_name:
+            old_rec = library_registry.get_library(library_id)
+            defaults = library_registry.group_storage_defaults(group_name)
+            if old_rec is not None and defaults:
+                with self.meta_store.connect() as conn:
+                    nonempty = conn.execute(
+                        "SELECT 1 FROM nodes WHERE library_id=? AND type='document' "
+                        "AND COALESCE(deleted,0)=0 LIMIT 1",
+                        (library_id,),
+                    ).fetchone()
+                new_bucket = (defaults.get("sqlite_file"), defaults.get("collection"))
+                old_bucket = (old_rec.sqlite_file, old_rec.collection)
+                if nonempty and old_bucket != new_bucket:
+                    raise ValueError(
+                        "非空库不能跨桶改组（旧桶 "
+                        f"{old_bucket[0]}/{old_bucket[1]} → 新桶 "
+                        f"{new_bucket[0]}/{new_bucket[1]}）；"
+                        "请先迁移数据或保持同桶"
+                    )
         if name is not None:
             library.name = name
         if description is not None:

@@ -137,6 +137,11 @@ def _group_defaults(group_name: str) -> Dict[str, str]:
     return {}
 
 
+def group_storage_defaults(group_name: str) -> Dict[str, str]:
+    """公开只读快照：改组保护需要判断目标组的默认 sqlite_file/collection。"""
+    return dict(_group_defaults(group_name))
+
+
 # ---- 路径解析 ----
 
 
