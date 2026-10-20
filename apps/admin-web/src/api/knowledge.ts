@@ -20,6 +20,19 @@ import { docsApiClient, aichatApiClient } from '../../../shared/apiClient'
 // 与下载 300s 上限对齐思路，给 120s 客户端宽限——超时报错≠服务端没删掉
 const DESTRUCTIVE_OP_TIMEOUT = 120000
 
+export interface LibraryDeleteTask {
+  task_id: string
+  library_id: string
+  status: 'queued' | 'running' | 'succeeded' | 'failed' | 'interrupted'
+  stage: string
+  done: number
+  total: number
+  error: string
+  created_at?: number
+  started_at?: number | null
+  finished_at?: number | null
+}
+
 export type {
   KnowledgeParseOptions,
   LlmConfigOption,
@@ -225,7 +238,11 @@ export const knowledgeApi = {
   updateLibrary: (libraryId: string, data: { name?: string; description?: string; group_name?: string }) =>
     api.patch(`/knowledge/libraries/${libraryId}`, data) as Promise<{ id: string; name: string }>,
   deleteLibrary: (libraryId: string) =>
-    api.delete(`/knowledge/libraries/${libraryId}`) as Promise<{ status: string; library_id: string }>,
+    api.delete(`/knowledge/libraries/${libraryId}`) as Promise<LibraryDeleteTask>,
+  getLibraryDeleteTask: (taskId: string) =>
+    api.get(`/knowledge/libraries/deletions/${taskId}`) as Promise<LibraryDeleteTask>,
+  getLibraryDeletion: (libraryId: string) =>
+    api.get(`/knowledge/libraries/${libraryId}/deletion`) as Promise<LibraryDeleteTask>,
 
   getNodes: (libraryId?: string, visible: boolean = false) =>
     api.get('/knowledge/nodes', { params: { visible, ...(libraryId ? { library_id: libraryId } : {}) } }),

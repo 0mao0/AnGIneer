@@ -236,6 +236,32 @@ class QdrantVectorStore(VectorStore):
             )
         return self._delete_by_filter(models.Filter(must=must), name)
 
+    def clear_library(self, library_id: str, collection: Optional[str] = None) -> int:
+        """按 library_id 一次删除整库向量点（共享 collection 下不删容器）。"""
+        name = self._collection_name(collection, self._collection)
+        if self._collection_dim(name) == 0:
+            return 0
+        from qdrant_client import models
+
+        flt = models.Filter(
+            must=[models.FieldCondition(key="library_id", match=models.MatchValue(value=library_id))]
+        )
+        return self._delete_by_filter(flt, name)
+
+    def delete_collection(self, collection: Optional[str] = None) -> bool:
+        """删除独立 collection；不存在返回 False。共享 collection 不得调用。"""
+        name = self._collection_name(collection, self._collection)
+        client = self._get_client()
+        try:
+            client.delete_collection(name)
+        except Exception as exc:  # noqa: BLE001 — 404 视为已不存在
+            message = str(exc).lower()
+            if "not found" in message or "404" in message or "doesn't exist" in message:
+                return False
+            raise
+        self._expected_dims.pop(name, None)
+        return True
+
     # 按 entity_id 删除增量重建前的旧向量记录
     def delete_records(
         self,

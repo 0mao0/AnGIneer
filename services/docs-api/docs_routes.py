@@ -12,9 +12,16 @@ from typing import Any, Dict, List, Optional
 from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException, UploadFile, File as FastAPIFile, Form
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel
 
+from docs_core import library_registry
+from docs_core.library_delete import (
+    DeleteInProgress,
+    LibraryDeleteError,
+    LibraryDeleteRunner,
+    LibraryNotFound,
+)
 from docs_core.docs_service import get_docs_service, KnowledgeNode
 from docs_core.step04_structure.shared.jsonl_io import (
     extract_build_id_from_markdown,
@@ -37,6 +44,8 @@ logger = logging.getLogger(__name__)
 
 docs_router = APIRouter()
 preview_router = APIRouter()
+
+_library_delete_runner = LibraryDeleteRunner(get_docs_service)
 
 
 # --- Pydantic 请求模型 ---
@@ -386,13 +395,46 @@ def update_knowledge_library(library_id: str, request: KnowledgeLibraryUpdate):
     return library
 
 
-@docs_router.delete("/libraries/{library_id}")
+@docs_router.delete("/libraries/{library_id}", status_code=202)
 def delete_knowledge_library(library_id: str):
-    """删除知识库：级联清理该库全部节点、文档产物与图谱数据。default 库禁止删除。"""
-    ks = get_docs_service()
-    if not ks.delete_library(library_id):
-        raise HTTPException(status_code=404, detail="Library not found")
-    return {"status": "deleted", "library_id": library_id}
+    """提交删库任务：立即 202，后台批量清理。default 库禁止删除。"""
+    try:
+        task = _library_delete_runner.start(library_id)
+    except LibraryNotFound as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except DeleteInProgress as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except LibraryDeleteError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return JSONResponse(status_code=202, content=task.to_dict())
+
+
+@docs_router.get("/libraries/deletions/{task_id}")
+def get_library_deletion_task(task_id: str):
+    task = _library_delete_runner.tasks.get(task_id)
+    if task is None:
+        raise HTTPException(status_code=404, detail="删除任务不存在")
+    return task.to_dict()
+
+
+@docs_router.get("/libraries/{library_id}/deletion")
+def get_library_deletion_by_library(library_id: str):
+    """页面刷新后按库恢复进度；进程重启丢任务时返回 interrupted。"""
+    task = _library_delete_runner.latest_for_library(library_id)
+    if task is not None:
+        return task.to_dict()
+    record = library_registry.get_library(library_id)
+    if record is not None and record.status == library_registry.STATUS_DELETING:
+        return {
+            "task_id": "",
+            "library_id": library_id,
+            "status": "interrupted",
+            "stage": "interrupted",
+            "done": 0,
+            "total": 0,
+            "error": "上次删除中断，请重试",
+        }
+    raise HTTPException(status_code=404, detail="删除任务不存在")
 
 
 @docs_router.get("/nodes")

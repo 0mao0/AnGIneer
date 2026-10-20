@@ -117,6 +117,13 @@
               >
                 迁移中
               </a-tag>
+              <a-tag
+                v-else-if="record.status === 'deleting'"
+                color="blue"
+                :title="'删除任务进行中'"
+              >
+                删除中
+              </a-tag>
               <template v-else>
                 <a-tag color="green">正常</a-tag>
                 <a-tag v-if="migratedLibIds.has(record.id)" color="blue" title="该库由迁移任务产生或接收了迁入文档">已迁移</a-tag>
@@ -130,7 +137,7 @@
                   type="link"
                   size="small"
                   title="拆并知识库：拆分部分文档到新库/已有库，或整库并入另一个库（整库并入后本库停用）"
-                  :disabled="record.status === 'migrating' || !record.doc_count"
+                  :disabled="record.status === 'migrating' || record.status === 'deleting' || !record.doc_count"
                   @click="openSplitFor(record)"
                 >
                   拆并
@@ -143,12 +150,12 @@
                 >
                   审核
                 </a-button>
-                <a-button type="link" size="small" @click="openEdit(record)">编辑</a-button>
+                <a-button type="link" size="small" :disabled="record.status === 'deleting'" @click="openEdit(record)">编辑</a-button>
                 <a-button
                   type="link"
                   size="small"
                   danger
-                  :disabled="record.id === 'default' || record.status === 'migrating'"
+                  :disabled="record.id === 'default' || record.status === 'migrating' || record.status === 'deleting'"
                   @click="openDelete(record)"
                 >
                   删除
@@ -200,10 +207,43 @@
     >
       <p class="ml-delete-warning">
         将删除该知识库下的全部节点、文档解析产物、索引与图谱数据，此操作不可恢复。
+        共享存储（如 evals_corpus）只删除本库数据，保留容器；独立桶会同时删除本库 sqlite/collection。
       </p>
       <p>请输入完整库名确认：</p>
       <p class="ml-delete-name">{{ deleteTarget?.name }}</p>
       <a-input v-model:value="deleteInput" :placeholder="deleteTarget?.name" @pressEnter="handleDelete" />
+    </a-modal>
+
+    <!-- 删库进度：后台任务，前端轮询 -->
+    <a-modal
+      v-model:open="showDeleteProgress"
+      title="删除知识库"
+      :footer="null"
+      :closable="!deleteRunning"
+      :mask-closable="false"
+      @cancel="closeDeleteProgress"
+    >
+      <p class="ml-delete-progress-title">
+        {{ deleteTask?.library_id || deleteTarget?.id }} · {{ deleteStageText }}
+      </p>
+      <a-progress
+        :percent="deleteProgressPercent"
+        :status="deleteTask?.status === 'failed' || deleteTask?.status === 'interrupted' ? 'exception' : 'active'"
+      />
+      <p v-if="deleteTask?.total" class="ml-delete-progress-count">
+        已处理 {{ deleteTask.done }} / {{ deleteTask.total }}
+      </p>
+      <a-alert
+        v-if="deleteTask?.error"
+        type="error"
+        show-icon
+        :message="deleteTask.error"
+        style="margin-top: 12px"
+      />
+      <div v-if="!deleteRunning" class="ml-delete-progress-actions">
+        <a-button @click="closeDeleteProgress">关闭</a-button>
+        <a-button type="primary" :loading="deleting" @click="retryDelete">重试</a-button>
+      </div>
     </a-modal>
 
     <!-- 建组（大数据库）：头部加号入口——归入库群二选一，显示名由域前缀拼出 -->
@@ -256,12 +296,12 @@
  * 数据源 GET /knowledge/libraries/groups（后端注册表聚合）；换组只改注册行，
  * 不搬数据（阶段二 flip 才做物理搬迁，见 plan-kb-split-groups；该计划已完结清理）。
  */
-import { computed, inject, onActivated, onMounted, ref, type Ref } from 'vue'
+import { computed, inject, onActivated, onBeforeUnmount, onMounted, ref, type Ref } from 'vue'
 import { Modal, message } from 'ant-design-vue'
 import { DownOutlined, DownloadOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
-import { isMigrationTerminal, knowledgeApi, type LibraryGroupItem } from '@/api/knowledge'
+import { isMigrationTerminal, knowledgeApi, type LibraryDeleteTask, type LibraryGroupItem } from '@/api/knowledge'
 import { GROUP_LABELS, groupLabel } from './kb-group-label'
 import { useLibraryStore, type KnowledgeLibraryItem } from '@/stores/library'
 import SplitMergeWizardModal from './kb-migration/SplitMergeWizardModal.vue'
@@ -721,8 +761,44 @@ function onGroupMenuClick(info: { key: string | number }) {
 
 // ── 删除 ──
 const showDelete = ref(false)
+const showDeleteProgress = ref(false)
 const deleteTarget = ref<LibraryGroupItem['libraries'][number] | null>(null)
 const deleteInput = ref('')
+const deleteTask = ref<LibraryDeleteTask | null>(null)
+let deletePollTimer: ReturnType<typeof setInterval> | null = null
+
+const DELETE_STAGES = ['queued', 'vectors', 'index', 'meta', 'files', 'graph', 'container', 'registry', 'done']
+const DELETE_STAGE_LABELS: Record<string, string> = {
+  queued: '排队中',
+  vectors: '清理向量',
+  index: '清理索引',
+  meta: '清理元数据',
+  files: '清理文件',
+  graph: '清理图谱',
+  container: '处理存储容器',
+  registry: '更新注册表',
+  done: '完成',
+  interrupted: '删除中断',
+}
+const deleteRunning = computed(() => ['queued', 'running'].includes(deleteTask.value?.status || ''))
+const deleteStageText = computed(
+  () => DELETE_STAGE_LABELS[deleteTask.value?.stage || 'queued'] || deleteTask.value?.stage || '',
+)
+const deleteProgressPercent = computed(() => {
+  const task = deleteTask.value
+  if (!task) return 0
+  if (task.status === 'succeeded') return 100
+  const idx = DELETE_STAGES.indexOf(task.stage)
+  if (idx < 0) return 0
+  return Math.min(99, Math.round((idx / (DELETE_STAGES.length - 1)) * 100))
+})
+
+function stopDeletePolling() {
+  if (deletePollTimer !== null) {
+    clearInterval(deletePollTimer)
+    deletePollTimer = null
+  }
+}
 
 function openDelete(record: LibraryGroupItem['libraries'][number]) {
   deleteTarget.value = record
@@ -730,19 +806,97 @@ function openDelete(record: LibraryGroupItem['libraries'][number]) {
   showDelete.value = true
 }
 
+function startDeletePolling() {
+  stopDeletePolling()
+  if (!deleteTask.value?.task_id) return
+  deletePollTimer = setInterval(async () => {
+    const current = deleteTask.value
+    if (!current?.task_id) {
+      stopDeletePolling()
+      return
+    }
+    try {
+      const next = await knowledgeApi.getLibraryDeleteTask(current.task_id)
+      deleteTask.value = next
+      if (next.status === 'succeeded') {
+        stopDeletePolling()
+        showDeleteProgress.value = false
+        deleteTask.value = null
+        message.success('已删除')
+        await refreshAll()
+      } else if (next.status === 'failed') {
+        stopDeletePolling()
+        message.error(`删除失败：${next.error || '未知错误'}`)
+        await refreshAll()
+      }
+    } catch (err) {
+      // 单次轮询失败不停止：任务可能仍在跑，下一轮再试
+      console.warn('删除进度查询失败', err)
+    }
+  }, 1000)
+}
+
 async function handleDelete() {
   const target = deleteTarget.value
   if (!target || deleteInput.value.trim() !== target.name.trim()) return
   deleting.value = true
   try {
-    await knowledgeApi.deleteLibrary(target.id)
-    message.success('已删除')
+    const task = await knowledgeApi.deleteLibrary(target.id)
     showDelete.value = false
-    await refreshAll()
+    deleteTask.value = task
+    showDeleteProgress.value = true
+    if (task.status === 'succeeded') {
+      showDeleteProgress.value = false
+      message.success('已删除')
+      await refreshAll()
+    } else {
+      startDeletePolling()
+    }
   } catch (err) {
     message.error(`删除失败：${(err as Error).message}`)
   } finally {
     deleting.value = false
+  }
+}
+
+async function retryDelete() {
+  const libId = deleteTask.value?.library_id
+  if (!libId) return
+  const record = flatLibraries.value.find((lib) => lib.id === libId)
+  if (!record) return
+  deleteTarget.value = record
+  deleting.value = true
+  try {
+    const task = await knowledgeApi.deleteLibrary(libId)
+    deleteTask.value = task
+    startDeletePolling()
+  } catch (err) {
+    message.error(`重试失败：${(err as Error).message}`)
+  } finally {
+    deleting.value = false
+  }
+}
+
+function closeDeleteProgress() {
+  if (deleteRunning.value) return
+  stopDeletePolling()
+  showDeleteProgress.value = false
+  deleteTask.value = null
+}
+
+/** 页面刷新/重启后按库恢复：只恢复第一个 deleting 行，避免多个弹框。 */
+async function resumeDeletingTasks() {
+  if (deleteTask.value) return
+  const record = flatLibraries.value.find((lib) => lib.status === 'deleting')
+  if (!record) return
+  try {
+    const task = await knowledgeApi.getLibraryDeletion(record.id)
+    deleteTarget.value = record
+    deleteTask.value = task
+    showDeleteProgress.value = true
+    if (task.status === 'running' || task.status === 'queued') startDeletePolling()
+  } catch (err) {
+    console.warn('恢复删除任务失败', err)
   }
 }
 
@@ -751,8 +905,15 @@ async function refreshAll() {
   await Promise.all([load(), libraryStore.loadLibraries()])
 }
 
-onMounted(load)
-onActivated(load)
+onMounted(async () => {
+  await load()
+  await resumeDeletingTasks()
+})
+onActivated(async () => {
+  await load()
+  await resumeDeletingTasks()
+})
+onBeforeUnmount(stopDeletePolling)
 </script>
 
 <style scoped>
@@ -867,5 +1028,20 @@ onActivated(load)
   font-weight: 600;
   word-break: break-all;
   margin-bottom: 8px;
+}
+.ml-delete-progress-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.ml-delete-progress-count {
+  color: var(--text-secondary, #8c8c8c);
+  font-variant-numeric: tabular-nums;
+  margin-top: 4px;
+}
+.ml-delete-progress-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
 }
 </style>
