@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-7、P2-0、P2-1 已完成，已随 v0.3.0 发布（origin/main `a8ebf700`）。**P2-2 可恢复；P2-0b 已解锁**（`doc_catalog` 保留并扩列，见 P2-0b）。
+**执行状态（2026-10-20）：** P1-1～P1-7、P2-0、P2-1 已完成，已随 v0.3.0 发布（origin/main `a8ebf700`）。**P2-2 可恢复；恢复顺序 = P1-8（evals 库根）→ P2-0b（doc_catalog）→ P2-2。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -56,6 +56,7 @@
 | F19 | v2 不能指望 reembed：v1 `--reembed` 语义=跳过快照+提示跑 `rebuild_vectors.py`，而该脚本只覆盖默认单文件（不认独立桶）→ 定版 v2 导入阻断模型不一致 | `kb_corpus_import.py:13,227-231`；rebuild 覆盖范围见 docs-core 审计记录 |
 | F20 | 边界外：`kb_migrator._relabel_meta` 的 file_path 改写按**绝对路径前缀**比较（`libraries_root_for` 绝对 vs `nodes.file_path` 已相对化）→ 恒不 match，走「告警+COALESCE 保旧路径」分支：迁移后重解析「源文件不存在」隐患（见文末另立票） | `kb_migrator.py:439-463`；`paths.py:94-107` |
 | F21 | 前端链路是**两跳 nginx**：宿主机网关（`ai-proxy-locations.conf`，非 git）→ **frontend 容器 nginx（git 内、deploy 生效）** → docs-api。容器层 http 级 `client_max_body_size 200M`、`/api/` 300s——只改宿主机层，GB 级上传照样 413 | `docker/nginx/nginx.conf:21,96-105`（宿主机层见 AGENTS.md 拓扑） |
+| F22 | 库文件根**按组不同**：knowledge 组=`knowledge/libraries`，evals 组=`evals/corpora/libraries`。导出代码 `iter_bundle_zip` 与 `_file_path_warnings` 仍写死 `knowledge/libraries`——导 `lab-firm-full` 会漏整个 `files/`，且 9,009 条 file_path 全误报 | `library_registry.py:47-66,430-440`；`corpus_package.py:198,423` |
 
 ## 包格式定版（v2，两侧契约）
 
@@ -71,7 +72,8 @@
      ├─ registry/rows.json                 # 本库 library_registry 行（含原 sqlite_file/collection，供追溯）+ 其组行
      ├─ meta/rows.json                     # 本库 nodes/tree_node + **meta libraries 行**（修复 F10 缺口）
      ├─ index/index.sqlite                 # 按库切片：12 张 doc 表（F3 清单；P2-0b 后含 doc_catalog = 13 张），DDL 原样
-     ├─ files/knowledge/libraries/<lib>/…  # 文档树（排除 documents/<doc>/parsed/{mineru_raw,popo}；不含 lib 根 index.sqlite）
+     ├─ files/<库根>/…                     # 文档树：knowledge 组=knowledge/libraries/<lib>/…；evals 组=evals/corpora/libraries/<lib>/…
+     │                                      # 排除 documents/<doc>/parsed/{mineru_raw,popo}；不含 lib 根 index.sqlite
      ├─ qdrant/vectors.snapshot            # 本库向量快照（导出侧临时每库 collection 的原生快照）
      └─ graph/graph.sqlite                 # 本库图谱**闭包**切片（F17：relations/artifacts/deletions 按库；
                                             # entities = 本库 ∪ 关系端点 ∪ 联结引用，可含他库归属行）
@@ -81,7 +83,7 @@
 
 | 包内条目 | 导入落位/动作 |
 |---|---|
-| `files/…` | 按相对 data 根路径原样放回（file_path 已在 `knowledge/libraries/<lib>/documents/…` 相对树下，零改写） |
+| `files/…` | 按相对 data 根路径原样放回（file_path 已在库根相对树下：knowledge 组=`knowledge/libraries/<lib>/documents/…`，evals 组=`evals/corpora/libraries/<lib>/documents/…`，零改写） |
 | `index/index.sqlite` | `knowledge/libraries/<lib_id>/index.sqlite` |
 | `graph/graph.sqlite` | **单事务**合并进全局 `knowledge/graph.sqlite`：固定顺序 **entities → artifacts(principles/examples/warnings/frameworks) → junctions → deletions → relations**；连接级 `PRAGMA foreign_keys=OFF`（必须在 `BEGIN` 前设置），事务内插入完成后跑 `foreign_key_check`，按主键签名只放行「目标原有 ∪ 包内自带」的悬空行，出现新增违例即 `ROLLBACK`；验证=逐表对账为主 + 新增悬空=0 |
 | `registry/rows.json` | 改写后写 registry：`group_name=目标组`、`sqlite_file=knowledge/libraries/<lib>/index.sqlite`、`collection=<lib_id>`、`status=active` |
@@ -206,6 +208,20 @@
   - meta `libraries` 行主键列名是 `id`（非 library_id，F10 落包已含）。
   - `default` 库 3 条 nodes.file_path 为旧绝对路径（`knowledge_base/libraries/...` 与 `\app\data\...`）→ 被 file_path 警告网住（P1-5 设计生效），对应 F 数据迁移雷。
 
+### Task P1-8: evals 组库根路径修正（导出文档树 + file_path 告警）
+
+**背景（2026-10-20 实测）：** knowledge 组的库根是 `knowledge/libraries/<lib>`，evals 组是 `evals/corpora/libraries/<lib>`（F22）。`iter_bundle_zip` 的 `lib_root` 与 `_file_path_warnings` 仍写死 `knowledge/libraries` → 导 `lab-firm-full` 时 `files/` 为空、9,009 条 file_path 全误报。**先做本项，再做 P2-0b/P2-2。**
+
+**Files:**
+- Modify: `services/docs-core/src/docs_core/corpus_package.py`（`iter_bundle_zip` 的 `lib_root`；`_file_path_warnings`）
+- Test: `tests/unit/test_unit_kb_corpus_export.py`
+
+- [ ] `lib_root` 改用 `library_registry.resolve_libraries_dir(lib_id)`（evals 组返回 `evals/corpora/libraries`），不再写死 `data/knowledge/libraries/<lib>`。
+- [ ] `_file_path_warnings` 的合法前缀按该库根相对 data 根计算：`knowledge/libraries/<lib>/documents/` 或 `evals/corpora/libraries/<lib>/documents/`；绝对路径/反斜杠/他库前缀照旧告警。
+- [ ] `files/` 弧名仍按 data 根相对路径（`files/<库根>/...`），导入侧不改。
+- [ ] 测试：knowledge 组与 evals 组各一库，断言 `files/` 非空、路径正确、file_path 无告警；`pytest tests/unit -k corpus` 绿。
+- [ ] commit `fix(docs-core): 语料包导出按组解析库根（evals/corpora 文档树不漏）`
+
 ---
 
 ## Stage P2：导入核心（CLI，v2 only）
@@ -224,7 +240,7 @@
 
 ### Task P2-0b: HarveyLab 合流：`doc_catalog` 纳入切片（P2-2 前后均可，建议先做）
 
-**前置：** 无。`doc_catalog` 已在 v0.3.0 保留并扩列（`title_semantic` / `doc_type_semantic` / `title_source`），DDL 与写入链路已提交；切片按 `SELECT *` 自动跟随新增列。
+**前置：** P1-8 先做（否则 evals 组 `files/` 仍漏）；`doc_catalog` 已在 v0.3.0 保留并扩列（`title_semantic` / `doc_type_semantic` / `title_source`），DDL 与写入链路已提交；切片按 `SELECT *` 自动跟随新增列。
 
 **Files:**
 - Modify: `services/docs-core/src/docs_core/kb_migrator.py`（`_DOC_TABLES`）
@@ -236,7 +252,7 @@
 - [ ] 同步包格式/F3 的「12 张」→「13 张」；表名/DDL 以 `doc_search.ensure_catalog` 当前定义为准。
 - [ ] commit `fix(docs-core): doc_catalog 纳入 doc 键表切片与拆并`
 
-**背景（2026-10-20 实测）：** 现网 `data/evals/groups/evals_corpus.sqlite` 的 `doc_catalog` 全表 **21,802 行 / 267 matter**；其中 `lab-firm-full` **9,009 行 / 267 matter**（10-18 报告为 9,008 / 266），其余主要是 `lab-firm-dms` 9,276 行、`omnidocbench` 2,609 行等库。`_DOC_TABLES` 12 表不含它。不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
+**背景（2026-10-20 实测）：** 核心目标是 `lab-firm-full`：**9,009 行 / 267 matter**（10-18 报告为 9,008 / 266）。当时全表 21,802 行还含 `lab-firm-dms` 9,276 行（未使用、业主已准备删）、`omnidocbench` 2,609 行等；P2-0b 的理由是 `lab-firm-full` 这 9,009 行，其他库随切片按 `library_id` 自然带上。`_DOC_TABLES` 12 表不含它；不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
 
 **HarveyLab 结论（2026-10-20 复核）：** 100 题报告 §4 明确保留 `doc_catalog`/`doc_search`/`doc_read`；被否的是 P1/P3/P0.5/P2.1/P2.2 链路实验与 Harness2 上游试跑，不影响本表。Harness2 的「按 matter 遍历」反而依赖它。
 
@@ -400,7 +416,8 @@
 |---|---|---|
 | qdrant recover 改名能力不确定 | v1 代码注释声称支持，未实测 | P2-0 卡点先验证（先试集合级 upload 路径）；兜底=临时名恢复+复制（P1-4 复用） |
 | 源图谱历史悬空行 | 现网 `graph.sqlite` 与 default 切片实测 436 条（relations 112 + junctions 324）；FK ON 合并第一张联结表即回滚 | 合并连接 FK OFF + 事务内 `foreign_key_check` 对「目标原有 ∪ 包内自带」签名，新增违例回滚（P2-2） |
-| HarveyLab `doc_catalog` 未进切片 | `data/evals/groups/evals_corpus.sqlite` 全表 21,802 行（lab-firm-full 9,009 行 / 267 matter）；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；DDL 已提交，可立即做 |
+| HarveyLab `doc_catalog` 未进切片 | 核心目标 `lab-firm-full` 9,009 行 / 267 matter（10-20 实测）；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；DDL 已提交，可立即做 |
+| evals 组文档树路径 | 导出写死 `knowledge/libraries/<lib>`；`lab-firm-full` 实际在 `evals/corpora/libraries` → `files/` 为空、9,009 条 file_path 全误报 | P1-8 用 `resolve_libraries_dir` 修正 + 两组夹具测试；先于 P2-0b/P2-2 |
 | 图谱闭包切片的他库实体行 | 小包含归属他库 entity；目标已存同 `(name,library_id)` 异 id 行时 `OR IGNORE` 会丢实体 → 关系端点悬空 | P2-2 首版预检阻断；自然键重映射另立票；禁止静默 `OR IGNORE` |
 | 导出临时 collection 残留 | 取消/断连可能留 `exp-tmp-*` | 导出启动清扫 + finally 删除 + 快照同删 |
 | apply 中途进程重启 | 留半成品（文件/行已写）；冲突闸只拦已落 registry/index 的阶段 | P2-2 增清理命令/暂存标记；CLI/UI 输出暂存与清理指引，不做复杂回滚 |
@@ -433,4 +450,5 @@
 - 评审修订·第三轮（2026-10-18，开工前实测）：P2-2 图谱合并改 **连接 FK OFF + 事务内 `foreign_key_check` 基线对账**——现网 `graph.sqlite` 与 default 切片实测 436 条继承悬空（relations 112 + junctions 324），FK ON 第一张联结表 `principle_entities` 即回滚；只放行「目标原有 ∪ 包内自带」悬空，新增违例回滚。闭包实体同 `(name,library_id)` 异 `entity_id` 首版**预检阻断**，禁止 `OR IGNORE` 静默丢行；P2-2 增 `library_id`/`files` 路径安全闸与清理/磁盘预检。
 - 评审修订·第四轮（2026-10-18，当时暂停，已被第五轮解除）：v1 导入兼容移出范围（旧包暂无人用；P2-3 清死代码、验收改“只认 v2”）；新增 **P2-0b** 合流 `doc_catalog`（10-18 时点 evals 组库 9008 行，`_DOC_TABLES` 未含）；当时决定 HarveyLab 收尾前不恢复 P2-2。
 - 评审修订·第五轮（2026-10-20，复核 HarveyLab）：100 题报告 §4 保留 `doc_catalog`/`doc_search`/`doc_read`；未采纳 P1/P3/P0.5/P2.1/P2.2 与 Harness2 上游试跑，属链路实验，不影响存储契约。`doc_catalog` 已扩语义列；全表 21,802 行，其中 `lab-firm-full` 9,009 行/267 matter（10-18 为 9,008/266）→ **P2-0b 解锁，P2-2 可恢复**；P1/P2-1 已随 v0.3.0 发布。
+- 评审修订·第六轮（2026-10-20，Harvey 库实测）：新增 **P1-8**——导出库根按组解析（evals 组=`evals/corpora/libraries`），当前写死 knowledge 会让 `lab-firm-full` 的 `files/` 为空、file_path 全误报；恢复顺序定为 **P1-8 → P2-0b → P2-2**。
 - 未含（边界外）：见上「边界外发现」三条。
