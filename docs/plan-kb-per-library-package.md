@@ -236,7 +236,7 @@
 - [ ] 同步包格式/F3 的「12 张」→「13 张」；表名/DDL 以 `doc_search.ensure_catalog` 当前定义为准。
 - [ ] commit `fix(docs-core): doc_catalog 纳入 doc 键表切片与拆并`
 
-**背景（2026-10-20 实测）：** 现网 `data/evals/groups/evals_corpus.sqlite` 已有 **21,802 行 / 267 matter**（10-18 为 9,008 行，仍在增长），`_DOC_TABLES` 12 表不含它。不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
+**背景（2026-10-20 实测）：** 现网 `data/evals/groups/evals_corpus.sqlite` 的 `doc_catalog` 全表 **21,802 行 / 267 matter**；其中 `lab-firm-full` **9,009 行 / 267 matter**（10-18 报告为 9,008 / 266），其余主要是 `lab-firm-dms` 9,276 行、`omnidocbench` 2,609 行等库。`_DOC_TABLES` 12 表不含它。不补则导入后 `doc_search` 退化为按文档分组，按 matter 枚举质量下降（不报错）。
 
 **HarveyLab 结论（2026-10-20 复核）：** 100 题报告 §4 明确保留 `doc_catalog`/`doc_search`/`doc_read`；被否的是 P1/P3/P0.5/P2.1/P2.2 链路实验与 Harness2 上游试跑，不影响本表。Harness2 的「按 matter 遍历」反而依赖它。
 
@@ -400,7 +400,7 @@
 |---|---|---|
 | qdrant recover 改名能力不确定 | v1 代码注释声称支持，未实测 | P2-0 卡点先验证（先试集合级 upload 路径）；兜底=临时名恢复+复制（P1-4 复用） |
 | 源图谱历史悬空行 | 现网 `graph.sqlite` 与 default 切片实测 436 条（relations 112 + junctions 324）；FK ON 合并第一张联结表即回滚 | 合并连接 FK OFF + 事务内 `foreign_key_check` 对「目标原有 ∪ 包内自带」签名，新增违例回滚（P2-2） |
-| HarveyLab `doc_catalog` 未进切片 | 现网 `data/evals/groups/evals_corpus.sqlite` 已有 21,802 行 / 267 matter；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；DDL 已提交，可立即做 |
+| HarveyLab `doc_catalog` 未进切片 | `data/evals/groups/evals_corpus.sqlite` 全表 21,802 行（lab-firm-full 9,009 行 / 267 matter）；`_DOC_TABLES` 12 表不含它 → 导出再导入后 `doc_search` 按 matter 枚举退化 | P2-0b 纳入 `_DOC_TABLES` + 同步 split 脚本 + 切片测试；DDL 已提交，可立即做 |
 | 图谱闭包切片的他库实体行 | 小包含归属他库 entity；目标已存同 `(name,library_id)` 异 id 行时 `OR IGNORE` 会丢实体 → 关系端点悬空 | P2-2 首版预检阻断；自然键重映射另立票；禁止静默 `OR IGNORE` |
 | 导出临时 collection 残留 | 取消/断连可能留 `exp-tmp-*` | 导出启动清扫 + finally 删除 + 快照同删 |
 | apply 中途进程重启 | 留半成品（文件/行已写）；冲突闸只拦已落 registry/index 的阶段 | P2-2 增清理命令/暂存标记；CLI/UI 输出暂存与清理指引，不做复杂回滚 |
@@ -432,5 +432,5 @@
 - 评审修订·第二轮（2026-10-17）：P3-3 改**两层 nginx**（容器层 `docker/nginx/nginx.conf` 入 git 随 deploy + 宿主机手工报备，F21）；P1-5 增切片前逐库重闸（窗口见风险表「迁移启动时序窗」行）与 `embed_model` 导出开始固化（关 settings console 热替换窗）；FK 口径改「**对账为主、FK 检查为辅**」并据实测修正定式（F18：OR IGNORE 遇 FK 违例=报错回滚，非静默跳行）；P1-3 切片构建连接 FK OFF 纯拷贝，让检查拿完整诊断。
 - 评审修订·第三轮（2026-10-18，开工前实测）：P2-2 图谱合并改 **连接 FK OFF + 事务内 `foreign_key_check` 基线对账**——现网 `graph.sqlite` 与 default 切片实测 436 条继承悬空（relations 112 + junctions 324），FK ON 第一张联结表 `principle_entities` 即回滚；只放行「目标原有 ∪ 包内自带」悬空，新增违例回滚。闭包实体同 `(name,library_id)` 异 `entity_id` 首版**预检阻断**，禁止 `OR IGNORE` 静默丢行；P2-2 增 `library_id`/`files` 路径安全闸与清理/磁盘预检。
 - 评审修订·第四轮（2026-10-18，当时暂停，已被第五轮解除）：v1 导入兼容移出范围（旧包暂无人用；P2-3 清死代码、验收改“只认 v2”）；新增 **P2-0b** 合流 `doc_catalog`（10-18 时点 evals 组库 9008 行，`_DOC_TABLES` 未含）；当时决定 HarveyLab 收尾前不恢复 P2-2。
-- 评审修订·第五轮（2026-10-20，复核 HarveyLab）：100 题报告 §4 保留 `doc_catalog`/`doc_search`/`doc_read`；未采纳 P1/P3/P0.5/P2.1/P2.2 与 Harness2 上游试跑，属链路实验，不影响存储契约。`doc_catalog` 已扩语义列、现网 21,802 行/267 matter → **P2-0b 解锁，P2-2 可恢复**；P1/P2-1 已随 v0.3.0 发布。
+- 评审修订·第五轮（2026-10-20，复核 HarveyLab）：100 题报告 §4 保留 `doc_catalog`/`doc_search`/`doc_read`；未采纳 P1/P3/P0.5/P2.1/P2.2 与 Harness2 上游试跑，属链路实验，不影响存储契约。`doc_catalog` 已扩语义列；全表 21,802 行，其中 `lab-firm-full` 9,009 行/267 matter（10-18 为 9,008/266）→ **P2-0b 解锁，P2-2 可恢复**；P1/P2-1 已随 v0.3.0 发布。
 - 未含（边界外）：见上「边界外发现」三条。
