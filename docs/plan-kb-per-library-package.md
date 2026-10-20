@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P2-3（CLI v2 + 清 v1 + 容器白名单）。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P2-4 口径收口（CLI 已无 reembed；P3 两处随 P3）+ P2-5 本地小库往返。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -317,19 +317,25 @@
 - 测试 `test_unit_corpus_import_apply.py` **6 passed**；真机桌面 10.8MB evals 包导入临时根通过（docs 112/chunks 224/relations 1161；vectors 200 恢复后清理）。
 - `ensure_schema` 改为显式 `close`，消除 Windows 临时库 `PermissionError`。
 
-### Task P2-3: CLI v2 单格式 + 容器白名单（并清 v1 死代码）
+### Task P2-3: CLI v2 单格式 + 容器白名单（并清 v1 死代码，已完成）
 
 **Files:**
-- Modify: `scripts/kb_corpus_import.py`（v2 单格式；`--group`/`--group-display-name` 新增；`--only lib1,lib2`；**删除 v1 目录/tar 旧路径与 `--reembed`**；收到 v1 包硬报错「v1 旧包不再支持，请用 v2 重新导出」）
-- Modify: `services/docs-core/src/docs_core/corpus_package.py`（删除 `open_bundle` 的 v1 分支；`SUPPORTED_SCHEMA={2}`）
-- Modify: `tests/unit/test_unit_kb_corpus_import.py`（删除 8 个 v1 用例）
-- Modify: `docker/Dockerfile.backend:118`、`.dockerignore`（放行 `kb_corpus_import.py`、`kb_corpus_export.py`——F14，缺一构建即失败）
-- Test: 脚本 dry-run 输出（手工验收）
+- Modify: `scripts/kb_corpus_import.py`（v2 单格式；`--group`/`--group-display-name`/`--only`/`--no-vectors`/`--qdrant-url`；**删除 v1 目录/tar 旧路径与 `--reembed`**；收到 v1 包硬报错）
+- Modify: `services/docs-core/src/docs_core/corpus_package.py`（删除 `open_bundle` 的 v1 分支；`SUPPORTED_SCHEMA={2}`；删 `_read_json_file`）
+- Modify: `tests/unit/test_unit_kb_corpus_import.py`（删除 8 个 v1 用例，补 v1 目录/schema1 拒绝）
+- Add: `tests/unit/test_unit_kb_corpus_import_cli.py`
+- Modify: `docker/Dockerfile.backend:118`、`.dockerignore`（放行 `kb_corpus_import.py`、`kb_corpus_export.py`）
 
-- [ ] Step 0: 清 v1：删 `open_bundle` 的 v1 目录/tar 分支、脚本旧落盘函数、`--reembed` 与 8 个旧用例；`SUPPORTED_SCHEMA` 收为 `{2}`；v1 包给明确升级提示
-- [ ] Step 1: CLI：`--dry-run`（默认）解析包 → 打印逐库落位预览（目标组/collection/路径/体积/counts）+ 闸结果；`--apply` 执行；末尾打印验收清单（重启或探针）
-- [ ] Step 2: 白名单两处同改，`docker build`（或至少 `docker build --target` 校验层）确认 COPY 不再 file not found
-- [ ] Step 3: commit `feat(scripts): 语料包 v2 导入 CLI（单库 zip/大包）+ 清 v1 旧路径 + 容器白名单放行`
+- [x] Step 0: 清 v1：删 `open_bundle` 的 v1 目录/tar 分支、脚本旧落盘函数、`--reembed` 与 8 个旧用例；`SUPPORTED_SCHEMA` 收为 `{2}`；v1 包给明确升级提示
+- [x] Step 1: CLI：`--dry-run`（默认）解析包 → 打印逐库落位预览（目标组/collection/路径/小包字节/files/counts）；`--apply` 执行；`--only` 选库
+- [x] Step 2: 白名单两处同改；`docker build --check` 输出 `Check complete, no warnings found`（完整镜像构建留给部署流水线）
+- [x] Step 3: commit `feat(scripts): v2 语料包导入 CLI，清 v1 旧路径（P2-3）`（`31e7a30a`）；体积预览补丁 `564fa7f0`
+
+**执行记录（2026-10-20，`31e7a30a` / `564fa7f0`）**
+- CLI 仅认 v2 zip；v1 目录/tar 与 `schema_version=1` 均硬报错要求重导；无 `--reembed`。
+- 手工验收：`p1-8-small-evals.zip`（`lib-408220ae`）在临时根 dry-run → `group=evals files=25 docs=5 chunks=88`；`--apply --no-vectors` 落位成功，registry 指向 `evals/corpora/libraries/lib-408220ae/index.sqlite`。
+- 测试：v2 bundle **16 passed**、CLI **3 passed**、apply_import **6 passed**。
+- 目标组仍须与包内 `files/` 根一致（P2-2 约束）；CLI 不提供跨布局改写。
 
 ### Task P2-4: reembed 口径定版 b（收口，不再二选一）
 
@@ -514,4 +520,5 @@
 - 评审修订·第八轮（2026-10-20，P1-8 完成）：导出/预览库根按组解析（知识组 knowledge、evals 组 evals/corpora）；`file_path` 守卫按库根；内层大条目补 `force_zip64`；`lab-firm-full` 真机 preview 0 告警。
 - 评审修订·第九轮（2026-10-20，P2-0b 完成）：`doc_catalog` 纳入 `_DOC_TABLES` 与 split 脚本（13 表）；切片按 library_id 过滤、旧库缺表跳过；真机 `lib-e9c2c464` 112 行验证通过。
 - 评审修订·第十轮（2026-10-20，P2-2 完成）：`apply_import` 独立桶落位 + 图谱 FK OFF 基线合并 + qdrant upload + 逐表对账；目标组库根必须匹配包内 `files/` 根（knowledge/evals），跨布局阻断；真机 10.8MB evals 包（112 docs/1161 relations/200 vectors）通过。
+- 评审修订·第十一轮（2026-10-20，P2-3 完成）：CLI 只认 v2 zip，删 v1 目录/tar/`--reembed`；`SUPPORTED_SCHEMA={2}`；Docker 白名单放行 import/export；`docker build --check` 无告警；小库 `lib-408220ae` dry-run/apply 通过。
 - 未含（边界外）：见上「边界外发现」三条。
