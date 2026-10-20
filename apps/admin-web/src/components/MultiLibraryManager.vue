@@ -36,6 +36,9 @@
         <a-button title="导出语料包" @click="showExport = true">
           <template #icon><download-outlined /></template>
         </a-button>
+        <a-button title="导入语料包" @click="showImport = true">
+          <template #icon><upload-outlined /></template>
+        </a-button>
       </div>
       <div class="ml-page-header-right">
         <a-button type="link" @click="showHistory = true">迁移记录</a-button>
@@ -279,6 +282,9 @@
 
     <!-- 语料包导出（服务端流式打包，不落盘） -->
     <ExportPackageModal v-model:open="showExport" :groups="groups" :default-group="groupFilter || ''" />
+    <!-- 语料包导入（v2；上传→预检→应用） -->
+    <ImportPackageModal v-model:open="showImport" :groups="groups" :default-group="groupFilter || ''"
+                        @done="onImportDone" />
 
     <!-- 实体审核（原 LibrarySelect 下拉图标入口整体迁入，spec v2.3） -->
     <EntityReviewDrawer
@@ -298,7 +304,7 @@
  */
 import { computed, inject, onActivated, onBeforeUnmount, onMounted, ref, type Ref } from 'vue'
 import { Modal, message } from 'ant-design-vue'
-import { DownOutlined, DownloadOutlined, PlusOutlined, ReloadOutlined, SearchOutlined } from '@ant-design/icons-vue'
+import { DownOutlined, DownloadOutlined, PlusOutlined, ReloadOutlined, SearchOutlined, UploadOutlined } from '@ant-design/icons-vue'
 import { useTheme } from '@angineer/ui-kit'
 import { DataTable } from '@angineer/table-ui'
 import { isMigrationTerminal, knowledgeApi, type LibraryDeleteTask, type LibraryGroupItem } from '@/api/knowledge'
@@ -308,6 +314,7 @@ import SplitMergeWizardModal from './kb-migration/SplitMergeWizardModal.vue'
 import MigrationHistoryModal from './kb-migration/MigrationHistoryModal.vue'
 import MigrationTaskDrawer from './kb-migration/MigrationTaskDrawer.vue'
 import ExportPackageModal from './kb-export/ExportPackageModal.vue'
+import ImportPackageModal from './kb-import/ImportPackageModal.vue'
 import EntityReviewDrawer from './EntityReviewDrawer.vue'
 
 const { appClass } = useTheme()
@@ -687,6 +694,12 @@ async function handleEdit() {
 
 // ── 导出语料包（docs/design-kb-export-ui.md）：头部按钮 → 选组/库 → 服务端流式打包下载 ──
 const showExport = ref(false)
+// ── 导入语料包（P3-2）：头部上传按钮 → 预检 → 应用；完成刷新库列表 ──
+const showImport = ref(false)
+function onImportDone() {
+  message.success('语料包导入完成')
+  void load(true)
+}
 
 // ── 建组（大数据库）：头部加号弹框，归入外服/内测二选一；显示名 = 域前缀 + 组名，slug 留空自动生成 ──
 const showGroupCreate = ref(false)

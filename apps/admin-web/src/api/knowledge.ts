@@ -547,6 +547,70 @@ export const knowledgeApi = {
   exportStreamUrl: (taskId: string, libraries: string[], ticket: string) =>
     `/api/knowledge/exports/stream?task_id=${encodeURIComponent(taskId)}` +
     `&libraries=${encodeURIComponent(libraries.join(','))}&ticket=${encodeURIComponent(ticket)}`,
+
+  // ---- 语料包导入（v2；上传→预检→应用）----
+  uploadImport: (
+    file: File,
+    options: { groupName?: string; groupDisplayName?: string; withVectors?: boolean },
+    onProgress?: (percent: number) => void
+  ) => {
+    const formData = new FormData()
+    formData.append('file', file)
+    if (options.groupName) formData.append('group_name', options.groupName)
+    if (options.groupDisplayName) formData.append('group_display_name', options.groupDisplayName)
+    formData.append('with_vectors', options.withVectors === false ? 'false' : 'true')
+    return api.post('/knowledge/imports/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: Math.max(300000, Math.ceil(file.size / 1024 / 1024) * 5000),
+      ...(onProgress
+        ? {
+            onUploadProgress: (e: { loaded: number; total?: number }) => {
+              const percent = e.total ? Math.min(99, Math.round((e.loaded / e.total) * 100)) : 0
+              onProgress(percent)
+            },
+          }
+        : {}),
+    }) as Promise<ImportStatus>
+  },
+  applyImport: (taskId: string, body: { group_name: string; group_display_name?: string; libraries: string[] }) =>
+    api.post(`/knowledge/imports/${taskId}/apply`, body) as Promise<ImportStatus>,
+  getImportStatus: (taskId: string) =>
+    api.get(`/knowledge/imports/${taskId}/status`) as Promise<ImportStatus>,
+  deleteImport: (taskId: string) =>
+    api.delete(`/knowledge/imports/${taskId}`) as Promise<{ deleted: boolean; task_id: string }>,
+}
+
+export interface ImportLibraryPreview {
+  library_id: string
+  name: string
+  group_name: string
+  collection: string
+  index_path: string
+  files: number
+  bytes: number
+  counts: Record<string, any>
+}
+
+export interface ImportPreview {
+  mode: string
+  package?: string
+  libraries: ImportLibraryPreview[]
+  selected_libraries?: string[]
+}
+
+export interface ImportStatus {
+  task_id: string
+  status: 'previewed' | 'running' | 'completed' | 'failed'
+  stage: string
+  message: string
+  error: string
+  group_name: string
+  group_display_name: string
+  with_vectors: boolean
+  preview: ImportPreview
+  applied_libraries: string[]
+  created_at: number
+  updated_at: number
 }
 
 export interface ParseRecordItem {
