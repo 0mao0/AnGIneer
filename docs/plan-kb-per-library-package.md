@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-5 已完成，P2-4 的 CLI 侧已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P3-1（HTTP 上传/预检/应用）。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-5、P3-1 已完成，P2-4 的 CLI 侧已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P3-2（admin-web 导入弹框）。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -360,19 +360,25 @@
 
 ## Stage P3：HTTP 导入 + admin-web 上传 UI
 
-### Task P3-1: docs-api 导入路由（镜像 export 模式）
+### Task P3-1: docs-api 导入路由（镜像 export 模式，已完成）
 
 **Files:**
-- Create: `services/docs-api/import_routes.py`；Modify: `services/docs-api/main.py`（挂 `/api/knowledge/imports`）
-- Test: `services/docs-api/tests/`（上传落盘 + 闸拒绝的最小用例）
+- Add: `services/docs-api/import_routes.py`；Modify: `services/docs-api/main.py`（挂 `/api/knowledge/imports`）
+- Test: `services/docs-api/tests/test_import_routes.py`
 
-- [ ] 端点（全部 `Depends(resolve_admin_session)`）：
-  - `POST /imports/upload`（multipart，流式落 `data/scratch/imports/<task_id>/package.zip`）→ 解析+闸 → 返回预览：逐库 {library_id,name,原组,counts,sizes}、建议组、冲突与告警（embed 不一致=阻断，文案按 P2-4 定版 b 逐字一致）
-  - `POST /imports/{task_id}/apply` body `{group_name, group_display_name?, libraries[]}` → 后台线程执行（单飞闸；**应用阶段不可取消**，上传/预检阶段可弃）→ 阶段进度：`slice-copy/meta/registry/graph/vectors/verify/reload`
-  - `GET /imports/{task_id}/status`；`DELETE /imports/{task_id}`（仅未 apply 时清暂存）
-  - 成功后 `get_docs_service().reload_scope_cache()`；失败保留暂存目录供排障（列出路径）
-- [ ] 测试：upload 大小/格式守卫、apply 前置校验（组名合法）、进程内任务表状态机
-- [ ] commit `feat(docs-api): 语料包 v2 导入路由（上传/预检/应用/进度）`
+- [x] 端点（全部 `Depends(resolve_admin_session)`）：
+  - `POST /imports/upload`（multipart，流式落 `data/scratch/imports/<task_id>/package.zip`，默认 20GiB 上限）→ 解析+预检 → 返回逐库 {library_id,name,group,counts,bytes,index_path}；**冲突/embed 不一致以 400 + BundleError 文案阻断**（未做逐库告警列表；P3-2 直接展示错误）
+  - `POST /imports/{task_id}/apply` body `{group_name, group_display_name?, libraries[]}` → 后台线程执行（单飞；应用阶段不可取消）→ 阶段进度：`files/index/graph/meta/vectors/registry/verify/reload/done`
+  - `GET /imports/{task_id}/status`；`DELETE /imports/{task_id}`（仅未运行/已完成时清暂存）
+  - 成功后 `get_docs_service().reload_scope_cache()`；失败保留暂存目录，错误含已完成步骤
+- [x] 测试：upload 非 zip/超限、apply 组名非法、状态机 completed、DELETE 后 404；**5 passed**
+- [x] commit `feat(docs-api): 语料包 v2 导入路由（上传/预检/应用/进度，P3-1）`（`4ccb8d01`）
+
+**执行记录（2026-10-20，`4ccb8d01`）**
+- `import_routes.py` 254 行；进程内任务表 + 单飞 apply；`apply_import(..., on_stage=...)` 回调推动阶段。
+- 上传预检复用 `apply_import(apply=False)`：不写 registry/meta/graph/index；失败清暂存。
+- `main.py` 已挂 `/api/knowledge`；docs-api 测试 **43 passed**。
+- 未做：断点续传、逐库告警列表、跨布局自动改写（P2-2 仍硬拒）。
 
 ### Task P3-2: admin-web 导入弹框
 
@@ -528,4 +534,5 @@
 - 评审修订·第十轮（2026-10-20，P2-2 完成）：`apply_import` 独立桶落位 + 图谱 FK OFF 基线合并 + qdrant upload + 逐表对账；目标组库根必须匹配包内 `files/` 根（knowledge/evals），跨布局阻断；真机 10.8MB evals 包（112 docs/1161 relations/200 vectors）通过。
 - 评审修订·第十一轮（2026-10-20，P2-3 完成）：CLI 只认 v2 zip，删 v1 目录/tar/`--reembed`；`SUPPORTED_SCHEMA={2}`；Docker 白名单放行 import/export；`docker build --check` 无告警；小库 `lib-408220ae` dry-run/apply 通过。
 - 评审修订·第十二轮（2026-10-20，P2-5 完成）：本地 6.2MB 小包往返通过；包内 13 表含 `doc_catalog` 5 行，FTS 88/88、PDF 源文件在、`--only` 与重复导入闸均按预期。
+- 评审修订·第十三轮（2026-10-20，P3-1 完成）：docs-api 导入路由上传/预检/后台应用/状态/清理落地；阶段回调 + 成功 reload；单飞；预检冲突以 400 阻断（无逐库告警列表）。
 - 未含（边界外）：见上「边界外发现」三条。
