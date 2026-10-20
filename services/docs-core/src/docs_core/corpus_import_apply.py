@@ -519,6 +519,7 @@ def import_bundle(
                     "index_path": index_path,
                     "index_rel": _target_index_rel(data_root, target_group, lb.library_id),
                     "files": files,
+                    "bytes": lb.outer_bytes,
                     "meta": meta,
                     "counts": lb.manifest.get("counts", {}),
                     "manifest": lb.manifest,
@@ -572,6 +573,7 @@ def import_bundle(
                         "collection": p["library_id"],
                         "index_path": str(p["index_path"]),
                         "files": len(p["files"]),
+                        "bytes": p["bytes"],
                         "counts": p["counts"],
                     } for p in plans],
                 }

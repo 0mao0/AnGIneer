@@ -73,6 +73,7 @@ def main(argv: list[str] | None = None) -> int:
             print(
                 f"  - {lib['library_id']}: group={lib['group_name']} "
                 f"collection={lib['collection']} files={lib['files']} "
+                f"bytes={lib.get('bytes', 0)} "
                 f"docs={counts.get('docs', 0)} chunks={counts.get('chunks', 0)} "
                 f"vectors={counts.get('vectors', 0)}\n"
                 f"    index={lib['index_path']}"
