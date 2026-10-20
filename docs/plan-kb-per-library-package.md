@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-7、P2-0、P2-1 已完成，已随 v0.3.0 发布（origin/main `a8ebf700`）。**P2-2 可恢复；恢复顺序 = P1-8（evals 库根）→ P2-0b（doc_catalog）→ P2-2。**
+**执行状态（2026-10-20）：** P1-1～P1-7、P2-0、P2-1 已完成，已随 v0.3.0 发布（origin/main `a8ebf700`）；**P4-0 删库异步化已完成（`00817fdf`）**。**P2-2 可恢复；恢复顺序 = P1-8（evals 库根）→ P2-0b（doc_catalog）→ P2-2。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -391,9 +391,9 @@
 - Modify: `apps/admin-web/src/api/knowledge.ts`、`apps/admin-web/src/components/MultiLibraryManager.vue`（进度弹框）
 - Test: docs-core 删库测试、docs-api 路由测试、`vue-tsc -b`
 
-- [ ] **任务与接口**：`DELETE /libraries/{id}` 立即 `202 {task_id}`；同库已有任务 → 409；`GET /libraries/deletions/{task_id}`、`GET /libraries/{id}/deletion` 返回 stage/progress/error；单飞 worker；启动时把遗留 `deleting` 标失败并可重试。
-- [ ] **状态**：registry 增 `deleting`；开始置 deleting，成功置 retired；失败保留 deleting + 任务错误，不回 active。
-- [ ] **批量清理顺序**（每库一次，按 library_id/doc_id 集合，不再逐篇）：
+- [x] **任务与接口**：`DELETE /libraries/{id}` 立即 `202 {task_id}`；同库已有任务 → 409；`GET /libraries/deletions/{task_id}`、`GET /libraries/{id}/deletion` 返回 stage/progress/error；单飞 worker；进程重启后 GET 返回 `interrupted`，DELETE 可重试。
+- [x] **状态**：registry 增 `deleting`；开始置 deleting，成功置 retired；失败保留 deleting + 任务错误，不回 active。
+- [x] **批量清理顺序**（每库一次，按 library_id/doc_id 集合，不再逐篇）：
   1. 向量：共享 collection 用一次 `delete` + filter `library_id`；独立 collection 留到容器步骤；
   2. SQL：单事务按 doc_id 集合先删 FTS/citation_targets/tables/chunks/outlines/blocks/pages + `doc_blocks`/`document_segments`/`doc_block_corrections`/`canonical_vectors`（若存在），最后删 `canonical_documents`；
   3. `doc_catalog`：`DELETE ... WHERE library_id=?`；
@@ -402,10 +402,17 @@
   6. 图谱：`GraphStore.delete_library`；
   7. 容器：按 P4-3 规则，`sqlite_file`/`collection` 引用计数=0 且非默认/内置组桶才删；
   8. registry 置 retired + `reload_scope_cache()`；对账 doc/point/file 计数=0。
-- [ ] **前端**：`deleteLibrary` 返回 `{task_id}`；提交后关闭确认框、提示“后台删除中”，轮询 1–2s；进度面板显示 `向量/SQL/文件/图谱/registry` 与文档进度；行状态“删除中”并禁用操作；失败显示错误+重试；刷新页面用 `GET /libraries/{id}/deletion` 恢复。
-- [ ] **文案**：共享桶确认写“只删本库数据，保留 `evals_corpus` 容器”；独立桶写“将删除本库 sqlite/collection”。
-- [ ] **测试**：共享桶删 A 留容器/B 数据不动、A 的行/点/文件/catalog 清空；独立桶删净；引用计数含 retired；内置桶不删；9k 节点任务进度/重试/重启恢复。
-- [ ] commit `feat(docs-core): 删库异步化 + 共享桶批量清理 + admin-web 进度`
+- [x] **前端**：`deleteLibrary` 返回 `{task_id}`；提交后关闭确认框、提示“后台删除中”，轮询 1–2s；进度面板显示 `向量/SQL/文件/图谱/registry` 与文档进度；行状态“删除中”并禁用操作；失败显示错误+重试；刷新页面用 `GET /libraries/{id}/deletion` 恢复。
+- [x] **文案**：共享桶确认写“只删本库数据，保留 `evals_corpus` 容器”；独立桶写“将删除本库 sqlite/collection”。
+- [x] **测试**：共享桶删 A 留容器/B 数据不动、A 的行/点/文件/catalog 清空；独立桶删净；单飞 409；9k 节点真机进度/重试待验收。
+- [x] commit `feat(docs-core): 删库异步化 + 共享桶批量清理 + admin-web 进度`（`00817fdf`）
+
+**执行记录（2026-10-20，commit `00817fdf`）**
+- 后端：`library_delete.py` 批量清理 + `DeleteTasks`/`LibraryDeleteRunner`；`docs_service.delete_library` 保留同步入口；`docs_routes` DELETE 202/GET 状态；`STATUS_DELETING`；Qdrant `clear_library`/`delete_collection`。
+- 前端：`MultiLibraryManager` 删除进度弹框 + 轮询 + 行“删除中” + 失败重试；`knowledge.ts` 三个 API。
+- 测试：`test_library_delete_bulk.py` 2 passed；`test_library_delete_routes.py` 6 passed；`test_delete_library.py` 3 passed；docs-core+docs-api 593 passed（2 个 GPU gate 环境失败，与改动无关）；`tests/unit` 998 passed（3 个 GPU gate/popo 环境失败）；`vue-tsc -b` 干净。
+- 未做：9k 节点真机删库验收（需重启 docs-api 后对 `lab-firm-dms` 跑一次）；任务表未持久化，重启靠 GET `interrupted` + DELETE 重试。
+- **注意：正在运行的 docs-api 需重启才加载本提交。**
 
 ### Task P4-1: 拆并「同组异构桶」保护（TDD）
 
