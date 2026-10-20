@@ -229,7 +229,10 @@ def _run_apply(task_id: str, libraries: List[str]) -> None:
     except Exception as exc:  # noqa: BLE001
         task.status = "failed"
         task.stage = "failed"
-        task.error = f"{type(exc).__name__}: {exc}"
+        task.error = (
+            f"{type(exc).__name__}: {exc}；暂存包 {task.package_path}；"
+            f"可 DELETE /api/knowledge/imports/{task_id} 清暂存"
+        )
         task.message = "导入失败；暂存包保留，排障后可重试或 DELETE"
     finally:
         task.updated_at = time.time()

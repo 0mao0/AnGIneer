@@ -72,6 +72,43 @@ def test_upload_rejects_oversize(client, monkeypatch):
     assert resp.status_code == 413
 
 
+def test_delete_preview_cleans_scratch(client, tmp_path):
+    task_id = _upload(client).json()["task_id"]
+    scratch = tmp_path / "scratch/imports" / task_id
+    assert (scratch / "package.zip").exists()
+    assert client.delete(f"/api/knowledge/imports/{task_id}").status_code == 200
+    assert not scratch.exists()
+    assert client.get(f"/api/knowledge/imports/{task_id}/status").status_code == 404
+
+
+def test_apply_failure_keeps_scratch_for_cleanup(client, tmp_path, monkeypatch):
+    original = import_routes.apply_import
+
+    def fail_apply(package, **kwargs):
+        if kwargs.get("apply"):
+            raise RuntimeError("boom")
+        return original(package, **kwargs)
+
+    monkeypatch.setattr(import_routes, "apply_import", fail_apply)
+    task_id = _upload(client).json()["task_id"]
+    assert client.post(
+        f"/api/knowledge/imports/{task_id}/apply",
+        json={"group_name": "evals", "libraries": ["lib-a"]},
+    ).status_code == 200
+    deadline = time.time() + 3
+    status = "running"
+    while time.time() < deadline:
+        status = client.get(f"/api/knowledge/imports/{task_id}/status").json()["status"]
+        if status != "running":
+            break
+        time.sleep(0.02)
+    assert status == "failed"
+    scratch = tmp_path / "scratch/imports" / task_id
+    assert (scratch / "package.zip").exists()  # 失败保留暂存供排障
+    assert client.delete(f"/api/knowledge/imports/{task_id}").status_code == 200
+    assert not scratch.exists()
+
+
 def test_apply_then_status_and_delete(client):
     task_id = _upload(client).json()["task_id"]
     resp = client.post(f"/api/knowledge/imports/{task_id}/apply",
