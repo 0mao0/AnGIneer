@@ -344,18 +344,19 @@ async function runExport() {
   taskId = `exp-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`
   state.value = 'running'
   status.value = null
+  errorMsg.value = ''
   try {
-    const { ticket } = await knowledgeApi.issueExportTicket(taskId, libs)
-    const url = knowledgeApi.exportStreamUrl(taskId, libs, ticket)
-    startPolling()
     const picker = (window as any).showSaveFilePicker
     if (typeof picker === 'function') {
       savingMode.value = 'fsAccess'
-      void streamToFilePicker(picker, url)
+      await streamToFilePicker(picker, libs)
     } else {
       // 原生下载：带不上请求头，靠一次性 ticket 鉴权；进度由轮询给出
       savingMode.value = 'anchor'
       savedFileName.value = suggestFileName()
+      const { ticket } = await knowledgeApi.issueExportTicket(taskId, libs)
+      const url = knowledgeApi.exportStreamUrl(taskId, libs, ticket)
+      startPolling()
       const a = document.createElement('a')
       a.href = url
       a.download = ''
@@ -372,13 +373,18 @@ async function runExport() {
 }
 
 /** Chromium 系：边下边写盘，可精确计数；未跑完就取消时**弃写**，不落半截文件 */
-async function streamToFilePicker(picker: any, url: string) {
+async function streamToFilePicker(picker: any, libs: string[]) {
   const suggested = suggestFileName()
   let writable: any = null
   try {
+    // 先让用户选路径，再换 ticket：ticket TTL 120s，若先发票、用户在选择框停留超过
+    // 两分钟，流请求必然 403，浏览器会留下一个 0 字节占位文件（2026-10-20 实踩）。
     const handle = await picker({ suggestedName: suggested, types: [{ description: '语料包', accept: { 'application/zip': ['.zip'] } }] })
     savedFileName.value = handle?.name || suggested
+    const { ticket } = await knowledgeApi.issueExportTicket(taskId, libs)
+    const url = knowledgeApi.exportStreamUrl(taskId, libs, ticket)
     writable = await handle.createWritable()
+    startPolling()
     const resp = await fetch(url)
     if (!resp.ok || !resp.body) throw new Error(`HTTP ${resp.status}`)
     const reader = resp.body.getReader()
@@ -411,7 +417,7 @@ async function streamToFilePicker(picker: any, url: string) {
     }
   } catch (e: any) {
     if (writable) { try { await writable.abort() } catch { /* 已关闭 */ } }
-    if (e?.name === 'AbortError') return
+    if (e?.name === 'AbortError') { state.value = 'form'; return }
     if (e?.message === '__CANCELLED__') { state.value = 'cancelled'; return }
     void knowledgeApi.cancelExport(taskId).catch(() => {})
     errorMsg.value = `保存失败：${e?.message || e}`
