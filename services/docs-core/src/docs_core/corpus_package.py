@@ -27,7 +27,6 @@ import json
 import os
 import shutil
 import sqlite3
-import tarfile
 import tempfile
 import threading
 import time
@@ -740,10 +739,9 @@ class ExportTasks:
 
 # ================================================================ 导入侧（P2：读取 + 预检闸）
 # 契约：docs/plan-kb-per-library-package.md Stage P2。
-# v1（目录/tar 形态）只识别不解析，继续走 scripts/kb_corpus_import.py 旧路径；
-# v2 判据与导出侧对偶：外层 bundle zip / 单库小包 zip 两种输入。
+# v2 判据与导出侧对偶：外层 bundle zip / 单库小包 zip 两种输入；v1 目录/tar 不再支持。
 
-SUPPORTED_SCHEMA = {1, 2}
+SUPPORTED_SCHEMA = {2}
 
 
 class BundleError(ValueError):
@@ -773,12 +771,11 @@ class BundleLibrary:
 
 @dataclass
 class Bundle:
-    mode: str                       # "bundle"（外层大包）| "library"（单库小包）| "v1_dir"
+    mode: str                       # "bundle"（外层大包）| "library"（单库小包）
     path: Path
     embed_model: str
     libraries: List[BundleLibrary]
     manifest: Dict[str, Any] = field(default_factory=dict)
-    dir: Optional[Path] = None      # v1 目录形态
     _tmpdir: Optional[Path] = field(default=None, repr=False)
     _outer_zip: Optional[zipfile.ZipFile] = field(default=None, repr=False)
 
@@ -803,15 +800,6 @@ class Bundle:
         if self._tmpdir is not None:
             shutil.rmtree(self._tmpdir, ignore_errors=True)
             self._tmpdir = None
-
-
-def _read_json_file(path: Path, err: str) -> Dict[str, Any]:
-    try:
-        return json.loads(path.read_text("utf-8"))
-    except FileNotFoundError as exc:
-        raise BundleError(err) from exc
-    except ValueError as exc:
-        raise BundleError(f"{err}（JSON 解析失败: {exc}）") from exc
 
 
 def _sha_stream(f, bufsize: int = _READ_CHUNK) -> str:
@@ -846,36 +834,18 @@ def check_schema_gate(manifest: Dict[str, Any]) -> None:
 
 @contextmanager
 def open_bundle(path) -> Iterator[Bundle]:
-    """识别并打开三种输入：v2 大包 zip（kind=bundle）、v2 小包 zip（kind=library）、v1 目录/tar。
+    """识别并打开两种输入：v2 大包 zip（kind=bundle）、v2 小包 zip（kind=library）。
 
     v2 大包：内层小包**流式落临时文件**（内容大者 9GB+，不整读内存），外层 sha256/bytes
     在落盘时同步算出（对账在 ``check_package_files``）；退出时清理临时文件与句柄。
-    v1（无 kind 的目录/tar）返回 ``mode="v1_dir"``，由旧 CLI 路径继续处理。
+    v1 目录/tar 已不支持，收到即报错要求用 v2 重新导出。
     """
     p = Path(path)
     stack = ExitStack()
     try:
-        if p.is_dir() or p.suffix.lower() == ".tar":
-            work = p
-            if p.suffix.lower() == ".tar":
-                tmpdir = Path(tempfile.mkdtemp(prefix="kb-bundle-tar-"))
-                stack.callback(shutil.rmtree, tmpdir, ignore_errors=True)
-                with tarfile.open(p) as tf:
-                    tf.extractall(tmpdir)  # noqa: S202 — 语料包自产自用，目录由调用方提供
-                sub = next((d for d in sorted(tmpdir.iterdir())
-                            if (d / "manifest.json").is_file()), None)
-                if sub is None:
-                    raise BundleError(f"tar 里没找到含 manifest.json 的目录: {p}")
-                work = sub
-            manifest = _read_json_file(work / "manifest.json", f"目录里没有 manifest.json: {work}")
-            check_schema_gate(manifest)
-            if manifest.get("kind"):
-                raise BundleError(f"v2 包应为 zip（收到目录/tar，kind={manifest.get('kind')}）")
-            bundle = Bundle(mode="v1_dir", path=work, embed_model=str(manifest.get("embed_model") or ""),
-                            libraries=[], manifest=manifest, dir=work)
-            stack.callback(bundle.close)
-            yield bundle
-            return
+        if p.is_dir() or p.suffix.lower() in (".tar", ".tgz"):
+            raise BundleError(
+                "v1 目录/tar 旧包不再支持；请用 v2 重新导出（.zip 外层大包或单库小包）")
 
         try:
             zf = zipfile.ZipFile(p)
@@ -941,7 +911,7 @@ def open_bundle(path) -> Iterator[Bundle]:
             bundle = Bundle(mode="library", path=p, embed_model=str(manifest.get("embed_model") or ""),
                             libraries=libs, manifest=manifest, _outer_zip=zf)
         else:
-            raise BundleError("无法识别的包：manifest.kind 缺失或未知（v1 包是目录/tar 形态）")
+            raise BundleError("无法识别的包：manifest.kind 缺失或未知（只支持 v2 bundle/library）")
 
         stack.callback(bundle.close)
         yield bundle
@@ -955,8 +925,8 @@ def check_package_files(bundle: Bundle) -> None:
     完整性判据与导出侧镜像：外层 sha256/bytes 在 open_bundle 落临时文件时已同步算出，
     内层逐条目复算。任何不符即 BundleError（不静默降级）。
     """
-    if bundle.mode == "v1_dir":
-        raise BundleError("v1 目录包走 scripts/kb_corpus_import.py 旧校验路径")
+    if bundle.mode not in ("bundle", "library"):
+        raise BundleError(f"未知包模式: {bundle.mode}")
     outer_rows: Dict[str, dict] = {}
     if bundle.mode == "bundle":
         outer_rows = {str(e.get("entry")): e for e in (bundle.manifest.get("libraries") or [])}
