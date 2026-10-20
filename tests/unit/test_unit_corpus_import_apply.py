@@ -108,6 +108,8 @@ def _build_library_package(
         add("index/index.sqlite", index.read_bytes())
         add("graph/graph.sqlite", graph.read_bytes())
         add(f"files/{source_root}/documents/d1/source/a.txt", b"abc")
+        # 导出会带库根级文件（默认库实包有 knowledge_meta.sqlite）；不得要求都在 documents/
+        add(f"files/{source_root}/knowledge_meta.sqlite", b"META")
         if with_vectors:
             add("qdrant/vectors.snapshot", b"SNAP")
         manifest = {
@@ -164,6 +166,7 @@ class ApplyImportTests(unittest.TestCase):
         self.assertEqual(result["mode"], "applied")
         self.assertTrue((library_root / "index.sqlite").exists())
         self.assertTrue((library_root / "documents/d1/source/a.txt").exists())
+        self.assertTrue((library_root / "knowledge_meta.sqlite").exists())
 
         rec = library_registry.get_library("lib-x")
         self.assertIsNotNone(rec)

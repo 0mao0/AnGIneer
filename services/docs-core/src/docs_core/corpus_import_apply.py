@@ -111,23 +111,35 @@ def _validate_library_id(lib_id: str) -> None:
 
 
 def _source_library_root(lb: BundleLibrary) -> str:
-    """从 files/ 条目推断源库根（如 knowledge/libraries/lib-a）。"""
+    """从 files/ 条目推断源库根（如 knowledge/libraries/lib-a）。
+
+    不能假设所有条目都在 ``documents/`` 下：导出会带上库根的
+    ``knowledge_meta.sqlite`` / 旧库级文件；按 ``libraries/<lib_id>`` 段取前缀。
+    """
     roots = set()
     for arc in lb.files_index:
         if not arc.startswith("files/"):
             continue
         rel = arc[6:]
-        if "/documents/" not in rel:
-            raise BundleError(f"[{lb.library_id}] files 条目不在 documents/ 下: {arc}")
-        roots.add(rel.split("/documents/")[0])
+        if rel.startswith("libraries/"):
+            parts = rel.split("/")
+            if len(parts) < 3 or parts[1] != lb.library_id:
+                raise BundleError(f"[{lb.library_id}] files 库根不匹配: {arc}")
+            roots.add(f"libraries/{lb.library_id}")
+            continue
+        marker = "/libraries/"
+        if marker not in rel:
+            raise BundleError(f"[{lb.library_id}] files 条目不在 libraries/<lib>/ 下: {arc}")
+        before, after = rel.split(marker, 1)
+        lib_seg = after.split("/", 1)[0]
+        if lib_seg != lb.library_id:
+            raise BundleError(f"[{lb.library_id}] files 库根不匹配: {arc}")
+        roots.add(f"{before}{marker}{lib_seg}")
     if not roots:
         return ""
     if len(roots) > 1:
         raise BundleError(f"[{lb.library_id}] files 条目跨多个库根: {sorted(roots)}")
-    root = roots.pop()
-    if not root.endswith("/" + lb.library_id):
-        raise BundleError(f"[{lb.library_id}] files 库根不以 library_id 结尾: {root}")
-    return root
+    return roots.pop()
 
 
 def _safe_rel(arc: str) -> str:
