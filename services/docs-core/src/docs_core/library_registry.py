@@ -386,13 +386,16 @@ def get_custom_group(group_name: str) -> Optional[GroupRecord]:
     """读穿查自定义组；注册表未初始化、无 groups 表或无此行返回 None。"""
     if not _registry_exists():
         return None
-    with _connect() as conn:
+    conn = _connect()
+    try:
         if _groups_table_missing(conn):
             return None
         row = conn.execute(
             "SELECT group_name, display_name FROM library_groups WHERE group_name=?",
             (group_name,),
         ).fetchone()
+    finally:
+        conn.close()
     return GroupRecord(group_name=row["group_name"], display_name=row["display_name"]) if row else None
 
 
@@ -400,12 +403,15 @@ def list_custom_groups() -> List[GroupRecord]:
     """全部自定义组（含尚未挂库的空组）；注册表未初始化或无 groups 表返回空表。"""
     if not _registry_exists():
         return []
-    with _connect() as conn:
+    conn = _connect()
+    try:
         if _groups_table_missing(conn):
             return []
         rows = conn.execute(
             "SELECT group_name, display_name FROM library_groups ORDER BY created_at ASC"
         ).fetchall()
+    finally:
+        conn.close()
     return [GroupRecord(group_name=r["group_name"], display_name=r["display_name"]) for r in rows]
 
 
