@@ -9,6 +9,50 @@ docs-core/sop_api_client 同侧依赖），两边共用一份，避免双份漂�
 经 evals_core.runner.probe_eval / intent_eval 的 set_* 注册表传入。"""
 
 
+def register_engine_ports() -> None:
+    """把 docs-core 实现注入引擎端口（API 进程与 eval worker 都必须执行）。
+
+    2026-10-20 拆 worker 时只搬了 probe/intent 注入，漏了这份引擎端口注册：
+    worker 里 knowledge_search 因 knowledge_local_search=None 直接报「端口未注册」，
+    正面题 0/60（API 进程 10-18 还是 56/60）。注册放本模块，API/worker 共用一份。
+    """
+    import logging
+
+    logger = logging.getLogger("evals")
+    try:
+        from angineer_core import ports
+
+        def _local_nodes_loader(library_id: str, doc_ids) -> list:
+            from docs_core.docs_service import get_docs_service
+
+            kp = get_docs_service()
+            return [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
+
+        def _local_rerank(normalized_query: str, task_type: str, candidates: list) -> list:
+            from docs_core.step09_query.retrieval.reranker import rerank_candidates
+
+            return rerank_candidates(normalized_query, task_type, candidates)
+
+        ports.register_local_nodes_loader(_local_nodes_loader)
+        ports.register_local_rerank(_local_rerank)
+
+        from docs_core.step09_query import agent_port
+
+        ports.register_agent_search(
+            normalize_query=agent_port.normalize_query,
+            knowledge_local=agent_port.knowledge_local_search,
+            table_local=agent_port.table_local_search,
+            entity_local=agent_port.entity_local_search,
+            local_stats=agent_port.local_stats,
+            engtool_registry=agent_port.engtool_registry,
+            relevant_citations=agent_port.relevant_citations,
+            table_blocks=agent_port.table_blocks_provider,
+        )
+        logger.info("引擎端口已注册：local_nodes_loader / local_rerank / agent_search 八件套（docs-core 适配器）")
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("引擎端口注册失败（policy_query 本地回退与 phrase rerank 将降级）: %s", exc)
+
+
 def configure_evaluators() -> None:
     """注入 probe 检索函数与 intent 分类器（与 API 启动逐行同源）。"""
     import logging

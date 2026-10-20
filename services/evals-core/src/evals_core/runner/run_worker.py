@@ -64,6 +64,14 @@ def main(argv=None) -> int:
     except Exception as exc:  # noqa: BLE001
         logger.warning("worker 注入评测器依赖失败（probe/intent 题将报错而非静默跳过）: %s", exc)
 
+    try:
+        import evals_runtime
+
+        # 2026-10-20 拆进程漏了引擎端口：knowledge_search 等会报「端口未注册」
+        evals_runtime.register_engine_ports()
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("worker 注册引擎端口失败（knowledge_search 将报端口未注册）: %s", exc)
+
     result_store.set_run_owner(run_id, os.getpid())
 
     stop_done = threading.Event()

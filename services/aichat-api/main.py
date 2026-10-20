@@ -119,49 +119,9 @@ from sop_api_client import SopApiClient
 sop_api = SopApiClient()
 
 
-def _register_engine_ports() -> None:
-    """C1 解耦组装：把 docs-core 实现注入引擎端口（引擎只认 Protocol/注册表）。
+from evals_runtime import register_engine_ports
 
-    nightly/evals 在 aichat-api 进程内跑 run_policy_query，注册放这里两者都覆盖；
-    未注册时引擎按降级语义走（警告 + 空结果），不 import 具体包。
-    """
-    try:
-        from angineer_core import ports
-
-        def _local_nodes_loader(library_id: str, doc_ids) -> list:
-            from docs_core.docs_service import get_docs_service
-
-            kp = get_docs_service()
-            return [n for n in kp.list_nodes(library_id) if getattr(n, "type", "") == "document"]
-
-        def _local_rerank(normalized_query: str, task_type: str, candidates: list) -> list:
-            from docs_core.step09_query.retrieval.reranker import rerank_candidates
-
-            return rerank_candidates(normalized_query, task_type, candidates)
-
-        ports.register_local_nodes_loader(_local_nodes_loader)
-        ports.register_local_rerank(_local_rerank)
-
-        # Seam 4：agent_tools 七端口（docs_core.step09_query.agent_port 适配器，
-        # 检索/图谱/统计配方本体 + 外部工具注册表，惰性 import 全在适配器内）
-        from docs_core.step09_query import agent_port
-
-        ports.register_agent_search(
-            normalize_query=agent_port.normalize_query,
-            knowledge_local=agent_port.knowledge_local_search,
-            table_local=agent_port.table_local_search,
-            entity_local=agent_port.entity_local_search,
-            local_stats=agent_port.local_stats,
-            engtool_registry=agent_port.engtool_registry,
-            relevant_citations=agent_port.relevant_citations,
-            table_blocks=agent_port.table_blocks_provider,
-        )
-        logger.info("引擎端口已注册：local_nodes_loader / local_rerank / agent_search 八件套（docs-core 适配器）")
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("引擎端口注册失败（policy_query 本地回退与 phrase rerank 将降级）: %s", exc)
-
-
-_register_engine_ports()
+register_engine_ports()
 
 _default_origins = "http://localhost:3005,http://localhost:3002,http://127.0.0.1:3005,http://127.0.0.1:3002,http://localhost,http://127.0.0.1"
 _allowed_origins = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", _default_origins).split(",") if o.strip()]
