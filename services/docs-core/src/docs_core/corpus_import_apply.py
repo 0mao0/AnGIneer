@@ -25,7 +25,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence
+from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence
 
 from . import library_registry
 from .corpus_package import (
@@ -441,12 +441,18 @@ def import_bundle(
     apply: bool = False,
     with_vectors: bool = True,
     qdrant_url: Optional[str] = None,
+    on_stage: Optional[Callable[[str, str], None]] = None,
 ) -> Dict[str, Any]:
     """预检（apply=False）或应用（apply=True）v2 包。"""
     data_root = Path(data_root).resolve() if data_root else library_registry.resolve_data_root()
     reg_path = data_root / library_registry.REGISTRY_DB_NAME
     meta_path = data_root / "knowledge" / "knowledge_meta.sqlite"
     scratch = Path(tempfile.mkdtemp(prefix="kb-import-"))
+
+    def stage(name: str, message: str) -> None:
+        if on_stage is not None:
+            on_stage(name, message)
+
     try:
         with open_bundle(package_path) as bundle:
             selected = [lb for lb in bundle.libraries
@@ -583,28 +589,35 @@ def import_bundle(
                 for p in plans:
                     lb = p["lib"]
                     lib_id = p["library_id"]
+                    stage("files", f"{lib_id}: 复制文档树")
                     completed.append(f"{lib_id}:files")
                     for arc, rel in p["files"]:
                         _copy_entry(lb, arc, data_root / rel)
+                    stage("index", f"{lib_id}: 独立桶 index.sqlite")
                     completed.append(f"{lib_id}:index")
                     _copy_entry(lb, "index/index.sqlite", p["index_path"])
+                    stage("graph", f"{lib_id}: 合并图谱")
                     completed.append(f"{lib_id}:graph")
                     if "graph/graph.sqlite" in lb.files_index:
                         _merge_graph(scratch / lib_id / "graph.sqlite",
                                      data_root / "knowledge" / "graph.sqlite")
+                    stage("meta", f"{lib_id}: 写入 meta")
                     completed.append(f"{lib_id}:meta")
                     _insert_meta(meta_path, p["meta"], lib_id)
+                    stage("vectors", f"{lib_id}: 恢复向量快照")
                     completed.append(f"{lib_id}:vectors")
                     if with_vectors and "qdrant/vectors.snapshot" in lb.files_index:
                         snap = scratch / lib_id / "vectors.snapshot"
                         _extract_entry(lb, "qdrant/vectors.snapshot", snap)
                         _upload_snapshot(lib_id, snap, qdrant_url)
+                    stage("registry", f"{lib_id}: 写注册表")
                     completed.append(f"{lib_id}:registry")
                     source_row = (_read_json_entry(lb, "registry/rows.json").get("libraries") or [{}])[0]
                     _insert_registry(
                         reg_path, p["group_name"], lib_id, source_row,
                         group_display_name, p["index_rel"],
                     )
+                    stage("verify", f"{lib_id}: 逐表对账")
                     completed.append(f"{lib_id}:verify")
                     _verify_library(lib_id, p["index_path"], lib_id, p["counts"],
                                     qdrant_url, with_vectors,

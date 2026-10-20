@@ -36,6 +36,7 @@ from startup_recovery import (reconcile_stale_parse_tasks, reconcile_stale_recor
                               reconcile_stale_migration_tasks)
 from kb_migration_routes import kb_migration_router, get_runner as get_migration_runner
 from export_routes import export_router
+from import_routes import import_router
 from models.user import ensure_admin_user
 
 app = FastAPI(
@@ -126,6 +127,7 @@ app.add_middleware(APIKeyAuthMiddleware, scope="doc")
 app.include_router(docs_router, prefix="/api/knowledge", tags=["Knowledge"])
 app.include_router(kb_migration_router, prefix="/api/knowledge", tags=["Knowledge Migration"])
 app.include_router(export_router, prefix="/api/knowledge", tags=["Knowledge Export"])
+app.include_router(import_router, prefix="/api/knowledge", tags=["Knowledge Import"])
 app.include_router(retrieve_router, prefix="/api/knowledge", tags=["Knowledge Internal"])
 # engine 端口 HTTP 面（normalize-query / rerank / relevant-citations / table-blocks /
 # engtool-run）：与 retrieval 壳同批挂载保持镜像（2026-10-12 独立壳修复）。
