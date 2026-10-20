@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-7、P2-0、P2-1 已完成，已随 v0.3.0 发布（origin/main `a8ebf700`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**P2-2 可恢复；恢复顺序 = P1-8（evals 库根）→ P2-0b（doc_catalog）→ P2-2。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-1 已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**P2-2 可恢复；恢复顺序 = P2-0b（doc_catalog）→ P2-2。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -217,11 +217,18 @@
 - Modify: `services/docs-core/src/docs_core/corpus_package.py`（`iter_bundle_zip` 的 `lib_root`；`_file_path_warnings`）
 - Test: `tests/unit/test_unit_kb_corpus_export.py`
 
-- [ ] `lib_root` 改用 `library_registry.resolve_libraries_dir(lib_id)`（evals 组返回 `evals/corpora/libraries`），不再写死 `data/knowledge/libraries/<lib>`。
-- [ ] `_file_path_warnings` 的合法前缀按该库根相对 data 根计算：`knowledge/libraries/<lib>/documents/` 或 `evals/corpora/libraries/<lib>/documents/`；绝对路径/反斜杠/他库前缀照旧告警。
-- [ ] `files/` 弧名仍按 data 根相对路径（`files/<库根>/...`），导入侧不改。
-- [ ] 测试：knowledge 组与 evals 组各一库，断言 `files/` 非空、路径正确、file_path 无告警；`pytest tests/unit -k corpus` 绿。
-- [ ] commit `fix(docs-core): 语料包导出按组解析库根（evals/corpora 文档树不漏）`
+- [x] `lib_root` 改用 `library_registry.resolve_libraries_dir(lib_id)`（evals 组返回 `evals/corpora/libraries`），不再写死 `data/knowledge/libraries/<lib>`。
+- [x] `_file_path_warnings` 的合法前缀按该库根相对 data 根计算：`knowledge/libraries/<lib>/documents/` 或 `evals/corpora/libraries/<lib>/documents/`；绝对路径/反斜杠/他库前缀照旧告警。
+- [x] `files/` 弧名仍按 data 根相对路径（`files/<库根>/...`），导入侧不改。
+- [x] 测试：knowledge 组与 evals 组各一库，断言 `files/` 非空、路径正确、file_path 无告警；`pytest tests/unit -k corpus` 绿。
+- [x] commit `fix(docs-core): 语料包导出按组解析库根（P1-8）`（`34ecee0b`）
+
+**执行记录（2026-10-20，commit `34ecee0b`）**
+- 改点：`iter_bundle_zip` 与 `scan_selection` 的 `lib_root` 都改 `resolve_libraries_dir`；`_file_path_warnings` 按库根前缀（knowledge/evals/旧 `libraries/`）判断；`data_root` 先 `resolve()`（相对路径不再让 `relative_to` 抛错）；内层大条目补 `force_zip64`。
+- 测试：`tests/unit -k corpus` **43 passed**；docs-core+docs-api **594 passed**（2 个 GPU gate 环境失败，与改动无关）。
+- 真机只读校验：`lab-firm-full` preview `files_bytes=12,142,279,110`、`file_count=93,912`、`vector_points=1,571,531`、`docs=9,007`、`chunks=1,316,466`；`file_path` 告警 **0**。
+- 真机小包：`lib-408220ae`（evals 组）导出 30 条，`files/evals/corpora/libraries/...` 路径正确、warnings 0。
+- 顺带修：`lib-officeqa` 内层 `index.sqlite` 超 4GiB 时 `_copy_file_into` 报 “File size too large”；已给内层/快照条目补 `force_zip64=True`。
 
 ---
 
@@ -491,4 +498,5 @@
 - 评审修订·第五轮（2026-10-20，复核 HarveyLab）：100 题报告 §4 保留 `doc_catalog`/`doc_search`/`doc_read`；未采纳 P1/P3/P0.5/P2.1/P2.2 与 Harness2 上游试跑，属链路实验，不影响存储契约。`doc_catalog` 已扩语义列；全表 21,802 行，其中 `lab-firm-full` 9,009 行/267 matter（10-18 为 9,008/266）→ **P2-0b 解锁，P2-2 可恢复**；P1/P2-1 已随 v0.3.0 发布。
 - 评审修订·第六轮（2026-10-20，Harvey 库实测）：新增 **P1-8**——导出库根按组解析（evals 组=`evals/corpora/libraries`），当前写死 knowledge 会让 `lab-firm-full` 的 `files/` 为空、file_path 全误报；恢复顺序定为 **P1-8 → P2-0b → P2-2**。
 - 评审修订·第七轮（2026-10-20，删库复盘）：`6f66b67d` 只修了节点/记录删除，整库仍同步逐篇 + 30s；新增 **P4-0** 异步任务 + 按 `library_id` 批量清 + `doc_catalog` 清理 + 共享容器引用计数；P4-3 收窄为“只删独立桶容器”。
+- 评审修订·第八轮（2026-10-20，P1-8 完成）：导出/预览库根按组解析（知识组 knowledge、evals 组 evals/corpora）；`file_path` 守卫按库根；内层大条目补 `force_zip64`；`lab-firm-full` 真机 preview 0 告警。
 - 未含（边界外）：见上「边界外发现」三条。
