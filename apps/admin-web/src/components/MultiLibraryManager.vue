@@ -155,7 +155,7 @@
                   type="link"
                   size="small"
                   danger
-                  :disabled="record.id === 'default' || record.status === 'migrating' || record.status === 'deleting'"
+                  :disabled="record.id === 'default' || record.status === 'migrating'"
                   @click="openDelete(record)"
                 >
                   删除
