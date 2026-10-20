@@ -436,11 +436,11 @@ def _verify_library(
                         f"[{lib_id}] graph.{table} 对账失败: {actual} != {expected}")
         finally:
             g.close()
-    if with_vectors:
+    expect_vectors = int(counts.get("vectors") or 0)
+    if with_vectors and expect_vectors > 0:
         got = count_points_filtered(collection, lib_id, qdrant_url)
-        expect = int(counts.get("vectors") or 0)
-        if got != expect:
-            raise ImportApplyError(f"[{lib_id}] vectors 对账失败: {got} != {expect}")
+        if got != expect_vectors:
+            raise ImportApplyError(f"[{lib_id}] vectors 对账失败: {got} != {expect_vectors}")
 
 
 def import_bundle(

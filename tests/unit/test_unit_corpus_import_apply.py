@@ -224,6 +224,15 @@ class ApplyImportTests(unittest.TestCase):
         rec = library_registry.get_library("lib-e")
         self.assertEqual(rec.sqlite_file, "evals/corpora/libraries/lib-e/index.sqlite")
 
+    def test_zero_vectors_skips_qdrant_count(self):
+        pkg = _build_library_package(self.tmp)
+        with mock.patch.object(corpus_import_apply, "_list_qdrant_collections", return_value=set()), \
+             mock.patch.object(corpus_import_apply, "count_points_filtered",
+                               side_effect=AssertionError("不应查 0 向量的 collection")):
+            result = apply_import(str(pkg), data_root=self.data, group_name="system",
+                                  apply=True, with_vectors=True)
+        self.assertEqual(result["mode"], "applied")
+
     def test_package_dangling_baseline_allowed(self):
         pkg = _build_library_package(self.tmp, dangling=True)
         result = apply_import(str(pkg), data_root=self.data, group_name="system",
