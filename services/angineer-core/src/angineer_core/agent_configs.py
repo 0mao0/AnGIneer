@@ -578,13 +578,6 @@ def build_qa_config(
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
     if enum_context:
         system_prompt += "\n\n" + str(enum_context).strip()
-    try:
-        from angineer_core.evidence_binding import CITATION_CONTRACT, contract_enabled
-
-        if contract_enabled():
-            system_prompt += "\n\n" + CITATION_CONTRACT
-    except Exception:  # noqa: BLE001
-        pass
 
     followup_enabled = _followup_question_enabled() if followup_question is None else bool(followup_question)
     if followup_enabled:
@@ -619,15 +612,6 @@ def build_qa_config(
                 )
         except Exception as _exc:  # noqa: BLE001 —— 自检装配失败不影响原 guard
             logging.getLogger(__name__).warning("answer_audit 装配失败: %s", _exc)
-
-    # P2.1 证据绑定：只审计不改模板；开关默认 0，失败降级为原答案
-    try:
-        from angineer_core import evidence_binding as _evidence
-
-        if _evidence.enabled():
-            guard = _evidence.make_guard(guard, llm=llm, config_name=config_name, mode=mode)
-    except Exception as _exc:  # noqa: BLE001
-        logging.getLogger(__name__).warning("evidence_binding 装配失败: %s", _exc)
 
     budget_est = _qa_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
     qa_transformer = (
@@ -949,13 +933,6 @@ def build_complex_config(
         system_prompt += "\n\n显式引用证据（用户已确认，优先级最高）：\n" + explicit
     if enum_context:
         system_prompt += "\n\n" + str(enum_context).strip()
-    try:
-        from angineer_core.evidence_binding import CITATION_CONTRACT, contract_enabled
-
-        if contract_enabled():
-            system_prompt += "\n\n" + CITATION_CONTRACT
-    except Exception:  # noqa: BLE001
-        pass
 
     complex_followup = _followup_question_enabled() and _complex_followup_question_enabled()
     if complex_followup:
@@ -986,13 +963,6 @@ def build_complex_config(
             enforce_evidence=True,
             followup_question=complex_followup,
         )
-    try:
-        from angineer_core import evidence_binding as _evidence
-
-        if _evidence.enabled():
-            guard = _evidence.make_guard(guard, llm=llm, config_name=config_name, mode=mode)
-    except Exception as _exc:  # noqa: BLE001 —— 证据绑定装配失败不影响原 guard
-        logging.getLogger(__name__).warning("evidence_binding 装配失败: %s", _exc)
 
     return AgentLoopConfig(
         llm=llm,
