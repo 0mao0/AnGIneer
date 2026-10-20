@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-5、P3-1 已完成，P2-4 的 CLI 侧已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = P3-2（admin-web 导入弹框）。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-5、P3-1、P3-2 代码、P3-3 容器层已完成，P2-4 的 CLI 侧已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = 重启 docs-api 后手工走 P3-2/P3-4（小包上传→预检→应用），宿主机 nginx 放行需另行报备。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -380,17 +380,17 @@
 - `main.py` 已挂 `/api/knowledge`；docs-api 测试 **43 passed**。
 - 未做：断点续传、逐库告警列表、跨布局自动改写（P2-2 仍硬拒）。
 
-### Task P3-2: admin-web 导入弹框
+### Task P3-2: admin-web 导入弹框（已完成，待手测）
 
 **Files:**
-- Create: `apps/admin-web/src/components/kb-import/ImportPackageModal.vue`
+- Add: `apps/admin-web/src/components/kb-import/ImportPackageModal.vue`
 - Modify: `apps/admin-web/src/components/MultiLibraryManager.vue`（头部加「导入语料包」按钮，克隆导出按钮形态）、`apps/admin-web/src/api/knowledge.ts`（uploadImport/applyImport/getImportStatus/deleteImport）
-- 参考：`ExportPackageModal.vue`（五态机/轮询/进度模式）、`SplitMergeWizardModal.vue`（组下拉+新建组输入）
 
-- [ ] 流程：选文件（`accept=".zip"`）→ 上传进度（xhr/fetch 可拿上传阶段）→ 预检结果（逐库卡片：名称/文档数/体积/图谱关系数）+ 目标组选择（已有组下拉 + 「新建组」name/display 输入）→ 库勾选（默认全选）→ 应用进度（阶段文字+库级进度）→ 完成（提示可直接使用；失败给原因+暂存路径）
-- [ ] 文案：embed 不一致 → 直接阻断（文案按 P2-4 定版 b 逐字一致）；应用不可取消明示
-- [ ] 验证：`pnpm --filter admin-web exec vue-tsc -b` + 本地手测（dev 起 docs-api）
-- [ ] commit `feat(admin-web): 语料包导入上传 UI`
+- [x] 流程：选包（拖拽/点击 `.zip`）→ 上传进度 → 预检逐库卡片（名称/库 id/组/docs/chunks/vectors/relations/体积）+ 库勾选（默认全选）+ 目标组下拉/新建组 → 应用阶段文字 → 完成/失败；失败展示服务端 detail
+- [x] 文案：embed 不一致由服务端 400 detail 直接展示（`REEMBED_BLOCK_MESSAGE`）；应用不可取消在确认区与进度区均明示
+- [x] `pnpm --filter admin-web exec vue-tsc -b` 通过
+- [ ] 本地手测（需先重启 docs-api 加载 P3-1 路由；用 6.2MB 小包走上传/预检/应用）
+- [x] commit `feat(admin-web): 语料包导入上传 UI`（`37d8311a`；关系数 `c25cdc29`）
 
 ### Task P3-3: 网关两层运维项（容器层入 git 随 deploy；宿主机层手工报备）
 
@@ -399,13 +399,13 @@
 浏览器 → 宿主机 nginx（ai-proxy-locations.conf，非 git）→ frontend 容器 nginx（docker/nginx/nginx.conf，git 内）→ docs-api
 ```
 
-- [ ] **容器层（本票代码改动，随 deploy 生效）**：`docker/nginx/nginx.conf` 加专用 location（`^~ /api/knowledge/imports/`，形态抄 `/api/files` :84-94）：
-  - `client_max_body_size 0`（http 级 :21 的 200M 是全局默认，GB 包必 413）；
-  - `proxy_request_buffering off`（大包直传上游，不在容器落整份临时文件）；
+- [x] **容器层（本票代码改动，随 deploy 生效）**：`docker/nginx/nginx.conf` 加 `location ^~ /api/knowledge/imports/`：
+  - `client_max_body_size 0`；
+  - `proxy_request_buffering off`；
   - `proxy_read_timeout/proxy_send_timeout 600s`；
-  - 别动 `^~ /api/knowledge/internal/` 403 块（:141；更长前缀仍优先，顺序无虞）。
-- [ ] **宿主机层（手工，不入 git）**：`/etc/nginx/ai-proxy-locations.conf` 同义放行（`client_max_body_size 0` + 长 timeout）；改完 `nginx -t && systemctl reload nginx`。**动手前向用户报备**。
-- [ ] 验证：`docker compose up -d frontend` 后上传小文件走通 / 大文件（>200M）复测——两层任一未放行即 413 可复现对照。
+  - 未动 `^~ /api/knowledge/internal/` 403 块。
+- [ ] **宿主机层（手工，不入 git）**：`/etc/nginx/ai-proxy-locations.conf` 同义放行（`client_max_body_size 0` + 长 timeout）；改完 `nginx -t && systemctl reload nginx`。**动手前向用户报备——尚未改。**
+- [ ] 验证：`docker compose up -d frontend` 后上传小文件走通 / 大文件（>200M）复测。
 
 ### Task P3-4: P3 验收
 
@@ -535,4 +535,5 @@
 - 评审修订·第十一轮（2026-10-20，P2-3 完成）：CLI 只认 v2 zip，删 v1 目录/tar/`--reembed`；`SUPPORTED_SCHEMA={2}`；Docker 白名单放行 import/export；`docker build --check` 无告警；小库 `lib-408220ae` dry-run/apply 通过。
 - 评审修订·第十二轮（2026-10-20，P2-5 完成）：本地 6.2MB 小包往返通过；包内 13 表含 `doc_catalog` 5 行，FTS 88/88、PDF 源文件在、`--only` 与重复导入闸均按预期。
 - 评审修订·第十三轮（2026-10-20，P3-1 完成）：docs-api 导入路由上传/预检/后台应用/状态/清理落地；阶段回调 + 成功 reload；单飞；预检冲突以 400 阻断（无逐库告警列表）。
+- 评审修订·第十四轮（2026-10-20，P3-2/P3-3 容器层）：admin-web 导入弹框 + 头部按钮 + API 类型；预检逐库勾选/组选择/应用进度；nginx import location 放行；手测与宿主机 nginx 待做。
 - 未含（边界外）：见上「边界外发现」三条。
