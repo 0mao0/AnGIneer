@@ -1,5 +1,11 @@
 # 知识库语料包导出（管理后台）设计
 
+> **2026-10-20 状态：本文的 v1 导出/同组口径已被 `docs/plan-kb-per-library-package.md` 的 v2 实现取代。**
+> 现行：外层 bundle 套每库自包含小包（`libraries/<id>.zip`），导出不再依赖“同组共用 sqlite”；
+> 导入 UI 在 `apps/admin-web/src/components/kb-import/ImportPackageModal.vue`，路由在
+> `services/docs-api/import_routes.py`。下文 D3/“同组警告”等旧决策仅作历史记录，勿按它实现新功能。
+> 现行导入规则：目标组 `libraries_dir` 必须与包内 `files/` 根一致；v2 不支持 reembed；同名/同 id 默认冲突拒绝。
+
 **日期:** 2026-10-09
 **业主定版决策：** 纯流式下载（不落盘）｜包内容固定 = CLI 默认｜可勾选库 + 未全选明示警告
 **上游：** `docs/plan-standards-kb-corpus-package.md`（语料包通道本体）｜`scripts/kb_corpus_export.py`（现有 CLI）

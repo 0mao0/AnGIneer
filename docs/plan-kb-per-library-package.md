@@ -454,34 +454,34 @@
 - **真机验收（2026-10-20）**：`lab-firm-dms` DELETE 202 → task `del-2f4cc29ec0a9`，9,276 篇，约 104 秒 succeeded；nodes=0、doc_catalog=0、两处库目录已删、API 库列表 19→18；共享 `evals_corpus.sqlite` 与 collection 保留，`lab-firm-full` 9,009 行 catalog 未动，collection 点数不变。
 - 任务表未持久化；进程重启后 `GET /libraries/{id}/deletion` 返回 `interrupted`，DELETE 可重试。**docs-api 已重启加载本提交。**
 
-### Task P4-1: 拆并「同组异构桶」保护（TDD）
+### Task P4-1: 拆并「同组异构桶」保护（TDD，已完成）
 
-**Files:** `services/docs-core/src/docs_core/kb_migrator.py:204-217`；Test：docs-core 迁移单测（对应现有迁移测试文件）
+**Files:** `services/docs-core/src/docs_core/kb_migrator.py:204-217`；Test：`services/docs-core/tests/test_kb_migrator_bucket_guard.py`
 
-- [ ] `_check_destination_blockers` 增：源/目标同组但 `(sqlite_file, collection)` 不一致 → `MigrationBlocked("同组异构桶库不支持拆并（导入库为独立桶），请先联系维护迁移")`
-- [ ] 测试：异构桶 → 拦；同桶 → 放行（既有用例不红）
-- [ ] commit `fix(docs-core): 拆并拒绝同组异构桶（导入独立桶保护）`
+- [x] `_check_destination_blockers` 增：源/目标同组但 `(sqlite_file, collection)` 不一致 → `同组异构桶库不支持拆并（导入库为独立桶），请先联系维护迁移`
+- [x] 测试：异构桶 → 拦；同桶 → 放行
+- [x] commit `fix(docs-core): 拆并拒绝同组异构桶（P4-1）`（`b4203b04`）
 
-### Task P4-2: 改组（编辑库）保护
+### Task P4-2: 改组（编辑库）保护（已完成）
 
-**Files:** `services/docs-core/src/docs_core/docs_service.py:625-637`；Test：docs-core 对应单测
+**Files:** `services/docs-core/src/docs_core/docs_service.py:607-638`；Test：`services/docs-core/tests/test_custom_group_flow.py`
 
-- [ ] 规则：库非空且新旧组的默认桶（`sqlite_file`/`collection`）不同 → 拒绝改组并提示（防止 F12 数据失联）；空库或同桶放行
-- [ ] 测试覆盖三分支
-- [ ] commit `fix(docs-core): 非空库跨桶改组拒绝（防数据失联）`
+- [x] 规则：库非空（`nodes.type=document AND deleted=0`）且旧实际桶 ≠ 目标组默认桶 → 拒绝改组并提示；空库或同桶放行
+- [x] 测试覆盖三分支（空库改组既有用例、非空跨桶拒绝、同组/同桶放行）
+- [x] commit `fix(docs-core): 非空库跨桶改组拒绝（P4-2）`（`475376ab`）
 
-### Task P4-3: 独立桶容器删除（P4-0 worker 的收尾步骤）
+### Task P4-3: 独立桶容器删除（P4-0 worker 的收尾步骤，已完成）
 
-**Files:** `services/docs-core/src/docs_core/library_delete.py`（P4-0）；Test：`services/docs-core/tests/test_delete_library.py`（附近文件）
+**Files:** `services/docs-core/src/docs_core/library_delete.py`（P4-0）；Test：`services/docs-core/tests/test_library_delete_bulk.py`
 
-- [ ] 仅当 `sqlite_file` 与 `collection` 的引用计数都为 0（含 retired 行）且非默认单文件/内置组桶 → 删 sqlite 文件 + 删 qdrant collection + 清库根目录壳；共享桶维持现状。
-- [ ] 共享桶不删容器，只由 P4-0 清本库行/点/文件；`doc_catalog` 由 P4-0 清。
-- [ ] 测试：独立桶删净；共享桶不动；retired 行引用不删；内置组桶不删。
-- [ ] commit `feat(docs-core): 删库清独立桶（sqlite/collection/目录）`
+- [x] 仅当 `sqlite_file` 与 `collection` 的引用计数都为 0（含 retired 行）且非默认单文件/内置组桶 → 删 sqlite 文件 + 删 qdrant collection + 清库根目录壳；共享桶维持现状。
+- [x] 共享桶不删容器，只由 P4-0 清本库行/点/文件；`doc_catalog` 由 P4-0 清。
+- [x] 测试：独立桶删净；共享桶不动；retired 行引用不删；内置组桶不删（4 passed）。
+- [x] commit `test(docs-core): 补独立桶 retired 引用/内置桶删除保护（P4-3）`（`2508774a`；实现随 P4-0 `00817fdf`）
 
-### Task P4-4: 文档更新
+### Task P4-4: 文档更新（已完成）
 
-- [ ] 改写 `docs/design-kb-export-ui.md`：v2 包格式/逐库小包/无同组警告/导入 UI 链接（或标注「被本计划取代」并新增 `design-kb-import-ui.md` 段落）
+- [x] `docs/design-kb-export-ui.md` 顶部标注「被 plan-kb-per-library-package 取代」，补 v2 包格式/逐库小包/导入 UI 链接；旧 D3 同组共享警告标注失效。
 - [ ] `CHANGELOG.md`/README 摘要**留到发版时**按 AGENTS.md 契约写（版本号先报用户确认；`pnpm release` 前不手动改版本两处）
 - [ ] 本计划完结后按 docs-cleanup 定式处置（结论进 CHANGELOG）
 
