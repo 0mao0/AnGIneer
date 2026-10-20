@@ -254,7 +254,19 @@ Vectara Open RAG Bench 官方 3045 题分层抽样（seed=42）为 **v4 = 1040 �
 
 ![本次改动在链路中的位置](figures/catalog-change-map.png)
 
-**检索接口**：`POST /api/knowledge/internal/doc-search`（agent 侧工具 `doc_search` / `doc_read`）。参数 `query`、`limit`、`per_matter`、`filename_contains`、`doc_type`；返回按 group 归并的 `matters` 卡（`group_id/group_kind/best/docs`），外加 `total_groups`、`group_kinds`、`catalog_quality`。目录谓词命中时卡片带 `catalog_hit=true` 与 `matched_docs`。
+**检索接口**：`POST /api/knowledge/internal/doc-search`（agent 侧工具 `doc_search` / `doc_read`）。参数 `query`、`limit`、`per_matter`、`filename_contains`、`doc_type`、`entity_contains`；返回按 group 归并的 `matters` 卡（`group_id/group_kind/best/docs`），外加 `total_groups`、`group_kinds`、`catalog_quality`。目录谓词命中时卡片带 `catalog_hit=true` 与 `matched_docs`。
+
+`entity_contains` 是实体定位：先找提到该实体的文档（FTS），把它们所属的 matter/group 作为检索范围，再在范围内按 `filename_contains` 与日期排序——「某客户最新一份某类文档」一次调用完成；目录谓词命中时组内 `best` 取命中的那份，而不是同组分数更高的别的文书。`doc_read` 另有 `section`（按章节号从标题处读）与 AND→OR 读页回退（术语写法不一时的兜底）。
+
+**时间维度（2026-10-20）**：`doc_catalog` 增 `doc_date` / `date_source` / `date_confidence` 三列（懒 ALTER，`scripts/backfill_doc_dates.py` 回填，不重跑解析）。抽取优先级：正文首屏完整日期（`high`）→ 文件名完整日期（`medium`）→ 仅年份/年月（`low`）→ 源文件 mtime（`low`）。`doc_search` 增 `sort_by=date_desc|date_asc`、`date_after`、`date_before`（HTTP 与 agent 工具同名）；不传参时排序与改造前逐字节一致。
+
+日期精度闸门：英文孤立年份不抽——法律语料里 `123 F.3d 2094`、表格单元格 `2026 Standard`、xlsx 文件属性时间戳都会被误当文档日期（首版实测 9009 篇里 5283 条 low 多为此类噪声）；超出 `[1900, 今天+366 天]` 的日期一律丢弃。mtime 是落盘时间（拷贝/迁移会变），排序排在正文/文件名日期之后，且不参与区间过滤；`doc_search` 结果卡片带 `doc_date`/`date_source`/`date_confidence`，正文核对仍以 `doc_read` 为准。
+
+lab-firm-full 回填结果（9009 篇）：`text` 3726 / `filename` 159 / `mtime` 5124；`high` 3726、`medium` 57、`low` 5226；日期区间 1998-06-12 – 2026-10-15。
+
+**实测（2026-10-20，lab-firm-full，Qwen3.6-35B / gpt-5.5 判官）**：16 道「最新/最近」题 criterion 8/46（同代码对照臂）→ 10/46，离开 0 判据 4 题（目标 5 题，未达标）；001–030 为 25/206，较 10-18 臂 +4 条、无回归。但 16 题里只有 4 题真的传了 `sort_by=date_desc`（25%），加分的 4 题都没用该参数——**本轮不能归因于时间维度**。缺口有二：工具选择（目标题多数直接走 `knowledge_search`）与全局日期排序会挤后实体型目标 matter（013：相关性第 13 → 日期第 37）。结论与下一步见 [plan-harvey-time-dimension.md](plan-harvey-time-dimension.md) §9。
+
+补充实验：按风险表实现日期预取注入（`date_prefetch`，默认关），16 题配对里参数使用率 4/16 → 11/16，criterion 反而 14.0% → 9.3%（4/43）——模型把预取候选当成候选全集、不再自己检索。按 P0.5 教训**保持默认关**，见同文档 §10。
 
 **目录谓词与质量门禁**：短语在 `filename`/`rel_path`/`title_semantic` 上逐词匹配（标题常有停用词插入，如 “Conspiracy Theories on Telegram”）；`doc_type` 同时匹配扩展名与语义类型。类型规则按「标准号前缀 → 具体文书 → 法律 → 政策 → 规范 → 报告 → 论文」排序，`GB 17380…规定` 判规范而非政策。`catalog_semantic_coverage` 给出文件名语义率/首屏标题率/类型覆盖率，`catalog_predicate_usable` 以 30% 为门禁：文件名无意义但标题可用的语料（arXiv 编号）仍可启用；两者都没有时退回内容检索。
 

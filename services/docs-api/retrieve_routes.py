@@ -141,6 +141,10 @@ class DocSearchInternalRequest(BaseModel):
     per_matter: int = 2
     filename_contains: List[str] = Field(default_factory=list)
     doc_type: str = ""
+    sort_by: str = ""          # ""（默认相关性）/ date_desc / date_asc
+    date_after: str = ""       # YYYY-MM-DD 闭区间
+    date_before: str = ""
+    entity_contains: str = ""  # 实体/客户/案件名：先把范围收窄到提到它的分组
 
 
 @retrieve_router.post("/internal/doc-search")
@@ -148,6 +152,8 @@ def doc_search_internal(request: DocSearchInternalRequest) -> Dict[str, Any]:
     """文档级检索（枚举型任务）：FTS 命中按文档聚合、按 matter 归并，返回候选清单。
 
     filename_contains/doc_type 走目录谓词（按文件名/路径过滤），是比 FTS 更确定的信号。
+    sort_by/date_after/date_before 走目录日期列（时间维度）：不传时行为与改造前一致。
+    entity_contains 先定位提到实体的分组，再在其内检索/排序。
     """
     from docs_core.step09_query.doc_search import search_documents
 
@@ -159,6 +165,10 @@ def doc_search_internal(request: DocSearchInternalRequest) -> Dict[str, Any]:
             per_matter=request.per_matter,
             filename_contains=request.filename_contains or None,
             doc_type=request.doc_type or None,
+            sort_by=request.sort_by or None,
+            date_after=request.date_after or None,
+            date_before=request.date_before or None,
+            entity_contains=request.entity_contains or None,
         )
     except Exception as exc:  # noqa: BLE001 —— 工具语义：错误以 {"error": ...} 返回
         logger.warning("doc-search 失败: %s", exc, exc_info=True)
@@ -171,11 +181,12 @@ class DocReadInternalRequest(BaseModel):
     query: str = ""
     max_chars_per_doc: int = 1200
     mode: str = "head"
+    section: str = ""  # 章节号（如 "2.15"）：从该章节标题所在块开始读
 
 
 @retrieve_router.post("/internal/doc-read")
 def doc_read_internal(request: DocReadInternalRequest) -> Dict[str, Any]:
-    """批量读页：按 doc_id 列表读正文（head=从头，match=读命中段落）。"""
+    """批量读页：按 doc_id 列表读正文（head=从头，match=读命中段落，section=按章节读）。"""
     from docs_core.step09_query.doc_search import read_documents
 
     try:
@@ -185,6 +196,7 @@ def doc_read_internal(request: DocReadInternalRequest) -> Dict[str, Any]:
             query=request.query,
             max_chars_per_doc=request.max_chars_per_doc,
             mode=request.mode,
+            section=request.section,
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("doc-read 失败: %s", exc, exc_info=True)

@@ -20,7 +20,8 @@ import logging
 import os
 import re
 import sqlite3
-from typing import Any, Dict, List, Optional
+from datetime import date, datetime, timedelta
+from typing import Any, Dict, List, Optional, Tuple
 
 from docs_core.library_registry import resolve_index_db_path
 
@@ -43,7 +44,10 @@ CREATE TABLE IF NOT EXISTS doc_catalog (
     source      TEXT NOT NULL DEFAULT '',
     updated_at  TEXT NOT NULL DEFAULT '',
     title_semantic    TEXT NOT NULL DEFAULT '',
-    doc_type_semantic TEXT NOT NULL DEFAULT ''
+    doc_type_semantic TEXT NOT NULL DEFAULT '',
+    doc_date          TEXT NOT NULL DEFAULT '',
+    date_source       TEXT NOT NULL DEFAULT 'none',
+    date_confidence   TEXT NOT NULL DEFAULT 'none'
 );
 CREATE INDEX IF NOT EXISTS idx_doc_catalog_library ON doc_catalog(library_id);
 CREATE INDEX IF NOT EXISTS idx_doc_catalog_matter ON doc_catalog(library_id, matter_id);
@@ -54,7 +58,12 @@ _CATALOG_EXTRA_COLUMNS = (
     ("title_semantic", "TEXT NOT NULL DEFAULT ''"),
     ("doc_type_semantic", "TEXT NOT NULL DEFAULT ''"),
     ("title_source", "TEXT NOT NULL DEFAULT ''"),
+    ("doc_date", "TEXT NOT NULL DEFAULT ''"),
+    ("date_source", "TEXT NOT NULL DEFAULT 'none'"),
+    ("date_confidence", "TEXT NOT NULL DEFAULT 'none'"),
 )
+
+_CATALOG_DATE_COLUMNS = ("doc_date", "date_source", "date_confidence")
 
 _WORD_RE = re.compile(r"[0-9A-Za-z_\u4e00-\u9fff]+")
 
@@ -66,14 +75,25 @@ def _connect(library_id: str) -> sqlite3.Connection:
     return conn
 
 
+def _table_columns(conn: sqlite3.Connection, table: str) -> set:
+    try:
+        return {row[1] for row in conn.execute(f"pragma table_info({table})")}
+    except sqlite3.OperationalError:
+        return set()
+
+
 def ensure_catalog(conn: sqlite3.Connection) -> None:
     """幂等建表/补列：老表按需 ALTER，不重建、不丢数据。"""
     conn.executescript(_CATALOG_DDL)
     if has_catalog(conn):
-        existing = {row[1] for row in conn.execute("pragma table_info(doc_catalog)")}
+        existing = _table_columns(conn, "doc_catalog")
         for name, ddl in _CATALOG_EXTRA_COLUMNS:
             if name not in existing:
                 conn.execute(f"alter table doc_catalog add column {name} {ddl}")
+        if set(_CATALOG_DATE_COLUMNS) <= _table_columns(conn, "doc_catalog"):
+            conn.execute(
+                "CREATE INDEX IF NOT EXISTS idx_doc_catalog_date ON doc_catalog(library_id, doc_date)"
+            )
     conn.commit()
 
 
@@ -82,6 +102,11 @@ def has_catalog(conn: sqlite3.Connection) -> bool:
         "select 1 from sqlite_master where type='table' and name='doc_catalog'"
     ).fetchone()
     return row is not None
+
+
+def catalog_has_dates(conn: sqlite3.Connection) -> bool:
+    """目录是否已有日期三列（老库在建表前没有，需要先跑回填/ensure_catalog）。"""
+    return has_catalog(conn) and set(_CATALOG_DATE_COLUMNS) <= _table_columns(conn, "doc_catalog")
 
 
 def _tokens(query: str) -> List[str]:
@@ -105,15 +130,23 @@ def _display_title(filename: str, title_semantic: str) -> str:
     return name or str(title_semantic or "")
 
 
-def _catalog_map(conn: sqlite3.Connection, library_id: str, doc_ids: List[str]) -> Dict[str, Dict[str, Any]]:
+def _catalog_map(
+    conn: sqlite3.Connection,
+    library_id: str,
+    doc_ids: List[str],
+    *,
+    with_dates: bool = False,
+) -> Dict[str, Dict[str, Any]]:
     if not doc_ids or not has_catalog(conn):
         return {}
     out: Dict[str, Dict[str, Any]] = {}
+    date_cols = ", doc_date, date_source, date_confidence" if with_dates else ""
     for start in range(0, len(doc_ids), 400):
         chunk = doc_ids[start : start + 400]
         marks = ",".join("?" * len(chunk))
         rows = conn.execute(
-            f"select doc_id, matter_id, folder, rel_path, filename, title_semantic, doc_type_semantic "
+            f"select doc_id, matter_id, folder, rel_path, filename, title_semantic, doc_type_semantic"
+            f"{date_cols} "
             f"from doc_catalog where library_id=? and doc_id in ({marks})",
             [library_id, *chunk],
         )
@@ -329,6 +362,311 @@ def catalog_write_enabled() -> bool:
     自动退回内容检索，行为与改造前一致。
     """
     return os.getenv("ANGINEER_CATALOG_WRITE", "1").strip().lower() not in ("0", "false", "no", "off")
+
+
+# ---------------------------------------------------------------------------
+# 文档日期（时间维度）：正文首屏 > 文件名 > 源文件 mtime，抽不到为空
+# ---------------------------------------------------------------------------
+
+_MONTH_DATE = r"([A-Z][a-z]{2,8}\.?\s+\d{1,2},\s+\d{4})"
+_TEXT_DATE_PATTERNS = (
+    # "Dated as of July 16, 2024" 权重最高：合同/协议/函件的落款句式
+    re.compile(r"dated\s+as\s+of\s+" + _MONTH_DATE, re.I),
+    re.compile(r"dated\s*[:\-]?\s*" + _MONTH_DATE, re.I),
+    re.compile(r"as\s+of\s+" + _MONTH_DATE, re.I),
+)
+_ISO_DATE_RE = re.compile(r"(?<!\d)((?:19|20)\d{2})-(\d{1,2})-(\d{1,2})(?!\d)")
+_FILENAME_DATE_RE = re.compile(r"(?<!\d)((?:19|20)\d{2})[-_.]?(\d{2})[-_.]?(\d{2})(?!\d)")
+# 中文日期：2024年7月16日 / 2024 年 7 月；只有年月时按当月 1 日落库并标 low
+_CN_DATE_RE = re.compile(r"((?:19|20)\d{2})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
+_CN_MONTH_RE = re.compile(r"((?:19|20)\d{2})\s*年\s*(\d{1,2})\s*月")
+_CN_YEAR_RE = re.compile(r"((?:19|20)\d{2})\s*年")
+_YEAR_RE = re.compile(r"(?<!\d)((?:19|20)\d{2})(?!\d)")
+_YEAR_MIN = 1900
+_YEAR_MAX = datetime.now().year + 1
+_FUTURE_SLACK_DAYS = 366
+
+DATE_SOURCES = ("text", "filename", "mtime", "none")
+DATE_CONFIDENCES = ("high", "medium", "low", "none")
+
+
+def _plausible(iso: Optional[str]) -> Optional[str]:
+    """日期合理性闸门：超出 [1900, 今天+366 天] 的一律丢弃（不猜）。
+
+    法律/表格语料实测：正文里的孤立年份常来自引证页码（"F.3d 2094"）、
+    表格单元格（"2026 Standard"），xlsx 还会把文件属性里的时间戳写进首屏。
+    这类年份一旦参与排序，会把「最新/最近」题直接带偏，所以只收合理区间内的日期。
+    """
+    if not iso:
+        return None
+    try:
+        value = date.fromisoformat(iso)
+    except ValueError:
+        return None
+    if value.year < _YEAR_MIN:
+        return None
+    if value > date.today() + timedelta(days=_FUTURE_SLACK_DAYS):
+        return None
+    return value.isoformat()
+
+
+def _iso_from_parts(year: Any, month: Any, day: Any) -> Optional[str]:
+    try:
+        y, m, d = int(year), int(month), int(day)
+    except (TypeError, ValueError):
+        return None
+    if not (_YEAR_MIN <= y <= _YEAR_MAX):
+        return None
+    try:
+        return _plausible(date(y, m, d).isoformat())
+    except ValueError:
+        return None
+
+
+def _month_date_to_iso(raw: str) -> Optional[str]:
+    cleaned = re.sub(r"\s+", " ", str(raw or "").replace(".", "")).strip()
+    if not cleaned:
+        return None
+    for fmt in ("%B %d, %Y", "%b %d, %Y"):
+        try:
+            return _plausible(datetime.strptime(cleaned, fmt).date().isoformat())
+        except ValueError:
+            continue
+    return None
+
+
+def _year_only_iso(year: Any) -> Optional[str]:
+    """只有年份时按 YYYY-07-01 落库（low）；未来年份不可信，返回空。"""
+    try:
+        value = int(year)
+    except (TypeError, ValueError):
+        return None
+    if value < _YEAR_MIN or value > date.today().year:
+        return None
+    return f"{value}-07-01"
+
+
+def extract_date_from_text(text: str) -> Tuple[str, str, str]:
+    """从首屏正文抽日期，返回 (iso_date, source, confidence)。
+
+    优先 "dated as of"/"dated:" 句式与完整日期（high）；中文「2024年」这类明确的
+    年份上下文按 YYYY-07-01 落库并标 low。**不抽英文孤立年份**：法律语料里
+    "F.3d 2094" / "2026 Standard" 这类数字会污染时间排序（实测 5283/9009 条 low 里
+    大量是这种噪声），宁可退回文件名/mtime。
+    """
+    head = str(text or "")[:4000]
+    if not head.strip():
+        return ("", "none", "none")
+    for pattern in _TEXT_DATE_PATTERNS:
+        match = pattern.search(head)
+        if not match:
+            continue
+        iso = _month_date_to_iso(match.group(1))
+        if iso:
+            return (iso, "text", "high")
+    match = _CN_DATE_RE.search(head)
+    if match:
+        iso = _iso_from_parts(*match.groups())
+        if iso:
+            return (iso, "text", "high")
+    match = _ISO_DATE_RE.search(head)
+    if match:
+        iso = _iso_from_parts(*match.groups())
+        if iso:
+            return (iso, "text", "high")
+    match = _CN_MONTH_RE.search(head)
+    if match:
+        year, month = int(match.group(1)), int(match.group(2))
+        if 1 <= month <= 12 and year <= date.today().year:
+            return (f"{year}-{month:02d}-01", "text", "low")
+    match = _CN_YEAR_RE.search(head)
+    if match:
+        iso = _year_only_iso(match.group(1))
+        if iso:
+            return (iso, "text", "low")
+    return ("", "none", "none")
+
+
+def extract_date_from_filename(name: str) -> Tuple[str, str, str]:
+    """从文件名抽日期：完整日期为 medium，只有年份/年月为 low。"""
+    stem = str(name or "")
+    if not stem:
+        return ("", "none", "none")
+    match = _FILENAME_DATE_RE.search(stem)
+    if match:
+        iso = _iso_from_parts(*match.groups())
+        if iso:
+            return (iso, "filename", "medium")
+    match = _CN_DATE_RE.search(stem)
+    if match:
+        iso = _iso_from_parts(*match.groups())
+        if iso:
+            return (iso, "filename", "medium")
+    match = _CN_MONTH_RE.search(stem)
+    if match:
+        year, month = int(match.group(1)), int(match.group(2))
+        if 1 <= month <= 12 and year <= date.today().year:
+            return (f"{year}-{month:02d}-01", "filename", "low")
+    match = _YEAR_RE.search(stem)
+    if match:
+        iso = _year_only_iso(match.group(1))
+        if iso:
+            return (iso, "filename", "low")
+    return ("", "none", "none")
+
+
+def _first_page_texts(conn: sqlite3.Connection, doc_ids: List[str], budget: int = 4000) -> Dict[str, str]:
+    """批量取每篇第一页文本（page_idx=0 的 blocks 顺序拼接，≤ budget 字符）。
+
+    doc_blocks 不存在或列缺失时返回空表（回填照样能退化到文件名/mtime）。
+    """
+    out: Dict[str, str] = {}
+    for start in range(0, len(doc_ids), 400):
+        chunk = doc_ids[start : start + 400]
+        marks = ",".join("?" * len(chunk))
+        try:
+            rows = conn.execute(
+                f"select doc_id, plain_text from doc_blocks where doc_id in ({marks}) "
+                "and page_idx=0 order by doc_id, block_seq",
+                chunk,
+            )
+        except sqlite3.OperationalError:
+            return out
+        for row in rows:
+            piece = str(row["plain_text"] or "").strip()
+            if not piece:
+                continue
+            current = out.get(row["doc_id"], "")
+            if len(current) >= budget:
+                continue
+            joined = f"{current}\n{piece}" if current else piece
+            out[row["doc_id"]] = joined[:budget]
+    return out
+
+
+def _source_mtime_iso(library_id: str, doc_id: str) -> str:
+    """源文件 mtime（low 兜底）。文件不存在/不可读返回空串——不猜日期。"""
+    try:
+        from docs_core.step01_source_prep.source_prep import resolve_source_file
+
+        path = resolve_source_file(library_id, doc_id)
+        if not path:
+            return ""
+        stamp = os.path.getmtime(path)
+        if stamp <= 0:
+            return ""
+        return datetime.fromtimestamp(stamp).date().isoformat()
+    except Exception:  # noqa: BLE001 —— mtime 只是兜底，任何失败都退化为无日期
+        return ""
+
+
+def backfill_doc_dates(
+    library_id: str,
+    *,
+    limit: Optional[int] = None,
+    conn: Optional[sqlite3.Connection] = None,
+    mtime_resolver: Any = None,
+) -> Dict[str, Any]:
+    """回填 doc_catalog 的 doc_date/date_source/date_confidence（不重跑解析）。
+
+    优先级：正文首屏日期（high）> 文件名完整日期（medium）> 仅年份（low）>
+    源文件 mtime（low）> 空（none）。幂等：只 UPDATE 值有变化的行。
+    """
+    own = conn is None
+    conn = conn or _connect(library_id)
+    try:
+        ensure_catalog(conn)
+        if conn.row_factory is None:
+            conn.row_factory = sqlite3.Row
+        rows = conn.execute(
+            "select doc_id, filename, rel_path, doc_date, date_source, date_confidence "
+            "from doc_catalog where library_id=? order by doc_id",
+            (library_id,),
+        ).fetchall()
+        if limit is not None and limit >= 0:
+            rows = rows[:limit]
+        texts = _first_page_texts(conn, [r["doc_id"] for r in rows]) if rows else {}
+        resolver = mtime_resolver or _source_mtime_iso
+        by_source = {name: 0 for name in DATE_SOURCES}
+        by_confidence = {name: 0 for name in DATE_CONFIDENCES}
+        updates: List[Tuple[str, str, str, str, str]] = []
+        for row in rows:
+            doc_id = row["doc_id"]
+            name = row["filename"] or os.path.basename(str(row["rel_path"] or ""))
+            iso, source, confidence = extract_date_from_text(texts.get(doc_id, ""))
+            if not iso:
+                iso, source, confidence = extract_date_from_filename(name)
+            if not iso:
+                iso = str(resolver(library_id, doc_id) or "")
+                source, confidence = ("mtime", "low") if iso else ("none", "none")
+            by_source[source] = by_source.get(source, 0) + 1
+            by_confidence[confidence] = by_confidence.get(confidence, 0) + 1
+            if (
+                iso != (row["doc_date"] or "")
+                or source != (row["date_source"] or "none")
+                or confidence != (row["date_confidence"] or "none")
+            ):
+                updates.append((iso, source, confidence, library_id, doc_id))
+        if updates:
+            conn.executemany(
+                "update doc_catalog set doc_date=?, date_source=?, date_confidence=? "
+                "where library_id=? and doc_id=?",
+                updates,
+            )
+            conn.commit()
+        return {
+            "library_id": library_id,
+            "total": len(rows),
+            "with_date": len(rows) - by_confidence.get("none", 0),
+            "updated": len(updates),
+            "by_source": by_source,
+            "by_confidence": by_confidence,
+        }
+    finally:
+        if own:
+            conn.close()
+
+
+def catalog_date_coverage(conn: sqlite3.Connection, library_id: str) -> Dict[str, Any]:
+    """日期覆盖分布（施工/验收观测用）：按 source、confidence 计数与日期区间。"""
+    if not catalog_has_dates(conn):
+        return {"catalog": has_catalog(conn), "dates": False, "total": 0, "with_date": 0}
+    total = int(
+        conn.execute("select count(*) from doc_catalog where library_id=?", (library_id,)).fetchone()[0]
+    )
+    row = conn.execute(
+        "select sum(case when doc_date<>'' then 1 else 0 end) as dated, "
+        "min(case when doc_date<>'' then doc_date end) as dmin, "
+        "max(case when doc_date<>'' then doc_date end) as dmax "
+        "from doc_catalog where library_id=?",
+        (library_id,),
+    ).fetchone()
+    by_source = {
+        str(r[0] or "none"): int(r[1])
+        for r in conn.execute(
+            "select date_source, count(*) from doc_catalog where library_id=? group by date_source",
+            (library_id,),
+        )
+    }
+    by_confidence = {
+        str(r[0] or "none"): int(r[1])
+        for r in conn.execute(
+            "select date_confidence, count(*) from doc_catalog where library_id=? group by date_confidence",
+            (library_id,),
+        )
+    }
+    dated = int(row["dated"] or 0)
+    return {
+        "catalog": True,
+        "dates": True,
+        "total": total,
+        "with_date": dated,
+        "coverage": round(dated / total, 3) if total else 0.0,
+        "date_min": row["dmin"] or "",
+        "date_max": row["dmax"] or "",
+        "by_source": by_source,
+        "by_confidence": by_confidence,
+    }
 
 
 def upsert_catalog_doc(
@@ -632,6 +970,38 @@ def _title_map(conn: sqlite3.Connection, doc_ids: List[str]) -> Dict[str, str]:
     return out
 
 
+def _clean_iso_date(value: Optional[str]) -> Optional[str]:
+    """校验 YYYY-MM-DD；非法值返回 None（不猜，调用方把非法值回显给模型）。"""
+    text = str(value or "").strip()
+    if not text:
+        return None
+    try:
+        return date.fromisoformat(text).isoformat()
+    except ValueError:
+        return None
+
+
+def _date_ord(value: str) -> int:
+    try:
+        return date.fromisoformat(str(value or "")[:10]).toordinal()
+    except ValueError:
+        return 0
+
+
+def _usable_doc_date(cat: Optional[Dict[str, Any]]) -> Tuple[str, str]:
+    """可作为「文档日期」使用的值：text/filename 来源算；mtime 只是文件落盘时间，不算。
+
+    mtime 会随拷贝/迁移变化（计划风险表），Harvey 语料实测 57% 的行只有 mtime，
+    且集中在入库当天——若让它参与排序/过滤，「最新」题会被入库时间淹没。
+    """
+    cat = cat or {}
+    value = str(cat.get("doc_date") or "")
+    source = str(cat.get("date_source") or "none")
+    if not value or source in ("", "none", "mtime"):
+        return ("", source or "none")
+    return (value, source)
+
+
 def search_documents(
     *,
     library_id: str = "default",
@@ -640,17 +1010,43 @@ def search_documents(
     per_matter: int = 2,
     filename_contains: Optional[List[str]] = None,
     doc_type: Optional[str] = None,
+    sort_by: Optional[str] = None,
+    date_after: Optional[str] = None,
+    date_before: Optional[str] = None,
+    entity_contains: Optional[str] = None,
 ) -> Dict[str, Any]:
     """文档级检索：返回按 matter 归并的候选清单（枚举视图）。
 
     filename_contains：目录谓词（短语列表，AND）——按文件名/路径过滤，高于 FTS 的确定性信号；
     doc_type：限定扩展名（xlsx/docx/pdf…）。两者只在有 doc_catalog 的库生效。
+
+    sort_by：None（默认，按相关性，行为与加日期前逐字节一致）/ "date_desc" / "date_asc"；
+    date_after/date_before：YYYY-MM-DD 区间过滤，显式过滤时**排除无日期文档**（不猜）。
+
+    entity_contains：实体/客户/案件名——先找出提到它的文档，再把这些文档所属的
+    matter/group 作为检索范围（「Lumos 最近一份信贷协议」= entity + filename + date_desc 一次调用）。
     """
     limit = max(1, min(int(limit or 40), MAX_DOCS))
     per_matter = max(1, min(int(per_matter or 2), 10))
     tokens = _tokens(query)
-    if not tokens and not filename_contains:
+    entity_name = str(entity_contains or "").strip()
+    if not tokens and not filename_contains and not entity_name:
         return {"error": "缺少有效检索词", "query": query}
+
+    invalid: List[str] = []
+    sort_by = str(sort_by or "").strip() or None
+    if sort_by not in (None, "date_desc", "date_asc"):
+        invalid.append(f"sort_by={sort_by}")
+        sort_by = None
+    raw_after, raw_before = str(date_after or "").strip(), str(date_before or "").strip()
+    after = _clean_iso_date(raw_after)
+    before = _clean_iso_date(raw_before)
+    if raw_after and not after:
+        invalid.append(f"date_after={raw_after}")
+    if raw_before and not before:
+        invalid.append(f"date_before={raw_before}")
+    # 非法参数也算「用过日期通道」：要在结果里回显 invalid，而不是静默当成没传
+    date_mode = bool(sort_by or after or before or raw_after or raw_before)
 
     conn = _connect(library_id)
     catalog: Dict[str, Dict[str, Any]] = {}
@@ -659,7 +1055,54 @@ def search_documents(
     groups: Dict[str, Dict[str, Any]] = {}
     candidates: Dict[str, Dict[str, Any]] = {}
     catalog_docs: Dict[str, str] = {}
+    date_warning = ""
+    entity_groups: set = set()
+    entity_rows: List[Dict[str, Any]] = []
     try:
+        if date_mode:
+            # 日期排序/过滤依赖目录三列；无目录直接报错（不建表、不静默返回全空）
+            if not has_catalog(conn):
+                return {
+                    "error": "本库没有 doc_catalog（未建目录），无法按日期排序/过滤",
+                    "query": query,
+                    "library_id": library_id,
+                }
+            try:
+                ensure_catalog(conn)
+            except sqlite3.Error as exc:  # noqa: BLE001
+                date_warning = f"目录补列失败: {exc}"
+            if not catalog_has_dates(conn):
+                return {
+                    "error": "本库没有 doc_catalog 日期列，无法按日期排序/过滤；请先运行 "
+                    "scripts/backfill_doc_dates.py 回填",
+                    "query": query,
+                    "library_id": library_id,
+                }
+
+        if entity_name:
+            # 第一步：实体定位——先找提到实体的文档，再把它们所属 group 作为检索范围
+            ent_tokens = _tokens(entity_name)
+            if not ent_tokens:
+                return {"error": f"entity_contains 无有效检索词: {entity_name!r}", "query": query}
+            if not has_catalog(conn):
+                return {"error": "本库没有 doc_catalog，无法按实体限定范围", "query": query}
+            entity_rows = _text_hits(conn, library_id, ent_tokens, max(limit, 60), include_loose=False)
+            if len(entity_rows) < 3:
+                entity_rows = _text_hits(
+                    conn, library_id, ent_tokens, max(limit, 60), include_loose=True
+                )
+            ent_cat = _catalog_map(conn, library_id, [r["doc_id"] for r in entity_rows])
+            for row in entity_rows:
+                cat = ent_cat.get(row["doc_id"]) or {}
+                ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), row["doc_id"])
+                entity_groups.add(ident["group_id"])
+            if not entity_groups:
+                return {
+                    "error": f"未找到提到「{entity_name}」的文档（实体未命中，换关键词再试）",
+                    "query": query,
+                    "library_id": library_id,
+                }
+
         text_rows = _text_hits(conn, library_id, tokens, limit, include_loose=False) if tokens else []
         if tokens and len(text_rows) < 5:
             # 短语通道过窄（术语写法不一/复数/换行断裂）时才放开松散 AND，避免漏召回
@@ -683,14 +1126,69 @@ def search_documents(
                 entry["score"] += 30.0  # 目录谓词命中：确定性最高，排在最前
                 entry["catalog_hit"] = True
                 entry["catalog_title"] = filename
+        if not tokens and not filename_contains and entity_rows:
+            # 只给实体：返回该实体的全部文档，按 group 归并（配合 sort_by 即可看「这家的最新文件」）
+            candidates = {r["doc_id"]: r for r in entity_rows}
 
-        catalog = _catalog_map(conn, library_id, list(candidates)[: max(limit * 8, 400)])
+        if entity_name:
+            catalog_ids = list(candidates)
+        else:
+            catalog_ids = list(candidates) if date_mode else list(candidates)[: max(limit * 8, 400)]
+        catalog = _catalog_map(conn, library_id, catalog_ids, with_dates=date_mode)
+        if date_mode and candidates and not catalog:
+            date_warning = "候选文档没有目录行，日期均为空：排序无效、区间过滤会排除全部候选"
+
+        if entity_groups:
+            # 第二步：范围收窄——只保留实体所属 group 内的候选
+            kept_entity: Dict[str, Dict[str, Any]] = {}
+            for doc_id, entry in candidates.items():
+                cat = catalog.get(doc_id) or {}
+                ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), doc_id)
+                if ident["group_id"] in entity_groups:
+                    kept_entity[doc_id] = entry
+            candidates = kept_entity
+            if not candidates:
+                return {
+                    "error": f"实体「{entity_name}」命中 {len(entity_groups)} 个分组，但没有符合其余条件的文档",
+                    "query": query,
+                    "library_id": library_id,
+                }
+        if after or before:
+            # 显式区间过滤：无「可用的文档日期」的候选一律排除，不做猜测。
+            # mtime 只是源文件落盘时间（拷贝/迁移会变），不算文档日期，故也排除。
+            kept: Dict[str, Dict[str, Any]] = {}
+            for doc_id, entry in candidates.items():
+                value, source = _usable_doc_date(catalog.get(doc_id))
+                if not value:
+                    continue
+                if after and value < after:
+                    continue
+                if before and value > before:
+                    continue
+                kept[doc_id] = entry
+            candidates = kept
         quality: Optional[Dict[str, Any]] = (
             catalog_semantic_coverage(conn, library_id) if catalog else None
         )
+
+        def _order(entries: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+            """组内排序：默认按分数；日期模式按日期（可用日期 > mtime > 无日期，同层再按分数）。"""
+            if not sort_by:
+                return sorted(entries, key=lambda x: (-x["score"], -x["hits"]))
+
+            def key(x: Dict[str, Any]) -> Tuple[Any, ...]:
+                value, source = _usable_doc_date(catalog.get(x["doc_id"]))
+                cat = catalog.get(x["doc_id"]) or {}
+                tier = 0 if value else (1 if cat.get("doc_date") else 2)
+                if sort_by == "date_desc":
+                    return (tier, -_date_ord(value or cat.get("doc_date") or ""), -x["score"], -x["hits"])
+                return (tier, _date_ord(value or cat.get("doc_date") or ""), -x["score"], -x["hits"])
+
+            return sorted(entries, key=key)
+
         # matter 优先分配：同一 matter 最多 per_matter 篇进 docs，避免大 matter 挤掉其它候选。
         # 先按分数取前 400 个候选再分组——候选可能上千（泛词命中），全量分组会让 matter 数失真。
-        ranked = sorted(candidates.values(), key=lambda x: (-x["score"], -x["hits"]))[:400]
+        ranked = _order(list(candidates.values()))[:400]
         for entry in ranked:
             cat = catalog.get(entry["doc_id"]) or {}
             ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), entry["doc_id"])
@@ -700,11 +1198,24 @@ def search_documents(
             )
             group["entries"].append(entry)
             group["score"] = max(group["score"], entry["score"])
-        ordered_groups = sorted(groups, key=lambda k: (-groups[k]["score"], k))
+
+        def _group_key(key: str) -> Tuple[Any, ...]:
+            if not sort_by:
+                return (-groups[key]["score"], key)
+            best_entry = _order(groups[key]["entries"])[0]
+            value, _source = _usable_doc_date(catalog.get(best_entry["doc_id"]))
+            cat = catalog.get(best_entry["doc_id"]) or {}
+            tier = 0 if value else (1 if cat.get("doc_date") else 2)
+            value = value or cat.get("doc_date") or ""
+            if sort_by == "date_desc":
+                return (tier, -_date_ord(value), -groups[key]["score"], key)
+            return (tier, _date_ord(value), -groups[key]["score"], key)
+
+        ordered_groups = sorted(groups, key=_group_key)
 
         chosen: List[Dict[str, Any]] = []
         for key in ordered_groups:
-            entries = sorted(groups[key]["entries"], key=lambda x: (-x["score"], -x["hits"]))
+            entries = _order(groups[key]["entries"])
             for entry in entries[:per_matter]:
                 if len(chosen) >= limit:
                     break
@@ -714,14 +1225,14 @@ def search_documents(
 
         card_ids: List[str] = []
         for key in ordered_groups[:_MATTER_CARDS]:
-            for entry in groups[key]["entries"][:per_matter]:
+            for entry in _order(groups[key]["entries"])[:per_matter]:
                 card_ids.append(entry["doc_id"])
         title_map = _title_map(conn, card_ids) if card_ids else {}
 
         for entry in chosen:
             cat = catalog.get(entry["doc_id"]) or {}
             ident = _group_identity(cat.get("matter_id", ""), cat.get("folder", ""), entry["doc_id"])
-            docs.append({
+            doc_row = {
                 "doc_id": entry["doc_id"],
                 "title": cat.get("display_title") or title_map.get(entry["doc_id"]) or entry["doc_id"],
                 "group_id": ident["group_id"],
@@ -732,10 +1243,21 @@ def search_documents(
                 "title_hit": bool(entry.get("title_hit")),
                 "snippet": _snippet(entry.get("best_text") or ""),
                 "page": _page_of_chunk(conn, entry.get("best_chunk") or "") + 1,
-            })
+            }
+            if date_mode:
+                doc_row["doc_date"] = cat.get("doc_date") or ""
+                doc_row["date_source"] = cat.get("date_source") or "none"
+                doc_row["date_confidence"] = cat.get("date_confidence") or "none"
+            docs.append(doc_row)
 
         for key in ordered_groups[:_MATTER_CARDS]:
-            entries = sorted(groups[key]["entries"], key=lambda x: (-x["score"], -x["hits"]))
+            entries = _order(groups[key]["entries"])
+            if catalog_docs:
+                # 目录谓词命中优先：问「某客户最新一份信贷协议」时，组内 best 必须是命中的那份，
+                # 而不是同组里分数更高的别的文书（2026-10-20 题 013 实踩）。
+                matched_entries = [e for e in entries if e["doc_id"] in catalog_docs]
+                if matched_entries:
+                    entries = matched_entries + [e for e in entries if e["doc_id"] not in catalog_docs]
             best = entries[0]
             best_cat = catalog.get(best["doc_id"]) or {}
             matched_docs = [
@@ -762,6 +1284,13 @@ def search_documents(
                     for entry in entries[:per_matter]
                 ],
             }
+            if date_mode:
+                card["doc_date"] = best_cat.get("doc_date") or ""
+                card["date_source"] = best_cat.get("date_source") or "none"
+                card["date_confidence"] = best_cat.get("date_confidence") or "none"
+                card["best"]["doc_date"] = best_cat.get("doc_date") or ""
+                card["best"]["date_source"] = best_cat.get("date_source") or "none"
+                card["best"]["date_confidence"] = best_cat.get("date_confidence") or "none"
             if kind == "case":
                 card["matter_id"] = key
             if matched_docs:
@@ -801,6 +1330,58 @@ def search_documents(
             "doc_type": doc_type or "",
             "catalog_docs": len(catalog_docs),
         }
+    if entity_name:
+        result["entity"] = {
+            "entity_contains": entity_name,
+            "matched_docs": len(entity_rows),
+            "matched_groups": len(entity_groups),
+            "scoped_docs": len(candidates),
+        }
+        result["note"] = result["note"] + (
+            " 实体模式：候选已收窄到提到该实体的分组内；配合 filename_contains 与 "
+            "sort_by=date_desc 可一次拿到「某客户最新一份某类文档」。"
+        )
+        # 实体 + 文件类型 + 日期排序后只剩一组：这是确定性最高的定位结果，
+        # 明确标成 authoritative，避免模型改答同客户其它文书（2026-10-20 题 013 实踩：
+        # 模型拿到唯一信贷协议卡片，却改答 SAFE）。
+        if filename_contains and sort_by and len(matter_list) == 1 and candidates:
+            only = matter_list[0]
+            best = only.get("best") or {}
+            result["authoritative"] = {
+                "doc_id": best.get("doc_id"),
+                "title": best.get("title"),
+                "doc_date": only.get("doc_date") or "",
+                "date_source": only.get("date_source") or "none",
+                "snippet": best.get("snippet") or "",
+                "instruction": (
+                    "实体+文件类型筛选后只命中这一组：本题答案必须基于该文档作答"
+                    "（先用 doc_read 读正文确认条款），不要用同客户的其它文书替代。"
+                ),
+            }
+    if date_mode:
+        dated = 0
+        mtime_only = 0
+        for entry in candidates.values():
+            value, _source = _usable_doc_date(catalog.get(entry["doc_id"]))
+            if value:
+                dated += 1
+            elif (catalog.get(entry["doc_id"]) or {}).get("doc_date"):
+                mtime_only += 1
+        result["date_sort"] = {
+            "sort_by": sort_by or "",
+            "date_after": after or "",
+            "date_before": before or "",
+            "dated_docs": dated,
+            "mtime_only_docs": mtime_only,
+            "invalid": invalid,
+            "warning": date_warning,
+        }
+        result["note"] = result["note"] + (
+            " 日期模式：doc_date 为目录里的文档日期（YYYY-MM-DD，date_source=text/filename/mtime，"
+            "date_confidence=high/medium/low）。排序按「正文/文件名日期 > 仅 mtime > 无日期」，同层按日期；"
+            "mtime 只是文件落盘时间（拷贝/迁移会变），**不参与 date_after/date_before 过滤**。"
+            "涉及「最新」结论时用 doc_read 读正文核对落款。"
+        )
     if catalog:
         result["catalog_quality"] = quality
     if not catalog:
@@ -808,8 +1389,46 @@ def search_documents(
     return result
 
 
+_READ_STOPWORDS = {
+    "most", "more", "the", "and", "for", "with", "that", "this", "from", "have", "has",
+    "are", "was", "were", "will", "shall", "such", "other", "than", "into", "upon", "may",
+    "not", "any", "all", "its", "their", "there", "been", "being", "about", "over",
+}
+
+
 def _query_terms(query: str) -> List[str]:
-    return _tokens(query)[:6]
+    """读页检索词：去疑问/虚词，避免 "most" 这类词把匹配带到无关段落。"""
+    return [t for t in _tokens(query)[:10] if t.lower() not in _READ_STOPWORDS][:6]
+
+
+def _section_rows(
+    conn: sqlite3.Connection, doc_id: str, section: str, limit: int = 8
+) -> List[sqlite3.Row]:
+    """按章节号定位：找到 "Section X" / "§ X" 标题所在块，从那里往后取若干块。
+
+    2026-10-20 题 013 实踩：读页只按关键词匹配，模型读到了文档却翻不到 Section 2.15，
+    最终答「信贷协议没有 MFN 条款」。章节是比关键词更确定的定位方式。
+    """
+    name = str(section or "").strip().lstrip("§").strip()
+    if not name:
+        return []
+    try:
+        rows = conn.execute(
+            "select text_clean, page_start, chunk_id from canonical_chunks "
+            "where doc_id=? order by page_start, chunk_id limit 600",
+            (doc_id,),
+        ).fetchall()
+    except sqlite3.OperationalError:
+        return []
+    low = name.lower()
+    for needle in (f"section {low}", f"§ {low}", f"{low}."):
+        for idx, row in enumerate(rows):
+            if needle in str(row["text_clean"] or "").lower():
+                return rows[idx : idx + limit]
+    for idx, row in enumerate(rows):
+        if low in str(row["text_clean"] or "").lower():
+            return rows[idx : idx + limit]
+    return []
 
 
 def read_documents(
@@ -819,8 +1438,10 @@ def read_documents(
     query: str = "",
     max_chars_per_doc: int = 1200,
     mode: str = "head",
+    section: str = "",
 ) -> Dict[str, Any]:
-    """批量读页：head=从头按页读；match=读与 query 相关的段落（无命中回落 head）。"""
+    """批量读页：head=从头按页读；match=读与 query 相关的段落（无命中回落 head）；
+    section=按章节号（如 "2.15"）定位并从该章节往后读。"""
     ids = [str(d).strip() for d in (doc_ids or []) if str(d).strip()][:MAX_READ_DOCS]
     if not ids:
         return {"error": "缺少 doc_ids"}
@@ -837,15 +1458,37 @@ def read_documents(
                 out.append({"doc_id": doc_id, "error": "文档不存在或不属于本库"})
                 continue
             rows: List[sqlite3.Row] = []
-            if mode == "match" and query:
+            from_section = False
+            if section:
+                rows = _section_rows(conn, doc_id, section)
+                from_section = bool(rows)
+            if not rows and mode == "match" and query:
                 terms = _query_terms(query)
                 if terms:
-                    like = " and ".join("text_clean like ?" for _ in terms)
+                    # 先按 AND（精确）；无命中退到 OR——术语写法不一（"MFN" vs "Most Favored Nation"）
+                    # 时全词 AND 会直接落空，模型据此判「文档里没有」，2026-10-20 题 013 实踩。
+                    like_and = " and ".join("text_clean like ?" for _ in terms)
                     rows = conn.execute(
                         f"select text_clean, page_start, chunk_id from canonical_chunks "
-                        f"where doc_id=? and {like} order by page_start, chunk_id limit 6",
+                        f"where doc_id=? and {like_and} order by page_start, chunk_id limit 6",
                         (doc_id, *[f"%{t}%" for t in terms]),
                     ).fetchall()
+                    if not rows:
+                        # 退化路径要按「命中词数」排序：单纯 OR 会让 "Most Favored"
+                        # 命中 only "most recent …" 的无关段落（2026-10-20 题 013 实踩）。
+                        like_or = " or ".join("text_clean like ?" for _ in terms)
+                        candidates = conn.execute(
+                            f"select text_clean, page_start, chunk_id from canonical_chunks "
+                            f"where doc_id=? and ({like_or}) limit 60",
+                            (doc_id, *[f"%{t}%" for t in terms]),
+                        ).fetchall()
+                        scored = []
+                        for row in candidates:
+                            hay = str(row["text_clean"] or "").lower()
+                            hits = sum(1 for t in terms if t.lower() in hay)
+                            scored.append((-hits, int(row["page_start"] or 0), row["chunk_id"], row))
+                        scored.sort(key=lambda item: item[:3])
+                        rows = [item[3] for item in scored[:6]]
             if not rows:
                 rows = conn.execute(
                     "select text_clean, page_start, chunk_id from canonical_chunks "
@@ -868,7 +1511,7 @@ def read_documents(
                 parts.append(f"[p{int(row['page_start']) + 1}] {piece}")
                 used += len(piece)
             cat = catalog.get(doc_id) or {}
-            out.append({
+            doc_row = {
                 "doc_id": doc_id,
                 "title": cat.get("display_title") or doc_meta["title"],
                 "matter_id": cat.get("matter_id") or "",
@@ -877,7 +1520,14 @@ def read_documents(
                 "total_chars": total,
                 "truncated": total > used,
                 "text": "\n".join(parts),
-            })
+            }
+            if section:
+                doc_row["section"] = section
+                doc_row["section_found"] = from_section
+            out.append(doc_row)
     finally:
         conn.close()
-    return {"docs": out, "mode": mode, "note": "text 中 [pN] 为页码；truncated=true 表示只读了开头部分。"}
+    note = "text 中 [pN] 为页码；truncated=true 表示只读了开头部分。"
+    if section:
+        note += " section 模式从该章节标题所在块开始读；section_found=false 表示没找到该章节，已回退到普通读页。"
+    return {"docs": out, "mode": "section" if section else mode, "note": note}

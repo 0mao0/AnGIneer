@@ -111,12 +111,39 @@ def _enum_context(query, library_id, llm, config_name, mode):
         return None
 
 
+def _date_context(query, library_id, llm, config_name, mode):
+    """「最新/最近」日期预取：开关默认关；与枚举预取互斥（枚举优先）。"""
+    try:
+        from angineer_core.date_prefetch import build_date_context
+
+        return build_date_context(
+            query=str(query or ""),
+            library_id=library_id,
+            llm=llm,
+            config_name=config_name,
+            mode=mode,
+        )
+    except Exception as exc:  # noqa: BLE001
+        import logging
+
+        logging.getLogger(__name__).warning("date_prefetch 跳过: %s", exc)
+        return None
+
+
+def _prefetch_context(query, library_id, llm, config_name, mode):
+    """两路预取只注入一路：枚举（穷举）优先，其次日期（最新/最近）。"""
+    ctx = _enum_context(query, library_id, llm, config_name, mode)
+    if ctx:
+        return ctx
+    return _date_context(query, library_id, llm, config_name, mode)
+
+
 def _l1_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, enforce_evidence, marker_allocator, library_ids=None, answer_format=None, query=None) -> AttemptConfig:
     from angineer_core.agent_configs import build_qa_config
 
     def factory() -> AgentLoopConfig:
         llm = llm_factory()
-        enum_ctx = _enum_context(query, library_id, llm, config_name, mode)
+        enum_ctx = _prefetch_context(query, library_id, llm, config_name, mode)
         cfg = build_qa_config(
             llm=llm,
             doc_nodes=load_nodes(),
@@ -256,7 +283,7 @@ def build_attempts(
 
         def complex_factory() -> AgentLoopConfig:
             llm = llm_factory()
-            enum_ctx = _enum_context(query, library_id, llm, config_name, mode)
+            enum_ctx = _prefetch_context(query, library_id, llm, config_name, mode)
             return build_complex_config(
                 llm=llm,
                 doc_nodes=load_nodes(),

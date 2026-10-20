@@ -256,3 +256,350 @@ def test_read_documents_caps_ids(library_db):
     ids = [f"d{i}" for i in range(12)]
     result = doc_search.read_documents(library_id="lib", doc_ids=ids)
     assert len(result["docs"]) <= doc_search.MAX_READ_DOCS
+
+
+def test_read_documents_match_falls_back_to_or(library_db):
+    # 术语写法不一（"MFN" vs "Most Favored Nation"）时，全词 AND 会落空；
+    # 退到 OR 后应命中有 "issued" 的那段，而不是回落到整篇开头。
+    result = doc_search.read_documents(
+        library_id="lib", doc_ids=["d1"], query="issued unicorn dragon", mode="match"
+    )
+    text = result["docs"][0]["text"].lower()
+    assert "issued" in text
+    assert "strategy memo" not in text
+
+
+def test_read_documents_section_locates_clause(library_db):
+    conn = _conn(library_db)
+    try:
+        conn.execute(
+            "insert into canonical_documents(doc_id, title, page_count) values ('d6','credit-agreement.docx',3)"
+        )
+        conn.executemany(
+            "insert into canonical_chunks(chunk_id, doc_id, text_clean, page_start) values (?,?,?,?)",
+            [
+                ("c10", "d6", "Preamble recitals and definitions", 0),
+                ("c11", "d6", "Section 2.15 — Incremental Revolving Commitments (Accordion)", 2),
+                ("c12", "d6", "(d) MFN same-pricing and equal-treatment terms apply.", 2),
+            ],
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    hit = doc_search.read_documents(library_id="lib", doc_ids=["d6"], section="2.15")
+    doc = hit["docs"][0]
+    assert doc["section_found"] is True
+    assert "Section 2.15" in doc["text"] and "MFN same-pricing" in doc["text"]
+    assert "Preamble" not in doc["text"]
+
+    miss = doc_search.read_documents(library_id="lib", doc_ids=["d6"], section="9.99")
+    assert miss["docs"][0]["section_found"] is False
+    assert "Preamble" in miss["docs"][0]["text"]  # 找不到章节 → 回退普通读页
+
+
+# ---------------------------------------------------------------------------
+# 时间维度：日期抽取 / 回填 / 排序 / 区间过滤
+# ---------------------------------------------------------------------------
+
+
+def _set_dates(path: Path, dates: dict) -> None:
+    conn = _conn(path)
+    try:
+        conn.executemany(
+            "update doc_catalog set doc_date=?, date_source=?, date_confidence=? where doc_id=?",
+            [(value, "text" if value else "none", "high" if value else "none", doc_id)
+             for doc_id, value in dates.items()],
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_catalog_alters_legacy_table_without_date_columns(tmp_path):
+    db = tmp_path / "legacy.sqlite"
+    conn = sqlite3.connect(str(db))
+    conn.executescript(
+        """
+        CREATE TABLE doc_catalog (
+            doc_id TEXT PRIMARY KEY, library_id TEXT NOT NULL,
+            matter_id TEXT NOT NULL DEFAULT '', folder TEXT NOT NULL DEFAULT '',
+            rel_path TEXT NOT NULL DEFAULT '', filename TEXT NOT NULL DEFAULT '',
+            doc_type TEXT NOT NULL DEFAULT '', source TEXT NOT NULL DEFAULT '',
+            updated_at TEXT NOT NULL DEFAULT ''
+        );
+        """
+    )
+    conn.execute("insert into doc_catalog(doc_id, library_id, filename) values ('d1','lib','memo.docx')")
+    conn.commit()
+    doc_search.ensure_catalog(conn)
+    cols = {row[1] for row in conn.execute("pragma table_info(doc_catalog)")}
+    row = conn.execute("select doc_date, date_source, date_confidence from doc_catalog").fetchone()
+    conn.close()
+    assert {"doc_date", "date_source", "date_confidence"} <= cols
+    assert row == ("", "none", "none")
+
+
+@pytest.mark.parametrize("text,expected", [
+    ("This Agreement is dated as of July 16, 2024 by and between the parties.", ("2024-07-16", "text", "high")),
+    ("DATED: 2024-07-16", ("2024-07-16", "text", "high")),
+    ("Effective as of March 3, 2025, the Company shall...", ("2025-03-03", "text", "high")),
+    ("本协议于2024年7月16日签署。", ("2024-07-16", "text", "high")),
+    ("2024 年 7 月发布", ("2024-07-01", "text", "low")),
+    ("2024年年度报告", ("2024-07-01", "text", "low")),
+    # 英文孤立年份不抽（引证页码/表格单元格噪声，实测把 2094 认成文档日期）
+    ("Fiscal year 2024 results were strong", ("", "none", "none")),
+    ("See Smith v. Jones, 123 F.3d 2094 (1998)", ("", "none", "none")),
+    # 未来日期不可信
+    ("This Agreement is dated as of July 16, 2094", ("", "none", "none")),
+    ("No dates in this document at all", ("", "none", "none")),
+])
+def test_extract_date_from_text(text, expected):
+    assert doc_search.extract_date_from_text(text) == expected
+
+
+@pytest.mark.parametrize("name,expected", [
+    ("credit-agreement-2024-07-16.docx", ("2024-07-16", "filename", "medium")),
+    ("hsr-filing-20240716.pdf", ("2024-07-16", "filename", "medium")),
+    ("2024年度检测报告.pdf", ("2024-07-01", "filename", "low")),
+    ("合同2024年7月16日.docx", ("2024-07-16", "filename", "medium")),
+    ("二〇二四年报告.pdf", ("", "none", "none")),
+    ("second-request-strategy-memo.docx", ("", "none", "none")),
+])
+def test_extract_date_from_filename(name, expected):
+    assert doc_search.extract_date_from_filename(name) == expected
+
+
+
+def test_backfill_doc_dates_prefers_text_then_filename_then_mtime(library_db):
+    def resolver(library_id, doc_id):
+        return {"d3": "2022-05-06"}.get(doc_id, "")
+
+    conn = _conn(library_db)
+    try:
+        conn.execute("alter table doc_blocks add column plain_text text")
+        conn.execute(
+            "insert into doc_blocks(doc_id, page_idx, block_seq, block_type, title_path, plain_text) "
+            "values ('d1', 0, 9, 'para', '', 'Dated as of July 16, 2024 — Second Request strategy')"
+        )
+        conn.execute("update doc_catalog set filename='matter-closing-2025-01-05.docx' where doc_id='d2'")
+        conn.commit()
+        stats = doc_search.backfill_doc_dates("lib", conn=conn, mtime_resolver=resolver)
+        rows = {
+            r["doc_id"]: (r["doc_date"], r["date_source"], r["date_confidence"])
+            for r in conn.execute("select doc_id, doc_date, date_source, date_confidence from doc_catalog")
+        }
+        cov = doc_search.catalog_date_coverage(conn, "lib")
+        second = doc_search.backfill_doc_dates("lib", conn=conn, mtime_resolver=resolver)
+    finally:
+        conn.close()
+    assert rows["d1"] == ("2024-07-16", "text", "high")
+    assert rows["d2"] == ("2025-01-05", "filename", "medium")
+    assert rows["d3"] == ("2022-05-06", "mtime", "low")
+    assert rows["d4"] == ("", "none", "none")
+    assert stats["total"] == 4 and stats["with_date"] == 3
+    assert stats["by_source"] == {"text": 1, "filename": 1, "mtime": 1, "none": 1}
+    assert cov["with_date"] == 3 and cov["coverage"] == 0.75
+    assert cov["date_min"] == "2022-05-06" and cov["date_max"] == "2025-01-05"
+    # 幂等：第二次回填不再写行
+    assert second["updated"] == 0
+
+
+def test_search_date_desc_sorts_groups_and_keeps_empty_last(library_db):
+    _set_dates(library_db, {"d1": "2024-07-16", "d2": "2025-01-05"})
+    result = doc_search.search_documents(
+        library_id="lib", query="", filename_contains=["memo"], limit=10, sort_by="date_desc"
+    )
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00002", "1001-00001"]
+    newest = result["matters"][0]
+    assert newest["doc_date"] == "2025-01-05"
+    assert newest["date_source"] == "text"
+    assert newest["best"]["doc_date"] == "2025-01-05"
+    assert result["date_sort"]["sort_by"] == "date_desc"
+
+    _set_dates(library_db, {"d2": ""})
+    result = doc_search.search_documents(
+        library_id="lib", query="", filename_contains=["memo"], limit=10, sort_by="date_desc"
+    )
+    # 空日期排最后
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00001", "1001-00002"]
+    assert result["matters"][-1]["doc_date"] == ""
+
+
+def test_search_date_asc(library_db):
+    _set_dates(library_db, {"d1": "2024-07-16", "d2": "2023-01-05"})
+    result = doc_search.search_documents(
+        library_id="lib", query="", filename_contains=["memo"], limit=10, sort_by="date_asc"
+    )
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00002", "1001-00001"]
+
+
+def test_search_date_range_filter_excludes_undated(library_db):
+    _set_dates(library_db, {"d1": "2024-07-16", "d2": ""})
+    result = doc_search.search_documents(
+        library_id="lib",
+        query="",
+        filename_contains=["memo"],
+        limit=10,
+        date_after="2024-01-01",
+        date_before="2024-12-31",
+    )
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00001"]
+    assert result["date_sort"]["date_after"] == "2024-01-01"
+    assert result["date_sort"]["date_before"] == "2024-12-31"
+
+
+def test_search_invalid_date_params_are_reported_not_applied(library_db):
+    result = doc_search.search_documents(
+        library_id="lib", query="second request", limit=10, sort_by="newest", date_after="07/16/2024"
+    )
+    # 非法参数不生效（仍按相关性），但要在结果里回显，便于模型自纠
+    assert result["date_sort"]["sort_by"] == ""
+    assert result["date_sort"]["date_after"] == ""
+    assert result["date_sort"]["invalid"] == ["sort_by=newest", "date_after=07/16/2024"]
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00001", "1001-00002"]
+
+
+def test_search_default_has_no_date_fields(library_db):
+    """不传日期参数时结果与改造前一致：无 date_sort、卡片无 doc_date。"""
+    result = doc_search.search_documents(library_id="lib", query="second request", limit=10)
+    assert "date_sort" not in result
+    assert "doc_date" not in result["matters"][0]
+    assert "doc_date" not in result["matters"][0]["best"]
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00001", "1001-00002"]
+
+
+def test_search_date_sort_without_catalog_errors(tmp_path, monkeypatch):
+    db = tmp_path / "plain3.sqlite"
+    _build_db(db)
+    monkeypatch.setattr(doc_search, "_connect", lambda library_id: _conn(db))
+    result = doc_search.search_documents(library_id="lib", query="second request", sort_by="date_desc")
+    assert "error" in result
+
+
+def test_mtime_dates_do_not_drive_sort_or_filter(library_db):
+    """mtime 只是落盘时间：排序排在正文/文件名日期之后，且不参与区间过滤。"""
+    conn = _conn(library_db)
+    try:
+        conn.execute(
+            "update doc_catalog set doc_date='2026-10-13', date_source='mtime', date_confidence='low' "
+            "where doc_id='d1'"
+        )
+        conn.execute(
+            "update doc_catalog set doc_date='2024-01-05', date_source='text', date_confidence='high' "
+            "where doc_id='d2'"
+        )
+        conn.commit()
+    finally:
+        conn.close()
+    result = doc_search.search_documents(
+        library_id="lib", query="", filename_contains=["memo"], limit=10, sort_by="date_desc"
+    )
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00002", "1001-00001"]
+    assert result["date_sort"]["dated_docs"] == 1
+    assert result["date_sort"]["mtime_only_docs"] == 1
+
+    filtered = doc_search.search_documents(
+        library_id="lib",
+        query="",
+        filename_contains=["memo"],
+        limit=10,
+        date_after="2026-01-01",
+    )
+    assert filtered["matters"] == []  # mtime 2026-10-13 不算文档日期
+
+
+# ---------------------------------------------------------------------------
+# 实体范围（entity_contains）：先锁案件，再在案件内取最新/按类型过滤
+# ---------------------------------------------------------------------------
+
+
+def _add_engagement_letter(path: Path) -> None:
+    """在 d1 所属 matter 里加一篇更高分的非 memo 文档，验证组内 best 仍取目录命中。"""
+    conn = _conn(path)
+    try:
+        conn.execute(
+            "insert into canonical_chunks(chunk_id, doc_id, text_clean, page_start) values (?,?,?,?)",
+            ("c9", "d5", "FTC second request engagement letter second request strategy", 0),
+        )
+        conn.execute(
+            "insert into canonical_documents(doc_id, title, page_count) values ('d5','engagement-letter.docx',1)"
+        )
+        conn.execute(
+            "insert into canonical_chunk_fts(chunk_id, doc_id, chunk_type, section_path, text_clean, text_ngrams) "
+            "values ('c9','d5','content','','FTC second request engagement letter second request strategy',"
+            "'ftc second request engagement letter second request strategy')"
+        )
+        conn.execute(
+            "insert into doc_catalog(doc_id, library_id, matter_id, folder, rel_path, filename, doc_type, "
+            "source, updated_at) values ('d5','lib','1001-00001','Deal','1001-00001/Deal/engagement-letter.docx',"
+            "'engagement-letter.docx','docx','test','')"
+        )
+        conn.commit()
+    finally:
+        conn.close()
+
+
+def test_entity_scopes_candidates_to_matched_matters(library_db):
+    # "FTC" 只出现在 d1（matter 1001-00001），"second request" 同时命中 d2
+    result = doc_search.search_documents(
+        library_id="lib", query="second request", entity_contains="FTC", limit=10
+    )
+    assert result["entity"]["matched_groups"] == 1
+    assert result["total_matters"] == 1
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00001"]
+    assert result["entity"]["scoped_docs"] == 1
+
+
+def test_entity_plus_filename_prefers_catalog_hit_as_best(library_db):
+    _add_engagement_letter(library_db)
+    result = doc_search.search_documents(
+        library_id="lib",
+        query="second request",
+        entity_contains="FTC",
+        filename_contains=["memo"],
+        limit=10,
+    )
+    cards = {m["matter_id"]: m for m in result["matters"]}
+    assert set(cards) == {"1001-00001"}  # d2 的 memo 不在实体案件内
+    card = cards["1001-00001"]
+    assert card["best"]["doc_id"] == "d1"  # 目录命中优先于分数更高的 d5
+    assert card["catalog_hit"] is True
+    assert card["matched_docs"] == ["second-request-strategy-memo.docx"]
+
+
+def test_entity_only_returns_entity_docs_by_date(library_db):
+    _set_dates(library_db, {"d1": "2024-07-16"})
+    result = doc_search.search_documents(
+        library_id="lib", query="", entity_contains="FTC", sort_by="date_desc", limit=10
+    )
+    assert result["entity"]["matched_docs"] == 1
+    assert [m["matter_id"] for m in result["matters"]] == ["1001-00001"]
+    assert result["matters"][0]["doc_date"] == "2024-07-16"
+
+
+def test_entity_not_found_returns_error(library_db):
+    result = doc_search.search_documents(
+        library_id="lib", query="second request", entity_contains="Nonexistent Holdings", limit=10
+    )
+    assert "error" in result and "Nonexistent Holdings" in result["error"]
+
+
+def test_entity_type_date_unique_hit_is_authoritative(library_db):
+    _set_dates(library_db, {"d1": "2024-07-16"})
+    result = doc_search.search_documents(
+        library_id="lib",
+        query="",
+        entity_contains="FTC",
+        filename_contains=["memo"],
+        sort_by="date_desc",
+        limit=10,
+    )
+    assert result["authoritative"]["doc_id"] == "d1"
+    assert result["authoritative"]["doc_date"] == "2024-07-16"
+    assert "必须基于该文档" in result["authoritative"]["instruction"]
+    # 没给日期排序时不产生 authoritative（避免把普通目录查询当结论）
+    plain = doc_search.search_documents(
+        library_id="lib", query="", entity_contains="FTC", filename_contains=["memo"], limit=10
+    )
+    assert "authoritative" not in plain
+

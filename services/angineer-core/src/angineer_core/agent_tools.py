@@ -1051,10 +1051,14 @@ class RetrieverAdapter:
             per_matter: int = 2,
             filename_contains: Optional[List[str]] = None,
             doc_type: Optional[str] = None,
+            sort_by: Optional[str] = None,
+            date_after: Optional[str] = None,
+            date_before: Optional[str] = None,
+            entity_contains: Optional[str] = None,
             **_kwargs: Any,
         ) -> Dict[str, Any]:
-            if not query and not filename_contains:
-                return {"error": "缺少 query 参数（或 filename_contains）"}
+            if not query and not filename_contains and not entity_contains:
+                return {"error": "缺少 query 参数（或 filename_contains / entity_contains）"}
             lib = (library_ids or [library_id])[0]
             client = retrieval_client or _client_from_env()
             if client is not None:
@@ -1066,6 +1070,10 @@ class RetrieverAdapter:
                         per_matter=int(per_matter or 2),
                         filename_contains=filename_contains,
                         doc_type=doc_type,
+                        sort_by=sort_by,
+                        date_after=date_after,
+                        date_before=date_before,
+                        entity_contains=entity_contains,
                     )
                 except Exception as exc:  # noqa: BLE001 —— HTTP 失败回落进程内
                     logger.warning("doc_search HTTP 失败，回落进程内: %s", exc)
@@ -1079,6 +1087,10 @@ class RetrieverAdapter:
                     per_matter=int(per_matter or 2),
                     filename_contains=filename_contains,
                     doc_type=doc_type,
+                    sort_by=sort_by,
+                    date_after=date_after,
+                    date_before=date_before,
+                    entity_contains=entity_contains,
                 )
             except Exception as exc:  # noqa: BLE001
                 return {"error": f"文档级检索不可用: {exc}"}
@@ -1091,6 +1103,12 @@ class RetrieverAdapter:
                 "卡片仍返回 matter_id），返回候选清单（标题、分组、命中片段）。"
                 "用于「列出所有/每一个/全部…」的穷举类问题——先用它拿候选全集"
                 "（total_groups 是候选组数，group_kinds 给出各类型组数），再用 doc_read 批量读页确认。"
+                "问「某客户/某案件最新一份某类文档」时一次调用：entity_contains=客户名、"
+                "filename_contains=[文档类型]、sort_by=date_desc；entity_contains 会先把范围收窄到"
+                "提到该实体的案件，再在案件内按日期取最新。"
+                "问「最新/最近/哪一年/多少笔（按时间）」时用 sort_by=date_desc：按文档日期降序，"
+                "空日期排最后，卡片带 doc_date（YYYY-MM-DD）与 date_source（text/filename/mtime）；"
+                "可用 date_after/date_before（YYYY-MM-DD）限定区间，显式过滤时无日期文档被排除。"
                 "filename_contains 是目录谓词：按文件名/路径/首屏标题短语过滤（如 [\"second request\"]），"
                 "命中的卡片带 catalog_hit=true 与 matched_docs，是比语义检索更确定的信号，优先核对。"
                 "query 默认 40 篇、最多 120；per_matter 默认 2。"
@@ -1099,12 +1117,23 @@ class RetrieverAdapter:
                 "type": "object",
                 "properties": {
                     "query": {"type": "string", "description": "检索词，如「HSR second request」「反垄断 二次问询」"},
+                    "entity_contains": {
+                        "type": "string",
+                        "description": "实体/客户/案件名（如「Lumos Analytics」）：先定位提到它的案件，再在案件内检索",
+                    },
                     "filename_contains": {
                         "type": "array",
                         "items": {"type": "string"},
                         "description": "目录谓词：文件名/路径必须包含的短语（多个短语为 AND，如 [\"second request\"]）",
                     },
                     "doc_type": {"type": "string", "description": "可选：限定扩展名，如 docx/xlsx/pdf"},
+                    "sort_by": {
+                        "type": "string",
+                        "enum": ["date_desc", "date_asc"],
+                        "description": "按文档日期排序；问「最新/最近」用 date_desc（空日期排最后）",
+                    },
+                    "date_after": {"type": "string", "description": "起始日期 YYYY-MM-DD（含当天）"},
+                    "date_before": {"type": "string", "description": "结束日期 YYYY-MM-DD（含当天）"},
                     "limit": {"type": "integer", "description": "返回文档数，默认 40，最多 120"},
                     "per_matter": {"type": "integer", "description": "每个 matter 返回的文档数，默认 2"},
                 },
@@ -1127,6 +1156,7 @@ class RetrieverAdapter:
             query: Optional[str] = None,
             mode: str = "head",
             max_chars_per_doc: int = 1200,
+            section: Optional[str] = None,
             **_kwargs: Any,
         ) -> Dict[str, Any]:
             ids = [str(d).strip() for d in (doc_ids or []) if str(d).strip()]
@@ -1142,6 +1172,7 @@ class RetrieverAdapter:
                         query=str(query or ""),
                         max_chars_per_doc=int(max_chars_per_doc or 1200),
                         mode=str(mode or "head"),
+                        section=str(section or ""),
                     )
                 except Exception as exc:  # noqa: BLE001
                     logger.warning("doc_read HTTP 失败，回落进程内: %s", exc)
@@ -1154,6 +1185,7 @@ class RetrieverAdapter:
                     query=str(query or ""),
                     max_chars_per_doc=int(max_chars_per_doc or 1200),
                     mode=str(mode or "head"),
+                    section=str(section or ""),
                 )
             except Exception as exc:  # noqa: BLE001
                 return {"error": f"批量读页不可用: {exc}"}
@@ -1163,6 +1195,8 @@ class RetrieverAdapter:
             description=(
                 "批量读页：一次读最多 8 篇文档的正文（按页返回，[pN] 是页码）。"
                 "mode=head 从头读（默认），mode=match 只读与 query 相关的段落。"
+                "要找某一条款/章节（如信贷协议的 MFN 条款）时用 section=\"2.15\"："
+                "从该章节标题处开始读，比关键词匹配更准。"
                 "用于枚举题逐篇确认候选文档：先把 doc_search 返回的 doc_id 列表分批读，"
                 "再据正文判断是否满足条件；不要只凭 snippet 下结论。"
             ),
@@ -1175,6 +1209,7 @@ class RetrieverAdapter:
                         "description": "要读的文档 id 列表（来自 doc_search 的 doc_id），一次最多 8 篇",
                     },
                     "query": {"type": "string", "description": "mode=match 时的相关段落检索词"},
+                    "section": {"type": "string", "description": "章节号（如 \"2.15\"）：从该章节标题开始读"},
                     "mode": {"type": "string", "enum": ["head", "match"], "description": "head=从头读；match=读命中段落"},
                     "max_chars_per_doc": {"type": "integer", "description": "每篇最多读多少字符，默认 1200，最多 4000"},
                 },
@@ -1434,12 +1469,12 @@ class StatsAdapter:
             name="knowledge_stats",
             description=(
                 "查询知识库的统计信息：文档总数、各状态/各库分布、上传趋势（近7天/30天/按月）、"
-                "文件格式分布、总页数与平均页数、存储占用，以及文档标题清单（documents.titles，最多 100 条）。"
-                "若该库有 matter 元数据（doc_catalog），还会返回 matters 清单（matter_id + 文档数 + 代表文件名），"
-                "相当于对目录做一次 ls——「库里有哪些 matter/案件」直接用它，不要靠检索猜。"
-                "当用户询问知识库规模、数量、分布、趋势，或问「库里有哪些文章/规范、收录了什么」"
-                "这类标题列举问题时使用：列举类回答直接基于 documents.titles（按问题关键词筛选标题）。"
-                "只在问题问知识库本身时使用；问某篇文档的正文内容/条款原文，请改用 knowledge_search。"
+                "文件格式分布、总页数与平均页数、存储占用，以及 matter 清单（matter_id + 文档数 + 代表文件名，"
+                "有 doc_catalog 的库才有，相当于对目录做一次 ls）。"
+                "只在问题问知识库本身时使用——规模、数量、分布、趋势、有哪些 matter/案件。"
+                "注意：documents.titles 只是按标题排序的前 100 条样本，不是全量文档清单，不要据它下「库里只有这些」的结论；"
+                "问「有哪些文档/收录了什么」请用 doc_search（按文件名/标题/实体过滤并返回候选全集），"
+                "问某篇文档的正文/条款请用 knowledge_search 或 doc_read。"
             ),
             parameters_schema={
                 "type": "object",
