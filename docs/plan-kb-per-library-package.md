@@ -25,7 +25,7 @@
 **Tech Stack:** Python 3.11+ / FastAPI（docs-api）/ sqlite（registry.sqlite、组 sqlite、graph.sqlite）/ qdrant v1.19（snapshot + scroll/upsert REST）/ Vue3 + ant-design-vue（admin-web）/ pytest。
 
 **日期:** 2026-10-17。
-**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-5、P3-1、P3-2 代码、P3-3 容器层已完成，P2-4 的 CLI 侧已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = 重启 docs-api 后手工走 P3-2/P3-4（小包上传→预检→应用），宿主机 nginx 放行需另行报备。**
+**执行状态（2026-10-20）：** P1-1～P1-8、P2-0、P2-0b、P2-1、P2-2、P2-3、P2-4、P2-5、P3-1、P3-2 代码、P3-3 容器层已完成（v2 导出随 v0.3.0 发布；P1-8 `34ecee0b`、P2-0b `331c1592`、P2-2 `13842f9f`/`04107adc`、P2-3 `31e7a30a`、P2-4 `d15462f3`、P3-1 `4ccb8d01`、P3-2 `37d8311a`/`c25cdc29`、P3-3 `d68f92c2`）；**P4-0 删库异步化已完成并通过真机验收（`00817fdf` / `21b90628`）**。**下一步 = 重启 docs-api 后手工走 P3-2/P3-4（小包上传→预检→应用），宿主机 nginx 放行需另行报备。**
 **业主定版决策（2026-10-17）：** ①按组导出可以，但包内必须是每库一个小 zip；②每库 zip 自包含、不与其他库耦合；③包内必须带图谱；④导入落位=归入指定组、每库独立桶；⑤导入通道=CLI+admin-web 上传 UI；⑥v2 全面替换 v1；**v1 旧包暂无人用，不纳入导入兼容/验收**（2026-10-18 修订）；⑦**v2 不支持 reembed**（模型不一致阻断，文案三处收口，见 P2-4）。
 **上游/关联：** `docs/plan-standards-kb-corpus-package.md`（v1 通道，已完结）｜`docs/plan-harvey-enumeration-retrieval.md`（`doc_catalog` / `doc_search`，P2-0b 合流）｜`docs/report-harvey-lab-100-final.md`（保留/未采纳清单）｜`docs/report-harvey-lab-100-qwen38.md`（Qwen3.8 臂）｜`docs/design-kb-export-ui.md`（v1 管理后台导出，本计划完成后改写）｜`services/docs-core/src/docs_core/corpus_package.py`（现导出核心）。
 
@@ -342,7 +342,7 @@
 **已定版（2026-10-17 评审）：v2 导入不支持 reembed**——`rebuild_vectors.py` 只覆盖默认单文件（不认独立桶，F19），扩展属另立票范围；与其半吊子不如阻断。
 
 - [x] CLI 报错落地：`REEMBED_BLOCK_MESSAGE = "embed 模型不一致，v2 导入不支持 reembed；请用目标环境模型重新导出"`，`check_embed_gate` 抛该常量，CLI `导入失败:` 原样透出；测试锁文案。
-- [ ] P3-1 预检响应 / P3-2 前端提示复用同一常量/文案（随 P3 落地）。
+- [x] P3-1 预检响应 / P3-2 前端提示复用同一口径：P3-1 以 400 `detail` 原样透出 `REEMBED_BLOCK_MESSAGE`，P3-2 显示 `e.response.data.detail`（已随 P3-1/P3-2 落地）。
 - [x] 跨模型迁移需求另立票「rebuild_vectors 支持 `--library`（独立桶自嵌）」，本票只记录（未开票）。
 - [x] commit `docs(import): v2 reembed 口径定版常量（P2-4 CLI 侧）`（`d15462f3`）
 
