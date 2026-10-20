@@ -183,6 +183,17 @@ class ApplyImportTests(unittest.TestCase):
             self.assertEqual(meta.execute("SELECT COUNT(*) FROM nodes").fetchone()[0], 1)
         finally:
             meta.close()
+        records = sqlite3.connect(self.data / "knowledge/parse_records.sqlite")
+        try:
+            self.assertEqual(records.execute("SELECT COUNT(*) FROM parse_records").fetchone()[0], 1)
+            row = records.execute(
+                "SELECT doc_id, library_id, status, file_format FROM parse_records").fetchone()
+            self.assertEqual(row[0], "d1")
+            self.assertEqual(row[1], "lib-x")
+            self.assertEqual(row[2], "completed")
+            self.assertEqual(row[3], ".txt")
+        finally:
+            records.close()
         graph = sqlite3.connect(self.data / "knowledge/graph.sqlite")
         try:
             self.assertEqual(graph.execute("SELECT COUNT(*) FROM graph_entities").fetchone()[0], 1)

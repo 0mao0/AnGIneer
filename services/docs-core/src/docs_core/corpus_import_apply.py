@@ -362,6 +362,53 @@ def _insert_meta(meta_path: Path, meta: Dict[str, Any], lib_id: str) -> None:
         conn.close()
 
 
+def _insert_parse_records(data_root: Path, lib_id: str, nodes: Sequence[dict]) -> int:
+    """给导入的 document 节点补 parse_records 行。
+
+    管理端「详情」表格读的是 parse_records（上传台账），不是 meta.nodes；只写 nodes
+    会出现「导入成功但列表暂无数据」。导入包没有台账，按节点/源文件重建一行。
+    """
+    docs = [n for n in nodes if str(n.get("type") or "") == "document"]
+    if not docs:
+        return 0
+    from .parse_records_store import init_schema
+
+    db = data_root / "knowledge" / "parse_records.sqlite"
+    db.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(str(db))
+    try:
+        init_schema(conn)
+        created = 0
+        for node in docs:
+            doc_id = str(node.get("id") or "")
+            if not doc_id:
+                continue
+            if conn.execute("SELECT 1 FROM parse_records WHERE doc_id=? LIMIT 1", (doc_id,)).fetchone():
+                continue
+            fp = str(node.get("file_path") or "")
+            f = Path(fp)
+            target = f if f.is_absolute() else data_root / fp
+            size = target.stat().st_size if target.is_file() else 0
+            name = target.name if fp else str(node.get("title") or doc_id)
+            fmt = target.suffix.lower() if fp else ""
+            conn.execute(
+                "INSERT INTO parse_records "
+                "(doc_id, task_id, uploaded_by, api_key_id, file_name, file_format, file_size, "
+                " status, error, created_at, library_id, stages) "
+                "VALUES (?,?,?,NULL,?,?,?,?,NULL,?,?,?)",
+                (
+                    doc_id, f"import:{lib_id}:{doc_id}", "语料包导入",
+                    name, fmt, size, "completed",
+                    str(node.get("created_at") or _now()), lib_id, "",
+                ),
+            )
+            created += 1
+        conn.commit()
+        return created
+    finally:
+        conn.close()
+
+
 def _insert_registry(
     reg_path: Path,
     group_name: str,
@@ -616,6 +663,8 @@ def import_bundle(
                     stage("meta", f"{lib_id}: 写入 meta")
                     completed.append(f"{lib_id}:meta")
                     _insert_meta(meta_path, p["meta"], lib_id)
+                    stage("records", f"{lib_id}: 补上传台账")
+                    _insert_parse_records(data_root, lib_id, p["meta"].get("nodes") or [])
                     stage("vectors", f"{lib_id}: 恢复向量快照")
                     completed.append(f"{lib_id}:vectors")
                     if with_vectors and "qdrant/vectors.snapshot" in lb.files_index:
