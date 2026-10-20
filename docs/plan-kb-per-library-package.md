@@ -316,6 +316,7 @@
 - 目标组库根必须与包内 `files/` 根一致（`knowledge` 包 → knowledge 组，evals 包 → evals 组）；跨布局明确拒绝，避免 `file_path` 与组根错位。P3 选组时按此约束。
 - 测试 `test_unit_corpus_import_apply.py` **6 passed**；真机桌面 10.8MB evals 包导入临时根通过（docs 112/chunks 224/relations 1161；vectors 200 恢复后清理）。
 - **真机补丁（2026-10-20，`38476482`）**：default 包 files 含库根级 `knowledge_meta.sqlite`（不在 `documents/` 下），原实现误报「不在 documents/」；`_source_library_root` 改为按 `libraries/<lib_id>` 段取根。default 36.9MB 包导入临时根通过（9 docs/701 chunks）。
+- **零向量补丁（`ace8fb56`）**：`counts.vectors=0` 时即使 `with_vectors=True` 也跳过 qdrant count；无向量小包在 UI 默认勾选下不再误报。
 - `ensure_schema` 改为显式 `close`，消除 Windows 临时库 `PermissionError`。
 
 ### Task P2-3: CLI v2 单格式 + 容器白名单（并清 v1 死代码，已完成）
@@ -390,7 +391,7 @@
 - [x] 流程：选包（拖拽/点击 `.zip`）→ 上传进度 → 预检逐库卡片（名称/库 id/组/docs/chunks/vectors/relations/体积）+ 库勾选（默认全选）+ 目标组下拉/新建组 → 应用阶段文字 → 完成/失败；失败展示服务端 detail
 - [x] 文案：embed 不一致由服务端 400 detail 直接展示（`REEMBED_BLOCK_MESSAGE`）；应用不可取消在确认区与进度区均明示
 - [x] `pnpm --filter admin-web exec vue-tsc -b` 通过
-- [ ] 本地手测（docs-api 已重启加载 P3-1；**不能用 default/现有库导入同一 data 根，冲突闸会拒**；需新 library_id 或临时 `ANGINEER_DATA_ROOT`）
+- [ ] 本地手测（docs-api 已重启加载 P3-1；**不能用 default/现有库导入同一 data 根，冲突闸会拒**；用 `data/scratch/p3-ui-test/lib-import-test.zip`（207KB，新库 `lib-import-test`，可删）或临时 `ANGINEER_DATA_ROOT`）
 - [x] commit `feat(admin-web): 语料包导入上传 UI`（`37d8311a`；关系数 `c25cdc29`）
 
 ### Task P3-3: 网关两层运维项（容器层入 git 随 deploy；宿主机层手工报备）
