@@ -77,7 +77,14 @@ def _task_or_404(task_id: str) -> ImportTask:
     with _lock:
         task = _tasks.get(task_id)
     if not task:
-        raise HTTPException(status_code=404, detail="导入任务不存在或已失效")
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"导入任务不存在或已失效（进程重启后任务表丢失）；"
+                f"暂存包如仍在 <data 根>/scratch/imports/{task_id}/，可用 "
+                f"scripts/kb_corpus_import_cleanup.py --scratch --apply 清理"
+            ),
+        )
     return task
 
 
