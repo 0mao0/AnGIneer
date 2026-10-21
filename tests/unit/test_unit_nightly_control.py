@@ -674,5 +674,25 @@ class MemoryGateTests(unittest.TestCase):
             self.assertEqual(nc._min_mem_mb(), nc.MIN_MEM_DEFAULT_MB)
 
 
+class SchedulerLoopTests(unittest.TestCase):
+    """调度轮询粒度（2026-10-21）：固定 60 秒，不按 next_fire 睡长觉。
+
+    实踩：保存设置不唤醒已 sleep 的任务，按 next_fire 算睡眠会把改配置后的触发点睡过去。
+    """
+
+    def test_polls_every_60_seconds_without_long_sleep(self):
+        calls = []
+
+        async def fake_sleep(seconds):
+            calls.append(seconds)
+            raise asyncio.CancelledError
+
+        with mock.patch.object(nc.asyncio, "sleep", fake_sleep):
+            with self.assertRaises(asyncio.CancelledError):
+                asyncio.run(nc.scheduler_loop())
+        self.assertEqual(calls, [60.0])
+        self.assertEqual(nc.SCHEDULER_POLL_S, 60.0)
+
+
 if __name__ == "__main__":
     unittest.main()

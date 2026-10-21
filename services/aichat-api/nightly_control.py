@@ -30,6 +30,8 @@ MIN_MEM_ENV = "NIGHTLY_MIN_MEM_MB"
 MIN_MEM_DEFAULT_MB = 600
 _MEM_ALERT_COOLDOWN_S = 1800
 _last_mem_alert_at = 0.0
+# 调度轮询粒度（秒）：固定 60s，改了设置最多 1 分钟内被 due() 接住（见 scheduler_loop 注释）
+SCHEDULER_POLL_S = 60.0
 DEFAULT_SETTINGS = {
     # 每晚定时执行是默认选择（01:00 北京时间）；关闭需要显式保存一次
     "enabled": True,
@@ -570,17 +572,16 @@ async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
 
 
 async def scheduler_loop() -> None:
-    """轻量轮询：睡到下一个检查点（≤1h，配置变更 1 分钟内生效），到点直接跑流水线。"""
-    logger.info("nightly 调度器已启动（时区 Asia/Shanghai，全内置流水线）")
+    """固定 60 秒轮询：每轮重读配置并用 due() 判是否该跑（幂等键防重复）。
+
+    不再「睡到下一个触发点」：保存设置不会唤醒已睡下的任务，按 next_fire 算长睡眠会
+    把改配置后的触发点睡过去（2026-10-21 实踩：12:23 部署按旧配置 01:01 算出「下一次
+    是明天」后睡满 1 小时，12:25 改成 12:27，12:27 整点没触发，要等到 13:2x 才复查）。
+    60 秒粒度对 nightly 完全够用，代价是一次 datetime+json 读取。"""
+    logger.info("nightly 调度器已启动（时区 Asia/Shanghai，60s 轮询，全内置流水线）")
     while True:
         try:
-            now = datetime.now(BJT)
-            cfg = load_settings()
-            wait = 60.0
-            nxt = next_fire_at(cfg, now)
-            if nxt is not None:
-                wait = min(max((nxt - now).total_seconds(), 5.0), 3600.0)
-            await asyncio.sleep(wait)
+            await asyncio.sleep(SCHEDULER_POLL_S)
             now = datetime.now(BJT)
             cfg = load_settings()
             if not due(cfg, now) or is_running():
