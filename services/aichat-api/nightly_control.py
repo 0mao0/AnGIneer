@@ -455,6 +455,59 @@ async def _alert_low_mem(source: str, avail: Optional[int]) -> None:
             logger.exception("内存水位告警发送失败: %s", notify.target_label(url))
 
 
+EXTRA_SETTLE_TIMEOUT_S = 600.0
+
+
+async def _wait_memory_ready(timeout_s: float = EXTRA_SETTLE_TIMEOUT_S) -> tuple:
+    """等上一集 worker 退出且 MemAvailable 过闸；返回 (是否就绪, 最后看到的可用内存)。
+
+    2026-10-21 实踩：主集收口 39 秒后附加集起跑，此时 worker 仍在写库/未释放，30 秒内
+    MemAvailable 从 1.1GB 掉到 116MB 触发熔断；熔断后 worker 还占注册表，后续三集全
+    EvalBusyError。这里以 DB running 清单 + 水位闸双条件等待，默认最多 10 分钟。
+    """
+    deadline = time.monotonic() + timeout_s
+    last = None
+    while True:
+        busy = await asyncio.to_thread(suite_runner.list_running_runs)
+        ok, avail = await _memory_gate()
+        last = avail
+        if not busy and ok:
+            return True, avail
+        if time.monotonic() >= deadline:
+            return False, last
+        await asyncio.sleep(5.0)
+
+
+async def _publish_skipped_extra(cfg: dict, dataset_id: str, note: str, webhook: str) -> None:
+    """跳过的附加集也落一条 error 档（当天不断档）并推企微；全程 best-effort。"""
+    from evals_core.nightly import archive, notify
+
+    subject = ""
+    try:
+        subject = pipeline._dataset_subject(dataset_id)
+    except Exception:  # noqa: BLE001
+        subject = dataset_id
+    try:
+        archive.publish_day(archive.build_error_entry(
+            dataset_id, paths.today_bjt(), note, subject=subject), None,
+            slot=paths.new_run_slot())
+    except Exception:  # noqa: BLE001
+        logger.exception("附加集跳过档落盘失败: %s", dataset_id)
+    if not webhook:
+        return
+    try:
+        text = notify.build_message(None, None, notify.STATE_ERROR, note, subject=subject)
+    except Exception:  # noqa: BLE001
+        logger.exception("附加集跳过通知构造失败: %s", dataset_id)
+        return
+    for url in notify.split_webhooks(webhook):
+        try:
+            await asyncio.to_thread(notify.send, url, text)
+            logger.info("附加集跳过通知已送达: %s", notify.target_label(url))
+        except Exception:  # noqa: BLE001
+            logger.exception("附加集跳过通知发送失败: %s", notify.target_label(url))
+
+
 async def _probe_resume_hint(cfg: dict) -> None:
     """派发前探测断点续跑候选，命中留 hint 给种子行（起跑间隙即显示「续跑中」）。
 
@@ -514,6 +567,20 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
         if _stop_requested:
             logger.info("nightly 附加集跳过（收到停止意图）: %s", extra_id)
             break
+        # 集间隔离（2026-10-21 实踩）：主集 1040 题收口后 worker 还在写库/释放，附加集
+        # 立刻起跑 → 30 秒内 MemAvailable 116MB 触发熔断；熔断后 worker 仍占注册表，
+        # 后面三集连续 EvalBusyError。现在每集之间等 worker 退出 + 归还内存 + 过水位闸。
+        try:
+            suite_runner.release_native_memory()
+        except Exception:  # noqa: BLE001
+            logger.exception("附加集起跑前归还内存失败（无害）")
+        ready, avail = await _wait_memory_ready()
+        if not ready:
+            note = (f"内存水位不足：MemAvailable {avail}MB，且上一集 worker 未在等待窗内退出，"
+                    f"跳过本集（已发企微告警）")
+            logger.warning("nightly 附加集 %s 跳过：%s", extra_id, note)
+            await _publish_skipped_extra(cfg, extra_id, note, webhook)
+            continue
         t1 = time.monotonic()
         try:
             extra_result = await pipeline.run_nightly(

@@ -694,5 +694,47 @@ class SchedulerLoopTests(unittest.TestCase):
         self.assertEqual(nc.SCHEDULER_POLL_S, 60.0)
 
 
+class ExtraSettleTests(unittest.TestCase):
+    """集间隔离（2026-10-21）：主集 worker 未退出/内存未释放时不得起下一集。"""
+
+    def test_ready_when_idle_and_memory_ok(self):
+        async def gate():
+            return True, 1800
+
+        with mock.patch.object(nc.suite_runner, "list_running_runs", return_value=[]), \
+             mock.patch.object(nc, "_memory_gate", side_effect=gate):
+            ready, avail = asyncio.run(nc._wait_memory_ready(timeout_s=1))
+        self.assertTrue(ready)
+        self.assertEqual(avail, 1800)
+
+    def test_timeout_when_previous_run_still_registered(self):
+        async def gate():
+            return True, 1800
+
+        async def no_sleep(_seconds):
+            return None
+
+        with mock.patch.object(nc.suite_runner, "list_running_runs",
+                               return_value=[{"run_id": "run-old"}]), \
+             mock.patch.object(nc, "_memory_gate", side_effect=gate), \
+             mock.patch.object(nc.asyncio, "sleep", no_sleep):
+            ready, _ = asyncio.run(nc._wait_memory_ready(timeout_s=0.01))
+        self.assertFalse(ready)
+
+    def test_timeout_when_memory_below_gate(self):
+        async def gate():
+            return False, 120
+
+        async def no_sleep(_seconds):
+            return None
+
+        with mock.patch.object(nc.suite_runner, "list_running_runs", return_value=[]), \
+             mock.patch.object(nc, "_memory_gate", side_effect=gate), \
+             mock.patch.object(nc.asyncio, "sleep", no_sleep):
+            ready, avail = asyncio.run(nc._wait_memory_ready(timeout_s=0.01))
+        self.assertFalse(ready)
+        self.assertEqual(avail, 120)
+
+
 if __name__ == "__main__":
     unittest.main()
