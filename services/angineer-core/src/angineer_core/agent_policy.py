@@ -307,12 +307,23 @@ def build_attempts(
                 enum_context=enum_ctx,
             )
 
-        return [AttemptConfig(
+        attempts = [AttemptConfig(
             name="L3/L4 复杂任务",
             config_factory=complex_factory,
             success_check=_answer_usable,
+            fallback_note="复杂档未产出可用答案（SOP 无匹配或无证据），回退语义检索",
             requires_tools=True,
         )]
+        # L3 兜底（2026-10-21 事故）：分类器把「题面只给公式、数值要查文档」的题误判 L3 时，
+        # 复杂档按 SOP 路径走、无匹配即零证据拒答（financebench 150 题里 10 题命中，-4pp）。
+        # 给 L3 追加一段语义检索：复杂档出可用答案不触发；拒答/空答时按 L1 取证据再答。
+        # L4 不加——多方案/系统设计题没有「回退检索就能答」的等价形态。
+        if level == "L3":
+            attempts.append(_l1_attempt(
+                load_nodes, llm_factory, library_id, doc_ids, config_name, mode,
+                enforce_evidence=True, marker_allocator=marker_allocator,
+                library_ids=library_ids, answer_format=answer_format, query=query))
+        return attempts
     if level == "L2" or service_mode in ("structured_lookup", "sql_first"):
         return [
             _l2_attempt(load_nodes, llm_factory, library_id, doc_ids, config_name, mode, marker_allocator, library_ids=library_ids, answer_format=answer_format, query=query),

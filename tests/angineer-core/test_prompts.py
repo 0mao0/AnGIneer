@@ -89,9 +89,13 @@ class PromptMigrationContractTests(unittest.TestCase):
         )
 
         self.assertIn("意图层级定义", CLASSIFY_INTENT_SYSTEM_PROMPT)
-        self.assertIn("题面给出具体数值", CLASSIFY_INTENT_SYSTEM_PROMPT)
+        self.assertIn("题面**自带**具体数值", CLASSIFY_INTENT_SYSTEM_PROMPT)
         self.assertIn("堤顶高程怎么计算", CLASSIFY_INTENT_SYSTEM_PROMPT)
+        # v6（2026-10-21）：公式/定义不等于具体数值参数——financebench 财务比率题事故回归
+        self.assertIn("不得判 L3", CLASSIFY_INTENT_SYSTEM_PROMPT)
+        self.assertIn("CCC is defined as DIO + DSO - DPO", CLASSIFY_INTENT_SYSTEM_PROMPT)
         self.assertIn("SOP 匹配器", ROUTE_SOP_SYSTEM_PROMPT)
+        self.assertEqual(versions()["classifier.classify_intent_system_prompt"], "v6")
 
     def test_agent_configs_dead_bare_prompt_alias_removed(self):
         """裸别名 QA_AGENT_SYSTEM_PROMPT 已清退（2026-10-17）：别名曾钉死 V11 而 latest 已是

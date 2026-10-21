@@ -41,6 +41,27 @@ class PolicyTests(unittest.TestCase):
         self.assertEqual(attempts[0].name, "L1 语义检索")
         self.assertTrue(attempts[0].requires_tools)
 
+    def test_l3_falls_back_to_semantic_retrieval(self):
+        """2026-10-21 事故回归：误判 L3 的财务比率题在复杂档零证据拒答，必须回退语义检索。"""
+        attempts = build_attempts(
+            intent_result=self._intent("L3", "standard_sop"),
+            query="What is the FY2019 CCC for General Mills?",
+            scene="docs", library_id="default", doc_ids=[],
+            load_nodes=lambda: [], llm_factory=lambda: Mock(),
+        )
+        self.assertEqual([a.name for a in attempts], ["L3/L4 复杂任务", "L1 语义检索"])
+        self.assertIn("回退", attempts[0].fallback_note)
+        self.assertTrue(all(a.requires_tools for a in attempts))
+
+    def test_l4_stays_single_attempt(self):
+        """L4（多方案/系统设计）没有「回退检索就能答」的等价形态，不加兜底段。"""
+        attempts = build_attempts(
+            intent_result=self._intent("L4", "dynamic_orchestration"),
+            scene="docs", library_id="default", doc_ids=[],
+            load_nodes=lambda: [], llm_factory=lambda: Mock(),
+        )
+        self.assertEqual([a.name for a in attempts], ["L3/L4 复杂任务"])
+
     def test_mcq_protocol_injected_for_choice_question(self):
         """选择题壳（≥2 个 A-D 选项标记）→ L2 段系统提示词追加作答协议（2026-10-15）。"""
         mcq = ("下列关于海港通信方式的叙述，符合规范规定的是："
