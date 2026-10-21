@@ -410,6 +410,7 @@
 - [x] **宿主机层（手工，不入 git）**：2026-10-21 用户批准后改 `/etc/nginx/ai-proxy-locations.conf`（备份 `.bak-20261021-imports`），
   在 `location /` 前加 `^~ /api/knowledge/imports/`（`client_max_body_size 0` + `proxy_request_buffering off` + 600s 超时，`proxy_pass 127.0.0.1:8080`）；`nginx -t` 通过后 reload。
 - [ ] 验证：真实小文件/>200M 包上传各一次（需生产管理员会话）。**nginx 层已验证**：300MB Content-Length 探针改前 413、改后转发；小请求 401 证明两跳通。
+  本地补测（不经 nginx）：210MB 非法 zip → 400「上传内容不是合法 zip」；真实小包 → 200 previewed + DELETE 200。
 
 ### Task P3-4: P3 验收（已完成 2026-10-21）
 

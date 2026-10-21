@@ -273,6 +273,51 @@ entity_contains="Lumos Analytics", filename_contains=["credit agreement"], sort_
 
 判官 gpt-5.5 当晚持续挂起（4 次冒烟 + 036 均未出分），以上结论基于人工读答案。
 
+## 14. 存量库目录/日期补齐（2026-10-21）
+
+**目的：** 时间维度上线时只做了懒 ALTER + 按需回填，存量库的 `doc_catalog` 没有日期值（知识三组连日期列都没有），
+按时间检索在存量库上实际不可用；同时确认导出包是否需要新增字段。
+
+**执行（本地 `data/`）：**
+
+1. `python scripts/backfill_catalog_all.py --dry-run` → 19 个库，逐库 `nodes` 数（0–9,009）。
+2. 对知识组 7 个库跑 `backfill_catalog_all.py`：**inserted=0**（行已存在，只物化语义字段），
+   `std-water` title_block_rate 0.996、`std-highway` 1.0。
+3. 对全部 19 个库跑 `backfill_doc_dates.py`（25.6s）：
+   - `standards` 447/447、`dredgeai` 86/86、`system` 3/4（第 4 行是 retired 测试库）、`evals` 12,403/12,526；
+   - 覆盖最低两库：`lib-b07ed174` 120/183（63 无日期）、`omnidocbench` 2,577/2,609（32 无日期），其余 15 库 100%；
+   - std-water 分布：text 230（high）+ filename 8（low），区间 1996-11-15～2025-11-01。
+4. 组库 schema：system/standards/dredgeai/evals 四库均已有日期三列 + `idx_doc_catalog_date`。
+
+**检索验证（本地 docs-api 8790）：**
+
+- `doc_search(std-water, query=设计, sort_by=date_desc)` → total_docs 59，首条 `2025-11-01 / text / high`；
+- `date_after=2020-01-01` → total_docs 10；
+- 日期模式下响应只带 `matters`（首条 `best` 含 `doc_date/date_source/date_confidence`），不带顶层 `docs`。
+
+**导出验证：** 用 `default` 真实切片验证——`doc_catalog` 3 行带日期（2004-07-01 / 2003-05-22 / 2001-09-05），
+日期三列与 `idx_doc_catalog_date` 均在切片内。**结论：导出包不需要改字段**，日期随 `doc_catalog` 整表走；
+前提是导出前已回填。导入侧 `ensure_catalog` 只补空列，不补行/值。
+
+**顺序约束：** 导出前回填。导入用 `copyfileobj` 不保留 mtime，导入后再回填会把 mtime 档写成导入时间。
+
+**生产补齐（2026-10-21，容器内执行）：**
+
+- 容器 `/app` 里没有这两个脚本，先 `docker cp scripts/backfill_catalog_all.py`、`backfill_doc_dates.py` 到
+  `angineer-docs-api:/app/scripts/`（容器重建后即消失，属一次性操作）。
+- `backfill_catalog_all.py`：6 个库、306 个节点，11.7s；`default` 24、`lib-b07ed174` 183、`lib-cf08e666` 95、
+  `lib-7582b086` 3、`lib-DredgeAI-a5e1` 1、`lib-39109792` 0。
+- `backfill_doc_dates.py`：0.6s，**306/306 全部有日期**；分布 text 71、filename 55、mtime 178；
+  `default` 24/24（区间 2001-09-05～2026-09-11）。
+- 验证：`doc_search(default, query=设计, sort_by=date_desc)` 经容器内 `localhost:8790` 返回
+  `码头结构设计规范 JTS 167-2018.pdf / 2018-06-01 / text`，无需重启 docs-api（读穿 sqlite）。
+- 回滚：生产原本没有 `doc_catalog` 表，逐库 `DROP TABLE doc_catalog` 即可（连同两个 index）。
+
+**Embed 口径修正：** 导入闸的真相源是 `embed_model_from_env()`（取 `EMBEDDING_CONFIGS` 第一项的 `model`），
+生产为 `qwen3-embedding`；`.env` 的 `DOCS_EMBEDDING_PROVIDER=bge_m3` 只是标签，不参与闸判定。
+
+
+
 
 
 

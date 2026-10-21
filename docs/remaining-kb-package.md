@@ -110,7 +110,8 @@
 - 改前基线：`POST /api/knowledge/imports/upload` + `Content-Length: 300000000`（无 body）→ **413**；
 - 改后同一探针：nginx 不再 413，请求被转发（8s 内无响应，因等待声明的 body；服务器回环 HTTP/2 同请求得 400）；
 - 小请求仍 `401`（`{"detail":"Missing X-API-Key or session token"}`），证明 **host → frontend 容器 → docs-api 两跳都通**；
-- 真实小包/>200MB 包各上传一次**未做**：需要生产管理员会话（本轮 `.env` 的 admin 口令对线上无效），留给发版窗口由用户执行。
+- 真实小包/>200MB 包各上传一次**未做**：需要生产管理员会话（本轮 `.env` 的 admin 口令对线上无效），留给发版窗口由用户执行；
+- **本地补测（2026-10-21，不经 nginx）**：本地 docs-api 8790 上传 210MB 非法 zip → `400 上传内容不是合法 zip`（1.3s，无 413，暂存自动清）；再传真实小包 `lib-import-test2.zip` → `200 previewed`，`DELETE /imports/<id>` → 200。证明 app 侧大 body 与上传/预检/清暂存链路正常；生产仍差真包一次。
 
 **回滚：** `cp -a /etc/nginx/ai-proxy-locations.conf.bak-20261021-imports /etc/nginx/ai-proxy-locations.conf && nginx -t && systemctl reload nginx`。
 
@@ -163,6 +164,9 @@
 - 普通“新建库”仍走组共享桶；只有 v2 包导入走独立桶；
 - 导入不自动合并/覆盖同名库；同 `library_id` 的 retired 行可被 restore 替换；
 - 应用阶段不可取消，失败保留暂存；**apply 无整体事务**：进程被杀会留半成品，任务表随进程消失，只能用清理 CLI 收尾；
+- **时间检索随包走的前提是导出前回填**：`doc_date/date_source/date_confidence` 在 `doc_catalog` 里，切片整表带走；
+  但源库没回填时包内为空，源库没跑过懒 ALTER 时包内连三列都没有（导入侧只补空列）。导入不保留 mtime，
+  导入后再跑 `backfill_doc_dates.py` 会把 mtime 档写成导入时间——回填必须在导出前；
 - 上传支持 multipart，不支持断点续传。
 
 ---

@@ -7,6 +7,7 @@ All notable changes to AnGIneer are documented here.
 - 夜间评测内存水位闸与补结论（2026-10-21 整机换页卡死事故：主集 1040 题答完后 swap 抖动、系统盘 util 99%、队列 230 深、整机假死约 5 小时，OOM 杀掉 758MB worker 才恢复）：运行时 MemAvailable 连续 3 次低于 250MB 主动收口并落 error 档，派发前低于 600MB 跳过并经企微告警（`NIGHTLY_MIN_MEM_MB`/`NIGHTLY_ABORT_MEM_MB` 可调）；新增 `scripts/backfill_nightly_conclusion.py`，复用门禁/报告链路从 evals.sqlite 补出「已跑完但判超时」的 run 结论（事故夜 928/1040=0.8923 已补出 green，+2.12pp）
 - 意图分类 v6 与 L3 回退：题面只给公式/指标定义、具体数值需从文档/财报/规范查得的不再判 L3（financebench 10 题误判 L3→SOP 无匹配→零证据拒答，-4pp）；L3 复杂档产出拒答/空答时回退 L1 语义检索，L4 不加兜底（无等价形态）
 - 表格检索与渲染：`table_search` query 首次无行数值时允许按指标名/报表名改写一次再查（QA prompt v19，工具描述同步），doc 范围明确且候选无完整表时按该文档 canonical 表格块兜底（全量 token 去重打分、取前 8 张带行表）；多行表头合并为唯一列名（Fiscal Year 2019 等）、数据行带序号；新增单测覆盖水位闸熔断/分类边界/L3 回退/表渲染
+- 语料包导入残留清理：新增 `scripts/kb_corpus_import_cleanup.py`（孤儿暂存 + registry 无行的半成品库，默认 dry-run，registry 有行一律不动）与导入任务重启后 404 文案指引；`Dockerfile.backend`/`.dockerignore` 补入清理与存量回填脚本（b16457b1）
 
 ## v0.3.1
 
