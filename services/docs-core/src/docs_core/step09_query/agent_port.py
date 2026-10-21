@@ -219,6 +219,81 @@ def knowledge_local_search(
     return {"items": items, "stage_times": dict(stage_times)}
 
 
+def _table_block_text(block: Dict[str, Any]) -> str:
+    """表格块 → 可进证据的文本（表题 + 表头 + 全部行）。"""
+    rows = block.get("rows") or []
+    header = block.get("header_rows") or []
+    ctx = str(block.get("context") or "").strip()
+    head = (f"表格《{ctx}》包含 {len(rows)} 行" if ctx else f"表格包含 {len(rows)} 行")
+    lines = [head]
+    for row in list(header) + list(rows):
+        cells = row if isinstance(row, (list, tuple)) else [row]
+        lines.append(" | ".join(str(c) for c in cells))
+    return "\n".join(lines)
+
+
+def _query_tokens(query: str) -> List[str]:
+    """检索词：全量去重（不截前 20 个）——财务题的公式行项常出现在题干尾部，
+    截断会丢掉 inventory/receivable/payable 这些唯一能与表头对上的词。"""
+    import re
+
+    seen, out = set(), []
+    for tok in re.split(r"[^0-9a-zA-Z\u4e00-\u9fff]+", (query or "").lower()):
+        if len(tok) < 3 or tok in seen:
+            continue
+        seen.add(tok)
+        out.append(tok)
+        if len(out) >= 40:
+            break
+    return out
+
+
+def _doc_scoped_table_blocks(
+    items: List[Any], *, query: str, library_id: str,
+    doc_ids: Optional[List[str]], top_k: int,
+) -> List[Any]:
+    """doc 范围明确、但候选里没有「带行」的表时，直接按该文档 canonical 表格块补候选。
+
+    2026-10-21 实踩：financebench 财务比率题原文（CCC/DIO/DSO/DPO）与利润表表头零词面
+    交集，table_search 把 32 行利润表排到 12 条之外，模型只拿到 chunk 摘要、没有行数值，
+    只能拒答。表本身在索引里（换 query "Cost of sales" 即命中），这里按 doc 范围兜底：
+    词面命中的表优先，其余按原文顺序补足。兜底失败不影响主检索。
+    """
+    if not doc_ids or any(str(getattr(it, "entity_type", "") or "") == "table" for it in items):
+        return items
+    try:
+        blocks = table_blocks_provider(library_id=library_id, doc_ids=list(doc_ids))
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("doc 范围表格兜底失败: %s", exc)
+        return items
+    if not blocks:
+        return items
+    tokens = _query_tokens(query)
+    scored = []
+    for idx, block in enumerate(blocks):
+        text = _table_block_text(block)
+        score = sum(1 for t in tokens if t in text.lower())
+        scored.append((score, idx, text, block))
+    scored.sort(key=lambda x: (-x[0], x[1]))
+    from .protocols.contracts import RetrievedItem
+
+    extra = []
+    for score, idx, text, block in scored[: max(1, min(int(top_k or 20), 8))]:
+        extra.append(RetrievedItem(
+            item_id=f"table-block-{block.get('doc_id', '')}-{block.get('page_idx', idx)}-{idx}",
+            entity_type="table",
+            doc_id=str(block.get("doc_id") or ""),
+            title=str(block.get("context") or "")[:120],
+            text=text,
+            score=float(score),
+            retrieval_policy="doc_table_fallback",
+            metadata={"page_idx": block.get("page_idx"), "fallback": "doc_table"},
+        ))
+    if extra:
+        logger.info("table_search doc 范围兜底：补 %d 张表（doc_ids=%s）", len(extra), doc_ids)
+    return list(items) + extra
+
+
 def table_local_search(
     *,
     query: str,
@@ -280,6 +355,8 @@ def table_local_search(
         return {"error": "表格检索全部失败", "detail": {k: v for k, v in sources.items() if k.endswith("_error")}}
     _t = time.perf_counter()
     items, _debug = fuse_candidates(candidate_sources, task_type="table_qa", top_k=top_k)
+    items = _doc_scoped_table_blocks(
+        items, query=query, library_id=library_id, doc_ids=doc_ids, top_k=top_k)
     stage_times["fuse"] = time.perf_counter() - _t
     logger.info(
         "table_search 分段计时(本地召回): %s items=%d query=%r",

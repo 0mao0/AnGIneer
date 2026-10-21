@@ -325,6 +325,20 @@ QA_AGENT_SYSTEM_PROMPT_V18 = QA_AGENT_SYSTEM_PROMPT_V17.replace(
 )
 assert QA_AGENT_SYSTEM_PROMPT_V18 != QA_AGENT_SYSTEM_PROMPT_V17, "v18 规则 2 追加未命中"
 
+# v19（2026-10-21）：规则 6 允许表格 query 改写一次——financebench 财务比率题实踩：
+# 原文含 CCC/DIO/DSO/DPO，与利润表表头（Net sales / Cost of sales）零词面交集，
+# table_search 用原文把目标表排到 12 条之外，模型拿到 20 条 chunk 却无行数值，只能拒答。
+# 证据：同文档换 query "Cost of sales" 即命中 32 行利润表（表在索引里，行也全）。
+_QA_RULE6_V19 = (
+    "不要改写或添加词汇（例如不要拼成“船型参数”）；"
+    "首次检索没有返回带行数值的表时，允许按指标名或报表名改写一次再查"
+    "（如 Cost of sales、Consolidated Statements of Earnings），仍无结果则如实报缺；"
+)
+QA_AGENT_SYSTEM_PROMPT_V19 = QA_AGENT_SYSTEM_PROMPT_V18.replace(
+    "不要改写或添加词汇（例如不要拼成“船型参数”）；", _QA_RULE6_V19
+)
+assert QA_AGENT_SYSTEM_PROMPT_V19 != QA_AGENT_SYSTEM_PROMPT_V18, "v19 规则 6 替换未命中"
+
 
 # 「当前版本别名」QA_AGENT_SYSTEM_PROMPT 已清退（2026-10-17）：别名曾 = V11 而 latest 已是 v18，
 # 生产零消费（生效一律走 load(latest)，见 agent_configs._load_qa_system_prompt）；别名与 latest
@@ -376,6 +390,7 @@ register("agent_configs.qa_system_prompt", "v15", QA_AGENT_SYSTEM_PROMPT_V15)
 register("agent_configs.qa_system_prompt", "v16", QA_AGENT_SYSTEM_PROMPT_V16)
 register("agent_configs.qa_system_prompt", "v17", QA_AGENT_SYSTEM_PROMPT_V17)
 register("agent_configs.qa_system_prompt", "v18", QA_AGENT_SYSTEM_PROMPT_V18)
+register("agent_configs.qa_system_prompt", "v19", QA_AGENT_SYSTEM_PROMPT_V19)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 NO_FOLLOWUP_QUESTION_RULE = (
     "\n\n## 结尾规则\n"

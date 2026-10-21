@@ -1300,10 +1300,12 @@ class RetrieverAdapter:
         return AgentTool(
             name="table_search",
             description="在知识库中检索表格、公式与计算依据，返回包含完整行数值的候选条目。"
-                       "查表/取值/数值/尺度/吨级类问题必须优先使用本工具，且 query 必须使用用户原始问题原文，不要改写或添加词汇。",
+                       "查表/取值/数值/尺度/吨级类问题必须优先使用本工具。query 首次用用户原始问题原文；"
+                       "若返回里没有带行数值的表，可按指标名/报表名改写一次再查（如 Cost of sales、"
+                       "Consolidated Statements of Earnings），仍无结果再如实报缺。",
             parameters_schema={
                 "type": "object",
-                "properties": {"query": {"type": "string", "description": "检索问句（使用用户原始问题原文）"}},
+                "properties": {"query": {"type": "string", "description": "检索问句（首次用原文；无行数值时可按指标名改写一次）"}},
                 "required": ["query"],
             },
             handler=handler,

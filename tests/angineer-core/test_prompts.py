@@ -133,12 +133,24 @@ class PromptMigrationContractTests(unittest.TestCase):
         self.assertIn("禁止用「根据《X》」把相邻片段包装成确定结论", QA)
         self.assertNotIn("以下相关信息供参考", QA_V9)  # v9 无第三档
 
-    def test_qa_prompt_latest_is_v18(self):
+    def test_qa_prompt_latest_is_v19(self):
         """latest 必须解析到最新版——字符串 max 会把 latest 钉死在旧版（"v9" > "v10" 字典序）。"""
-        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V18
+        from angineer_core.prompts.agent_configs import QA_AGENT_SYSTEM_PROMPT_V19
 
-        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V18)
-        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v18")
+        self.assertEqual(load("agent_configs.qa_system_prompt"), QA_AGENT_SYSTEM_PROMPT_V19)
+        self.assertEqual(versions()["agent_configs.qa_system_prompt"], "v19")
+
+    def test_qa_prompt_v19_allows_one_table_query_rewrite(self):
+        """v19（2026-10-21）：表格 query 允许一次改写——financebench 财务比率题原文与表头
+        零词面交集，原文检索把 32 行利润表排到 12 条之外，模型无行数值只能拒答。"""
+        from angineer_core.prompts.agent_configs import (
+            QA_AGENT_SYSTEM_PROMPT_V18,
+            QA_AGENT_SYSTEM_PROMPT_V19,
+        )
+
+        self.assertIn("允许按指标名或报表名改写一次再查", QA_AGENT_SYSTEM_PROMPT_V19)
+        self.assertIn("首次检索没有返回带行数值的表", QA_AGENT_SYSTEM_PROMPT_V19)
+        self.assertNotIn("允许按指标名或报表名改写一次再查", QA_AGENT_SYSTEM_PROMPT_V18)
 
     def test_qa_prompt_v18_rule2_precondition(self):
         """v18（2026-10-10）：规则 2 写出处加「前提核对」——v16 无前提实测挤掉规则 3 未覆盖路径
