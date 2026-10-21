@@ -219,16 +219,43 @@ def knowledge_local_search(
     return {"items": items, "stage_times": dict(stage_times)}
 
 
+def _merge_header_rows(header: List[Any]) -> List[str]:
+    """多行表头压成一行：每列非空单元格按顺序拼接。
+
+    财务表常见两行表头（「Fiscal Year / Fiscal Year / Fiscal Year」+「2019 / 2018 / 2017」），
+    原样输出会得到三列同名「Fiscal Year」，模型无法把数值对到年份列；压成
+    「Fiscal Year 2019 | Fiscal Year 2018 | Fiscal Year 2017」后列义唯一。
+    """
+    cols: List[str] = []
+    for row in header:
+        cells = row if isinstance(row, (list, tuple)) else [row]
+        for i, cell in enumerate(cells):
+            text = str(cell).strip()
+            if not text:
+                continue
+            while len(cols) <= i:
+                cols.append("")
+            cols[i] = f"{cols[i]} {text}".strip()
+    return [c or "（行标签）" for c in cols]
+
+
 def _table_block_text(block: Dict[str, Any]) -> str:
-    """表格块 → 可进证据的文本（表题 + 表头 + 全部行）。"""
+    """表格块 → 可进证据的文本：表题 + 单行合并表头 + 每行数据独占一行。
+
+    列序固定为表头顺序；数据行不再与表头拼行（2026-10-21 复核：早期"表头并进首行"
+    是打印时替换换行造成的错觉，实际渲染本就是逐行；这里只修「多行表头列义重复」）。
+    """
     rows = block.get("rows") or []
     header = block.get("header_rows") or []
     ctx = str(block.get("context") or "").strip()
     head = (f"表格《{ctx}》包含 {len(rows)} 行" if ctx else f"表格包含 {len(rows)} 行")
     lines = [head]
-    for row in list(header) + list(rows):
+    merged = _merge_header_rows(header)
+    if merged:
+        lines.append("列：" + " | ".join(merged))
+    for idx, row in enumerate(rows, 1):
         cells = row if isinstance(row, (list, tuple)) else [row]
-        lines.append(" | ".join(str(c) for c in cells))
+        lines.append(f"{idx}. " + " | ".join(str(c).strip() for c in cells))
     return "\n".join(lines)
 
 
