@@ -123,7 +123,7 @@ flowchart LR
 
 ## 模块化插件版本
 
-**当前版本：0.3.1** ——检索时间维度：doc_catalog 增 doc_date/date_source/date_confidence（懒 ALTER）＋scripts/backfill_doc_dates.py 从正文首屏/文件名/mtime 回填（未来日期与英文孤立年份丢弃，mtime 不参与排序主序与区间过滤），doc_search 增 sort_by/date_after/date_before、entity_contains（先锁实体所在分组）与唯一命中时的 authoritative 卡片，doc_read 增 section 按章节读、match 模式 AND→OR 回退与命中词数排序；日期预取默认关（date_prefetch，16 题对照臂实测 4/43 vs 14.0% 为负，结论入档），knowledge_stats 描述收窄（titles 仅是前 100 条样本，列举改走 doc_search）；测试与文档：doc_search 日期/实体/读页、接口透传、date_prefetch 共 75 项测试，时间维度计划 §9–13、枚举计划 §13、tech-report §3.6 入库。详见 [CHANGELOG.md](CHANGELOG.md)。
+**当前版本：0.3.2** ——夜间评测内存水位闸（运行中内存连续低于 250MB 主动收口、派发前低于 600MB 跳过并企微告警）与补结论脚本（从 evals.sqlite 补出判超时 run 的结论）；意图分类 v6：题面只给公式、数值需查文档的不再判 L3，L3 复杂档失败回退语义检索；表格检索：query 允许一次改写、doc 范围表格块兜底、多行表头合并为唯一列名且数据行带序号。详见 [CHANGELOG.md](CHANGELOG.md)。
 
 各模块独立仓库各自用 git tag 发布（发版时同步更新本表）：
 
