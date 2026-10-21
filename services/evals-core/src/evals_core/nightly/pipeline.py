@@ -82,6 +82,36 @@ async def _sleep(seconds: float) -> None:
 # 进度连续 STALL_WARN_S 不动即点名——把「卡死」从次日清晨人眼发现变成分钟内日志告警。
 STALL_WARN_S = 600
 
+# 内存水位熔断（2026-10-21 事故）：3.7G 内存 + 4G 同盘 swap 的部署机，晚间评测把内存打穿后
+# 进入换页死循环——系统盘 %util 99%、排队 230 深、iowait 73%，整机假死约 5 小时，sshd/nginx
+# 全部只握手不响应；最后靠内核 OOM 杀掉 758MB 的 eval worker 才恢复。
+# 进度轮询在这里顺带读宿主 MemAvailable：连续 MEM_ABORT_STREAK 次低于阈值即主动收口，
+# 把「整机卡死到次日清晨」变成「分钟级 error 档 + 企微告警」。
+# fail-open：读不到 /proc/meminfo（非 Linux/受限容器）返回 None，不阻断流水线。
+MEM_ABORT_ENV = "NIGHTLY_ABORT_MEM_MB"
+MEM_ABORT_DEFAULT_MB = 250
+MEM_ABORT_STREAK = 3
+
+
+def _mem_available_mb() -> Optional[int]:
+    """宿主可用内存（MB）；容器内 /proc/meminfo 仍是宿主口径。读不到返回 None。"""
+    try:
+        with open("/proc/meminfo", encoding="ascii", errors="ignore") as fh:
+            for line in fh:
+                if line.startswith("MemAvailable:"):
+                    return int(line.split()[1]) // 1024
+    except (OSError, ValueError, IndexError):
+        return None
+    return None
+
+
+def _abort_mem_mb() -> int:
+    """熔断阈值（MB），NIGHTLY_ABORT_MEM_MB 可覆盖；非法值回默认，绝不因配置写错停摆。"""
+    try:
+        return max(1, int(os.getenv(MEM_ABORT_ENV, str(MEM_ABORT_DEFAULT_MB))))
+    except (TypeError, ValueError):
+        return MEM_ABORT_DEFAULT_MB
+
 
 async def _await_terminal(run_id: str, deadline: float) -> dict:
     """轮询到 run 终态；超时/失败/取消都按 PipelineError（上层落 error 档结论）。"""
@@ -89,6 +119,7 @@ async def _await_terminal(run_id: str, deadline: float) -> dict:
     last_progress = None
     last_change = time.monotonic()
     stall_warned = False
+    low_mem_streak = 0
     while time.monotonic() < deadline:
         run = await asyncio.to_thread(result_store.get_run, run_id)
         status = (run or {}).get("status", "")
@@ -113,6 +144,19 @@ async def _await_terminal(run_id: str, deadline: float) -> dict:
             if status != "completed":
                 raise PipelineError(f"评测 run {run_id} 未正常完成（status={status}）")
             return run
+        avail = await asyncio.to_thread(_mem_available_mb)
+        if avail is not None and avail < _abort_mem_mb():
+            low_mem_streak += 1
+            logger.warning(
+                "nightly 内存水位告警：MemAvailable=%dMB < %dMB（连续 %d/%d 次，run=%s）——"
+                "继续下跌会触发换页死循环并拖死整机，达到阈值即主动收口",
+                avail, _abort_mem_mb(), low_mem_streak, MEM_ABORT_STREAK, run_id)
+            if low_mem_streak >= MEM_ABORT_STREAK:
+                raise PipelineError(
+                    f"内存水位熔断：MemAvailable {avail}MB 连续 {low_mem_streak} 次低于 "
+                    f"{_abort_mem_mb()}MB，已主动停止评测以保住宿主（run={run_id}）")
+        else:
+            low_mem_streak = 0
         await _sleep(POLL_INTERVAL_S)
     raise PipelineError(f"评测 run {run_id} 超时未完成（超过时限仍未到终态）")
 
@@ -247,11 +291,15 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
                                material_line: str = "", premise_line: str = "",
                                smoke_line: str = "",
                                judge_missing: Optional[Dict[str, List[str]]] = None,
-                               slot: str = "") -> dict:
+                               slot: str = "",
+                               date: Optional[str] = None) -> dict:
     """门禁 + 报告 + 落盘 + 通知，全成功返回结论 dict（state=green/red）。
 
     judge_missing：阈值内放行的判分缺失题（{异常类型: [question_id]}）。它不改门禁算法，
-    只做两件事——落进结论条目、在卡片上单列一行，让"放行"看得见。"""
+    只做两件事——落进结论条目、在卡片上单列一行，让"放行"看得见。
+
+    date：归档日期（YYYY-MM-DD，北京口径）；None=今天。补发历史结论时必须显式传 run 的
+    归档日期，否则隔天补算会写进当天目录（2026-10-21 事故补主集结论时新增）。"""
     loop_run = await asyncio.to_thread(result_store.get_run, run_id)
     details = await asyncio.to_thread(result_store.list_run_details, run_id)
     manifest = await asyncio.to_thread(_load_json, paths.manifest_path())
@@ -273,7 +321,7 @@ async def _compute_and_publish(run_id: str, dataset_id: str, resamples: int, sit
     subject = _dataset_subject(dataset_id)  # 归档条目与企微卡片同源，卡片自报集合名
     entry = archive.build_entry(
         gate_res, loop_run.get("summary_scores") or {}, q_texts,
-        dataset_id, paths.today_bjt(), run_id=run_id, state=state,
+        dataset_id, date or paths.today_bjt(), run_id=run_id, state=state,
         subject=subject,
         started_at=str(loop_run.get("started_at") or ""), judge_missing=judge_missing)
     archive.publish_day(entry, report_md, slot=slot)

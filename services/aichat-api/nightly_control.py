@@ -13,13 +13,23 @@ import time
 from datetime import datetime, timedelta, timezone
 from typing import Optional
 
-from evals_core.nightly import paths, pipeline
+from evals_core.nightly import notify, paths, pipeline
 from evals_core.runner import suite_runner
 from evals_core.storage import retention, result_store
 
 logger = logging.getLogger("nightly_control")
 
 BJT = paths.BJT
+
+# 派发前内存水位闸（2026-10-21 事故）：3.7G 内存 + 4G 同盘 swap 的部署机，主集 1040 题
+# 跑完后收尾阶段把内存打穿，进入换页死循环——系统盘 %util 99%、队列 230 深，整机假死约
+# 5 小时（sshd/nginx 只握手不响应），靠 OOM 杀 worker 才恢复。开跑前先看宿主余量：
+# 低于阈值宁可不跑（并推企微告警），也不把整台机器拖进 swap 抖动。
+# 口径与 evals_core.nightly.pipeline._mem_available_mb 一致（同一份 /proc/meminfo）。
+MIN_MEM_ENV = "NIGHTLY_MIN_MEM_MB"
+MIN_MEM_DEFAULT_MB = 600
+_MEM_ALERT_COOLDOWN_S = 1800
+_last_mem_alert_at = 0.0
 DEFAULT_SETTINGS = {
     # 每晚定时执行是默认选择（01:00 北京时间）；关闭需要显式保存一次
     "enabled": True,
@@ -401,6 +411,48 @@ def _resolve_webhook() -> str:
     return (os.getenv("NIGHTLY_WECOM_WEBHOOK") or os.getenv("WEBHOOK") or "").strip()
 
 
+def _min_mem_mb() -> int:
+    """派发闸阈值（MB），NIGHTLY_MIN_MEM_MB 可覆盖；非法值回默认，配置写错不阻断派发。"""
+    try:
+        return max(1, int(os.getenv(MIN_MEM_ENV, str(MIN_MEM_DEFAULT_MB))))
+    except (TypeError, ValueError):
+        return MIN_MEM_DEFAULT_MB
+
+
+async def _memory_gate() -> tuple:
+    """(是否可派发, 当前 MemAvailable MB)。读不到内存信息时 fail-open，不拿平台差异停摆。"""
+    avail = await asyncio.to_thread(pipeline._mem_available_mb)
+    if avail is None:
+        return True, None
+    return avail >= _min_mem_mb(), avail
+
+
+def _low_mem_detail(source: str, avail: Optional[int]) -> str:
+    return (f"内存水位不足：MemAvailable {avail}MB < 阈值 {_min_mem_mb()}MB，"
+            f"已跳过本轮 nightly（source={source}），避免重演换页卡死拖垮整机")
+
+
+async def _alert_low_mem(source: str, avail: Optional[int]) -> None:
+    """水位闸拦截时的企微告警：best-effort，30 分钟冷却防刷屏。"""
+    global _last_mem_alert_at
+    now = time.monotonic()
+    if now - _last_mem_alert_at < _MEM_ALERT_COOLDOWN_S:
+        return
+    _last_mem_alert_at = now
+    text = ("【nightly 跳过】" + _low_mem_detail(source, avail)
+            + "。内存释放后可到管理页点「立即运行」补跑。")
+    webhook = _resolve_webhook()
+    if not webhook:
+        logger.warning("内存水位告警无 webhook 可发：%s", text)
+        return
+    for url in notify.split_webhooks(webhook):
+        try:
+            await asyncio.to_thread(notify.send, url, text)
+            logger.info("内存水位告警已送达: %s", notify.target_label(url))
+        except Exception:  # noqa: BLE001 告警失败不阻断调度循环
+            logger.exception("内存水位告警发送失败: %s", notify.target_label(url))
+
+
 async def _probe_resume_hint(cfg: dict) -> None:
     """派发前探测断点续跑候选，命中留 hint 给种子行（起跑间隙即显示「续跑中」）。
 
@@ -502,6 +554,12 @@ async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
     global _active, _stop_requested
     if is_running():
         return {"ok": False, "detail": "已有一条夜间流水线在运行，请等待其完成"}
+    ok, avail = await _memory_gate()
+    if not ok:
+        detail = _low_mem_detail("manual", avail)
+        logger.warning("nightly 拒绝启动：%s", detail)
+        await _alert_low_mem("manual", avail)
+        return {"ok": False, "detail": detail}
     _stop_requested = False
     cfg = load_settings()
     await _probe_resume_hint(cfg)
@@ -526,6 +584,16 @@ async def scheduler_loop() -> None:
             now = datetime.now(BJT)
             cfg = load_settings()
             if not due(cfg, now) or is_running():
+                continue
+            ok, avail = await _memory_gate()
+            if not ok:
+                # 记 skipped 占位：不重试下一小时，避免白天补跑与反复告警（口径同「少跑不补」；
+                # 运维想补跑，内存释放后手动「立即运行」）。
+                detail = _low_mem_detail("scheduler", avail)
+                logger.warning("nightly 派发被内存水位闸拦下：%s", detail)
+                _record(cfg, now, "scheduler", slot_of(cfg, now),
+                        {"ok": False, "state": "skipped_low_mem", "detail": detail})
+                await _alert_low_mem("scheduler", avail)
                 continue
             _mark_dispatch(cfg, now, "scheduler", slot_of(cfg, now))
             await _execute(cfg, "scheduler", slot_of(cfg, now))

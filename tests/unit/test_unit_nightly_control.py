@@ -614,5 +614,65 @@ class TestResolveWebhook(unittest.TestCase):
         self.assertEqual(self._resolve(), "")
 
 
+class MemoryGateTests(unittest.TestCase):
+    """派发前内存水位闸（2026-10-21 事故回归）：不把整机拖进换页死循环。"""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.settings = Path(self.tmp.name) / "s.json"
+        env = mock.patch.dict(os.environ, {"NIGHTLY_SETTINGS_FILE": str(self.settings),
+                                          "NIGHTLY_MIN_MEM_MB": "600"})
+        env.start()
+        self.addCleanup(env.stop)
+        nc._active = None
+        nc._last_mem_alert_at = 0.0
+        self.addCleanup(setattr, nc, "_last_mem_alert_at", 0.0)
+        # 告警出口与真实企微脱钩：gate 用例只验证「是否推送」，不真发网络请求
+        webhook = mock.patch.object(nc, "_resolve_webhook", return_value="")
+        webhook.start()
+        self.addCleanup(webhook.stop)
+
+    def test_launch_rejected_when_memory_below_threshold(self):
+        with mock.patch.object(nc.pipeline, "_mem_available_mb", return_value=100):
+            out = asyncio.run(nc.launch("manual"))
+        self.assertFalse(out["ok"])
+        self.assertIn("内存水位不足", out["detail"])
+        self.assertIn("100MB", out["detail"])
+        # 被拦下=没有派发：不写 last_dispatch（否则当晚不会再有补跑机会）
+        self.assertFalse(self.settings.exists())
+
+    def test_launch_allowed_when_memory_is_enough(self):
+        async def fake_pipeline(**kwargs):
+            return {"state": "green", "ok": True, "run_id": "run-x", "detail": ""}
+
+        with mock.patch.object(nc.pipeline, "_mem_available_mb", return_value=2000), \
+             mock.patch.object(nc.pipeline, "_find_resume_candidate", return_value=""), \
+             mock.patch.object(nc.pipeline, "run_nightly", side_effect=fake_pipeline):
+            async def scenario():
+                started = await nc.launch("manual")
+                self.assertTrue(started["ok"])
+                await nc._active
+            asyncio.run(scenario())
+        self.assertTrue(self.settings.exists())
+
+    def test_gate_fails_open_when_meminfo_unreadable(self):
+        """读不到 /proc/meminfo（非 Linux/受限容器）不得把 nightly 全停。"""
+        with mock.patch.object(nc.pipeline, "_mem_available_mb", return_value=None):
+            ok, avail = asyncio.run(nc._memory_gate())
+        self.assertTrue(ok)
+        self.assertIsNone(avail)
+
+    def test_threshold_tunable_via_env_without_code_change(self):
+        with mock.patch.dict(os.environ, {"NIGHTLY_MIN_MEM_MB": "1500"}), \
+             mock.patch.object(nc.pipeline, "_mem_available_mb", return_value=1000):
+            ok, _ = asyncio.run(nc._memory_gate())
+        self.assertFalse(ok)  # 1000 >= 默认 600，但低于新阈值 1500
+
+    def test_invalid_threshold_falls_back_to_default(self):
+        with mock.patch.dict(os.environ, {"NIGHTLY_MIN_MEM_MB": "not-a-number"}):
+            self.assertEqual(nc._min_mem_mb(), nc.MIN_MEM_DEFAULT_MB)
+
+
 if __name__ == "__main__":
     unittest.main()

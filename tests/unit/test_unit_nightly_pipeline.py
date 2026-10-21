@@ -4,6 +4,7 @@ import json
 import os
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
 from unittest import mock
@@ -433,6 +434,64 @@ class SmokeLineTests(_Env):
         self.assertEqual(len(cards), 1)
         self.assertNotIn("SOP 链路冒烟", cards[0])
         self.assertNotIn("sop_chain_smoke", result)
+
+
+class MemoryWatermarkTests(unittest.TestCase):
+    """内存水位熔断（2026-10-21 事故回归）：整机换页卡死前必须自己收口。
+
+    事故现场：主集 1040 题答完后内存打穿，系统盘 %util 99%、排队 230 深、iowait 73%，
+    整机假死 5 小时；旧实现只会在 420 分钟超时线后判 error，期间宿主已不可用。
+    """
+
+    _RUNNING = {"status": "running", "completed_questions": 5, "total_questions": 1040}
+
+    def _terminal(self, *, mem, get_run, deadline_s=60):
+        sleeps = []
+
+        async def fake_sleep(seconds):
+            sleeps.append(seconds)
+
+        mem_patch = (mock.patch.object(pipeline, "_mem_available_mb", side_effect=mem)
+                     if callable(mem)
+                     else mock.patch.object(pipeline, "_mem_available_mb", return_value=mem))
+        with mock.patch.object(pipeline.result_store, "get_run", side_effect=get_run), \
+             mock.patch.object(pipeline, "_sleep", fake_sleep), \
+             mem_patch:
+            try:
+                return asyncio.run(pipeline._await_terminal("run-x", time.monotonic() + deadline_s)), sleeps
+            except pipeline.PipelineError as exc:
+                return exc, sleeps
+
+    def test_low_memory_aborts_before_timeout(self):
+        outcome, sleeps = self._terminal(mem=100, get_run=lambda *_: dict(self._RUNNING))
+        self.assertIsInstance(outcome, pipeline.PipelineError)
+        self.assertIn("内存水位熔断", str(outcome))
+        self.assertIn("100MB", str(outcome))
+        # 连续 3 次低水位才熔断：前两次只告警并继续轮询
+        self.assertEqual(len(sleeps), pipeline.MEM_ABORT_STREAK - 1)
+
+    def test_memory_recovery_resets_streak(self):
+        """抖动一次又回升不该误杀整晚评测：streak 必须清零重新计数。"""
+        values = iter([100, 100, 2000, 100, 100])  # 第 3 次回升 → 清零；后续不再连满 3 次
+        outcome, _ = self._terminal(
+            mem=lambda: next(values, 2000),
+            get_run=lambda *_: dict(self._RUNNING),
+            deadline_s=0.05)
+        self.assertIsInstance(outcome, pipeline.PipelineError)
+        self.assertIn("超时", str(outcome))
+
+    def test_completed_run_wins_even_when_memory_is_low(self):
+        """终态优先：run 已 completed 就直接收口，不再因内存低而改判失败。"""
+        outcome, _ = self._terminal(
+            mem=100, get_run=lambda *_: dict(self._RUNNING, status="completed"))
+        self.assertIsInstance(outcome, dict)
+        self.assertEqual(outcome["status"], "completed")
+
+    def test_unreadable_meminfo_fails_open(self):
+        """读不到 /proc/meminfo（非 Linux/受限容器）不得阻断：只看超时。"""
+        outcome, _ = self._terminal(mem=None, get_run=lambda *_: dict(self._RUNNING), deadline_s=0.05)
+        self.assertIsInstance(outcome, pipeline.PipelineError)
+        self.assertIn("超时", str(outcome))
 
 
 if __name__ == "__main__":
