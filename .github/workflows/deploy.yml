@@ -141,6 +141,7 @@ jobs:
         env:
           WEBHOOK: ${{ secrets.WEBHOOK_DEPLOY }}
           PREV_SHA: ${{ env.PREV_SHA }}
+          STATUS: ${{ job.status }}
           FE: ${{ steps.health.outputs.frontend }}
           ADM: ${{ steps.health.outputs.admin }}
           API: ${{ steps.health.outputs.api }}

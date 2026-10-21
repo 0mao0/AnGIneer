@@ -130,7 +130,17 @@ def _short(line: str, limit: int = 90) -> str:
     return line[: limit - 1] + "…"
 
 
-content_parts = ["## ✅ AnGIneer 部署完成", f"> **版本:** `{_release_version()}`"]
+# 状态感知（2026-10-21 实踩）：本步骤是 if: always()，旧文案写死「部署完成」——
+# v0.3.2 构建失败（dockerignore 缺白名单）时群里照样收到「✅ 部署完成」，
+# 运维会以为已上线。现在按 job.status 出标题，失败时明确写「生产可能仍是上一版」。
+status = (os.environ.get("STATUS") or "success").strip().lower()
+ok = status == "success"
+content_parts = [
+    "## ✅ AnGIneer 部署完成" if ok else "## ❌ AnGIneer 部署失败",
+    f"> **版本:** `{_release_version()}`",
+]
+if not ok:
+    content_parts.append(f"> **状态:** `{status or 'unknown'}`")
 
 if prev_exists and total > 0:
     content_parts.append(f"> **本次提交:** `{total}` 个")
@@ -144,6 +154,11 @@ content_parts += [
     f"> **分支:** `{ref}`",
     f"> **时间:** `{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}`",
     "",
+]
+if not ok:
+    content_parts.append("> ⚠️ 构建或健康检查未通过：生产可能仍是上一版，请看 Actions 日志")
+    content_parts.append("")
+content_parts += [
     "**服务状态**",
     f"> 前台: `{fe}`",
     f"> 管理后台: `{adm}`",
