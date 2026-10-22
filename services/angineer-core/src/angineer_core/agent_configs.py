@@ -613,6 +613,44 @@ def build_qa_config(
         except Exception as _exc:  # noqa: BLE001 —— 自检装配失败不影响原 guard
             logging.getLogger(__name__).warning("answer_audit 装配失败: %s", _exc)
 
+    # P4/P5 枚举答案约束：结构化生成优先（整答由渲染器产出），否则退到闭集改写；
+    # 两者开关默认关，失败保持原答案。
+    if enum_context:
+        try:
+            from angineer_core.structured_answer import enabled as _struct_enabled
+            from angineer_core.structured_answer import make_struct_guard
+
+            logging.getLogger(__name__).info(
+                "枚举答案约束装配：enum_context=%d 字 struct=%s",
+                len(str(enum_context)), _struct_enabled(),
+            )
+            if _struct_enabled():
+                guard = make_struct_guard(
+                    guard,
+                    llm=llm,
+                    question=audit_query or "",
+                    enabled_for_query=True,
+                    evidence_context=str(enum_context),
+                    config_name=config_name,
+                    mode=mode,
+                )
+            else:
+                from angineer_core.enum_closed_set import enabled as _closed_set_enabled
+                from angineer_core.enum_closed_set import make_closed_set_guard
+
+                if _closed_set_enabled():
+                    guard = make_closed_set_guard(
+                        guard,
+                        llm=llm,
+                        question=audit_query or "",
+                        enabled_for_query=True,
+                        closed_set_context=str(enum_context),
+                        config_name=config_name,
+                        mode=mode,
+                    )
+        except Exception as _exc:  # noqa: BLE001 —— 约束装配失败不影响原 guard
+            logging.getLogger(__name__).warning("enum answer guard 装配失败: %s", _exc)
+
     budget_est = _qa_budget_tokens_est() if max_tokens_est is None else int(max_tokens_est)
     qa_transformer = (
         make_budget_transformer(

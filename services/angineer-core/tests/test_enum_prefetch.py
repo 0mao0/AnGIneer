@@ -73,6 +73,7 @@ def test_rewrite_failure_degrades(monkeypatch):
 
 
 def test_context_is_capped(monkeypatch):
+    monkeypatch.delenv("ANGINEER_ENUM_PREREAD", raising=False)
     monkeypatch.setenv("ANGINEER_ENUM_PREFETCH", "1")
     monkeypatch.setenv("ANGINEER_ENUM_PREFETCH_LIBRARIES", "*")
     monkeypatch.setattr(ep, "rewrite_queries", lambda *a, **k: ["q1", "q2"])
@@ -98,3 +99,29 @@ def test_search_error_degrades(monkeypatch):
 
     monkeypatch.setattr(ep, "_search_documents", boom)
     assert ep.build_enum_context(query="list all our matters", library_id="lib", llm=object()) is None
+
+
+def test_preread_context_has_closed_set(monkeypatch):
+    excerpts = {
+        "1003-00001": ("memo.docx", "The firm received a second request from DOJ on 2025-05-08."),
+        "1038-00001": ("spa.docx", "Section 6.03 HSR Act filings; no second request issued."),
+    }
+    text = ep.format_preread_context(excerpts)
+    assert "CLOSED SET" in text
+    assert "1003-00001" in text and "1038-00001" in text
+    assert "second request" in text
+    assert "Judge qualification ONLY from these excerpts" in text
+
+
+def test_build_preread_context_wiring(monkeypatch):
+    monkeypatch.setattr(ep, "rewrite_queries", lambda *a, **k: ["q1"])
+    monkeypatch.setattr(ep, "_preread_candidates", lambda *a, **k: {"1003-00001": {"doc_id": "d1", "title": "t"}})
+    monkeypatch.setattr(ep, "_read_excerpts", lambda *a, **k: {"1003-00001": ("t", "text")})
+    text = ep.build_preread_context(library_id="lib", query="list all matters", llm=object())
+    assert text and "CLOSED SET" in text
+
+
+def test_preread_degrades_without_candidates(monkeypatch):
+    monkeypatch.setattr(ep, "rewrite_queries", lambda *a, **k: ["q1"])
+    monkeypatch.setattr(ep, "_preread_candidates", lambda *a, **k: {})
+    assert ep.build_preread_context(library_id="lib", query="list all matters", llm=object()) is None

@@ -156,11 +156,21 @@ def format_context(cards: Dict[str, Dict[str, Any]], total_matters: int, queries
         # 只给检索式，不给候选卡：避免中文候选片段把英文作答带成中文、
         # 也避免模型把「候选里没有」当成「不存在」（2026-10-18 题 001 两版注入实测）。
         qs = "；".join(f'"{q}"' for q in (queries or [])[:4])
-        return (
+        text = (
             "## Suggested search queries (system prefetch)\n"
             "This question asks for an exhaustive list. The system suggests these doc_search queries: "
             f"{qs}. Call doc_search with them (one call per query) before writing the answer."
         )
+        # P4 闭集约束：开守卫时同步给生成期要求，否则守卫会在回答后才把没读过的正确 matter 挪走。
+        if os.getenv("ANGINEER_ENUM_CLOSED_SET", "0").strip().lower() in ("1", "true", "yes", "on"):
+            text += (
+                "\n\n## Closed-set requirement\n"
+                "Only assert a matter as qualifying if you have read its source document with doc_read. "
+                "Matters you did not read must go under a short section titled 'Not found in read evidence' — "
+                "never present them as qualifying. Read representative documents of the candidate matters "
+                "before writing the final answer."
+            )
+        return text
     lines = [
         "## 系统预取候选（文档级检索）",
         "本题判定为穷举型；以下是系统提前检索到的候选 matter，按 matter 归组。"
@@ -252,6 +262,139 @@ def format_catalog_context(cards: Dict[str, Dict[str, Any]], total: int, phrases
     return "\n".join(lines)
 
 
+# --- P4 代码预读（2026-10-22）：确定性读候选文档，注入真实片段 ---
+
+PREREAD_MAX_MATTERS = 50
+PREREAD_CHARS = 1500
+PREREAD_DEEP_CHARS = 4000
+PREREAD_DEEP_MAX = 15
+PREREAD_MAX_CONTEXT = 90_000
+
+
+def preread_enabled() -> bool:
+    return os.getenv("ANGINEER_ENUM_PREREAD", "0").strip().lower() in ("1", "true", "yes", "on")
+
+
+def _preread_candidates(library_id: str, queries: List[str]) -> Dict[str, Dict[str, Any]]:
+    """改写式 → doc_search 取每个候选 matter 的代表文档（best.doc_id）。"""
+    cards: Dict[str, Dict[str, Any]] = {}
+    for query in queries:
+        try:
+            result = _search_documents(library_id, query, limit=120, per_matter=1)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("enum_prefetch 预读检索失败(%r): %s", query, exc)
+            continue
+        for matter in result.get("matters") or []:
+            mid = str(matter.get("matter_id") or "").strip()
+            best = matter.get("best") or {}
+            doc_id = str(best.get("doc_id") or "").strip()
+            if mid and doc_id and mid not in cards:
+                cards[mid] = {"doc_id": doc_id, "title": str(best.get("title") or "")}
+    return cards
+
+
+def _read_excerpts(library_id: str, cards: Dict[str, Dict[str, Any]], question: str) -> Dict[str, Any]:
+    """批量 doc_read（match 模式）取每个候选的代表性段落；一个 matter 一条摘录。"""
+    from docs_core.step09_query.doc_search import read_documents
+
+    items = list(cards.items())[:PREREAD_MAX_MATTERS]
+    out: Dict[str, Any] = {}
+    for start in range(0, len(items), 8):
+        batch = items[start:start + 8]
+        try:
+            result = read_documents(
+                library_id=library_id,
+                doc_ids=[card["doc_id"] for _, card in batch],
+                query=str(question or ""),
+                max_chars_per_doc=PREREAD_CHARS,
+                mode="match",
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("enum_prefetch 预读失败(batch %d): %s", start, exc)
+            continue
+        docs = {str(d.get("doc_id") or ""): d for d in result.get("docs") or []}
+        for mid, card in batch:
+            doc = docs.get(card["doc_id"]) or {}
+            text = " ".join(str(doc.get("text") or "").split())
+            if text:
+                out[mid] = (card["title"], text[:PREREAD_CHARS])
+    # 第二遍：摘录里一个查询词都没命中的 matter，按需加深到 4000 字符（封顶 15 个）
+    terms = [t.lower() for t in re.findall(r"[A-Za-z]{4,}", str(question or ""))][:10]
+    if terms:
+        deepen = [
+            mid for mid, (_title, text) in out.items()
+            if not any(term in text.lower() for term in terms)
+        ][:PREREAD_DEEP_MAX]
+        for start in range(0, len(deepen), 8):
+            batch = [(mid, cards[mid]) for mid in deepen[start:start + 8] if mid in cards]
+            if not batch:
+                continue
+            try:
+                result = read_documents(
+                    library_id=library_id,
+                    doc_ids=[card["doc_id"] for _, card in batch],
+                    query=str(question or ""),
+                    max_chars_per_doc=PREREAD_DEEP_CHARS,
+                    mode="match",
+                )
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("enum_prefetch 加深读失败(batch %d): %s", start, exc)
+                continue
+            docs = {str(d.get("doc_id") or ""): d for d in result.get("docs") or []}
+            for mid, card in batch:
+                doc = docs.get(card["doc_id"]) or {}
+                text = " ".join(str(doc.get("text") or "").split())
+                if text:
+                    out[mid] = (card["title"], text[:PREREAD_DEEP_CHARS])
+    return out
+
+
+def format_preread_context(excerpts: Dict[str, Any]) -> str:
+    lines = [
+        "## Pre-read evidence (system, deterministic)",
+        "The system read the representative document of each candidate matter below.",
+        "Judge qualification ONLY from these excerpts; do not rely on titles alone.",
+    ]
+    used = 0
+    shown: List[str] = []
+    for mid, (title, text) in excerpts.items():
+        block = f"\n### {mid} | {title}\n{text}"
+        if used + len(block) > PREREAD_MAX_CONTEXT:  # 预读注入上限 ~90k 字符
+            break
+        lines.append(block)
+        used += len(block)
+        shown.append(mid)
+    if not shown:
+        return ""
+    lines.append("\nCLOSED SET (only these matters may be asserted as qualifying): " + ", ".join(shown))
+    lines.append(
+        "For each matter, assert it as qualifying only if its excerpt states the qualifying condition. "
+        "Matters without such evidence must be listed under a short section titled 'Not qualified'."
+    )
+    return "\n".join(lines)
+
+
+def build_preread_context(
+    *,
+    library_id: str,
+    query: str,
+    llm: Any,
+    config_name: Optional[str] = None,
+    mode: str = "instruct",
+) -> Optional[str]:
+    queries = rewrite_queries(llm, query, config_name=config_name, mode=mode) or [str(query)[:120]]
+    cards = _preread_candidates(library_id, queries)
+    if not cards:
+        return None
+    # 用第一条短检索式做读页定位（整句题面做 match 会稀释关键词）
+    excerpts = _read_excerpts(library_id, cards, queries[0] if queries else str(query)[:120])
+    if not excerpts:
+        return None
+    text = format_preread_context(excerpts)
+    logger.info("enum_prefetch(preread) 注入：matters=%d chars=%d", len(excerpts), len(text))
+    return text or None
+
+
 def build_enum_context(
     *,
     query: str,
@@ -265,6 +408,10 @@ def build_enum_context(
         return None
     if not is_enumeration(query):
         return None
+    if preread_enabled():
+        return build_preread_context(
+            library_id=library_id, query=query, llm=llm, config_name=config_name, mode=mode
+        )
     prefetch_mode = os.getenv("ANGINEER_ENUM_PREFETCH_MODE", "cards").strip().lower()
     if prefetch_mode == "catalog":
         try:
