@@ -1,5 +1,6 @@
 """回答评测器，通过 query_engine 直接调用回答链路。"""
 import json
+import re
 from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner.base import BaseEvaluator, register_evaluator
@@ -17,6 +18,15 @@ from angineer_core.prompts.answer_eval import (
 )
 
 DEFAULT_SEMANTIC_THRESHOLD = 0.65
+
+# 外部 harness 的收尾指令（Harvey LAB 题面自带 "Output: write your complete answer to
+# `response.md` ..."）：内部评测走文本答案，这段指令只会诱发模型回显题面（2026-10-22
+# 001/016 实测），在进入问答链路前剥掉。仅匹配这一段固定句式，不伤正常题面。
+_HARNESS_TAIL = re.compile(r"\s*Output:\s*write your complete answer.*$", re.S | re.I)
+
+
+def strip_harness_instruction(text: str) -> str:
+    return _HARNESS_TAIL.sub("", str(text or "")).strip()
 
 
 def normalize_eval_text(value: str) -> str:
@@ -440,7 +450,7 @@ class AnswerEvaluator(BaseEvaluator):
     def run_prediction(self, question: Dict[str, Any], *, stage_callback: Optional[Callable[[Dict[str, Any]], None]] = None) -> Dict[str, Any]:
         """通过 query_engine 直接调用回答链路，支持渐进式阶段回调。"""
         question_id = str(question.get("question_id") or "")
-        query = str(question.get("question") or "").strip()
+        query = strip_harness_instruction(question.get("question") or "")
         if not query:
             return {}
 
