@@ -30,7 +30,7 @@ dependencies = [
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
     "requests>=2.31.0",
-    "PyMuPDF>=1.23.0",
+    "PyMuPDF==1.28.2",
     "numpy>=1.24",
     "python-dateutil>=2.8",
     # 默认向量后端 qdrant（qdrant-client 仅在用到时惰性 import）

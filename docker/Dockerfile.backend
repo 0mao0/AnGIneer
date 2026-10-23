@@ -2,14 +2,14 @@ FROM python:3.11-slim AS builder
 
 WORKDIR /app
 
-RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources
+RUN sed -i 's|deb.debian.org|mirrors.cloud.tencent.com|g' /etc/apt/sources.list.d/debian.sources
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc g++ && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
-    && pip config set install.trusted-host mirrors.aliyun.com \
+RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple/ \
+    && pip config set install.trusted-host mirrors.cloud.tencent.com \
     && pip install --no-cache-dir --upgrade pip
 
 COPY services/ai-inference/pyproject.toml services/ai-inference/pyproject.toml
@@ -95,7 +95,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-RUN sed -i 's|deb.debian.org|mirrors.aliyun.com|g' /etc/apt/sources.list.d/debian.sources
+RUN sed -i 's|deb.debian.org|mirrors.cloud.tencent.com|g' /etc/apt/sources.list.d/debian.sources
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libreoffice-core \
@@ -106,8 +106,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     fonts-noto-cjk \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ \
-    && pip config set install.trusted-host mirrors.aliyun.com
+RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple/ \
+    && pip config set install.trusted-host mirrors.cloud.tencent.com
 
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
