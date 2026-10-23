@@ -123,6 +123,29 @@ class TestRelevantCitations:
     def test_empty_items(self):
         assert agent_port.relevant_citations("任意", []) == []
 
+    def test_default_covers_all_markers(self):
+        """默认 limit=None：解析表必须覆盖全部 cite（2026-10-22 答案引用 K6+ 回退 doc_id）。"""
+        items = [
+            RetrievedItem(item_id=f"i{i}", entity_type="content", doc_id=f"d{i}", title=f"t{i}",
+                          text=("船闸规范 闸门" if i == 10 else "海港 航道") + f" 第{i}条",
+                          score=1.0, metadata={"cite": f"K{i}"})
+            for i in range(1, 16)
+        ]
+        citations = agent_port.relevant_citations("船闸规范", items)
+        assert len(citations) == 15
+        assert {c["marker"] for c in citations} == {f"K{i}" for i in range(1, 16)}
+        assert citations[0]["marker"] == "K10"  # 短语命中优先，其余按原顺序
+
+    def test_explicit_limit_keeps_display_semantics(self):
+        items = [
+            RetrievedItem(item_id=f"i{i}", entity_type="content", doc_id=f"d{i}", title=f"t{i}",
+                          text=("船闸规范" if i in (1, 2) else "海港") + f" 第{i}条",
+                          score=1.0, metadata={"cite": f"K{i}"})
+            for i in range(1, 6)
+        ]
+        citations = agent_port.relevant_citations("船闸规范", items, limit=5)
+        assert len(citations) == 2  # 旧语义：只取命中项
+
 
 class TestLocalStatsTitles:
     def _build_dbs(self, tmp_path, doc_count):

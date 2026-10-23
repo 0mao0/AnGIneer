@@ -925,10 +925,11 @@ def _assemble_search_result(
     return result
 
 
-def _build_relevant_citations(query: str, items: list, limit: int = 5) -> List[Dict[str, Any]]:
-    """从融合候选中挑选"真正有用"的引用：经 relevant_citations 端口消费（docs-core 适配器）。
+def _build_relevant_citations(query: str, items: list, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+    """从融合候选中挑选引用：经 relevant_citations 端口消费（docs-core 适配器）。
 
-    未注册时降级为不返回引用（结果仍带 items/evidences，引用是增强字段）。
+    limit=None 时返回全部带 cite 的条目——引用解析表必须覆盖答案可能使用的所有标记
+    （2026-10-22：limit=5 时答案引用 K6+ 导致前端回退显示 doc_id）。未注册时降级为空引用。
     """
     if not items:
         return []

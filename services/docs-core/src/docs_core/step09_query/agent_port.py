@@ -565,15 +565,18 @@ def local_stats(library_id: Optional[str] = None) -> Dict[str, Any]:
     }
 
 
-def relevant_citations(query: str, items: list, limit: int = 5) -> List[Dict[str, Any]]:
-    """从融合候选中挑选"真正有用"的引用：查询短语精确命中优先，无命中时按重排分取前 limit 条。
+def relevant_citations(query: str, items: list, limit: Optional[int] = None) -> List[Dict[str, Any]]:
+    """从融合候选中挑选引用：短语精确命中优先。
 
-    平移自 angineer_core.agent_tools._build_relevant_citations，逻辑零改动。
+    limit=None/<=0 返回**全部** items——引用解析表必须覆盖所有 cite 标记，
+    否则答案引用第 6 条以后的证据时前端无法解析、回退显示 doc_id（2026-10-22 实踩）。
+    limit>0 保持旧语义（只取命中项/前 limit 条，供展示型调用）。
     """
     if not items:
         return []
     from .retrieval.query_normalizer import build_query_phrases, normalize_match_text
 
+    cap = len(items) if limit is None or int(limit) <= 0 else min(int(limit), len(items))
     query_phrases = build_query_phrases(query)
     selected: List[Any] = []
     if query_phrases:
@@ -583,9 +586,14 @@ def relevant_citations(query: str, items: list, limit: int = 5) -> List[Dict[str
             if any(phrase in compact for phrase in query_phrases):
                 phrase_hits.append(item)
         if phrase_hits:
-            selected = phrase_hits[:limit]
+            if limit is None or int(limit) <= 0:
+                hit_ids = {id(item) for item in phrase_hits}
+                selected = phrase_hits + [item for item in items if id(item) not in hit_ids]
+                selected = selected[:cap]
+            else:
+                selected = phrase_hits[:cap]
     if not selected:
-        selected = items[:limit]
+        selected = items[:cap]
 
     citations: List[Dict[str, Any]] = []
     for item in selected:

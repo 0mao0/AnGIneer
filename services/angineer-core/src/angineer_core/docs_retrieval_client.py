@@ -278,9 +278,9 @@ class DocsRetrievalClient:
         return [RetrievedItem.model_validate(item) for item in data.get("candidates") or []]
 
     def relevant_citations(
-        self, query: str, items: List["RetrievedItem"], limit: int = 5
+        self, query: str, items: List["RetrievedItem"], limit: Optional[int] = None
     ) -> List[Dict[str, Any]]:
-        """引用挑选（/api/knowledge/internal/relevant-citations）。"""
+        """引用挑选（/api/knowledge/internal/relevant-citations）：limit=None 返回全部。"""
         resp = requests.post(
             f"{self.base_url}/api/knowledge/internal/relevant-citations",
             json={

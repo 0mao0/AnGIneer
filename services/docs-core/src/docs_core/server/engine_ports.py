@@ -17,7 +17,7 @@
 - POST /internal/engtool-run          外部 engtool 执行（agent_port.engtool_registry）
 """
 import logging
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
@@ -40,7 +40,7 @@ class RerankRequest(BaseModel):
 class RelevantCitationsRequest(BaseModel):
     query: str
     items: List[RetrievedItem] = Field(default_factory=list)
-    limit: int = 5
+    limit: Optional[int] = None  # None=全部（解析表覆盖所有 cite）；正整数=展示型截断
 
 
 class TableBlocksRequest(BaseModel):
