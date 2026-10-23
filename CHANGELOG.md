@@ -2,6 +2,15 @@
 
 All notable changes to AnGIneer are documented here.
 
+## v0.3.3
+
+- 引用解析表覆盖全部证据标记：`relevant_citations` 默认返回全部 items（短语命中优先排序），显式正数 limit 保留展示截断语义，docs-core 请求模型与 HTTP 客户端同步可空；修答案引用第 6 条以后证据时前端解析不到、回退显示 doc_id（10-22 生产实踩：检索 15 条全员分配 K1–K15，citations 只发 K1–K5，且 10-16 修「误剥」后标记恢复保留才暴露）；docs-core 增 2 例测试（默认覆盖全部标记 / 显式 limit 旧语义）
+- 评测题面剥 harness 收尾指令：`answer_eval` 入口按固定句式剥掉「Output: write your complete answer to response.md…」，修模型照抄题面（001/016 回显实锤）；数据库题面原样不动，仅评测入口生效
+- 枚举/结构化实验臂（P4/P4b/P5，开关默认关）：闭集约束（doc_read 读过才许断言）、代码预读候选文档（doc_search 取 best.doc_id → 批量 doc_read 注入摘录 + CLOSED SET）、结构化整答（行格式多引文 + finding，引文逐字校验后由代码渲染）；十题三轮 criterion 12.9%→29.8–33.1%，all-pass 仍 0、未过门槛，代码保留默认关
+- nightly 两修：集间等待 worker 退出（预检在跑 run）与派发前内存过闸，修附加集连环 EvalBusyError；调度器由按 next_fire 长睡眠改为固定 60s 轮询，改设置立即生效
+- deploy 两修：企微通知标题按 job.status 输出（失败不再报「部署完成」）；`.dockerignore` 放行 `scripts/backfill_nightly_conclusion.py`
+- 文档与脚本：Harvey 枚举实验记录 §14–§17、时间维度存量补齐、镜像回填/清理脚本、harness2 内化方案与试跑存档
+
 ## v0.3.2
 
 - 夜间评测内存水位闸与补结论（2026-10-21 整机换页卡死事故：主集 1040 题答完后 swap 抖动、系统盘 util 99%、队列 230 深、整机假死约 5 小时，OOM 杀掉 758MB worker 才恢复）：运行时 MemAvailable 连续 3 次低于 250MB 主动收口并落 error 档，派发前低于 600MB 跳过并经企微告警（`NIGHTLY_MIN_MEM_MB`/`NIGHTLY_ABORT_MEM_MB` 可调）；新增 `scripts/backfill_nightly_conclusion.py`，复用门禁/报告链路从 evals.sqlite 补出「已跑完但判超时」的 run 结论（事故夜 928/1040=0.8923 已补出 green，+2.12pp）
