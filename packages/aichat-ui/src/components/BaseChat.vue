@@ -501,7 +501,7 @@
  * 基础聊天组件。
  * 负责通用聊天 UI、输入区交互与消息展示，不直接耦合具体知识域接口。
  */
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import {
   ClearOutlined,
   SendOutlined,
@@ -545,6 +545,7 @@ import {
   thinkingWallMs,
 } from '../utils/thinking'
 import { formatTokenCount } from '../utils/token'
+import { mountChartBlocks, startChartThemeObserver } from '../utils/chartBlock'
 import { message } from 'ant-design-vue'
 import { QUEUE_LIMIT } from '../composables/useAIChat'
 
@@ -1342,6 +1343,22 @@ const handleEditQueued = (item: QueuedMessage) => {
 
 watch(() => props.messages.length, () => scrollToBottom())
 watch(() => props.currentStreamContent, () => scrollToBottom())
+
+// angineer 图表块（协议 v1，docs/plan-aichat-chart-blocks.md）：v-html 重建 DOM 后
+// 后处理挂载 echarts。流式 delta 高频重建，debounce 150ms 只挂一次；
+// 已脱离文档的旧实例由 mountChartBlocks 内部 dispose 回收。
+let chartRemountTimer: ReturnType<typeof setTimeout> | undefined
+const scheduleChartMount = () => {
+  if (chartRemountTimer) clearTimeout(chartRemountTimer)
+  chartRemountTimer = setTimeout(() => {
+    nextTick(() => {
+      const root = messagesRef.value
+      if (root) mountChartBlocks(root)
+    })
+  }, 150)
+}
+watch(() => [props.messages.length, props.currentStreamContent], () => scheduleChartMount())
+
 watch(() => props.loading, value => {
   if (value) {
     resetComposer()
@@ -1354,7 +1371,13 @@ watch(() => props.modelGroups, syncSelectedModel, { deep: true, immediate: true 
 
 onMounted(() => {
   syncSelectedModel()
+  startChartThemeObserver()
+  scheduleChartMount()
   emit('ready')
+})
+
+onBeforeUnmount(() => {
+  if (chartRemountTimer) clearTimeout(chartRemountTimer)
 })
 
 defineExpose({

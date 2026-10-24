@@ -52,3 +52,60 @@ html.dark,
   --chat-system-border: var(--divider-color, rgba(255, 255, 255, 0.12));
   --chat-system-text: var(--text-secondary, rgba(255, 255, 255, 0.45));
 }
+
+/* angineer 图表块（协议 v1，docs/plan-aichat-chart-blocks.md）：echarts 容器与 GIS 占位卡片。
+   颜色走嵌套 var 双回退（同本文件 token 惯例），尺寸写固定值防 token 膨胀。 */
+.angineer-chart-block {
+  width: 100%;
+  height: 280px;
+  margin: 8px 0;
+}
+
+.angineer-chart-pending {
+  margin: 8px 0;
+  padding: 40px 0;
+  text-align: center;
+  color: var(--chat-system-text, #8c8c8c);
+  background: var(--chat-pre-bg, rgba(0, 0, 0, 0.03));
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.angineer-chart-fallback {
+  margin: 8px 0;
+  .angineer-block-note {
+    font-size: 12px;
+    color: var(--chat-system-text, #8c8c8c);
+    margin-bottom: 4px;
+  }
+}
+
+.angineer-map-block {
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid var(--chat-system-border, #d9d9d9);
+  border-radius: 8px;
+  font-size: 13px;
+  .angineer-map-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .angineer-map-title {
+    font-weight: 600;
+  }
+  .angineer-map-badge {
+    font-size: 12px;
+    padding: 0 6px;
+    border-radius: 4px;
+    color: var(--chat-citation-accent, #177ddc);
+    background: var(--chat-citation-bg, #f0f5ff);
+  }
+  .angineer-map-desc {
+    color: var(--chat-system-text, #8c8c8c);
+    margin: 4px 0 8px;
+  }
+  table {
+    width: 100%;
+  }
+}
