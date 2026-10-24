@@ -539,6 +539,8 @@ async def run_nightly(*, dataset_id: str,
                       resamples: int = 1000,
                       site_url: str = "",
                       webhook: str = "",
+                      answer_config: Optional[str] = None,
+                      judge_config: Optional[str] = None,
                       resume_window_hours: float = RESUME_WINDOW_HOURS,
                       on_run_started: Optional[Callable[[str], None]] = None,
                       should_stop: Optional[Callable[[], bool]] = None,
@@ -550,7 +552,9 @@ async def run_nightly(*, dataset_id: str,
     on_run_started：run 一开跑即上报 run_id（供上层暴露进度/停止目标），回调异常不拖垮流水线。
     should_stop：人为停止意图轮询——起跑间隙置位则起跑后立即收尾；正常完成不因它丢结论。
     resume_window_hours：断点续跑窗口，<=0 关闭（>0 时部署砸掉的 run 自动原地续跑，
-    守卫条件见 _find_resume_candidate）。"""
+    守卫条件见 _find_resume_candidate）。
+    answer_config / judge_config：本次的被测模型与判分模型（UI 弹框选定）；空=环境默认
+    （LLM_CONFIGS 首个 / EVAL_JUDGE_CONFIGS 链首）。断点续跑沿用被续 run 的清单，不覆盖。"""
     date = paths.today_bjt()
     # 每次派发一挡（同日多跑不互踩，2026-09-27）：素材检查/结论/error 档全落这同一挡
     run_slot = paths.new_run_slot()
@@ -569,9 +573,17 @@ async def run_nightly(*, dataset_id: str,
                                       webhook=webhook, slot=run_slot)
     try:
         resume_id = await asyncio.to_thread(_find_resume_candidate, dataset_id, resume_window_hours)
+        # 模型覆盖只在全新起跑时生效：续跑沿用被续 run 的 manifest（换模型续跑=混口径，
+        # 历史与基线都不可比），这也是 _find_resume_candidate 只按同口径匹配的原因
+        start_kwargs = {}
+        if not resume_id:
+            if str(answer_config or "").strip():
+                start_kwargs["config_name"] = str(answer_config).strip()
+            if str(judge_config or "").strip():
+                start_kwargs["judge_config_name"] = str(judge_config).strip()
         started = await asyncio.to_thread(
             lambda: suite_runner.start_eval_run(
-                dataset_id=dataset_id, resume_run_id=resume_id or None))
+                dataset_id=dataset_id, resume_run_id=resume_id or None, **start_kwargs))
         run_id = str(started.get("run_id") or "")
         if resume_id:
             logger.info("nightly 断点续跑：复用被中断的 run %s（同口径指纹，窗口 %.1fh 内）",

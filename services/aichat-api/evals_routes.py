@@ -679,9 +679,12 @@ async def get_nightly_day(date: str, slot: str = ""):
 
 
 @evals_router.post("/nightly/run-now", dependencies=[Depends(require_admin_session)])
-async def post_nightly_run_now():
-    """立即后台跑一轮全内置流水线（评测→补判→门禁→落盘结论→企微），结果异步出。"""
-    started = await nightly_control.launch("manual")
+async def post_nightly_run_now(payload: Optional[Dict[str, Any]] = None):
+    """立即后台跑一轮全内置流水线（评测→补判→门禁→落盘结论→企微），结果异步出。
+
+    payload 可选、仅本次生效：{"dataset_ids": [...], "notify_targets": [...]}。
+    dataset_ids 多选，第一个作主集；notify_targets 取 notify_targets.json 的群 id。"""
+    started = await nightly_control.launch("manual", overrides=payload or None)
     return {
         "ok": bool(started.get("ok")),
         "detail": str(started.get("detail") or ""),

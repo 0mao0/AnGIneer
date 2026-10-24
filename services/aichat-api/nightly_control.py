@@ -43,6 +43,13 @@ DEFAULT_SETTINGS = {
     # 盯条款直达、financebench-150 盯数值/计算（v0.2.92 书名号闸回归只有手工补跑的 refusal-39
     # 抓到——覆盖面不能只靠主集）。
     "extra_dataset_ids": [],
+    # 通知群（notify_targets.json 的 id）：空=按旧口径发 WEBHOOK_SYSTEM+WEBHOOK_OWNER。
+    # 「立即运行」可只对本次覆盖，不改这里（见 launch(overrides=...)）。
+    "notify_targets": [],
+    # 本次运行的模型（空=环境默认）：作答=LLM_CONFIGS 配置名，判分=评判候选链里的名字。
+    # 定时夜测用这里；「立即运行」可对本次覆盖（不改这里）。
+    "answer_model": "",
+    "judge_model": "",
     "timeout_minutes": 270,       # 487 题全量含补判最坏 4.5h
     "retry_rounds": 2,
     # 素材检查（B 层：jsonl→canonical/chunk→向量 的传递性断言，见 docs/parse-struct-eval.md）
@@ -104,12 +111,22 @@ def normalize_settings(raw: dict) -> dict:
             raise ValueError(f"extra_dataset_ids 含不合法 id: {x}")
         if x != dataset_id and x not in extra_ids:
             extra_ids.append(x)
+    notify_ids = []
+    known_targets = {t["id"] for t in load_notify_targets()}
+    for x in _str_list("notify_targets", DEFAULT_SETTINGS["notify_targets"]):
+        if x not in known_targets:
+            raise ValueError(f"notify_targets 含未登记的群: {x}")
+        if x not in notify_ids:
+            notify_ids.append(x)
     return {
         "enabled": enabled,
         "hour": _int("hour", DEFAULT_SETTINGS["hour"], *HOURLY_WINDOW),
         "minute": _int("minute", DEFAULT_SETTINGS["minute"], *MINUTE_WINDOW),
         "dataset_id": dataset_id,
         "extra_dataset_ids": extra_ids,
+        "notify_targets": notify_ids,
+        "answer_model": str(raw.get("answer_model") or "").strip(),
+        "judge_model": str(raw.get("judge_model") or "").strip(),
         "timeout_minutes": _int("timeout_minutes", DEFAULT_SETTINGS["timeout_minutes"], *TIMEOUT_WINDOW),
         "retry_rounds": _int("retry_rounds", DEFAULT_SETTINGS["retry_rounds"], *RETRY_WINDOW),
         "parse_health_enabled": _bool("parse_health_enabled", DEFAULT_SETTINGS["parse_health_enabled"]),
@@ -215,12 +232,31 @@ def run_plan() -> dict:
         ordered = [m.name for m in load_llm_models_from_env()]
     except Exception:  # noqa: BLE001 模型清单读取失败不阻塞预览
         logger.warning("LLM_CONFIGS 模型清单读取失败", exc_info=True)
+    judge_candidates = []
     judge_names = []
     for candidate in answer_eval._judge_candidates():
         judge_names.append(candidate or "兜底=作答模型")
+        if candidate:
+            judge_candidates.append(candidate)
+    # 弹框下拉：作答=LLM_CONFIGS 全部配置名；判分=候选链里的真实配置名（None 不列，
+    # 「默认」用空串表达，运行时按环境链首位）
     plan = {
         "dataset": {"id": cfg["dataset_id"], "title": ds.get("title") or cfg["dataset_id"],
                     "question_count": ds.get("question_count")},
+        "answer_model_options": ordered,
+        "judge_model_options": judge_candidates,
+        "selected_answer_model": (cfg.get("answer_model") or (ordered[0] if ordered else "")),
+        "selected_judge_model": (cfg.get("judge_model") or ""),
+        # 多选素材：全部题库（下拉数据源）+ 当前计划勾选项（打开弹框时的默认值）
+        "datasets": [{"id": d.get("dataset_id"), "title": d.get("title") or d.get("dataset_id"),
+                      "question_count": d.get("question_count")}
+                     for d in (manager.list_datasets() or []) if d.get("dataset_id")],
+        "selected_dataset_ids": [cfg["dataset_id"], *cfg.get("extra_dataset_ids", [])],
+        # 通知群：只出 id/名称，绝不下发 webhook URL
+        "notify_targets": [{"id": t["id"], "name": t["name"]} for t in load_notify_targets()],
+        "selected_notify_targets": (cfg.get("notify_targets")
+                                    or [t for t in DEFAULT_NOTIFY_IDS
+                                        if any(x["id"] == t for x in load_notify_targets())]),
         "answer_model": ordered[0] if ordered else "默认模型（LLM_CONFIGS 首个可用端点）",
         "judge_models": judge_names or ["兜底=作答模型"],
         "concurrency": int(os.getenv("EVAL_CONCURRENCY", "3") or 3),
@@ -309,7 +345,10 @@ def running_entry() -> Optional[dict]:
     if run is not None and status not in (None, "", "running", "pending", "queued"):
         return None
     cfg = load_settings()
-    subject = pipeline._dataset_subject(cfg["dataset_id"])
+    # 名称跟"当前真实在跑的那条 run"走：夜测是主集+附加集的顺序队列，若用计划主集
+    # 拼名称，跑到 FinanceBench 时会显示成 OpenRAG 的标题（10-24 实踩）。
+    run_dataset = str((run or {}).get("dataset_id") or "").strip() or cfg["dataset_id"]
+    subject = pipeline._dataset_subject(run_dataset)
     started = str((run or {}).get("started_at") or "")
     generated = ""
     if started:
@@ -326,7 +365,7 @@ def running_entry() -> Optional[dict]:
     entry = {
         "date": "running", "running": True, "state": "running",
         "generated_at": generated, "run_id": _current_run_id,
-        "dataset_id": cfg["dataset_id"], "subject": subject,
+        "dataset_id": run_dataset, "subject": subject,
         "correct": (run or {}).get("completed_questions"),
         "total": (run or {}).get("total_questions"),
     }
@@ -399,11 +438,67 @@ def _mark_dispatch(cfg: dict, now: datetime, source: str, slot: Optional[str]) -
             {"ok": True, "state": "dispatched", "run_id": "", "detail": ""})
 
 
-def _resolve_webhook() -> str:
-    """夜间评测通知目标：系统群 WEBHOOK_SYSTEM + 业主群 WEBHOOK_OWNER（逗号拼接后由
-    pipeline 逐群尽力推送，各变量自身支持逗号/分号分隔多群）。
-    两者皆未配置时回退旧部署契约 NIGHTLY_WECOM_WEBHOOK / WEBHOOK——nightly 内置化时
-    变量名迁移过一轮，部署机 .env 没跟着改就会静默「未配置 webhook 跳过通知」（09-09 晨实踩）。"""
+NOTIFY_FILE_NAME = "notify_targets.json"
+# 未在登记表里写 url 时的回退来源（旧部署契约）：群 id → 环境变量
+_NOTIFY_ENV_FALLBACK = {
+    "deploy": ("部署群", "WEBHOOK_DEPLOY"),
+    "system": ("系统群", "WEBHOOK_SYSTEM"),
+    "owner": ("业主群", "WEBHOOK_OWNER"),
+}
+# 未选任何群时的默认发送对象＝旧 nightly 口径（系统群 + 业主群），不把部署群拉进来吵
+DEFAULT_NOTIFY_IDS = ("system", "owner")
+
+
+def load_notify_targets() -> list:
+    """群登记表：data/evals/notify_targets.json → [{"id","name","url"}]。
+
+    文件优先（加群不用改环境变量、不用重启容器）；缺文件或内容不可用时按环境变量
+    合成 deploy/system/owner 三项，保证界面下拉在旧部署上也能用。"""
+    path = paths.settings_file().with_name(NOTIFY_FILE_NAME)
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        targets = []
+        for item in data if isinstance(data, list) else []:
+            if not isinstance(item, dict):
+                continue
+            tid = str(item.get("id") or "").strip()
+            if not tid:
+                continue
+            name = str(item.get("name") or tid).strip()
+            url = str(item.get("url") or "").strip()
+            if not url:
+                fallback = _NOTIFY_ENV_FALLBACK.get(tid)
+                url = (os.getenv(fallback[1]) or "").strip() if fallback else ""
+            if url:
+                targets.append({"id": tid, "name": name, "url": url})
+        if targets:
+            return targets
+    except FileNotFoundError:
+        pass
+    except (OSError, ValueError) as exc:
+        logger.warning("notify_targets.json 读取失败，回退环境变量：%s", exc)
+    targets = []
+    for tid, (name, env) in _NOTIFY_ENV_FALLBACK.items():
+        url = (os.getenv(env) or "").strip()
+        if url:
+            targets.append({"id": tid, "name": name, "url": url})
+    return targets
+
+
+def _resolve_webhook(targets=None) -> str:
+    """夜间评测通知目标（逗号拼接后由 pipeline 逐群尽力推送）。
+
+    targets 非空＝按本次选择从登记表取 URL；空/取不到时回退旧口径
+    WEBHOOK_SYSTEM + WEBHOOK_OWNER，再回退 NIGHTLY_WECOM_WEBHOOK / WEBHOOK——nightly
+    内置化时变量名迁移过一轮，部署机 .env 没跟着改就会静默「未配置 webhook 跳过通知」
+    （09-09 晨实踩）。"""
+    want = [str(t).strip() for t in (targets or []) if str(t).strip()]
+    if want:
+        by_id = {t["id"]: t["url"] for t in load_notify_targets()}
+        picked = [by_id[t] for t in want if by_id.get(t)]
+        if picked:
+            return ",".join(picked)
+        logger.warning("notify_targets 选择的群不存在（%s），回退默认通知目标", ",".join(want))
     webhooks = [w for w in (
         (os.getenv("WEBHOOK_SYSTEM") or "").strip(),
         (os.getenv("WEBHOOK_OWNER") or "").strip(),
@@ -536,7 +631,7 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
     _stop_requested = False
     _current_run_id = ""
     t0 = time.monotonic()
-    webhook = _resolve_webhook()
+    webhook = _resolve_webhook(cfg.get("notify_targets"))
     # 卡片链接用路径段形态（/admin/evals/nightly）；旧 ?view=nightly 形态前端仍认，
     # 已发出去的历史卡片不会因改路由而落到日测页
     site_url = (os.getenv("NIGHTLY_SITE_URL") or "https://angineer.cn/admin/evals/nightly").strip()
@@ -548,6 +643,8 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
             retry_rounds=cfg["retry_rounds"],
             site_url=site_url,
             webhook=webhook,
+            answer_config=cfg.get("answer_model") or None,
+            judge_config=cfg.get("judge_model") or None,
             on_run_started=_on_run_started,
             should_stop=lambda: _stop_requested,
             parse_health_enabled=cfg.get("parse_health_enabled", True),
@@ -618,8 +715,64 @@ async def _execute(cfg: dict, source: str, slot: Optional[str]) -> dict:
     return result
 
 
-async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
-    """后台启动流水线；已在跑则拒绝（返回 ok=False）。返回启动状态（非评测结果）。"""
+def apply_overrides(cfg: dict, overrides: dict) -> dict:
+    """把「立即运行」本次选择叠加到 cfg 上（就地修改并返回，不写 settings）。
+
+    dataset_ids：多选、去重保序，第一个作主集、其余作附加集；空列表＝沿用计划配置。
+    notify_targets：只收登记表里的 id（未知 id 忽略并告警）；空列表＝沿用计划配置。
+    """
+    ov = overrides if isinstance(overrides, dict) else {}
+    picked = [str(x).strip() for x in (ov.get("dataset_ids") or []) if str(x).strip()]
+    if picked:
+        deduped = []
+        for ds in picked:
+            if ds not in deduped:
+                deduped.append(ds)
+        cfg["dataset_id"] = deduped[0]
+        cfg["extra_dataset_ids"] = deduped[1:]
+    if isinstance(ov.get("notify_targets"), list):
+        known = {t["id"] for t in load_notify_targets()}
+        picked_targets = [str(x).strip() for x in ov["notify_targets"] if str(x).strip()]
+        unknown = [x for x in picked_targets if x not in known]
+        if unknown:
+            logger.warning("忽略未登记的通知群：%s", ",".join(unknown))
+        cfg["notify_targets"] = [x for x in picked_targets if x in known]
+    _apply_model_overrides(cfg, ov)
+    return cfg
+
+
+def _known_model_names() -> set:
+    try:
+        from ai_inference.llm_config import load_llm_models_from_env
+        return {m.name for m in load_llm_models_from_env()}
+    except Exception:  # noqa: BLE001 模型清单读取失败时不做白名单校验
+        logger.warning("LLM_CONFIGS 模型清单读取失败（跳过模型名校验）", exc_info=True)
+        return set()
+
+
+def _apply_model_overrides(cfg: dict, overrides: dict) -> None:
+    """answer_model / judge_model：空串=沿用计划；未知配置名忽略并告警。"""
+    for key in ("answer_model", "judge_model"):
+        if key not in overrides:
+            continue
+        value = str(overrides.get(key) or "").strip()
+        if not value:
+            continue
+        known = _known_model_names()
+        if known and value not in known:
+            logger.warning("忽略未登记的%s：%s", "作答模型" if key == "answer_model" else "判分模型", value)
+            continue
+        cfg[key] = value
+
+
+async def launch(source: str = "manual", slot: Optional[str] = None,
+                 overrides: Optional[dict] = None) -> dict:
+    """后台启动流水线；已在跑则拒绝（返回 ok=False）。返回启动状态（非评测结果）。
+
+    overrides（仅本次生效，不写回 settings）：
+      dataset_ids    多选测试集，第一个作主集、其余作附加集
+      notify_targets 本次通知群 id 列表（登记表 notify_targets.json）
+    """
     global _active, _stop_requested
     if is_running():
         return {"ok": False, "detail": "已有一条夜间流水线在运行，请等待其完成"}
@@ -631,6 +784,8 @@ async def launch(source: str = "manual", slot: Optional[str] = None) -> dict:
         return {"ok": False, "detail": detail}
     _stop_requested = False
     cfg = load_settings()
+    ov = overrides if isinstance(overrides, dict) else {}
+    apply_overrides(cfg, ov)
     await _probe_resume_hint(cfg)
     _mark_dispatch(cfg, datetime.now(BJT), source, slot)
     attach_active(asyncio.create_task(_execute(cfg, source, slot)))

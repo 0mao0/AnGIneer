@@ -61,17 +61,25 @@
           <template v-else-if="column.key === 'action'">
             <!-- 按钮在行内，click.stop 阻断冒泡，避免 expandRowByClick 顺带展开明细 -->
             <a-space v-if="record.running" :size="6">
-              <a-popconfirm title="停止后当前题目做完即退出，不留结论、不发通知" @confirm="stopRunning">
+              <a-popconfirm
+                title="停止后当前题目做完即退出，不留结论、不发通知"
+                :overlay-style="POPCONFIRM_STYLE"
+                @confirm="stopRunning"
+              >
                 <a-button size="small" danger @click.stop>停止</a-button>
               </a-popconfirm>
-              <a-popconfirm title="删除会同步停止正在运行的评测，确认？" @confirm="stopRunning">
+              <a-popconfirm
+                title="删除会同步停止正在运行的评测，确认？"
+                :overlay-style="POPCONFIRM_STYLE"
+                @confirm="stopRunning"
+              >
                 <a-button size="small" @click.stop>删除</a-button>
               </a-popconfirm>
             </a-space>
             <a-popconfirm
               v-else
               title="删除这条结论记录，并连带删除对应评测 run（逐题结果一并消失，不可恢复）"
-              :width="260"
+              :overlay-style="POPCONFIRM_STYLE"
               @confirm="removeDay(record)"
             >
               <a-button size="small" danger @click.stop>删除</a-button>
@@ -101,28 +109,60 @@
       @ok="confirmLaunch"
     >
       <a-spin :spinning="runModal.loading">
-        <a-descriptions v-if="runModal.plan" size="small" :column="1" bordered>
-          <a-descriptions-item label="测试集">
-            {{ runModal.plan.dataset?.title }}（{{ runModal.plan.dataset?.question_count ?? '?' }} 题）
-          </a-descriptions-item>
-          <a-descriptions-item label="作答模型">{{ runModal.plan.answer_model }}</a-descriptions-item>
-          <a-descriptions-item label="评判模型（候选链）">
-            {{ (runModal.plan.judge_models || []).join(' → ') }}
-          </a-descriptions-item>
-          <a-descriptions-item label="并发 / 单次时限">
-            {{ runModal.plan.concurrency }} · {{ runModal.plan.timeout_minutes }} 分钟
-          </a-descriptions-item>
-          <a-descriptions-item label="异常自动补判">
-            最多 {{ runModal.plan.retry_rounds }} 轮（judge 抖动仅重判分，执行错误整题重跑）
-          </a-descriptions-item>
-          <a-descriptions-item v-if="runModal.plan.resume" label="断点续跑">
-            检测到 10h 窗口内中断的同类评测（已完成 {{ runModal.plan.resume.completed }}/{{
-              runModal.plan.resume.total || '?' }}），本次将断点续跑
-          </a-descriptions-item>
-          <a-descriptions-item label="结果去向">
-            本页新增当日结论条目 + 企微通知（评测逐题结果进「日测」历史）
-          </a-descriptions-item>
-        </a-descriptions>
+        <template v-if="runModal.plan">
+          <a-form layout="vertical" size="small">
+            <a-form-item label="测试集（可多选，按勾选顺序执行）">
+              <a-select
+                v-model:value="runModal.datasetIds"
+                mode="multiple"
+                :options="datasetOptions"
+                :max-tag-count="6"
+                placeholder="选择要跑的题库"
+              />
+              <div class="run-plan-hint">
+                已选 {{ runModal.datasetIds.length }} 个题库、共约 {{ selectedQuestions }} 题
+              </div>
+            </a-form-item>
+            <a-form-item label="作答模型（被测模型）">
+              <a-select
+                v-model:value="runModal.answerModel"
+                :options="answerModelOptions"
+                placeholder="默认（LLM_CONFIGS 首个）"
+              />
+            </a-form-item>
+            <a-form-item label="判分模型（空=环境候选链第一位）">
+              <a-select
+                v-model:value="runModal.judgeModel"
+                :options="judgeModelOptions"
+                placeholder="默认（环境候选链）"
+              />
+            </a-form-item>
+            <a-form-item label="通知群（不选则按旧口径：系统群 + 业主群）">
+              <a-select
+                v-model:value="runModal.notifyTargets"
+                mode="multiple"
+                :options="notifyOptions"
+                :max-tag-count="4"
+                placeholder="选择本次推送到哪些群"
+              />
+            </a-form-item>
+          </a-form>
+          <a-descriptions size="small" :column="1" bordered>
+            <a-descriptions-item label="并发 / 单次时限">
+              {{ runModal.plan.concurrency }} · {{ runModal.plan.timeout_minutes }} 分钟
+            </a-descriptions-item>
+            <a-descriptions-item label="异常自动补判">
+              最多 {{ runModal.plan.retry_rounds }} 轮（judge 抖动仅重判分，执行错误整题重跑）
+            </a-descriptions-item>
+            <a-descriptions-item v-if="runModal.plan.resume" label="断点续跑">
+              检测到 10h 窗口内中断的同类评测（已完成 {{ runModal.plan.resume.completed }}/{{
+                runModal.plan.resume.total || '?' }}），本次将断点续跑
+            </a-descriptions-item>
+            <a-descriptions-item label="结果去向">
+              本页新增当日结论条目 + 企微通知（评测逐题结果进「日测」历史）
+            </a-descriptions-item>
+          </a-descriptions>
+        </template>
         <a-empty v-else-if="!runModal.loading" description="执行计划读取失败" />
       </a-spin>
     </a-modal>
@@ -130,7 +170,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, onActivated, onDeactivated, reactive, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, onActivated, onDeactivated, reactive, ref } from 'vue'
 import { message } from 'ant-design-vue'
 import { QuestionCircleOutlined } from '@ant-design/icons-vue'
 import { DataTable } from '@angineer/table-ui'
@@ -182,6 +222,10 @@ const emit = defineEmits<{
 const loading = ref(false)
 const days = ref<NightlyDay[]>([])
 const details = ref<Record<string, NightlyDayDetailData>>({})
+
+/** popconfirm 固定宽度：a-popconfirm 没有 width 属性（那是 a-modal 的），
+ *  不传就按内容自适应——同样是"删除"，文案长短不同会让气泡忽宽忽窄（10-24 实踩）。 */
+const POPCONFIRM_STYLE = { width: '300px' }
 
 const EMPTY_TEXT = '暂无夜间维护记录 —— nightly 评测流程每晚运行后自动在此发布门禁结论'
 
@@ -321,6 +365,19 @@ interface NightlySettingsRsp {
 }
 interface NightlyRunPlan {
   dataset?: { id: string; title: string; question_count?: number }
+  /** 全部题库（多选下拉数据源） */
+  datasets?: { id: string; title: string; question_count?: number }[]
+  /** 当前计划已勾选的题库（打开弹框时的默认值） */
+  selected_dataset_ids?: string[]
+  /** 通知群登记表（只有 id/名称，不含 webhook URL） */
+  notify_targets?: { id: string; name: string }[]
+  /** 默认勾选的通知群 */
+  selected_notify_targets?: string[]
+  /** 可选的模型配置名（作答=LLM_CONFIGS，判分=候选链） */
+  answer_model_options?: string[]
+  judge_model_options?: string[]
+  selected_answer_model?: string
+  selected_judge_model?: string
   answer_model?: string
   judge_models?: string[]
   concurrency?: number
@@ -337,6 +394,35 @@ const runModal = reactive({
   loading: false,
   launching: false,
   plan: null as NightlyRunPlan | null,
+  /** 本次勾选的题库（默认全选）与通知群 id */
+  datasetIds: [] as string[],
+  notifyTargets: [] as string[],
+  /** 本次的作答/判分模型（空串=环境默认） */
+  answerModel: '',
+  judgeModel: '',
+})
+
+const answerModelOptions = computed(() =>
+  (runModal.plan?.answer_model_options || []).map((name) => ({ label: name, value: name })),
+)
+const judgeModelOptions = computed(() => [
+  { label: '默认（环境候选链）', value: '' },
+  ...(runModal.plan?.judge_model_options || []).map((name) => ({ label: name, value: name })),
+])
+
+const datasetOptions = computed(() =>
+  (runModal.plan?.datasets || []).map((d) => ({
+    label: `${d.title}（${d.question_count ?? '?'} 题）`,
+    value: d.id,
+  })),
+)
+const notifyOptions = computed(() =>
+  (runModal.plan?.notify_targets || []).map((t) => ({ label: t.name, value: t.id })),
+)
+/** 已勾选题数合计：弹框里给出"这次要跑多少题"的直觉量级 */
+const selectedQuestions = computed(() => {
+  const byId = new Map((runModal.plan?.datasets || []).map((d) => [d.id, d.question_count ?? 0]))
+  return runModal.datasetIds.reduce((sum, id) => sum + (byId.get(id) || 0), 0)
 })
 
 let runPollTimer: ReturnType<typeof setInterval> | undefined
@@ -379,9 +465,19 @@ const openRunModal = async () => {
   runModal.open = true
   runModal.loading = true
   try {
-    runModal.plan = await evalsApi.getNightlyRunPlan() as NightlyRunPlan
+    const plan = (await evalsApi.getNightlyRunPlan()) as NightlyRunPlan
+    runModal.plan = plan
+    // 默认全选题库（按列表顺序），通知群默认取计划值（空=后端旧口径）
+    runModal.datasetIds = (plan.datasets || []).map((d) => d.id)
+    runModal.notifyTargets = [...(plan.selected_notify_targets || [])]
+    runModal.answerModel = plan.selected_answer_model || ''
+    runModal.judgeModel = plan.selected_judge_model || ''
   } catch {
     runModal.plan = null
+    runModal.datasetIds = []
+    runModal.notifyTargets = []
+    runModal.answerModel = ''
+    runModal.judgeModel = ''
   } finally {
     runModal.loading = false
   }
@@ -390,7 +486,12 @@ const openRunModal = async () => {
 const confirmLaunch = async () => {
   runModal.launching = true
   try {
-    const r = await evalsApi.runNightlyNow() as { ok: boolean; detail?: string }
+    const r = (await evalsApi.runNightlyNow({
+      dataset_ids: runModal.datasetIds,
+      notify_targets: runModal.notifyTargets,
+      answer_model: runModal.answerModel || '',
+      judge_model: runModal.judgeModel || '',
+    })) as { ok: boolean; detail?: string }
     if (r.ok) {
       message.success('夜间流水线已启动：完成前本页将显示运行状态，结束后自动刷新结论并推企微通知')
       runModal.open = false
@@ -436,6 +537,12 @@ defineExpose({ openRunModal })
 </script>
 
 <style scoped>
+.run-plan-hint {
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
 /* 宽度封顶/居中、外边距与滚动全部交给外层 .eval-nightly-wrap + .eval-nightly-content
    （与知识库详情的 .knowledge-stats/.stats-content 同构），此处再包一层会让表格比头部窄 */
 .eval-nightly-panel {

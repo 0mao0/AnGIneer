@@ -92,8 +92,15 @@ export const evalsApi = {
   saveNightlySettings: (payload: { enabled: boolean; hour: number; minute: number }) =>
     api.put('/evals/nightly/settings', payload),
 
-  /** 夜间维护：立即启动一次全内置流水线（后台跑，结果异步出） */
-  runNightlyNow: () => api.post('/evals/nightly/run-now'),
+  /** 夜间维护：立即启动一次全内置流水线（后台跑，结果异步出）
+   *  payload 可选、仅本次生效：dataset_ids 多选（第一个作主集）、notify_targets 群 id、
+   *  answer_model / judge_model 模型配置名（空=环境默认） */
+  runNightlyNow: (payload?: {
+    dataset_ids?: string[]
+    notify_targets?: string[]
+    answer_model?: string
+    judge_model?: string
+  }) => api.post('/evals/nightly/run-now', payload),
 
   /** 夜间维护：立即运行前的执行计划预览（测试集/模型/并发，仅配置名） */
   getNightlyRunPlan: () => api.get('/evals/nightly/run-plan'),
