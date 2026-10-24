@@ -29,6 +29,16 @@ def strip_harness_instruction(text: str) -> str:
     return _HARNESS_TAIL.sub("", str(text or "")).strip()
 
 
+# angineer 图表块（回答交付物 v1，docs/plan-aichat-chart-blocks.md）：判分只消费语义内容，
+# 块内 JSON 对 LLM 判官是噪声；markdown 表格文本保留。第二分支兜底剥「开了未闭合」的尾巴
+# （流式中断的 answer 也可能进判分）。与 strip_harness_instruction 同区维护。
+_ANGINEER_BLOCK_RE = re.compile(r"```angineer-(?:chart|map)\b[\s\S]*?```|```angineer-(?:chart|map)\b[\s\S]*$", re.I)
+
+
+def strip_angineer_blocks(text: str) -> str:
+    return _ANGINEER_BLOCK_RE.sub("", str(text or "")).strip()
+
+
 def normalize_eval_text(value: str) -> str:
     """归一化评测文本，便于做关键词断言。"""
     normalized = str(value or "")

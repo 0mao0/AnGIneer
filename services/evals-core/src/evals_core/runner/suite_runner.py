@@ -10,7 +10,7 @@ from typing import Any, Callable, Dict, List, Optional
 from evals_core.runner import base as evaluator_base
 from evals_core.runner import anomaly
 from evals_core.runner.retrieval_eval import RetrievalEvaluator
-from evals_core.runner.answer_eval import AnswerEvaluator
+from evals_core.runner.answer_eval import AnswerEvaluator, strip_angineer_blocks
 from evals_core.runner.sop_eval import SopEvaluator
 # 注册副作用导入：probe 评测器（题目带 probe 断言块时 exclusive 接管，见 _determine_evaluator_names）
 from evals_core.runner import probe_eval  # noqa: F401
@@ -306,7 +306,11 @@ def _run_single_question(
         elif ev_name == "numeric":
             gold_data = question.get("numeric_gold") or {}
         prediction = last_prediction
-        scores = evaluator.evaluate(question, gold_data, prediction)
+        # 判分输入剥 angineer 图表块（v1）：JSON 块对判官是噪声；落库留痕的 prediction 原文不动。
+        judge_prediction = dict(prediction)
+        if isinstance(judge_prediction.get("answer"), str):
+            judge_prediction["answer"] = strip_angineer_blocks(judge_prediction["answer"])
+        scores = evaluator.evaluate(question, gold_data, judge_prediction)
         all_scores[ev_name] = scores
         all_predictions[ev_name] = prediction
     status, quality = _decide_quality(primary_evaluator_name, all_scores)
