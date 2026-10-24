@@ -97,7 +97,7 @@
 |---|---|
 | `packages/aichat-ui/package.json` | 加 `echarts` 依赖 |
 | `packages/aichat-ui/src/utils/markdown.ts` | 加 angineer 块扫描与占位/回退输出 |
-| `packages/aichat-ui/src/components/ChartBlock.vue` | 新增：echarts 渲染组件（chart+map 占位两种形态） |
+| `packages/aichat-ui/src/utils/chartBlock.ts` | 新增：echarts 渲染器（v-html 后处理挂载；非 Vue 组件——markdown 输出走 v-html 不经 Vue 编译，实施时修正，见实施计划头部） |
 | `packages/aichat-ui/src/styles/*` | 块容器样式（含暗色） |
 | `packages/aichat-ui/src/components/index.ts` | 导出 ChartBlock |
 
@@ -153,3 +153,10 @@
 
 - **S2 回答分型施工**：意图分类捎带 `schemas[]`+confidence（IntentResult 契约扩展、消费方随迁），高置信聚合题强制走图表管道。设计入口：`docs/plan-ls-routing.md` §4.3/§5-P1。
 - **GIS 地图渲染**：Leaflet/底图选型、密钥、GCJ-02 偏移处理；协议已预留（angineer-map）。
+
+## 7. 实施结果（2026-10-24 收口）
+
+- 落地 commit：T1 e085b7e9（markdown 扫描）→ T2 d743ade6（chartBlock+echarts）→ T3 4850bba4（BaseChat 接线+样式）→ T4 5a01f57f（prompt v20 规则 18）→ T5 271d3d64（判分剥块）→ 修复 1f83e5b7（TitleComponent，SSR 实测暴露的漏注册）。
+- 验证：aichat-ui 单测 59 绿（含 9 个块协议用例）；全仓 typecheck/test 绿；双端 build 绿（echarts 按需 ~320KB 源模块）；evals-core 277 绿；angineer-core 239 pass + 2 HEAD 既有失败（test_meta_query 工具清单 fixture 漂移，与本改动无关，stash 复测确认）。
+- E2E（本地 dev，FinanceBench 库 MGM 财报题）：数值对比题模型稳定输出 markdown 表格（规则 11）；**明确「图表」意图时输出完全合法的 angineer-chart 块**（数值与表格一致、source=T1 逐字真实）；间接问法（仅「对比列出数值」）首轮未触发块——prompt 遵从为概率性，与 2026-09-21 失败留档的预期一致，后续靠措辞迭代或 S2 施工收口。
+- echarts 依赖加在 aichat-ui（独立包规范内 dependencies，同 katex 先例）；独立仓同步/发版另行走 `pnpm release:standalone`。
