@@ -4,7 +4,7 @@ import logging
 import os
 import threading
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any, Callable, Dict, List, Optional
 
 from evals_core.runner import base as evaluator_base
@@ -892,6 +892,52 @@ def _pid_alive(pid: int) -> bool:
         return True
 
 
+# worker 挂死回收阈值（2026-10-24）：监控线程每 30s 刷心跳，评测单题最坏几分钟，
+# 15 分钟无心跳 = 悬死（父进程死后在途请求无超时挂起的实测形态），不是慢。
+WORKER_HEARTBEAT_STALE_SECONDS = 15 * 60
+
+
+def _worker_cmdline(pid: int) -> Optional[str]:
+    """读进程命令行做 pid 复用核实；读不到返回 None（无法核实=不杀）。"""
+    try:
+        with open("/proc/%d/cmdline" % pid, "rb") as f:  # Linux
+            return f.read().replace(b"\x00", b" ").decode("utf-8", "replace")
+    except OSError:
+        pass
+    try:
+        import psutil  # 可选依赖：Windows 等无 /proc 平台
+
+        return " ".join(psutil.Process(pid).cmdline())
+    except Exception:  # noqa: BLE001 psutil 缺席/进程消失都按无法核实处理
+        return None
+
+
+def _kill_worker_if_ours(pid: int, run_id: str) -> bool:
+    """pid 复用守卫：命令行同时含 run_worker 与本 run_id 才杀，防误杀无辜复用进程。"""
+    cmdline = _worker_cmdline(pid)
+    if not cmdline or "run_worker" not in cmdline or run_id not in cmdline:
+        return False
+    try:
+        os.kill(pid, 9)
+        return True
+    except OSError:
+        return False
+
+
+def _heartbeat_stale(run: Dict[str, Any]) -> bool:
+    """心跳超时判定；NULL/空/不可解析 = 旧版 worker 或历史行，恒 False（守卫原语义）。"""
+    raw = run.get("owner_heartbeat") or ""
+    if not raw:
+        return False
+    try:
+        ts = datetime.fromisoformat(raw)
+    except ValueError:
+        return False
+    if ts.tzinfo is None:
+        ts = ts.replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - ts).total_seconds() > WORKER_HEARTBEAT_STALE_SECONDS
+
+
 def sweep_interrupted_runs() -> int:
     """启动清扫：服务被强杀/重启后，评测线程已消失但 DB 行仍是 running——
     历史记录永远显示"评测中"、页面加载还会对幽灵 run 恢复轮询假进度
@@ -909,7 +955,14 @@ def sweep_interrupted_runs() -> int:
             continue
         owner = int(r.get("owner_pid") or 0)
         if owner > 0 and owner != self_pid and _pid_alive(owner):
-            continue
+            # 挂死回收（2026-10-24）：owner 活着但心跳超时 = worker 悬死——行永远
+            # running、pid 复用还会骗过上面的属主守卫（本机 10-24 两起实踩）。心跳为
+            # 空 = 旧版 worker/历史行，保持 53/487 误杀守卫原语义放行不动。
+            if not _heartbeat_stale(r):
+                continue
+            # 命令行核实是我们自己的 worker 才杀（防 pid 复用误杀）；无论杀没杀掉，
+            # 心跳超时已证明该 run 不再产出，行照常按中断回收
+            _kill_worker_if_ours(owner, r.get("run_id") or "")
         details = result_store.list_run_details(r["run_id"], light=True)
         completed = [d for d in details if d.get("status") not in ("pending", "running")]
         correct = sum(1 for d in completed if d.get("quality") == "correct")

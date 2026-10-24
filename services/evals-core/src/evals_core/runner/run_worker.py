@@ -75,9 +75,17 @@ def main(argv=None) -> int:
     result_store.set_run_owner(run_id, os.getpid())
 
     stop_done = threading.Event()
+    beat = {"n": 0}
 
     def _monitor() -> None:
         while not stop_done.wait(1.0):
+            beat["n"] += 1
+            # 属主心跳（2026-10-24）：启动即刷一次、此后每 30s——挂死回收的唯一存活证据
+            if beat["n"] % 30 == 1:
+                try:
+                    result_store.touch_owner_heartbeat(run_id)
+                except Exception:  # noqa: BLE001 心跳失败不影响评测主流程
+                    pass
             try:
                 requested = result_store.is_stop_requested(run_id)
             except Exception:  # noqa: BLE001 轮询失败下一轮再来
@@ -101,4 +109,9 @@ def main(argv=None) -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    # 无条件退出（2026-10-24）：评测链存在无超时在途请求与非 daemon 后台线程，解释器
+    # 正常退出会被线程 join/atexit 卡死——实测跑完 1040 题的 worker 存活 18h 不退。
+    # 收尾状态已全部落库（SQLite WAL），无需优雅退出，os._exit 绕过 join。
+    code = main()
+    logging.shutdown()
+    os._exit(code)

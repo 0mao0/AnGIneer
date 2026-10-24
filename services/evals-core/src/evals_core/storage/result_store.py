@@ -222,6 +222,13 @@ def init_db() -> None:
         conn.execute("ALTER TABLE eval_run ADD COLUMN stop_requested INTEGER NOT NULL DEFAULT 0")
     except Exception:
         pass
+    # 属主心跳（worker 挂死回收，2026-10-24）：worker 监控线程每 30s 刷新；启动清扫对
+    # 「owner 活着但心跳超时」的 run 按 pid 复用守卫核实后回收——修复父进程死后 worker
+    # 挂死、行永远 running、且 pid 复用骗过属主判定的盲区。NULL=历史行/未刷新，不参与判定。
+    try:
+        conn.execute("ALTER TABLE eval_run ADD COLUMN owner_heartbeat TEXT")
+    except Exception:
+        pass
     _ensure_eval_question_columns(conn)
     conn.commit()
 
@@ -773,6 +780,17 @@ def set_run_owner(run_id: str, pid: int) -> None:
     API 进程 create_run 时先写自己 pid，worker 起来后立即改写成 worker 的 pid。"""
     conn = _get_conn()
     conn.execute("UPDATE eval_run SET owner_pid = ? WHERE run_id = ?", (pid, run_id))
+    conn.commit()
+
+
+def touch_owner_heartbeat(run_id: str) -> None:
+    """worker 监控线程周期刷新属主心跳（worker 挂死回收判据，2026-10-24）。
+
+    「owner 活着但心跳超时」= worker 悬死（父进程死后在途请求无超时挂起的实测形态：
+    行永远 running，pid 复用还会骗过清扫的属主判定）。启动清扫据此回收。
+    NULL/空 = 旧版 worker 或历史行，清扫保持原语义不参与本判定。"""
+    conn = _get_conn()
+    conn.execute("UPDATE eval_run SET owner_heartbeat = ? WHERE run_id = ?", (_now_iso(), run_id))
     conn.commit()
 
 
