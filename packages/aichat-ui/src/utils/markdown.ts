@@ -132,6 +132,51 @@ export const renderMarkdownInlineToHtml = (
   return renderInline(content, sourceFilePath, resolveUrl)
 }
 
+/** angineer 块协议 v1（docs/plan-aichat-chart-blocks.md）：
+ *  ```angineer-chart → data-chart 容器（chartBlock.ts 后处理挂 echarts）
+ *  ```angineer-map   → 静态占位卡片（地图渲染未落地，先呈现坐标/属性数据）
+ *  只精确匹配这两个 lang，其余（含 angineer-chart2 等前缀相近名）走普通代码块；
+ *  坏 JSON 回退 <pre> 原文，不允许渲染链路成为新的失败点。 */
+const ANGINEER_BLOCK_LANGS = { 'angineer-chart': true, 'angineer-map': true } as const
+
+const renderAngineerFallback = (raw: string, startLine: number): string =>
+  `<div class="angineer-chart-fallback" data-line-start="${startLine}"><div class="angineer-block-note">图表数据格式错误，原文如下</div><pre><code>${escapeHtml(raw)}</code></pre></div>`
+
+const renderAngineerChartBlock = (buffer: string[], startLine: number): string => {
+  const raw = buffer.join('\n').trim()
+  try {
+    const spec = JSON.parse(raw)
+    return `<div class="angineer-chart-block" data-line-start="${startLine}" data-chart="${escapeHtmlAttribute(JSON.stringify(spec))}"></div>`
+  } catch {
+    return renderAngineerFallback(raw, startLine)
+  }
+}
+
+const renderAngineerMapBlock = (buffer: string[], startLine: number): string => {
+  const raw = buffer.join('\n').trim()
+  let obj: Record<string, unknown>
+  try {
+    obj = JSON.parse(raw) as Record<string, unknown>
+  } catch {
+    return renderAngineerFallback(raw, startLine)
+  }
+  const title = typeof obj.title === 'string' && obj.title.trim() ? escapeHtml(obj.title.trim()) : '空间数据'
+  const desc = typeof obj.description === 'string' && obj.description.trim()
+    ? `<div class="angineer-map-desc">${escapeHtml(obj.description.trim())}</div>`
+    : ''
+  const points = Array.isArray(obj.points) ? obj.points : []
+  const rows = points
+    .filter((p): p is Record<string, unknown> => !!p && typeof p === 'object')
+    .map(p =>
+      `<tr><td>${escapeHtml(String(p.name ?? ''))}</td><td>${escapeHtml(String(p.lon ?? ''))}</td><td>${escapeHtml(String(p.lat ?? ''))}</td></tr>`
+    )
+    .join('')
+  const table = rows
+    ? `<table><thead><tr><th>名称</th><th>经度</th><th>纬度</th></tr></thead><tbody>${rows}</tbody></table>`
+    : ''
+  return `<div class="angineer-map-block" data-line-start="${startLine}"><div class="angineer-map-head"><span class="angineer-map-title">${title}</span><span class="angineer-map-badge">地图视图开发中</span></div>${desc}${table}</div>`
+}
+
 const buildMarkdownTable = (
   tableLines: string[],
   sourceFilePath: string,
@@ -180,6 +225,7 @@ export const renderMarkdownToHtml = (
   let inCodeBlock = false
   let codeBlockBuffer: string[] = []
   let codeBlockStartLine = -1
+  let codeBlockLang = ''
 
   let inMathBlock = false
   let mathBlockBuffer: string[] = []
@@ -241,15 +287,23 @@ export const renderMarkdownToHtml = (
       if (inCodeBlock) {
         inCodeBlock = false
         const code = codeBlockBuffer.join('\n')
-        htmlBlocks.push(`<pre data-line-start="${codeBlockStartLine}"><code>${escapeHtml(code)}</code></pre>`)
+        if (codeBlockLang === 'angineer-chart') {
+          htmlBlocks.push(renderAngineerChartBlock(codeBlockBuffer, codeBlockStartLine))
+        } else if (codeBlockLang === 'angineer-map') {
+          htmlBlocks.push(renderAngineerMapBlock(codeBlockBuffer, codeBlockStartLine))
+        } else {
+          htmlBlocks.push(`<pre data-line-start="${codeBlockStartLine}"><code>${escapeHtml(code)}</code></pre>`)
+        }
         codeBlockBuffer = []
         codeBlockStartLine = -1
+        codeBlockLang = ''
       } else {
         closeLists()
         flushParagraph()
         flushTable()
         inCodeBlock = true
         codeBlockStartLine = currentLineNumber
+        codeBlockLang = trimmed.slice(3).trim().toLowerCase()
       }
       continue
     }
@@ -352,8 +406,12 @@ export const renderMarkdownToHtml = (
   flushTable()
 
   if (inCodeBlock) {
-    const code = codeBlockBuffer.join('\n')
-    htmlBlocks.push(`<pre data-line-start="${codeBlockStartLine}"><code>${escapeHtml(code)}</code></pre>`)
+    if (codeBlockLang === 'angineer-chart' || codeBlockLang === 'angineer-map') {
+      htmlBlocks.push(`<div class="angineer-chart-pending" data-line-start="${codeBlockStartLine}">图表生成中…</div>`)
+    } else {
+      const code = codeBlockBuffer.join('\n')
+      htmlBlocks.push(`<pre data-line-start="${codeBlockStartLine}"><code>${escapeHtml(code)}</code></pre>`)
+    }
   }
   if (inMathBlock) {
     const formula = mathBlockBuffer.join('\n')
