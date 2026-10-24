@@ -137,7 +137,6 @@ export const renderMarkdownInlineToHtml = (
  *  ```angineer-map   → 静态占位卡片（地图渲染未落地，先呈现坐标/属性数据）
  *  只精确匹配这两个 lang，其余（含 angineer-chart2 等前缀相近名）走普通代码块；
  *  坏 JSON 回退 <pre> 原文，不允许渲染链路成为新的失败点。 */
-const ANGINEER_BLOCK_LANGS = { 'angineer-chart': true, 'angineer-map': true } as const
 
 const renderAngineerFallback = (raw: string, startLine: number): string =>
   `<div class="angineer-chart-fallback" data-line-start="${startLine}"><div class="angineer-block-note">图表数据格式错误，原文如下</div><pre><code>${escapeHtml(raw)}</code></pre></div>`
