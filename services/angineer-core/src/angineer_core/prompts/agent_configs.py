@@ -1,7 +1,9 @@
 """agent 循环配置 prompt（P5 迁移自 agent_configs.py）。
 
-用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v17 / COMPLEX v5 / followup v3。
-最后变更：2026-10-07（v17：新增规则 15 指代回看——追问历史证据原文时优先按压缩摘要行的
+用途：QA 档 / 大题档系统提示；语言：中文；版本 QA v20 / COMPLEX v5 / followup v3。
+最后变更：2026-10-24（v20：新增规则 18 图表化交付——数据类回答表格后附 angineer-chart/map 块，
+前端渲染成 ECharts 图/GIS 占位卡片；数值必须来自证据、source 逐字照抄 cite 值。设计
+docs/plan-aichat-chart-blocks.md。2026-10-07（v17：新增规则 15 指代回看——追问历史证据原文时优先按压缩摘要行的
 doc_id 调 knowledge_search 回看，不用指代词重搜。动机＝eager 压缩 A/B 实测：指针在模型眼前
 但模型把「刚才那条规范」原样当检索式重搜，召回漂移致拒答；ops 埋点 inspect_evidence 同步上线）。
 2026-10-07（v16：规则 2 放宽——正文恢复散文式出处「根据《…》」：首提关键结论必写、
@@ -340,6 +342,29 @@ QA_AGENT_SYSTEM_PROMPT_V19 = QA_AGENT_SYSTEM_PROMPT_V18.replace(
 assert QA_AGENT_SYSTEM_PROMPT_V19 != QA_AGENT_SYSTEM_PROMPT_V18, "v19 规则 6 替换未命中"
 
 
+# v20（2026-10-24）：新增规则 18 图表化交付——数据类回答（多行对比/聚合/趋势/占比）在
+# markdown 表格后附 ```angineer-chart 块，前端拦截渲染成 ECharts 图；空间数据用
+# angineer-map 块（前端占位卡片，地图渲染未落地）。设计：docs/plan-aichat-chart-blocks.md。
+# 边界：只允许证据中的具体数值（同规则 8 引用契约，source 逐字照抄 cite 值）；
+# 纯概念/条文类回答不得出块。模型遵从度风险见 2026-09-21 失败留档——上线后按
+# 本地 E2E + 生产观察迭代措辞（本规则给完整 JSON 样例而非抽象令牌，避开括号令牌 0 遵从的坑）。
+_QA_RULE18_CHART = (
+    "18. 图表化交付：回答涉及多行数据对比/聚合/趋势/占比，且证据中存在具体数值时，"
+    "先用 Markdown 表格列出明细；若数据适合图形表达（趋势/占比/对比），在表格后紧跟一个代码块，"
+    "语言标记为 angineer-chart，块内是一个合法 JSON 对象，格式示例：\n"
+    '{"chartType":"bar","title":"逐年吞吐量","categories":["2023","2024"],'
+    '"series":[{"name":"吞吐量","data":[120,156]}],"unit":"万吨","source":"K1"}\n'
+    "字段约定：chartType 取 bar/line/pie；bar/line 必填 categories 与 series[].data；"
+    "pie 时 series 用 {\"name\",\"value\"} 形式；source 填对应证据的 cite 标记值（逐字照抄，同规则 8）。"
+    "禁止编造证据中不存在的数值；图表数值必须与表格和正文一致；每次回答最多 2 个图表块。"
+    "证据含坐标/空间分布数据时，可另用语言标记 angineer-map 的代码块输出 "
+    "{\"title\":\"...\",\"description\":\"...\",\"points\":[{\"name\":\"...\",\"lon\":121.5,\"lat\":31.2}]}。"
+    "没有具体数值、纯概念/条文/拒答类回答，不要输出任何图表块。\n"
+)
+QA_AGENT_SYSTEM_PROMPT_V20 = QA_AGENT_SYSTEM_PROMPT_V19 + _QA_RULE18_CHART
+assert QA_AGENT_SYSTEM_PROMPT_V20.startswith(QA_AGENT_SYSTEM_PROMPT_V19), "v20 追加未命中（v19 内容漂移）"
+
+
 # 「当前版本别名」QA_AGENT_SYSTEM_PROMPT 已清退（2026-10-17）：别名曾 = V11 而 latest 已是 v18，
 # 生产零消费（生效一律走 load(latest)，见 agent_configs._load_qa_system_prompt）；别名与 latest
 # 必然漂移，防复活断言见 test_prompts.PromptMigrationContractTests。历史版本用 V<N> 常量显式引用。
@@ -391,6 +416,7 @@ register("agent_configs.qa_system_prompt", "v16", QA_AGENT_SYSTEM_PROMPT_V16)
 register("agent_configs.qa_system_prompt", "v17", QA_AGENT_SYSTEM_PROMPT_V17)
 register("agent_configs.qa_system_prompt", "v18", QA_AGENT_SYSTEM_PROMPT_V18)
 register("agent_configs.qa_system_prompt", "v19", QA_AGENT_SYSTEM_PROMPT_V19)
+register("agent_configs.qa_system_prompt", "v20", QA_AGENT_SYSTEM_PROMPT_V20)
 register("agent_configs.complex_system_prompt", "v5", COMPLEX_AGENT_SYSTEM_PROMPT)
 NO_FOLLOWUP_QUESTION_RULE = (
     "\n\n## 结尾规则\n"
