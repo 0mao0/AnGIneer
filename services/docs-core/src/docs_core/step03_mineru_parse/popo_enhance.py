@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+import random
 import re
 import shutil
 import subprocess
@@ -47,6 +48,37 @@ def _popo_endpoint_failures(text: str) -> List[str]:
     contd 有 245 篇是"问了却回空"）。它唯一的痕迹就是那行 `print`，必须显式捞出来。
     """
     return _POPO_ENDPOINT_FAILURE_RE.findall(text or "")
+
+
+def _pick_weighted_popo_configs() -> str:
+    """按 POPO_ENDPOINT_WEIGHTS 抽一个端点，返回单条 POPO_CONFIGS JSON 列表。
+
+    2026-10-26 M5 切 popo-client（公开库）后加权轮询的宿主（dgx-spark-popo 计划 §2/F1）：
+    库内只保留顺序 failover，配比在调用方实现——每文档按权重抽一次端点。
+    旧 vendored 实现是子进程内请求级游标，粒度更细；对 dgx:1,company:3 这类
+    比例，文档级抽样与请求级配比在聚合上收敛一致，且不把权重逻辑带进公开库。
+    权重缺失/非法时原样透传 POPO_CONFIGS（多端点顺序 failover，库默认行为）。
+    """
+    raw_configs = os.environ.get("POPO_CONFIGS", "").strip()
+    raw_weights = os.environ.get("POPO_ENDPOINT_WEIGHTS", "").strip()
+    if not raw_configs or not raw_weights:
+        return raw_configs
+    try:
+        configs = json.loads(raw_configs)
+        if not isinstance(configs, list) or not configs:
+            return raw_configs
+        table = {}
+        for part in raw_weights.split(","):
+            if ":" in part:
+                k, _, v = part.partition(":")
+                table[k.strip()] = max(1, int(v))
+        if not table:
+            return raw_configs
+        weights = [table.get(c.get("name", ""), 1) for c in configs]
+        picked = random.choices(configs, weights=weights, k=1)[0]
+        return json.dumps([picked], ensure_ascii=False)
+    except Exception:
+        return raw_configs
 
 
 def _count_popo_verdicts(enriched_dir: Path, doc_id: str) -> Dict[str, int]:
@@ -255,6 +287,8 @@ class PoPoPipelineRunner:
 
         env = os.environ.copy()
         env["PYTHONPATH"] = str(self.popo_repo_path) + os.pathsep + env.get("PYTHONPATH", "")
+        # F1 宿主迁移：公开库只做顺序 failover，端点配比在此按文档粒度选定
+        env["POPO_CONFIGS"] = _pick_weighted_popo_configs()
 
         # ---- Step 1: Label Normalization ----
         # MineruReader 官方优先读 model.json，但公司 API 的 model.json layout_dets
