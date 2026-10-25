@@ -272,12 +272,110 @@ class PoPoPipelineRunner:
         """
         tmp_dir = tempfile.mkdtemp(prefix="popo-")
         try:
+            doc_api_url = os.environ.get("POPO_DOC_API_URL", "").strip()
+            if doc_api_url:
+                return self._run_doc_api(
+                    doc_api_url, mineru_raw_dir, output_dir, doc_id,
+                    source_pdf_path, source_dir, on_step,
+                )
             return self._run_stages(
                 mineru_raw_dir, output_dir, tmp_dir, doc_id,
                 source_pdf_path, source_dir, on_step, cancel_check,
             )
         finally:
             shutil.rmtree(tmp_dir, ignore_errors=True)
+
+    def _run_doc_api(
+        self, base_url: str, mineru_raw_dir: str, output_dir: str, doc_id: str,
+        source_pdf_path: str, source_dir: Optional[str],
+        on_step: Optional[Callable[[str, str, str], None]],
+    ) -> Dict[str, Any]:
+        """文档级 API 模式（dgx-spark-popo server/，2026-10-26 起）：一次 HTTP 拿判定+树。
+
+        链路（归一化→推理→构树）整体在服务端跑；本侧只剩编排与落盘。
+        未设 POPO_DOC_API_URL 时回落子进程链模式（wheel），两条路产物同构。
+        注意：cancel_check 在本模式不生效（requests 阻塞等待），超时由 POPO_DOC_TIMEOUT 控制。
+        """
+        import requests
+
+        api_key = os.environ.get("POPO_DOC_API_KEY", "").strip()
+        timeout = int(os.environ.get("POPO_DOC_TIMEOUT", "1800"))
+
+        raw = Path(mineru_raw_dir)
+        middle = raw / "middle.json"
+        if not middle.is_file():
+            middle = raw / "content_list.json"
+        if not middle.is_file():
+            _emit_on_step(on_step, "PoPo 输入准备", "failed", "缺少 middle.json / content_list.json")
+            raise FileNotFoundError(f"no middle.json under {raw}")
+
+        pdf = self._resolve_pdf(source_pdf_path, source_dir)
+        if pdf is None:
+            _emit_on_step(on_step, "PoPo 输入准备", "failed", "未找到源 PDF")
+            raise FileNotFoundError("no source pdf")
+        _emit_on_step(on_step, "PoPo 输入准备", "done", str(pdf))
+
+        try:
+            with open(pdf, "rb") as f_pdf, open(middle, "rb") as f_mid:
+                resp = requests.post(
+                    f"{base_url.rstrip('/')}/v1/enhance",
+                    files={"pdf": (pdf.name, f_pdf, "application/pdf"),
+                           "middle": (middle.name, f_mid, "application/json")},
+                    data={"doc_id": doc_id},
+                    headers={"Authorization": f"Bearer {api_key}"} if api_key else {},
+                    timeout=timeout,
+                )
+        except requests.RequestException as exc:
+            detail = f"{type(exc).__name__}: {str(exc)[:160]}"
+            _emit_on_step(on_step, "PoPo 4B 推理", "failed", detail)
+            raise PopoEndpointUnavailableError(f"PoPo 文档级 API 不可达（{detail}）") from exc
+        if resp.status_code == 401:
+            _emit_on_step(on_step, "PoPo 4B 推理", "failed", "401 鉴权失败")
+            raise PopoEndpointUnavailableError("PoPo 文档级 API 鉴权失败（检查 POPO_DOC_API_KEY）")
+        if resp.status_code != 200:
+            detail = resp.text[:200]
+            _emit_on_step(on_step, "PoPo 4B 推理", "failed", f"HTTP {resp.status_code}")
+            raise PopoEndpointUnavailableError(f"PoPo 文档级 API 返回 {resp.status_code}: {detail}")
+        try:
+            payload = resp.json()
+        except ValueError as exc:
+            raise PopoEndpointUnavailableError("PoPo 文档级 API 返回非 JSON") from exc
+
+        blocks = payload.get("enriched_blocks") or []
+        verdicts = {
+            "blocks": len(blocks),
+            "contd": sum(1 for b in blocks if b.get("contd", -1) >= 0),
+            "level": sum(1 for b in blocks if b.get("level", -1) >= 0),
+            "image": sum(1 for b in blocks if b.get("image", -1) >= 0),
+        }
+        if verdicts["blocks"] == 0:
+            raise PopoEndpointUnavailableError("PoPo 文档级 API 返回零判定块")
+        _emit_on_step(on_step, "PoPo 4B 推理", "done",
+                      f"判定 contd {verdicts['contd']} / level {verdicts['level']} / "
+                      f"image {verdicts['image']}（{verdicts['blocks']} 块，服务端 {payload.get('seconds')}s）")
+        _emit_on_step(on_step, "document tree 构建", "done", "")
+
+        out = Path(output_dir)
+        out.mkdir(parents=True, exist_ok=True)
+        final_enriched = str(out / "enriched_blocks.json")
+        final_tree = str(out / "document_tree.json")
+        Path(final_enriched).write_text(
+            json.dumps(payload.get("enriched_blocks"), ensure_ascii=False), encoding="utf-8")
+        Path(final_tree).write_text(
+            json.dumps(payload.get("document_tree"), ensure_ascii=False), encoding="utf-8")
+        _emit_on_step(on_step, "enriched_blocks.json 落盘", "done", final_enriched)
+        return {
+            "enriched_blocks_path": final_enriched,
+            "document_tree_path": final_tree,
+        }
+
+    def _resolve_pdf(self, source_pdf_path: str, source_dir: Optional[str]) -> Optional[Path]:
+        candidates = []
+        if source_pdf_path:
+            candidates.append(Path(source_pdf_path))
+        if source_dir:
+            candidates.extend(sorted(Path(source_dir).glob("*.pdf")))
+        return next((c for c in candidates if c.is_file()), None)
 
     def _run_stages(
         self, mineru_raw_dir: str, output_dir: str, tmp_dir: str, doc_id: str,
