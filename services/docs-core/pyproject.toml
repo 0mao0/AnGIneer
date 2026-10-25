@@ -26,8 +26,10 @@ dependencies = [
     # 仓库内底座与兄弟包
     "angineer-tree-core>=0.1.0,<0.2.0",
     "angineer-ai-inference>=0.2.2,<0.3.0",
-    # popo 客户端（dgx-spark-popo 独立库；容器从 vendor wheel 装，本地 editable——升级=换 wheel+改 Dockerfile 文件名）
-    "popo-client>=0.1.0,<0.2.0",
+    # popo 客户端（dgx-spark-popo 公开仓）：git 直引供外部安装（DredgeAI 等）；
+    # 本仓容器不受影响——vendor wheel 先装且版本一致，pip 比对后跳过不触网。
+    # 升级纪律：公开仓 bump 版本当日必须同步换 vendor wheel，否则容器构建会尝试走 git。
+    "popo-client @ git+https://github.com/0mao0/dgx-spark-popo@v0.1.1",
     # 运行期硬依赖（顶层 import，缺一即 import 失败）
     "pydantic>=2.0.0,<3.0.0",
     "python-dotenv>=1.0.0",
